@@ -76,6 +76,13 @@ border-radius:50%;
 object-fit:cover;
 border:2px solid var(--border-color);
 margin-bottom:1rem;
+background: var(--input-bg);
+display: flex;
+align-items: center;
+justify-content: center;
+color: var(--text-muted);
+font-size: 2.5rem;
+font-weight: bold;
 }
 
 .avatar-upload-btn{
@@ -167,8 +174,7 @@ color:var(--text-muted);
 
 <div class="avatar-section">
 
-<img id="avatar-preview" class="avatar-preview"
-src="https://via.placeholder.com/120">
+<img id="avatar-preview" class="avatar-preview" alt="Profile avatar">
 
 <label for="avatarInput" class="avatar-upload-btn" id="uploadBtnLabel">
 Change Avatar
@@ -249,6 +255,24 @@ if(data.avatar_url){
 
 document.getElementById("avatar-preview").src=data.avatar_url
 
+} else {
+  // Set default avatar styling with initials if name exists
+  const avatarPreview = document.getElementById("avatar-preview");
+  const firstName = data.name || "";
+  const lastName = data.surname || "";
+  
+  if (firstName || lastName) {
+    const initials = (firstName.charAt(0) + lastName.charAt(0)).toUpperCase() || "?";
+    avatarPreview.style.display = "flex";
+    avatarPreview.src = ""; // Remove any src attribute
+    avatarPreview.setAttribute('data-initials', initials);
+    avatarPreview.style.backgroundColor = "var(--input-bg)";
+    avatarPreview.innerText = initials;
+  } else {
+    avatarPreview.style.display = "flex";
+    avatarPreview.src = "";
+    avatarPreview.innerText = "?";
+  }
 }
 
 document.getElementById("loading").style.display="none";
@@ -287,7 +311,10 @@ document.getElementById("avatarInput").addEventListener("change", async (e) => {
     }
 
     const imageURL = data.data.url;
-    document.getElementById("avatar-preview").src = imageURL;
+    const avatarPreview = document.getElementById("avatar-preview");
+    avatarPreview.src = imageURL;
+    avatarPreview.innerText = ""; // Remove any text content
+    avatarPreview.style.display = "block";
     msg.innerText = "Avatar uploaded";
 
     await fetch(`${API_URL}/api/user/${userId}/avatar`, {
