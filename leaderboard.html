@@ -44,9 +44,12 @@
         .leaderboard-content { display: none; background: var(--bg-card); border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 0; border: 1px solid var(--border-color); overflow: hidden; }
         .leaderboard-content.active { display: block; }
 
-        .rank-row { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem; border-bottom: 1px solid var(--border-color); color: var(--text-main); }
+        .rank-row { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem; border-bottom: 1px solid var(--border-color); color: var(--text-main); cursor: pointer; text-decoration: none; }
         .rank-row:last-child { border-bottom: none; }
-        .rank-row:hover { background-color: rgba(255,255,255,0.02); }
+        .rank-row:hover { background-color: rgba(255,255,255,0.05); }
+
+        .user-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; background-color: var(--bg-dark); border: 1px solid var(--border-color); margin-right: 1rem; }
+        .user-info { display: flex; align-items: center; flex-grow: 1; }
 
         /* Highlight specific ranks */
         .rank-1 { background-color: rgba(245, 158, 11, 0.1); border-left: 5px solid var(--accent-yellow); font-weight: bold; font-size: 1.15rem; }
@@ -128,7 +131,8 @@
 
         list.forEach((user, index) => {
             const rank = index + 1;
-            const row = document.createElement("div");
+            const row = document.createElement("a");
+            row.href = `public_profile.html?user=${encodeURIComponent(user.username)}`;
             row.className = "rank-row";
 
             // Apply styling based on rank
@@ -146,9 +150,18 @@
                 displayName = `${user.name || ''} ${user.surname || ''}`.trim() + ` (@${user.username})`;
             }
 
+            const avatarSrc = user.avatar_url || "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzk0YTNiOCI+PHBhdGggZD0iTTEyIDEyYzIuMjEgMCA0LTEuNzkgNC00cy0xLjc5LTQtNC00LTQgMS43OS00IDRzMS43OSA0IDQgNHptMCAyYy0yLjY3IDAtOCAxLjM0LTggNHYyaDE2di0yYzAtMi42Ni01LjMzLTQtOC00eiIvPjwvc3ZnPg==";
+
+            const safeUsername = user.username ? user.username.replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;') : 'User';
+            const safeAvatar = avatarSrc.replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            const safeDisplayName = displayName.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
             row.innerHTML = `
                 <div class="rank-num">#${rank}</div>
-                <div class="rank-name">${displayName}</div>
+                <div class="user-info">
+                    <img class="user-avatar" src="${safeAvatar}" alt="${safeUsername}">
+                    <div class="rank-name">${safeDisplayName}</div>
+                </div>
                 <div class="rank-xp">${user.xp.toLocaleString()} XP</div>
             `;
 
