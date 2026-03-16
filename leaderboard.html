@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboards - Grade 12 Quiz Platform</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; }
+        header { background: #007bff; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        nav a { color: white; margin-left: 1rem; text-decoration: none; }
+        nav a:hover { text-decoration: underline; }
+        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+
+        .tabs { display: flex; margin-bottom: 1rem; border-bottom: 2px solid #ddd; }
+        .tab-btn { padding: 1rem 2rem; background: none; border: none; font-size: 1.1rem; cursor: pointer; color: #666; font-weight: bold; border-bottom: 3px solid transparent; margin-bottom: -2px; }
+        .tab-btn:hover { color: #007bff; }
+        .tab-btn.active { color: #007bff; border-bottom: 3px solid #007bff; }
+
+        .leaderboard-content { display: none; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); padding: 1rem; }
+        .leaderboard-content.active { display: block; }
+
+        .rank-row { display: flex; justify-content: space-between; align-items: center; padding: 1rem; border-bottom: 1px solid #eee; }
+        .rank-row:last-child { border-bottom: none; }
+
+        /* Highlight specific ranks */
+        .rank-1 { background-color: #fff3cd; border-left: 5px solid #ffc107; font-weight: bold; font-size: 1.2rem; }
+        .rank-2 { background-color: #e2e3e5; border-left: 5px solid #adb5bd; font-weight: bold; font-size: 1.15rem; }
+        .rank-3 { background-color: #f8d7da; border-left: 5px solid #d39e00; font-weight: bold; font-size: 1.1rem; }
+        .top-10 { background-color: #f8f9fa; font-weight: bold; }
+        .top-25 { background-color: #ffffff; }
+        .top-50 { font-size: 0.95rem; color: #555; }
+        .below-50 { font-size: 0.9rem; color: #777; padding: 0.5rem 1rem; }
+
+        .rank-num { width: 50px; font-weight: bold; color: #888; }
+        .rank-name { flex-grow: 1; }
+        .rank-xp { font-weight: bold; color: #28a745; }
+
+        #loading { text-align: center; font-size: 1.2rem; padding: 2rem; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div>
+        <h2 style="margin:0;">National Leaderboards</h2>
+    </div>
+    <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="subjects.html">Take a Quiz</a>
+        <a href="stats.html">Detailed Stats</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('overall')">Overall (SA)</button>
+        <button class="tab-btn" onclick="switchTab('mathematics')">Mathematics</button>
+        <button class="tab-btn" onclick="switchTab('physics')">Physical Sciences</button>
+        <button class="tab-btn" onclick="switchTab('weekly')">Weekly</button>
+    </div>
+
+    <div id="loading">Loading leaderboards...</div>
+
+    <div id="leaderboard-overall" class="leaderboard-content active"></div>
+    <div id="leaderboard-mathematics" class="leaderboard-content"></div>
+    <div id="leaderboard-physics" class="leaderboard-content"></div>
+    <div id="leaderboard-weekly" class="leaderboard-content"></div>
+</div>
+
+<script>
+    const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
+
+    if (!localStorage.getItem("user_id")) {
+        window.location.href = "index.html";
+    }
+
+    async function fetchLeaderboards() {
+        try {
+            const response = await fetch(`${API_URL}/api/leaderboard`);
+            const data = await response.json();
+
+            document.getElementById("loading").style.display = "none";
+
+            renderLeaderboard("leaderboard-overall", data.overall || []);
+            renderLeaderboard("leaderboard-mathematics", data.math || []);
+            renderLeaderboard("leaderboard-physics", data.physics || []);
+            renderLeaderboard("leaderboard-weekly", data.weekly || []);
+
+        } catch (error) {
+            console.error("Error fetching leaderboards:", error);
+            document.getElementById("loading").textContent = "Failed to load leaderboards. Please refresh.";
+        }
+    }
+
+    function renderLeaderboard(containerId, list) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = "";
+
+        if (list.length === 0) {
+            container.innerHTML = "<p style='text-align:center; padding: 2rem;'>No data available yet.</p>";
+            return;
+        }
+
+        list.forEach((user, index) => {
+            const rank = index + 1;
+            const row = document.createElement("div");
+            row.className = "rank-row";
+
+            // Apply styling based on rank
+            if (rank === 1) row.classList.add("rank-1");
+            else if (rank === 2) row.classList.add("rank-2");
+            else if (rank === 3) row.classList.add("rank-3");
+            else if (rank <= 10) row.classList.add("top-10");
+            else if (rank <= 25) row.classList.add("top-25");
+            else if (rank <= 50) row.classList.add("top-50");
+            else row.classList.add("below-50");
+
+            // Format name (use real name/surname if available, else username)
+            let displayName = user.username;
+            if (user.name || user.surname) {
+                displayName = `${user.name || ''} ${user.surname || ''}`.trim() + ` (@${user.username})`;
+            }
+
+            row.innerHTML = `
+                <div class="rank-num">#${rank}</div>
+                <div class="rank-name">${displayName}</div>
+                <div class="rank-xp">${user.xp.toLocaleString()} XP</div>
+            `;
+
+            container.appendChild(row);
+        });
+    }
+
+    function switchTab(tabId) {
+        // Update buttons
+        document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("active"));
+        event.target.classList.add("active");
+
+        // Update content
+        document.querySelectorAll(".leaderboard-content").forEach(content => {
+            content.classList.remove("active");
+        });
+        document.getElementById(`leaderboard-${tabId}`).classList.add("active");
+    }
+
+    fetchLeaderboards();
+</script>
+
+</body>
+</html>

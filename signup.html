@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade 12 Quiz Platform - Signup</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #f4f4f9; }
+        .container { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 100%; max-width: 400px; text-align: center; }
+        h1 { margin-bottom: 1rem; color: #333; }
+        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; margin-top: 10px; }
+        button:hover { background: #218838; }
+        .error { color: red; margin-top: 10px; display: none; }
+        p { margin-top: 15px; font-size: 0.9em; color: #666; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sign Up</h1>
+        <form id="signupForm">
+            <input type="text" id="username" placeholder="Username (required)" required>
+            <input type="password" id="password" placeholder="Password (required)" required>
+            <p style="text-align: left; font-size: 0.8em; margin-top: 0; margin-bottom: 10px;">Min 8 chars, 1 uppercase, 1 number.</p>
+            <input type="text" id="name" placeholder="Real Name (optional)">
+            <input type="text" id="surname" placeholder="Surname (optional)">
+            <button type="submit">Create Account</button>
+        </form>
+        <p class="error" id="errorMsg"></p>
+        <p>Already have an account? <a href="index.html">Login</a></p>
+    </div>
+
+    <script>
+        const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
+
+        // Redirect if already logged in
+        if (localStorage.getItem("user_id")) {
+            window.location.href = "dashboard.html";
+        }
+
+        document.getElementById("signupForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const name = document.getElementById("name").value;
+            const surname = document.getElementById("surname").value;
+            const errorMsg = document.getElementById("errorMsg");
+
+            // Validate password locally too
+            if (password.length < 8 || !/[A-Z]/.test(password) || !/[0-9]/.test(password)) {
+                errorMsg.textContent = "Password must be at least 8 characters long, contain at least one capital letter and one number.";
+                errorMsg.style.display = "block";
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_URL}/api/signup`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ username, password, name, surname })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    localStorage.setItem("user_id", data.user_id);
+                    window.location.href = "dashboard.html";
+                } else {
+                    errorMsg.textContent = data.error;
+                    errorMsg.style.display = "block";
+                }
+            } catch (err) {
+                errorMsg.textContent = "Failed to connect to the server.";
+                errorMsg.style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>
