@@ -80,7 +80,7 @@ background: var(--input-bg);
 display: flex;
 align-items: center;
 justify-content: center;
-color: var(--text-muted);
+color: var(--text-main);
 font-size: 2.5rem;
 font-weight: bold;
 }
@@ -90,10 +90,24 @@ background:var(--border-color);
 padding:8px 14px;
 border-radius:6px;
 cursor:pointer;
+transition: background 0.2s;
 }
 
 .avatar-upload-btn:hover{
 background:var(--text-muted);
+}
+
+.avatar-upload-btn.uploading {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: wait;
+}
+
+#avatar-msg {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  min-height: 1.5rem;
+  color: var(--text-muted);
 }
 
 input[type=file]{display:none}
@@ -110,6 +124,12 @@ background:var(--input-bg);
 border:1px solid var(--border-color);
 border-radius:6px;
 color:white;
+font-size:1rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--accent-blue);
 }
 
 button{
@@ -120,9 +140,17 @@ border-radius:6px;
 cursor:pointer;
 color:white;
 font-size:1rem;
+transition: background 0.2s;
 }
 
-button:hover{background:var(--accent-hover)}
+button:hover:not(:disabled){
+background:var(--accent-hover);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
 
 .message{
 margin-top:1rem;
@@ -135,11 +163,13 @@ text-align:center;
 .message.success{
 background:#064e3b;
 color:#34d399;
+border: 1px solid #34d399;
 }
 
 .message.error{
 background:#450a0a;
 color:#f87171;
+border: 1px solid #f87171;
 }
 
 #loading{
@@ -181,7 +211,7 @@ Change Avatar
 </label>
 
 <input type="file" id="avatarInput"
-accept="image/png,image/jpeg,image/webp">
+accept="image/png,image/jpeg,image/webp,image/gif">
 
 <div id="avatar-msg"></div>
 
@@ -209,200 +239,225 @@ Save Changes
 </div>
 
 <script>
+const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
+const IMGBB_KEY = "cedf418c6d844af9c47a7775a17161a6";
 
-const API_URL="https://billowing-hall-4748.nakiaklocko57.workers.dev";
-const IMGBB_KEY="cedf418c6d844af9c47a7775a17161a6";
+const userId = localStorage.getItem("user_id");
 
-const userId=localStorage.getItem("user_id");
-
-if(!userId){
-window.location.href="index.html";
+if (!userId) {
+    window.location.href = "index.html";
 }
 
-function showMessage(msg,isError=false){
-
-const el=document.getElementById("statusMessage");
-
-el.textContent=msg;
-
-el.className="message "+(isError?"error":"success");
-
-el.style.display="block";
-
-setTimeout(()=>{
-
-el.style.display="none"
-
-},5000)
-
+function showMessage(msg, isError = false) {
+    const el = document.getElementById("statusMessage");
+    el.textContent = msg;
+    el.className = "message " + (isError ? "error" : "success");
+    el.style.display = "block";
+    
+    setTimeout(() => {
+        el.style.display = "none";
+    }, 5000);
 }
 
-async function loadProfile(){
+async function loadProfile() {
+    try {
+        const res = await fetch(`${API_URL}/api/user/${userId}`);
+        if (!res.ok) throw new Error("Failed to load profile");
+        
+        const data = await res.json();
 
-try{
+        document.getElementById("username").value = data.username || "";
+        document.getElementById("name").value = data.name || "";
+        document.getElementById("surname").value = data.surname || "";
 
-const res=await fetch(`${API_URL}/api/user/${userId}`);
+        const avatarPreview = document.getElementById("avatar-preview");
+        
+        if (data.avatar_url && data.avatar_url.trim() !== "") {
+            // If user has an avatar, show the image
+            avatarPreview.src = data.avatar_url;
+            avatarPreview.style.display = "block";
+            avatarPreview.style.backgroundColor = "transparent";
+            avatarPreview.style.fontSize = ""; // Remove font size
+            avatarPreview.innerText = ""; // Clear any text
+        } else {
+            // No avatar - show initials
+            avatarPreview.src = ""; // Clear any src
+            avatarPreview.style.display = "flex";
+            avatarPreview.style.alignItems = "center";
+            avatarPreview.style.justifyContent = "center";
+            avatarPreview.style.backgroundColor = "var(--accent-blue)";
+            avatarPreview.style.fontSize = "2.5rem";
+            
+            const firstName = data.name || "";
+            const lastName = data.surname || "";
+            
+            if (firstName || lastName) {
+                const initials = (firstName.charAt(0) + lastName.charAt(0)).toUpperCase();
+                avatarPreview.innerText = initials || "?";
+            } else {
+                avatarPreview.innerText = "?";
+            }
+        }
 
-const data=await res.json();
-
-document.getElementById("username").value=data.username||"";
-
-document.getElementById("name").value=data.name||"";
-
-document.getElementById("surname").value=data.surname||"";
-
-if(data.avatar_url){
-
-document.getElementById("avatar-preview").src=data.avatar_url
-
-} else {
-  // Set default avatar styling with initials if name exists
-  const avatarPreview = document.getElementById("avatar-preview");
-  const firstName = data.name || "";
-  const lastName = data.surname || "";
-  
-  if (firstName || lastName) {
-    const initials = (firstName.charAt(0) + lastName.charAt(0)).toUpperCase() || "?";
-    avatarPreview.style.display = "flex";
-    avatarPreview.src = ""; // Remove any src attribute
-    avatarPreview.setAttribute('data-initials', initials);
-    avatarPreview.style.backgroundColor = "var(--input-bg)";
-    avatarPreview.innerText = initials;
-  } else {
-    avatarPreview.style.display = "flex";
-    avatarPreview.src = "";
-    avatarPreview.innerText = "?";
-  }
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("profile-content").style.display = "block";
+    } catch (e) {
+        console.error("Profile load error:", e);
+        document.getElementById("loading").innerHTML = `
+            Failed to load profile. 
+            <button onclick="location.reload()" style="margin-left: 1rem; padding: 0.5rem 1rem;">Retry</button>
+        `;
+    }
 }
-
-document.getElementById("loading").style.display="none";
-
-document.getElementById("profile-content").style.display="block";
-
-}catch(e){
-
-document.getElementById("loading").innerText="Failed to load profile";
-
-}
-
-}
-
 
 document.getElementById("avatarInput").addEventListener("change", async (e) => {
-  const file = e.target.files[0];
-  if (!file) return;
+    const file = e.target.files[0];
+    if (!file) return;
 
-  const msg = document.getElementById("avatar-msg");
-  msg.innerText = "Uploading...";
+    const msg = document.getElementById("avatar-msg");
+    const uploadBtn = document.getElementById("uploadBtnLabel");
+    
+    msg.innerText = "Uploading...";
+    msg.style.color = "var(--text-muted)";
+    uploadBtn.classList.add("uploading");
 
-  try {
-    const formData = new FormData();
-    formData.append("image", file);
-
-    const res = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_KEY}`, {
-      method: "POST",
-      body: formData
-    });
-
-    const data = await res.json();
-
-    if (!data.success) {
-      throw new Error(data.error?.message || "Upload failed");
+    // Validate file type
+    const validTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+    if (!validTypes.includes(file.type)) {
+        msg.innerText = "Please select a valid image (JPEG, PNG, WEBP, GIF)";
+        msg.style.color = "#f87171";
+        uploadBtn.classList.remove("uploading");
+        e.target.value = ''; // Clear input
+        return;
     }
 
-    const imageURL = data.data.url;
-    const avatarPreview = document.getElementById("avatar-preview");
-    avatarPreview.src = imageURL;
-    avatarPreview.innerText = ""; // Remove any text content
-    avatarPreview.style.display = "block";
-    msg.innerText = "Avatar uploaded";
+    // Validate file size (max 5MB)
+    if (file.size > 5 * 1024 * 1024) {
+        msg.innerText = "Image too large (max 5MB)";
+        msg.style.color = "#f87171";
+        uploadBtn.classList.remove("uploading");
+        e.target.value = ''; // Clear input
+        return;
+    }
 
-    await fetch(`${API_URL}/api/user/${userId}/avatar`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        avatar_url: imageURL
-      })
-    });
-  } catch (err) {
-    console.error(err);
-    msg.innerText = "Upload failed";
-  }
+    try {
+        const formData = new FormData();
+        formData.append("image", file);
+
+        const res = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_KEY}`, {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await res.json();
+
+        if (!data.data || !data.data.url) {
+            console.error("Upload response:", data);
+            throw new Error(data.error?.message || "Upload failed - unexpected response");
+        }
+
+        const imageURL = data.data.url;
+        const avatarPreview = document.getElementById("avatar-preview");
+        
+        // Update image preview - only set src, remove any text content
+        avatarPreview.src = imageURL;
+        avatarPreview.style.display = "block";
+        avatarPreview.style.backgroundColor = "transparent";
+        avatarPreview.style.fontSize = ""; // Remove font size
+        avatarPreview.innerText = ""; // Clear any text
+        
+        msg.innerText = "✓ Avatar uploaded successfully";
+        msg.style.color = "#34d399";
+
+        // Update avatar URL in your backend
+        const updateRes = await fetch(`${API_URL}/api/user/${userId}/avatar`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                avatar_url: imageURL
+            })
+        });
+
+        if (!updateRes.ok) {
+            console.warn("Avatar URL saved locally but failed to update in database");
+            msg.innerText = "✓ Avatar uploaded (saved locally only)";
+        }
+
+        // Clear the file input to allow re-uploading the same file
+        e.target.value = '';
+
+    } catch (err) {
+        console.error("Upload error:", err);
+        msg.innerText = "✗ Upload failed - " + (err.message || "please try again");
+        msg.style.color = "#f87171";
+    } finally {
+        uploadBtn.classList.remove("uploading");
+    }
 });
 
+document.getElementById("profileForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-document.getElementById("profileForm").addEventListener("submit",async(e)=>{
+    const btn = document.getElementById("saveBtn");
+    btn.disabled = true;
+    btn.innerText = "Saving...";
 
-e.preventDefault();
+    const payload = {
+        username: document.getElementById("username").value,
+        name: document.getElementById("name").value,
+        surname: document.getElementById("surname").value
+    };
 
-const btn=document.getElementById("saveBtn");
+    if (document.getElementById("password").value) {
+        payload.password = document.getElementById("password").value;
+    }
 
-btn.disabled=true;
+    try {
+        const res = await fetch(`${API_URL}/api/user/${userId}/profile`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+        });
 
-btn.innerText="Saving...";
+        const data = await res.json();
 
-const payload={
-
-username:username.value,
-
-name:name.value,
-
-surname:surname.value
-
-};
-
-if(password.value){
-
-payload.password=password.value;
-
-}
-
-try{
-
-const res=await fetch(`${API_URL}/api/user/${userId}/profile`,{
-
-method:"PUT",
-
-headers:{
-
-"Content-Type":"application/json"
-
-},
-
-body:JSON.stringify(payload)
-
+        if (res.ok) {
+            showMessage("Profile updated successfully");
+            document.getElementById("password").value = "";
+            
+            // Update avatar preview if name changed and no avatar exists
+            const avatarPreview = document.getElementById("avatar-preview");
+            if (!avatarPreview.src || avatarPreview.src === window.location.href) {
+                const firstName = payload.name || "";
+                const lastName = payload.surname || "";
+                
+                if (firstName || lastName) {
+                    const initials = (firstName.charAt(0) + lastName.charAt(0)).toUpperCase();
+                    avatarPreview.src = "";
+                    avatarPreview.style.display = "flex";
+                    avatarPreview.style.backgroundColor = "var(--accent-blue)";
+                    avatarPreview.style.fontSize = "2.5rem";
+                    avatarPreview.innerText = initials;
+                }
+            }
+        } else {
+            showMessage(data.error || "Update failed", true);
+        }
+    } catch (error) {
+        console.error("Update error:", error);
+        showMessage("Update failed - please try again", true);
+    } finally {
+        btn.disabled = false;
+        btn.innerText = "Save Changes";
+    }
 });
 
-const data=await res.json();
-
-if(res.ok){
-
-showMessage("Profile updated");
-
-password.value="";
-
-}else{
-
-showMessage(data.error,true)
-
-}
-
-}catch{
-
-showMessage("Update failed",true)
-
-}
-
-btn.disabled=false;
-
-btn.innerText="Save Changes";
-
-});
-
+// Load profile when page loads
 loadProfile();
-
 </script>
 
 </body>
