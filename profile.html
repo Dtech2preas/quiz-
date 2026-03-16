@@ -6,7 +6,6 @@
 <title>Profile Settings - Quiz Platform</title>
 
 <style>
-
 :root{
 --bg-dark:#0f172a;
 --bg-card:#1e293b;
@@ -40,15 +39,12 @@ z-index:100;
 }
 
 header h2{margin:0}
-
 nav{display:flex;gap:1.5rem}
-
 nav a{
 color:var(--text-muted);
 text-decoration:none;
 font-weight:500;
 }
-
 nav a:hover{color:var(--accent-blue)}
 
 .container{
@@ -101,11 +97,6 @@ background:var(--text-muted);
   opacity: 0.6;
   pointer-events: none;
   cursor: wait;
-}
-
-.avatar-upload-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
 }
 
 #avatar-msg {
@@ -184,7 +175,6 @@ color:var(--text-muted);
 }
 
 #profile-content{display:none}
-
 </style>
 </head>
 
@@ -192,61 +182,41 @@ color:var(--text-muted);
 
 <header>
 <h2>Settings</h2>
-
 <nav>
 <a href="dashboard.html">Dashboard</a>
 <a href="subjects.html">Take Quiz</a>
 <a href="leaderboard.html">Leaderboards</a>
 </nav>
-
 </header>
 
 <div id="loading">Loading profile...</div>
 
 <div class="container" id="profile-content">
-
 <h1>Edit Profile</h1>
 
 <div class="avatar-section">
-
 <img id="avatar-preview" class="avatar-preview" alt="Profile avatar">
-
 <label for="avatarInput" class="avatar-upload-btn" id="uploadBtnLabel">
 Change Avatar
 </label>
-
-<input type="file" id="avatarInput"
-accept="image/png,image/jpeg,image/webp,image/gif">
-
+<input type="file" id="avatarInput" accept="image/png,image/jpeg,image/webp,image/gif">
 <div id="avatar-msg"></div>
-
 </div>
 
 <form id="profileForm">
-
 <input type="text" id="username" placeholder="Username" required>
-
 <input type="text" id="name" placeholder="First Name">
-
 <input type="text" id="surname" placeholder="Surname">
-
-<input type="password" id="password"
-placeholder="New Password (optional)">
-
-<button type="submit" id="saveBtn">
-Save Changes
-</button>
-
+<input type="password" id="password" placeholder="New Password (optional)">
+<button type="submit" id="saveBtn">Save Changes</button>
 </form>
 
 <div id="statusMessage" class="message"></div>
-
 </div>
 
 <script>
 const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
 const IMGBB_KEY = "cedf418c6d844af9c47a7775a17161a6";
-
 const userId = localStorage.getItem("user_id");
 
 if (!userId) {
@@ -258,17 +228,13 @@ function showMessage(msg, isError = false) {
     el.textContent = msg;
     el.className = "message " + (isError ? "error" : "success");
     el.style.display = "block";
-    
-    setTimeout(() => {
-        el.style.display = "none";
-    }, 5000);
+    setTimeout(() => el.style.display = "none", 5000);
 }
 
 async function loadProfile() {
     try {
         const res = await fetch(`${API_URL}/api/user/${userId}`);
         if (!res.ok) throw new Error("Failed to load profile");
-        
         const data = await res.json();
 
         document.getElementById("username").value = data.username || "";
@@ -292,15 +258,13 @@ function updateAvatarDisplay(userData) {
     const avatarPreview = document.getElementById("avatar-preview");
     
     if (userData.avatar_url && userData.avatar_url.trim() !== "" && userData.avatar_url !== 'null') {
-        // If user has an avatar, show the image
         avatarPreview.src = userData.avatar_url;
         avatarPreview.style.display = "block";
         avatarPreview.style.backgroundColor = "transparent";
-        avatarPreview.style.fontSize = ""; // Remove font size
-        avatarPreview.innerText = ""; // Clear any text
+        avatarPreview.style.fontSize = "";
+        avatarPreview.innerText = "";
     } else {
-        // No avatar - show initials
-        avatarPreview.src = ""; // Clear any src
+        avatarPreview.src = "";
         avatarPreview.style.display = "flex";
         avatarPreview.style.alignItems = "center";
         avatarPreview.style.justifyContent = "center";
@@ -309,100 +273,27 @@ function updateAvatarDisplay(userData) {
         
         const firstName = userData.name || "";
         const lastName = userData.surname || "";
-        
-        if (firstName || lastName) {
-            const initials = (firstName.charAt(0) + lastName.charAt(0)).toUpperCase();
-            avatarPreview.innerText = initials || "?";
-        } else {
-            avatarPreview.innerText = "?";
-        }
+        const initials = (firstName.charAt(0) + lastName.charAt(0)).toUpperCase();
+        avatarPreview.innerText = initials || "?";
     }
 }
 
-// Method 1: Upload using direct base64 string
-async function uploadWithBase64(file) {
+// FIXED: Proper imgbb upload function
+async function uploadToImgbb(file) {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
-        reader.onload = async function(e) {
+        
+        reader.onload = async function() {
             try {
                 // Get base64 string and remove the data:image/[type];base64, prefix
-                const base64String = e.target.result.split(',')[1];
+                const base64String = reader.result.split(',')[1];
                 
-                // Create URL parameters
-                const url = `https://api.imgbb.com/1/upload?key=${IMGBB_KEY}`;
-                
-                // Method A: Send as JSON
-                const response = await fetch(url, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        image: base64String
-                    })
-                });
-                
-                const data = await response.json();
-                if (data.data && data.data.url) {
-                    resolve(data.data.url);
-                } else {
-                    reject(new Error(data.error?.message || 'Upload failed'));
-                }
-            } catch (error) {
-                reject(error);
-            }
-        };
-        reader.onerror = () => reject(new Error('Failed to read file'));
-        reader.readAsDataURL(file);
-    });
-}
-
-// Method 2: Upload using FormData
-async function uploadWithFormData(file) {
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = async function(e) {
-            try {
-                // Get base64 string
-                const base64String = e.target.result.split(',')[1];
-                
-                const formData = new FormData();
-                formData.append('key', IMGBB_KEY);
-                formData.append('image', base64String);
-                
-                const response = await fetch('https://api.imgbb.com/1/upload', {
-                    method: 'POST',
-                    body: formData
-                });
-                
-                const data = await response.json();
-                if (data.data && data.data.url) {
-                    resolve(data.data.url);
-                } else {
-                    reject(new Error(data.error?.message || 'Upload failed'));
-                }
-            } catch (error) {
-                reject(error);
-            }
-        };
-        reader.onerror = () => reject(new Error('Failed to read file'));
-        reader.readAsDataURL(file);
-    });
-}
-
-// Method 3: Upload using URL parameters (most reliable for imgbb)
-async function uploadWithUrlParams(file) {
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = async function(e) {
-            try {
-                // Get base64 string
-                const base64String = e.target.result.split(',')[1];
-                
-                // Create form data with URL encoded format
+                // Create form data - THIS IS THE CORRECT FORMAT
                 const formData = new URLSearchParams();
                 formData.append('key', IMGBB_KEY);
                 formData.append('image', base64String);
+                
+                console.log("Uploading image...");
                 
                 const response = await fetch('https://api.imgbb.com/1/upload', {
                     method: 'POST',
@@ -411,9 +302,11 @@ async function uploadWithUrlParams(file) {
                     },
                     body: formData.toString()
                 });
-                
+
                 const data = await response.json();
-                if (data.data && data.data.url) {
+                console.log("Upload response:", data);
+
+                if (data.success && data.data && data.data.url) {
                     resolve(data.data.url);
                 } else {
                     reject(new Error(data.error?.message || 'Upload failed'));
@@ -422,6 +315,7 @@ async function uploadWithUrlParams(file) {
                 reject(error);
             }
         };
+        
         reader.onerror = () => reject(new Error('Failed to read file'));
         reader.readAsDataURL(file);
     });
@@ -435,22 +329,21 @@ document.getElementById("avatarInput").addEventListener("change", async (e) => {
     const uploadBtn = document.getElementById("uploadBtnLabel");
     const avatarPreview = document.getElementById("avatar-preview");
     
-    // Show local preview immediately
+    // Show local preview
     const localPreviewUrl = URL.createObjectURL(file);
     avatarPreview.src = localPreviewUrl;
     avatarPreview.style.display = "block";
     avatarPreview.style.backgroundColor = "transparent";
-    avatarPreview.style.fontSize = "";
     avatarPreview.innerText = "";
     
     msg.innerText = "Uploading...";
     msg.style.color = "var(--text-muted)";
     uploadBtn.classList.add("uploading");
 
-    // Validate file type
+    // Validate file
     const validTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
     if (!validTypes.includes(file.type)) {
-        msg.innerText = "Please select a valid image (JPEG, PNG, WEBP, GIF)";
+        msg.innerText = "Invalid file type";
         msg.style.color = "#f87171";
         uploadBtn.classList.remove("uploading");
         URL.revokeObjectURL(localPreviewUrl);
@@ -458,9 +351,8 @@ document.getElementById("avatarInput").addEventListener("change", async (e) => {
         return;
     }
 
-    // Validate file size (max 5MB)
     if (file.size > 5 * 1024 * 1024) {
-        msg.innerText = "Image too large (max 5MB)";
+        msg.innerText = "File too large (max 5MB)";
         msg.style.color = "#f87171";
         uploadBtn.classList.remove("uploading");
         URL.revokeObjectURL(localPreviewUrl);
@@ -469,67 +361,26 @@ document.getElementById("avatarInput").addEventListener("change", async (e) => {
     }
 
     try {
-        let imageURL = null;
-        let lastError = null;
-
-        // Try Method 1: URL parameters (most reliable)
-        try {
-            console.log("Trying URL params method...");
-            imageURL = await uploadWithUrlParams(file);
-            console.log("URL params method succeeded");
-        } catch (error) {
-            console.log("URL params method failed:", error);
-            lastError = error;
-            
-            // Try Method 2: FormData
-            try {
-                console.log("Trying FormData method...");
-                imageURL = await uploadWithFormData(file);
-                console.log("FormData method succeeded");
-            } catch (error2) {
-                console.log("FormData method failed:", error2);
-                lastError = error2;
-                
-                // Try Method 3: Base64 JSON
-                try {
-                    console.log("Trying Base64 JSON method...");
-                    imageURL = await uploadWithBase64(file);
-                    console.log("Base64 JSON method succeeded");
-                } catch (error3) {
-                    console.log("Base64 JSON method failed:", error3);
-                    lastError = error3;
-                    throw new Error("All upload methods failed");
-                }
-            }
-        }
-
-        if (!imageURL) {
-            throw new Error("No image URL received");
-        }
+        // Use the fixed upload function
+        const imageURL = await uploadToImgbb(file);
         
-        // Update preview with the actual uploaded URL
+        // Update preview with permanent URL
         avatarPreview.src = imageURL;
         
-        msg.innerText = "✓ Avatar uploaded successfully";
+        msg.innerText = "✓ Upload successful!";
         msg.style.color = "#34d399";
 
-        // Update avatar URL in your backend
+        // Save to backend
         const updateRes = await fetch(`${API_URL}/api/user/${userId}/avatar`, {
             method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                avatar_url: imageURL
-            })
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ avatar_url: imageURL })
         });
 
         if (!updateRes.ok) {
-            console.warn("Avatar URL saved locally but failed to update in database");
-            msg.innerText = "✓ Avatar uploaded (saved locally only)";
+            console.warn("Failed to save to database");
         }
 
-        // Clear the file input to allow re-uploading the same file
         e.target.value = '';
 
     } catch (err) {
@@ -537,26 +388,17 @@ document.getElementById("avatarInput").addEventListener("change", async (e) => {
         msg.innerText = "✗ Upload failed - " + (err.message || "please try again");
         msg.style.color = "#f87171";
         
-        // Revert to previous avatar or initials
+        // Revert preview
         try {
             const userRes = await fetch(`${API_URL}/api/user/${userId}`);
             const userData = await userRes.json();
             updateAvatarDisplay(userData);
         } catch {
-            // If we can't get user data, just show initials from form
-            const firstName = document.getElementById("name").value;
-            const lastName = document.getElementById("surname").value;
-            updateAvatarDisplay({
-                avatar_url: null,
-                name: firstName,
-                surname: lastName
-            });
+            updateAvatarDisplay({ name: "", surname: "" });
         }
     } finally {
         uploadBtn.classList.remove("uploading");
-        if (localPreviewUrl) {
-            URL.revokeObjectURL(localPreviewUrl);
-        }
+        URL.revokeObjectURL(localPreviewUrl);
     }
 });
 
@@ -580,9 +422,7 @@ document.getElementById("profileForm").addEventListener("submit", async (e) => {
     try {
         const res = await fetch(`${API_URL}/api/user/${userId}/profile`, {
             method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload)
         });
 
@@ -591,35 +431,18 @@ document.getElementById("profileForm").addEventListener("submit", async (e) => {
         if (res.ok) {
             showMessage("Profile updated successfully");
             document.getElementById("password").value = "";
-            
-            // Update avatar preview if name changed and no avatar exists
-            const avatarPreview = document.getElementById("avatar-preview");
-            if (!avatarPreview.src || avatarPreview.src === window.location.href) {
-                const firstName = payload.name || "";
-                const lastName = payload.surname || "";
-                
-                if (firstName || lastName) {
-                    const initials = (firstName.charAt(0) + lastName.charAt(0)).toUpperCase();
-                    avatarPreview.src = "";
-                    avatarPreview.style.display = "flex";
-                    avatarPreview.style.backgroundColor = "var(--accent-blue)";
-                    avatarPreview.style.fontSize = "2.5rem";
-                    avatarPreview.innerText = initials;
-                }
-            }
         } else {
             showMessage(data.error || "Update failed", true);
         }
     } catch (error) {
         console.error("Update error:", error);
-        showMessage("Update failed - please try again", true);
+        showMessage("Update failed", true);
     } finally {
         btn.disabled = false;
         btn.innerText = "Save Changes";
     }
 });
 
-// Load profile when page loads
 loadProfile();
 </script>
 
