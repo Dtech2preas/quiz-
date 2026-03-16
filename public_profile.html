@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Profile - Grade 12 Quiz Platform</title>
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-gold: #f59e0b;
+            --border-color: #334155;
+            --header-bg: #0b1120;
+        }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-dark); color: var(--text-main); }
+
+        header { background: var(--header-bg); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); }
+        header h2 { margin: 0; font-size: 1.5rem; color: var(--text-main); }
+        nav { display: flex; gap: 1.5rem; align-items: center; }
+        nav a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        nav a:hover { color: var(--accent-blue); }
+
+        .container { max-width: 800px; margin: 2rem auto; padding: 2rem; background: var(--bg-card); border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; }
+
+        .avatar { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent-blue); margin-bottom: 1rem; background-color: var(--bg-dark); }
+        h1 { margin: 0 0 0.5rem 0; font-size: 2rem; }
+        h3 { margin: 0 0 1.5rem 0; color: var(--text-muted); font-weight: 400; }
+
+        .badges-container { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+        .badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; border-radius: 9999px; font-weight: bold; font-size: 0.9rem; border: 1px solid var(--border-color); background: rgba(255,255,255,0.05); }
+        .badge.champion { color: #fff; background: linear-gradient(135deg, #fbbf24, #d97706); border: none; }
+        .badge.elite { color: #fff; background: linear-gradient(135deg, #94a3b8, #475569); border: none; }
+        .badge.gold { color: #fbbf24; border-color: rgba(251, 191, 36, 0.5); }
+        .badge.streak { color: var(--accent-green); border-color: rgba(16, 185, 129, 0.5); }
+
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+        .stat-card { padding: 1.5rem; background: var(--bg-dark); border-radius: 8px; border: 1px solid var(--border-color); }
+        .stat-card h4 { margin: 0 0 0.5rem 0; color: var(--text-muted); font-size: 0.9rem; font-weight: 500; }
+        .stat-card p { margin: 0; font-size: 1.5rem; font-weight: bold; color: var(--accent-blue); }
+
+        button.share-btn { background: var(--accent-blue); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 6px; font-size: 1rem; font-weight: 500; cursor: pointer; transition: background 0.2s; }
+        button.share-btn:hover { background: var(--accent-hover); }
+
+        #errorMsg { color: #ef4444; font-size: 1.2rem; display: none; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div>
+        <h2 style="margin:0;">Public Profile</h2>
+    </div>
+    <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="leaderboard.html">Leaderboards</a>
+    </nav>
+</header>
+
+<div class="container" id="profileContainer" style="display: none;">
+    <img id="profileAvatar" class="avatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2394a3b8'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E" alt="Avatar">
+
+    <h1 id="profileName">Name Surname</h1>
+    <h3 id="profileUsername">@username</h3>
+
+    <div id="badges" class="badges-container"></div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h4>Total XP</h4>
+            <p id="statXp">0</p>
+        </div>
+        <div class="stat-card">
+            <h4>Accuracy</h4>
+            <p id="statAccuracy">0%</p>
+        </div>
+        <div class="stat-card">
+            <h4>Math Rank</h4>
+            <p id="statMathRank">-</p>
+        </div>
+        <div class="stat-card">
+            <h4>Physics Rank</h4>
+            <p id="statPhysicsRank">-</p>
+        </div>
+    </div>
+
+    <button class="share-btn" onclick="copyLink()">Share Profile</button>
+</div>
+
+<div class="container" id="errorContainer" style="display: none;">
+    <p id="errorMsg">User not found.</p>
+</div>
+
+<script>
+    const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
+
+    const params = new URLSearchParams(window.location.search);
+    const targetUser = params.get('user');
+
+    if (!targetUser) {
+        showError("No user specified.");
+    } else {
+        fetchProfile(targetUser);
+    }
+
+    function showError(msg) {
+        document.getElementById("errorContainer").style.display = "block";
+        document.getElementById("errorMsg").textContent = msg;
+        document.getElementById("errorMsg").style.display = "block";
+    }
+
+    async function fetchProfile(username) {
+        try {
+            const response = await fetch(`${API_URL}/api/public-user/${username}`);
+            if (!response.ok) {
+                if (response.status === 404) throw new Error("User not found.");
+                throw new Error("Failed to load profile.");
+            }
+            const data = await response.json();
+            renderProfile(data);
+        } catch (err) {
+            showError(err.message);
+        }
+    }
+
+    function renderProfile(data) {
+        document.getElementById("profileContainer").style.display = "block";
+
+        let displayName = data.username;
+        if (data.name || data.surname) {
+            displayName = `${data.name || ''} ${data.surname || ''}`.trim();
+        }
+
+        document.getElementById("profileName").textContent = displayName;
+        document.getElementById("profileUsername").textContent = `@${data.username}`;
+
+        if (data.avatar_url) {
+            document.getElementById("profileAvatar").src = data.avatar_url;
+        }
+
+        document.getElementById("statXp").textContent = data.total_xp || 0;
+        document.getElementById("statAccuracy").textContent = `${data.accuracy_percentage || 0}%`;
+        document.getElementById("statMathRank").textContent = data.ranks?.math !== "-" ? `#${data.ranks.math}` : "-";
+        document.getElementById("statPhysicsRank").textContent = data.ranks?.physics !== "-" ? `#${data.ranks.physics}` : "-";
+
+        // Badges Logic
+        const badgesContainer = document.getElementById("badges");
+        badgesContainer.innerHTML = ""; // Clear existing
+
+        if (data.ranks?.overall === 1) {
+            badgesContainer.innerHTML += `<div class="badge champion">👑 Champion (Rank #1)</div>`;
+        } else if (data.ranks?.overall !== "-" && data.ranks?.overall <= 10) {
+            badgesContainer.innerHTML += `<div class="badge elite">⭐ Elite (Top 10)</div>`;
+        } else if (data.ranks?.overall !== "-" && data.ranks?.overall <= 100) {
+            badgesContainer.innerHTML += `<div class="badge gold">🏅 Gold (Top 100)</div>`;
+        }
+
+        if (data.study_streak_days && data.study_streak_days >= 3) {
+            badgesContainer.innerHTML += `<div class="badge streak">🔥 ${data.study_streak_days} Day Streak</div>`;
+        }
+    }
+
+    function copyLink() {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            const btn = document.querySelector('.share-btn');
+            btn.textContent = "Copied!";
+            setTimeout(() => btn.textContent = "Share Profile", 2000);
+        });
+    }
+</script>
+
+</body>
+</html>
