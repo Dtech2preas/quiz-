@@ -103,6 +103,11 @@ background:var(--text-muted);
   cursor: wait;
 }
 
+.avatar-upload-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 #avatar-msg {
   margin-top: 0.5rem;
   font-size: 0.9rem;
@@ -270,34 +275,7 @@ async function loadProfile() {
         document.getElementById("name").value = data.name || "";
         document.getElementById("surname").value = data.surname || "";
 
-        const avatarPreview = document.getElementById("avatar-preview");
-        
-        if (data.avatar_url && data.avatar_url.trim() !== "") {
-            // If user has an avatar, show the image
-            avatarPreview.src = data.avatar_url;
-            avatarPreview.style.display = "block";
-            avatarPreview.style.backgroundColor = "transparent";
-            avatarPreview.style.fontSize = ""; // Remove font size
-            avatarPreview.innerText = ""; // Clear any text
-        } else {
-            // No avatar - show initials
-            avatarPreview.src = ""; // Clear any src
-            avatarPreview.style.display = "flex";
-            avatarPreview.style.alignItems = "center";
-            avatarPreview.style.justifyContent = "center";
-            avatarPreview.style.backgroundColor = "var(--accent-blue)";
-            avatarPreview.style.fontSize = "2.5rem";
-            
-            const firstName = data.name || "";
-            const lastName = data.surname || "";
-            
-            if (firstName || lastName) {
-                const initials = (firstName.charAt(0) + lastName.charAt(0)).toUpperCase();
-                avatarPreview.innerText = initials || "?";
-            } else {
-                avatarPreview.innerText = "?";
-            }
-        }
+        updateAvatarDisplay(data);
 
         document.getElementById("loading").style.display = "none";
         document.getElementById("profile-content").style.display = "block";
@@ -310,12 +288,66 @@ async function loadProfile() {
     }
 }
 
+function updateAvatarDisplay(userData) {
+    const avatarPreview = document.getElementById("avatar-preview");
+    
+    if (userData.avatar_url && userData.avatar_url.trim() !== "") {
+        // If user has an avatar, show the image
+        avatarPreview.src = userData.avatar_url;
+        avatarPreview.style.display = "block";
+        avatarPreview.style.backgroundColor = "transparent";
+        avatarPreview.style.fontSize = ""; // Remove font size
+        avatarPreview.innerText = ""; // Clear any text
+    } else {
+        // No avatar - show initials
+        avatarPreview.src = ""; // Clear any src
+        avatarPreview.style.display = "flex";
+        avatarPreview.style.alignItems = "center";
+        avatarPreview.style.justifyContent = "center";
+        avatarPreview.style.backgroundColor = "var(--accent-blue)";
+        avatarPreview.style.fontSize = "2.5rem";
+        
+        const firstName = userData.name || "";
+        const lastName = userData.surname || "";
+        
+        if (firstName || lastName) {
+            const initials = (firstName.charAt(0) + lastName.charAt(0)).toUpperCase();
+            avatarPreview.innerText = initials || "?";
+        } else {
+            avatarPreview.innerText = "?";
+        }
+    }
+}
+
+// Function to convert image to base64
+function imageToBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+            // Remove the data:image/[type];base64, prefix
+            const base64String = reader.result.split(',')[1];
+            resolve(base64String);
+        };
+        reader.onerror = error => reject(error);
+    });
+}
+
 document.getElementById("avatarInput").addEventListener("change", async (e) => {
     const file = e.target.files[0];
     if (!file) return;
 
     const msg = document.getElementById("avatar-msg");
     const uploadBtn = document.getElementById("uploadBtnLabel");
+    const avatarPreview = document.getElementById("avatar-preview");
+    
+    // Show local preview immediately
+    const localPreviewUrl = URL.createObjectURL(file);
+    avatarPreview.src = localPreviewUrl;
+    avatarPreview.style.display = "block";
+    avatarPreview.style.backgroundColor = "transparent";
+    avatarPreview.style.fontSize = "";
+    avatarPreview.innerText = "";
     
     msg.innerText = "Uploading...";
     msg.style.color = "var(--text-muted)";
@@ -327,7 +359,8 @@ document.getElementById("avatarInput").addEventListener("change", async (e) => {
         msg.innerText = "Please select a valid image (JPEG, PNG, WEBP, GIF)";
         msg.style.color = "#f87171";
         uploadBtn.classList.remove("uploading");
-        e.target.value = ''; // Clear input
+        URL.revokeObjectURL(localPreviewUrl);
+        e.target.value = '';
         return;
     }
 
@@ -336,11 +369,13 @@ document.getElementById("avatarInput").addEventListener("change", async (e) => {
         msg.innerText = "Image too large (max 5MB)";
         msg.style.color = "#f87171";
         uploadBtn.classList.remove("uploading");
-        e.target.value = ''; // Clear input
+        URL.revokeObjectURL(localPreviewUrl);
+        e.target.value = '';
         return;
     }
 
     try {
+        // Method 1: Try with FormData first
         const formData = new FormData();
         formData.append("image", file);
 
@@ -351,20 +386,34 @@ document.getElementById("avatarInput").addEventListener("change", async (e) => {
 
         const data = await res.json();
 
-        if (!data.data || !data.data.url) {
-            console.error("Upload response:", data);
-            throw new Error(data.error?.message || "Upload failed - unexpected response");
+        if (!res.ok || !data.data || !data.data.url) {
+            console.log("FormData upload failed, trying base64 method...");
+            
+            // Method 2: Try with base64 if FormData fails
+            const base64Image = await imageToBase64(file);
+            
+            const formData2 = new FormData();
+            formData2.append("image", base64Image);
+            
+            const res2 = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_KEY}`, {
+                method: "POST",
+                body: formData2
+            });
+            
+            const data2 = await res2.json();
+            
+            if (!res2.ok || !data2.data || !data2.data.url) {
+                throw new Error(data2.error?.message || "Upload failed");
+            }
+            
+            // Use the successful base64 upload data
+            data.data = data2.data;
         }
 
         const imageURL = data.data.url;
-        const avatarPreview = document.getElementById("avatar-preview");
         
-        // Update image preview - only set src, remove any text content
+        // Update preview with the actual uploaded URL
         avatarPreview.src = imageURL;
-        avatarPreview.style.display = "block";
-        avatarPreview.style.backgroundColor = "transparent";
-        avatarPreview.style.fontSize = ""; // Remove font size
-        avatarPreview.innerText = ""; // Clear any text
         
         msg.innerText = "✓ Avatar uploaded successfully";
         msg.style.color = "#34d399";
@@ -392,8 +441,27 @@ document.getElementById("avatarInput").addEventListener("change", async (e) => {
         console.error("Upload error:", err);
         msg.innerText = "✗ Upload failed - " + (err.message || "please try again");
         msg.style.color = "#f87171";
+        
+        // Revert to previous avatar or initials
+        try {
+            const userRes = await fetch(`${API_URL}/api/user/${userId}`);
+            const userData = await userRes.json();
+            updateAvatarDisplay(userData);
+        } catch {
+            // If we can't get user data, just show initials from form
+            const firstName = document.getElementById("name").value;
+            const lastName = document.getElementById("surname").value;
+            updateAvatarDisplay({
+                avatar_url: null,
+                name: firstName,
+                surname: lastName
+            });
+        }
     } finally {
         uploadBtn.classList.remove("uploading");
+        if (localPreviewUrl) {
+            URL.revokeObjectURL(localPreviewUrl);
+        }
     }
 });
 
