@@ -5,37 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leaderboards - Grade 12 Quiz Platform</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; }
-        header { background: #007bff; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-        nav a { color: white; margin-left: 1rem; text-decoration: none; }
-        nav a:hover { text-decoration: underline; }
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-yellow: #f59e0b;
+            --accent-silver: #94a3b8;
+            --accent-bronze: #d97706;
+            --border-color: #334155;
+            --header-bg: #0b1120;
+        }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-dark); color: var(--text-main); }
+
+        /* Compact Header / Nav */
+        header { background: var(--header-bg); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
+        header h2 { margin: 0; font-size: 1.5rem; color: var(--text-main); }
+        nav { display: flex; gap: 1.5rem; align-items: center; }
+        nav a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        nav a:hover, nav a.active { color: var(--accent-blue); }
+
+        /* Responsive Nav */
+        @media (max-width: 768px) {
+            header { flex-direction: column; padding: 1rem; gap: 1rem; }
+            nav { width: 100%; justify-content: center; flex-wrap: wrap; gap: 1rem; }
+        }
+
         .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
 
-        .tabs { display: flex; margin-bottom: 1rem; border-bottom: 2px solid #ddd; }
-        .tab-btn { padding: 1rem 2rem; background: none; border: none; font-size: 1.1rem; cursor: pointer; color: #666; font-weight: bold; border-bottom: 3px solid transparent; margin-bottom: -2px; }
-        .tab-btn:hover { color: #007bff; }
-        .tab-btn.active { color: #007bff; border-bottom: 3px solid #007bff; }
+        .tabs { display: flex; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
+        .tabs::-webkit-scrollbar { display: none; }
+        .tab-btn { padding: 1rem 1.5rem; background: none; border: none; font-size: 1rem; cursor: pointer; color: var(--text-muted); font-weight: 600; border-bottom: 3px solid transparent; margin-bottom: -1px; transition: color 0.2s; }
+        .tab-btn:hover { color: var(--text-main); }
+        .tab-btn.active { color: var(--accent-blue); border-bottom: 3px solid var(--accent-blue); }
 
-        .leaderboard-content { display: none; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); padding: 1rem; }
+        .leaderboard-content { display: none; background: var(--bg-card); border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 0; border: 1px solid var(--border-color); overflow: hidden; }
         .leaderboard-content.active { display: block; }
 
-        .rank-row { display: flex; justify-content: space-between; align-items: center; padding: 1rem; border-bottom: 1px solid #eee; }
+        .rank-row { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem; border-bottom: 1px solid var(--border-color); color: var(--text-main); }
         .rank-row:last-child { border-bottom: none; }
+        .rank-row:hover { background-color: rgba(255,255,255,0.02); }
 
         /* Highlight specific ranks */
-        .rank-1 { background-color: #fff3cd; border-left: 5px solid #ffc107; font-weight: bold; font-size: 1.2rem; }
-        .rank-2 { background-color: #e2e3e5; border-left: 5px solid #adb5bd; font-weight: bold; font-size: 1.15rem; }
-        .rank-3 { background-color: #f8d7da; border-left: 5px solid #d39e00; font-weight: bold; font-size: 1.1rem; }
-        .top-10 { background-color: #f8f9fa; font-weight: bold; }
-        .top-25 { background-color: #ffffff; }
-        .top-50 { font-size: 0.95rem; color: #555; }
-        .below-50 { font-size: 0.9rem; color: #777; padding: 0.5rem 1rem; }
+        .rank-1 { background-color: rgba(245, 158, 11, 0.1); border-left: 5px solid var(--accent-yellow); font-weight: bold; font-size: 1.15rem; }
+        .rank-2 { background-color: rgba(148, 163, 184, 0.1); border-left: 5px solid var(--accent-silver); font-weight: bold; font-size: 1.1rem; }
+        .rank-3 { background-color: rgba(217, 119, 6, 0.1); border-left: 5px solid var(--accent-bronze); font-weight: bold; font-size: 1.05rem; }
+        .top-10 { font-weight: 600; }
+        .top-50 { color: var(--text-main); }
+        .below-50 { color: var(--text-muted); padding: 0.8rem 1.2rem; font-size: 0.95rem; }
 
-        .rank-num { width: 50px; font-weight: bold; color: #888; }
+        .rank-num { width: 50px; font-weight: bold; color: var(--text-muted); }
         .rank-name { flex-grow: 1; }
-        .rank-xp { font-weight: bold; color: #28a745; }
+        .rank-xp { font-weight: bold; color: var(--accent-green); }
 
-        #loading { text-align: center; font-size: 1.2rem; padding: 2rem; }
+        #loading { text-align: center; font-size: 1.2rem; padding: 3rem; color: var(--text-muted); }
     </style>
 </head>
 <body>

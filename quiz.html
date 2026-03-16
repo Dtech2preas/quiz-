@@ -5,40 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz - Grade 12 Quiz Platform</title>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js" integrity="sha512-hfYxFRg6g6Wv1XwPflw2Y7O/ivZz9cBZx72C0DcoR5K/7I7J3hv12+fYKOkQxRZ+7+o9onJfM3c6l3aqO1UGYA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-
     <!-- Load MathJax for rendering math formulas -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; }
-        header { background: #007bff; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-        nav a { color: white; margin-left: 1rem; text-decoration: none; }
-        nav a:hover { text-decoration: underline; }
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-hover: #059669;
+            --accent-red: #ef4444;
+            --border-color: #334155;
+            --header-bg: #0b1120;
+            --option-bg: #334155;
+            --option-hover: #475569;
+            --option-selected: #2563eb;
+            --option-correct: rgba(16, 185, 129, 0.2);
+            --option-wrong: rgba(239, 68, 68, 0.2);
+        }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-dark); color: var(--text-main); }
+
+        /* Compact Header / Nav */
+        header { background: var(--header-bg); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
+        header h2 { margin: 0; font-size: 1.5rem; color: var(--text-main); }
+        nav { display: flex; gap: 1.5rem; align-items: center; }
+        nav a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        nav a:hover, nav a.active { color: var(--accent-blue); }
+
+        /* Responsive Nav */
+        @media (max-width: 768px) {
+            header { flex-direction: column; padding: 1rem; gap: 1rem; }
+            nav { width: 100%; justify-content: center; flex-wrap: wrap; gap: 1rem; }
+        }
+
         .container { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
 
-        .setup-section, .quiz-section, .result-section { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 2rem; }
+        .setup-section, .quiz-section, .result-section { background: var(--bg-card); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 2rem; border: 1px solid var(--border-color); }
 
-        select, input[type="number"] { padding: 0.5rem; font-size: 1rem; margin-right: 1rem; border: 1px solid #ccc; border-radius: 4px; }
-        button { padding: 0.7rem 1.5rem; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem; }
-        button:hover { background: #218838; }
+        select, input[type="number"] { padding: 0.8rem; font-size: 1rem; margin-right: 1rem; border: 1px solid var(--border-color); border-radius: 6px; background: var(--bg-dark); color: var(--text-main); outline: none; transition: border-color 0.2s; }
+        select:focus, input[type="number"]:focus { border-color: var(--accent-blue); }
+        button { padding: 0.8rem 1.5rem; background: var(--accent-green); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 1.05rem; font-weight: 500; transition: background-color 0.2s, transform 0.1s; }
+        button:hover { background: var(--accent-hover); transform: translateY(-1px); }
+        button:active { transform: translateY(0); }
 
-        .question-text { font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: bold; }
-        .options { display: flex; flex-direction: column; gap: 0.8rem; }
-        .option-btn { padding: 1rem; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 4px; cursor: pointer; text-align: left; font-size: 1.1rem; transition: background-color 0.2s; }
-        .option-btn:hover { background: #e9ecef; }
+        .question-text { font-size: 1.3rem; margin-bottom: 1.5rem; font-weight: 600; line-height: 1.5; color: var(--text-main); }
+        .options { display: flex; flex-direction: column; gap: 1rem; }
+        .option-btn { padding: 1.2rem; background: var(--option-bg); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 1.1rem; color: var(--text-main); transition: all 0.2s; line-height: 1.4; }
+        .option-btn:hover { background: var(--option-hover); border-color: #64748b; }
 
-        .option-btn.selected { background: #cce5ff; border-color: #b8daff; }
-        .option-btn.correct { background: #d4edda; border-color: #c3e6cb; color: #155724; }
-        .option-btn.wrong { background: #f8d7da; border-color: #f5c6cb; color: #721c24; }
+        .option-btn.selected { background: var(--option-selected); border-color: #60a5fa; color: white; }
 
-        .explanation { margin-top: 1.5rem; padding: 1rem; background: #e2e3e5; border-radius: 4px; display: none; }
+        /* For Review Section */
+        .option-btn.correct { background: var(--option-correct); border-color: var(--accent-green); color: var(--accent-green); }
+        .option-btn.wrong { background: var(--option-wrong); border-color: var(--accent-red); color: var(--accent-red); }
 
-        .quiz-footer { margin-top: 2rem; display: flex; justify-content: space-between; align-items: center; }
-        #next-btn { display: none; }
+        .explanation { margin-top: 1rem; padding: 1rem; background: rgba(0,0,0,0.2); border-left: 4px solid var(--accent-blue); border-radius: 4px; display: none; color: var(--text-main); font-size: 0.95rem; }
 
-        #loading { text-align: center; font-size: 1.2rem; padding: 2rem; }
+        .quiz-footer { margin-top: 2rem; display: flex; justify-content: flex-end; align-items: center; border-top: 1px solid var(--border-color); padding-top: 1.5rem; }
+        #next-btn { background: var(--accent-blue); width: 100%; max-width: 200px; }
+        #next-btn:hover { background: #2563eb; }
+        #next-btn:disabled { background: var(--border-color); cursor: not-allowed; transform: none; color: var(--text-muted); }
+
+        #loading { text-align: center; font-size: 1.2rem; padding: 2rem; color: var(--text-muted); }
+
+        /* Review Styles */
+        .review-item { margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; }
+        .review-item:last-child { border-bottom: none; }
+        .review-q-text { font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; color: var(--text-main); }
+        .review-options { display: flex; flex-direction: column; gap: 0.5rem; }
+        .review-opt { padding: 0.8rem; border-radius: 6px; border: 1px solid var(--border-color); background: var(--option-bg); font-size: 1rem; color: var(--text-main); }
+        .review-opt.r-correct { background: var(--option-correct); border-color: var(--accent-green); color: #34d399; }
+        .review-opt.r-wrong { background: var(--option-wrong); border-color: var(--accent-red); color: #f87171; }
+        .explain-btn { margin-top: 1rem; background: transparent; border: 1px solid var(--accent-blue); color: var(--accent-blue); padding: 0.5rem 1rem; font-size: 0.9rem; }
+        .explain-btn:hover { background: rgba(59, 130, 246, 0.1); }
     </style>
 </head>
 <body>
@@ -74,32 +127,30 @@
 
     <!-- Active Quiz -->
     <div id="quiz-section" class="quiz-section" style="display:none;">
-        <div style="display: flex; justify-content: space-between; margin-bottom: 1rem; color: #666;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 1rem; color: var(--text-muted);">
             <span id="progress-text">Question 1 of 15</span>
-            <span id="score-text">Score: 0</span>
         </div>
 
         <div class="question-text" id="question-text"></div>
         <div class="options" id="options-container"></div>
 
-        <div class="explanation" id="explanation-box">
-            <strong>Explanation:</strong>
-            <div id="explanation-text"></div>
-        </div>
-
         <div class="quiz-footer">
-            <button id="submit-ans-btn" onclick="submitAnswer()">Submit Answer</button>
-            <button id="next-btn" onclick="nextQuestion()">Next Question</button>
+            <button id="next-btn" onclick="nextQuestion()" disabled>Next Question</button>
         </div>
     </div>
 
     <!-- Result Section -->
-    <div id="result-section" class="result-section" style="display:none; text-align: center;">
-        <h2>Quiz Completed!</h2>
-        <p style="font-size: 1.2rem; margin: 1rem 0;">You scored <strong id="final-score"></strong> out of <span id="final-total"></span>.</p>
-        <p style="font-size: 1.2rem; margin-bottom: 2rem;">XP Earned: <strong id="xp-earned" style="color:#28a745;">0</strong></p>
-        <button onclick="window.location.href='dashboard.html'">Back to Dashboard</button>
-        <button onclick="window.location.href='subjects.html'" style="background:#6c757d; margin-left:1rem;">Take Another Quiz</button>
+    <div id="result-section" class="result-section" style="display:none;">
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <h2>Quiz Completed!</h2>
+            <p style="font-size: 1.2rem; margin: 1rem 0;">You scored <strong id="final-score"></strong> out of <span id="final-total"></span>.</p>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">XP Earned: <strong id="xp-earned" style="color:var(--accent-green);">0</strong></p>
+            <button onclick="window.location.href='dashboard.html'">Back to Dashboard</button>
+            <button onclick="window.location.href='subjects.html'" style="background:var(--option-bg); color:var(--text-main); border:1px solid var(--border-color); margin-left:1rem;">Take Another Quiz</button>
+        </div>
+
+        <h3 style="border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1.5rem;">Review Your Answers</h3>
+        <div id="review-container"></div>
     </div>
 </div>
 
@@ -125,6 +176,7 @@
     let currentQuestionIndex = 0;
     let correctAnswersCount = 0;
     let currentTopic = filename.replace('.json', '');
+    let userAnswers = []; // Store user answers for review
 
     // Initialize
     document.getElementById("quiz-title").textContent = currentTopic.replace('paper1_', '').replace('paper2_', '').replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase()) + " Quiz";
@@ -177,6 +229,7 @@
 
         currentQuestionIndex = 0;
         correctAnswersCount = 0;
+        userAnswers = [];
 
         document.getElementById("loading").style.display = "none";
         document.getElementById("quiz-section").style.display = "block";
@@ -188,7 +241,6 @@
         const q = quizQuestions[currentQuestionIndex];
 
         document.getElementById("progress-text").textContent = `Question ${currentQuestionIndex + 1} of ${quizQuestions.length}`;
-        document.getElementById("score-text").textContent = `Score: ${correctAnswersCount}`;
 
         document.getElementById("question-text").innerHTML = q.question;
 
@@ -207,13 +259,21 @@
             btn.className = "option-btn";
             btn.innerHTML = opt.text;
             btn.dataset.correct = opt.isCorrect;
+            btn.dataset.text = opt.text;
             btn.onclick = () => selectOption(btn);
             optionsContainer.appendChild(btn);
         });
 
-        document.getElementById("explanation-box").style.display = "none";
-        document.getElementById("submit-ans-btn").style.display = "block";
-        document.getElementById("next-btn").style.display = "none";
+        // Set up Next/Finish button
+        const nextBtn = document.getElementById("next-btn");
+        nextBtn.style.display = "block";
+        nextBtn.disabled = true;
+
+        if (currentQuestionIndex === quizQuestions.length - 1) {
+            nextBtn.textContent = "Finish Quiz";
+        } else {
+            nextBtn.textContent = "Next Question";
+        }
 
         // Tell MathJax to typeset the new math content
         if (window.MathJax) {
@@ -224,64 +284,51 @@
     let selectedBtn = null;
 
     function selectOption(btn) {
-        if (document.getElementById("submit-ans-btn").style.display === "none") return; // Already submitted
-
         const buttons = document.querySelectorAll(".option-btn");
         buttons.forEach(b => b.classList.remove("selected"));
         btn.classList.add("selected");
         selectedBtn = btn;
+
+        // Enable next button
+        document.getElementById("next-btn").disabled = false;
     }
 
-    function submitAnswer() {
-        if (!selectedBtn) {
-            alert("Please select an answer first.");
-            return;
-        }
+    async function nextQuestion() {
+        if (!selectedBtn) return; // Should not happen due to disabled btn
 
         const isCorrect = selectedBtn.dataset.correct === "true";
+        const selectedText = selectedBtn.dataset.text;
         const q = quizQuestions[currentQuestionIndex];
 
-        // Reveal answers
-        const buttons = document.querySelectorAll(".option-btn");
-        buttons.forEach(btn => {
-            btn.style.cursor = "default";
-            if (btn.dataset.correct === "true") {
-                btn.classList.add("correct");
-            } else if (btn === selectedBtn) {
-                btn.classList.add("wrong");
-            }
+        // Store result for review later
+        userAnswers.push({
+            question: q.question,
+            correctAnswer: q.correct_answer,
+            selectedAnswer: selectedText,
+            isCorrect: isCorrect,
+            explanation: q.explanation || `The correct answer is: ${q.correct_answer}`
         });
 
         if (isCorrect) {
             correctAnswersCount++;
-            document.getElementById("score-text").textContent = `Score: ${correctAnswersCount}`;
-        }
-
-        // Show explanation
-        document.getElementById("explanation-text").innerHTML = q.explanation || `The correct answer is: ${q.correct_answer}`;
-        document.getElementById("explanation-box").style.display = "block";
-
-        if (window.MathJax) {
-            MathJax.typesetPromise([document.getElementById("explanation-box")]);
-        }
-
-        document.getElementById("submit-ans-btn").style.display = "none";
-        document.getElementById("next-btn").style.display = "block";
-
-        // Change next button to "Finish" if last question
-        if (currentQuestionIndex === quizQuestions.length - 1) {
-            document.getElementById("next-btn").textContent = "Finish Quiz";
         }
 
         selectedBtn = null;
-    }
 
-    async function nextQuestion() {
         if (currentQuestionIndex < quizQuestions.length - 1) {
             currentQuestionIndex++;
             showQuestion();
         } else {
             finishQuiz();
+        }
+    }
+
+    function toggleExplanation(id) {
+        const el = document.getElementById(id);
+        if (el.style.display === "none" || el.style.display === "") {
+            el.style.display = "block";
+        } else {
+            el.style.display = "none";
         }
     }
 
@@ -312,6 +359,43 @@
 
                 document.getElementById("loading").style.display = "none";
                 document.getElementById("result-section").style.display = "block";
+
+                // Populate Review Container
+                const reviewContainer = document.getElementById("review-container");
+                reviewContainer.innerHTML = "";
+
+                userAnswers.forEach((ans, idx) => {
+                    const item = document.createElement("div");
+                    item.className = "review-item";
+
+                    let explanationHtml = "";
+                    if (!ans.isCorrect) {
+                        explanationHtml = `
+                            <button class="explain-btn" onclick="toggleExplanation('expl-${idx}')">Explain</button>
+                            <div class="explanation" id="expl-${idx}">
+                                <strong>Explanation:</strong>
+                                <div>${ans.explanation}</div>
+                            </div>
+                        `;
+                    }
+
+                    item.innerHTML = `
+                        <div class="review-q-text">${idx + 1}. ${ans.question}</div>
+                        <div class="review-options">
+                            <div class="review-opt ${ans.isCorrect ? 'r-correct' : 'r-wrong'}">
+                                Your Answer: ${ans.selectedAnswer}
+                            </div>
+                            ${!ans.isCorrect ? `<div class="review-opt r-correct">Correct Answer: ${ans.correctAnswer}</div>` : ''}
+                        </div>
+                        ${explanationHtml}
+                    `;
+                    reviewContainer.appendChild(item);
+                });
+
+                if (window.MathJax) {
+                    MathJax.typesetPromise([document.getElementById("review-container")]);
+                }
+
             } else {
                 alert("Failed to save results: " + data.error);
                 window.location.href = "dashboard.html";
