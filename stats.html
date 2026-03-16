@@ -4,27 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detailed Stats - Grade 12 Quiz Platform</title>
+    <!-- Load MathJax for rendering math formulas -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; }
-        header { background: #007bff; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-        nav a { color: white; margin-left: 1rem; text-decoration: none; }
-        nav a:hover { text-decoration: underline; }
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-yellow: #f59e0b;
+            --accent-red: #ef4444;
+            --border-color: #334155;
+            --header-bg: #0b1120;
+            --table-hover: #1e293b;
+        }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-dark); color: var(--text-main); }
+
+        /* Compact Header / Nav */
+        header { background: var(--header-bg); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
+        header h2 { margin: 0; font-size: 1.5rem; color: var(--text-main); }
+        nav { display: flex; gap: 1.5rem; align-items: center; }
+        nav a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        nav a:hover, nav a.active { color: var(--accent-blue); }
+
+        /* Responsive Nav */
+        @media (max-width: 768px) {
+            header { flex-direction: column; padding: 1rem; gap: 1rem; }
+            nav { width: 100%; justify-content: center; flex-wrap: wrap; gap: 1rem; }
+        }
+
         .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+        h2 { margin-bottom: 1.5rem; font-weight: 600; color: var(--text-main); }
 
-        .stat-group { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 2rem; }
-        .stat-group h3 { border-bottom: 2px solid #eee; padding-bottom: 0.5rem; color: #555; }
+        .stat-group { background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 2rem; overflow-x: auto; }
+        .stat-group h3 { border-bottom: 1px solid var(--border-color); padding-bottom: 0.8rem; margin-top: 0; margin-bottom: 1rem; color: var(--text-main); font-weight: 600; }
 
-        .table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
-        .table th, .table td { padding: 0.75rem; text-align: left; border-bottom: 1px solid #ddd; }
-        .table th { background-color: #f8f9fa; font-weight: bold; }
+        .table { width: 100%; border-collapse: collapse; min-width: 600px; }
+        .table th, .table td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--border-color); color: var(--text-main); }
+        .table th { background-color: rgba(0,0,0,0.2); font-weight: 600; color: var(--text-muted); }
+        .table tr:last-child td { border-bottom: none; }
+        .table tr:hover td { background-color: rgba(255,255,255,0.02); }
 
-        #loading { text-align: center; font-size: 1.2rem; margin-top: 3rem; }
+        #loading { text-align: center; font-size: 1.2rem; margin-top: 3rem; color: var(--text-muted); }
         #stats-content { display: none; }
 
-        .badge { display: inline-block; padding: 0.25rem 0.5rem; font-size: 0.85rem; font-weight: 700; color: #fff; background-color: #6c757d; border-radius: 0.25rem; }
-        .bg-success { background-color: #28a745; }
-        .bg-danger { background-color: #dc3545; }
-        .bg-warning { background-color: #ffc107; color: #212529; }
+        .badge { display: inline-block; padding: 0.35rem 0.6rem; font-size: 0.85rem; font-weight: 600; color: #fff; border-radius: 6px; }
+        .bg-success { background-color: rgba(16, 185, 129, 0.2); color: var(--accent-green); border: 1px solid rgba(16, 185, 129, 0.5); }
+        .bg-danger { background-color: rgba(239, 68, 68, 0.2); color: var(--accent-red); border: 1px solid rgba(239, 68, 68, 0.5); }
+        .bg-warning { background-color: rgba(245, 158, 11, 0.2); color: var(--accent-yellow); border: 1px solid rgba(245, 158, 11, 0.5); }
     </style>
 </head>
 <body>

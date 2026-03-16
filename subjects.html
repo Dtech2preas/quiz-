@@ -5,17 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Select Subject - Grade 12 Quiz Platform</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; }
-        header { background: #007bff; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-        nav a { color: white; margin-left: 1rem; text-decoration: none; }
-        nav a:hover { text-decoration: underline; }
-        .container { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
-        .subject-btn { padding: 1.5rem; background: #28a745; color: white; font-size: 1.5rem; border: none; border-radius: 8px; cursor: pointer; display: block; width: 100%; margin-bottom: 1rem; text-align: center; }
-        .subject-btn:hover { background: #218838; }
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-cyan: #06b6d4;
+            --border-color: #334155;
+            --header-bg: #0b1120;
+            --topic-btn-bg: #334155;
+            --topic-btn-hover: #475569;
+        }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-dark); color: var(--text-main); }
 
-        .topic-list { display: none; background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-top: 1rem; }
-        .topic-btn { padding: 1rem; background: #e2e3e5; color: #383d41; border: none; border-radius: 4px; cursor: pointer; display: block; width: 100%; margin-bottom: 0.5rem; text-align: left; font-size: 1.1rem; }
-        .topic-btn:hover { background: #d6d8db; }
+        /* Compact Header / Nav */
+        header { background: var(--header-bg); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
+        header h2 { margin: 0; font-size: 1.5rem; color: var(--text-main); }
+        nav { display: flex; gap: 1.5rem; align-items: center; }
+        nav a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        nav a:hover, nav a.active { color: var(--accent-blue); }
+
+        /* Responsive Nav */
+        @media (max-width: 768px) {
+            header { flex-direction: column; padding: 1rem; gap: 1rem; }
+            nav { width: 100%; justify-content: center; flex-wrap: wrap; gap: 1rem; }
+        }
+
+        .container { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+        h2 { font-weight: 600; color: var(--text-main); margin-bottom: 1.5rem; }
+
+        .subject-btn { padding: 1.5rem; background: var(--accent-green); color: white; font-size: 1.5rem; border: none; border-radius: 12px; cursor: pointer; display: block; width: 100%; margin-bottom: 1.5rem; text-align: center; font-weight: 600; transition: background-color 0.2s, transform 0.1s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .subject-btn:hover { background: #059669; transform: translateY(-2px); }
+        .subject-btn:active { transform: translateY(0); }
+
+        /* Specific subject button override */
+        .subject-btn.physics { background-color: var(--accent-cyan); }
+        .subject-btn.physics:hover { background-color: #0891b2; }
+
+        .topic-list { display: none; background: var(--bg-card); padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-top: -0.5rem; margin-bottom: 2.5rem; border: 1px solid var(--border-color); }
+
+        /* Grid layout for topics on larger screens */
+        @media (min-width: 600px) {
+            .topic-list-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+            .topic-btn { margin-bottom: 0 !important; }
+        }
+
+        .topic-btn { padding: 1.2rem; background: var(--topic-btn-bg); color: var(--text-main); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; display: block; width: 100%; margin-bottom: 0.8rem; text-align: left; font-size: 1.05rem; transition: background-color 0.2s; font-weight: 500; }
+        .topic-btn:hover { background: var(--topic-btn-hover); }
     </style>
 </head>
 <body>
@@ -34,31 +72,35 @@
 
     <button class="subject-btn" onclick="showTopics('mathematics')">Mathematics</button>
     <div id="topics-mathematics" class="topic-list">
-        <button class="topic-btn" onclick="startQuiz('mathematics', 'paper1_algebra.json')">Paper 1: Algebra</button>
-        <button class="topic-btn" onclick="startQuiz('mathematics', 'paper1_calculus.json')">Paper 1: Calculus</button>
-        <button class="topic-btn" onclick="startQuiz('mathematics', 'paper1_finance.json')">Paper 1: Finance</button>
-        <button class="topic-btn" onclick="startQuiz('mathematics', 'paper1_functions.json')">Paper 1: Functions</button>
-        <button class="topic-btn" onclick="startQuiz('mathematics', 'paper1_probability.json')">Paper 1: Probability</button>
-        <button class="topic-btn" onclick="startQuiz('mathematics', 'paper1_sequences.json')">Paper 1: Sequences</button>
-        <button class="topic-btn" onclick="startQuiz('mathematics', 'paper2_analytical_geometry.json')">Paper 2: Analytical Geometry</button>
-        <button class="topic-btn" onclick="startQuiz('mathematics', 'paper2_geometry.json')">Paper 2: Euclidean Geometry</button>
-        <button class="topic-btn" onclick="startQuiz('mathematics', 'paper2_statistics.json')">Paper 2: Statistics</button>
-        <button class="topic-btn" onclick="startQuiz('mathematics', 'paper2_trigonometry.json')">Paper 2: Trigonometry</button>
+        <div class="topic-list-grid">
+            <button class="topic-btn" onclick="startQuiz('mathematics', 'paper1_algebra.json')">Paper 1: Algebra</button>
+            <button class="topic-btn" onclick="startQuiz('mathematics', 'paper1_calculus.json')">Paper 1: Calculus</button>
+            <button class="topic-btn" onclick="startQuiz('mathematics', 'paper1_finance.json')">Paper 1: Finance</button>
+            <button class="topic-btn" onclick="startQuiz('mathematics', 'paper1_functions.json')">Paper 1: Functions</button>
+            <button class="topic-btn" onclick="startQuiz('mathematics', 'paper1_probability.json')">Paper 1: Probability</button>
+            <button class="topic-btn" onclick="startQuiz('mathematics', 'paper1_sequences.json')">Paper 1: Sequences</button>
+            <button class="topic-btn" onclick="startQuiz('mathematics', 'paper2_analytical_geometry.json')">Paper 2: Analytical Geometry</button>
+            <button class="topic-btn" onclick="startQuiz('mathematics', 'paper2_geometry.json')">Paper 2: Euclidean Geometry</button>
+            <button class="topic-btn" onclick="startQuiz('mathematics', 'paper2_statistics.json')">Paper 2: Statistics</button>
+            <button class="topic-btn" onclick="startQuiz('mathematics', 'paper2_trigonometry.json')">Paper 2: Trigonometry</button>
+        </div>
     </div>
 
-    <button class="subject-btn" onclick="showTopics('physics')" style="background-color: #17a2b8;">Physical Sciences</button>
+    <button class="subject-btn physics" onclick="showTopics('physics')">Physical Sciences</button>
     <div id="topics-physics" class="topic-list">
-        <button class="topic-btn" onclick="startQuiz('physics', 'paper1_circular_motion.json')">Paper 1: Circular Motion</button>
-        <button class="topic-btn" onclick="startQuiz('physics', 'paper1_mechanics.json')">Paper 1: Mechanics</button>
-        <button class="topic-btn" onclick="startQuiz('physics', 'paper1_oscillations_waves.json')">Paper 1: Oscillations & Waves</button>
-        <button class="topic-btn" onclick="startQuiz('physics', 'paper1_thermal_physics.json')">Paper 1: Thermal Physics</button>
-        <button class="topic-btn" onclick="startQuiz('physics', 'paper1_work_energy_power.json')">Paper 1: Work, Energy & Power</button>
-        <button class="topic-btn" onclick="startQuiz('physics', 'paper2_acids_bases.json')">Paper 2: Acids & Bases</button>
-        <button class="topic-btn" onclick="startQuiz('physics', 'paper2_atomic_nuclear.json')">Paper 2: Atomic & Nuclear</button>
-        <button class="topic-btn" onclick="startQuiz('physics', 'paper2_bonding_structure.json')">Paper 2: Bonding & Structure</button>
-        <button class="topic-btn" onclick="startQuiz('physics', 'paper2_electrochemistry.json')">Paper 2: Electrochemistry</button>
-        <button class="topic-btn" onclick="startQuiz('physics', 'paper2_kinetics_equilibrium.json')">Paper 2: Kinetics & Equilibrium</button>
-        <button class="topic-btn" onclick="startQuiz('physics', 'paper2_stoichiometry.json')">Paper 2: Stoichiometry</button>
+        <div class="topic-list-grid">
+            <button class="topic-btn" onclick="startQuiz('physics', 'paper1_circular_motion.json')">Paper 1: Circular Motion</button>
+            <button class="topic-btn" onclick="startQuiz('physics', 'paper1_mechanics.json')">Paper 1: Mechanics</button>
+            <button class="topic-btn" onclick="startQuiz('physics', 'paper1_oscillations_waves.json')">Paper 1: Oscillations & Waves</button>
+            <button class="topic-btn" onclick="startQuiz('physics', 'paper1_thermal_physics.json')">Paper 1: Thermal Physics</button>
+            <button class="topic-btn" onclick="startQuiz('physics', 'paper1_work_energy_power.json')">Paper 1: Work, Energy & Power</button>
+            <button class="topic-btn" onclick="startQuiz('physics', 'paper2_acids_bases.json')">Paper 2: Acids & Bases</button>
+            <button class="topic-btn" onclick="startQuiz('physics', 'paper2_atomic_nuclear.json')">Paper 2: Atomic & Nuclear</button>
+            <button class="topic-btn" onclick="startQuiz('physics', 'paper2_bonding_structure.json')">Paper 2: Bonding & Structure</button>
+            <button class="topic-btn" onclick="startQuiz('physics', 'paper2_electrochemistry.json')">Paper 2: Electrochemistry</button>
+            <button class="topic-btn" onclick="startQuiz('physics', 'paper2_kinetics_equilibrium.json')">Paper 2: Kinetics & Equilibrium</button>
+            <button class="topic-btn" onclick="startQuiz('physics', 'paper2_stoichiometry.json')">Paper 2: Stoichiometry</button>
+        </div>
     </div>
 
 </div>
