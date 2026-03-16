@@ -264,78 +264,45 @@ document.getElementById("loading").innerText="Failed to load profile";
 }
 
 
-document.getElementById("avatarInput").addEventListener("change",async(e)=>{
+document.getElementById("avatarInput").addEventListener("change", async (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
 
-const file=e.target.files[0];
+  const msg = document.getElementById("avatar-msg");
+  msg.innerText = "Uploading...";
 
-if(!file)return;
+  try {
+    const formData = new FormData();
+    formData.append("image", file);
 
-if(file.size>5*1024*1024){
+    const res = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_KEY}`, {
+      method: "POST",
+      body: formData
+    });
 
-showMessage("Image must be under 5MB",true);
+    const data = await res.json();
 
-return;
+    if (!data.success) {
+      throw new Error(data.error?.message || "Upload failed");
+    }
 
-}
+    const imageURL = data.data.url;
+    document.getElementById("avatar-preview").src = imageURL;
+    msg.innerText = "Avatar uploaded";
 
-const msg=document.getElementById("avatar-msg");
-
-msg.innerText="Uploading...";
-
-try{
-
-const formData=new FormData();
-
-formData.append("image",file);
-
-const res=await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_KEY}`,{
-
-method:"POST",
-
-body:formData
-
-});
-
-const data=await res.json();
-
-if(!data.success){
-
-throw new Error(data.error?.message)
-
-}
-
-const imageURL=data.data.url;
-
-document.getElementById("avatar-preview").src=imageURL;
-
-msg.innerText="Avatar uploaded";
-
-await fetch(`${API_URL}/api/user/${userId}/avatar`,{
-
-method:"PUT",
-
-headers:{
-
-"Content-Type":"application/json"
-
-},
-
-body:JSON.stringify({
-
-avatar_url:imageURL
-
-})
-
-})
-
-}catch(err){
-
-console.error(err);
-
-msg.innerText="Upload failed";
-
-}
-
+    await fetch(`${API_URL}/api/user/${userId}/avatar`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        avatar_url: imageURL
+      })
+    });
+  } catch (err) {
+    console.error(err);
+    msg.innerText = "Upload failed";
+  }
 });
 
 
