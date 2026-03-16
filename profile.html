@@ -4,218 +4,421 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Profile Settings - Quiz Platform</title>
+
 <style>
-:root {
-    --bg-dark: #0f172a;
-    --bg-card: #1e293b;
-    --text-main: #f8fafc;
-    --text-muted: #94a3b8;
-    --accent-blue: #3b82f6;
-    --accent-hover: #2563eb;
-    --input-bg: #0f172a;
-    --border-color: #334155;
-    --header-bg: #0b1120;
+
+:root{
+--bg-dark:#0f172a;
+--bg-card:#1e293b;
+--text-main:#f8fafc;
+--text-muted:#94a3b8;
+--accent-blue:#3b82f6;
+--accent-hover:#2563eb;
+--input-bg:#0f172a;
+--border-color:#334155;
+--header-bg:#0b1120;
 }
-body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-dark); color: var(--text-main); }
-header { background: var(--header-bg); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
-header h2 { margin: 0; font-size: 1.5rem; color: var(--text-main); }
-nav { display: flex; gap: 1.5rem; align-items: center; }
-nav a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
-nav a:hover { color: var(--accent-blue); }
-@media (max-width: 768px) {
-    header { flex-direction: column; padding: 1rem; gap: 1rem; }
-    nav { width: 100%; justify-content: center; flex-wrap: wrap; gap: 1rem; }
+
+body{
+font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+margin:0;
+padding:0;
+background:var(--bg-dark);
+color:var(--text-main);
 }
-.container { max-width: 600px; margin: 2rem auto; padding: 2rem; background: var(--bg-card); border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-h1 { margin-top: 0; margin-bottom: 1.5rem; color: var(--text-main); font-size: 1.8rem; text-align: center; }
-.avatar-section { display: flex; flex-direction: column; align-items: center; margin-bottom: 2rem; }
-.avatar-preview { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; background-color: var(--bg-dark); border: 2px solid var(--border-color); margin-bottom: 1rem; }
-.avatar-upload-btn { background: var(--border-color); color: var(--text-main); padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-size: 0.9rem; transition: background-color 0.2s; }
-.avatar-upload-btn:hover { background: var(--text-muted); }
-input[type="file"] { display: none; }
-form { display: flex; flex-direction: column; gap: 1.2rem; }
-.form-group { display: flex; flex-direction: column; gap: 0.5rem; }
-label { font-weight: 500; color: var(--text-muted); font-size: 0.95rem; }
-input[type="text"], input[type="password"] { width: 100%; padding: 12px; background: var(--input-bg); border: 1px solid var(--border-color); border-radius: 6px; box-sizing: border-box; color: var(--text-main); font-size: 1rem; transition: border-color 0.2s; }
-input:focus { outline: none; border-color: var(--accent-blue); }
-button[type="submit"] { padding: 12px; background: var(--accent-blue); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 1.1rem; font-weight: 500; transition: background-color 0.2s; margin-top: 1rem; }
-button[type="submit"]:hover { background: var(--accent-hover); }
-button:disabled { opacity: 0.7; cursor: not-allowed; }
-.message { margin-top: 1rem; padding: 1rem; border-radius: 6px; display: none; text-align: center; }
-.message.success { background: rgba(16, 185, 129, 0.1); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.2); }
-.message.error { background: rgba(239, 68, 68, 0.1); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.2); }
-#loading { text-align: center; font-size: 1.2rem; margin-top: 3rem; color: var(--text-muted); }
-#profile-content { display: none; }
+
+header{
+background:var(--header-bg);
+padding:1rem 2rem;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid var(--border-color);
+position:sticky;
+top:0;
+z-index:100;
+}
+
+header h2{margin:0}
+
+nav{display:flex;gap:1.5rem}
+
+nav a{
+color:var(--text-muted);
+text-decoration:none;
+font-weight:500;
+}
+
+nav a:hover{color:var(--accent-blue)}
+
+.container{
+max-width:600px;
+margin:2rem auto;
+padding:2rem;
+background:var(--bg-card);
+border-radius:12px;
+border:1px solid var(--border-color);
+}
+
+h1{text-align:center}
+
+.avatar-section{
+display:flex;
+flex-direction:column;
+align-items:center;
+margin-bottom:2rem;
+}
+
+.avatar-preview{
+width:120px;
+height:120px;
+border-radius:50%;
+object-fit:cover;
+border:2px solid var(--border-color);
+margin-bottom:1rem;
+}
+
+.avatar-upload-btn{
+background:var(--border-color);
+padding:8px 14px;
+border-radius:6px;
+cursor:pointer;
+}
+
+.avatar-upload-btn:hover{
+background:var(--text-muted);
+}
+
+input[type=file]{display:none}
+
+form{
+display:flex;
+flex-direction:column;
+gap:1rem;
+}
+
+input{
+padding:12px;
+background:var(--input-bg);
+border:1px solid var(--border-color);
+border-radius:6px;
+color:white;
+}
+
+button{
+padding:12px;
+background:var(--accent-blue);
+border:none;
+border-radius:6px;
+cursor:pointer;
+color:white;
+font-size:1rem;
+}
+
+button:hover{background:var(--accent-hover)}
+
+.message{
+margin-top:1rem;
+padding:10px;
+border-radius:6px;
+display:none;
+text-align:center;
+}
+
+.message.success{
+background:#064e3b;
+color:#34d399;
+}
+
+.message.error{
+background:#450a0a;
+color:#f87171;
+}
+
+#loading{
+text-align:center;
+margin-top:3rem;
+color:var(--text-muted);
+}
+
+#profile-content{display:none}
+
 </style>
 </head>
+
 <body>
 
 <header>
-    <div><h2 style="margin:0;">Settings</h2></div>
-    <nav>
-        <a href="dashboard.html">Dashboard</a>
-        <a href="subjects.html">Take a Quiz</a>
-        <a href="leaderboard.html">Leaderboards</a>
-    </nav>
+<h2>Settings</h2>
+
+<nav>
+<a href="dashboard.html">Dashboard</a>
+<a href="subjects.html">Take Quiz</a>
+<a href="leaderboard.html">Leaderboards</a>
+</nav>
+
 </header>
 
 <div id="loading">Loading profile...</div>
 
 <div class="container" id="profile-content">
-    <h1>Edit Profile</h1>
 
-    <div class="avatar-section">
-        <img id="avatar-preview" class="avatar-preview" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzk0YTNiOCI+PHBhdGggZD0iTTEyIDEyYzIuMjEgMCA0LTEuNzkgNC00cy0xLjc5LTQtNC00LTQgMS43OS00IDRzMS43OSA0IDQgNHptMCAyYy0yLjY3IDAtOCAxLjM0LTggNHYyaDE2di0yYzAtMi42Ni01LjMzLTQtOC00eiIvPjwvc3ZnPg==" alt="Avatar Preview">
-        <label for="avatarInput" class="avatar-upload-btn" id="uploadBtnLabel">Change Avatar</label>
-        <input type="file" id="avatarInput" accept="image/png, image/jpeg, image/jpg, image/webp">
-        <div id="avatar-msg" style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-muted);"></div>
-    </div>
+<h1>Edit Profile</h1>
 
-    <form id="profileForm">
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" required>
-        </div>
-        <div class="form-group">
-            <label for="name">First Name</label>
-            <input type="text" id="name">
-        </div>
-        <div class="form-group">
-            <label for="surname">Surname</label>
-            <input type="text" id="surname">
-        </div>
-        <div class="form-group">
-            <label for="password">New Password (leave blank to keep current)</label>
-            <input type="password" id="password" placeholder="Min 8 chars, 1 capital, 1 number">
-        </div>
+<div class="avatar-section">
 
-        <button type="submit" id="saveBtn">Save Changes</button>
-    </form>
+<img id="avatar-preview" class="avatar-preview"
+src="https://via.placeholder.com/120">
 
-    <div id="statusMessage" class="message"></div>
+<label for="avatarInput" class="avatar-upload-btn" id="uploadBtnLabel">
+Change Avatar
+</label>
+
+<input type="file" id="avatarInput"
+accept="image/png,image/jpeg,image/webp">
+
+<div id="avatar-msg"></div>
+
+</div>
+
+<form id="profileForm">
+
+<input type="text" id="username" placeholder="Username" required>
+
+<input type="text" id="name" placeholder="First Name">
+
+<input type="text" id="surname" placeholder="Surname">
+
+<input type="password" id="password"
+placeholder="New Password (optional)">
+
+<button type="submit" id="saveBtn">
+Save Changes
+</button>
+
+</form>
+
+<div id="statusMessage" class="message"></div>
+
 </div>
 
 <script>
-const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
-const IMGBB_KEY = "cedf418c6d844af9c47a7775a17161a6"; // <-- your ImgBB key
-const userId = localStorage.getItem("user_id");
 
-if (!userId) { window.location.href = "index.html"; }
+const API_URL="https://billowing-hall-4748.nakiaklocko57.workers.dev";
+const IMGBB_KEY="cedf418c6d844af9c47a7775a17161a6";
 
-function showMessage(msg, isError = false) {
-    const msgEl = document.getElementById("statusMessage");
-    msgEl.textContent = msg;
-    msgEl.className = "message " + (isError ? "error" : "success");
-    msgEl.style.display = "block";
-    setTimeout(() => msgEl.style.display = "none", 5000);
+const userId=localStorage.getItem("user_id");
+
+if(!userId){
+window.location.href="index.html";
 }
 
-async function loadProfile() {
-    try {
-        const response = await fetch(`${API_URL}/api/user/${userId}`);
-        if (!response.ok) throw new Error("Failed to load profile");
-        const data = await response.json();
-        document.getElementById("username").value = data.username || "";
-        document.getElementById("name").value = data.name || "";
-        document.getElementById("surname").value = data.surname || "";
-        if (data.avatar_url) {
-            document.getElementById("avatar-preview").src = data.avatar_url;
-        }
-        document.getElementById("loading").style.display = "none";
-        document.getElementById("profile-content").style.display = "block";
-    } catch (error) {
-        document.getElementById("loading").textContent = "Error loading profile. Please refresh.";
-    }
+function showMessage(msg,isError=false){
+
+const el=document.getElementById("statusMessage");
+
+el.textContent=msg;
+
+el.className="message "+(isError?"error":"success");
+
+el.style.display="block";
+
+setTimeout(()=>{
+
+el.style.display="none"
+
+},5000)
+
 }
 
-// Avatar Upload using ImgBB
-document.getElementById("avatarInput").addEventListener("change", async (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-    if (file.size > 5 * 1024 * 1024) { showMessage("Image must be smaller than 5MB", true); return; }
+async function loadProfile(){
 
-    const msgEl = document.getElementById("avatar-msg");
-    msgEl.textContent = "Uploading...";
-    document.getElementById("uploadBtnLabel").style.pointerEvents = "none";
-    document.getElementById("uploadBtnLabel").style.opacity = "0.5";
+try{
 
-    try {
-        const formData = new FormData();
-        formData.append("image", file);
+const res=await fetch(`${API_URL}/api/user/${userId}`);
 
-        const uploadResponse = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_KEY}`, {
-            method: "POST",
-            body: formData
-        });
+const data=await res.json();
 
-        if (!uploadResponse.ok) throw new Error("Failed to upload to ImgBB");
+document.getElementById("username").value=data.username||"";
 
-        const data = await uploadResponse.json();
-        if (!data.success) throw new Error("ImgBB upload failed: " + (data.error ? data.error.message : "Unknown error"));
+document.getElementById("name").value=data.name||"";
 
-        const imageURL = data.data.url;
+document.getElementById("surname").value=data.surname||"";
 
-        const saveResponse = await fetch(`${API_URL}/api/user/${userId}/avatar`, {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ avatar_url: imageURL })
-        });
+if(data.avatar_url){
 
-        if (!saveResponse.ok) {
-            const errData = await saveResponse.json();
-            throw new Error(errData.error || "Failed to save avatar URL");
-        }
+document.getElementById("avatar-preview").src=data.avatar_url
 
-        document.getElementById("avatar-preview").src = imageURL;
-        msgEl.textContent = "Avatar updated successfully!";
-        msgEl.style.color = "#10b981";
+}
 
-    } catch (err) {
-        console.error(err);
-        msgEl.textContent = "Error uploading avatar.";
-        msgEl.style.color = "#ef4444";
-    } finally {
-        document.getElementById("uploadBtnLabel").style.pointerEvents = "auto";
-        document.getElementById("uploadBtnLabel").style.opacity = "1";
-        e.target.value = "";
-    }
+document.getElementById("loading").style.display="none";
+
+document.getElementById("profile-content").style.display="block";
+
+}catch(e){
+
+document.getElementById("loading").innerText="Failed to load profile";
+
+}
+
+}
+
+
+document.getElementById("avatarInput").addEventListener("change",(e)=>{
+
+const file=e.target.files[0];
+
+if(!file)return;
+
+if(file.size>5*1024*1024){
+
+showMessage("Image must be under 5MB",true);
+
+return;
+
+}
+
+const reader=new FileReader();
+
+reader.onload=async function(){
+
+const base64=reader.result.split(",")[1];
+
+const msg=document.getElementById("avatar-msg");
+
+msg.innerText="Uploading...";
+
+try{
+
+const formData=new FormData();
+
+formData.append("image",base64);
+
+const res=await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_KEY}`,{
+
+method:"POST",
+
+body:formData
+
 });
 
-// Profile Update
-document.getElementById("profileForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const btn = document.getElementById("saveBtn");
-    btn.disabled = true; btn.textContent = "Saving...";
+const data=await res.json();
 
-    const payload = {
-        username: document.getElementById("username").value,
-        name: document.getElementById("name").value,
-        surname: document.getElementById("surname").value
-    };
-    const password = document.getElementById("password").value;
-    if (password) payload.password = password;
+if(!data.success){
 
-    try {
-        const response = await fetch(`${API_URL}/api/user/${userId}/profile`, {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload)
-        });
-        const data = await response.json();
-        if (response.ok) {
-            showMessage("Profile updated successfully!");
-            document.getElementById("password").value = "";
-        } else {
-            showMessage(data.error || "Failed to update profile", true);
-        }
-    } catch (err) {
-        showMessage("An error occurred. Please try again.", true);
-    } finally {
-        btn.disabled = false; btn.textContent = "Save Changes";
-    }
+throw new Error(data.error?.message)
+
+}
+
+const imageURL=data.data.url;
+
+document.getElementById("avatar-preview").src=imageURL;
+
+msg.innerText="Avatar uploaded";
+
+await fetch(`${API_URL}/api/user/${userId}/avatar`,{
+
+method:"PUT",
+
+headers:{
+
+"Content-Type":"application/json"
+
+},
+
+body:JSON.stringify({
+
+avatar_url:imageURL
+
+})
+
+})
+
+}catch(err){
+
+console.error(err);
+
+msg.innerText="Upload failed";
+
+}
+
+};
+
+reader.readAsDataURL(file);
+
+});
+
+
+document.getElementById("profileForm").addEventListener("submit",async(e)=>{
+
+e.preventDefault();
+
+const btn=document.getElementById("saveBtn");
+
+btn.disabled=true;
+
+btn.innerText="Saving...";
+
+const payload={
+
+username:username.value,
+
+name:name.value,
+
+surname:surname.value
+
+};
+
+if(password.value){
+
+payload.password=password.value;
+
+}
+
+try{
+
+const res=await fetch(`${API_URL}/api/user/${userId}/profile`,{
+
+method:"PUT",
+
+headers:{
+
+"Content-Type":"application/json"
+
+},
+
+body:JSON.stringify(payload)
+
+});
+
+const data=await res.json();
+
+if(res.ok){
+
+showMessage("Profile updated");
+
+password.value="";
+
+}else{
+
+showMessage(data.error,true)
+
+}
+
+}catch{
+
+showMessage("Update failed",true)
+
+}
+
+btn.disabled=false;
+
+btn.innerText="Save Changes";
+
 });
 
 loadProfile();
+
 </script>
 
 </body>
