@@ -24,7 +24,7 @@ export default {
         return await handleGetUser(request, env, path);
       }
       if (request.method === "POST" && path === "/api/submit-quiz") {
-        return await handleSubmitQuiz(request, env);
+        return await handleSubmitQuiz(request, env, ctx);
       }
       if (request.method === "GET" && path === "/api/leaderboard") {
         return await handleGetLeaderboards(request, env);
@@ -179,7 +179,7 @@ async function handleGetUser(request, env, path) {
   return jsonResponse(userData);
 }
 
-async function handleSubmitQuiz(request, env) {
+async function handleSubmitQuiz(request, env, ctx) {
   const body = await request.json();
   const { user_id, subject, topic, total_questions, correct_answers } = body;
 
