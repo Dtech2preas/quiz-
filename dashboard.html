@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Grade 12 Quiz Platform</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; }
+        header { background: #007bff; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        nav a { color: white; margin-left: 1rem; text-decoration: none; }
+        nav a:hover { text-decoration: underline; }
+        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+        .stat-card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center; }
+        .stat-card h3 { margin: 0 0 0.5rem 0; font-size: 1.2rem; color: #666; }
+        .stat-card p { margin: 0; font-size: 2rem; font-weight: bold; color: #007bff; }
+
+        .section-title { font-size: 1.5rem; border-bottom: 2px solid #ddd; padding-bottom: 0.5rem; margin-bottom: 1rem; }
+
+        .progress-list { background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 2rem; }
+        .progress-item { margin-bottom: 1rem; }
+        .progress-header { display: flex; justify-content: space-between; margin-bottom: 0.3rem; }
+        .progress-bar-container { width: 100%; background-color: #e0e0e0; border-radius: 4px; height: 10px; overflow: hidden; }
+        .progress-bar { height: 100%; background-color: #28a745; }
+
+        .weak-topics { background: #fff3f3; padding: 1rem; border-radius: 8px; border: 1px solid #ffcaca; }
+        .weak-topic-item { padding: 0.5rem; border-bottom: 1px solid #ffcaca; display: flex; justify-content: space-between; }
+        .weak-topic-item:last-child { border-bottom: none; }
+
+        .ranks-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem; }
+        .rank-card { background: white; padding: 1rem; border-radius: 8px; text-align: center; border: 1px solid #ddd; }
+
+        #loading { text-align: center; font-size: 1.2rem; margin-top: 3rem; }
+        #dashboard-content { display: none; }
+        .btn-logout { background: transparent; border: 1px solid white; color: white; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; }
+        .btn-logout:hover { background: rgba(255,255,255,0.1); }
+    </style>
+</head>
+<body>
+
+<header>
+    <div>
+        <h2 style="margin:0;">Dashboard</h2>
+    </div>
+    <nav>
+        <a href="subjects.html">Take a Quiz</a>
+        <a href="leaderboard.html">Leaderboards</a>
+        <a href="stats.html">Detailed Stats</a>
+        <button id="logoutBtn" class="btn-logout" style="margin-left: 1rem;">Logout</button>
+    </nav>
+</header>
+
+<div id="loading">Loading dashboard...</div>
+
+<div class="container" id="dashboard-content">
+    <h2 id="welcome-message">Welcome, User!</h2>
+
+    <div class="ranks-grid">
+        <div class="rank-card">
+            <h4>Your Rank in SA</h4>
+            <p style="font-size: 1.5rem; font-weight: bold; margin:0;" id="rank-sa">-</p>
+        </div>
+        <div class="rank-card">
+            <h4>Rank in Mathematics</h4>
+            <p style="font-size: 1.5rem; font-weight: bold; margin:0;" id="rank-math">-</p>
+        </div>
+        <div class="rank-card">
+            <h4>Rank in Physical Sciences</h4>
+            <p style="font-size: 1.5rem; font-weight: bold; margin:0;" id="rank-physics">-</p>
+        </div>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h3>Accuracy %</h3>
+            <p id="stat-accuracy">0%</p>
+        </div>
+        <div class="stat-card">
+            <h3>Study Streak</h3>
+            <p id="stat-streak">0 days</p>
+        </div>
+        <div class="stat-card">
+            <h3>Total XP</h3>
+            <p id="stat-xp">0</p>
+        </div>
+        <div class="stat-card">
+            <h3>Questions Answered</h3>
+            <p id="stat-questions">0</p>
+        </div>
+    </div>
+
+    <h3 class="section-title">Topic Mastery</h3>
+    <div class="progress-list" id="topic-mastery-list">
+        <p>Complete quizzes to see your mastery progress.</p>
+    </div>
+
+    <h3 class="section-title">Weak Topics (< 60% accuracy)</h3>
+    <div class="weak-topics" id="weak-topics-list">
+        <p>No weak topics yet. Keep up the good work!</p>
+    </div>
+</div>
+
+<script>
+    const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
+    const userId = localStorage.getItem("user_id");
+
+    if (!userId) {
+        window.location.href = "index.html";
+    }
+
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+        localStorage.removeItem("user_id");
+        window.location.href = "index.html";
+    });
+
+    async function loadDashboard() {
+        try {
+            const response = await fetch(`${API_URL}/api/user/${userId}`);
+
+            if (response.status === 401 || response.status === 404) {
+                localStorage.removeItem("user_id");
+                window.location.href = "index.html";
+                return;
+            }
+
+            const data = await response.json();
+
+            document.getElementById("welcome-message").textContent = `Welcome, ${data.username}!`;
+            document.getElementById("stat-accuracy").textContent = `${data.accuracy_percentage || 0}%`;
+            document.getElementById("stat-streak").textContent = `${data.study_streak_days || 0} days`;
+            document.getElementById("stat-xp").textContent = data.total_xp || 0;
+            document.getElementById("stat-questions").textContent = data.questions_answered || 0;
+
+            document.getElementById("rank-sa").textContent = data.ranks?.overall !== "-" ? `#${data.ranks.overall}` : "-";
+            document.getElementById("rank-math").textContent = data.ranks?.math !== "-" ? `#${data.ranks.math}` : "-";
+            document.getElementById("rank-physics").textContent = data.ranks?.physics !== "-" ? `#${data.ranks.physics}` : "-";
+
+            // Process topics
+            const topicMasteryList = document.getElementById("topic-mastery-list");
+            const weakTopicsList = document.getElementById("weak-topics-list");
+
+            if (data.topic_accuracy && Object.keys(data.topic_accuracy).length > 0) {
+                topicMasteryList.innerHTML = "";
+                let weakTopicsHtml = "";
+                let hasWeak = false;
+
+                for (const [topic, stats] of Object.entries(data.topic_accuracy)) {
+                    const accuracy = stats.total > 0 ? Math.round((stats.correct / stats.total) * 100) : 0;
+
+                    // Format topic name beautifully
+                    const formattedTopic = topic.replace('paper1_', '').replace('paper2_', '').replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+
+                    // Mastery list
+                    const progressBarHtml = `
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span>${formattedTopic}</span>
+                                <span>${accuracy}%</span>
+                            </div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" style="width: ${accuracy}%; background-color: ${accuracy < 60 ? '#dc3545' : '#28a745'};"></div>
+                            </div>
+                        </div>
+                    `;
+                    topicMasteryList.innerHTML += progressBarHtml;
+
+                    // Weak topics
+                    if (accuracy < 60) {
+                        hasWeak = true;
+                        weakTopicsHtml += `
+                            <div class="weak-topic-item">
+                                <span>${formattedTopic}</span>
+                                <strong>${accuracy}%</strong>
+                            </div>
+                        `;
+                    }
+                }
+
+                if (hasWeak) {
+                    weakTopicsList.innerHTML = weakTopicsHtml;
+                }
+            }
+
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("dashboard-content").style.display = "block";
+
+        } catch (error) {
+            console.error("Error fetching user data:", error);
+            document.getElementById("loading").textContent = "Error loading dashboard. Please refresh.";
+        }
+    }
+
+    loadDashboard();
+</script>
+
+</body>
+</html>

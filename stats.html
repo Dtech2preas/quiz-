@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detailed Stats - Grade 12 Quiz Platform</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; }
+        header { background: #007bff; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        nav a { color: white; margin-left: 1rem; text-decoration: none; }
+        nav a:hover { text-decoration: underline; }
+        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+
+        .stat-group { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 2rem; }
+        .stat-group h3 { border-bottom: 2px solid #eee; padding-bottom: 0.5rem; color: #555; }
+
+        .table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        .table th, .table td { padding: 0.75rem; text-align: left; border-bottom: 1px solid #ddd; }
+        .table th { background-color: #f8f9fa; font-weight: bold; }
+
+        #loading { text-align: center; font-size: 1.2rem; margin-top: 3rem; }
+        #stats-content { display: none; }
+
+        .badge { display: inline-block; padding: 0.25rem 0.5rem; font-size: 0.85rem; font-weight: 700; color: #fff; background-color: #6c757d; border-radius: 0.25rem; }
+        .bg-success { background-color: #28a745; }
+        .bg-danger { background-color: #dc3545; }
+        .bg-warning { background-color: #ffc107; color: #212529; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div>
+        <h2 style="margin:0;">Detailed Stats</h2>
+    </div>
+    <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="subjects.html">Take a Quiz</a>
+        <a href="leaderboard.html">Leaderboards</a>
+    </nav>
+</header>
+
+<div id="loading">Loading your detailed statistics...</div>
+
+<div class="container" id="stats-content">
+    <h2>Performance Overview</h2>
+
+    <div class="stat-group">
+        <h3>General Information</h3>
+        <table class="table">
+            <tr><th>Username</th><td id="info-username"></td></tr>
+            <tr><th>Name</th><td id="info-name"></td></tr>
+            <tr><th>Total XP</th><td id="info-total-xp"></td></tr>
+            <tr><th>Math XP</th><td id="info-math-xp"></td></tr>
+            <tr><th>Physics XP</th><td id="info-physics-xp"></td></tr>
+            <tr><th>Weekly XP</th><td id="info-weekly-xp"></td></tr>
+        </table>
+    </div>
+
+    <div class="stat-group">
+        <h3>Quiz History Summary</h3>
+        <table class="table">
+            <tr><th>Total Quizzes Completed</th><td id="info-quizzes-completed"></td></tr>
+            <tr><th>Total Questions Answered</th><td id="info-questions-answered"></td></tr>
+            <tr><th>Total Correct Answers</th><td id="info-correct-answers"></td></tr>
+            <tr><th>Overall Accuracy</th><td id="info-accuracy"></td></tr>
+            <tr><th>Current Study Streak</th><td id="info-streak"></td></tr>
+        </table>
+    </div>
+
+    <div class="stat-group">
+        <h3>Topic Mastery Breakdown</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Topic</th>
+                    <th>Questions Answered</th>
+                    <th>Correct Answers</th>
+                    <th>Accuracy</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="topic-table-body">
+                <!-- Topics inserted here -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
+    const userId = localStorage.getItem("user_id");
+
+    if (!userId) {
+        window.location.href = "index.html";
+    }
+
+    async function loadStats() {
+        try {
+            const response = await fetch(`${API_URL}/api/user/${userId}`);
+
+            if (response.status === 401 || response.status === 404) {
+                localStorage.removeItem("user_id");
+                window.location.href = "index.html";
+                return;
+            }
+
+            const data = await response.json();
+
+            document.getElementById("info-username").textContent = data.username;
+            document.getElementById("info-name").textContent = `${data.name || ''} ${data.surname || ''}`.trim() || 'Not provided';
+            document.getElementById("info-total-xp").textContent = data.total_xp || 0;
+            document.getElementById("info-math-xp").textContent = data.math_xp || 0;
+            document.getElementById("info-physics-xp").textContent = data.physics_xp || 0;
+            document.getElementById("info-weekly-xp").textContent = data.weekly_xp || 0;
+
+            document.getElementById("info-quizzes-completed").textContent = data.quizzes_completed || 0;
+            document.getElementById("info-questions-answered").textContent = data.questions_answered || 0;
+            document.getElementById("info-correct-answers").textContent = data.correct_answers || 0;
+            document.getElementById("info-accuracy").textContent = `${data.accuracy_percentage || 0}%`;
+            document.getElementById("info-streak").textContent = `${data.study_streak_days || 0} days`;
+
+            const tbody = document.getElementById("topic-table-body");
+            tbody.innerHTML = "";
+
+            if (data.topic_accuracy && Object.keys(data.topic_accuracy).length > 0) {
+                for (const [topic, stats] of Object.entries(data.topic_accuracy)) {
+                    const accuracy = stats.total > 0 ? Math.round((stats.correct / stats.total) * 100) : 0;
+
+                    let statusBadge = `<span class="badge bg-success">Mastered</span>`;
+                    if (accuracy < 60) statusBadge = `<span class="badge bg-danger">Needs Work</span>`;
+                    else if (accuracy < 80) statusBadge = `<span class="badge bg-warning">Good</span>`;
+
+                    const formattedTopic = topic.replace('paper1_', '').replace('paper2_', '').replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+
+                    tbody.innerHTML += `
+                        <tr>
+                            <td>${formattedTopic}</td>
+                            <td>${stats.total}</td>
+                            <td>${stats.correct}</td>
+                            <td>${accuracy}%</td>
+                            <td>${statusBadge}</td>
+                        </tr>
+                    `;
+                }
+            } else {
+                tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;">No quizzes completed yet.</td></tr>`;
+            }
+
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("stats-content").style.display = "block";
+
+        } catch (error) {
+            console.error("Error fetching user stats:", error);
+            document.getElementById("loading").textContent = "Error loading stats. Please refresh.";
+        }
+    }
+
+    loadStats();
+</script>
+
+</body>
+</html>
