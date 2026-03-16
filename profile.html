@@ -151,10 +151,7 @@ document.getElementById("avatarInput").addEventListener("change", async (e) => {
         if (!uploadResponse.ok) throw new Error("Failed to upload to ImgBB");
 
         const data = await uploadResponse.json();
-
-        if (!data.success) {
-            throw new Error(data.error?.message || "Upload failed");
-        }
+        if (!data.success) throw new Error("ImgBB upload failed: " + (data.error ? data.error.message : "Unknown error"));
 
         const imageURL = data.data.url;
 
