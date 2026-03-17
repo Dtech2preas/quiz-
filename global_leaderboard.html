@@ -181,14 +181,16 @@
             <div></div>
             <div></div>
         </div>
-        <h2 style="margin:0;" id="page-title-grade">National Leaderboards</h2>
+        <h2 style="margin:0;" id="page-title-grade">Global Leaderboard (All Grades)</h2>
     </div>
     <nav id="nav-menu">
         <a href="dashboard.html">Dashboard</a>
         <a href="subjects.html">Take a Quiz</a>
+        <a href="leaderboard.html">Grade Leaderboards</a>
         <a href="stats.html">Detailed Stats</a>
-
-        <a href="global_leaderboard.html">Global Leaderboard</a></nav>
+        <a href="profile.html">Profile</a>
+        <button id="logoutBtn" class="btn-logout" style="margin-left: 1rem;">Logout</button>
+    </nav>
 </header>
 
 <div class="container">
@@ -215,10 +217,6 @@
     }
 
 
-    const userGrade = localStorage.getItem("user_grade") || "grade12";
-    const gradeDisplay = userGrade.replace('grade', 'Grade ');
-    document.getElementById("page-title-grade").textContent = `${gradeDisplay} Leaderboard`;
-
     async function fetchLeaderboards() {
         try {
             const userGrade = localStorage.getItem("user_grade") || "grade12";
@@ -227,10 +225,10 @@
 
             document.getElementById("loading").style.display = "none";
 
-            renderLeaderboard("leaderboard-overall", data.overall || []);
-            renderLeaderboard("leaderboard-mathematics", data.math || []);
-            renderLeaderboard("leaderboard-physics", data.physics || []);
-            renderLeaderboard("leaderboard-weekly", data.weekly || []);
+            renderLeaderboard("leaderboard-overall", data.all_overall || []);
+            renderLeaderboard("leaderboard-mathematics", data.all_math || []);
+            renderLeaderboard("leaderboard-physics", data.all_physics || []);
+            renderLeaderboard("leaderboard-weekly", data.all_weekly || []);
 
         } catch (error) {
             console.error("Error fetching leaderboards:", error);
