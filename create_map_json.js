@@ -1,0 +1,56 @@
+const fs = require('fs');
+
+const GRADE_MAP = {
+    "grade12": {
+        "mathematics": [
+            { "file": "paper1_algebra.json", "label": "Paper 1: Algebra" },
+            { "file": "paper1_calculus.json", "label": "Paper 1: Calculus" },
+            { "file": "paper1_finance.json", "label": "Paper 1: Finance" },
+            { "file": "paper1_functions.json", "label": "Paper 1: Functions" },
+            { "file": "paper1_probability.json", "label": "Paper 1: Probability" },
+            { "file": "paper1_sequences.json", "label": "Paper 1: Sequences" },
+            { "file": "paper2_analytical_geometry.json", "label": "Paper 2: Analytical Geometry" },
+            { "file": "paper2_geometry.json", "label": "Paper 2: Euclidean Geometry" },
+            { "file": "paper2_statistics.json", "label": "Paper 2: Statistics" },
+            { "file": "paper2_trigonometry.json", "label": "Paper 2: Trigonometry" }
+        ],
+        "physics": [
+            { "file": "paper1_circular_motion.json", "label": "Paper 1: Circular Motion" },
+            { "file": "paper1_mechanics.json", "label": "Paper 1: Mechanics" },
+            { "file": "paper1_oscillations_waves.json", "label": "Paper 1: Oscillations & Waves" },
+            { "file": "paper1_thermal_physics.json", "label": "Paper 1: Thermal Physics" },
+            { "file": "paper1_work_energy_power.json", "label": "Paper 1: Work, Energy & Power" },
+            { "file": "paper2_acids_bases.json", "label": "Paper 2: Acids & Bases" },
+            { "file": "paper2_atomic_nuclear.json", "label": "Paper 2: Atomic & Nuclear" },
+            { "file": "paper2_bonding_structure.json", "label": "Paper 2: Bonding & Structure" },
+            { "file": "paper2_electrochemistry.json", "label": "Paper 2: Electrochemistry" },
+            { "file": "paper2_kinetics_equilibrium.json", "label": "Paper 2: Kinetics & Equilibrium" },
+            { "file": "paper2_stoichiometry.json", "label": "Paper 2: Stoichiometry" }
+        ],
+        "life_sciences": [
+            { "file": "paper1_life_meiosis.json", "label": "Paper 1: Meiosis" },
+            { "file": "paper1_life_reproduction_vertebrates.json", "label": "Paper 1: Reproduction in Vertebrates" },
+            { "file": "paper1_life_human_reproduction.json", "label": "Paper 1: Human Reproduction" },
+            { "file": "paper1_life_environment_humans.json", "label": "Paper 1: Responding to the Environment (Humans)" },
+            { "file": "paper1_life_endocrine_system.json", "label": "Paper 1: Human Endocrine System" },
+            { "file": "paper1_life_homeostasis.json", "label": "Paper 1: Homeostasis in Humans" },
+            { "file": "paper1_life_environment_plants.json", "label": "Paper 1: Responding to the Environment (Plants)" },
+            { "file": "paper1_life_human_impact.json", "label": "Paper 1: Human Impact on Environment" },
+            { "file": "paper2_life_dna_code.json", "label": "Paper 2: DNA: Code of Life" },
+            { "file": "paper2_life_meiosis.json", "label": "Paper 2: Meiosis" },
+            { "file": "paper2_life_genetics.json", "label": "Paper 2: Genetics and Inheritance" },
+            { "file": "paper2_life_evolution.json", "label": "Paper 2: Evolution" }
+        ]
+    }
+};
+
+for (let i = 1; i <= 11; i++) {
+    GRADE_MAP[`grade${i}`] = {
+        "mathematics": [
+            { "file": "basic_addition.json", "label": "Basic Addition" },
+            { "file": "basic_subtraction.json", "label": "Basic Subtraction" }
+        ]
+    };
+}
+
+fs.writeFileSync('map.json', JSON.stringify(GRADE_MAP, null, 2));

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leaderboards - Grade 12 Quiz Platform</title>
+    <title>Leaderboards - Quiz Platform</title>
     <style>
         :root {
             --bg-dark: #0f172a;
@@ -218,6 +218,7 @@
     const userGrade = localStorage.getItem("user_grade") || "grade12";
     const gradeDisplay = userGrade.replace('grade', 'Grade ');
     document.getElementById("page-title-grade").textContent = `${gradeDisplay} Leaderboard`;
+    document.title = `${gradeDisplay} Leaderboards - Quiz Platform`;
 
     async function fetchLeaderboards() {
         try {
