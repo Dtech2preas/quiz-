@@ -29,7 +29,7 @@
 
         /* Responsive Nav */
         @media (max-width: 768px) {
-            header { flex-direction: column; padding: 1rem; gap: 1rem; }
+            header { flex-direction: row; padding: 1rem; gap: 1rem; justify-content: space-between; }
             nav { width: 100%; justify-content: center; flex-wrap: wrap; gap: 1rem; }
         }
 
@@ -148,19 +148,21 @@
 <body>
 
 <header>
-    <div>
-        <h2 style="margin:0;">Dashboard</h2>
-    </div>
-    <div class="hamburger" id="hamburger-menu">
-        <div></div>
-        <div></div>
-        <div></div>
+    <div style="display: flex; align-items: center; gap: 1rem;">
+        <div class="hamburger" id="hamburger-menu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <h2 style="margin:0;" id="page-title-grade">Dashboard</h2>
     </div>
     <nav id="nav-menu">
         <a href="subjects.html">Take a Quiz</a>
-        <a href="leaderboard.html">Leaderboards</a>
+        <a href="leaderboard.html">Grade Leaderboards</a>
         <a href="stats.html">Detailed Stats</a>
         <a href="profile.html">Profile</a>
+
+        <a href="global_leaderboard.html">Global Leaderboard</a>
         <button id="logoutBtn" class="btn-logout" style="margin-left: 1rem;">Logout</button>
     </nav>
 </header>
@@ -171,7 +173,7 @@
     <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
         <img id="dashboard-avatar" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; background-color: var(--bg-card); border: 2px solid var(--border-color);" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzk0YTNiOCI+PHBhdGggZD0iTTEyIDEyYzIuMjEgMCA0LTEuNzkgNC00cy0xLjc5LTQtNC00LTQgMS43OS00IDRzMS43OSA0IDQgNHptMCAyYy0yLjY3IDAtOCAxLjM0LTggNHYyaDE2di0yYzAtMi42Ni01LjMzLTQtOC00eiIvPjwvc3ZnPg==" alt="Avatar">
         <div>
-            <h2 id="welcome-message" style="margin: 0; margin-bottom: 0.5rem;">Welcome, User!</h2>
+            <h2 id="welcome-message" style="margin: 0; margin-bottom: 0.5rem;">Welcome, User! <span id="user-grade-badge" style="font-size: 0.9rem; background: var(--accent-blue); color: white; padding: 0.2rem 0.6rem; border-radius: 12px; vertical-align: middle; margin-left: 0.5rem;"></span></h2>
             <div id="dashboard-badges" style="display: flex; gap: 0.5rem; flex-wrap: wrap;"></div>
         </div>
     </div>
@@ -251,7 +253,12 @@
 
             const data = await response.json();
 
-            document.getElementById("welcome-message").textContent = `Welcome, ${data.username}!`;
+
+            document.getElementById("welcome-message").innerHTML = `Welcome, ${data.username}! <span id="user-grade-badge" style="font-size: 0.9rem; background: var(--accent-blue); color: white; padding: 0.2rem 0.6rem; border-radius: 12px; vertical-align: middle; margin-left: 0.5rem;">${data.grade ? data.grade.replace('grade', 'Grade ') : 'Grade 12'}</span>`;
+
+
+            document.getElementById("page-title-grade").textContent = `Dashboard (${data.grade ? data.grade.replace('grade', 'Grade ') : 'Grade 12'})`;
+
             if (data.avatar_url) {
                 document.getElementById("dashboard-avatar").src = data.avatar_url;
             }

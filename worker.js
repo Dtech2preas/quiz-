@@ -480,6 +480,8 @@ async function handleGetLeaderboards(request, env) {
 
   // All grades
   const allOverallStr = await env.RANK_KV.get("leaderboard:allgrades:overall") || "[]";
+  const allMathStr = await env.RANK_KV.get("leaderboard:allgrades:math") || "[]";
+  const allPhysicsStr = await env.RANK_KV.get("leaderboard:allgrades:physics") || "[]";
   const allWeeklyStr = await env.RANK_KV.get(`leaderboard:allgrades:weekly:${currentWeek}`) || "[]";
 
   return jsonResponse({
@@ -488,6 +490,8 @@ async function handleGetLeaderboards(request, env) {
     physics: JSON.parse(physicsStr),
     weekly: JSON.parse(weeklyStr),
     all_overall: JSON.parse(allOverallStr),
+    all_math: JSON.parse(allMathStr),
+    all_physics: JSON.parse(allPhysicsStr),
     all_weekly: JSON.parse(allWeeklyStr)
   });
 }

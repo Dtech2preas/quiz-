@@ -237,18 +237,20 @@ color:var(--text-muted);
 <body>
 
 <header>
-<h2>Settings</h2>
-
-<div class="hamburger">
-        <div></div>
-        <div></div>
-        <div></div>
+    <div style="display: flex; align-items: center; gap: 1rem;">
+        <div class="hamburger" id="hamburger-menu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <h2 style="margin:0;" id="page-title-grade">Settings</h2>
     </div>
     <nav>
 <a href="dashboard.html">Dashboard</a>
 <a href="subjects.html">Take Quiz</a>
-<a href="leaderboard.html">Leaderboards</a>
-</nav>
+<a href="leaderboard.html">Grade Leaderboards</a>
+
+        <a href="global_leaderboard.html">Global Leaderboard</a></nav>
 </header>
 
 <div id="loading">Loading profile...</div>

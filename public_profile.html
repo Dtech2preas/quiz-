@@ -29,7 +29,7 @@
 
         /* Responsive Nav */
         @media (max-width: 768px) {
-            header { flex-direction: column; padding: 1rem; gap: 1rem; }
+            header { flex-direction: row; padding: 1rem; gap: 1rem; justify-content: space-between; }
             nav { width: 100%; justify-content: center; flex-wrap: wrap; gap: 1rem; }
         }
 
@@ -124,13 +124,13 @@
 <body>
 
 <header>
-    <div>
-        <h2 style="margin:0;">User Profile</h2>
-    </div>
-    <div class="hamburger" id="hamburger-menu">
-        <div></div>
-        <div></div>
-        <div></div>
+    <div style="display: flex; align-items: center; gap: 1rem;">
+        <div class="hamburger" id="hamburger-menu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <h2 style="margin:0;" id="page-title-grade">User Profile</h2>
     </div>
     <nav id="nav-menu">
         <a href="dashboard.html">Dashboard</a>
