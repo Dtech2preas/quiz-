@@ -1,6 +1,6 @@
 const CORS_HEADERS = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+  "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
   "Access-Control-Allow-Headers": "Content-Type",
 };
 
@@ -284,7 +284,7 @@ async function updateLeaderboardUser(env, userId, userData) {
 }
 
 async function handleGetPublicUser(request, env, path) {
-  const username = path.split("/").pop();
+  const username = decodeURIComponent(path.split("/").pop());
   if (!username) return jsonResponse({ error: "Username required" }, 400);
 
   const userId = await env.RANK_KV.get(`user_by_name:${username}`);

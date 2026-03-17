@@ -421,10 +421,39 @@ document.getElementById("avatarInput").addEventListener("change", async (e) => {
         let imageURL = null;
         let lastError = null;
 
+        msg.innerText = "Converting image to PNG...";
+        msg.style.color = "var(--text-muted)";
+
+        // Convert image to PNG
+        const pngBlob = await new Promise((resolve, reject) => {
+            const img = new Image();
+            img.onload = () => {
+                const canvas = document.createElement("canvas");
+                canvas.width = img.width;
+                canvas.height = img.height;
+                const ctx = canvas.getContext("2d");
+                ctx.drawImage(img, 0, 0);
+                canvas.toBlob((blob) => {
+                    if (blob) {
+                        resolve(blob);
+                    } else {
+                        reject(new Error("Canvas toBlob failed"));
+                    }
+                }, "image/png");
+            };
+            img.onerror = () => reject(new Error("Failed to load image for conversion"));
+            img.src = localPreviewUrl;
+        });
+
+        // Wrap the blob in a File object to ensure imgbb accepts it correctly
+        const pngFile = new File([pngBlob], "avatar.png", { type: "image/png" });
+
+        msg.innerText = "Uploading to ImgBB...";
+
         // Try Method 1 first (most reliable)
         try {
             console.log("Trying upload method 1 (FormData with file)...");
-            imageURL = await uploadToImgbbMethod1(file);
+            imageURL = await uploadToImgbbMethod1(pngFile);
             console.log("Method 1 succeeded");
         } catch (error1) {
             console.log("Method 1 failed:", error1);
@@ -433,7 +462,7 @@ document.getElementById("avatarInput").addEventListener("change", async (e) => {
             // Try Method 2
             try {
                 console.log("Trying upload method 2 (base64 string)...");
-                imageURL = await uploadToImgbbMethod2(file);
+                imageURL = await uploadToImgbbMethod2(pngFile);
                 console.log("Method 2 succeeded");
             } catch (error2) {
                 console.log("Method 2 failed:", error2);
@@ -442,7 +471,7 @@ document.getElementById("avatarInput").addEventListener("change", async (e) => {
                 // Try Method 3
                 try {
                     console.log("Trying upload method 3 (URLSearchParams)...");
-                    imageURL = await uploadToImgbbMethod3(file);
+                    imageURL = await uploadToImgbbMethod3(pngFile);
                     console.log("Method 3 succeeded");
                 } catch (error3) {
                     console.log("Method 3 failed:", error3);
@@ -459,8 +488,8 @@ document.getElementById("avatarInput").addEventListener("change", async (e) => {
         // Update preview with permanent URL from ImgBB
         avatarPreview.src = imageURL;
         
-        msg.innerText = "✓ Avatar uploaded successfully!";
-        msg.style.color = "#34d399";
+        msg.innerText = "Saving to database...";
+        msg.style.color = "var(--text-muted)";
 
         // Save the ImgBB URL to your backend
         try {
@@ -472,14 +501,18 @@ document.getElementById("avatarInput").addEventListener("change", async (e) => {
 
             if (updateRes.ok) {
                 console.log("Avatar URL saved to database");
+                msg.innerText = "✓ Avatar updated successfully!";
+                msg.style.color = "#34d399";
                 showMessage("Profile picture updated!", false);
             } else {
                 console.warn("Avatar uploaded but failed to save to database");
                 msg.innerText = "✓ Avatar uploaded (saved locally only)";
+                msg.style.color = "#f59e0b"; // Warning color
             }
         } catch (dbError) {
             console.warn("Database save failed:", dbError);
             msg.innerText = "✓ Avatar uploaded (saved locally only)";
+            msg.style.color = "#f59e0b"; // Warning color
         }
 
         // Clear the file input
