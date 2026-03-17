@@ -336,6 +336,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const data = await response.json();
 
+            if (data.grade) {
+                localStorage.setItem("user_grade", data.grade);
+            } else {
+                localStorage.setItem("user_grade", "grade12");
+            }
+
             document.getElementById("info-username").textContent = data.username;
             document.getElementById("info-name").textContent = `${data.name || ''} ${data.surname || ''}`.trim() || 'Not provided';
             document.getElementById("info-total-xp").textContent = data.total_xp || 0;

@@ -253,6 +253,11 @@
 
             const data = await response.json();
 
+            if (data.grade) {
+                localStorage.setItem("user_grade", data.grade);
+            } else {
+                localStorage.setItem("user_grade", "grade12");
+            }
 
             document.getElementById("welcome-message").innerHTML = `Welcome, ${data.username}! <span id="user-grade-badge" style="font-size: 0.9rem; background: var(--accent-blue); color: white; padding: 0.2rem 0.6rem; border-radius: 12px; vertical-align: middle; margin-left: 0.5rem;">${data.grade ? data.grade.replace('grade', 'Grade ') : 'Grade 12'}</span>`;
 
