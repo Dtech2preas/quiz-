@@ -80,7 +80,7 @@ function getCurrentWeek() {
 
 async function handleSignup(request, env) {
   const body = await request.json();
-  const { username, password, name, surname } = body;
+  const { username, password, name, surname, grade } = body;
 
   if (!username || !password) {
     return jsonResponse({ error: "Username and password are required" }, 400);
@@ -106,6 +106,7 @@ async function handleSignup(request, env) {
     password_hash: passwordHash,
     name: name || "",
     surname: surname || "",
+    grade: grade || "grade12",
     avatar_url: "",
     math_xp: 0,
     physics_xp: 0,
@@ -166,14 +167,19 @@ async function handleGetUser(request, env, path) {
   // Exclude password hash from response
   delete userData.password_hash;
 
+  if (!userData.grade) userData.grade = "grade12";
+  const grade = userData.grade;
+
   // Calculate ranks
-  const mathLeaderboardStr = await env.RANK_KV.get("leaderboard:math") || "[]";
-  const physicsLeaderboardStr = await env.RANK_KV.get("leaderboard:physics") || "[]";
-  const overallLeaderboardStr = await env.RANK_KV.get("leaderboard:overall") || "[]";
+  const mathLeaderboardStr = await env.RANK_KV.get(`leaderboard:${grade}:math`) || await env.RANK_KV.get("leaderboard:math") || "[]";
+  const physicsLeaderboardStr = await env.RANK_KV.get(`leaderboard:${grade}:physics`) || await env.RANK_KV.get("leaderboard:physics") || "[]";
+  const overallLeaderboardStr = await env.RANK_KV.get(`leaderboard:${grade}:overall`) || await env.RANK_KV.get("leaderboard:overall") || "[]";
+  const allGradesOverallStr = await env.RANK_KV.get("leaderboard:allgrades:overall") || "[]";
 
   const mathLeaderboard = JSON.parse(mathLeaderboardStr);
   const physicsLeaderboard = JSON.parse(physicsLeaderboardStr);
   const overallLeaderboard = JSON.parse(overallLeaderboardStr);
+  const allGradesOverall = JSON.parse(allGradesOverallStr);
 
   const findRank = (board) => {
     const index = board.findIndex(u => u.user_id === userId);
@@ -183,7 +189,8 @@ async function handleGetUser(request, env, path) {
   userData.ranks = {
     overall: findRank(overallLeaderboard),
     math: findRank(mathLeaderboard),
-    physics: findRank(physicsLeaderboard)
+    physics: findRank(physicsLeaderboard),
+    all_grades_overall: findRank(allGradesOverall)
   };
 
   return jsonResponse(userData);
@@ -221,12 +228,14 @@ async function handleUpdateProfile(request, env, path) {
   const userId = match[1];
 
   const body = await request.json();
-  const { name, surname, username, password } = body;
+  const { name, surname, username, password, grade } = body;
 
   const userDataString = await env.RANK_KV.get(`user:${userId}`);
   if (!userDataString) return jsonResponse({ error: "User not found" }, 404);
 
   const userData = JSON.parse(userDataString);
+  const oldGrade = userData.grade || "grade12";
+
 
   // If username changes, check availability and update mapping
   if (username && username !== userData.username) {
@@ -241,6 +250,8 @@ async function handleUpdateProfile(request, env, path) {
 
   if (name !== undefined) userData.name = name;
   if (surname !== undefined) userData.surname = surname;
+  if (grade !== undefined) userData.grade = grade;
+  if (!userData.grade) userData.grade = "grade12";
 
   if (password) {
     if (password.length < 8 || !/[A-Z]/.test(password) || !/[0-9]/.test(password)) {
@@ -259,7 +270,13 @@ async function handleUpdateProfile(request, env, path) {
 
 async function updateLeaderboardUser(env, userId, userData) {
   const currentWeek = getCurrentWeek();
-  const keys = ["leaderboard:overall", "leaderboard:math", "leaderboard:physics", `leaderboard:weekly:${currentWeek}`];
+  const grade = userData.grade || "grade12";
+  const keys = [
+    `leaderboard:${grade}:overall`, `leaderboard:${grade}:math`, `leaderboard:${grade}:physics`, `leaderboard:${grade}:weekly:${currentWeek}`,
+    "leaderboard:allgrades:overall", "leaderboard:allgrades:math", "leaderboard:allgrades:physics", `leaderboard:allgrades:weekly:${currentWeek}`,
+    // Fallbacks for legacy leaderboards if they exist
+    "leaderboard:overall", "leaderboard:math", "leaderboard:physics", `leaderboard:weekly:${currentWeek}`
+  ];
 
   for (const key of keys) {
     let boardStr = await env.RANK_KV.get(key) || "[]";
@@ -307,14 +324,19 @@ async function handleGetPublicUser(request, env, path) {
     study_streak_days: userData.study_streak_days
   };
 
+  if (!userData.grade) userData.grade = "grade12";
+  const grade = userData.grade;
+
   // Calculate ranks
-  const mathLeaderboardStr = await env.RANK_KV.get("leaderboard:math") || "[]";
-  const physicsLeaderboardStr = await env.RANK_KV.get("leaderboard:physics") || "[]";
-  const overallLeaderboardStr = await env.RANK_KV.get("leaderboard:overall") || "[]";
+  const mathLeaderboardStr = await env.RANK_KV.get(`leaderboard:${grade}:math`) || await env.RANK_KV.get("leaderboard:math") || "[]";
+  const physicsLeaderboardStr = await env.RANK_KV.get(`leaderboard:${grade}:physics`) || await env.RANK_KV.get("leaderboard:physics") || "[]";
+  const overallLeaderboardStr = await env.RANK_KV.get(`leaderboard:${grade}:overall`) || await env.RANK_KV.get("leaderboard:overall") || "[]";
+  const allGradesOverallStr = await env.RANK_KV.get("leaderboard:allgrades:overall") || "[]";
 
   const mathLeaderboard = JSON.parse(mathLeaderboardStr);
   const physicsLeaderboard = JSON.parse(physicsLeaderboardStr);
   const overallLeaderboard = JSON.parse(overallLeaderboardStr);
+  const allGradesOverall = JSON.parse(allGradesOverallStr);
 
   const findRank = (board) => {
     const index = board.findIndex(u => u.user_id === userId);
@@ -324,7 +346,8 @@ async function handleGetPublicUser(request, env, path) {
   publicData.ranks = {
     overall: findRank(overallLeaderboard),
     math: findRank(mathLeaderboard),
-    physics: findRank(physicsLeaderboard)
+    physics: findRank(physicsLeaderboard),
+    all_grades_overall: findRank(allGradesOverall)
   };
 
   return jsonResponse(publicData);
@@ -431,26 +454,40 @@ async function updateLeaderboards(env, user, currentWeek) {
     await env.RANK_KV.put(key, JSON.stringify(board));
   };
 
+  const grade = user.grade || "grade12";
   await Promise.all([
-    updateBoard("leaderboard:overall", "total_xp"),
-    updateBoard("leaderboard:math", "math_xp"),
-    updateBoard("leaderboard:physics", "physics_xp"),
-    updateBoard(`leaderboard:weekly:${currentWeek}`, "weekly_xp")
+    updateBoard(`leaderboard:${grade}:overall`, "total_xp"),
+    updateBoard(`leaderboard:${grade}:math`, "math_xp"),
+    updateBoard(`leaderboard:${grade}:physics`, "physics_xp"),
+    updateBoard(`leaderboard:${grade}:weekly:${currentWeek}`, "weekly_xp"),
+    updateBoard("leaderboard:allgrades:overall", "total_xp"),
+    updateBoard("leaderboard:allgrades:math", "math_xp"),
+    updateBoard("leaderboard:allgrades:physics", "physics_xp"),
+    updateBoard(`leaderboard:allgrades:weekly:${currentWeek}`, "weekly_xp")
   ]);
 }
 
 async function handleGetLeaderboards(request, env) {
-  const mathStr = await env.RANK_KV.get("leaderboard:math") || "[]";
-  const physicsStr = await env.RANK_KV.get("leaderboard:physics") || "[]";
-  const overallStr = await env.RANK_KV.get("leaderboard:overall") || "[]";
-
+  const url = new URL(request.url);
+  const grade = url.searchParams.get("grade") || "grade12";
   const currentWeek = getCurrentWeek();
-  const weeklyStr = await env.RANK_KV.get(`leaderboard:weekly:${currentWeek}`) || "[]";
+
+  // Grade specific
+  const mathStr = await env.RANK_KV.get(`leaderboard:${grade}:math`) || await env.RANK_KV.get("leaderboard:math") || "[]";
+  const physicsStr = await env.RANK_KV.get(`leaderboard:${grade}:physics`) || await env.RANK_KV.get("leaderboard:physics") || "[]";
+  const overallStr = await env.RANK_KV.get(`leaderboard:${grade}:overall`) || await env.RANK_KV.get("leaderboard:overall") || "[]";
+  const weeklyStr = await env.RANK_KV.get(`leaderboard:${grade}:weekly:${currentWeek}`) || await env.RANK_KV.get(`leaderboard:weekly:${currentWeek}`) || "[]";
+
+  // All grades
+  const allOverallStr = await env.RANK_KV.get("leaderboard:allgrades:overall") || "[]";
+  const allWeeklyStr = await env.RANK_KV.get(`leaderboard:allgrades:weekly:${currentWeek}`) || "[]";
 
   return jsonResponse({
     overall: JSON.parse(overallStr),
     math: JSON.parse(mathStr),
     physics: JSON.parse(physicsStr),
-    weekly: JSON.parse(weeklyStr)
+    weekly: JSON.parse(weeklyStr),
+    all_overall: JSON.parse(allOverallStr),
+    all_weekly: JSON.parse(allWeeklyStr)
   });
 }
