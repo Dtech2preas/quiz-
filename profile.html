@@ -175,7 +175,63 @@ color:var(--text-muted);
 }
 
 #profile-content{display:none}
-</style>
+
+        /* Hamburger Menu Styles */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1001;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-main);
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-card);
+                border-bottom: 1px solid var(--border-color);
+                padding: 1rem 0;
+                z-index: 1000;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav a {
+                margin: 0.5rem 1rem;
+                padding: 0.5rem;
+                border-radius: 4px;
+            }
+
+            nav a:hover {
+                background-color: var(--bg-main);
+            }
+
+            .btn-logout {
+                margin: 0.5rem 1rem !important;
+                width: calc(100% - 2rem);
+            }
+        }
+
+    </style>
 </head>
 
 <body>
@@ -585,6 +641,26 @@ document.getElementById("profileForm").addEventListener("submit", async (e) => {
 });
 
 loadProfile();
+</script>
+<script>
+// Hamburger Menu Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger-menu');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target) && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+            }
+        });
+    }
+});
 </script>
 
 
