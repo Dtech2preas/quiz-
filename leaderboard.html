@@ -51,10 +51,60 @@
         .user-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; background-color: var(--bg-dark); border: 1px solid var(--border-color); margin-right: 1rem; }
         .user-info { display: flex; align-items: center; flex-grow: 1; }
 
+
         /* Highlight specific ranks */
-        .rank-1 { background-color: rgba(245, 158, 11, 0.1); border-left: 5px solid var(--accent-yellow); font-weight: bold; font-size: 1.15rem; }
-        .rank-2 { background-color: rgba(148, 163, 184, 0.1); border-left: 5px solid var(--accent-silver); font-weight: bold; font-size: 1.1rem; }
-        .rank-3 { background-color: rgba(217, 119, 6, 0.1); border-left: 5px solid var(--accent-bronze); font-weight: bold; font-size: 1.05rem; }
+        .rank-1 {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(245, 158, 11, 0.05) 100%);
+            border: 2px solid var(--accent-yellow);
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+            font-weight: bold;
+            font-size: 1.3rem;
+            transform: scale(1.02);
+            z-index: 3;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        .rank-1 .user-avatar { width: 50px; height: 50px; border: 2px solid var(--accent-yellow); }
+        .rank-1 .rank-num { color: var(--accent-yellow); font-size: 1.5rem; text-shadow: 0 0 10px rgba(245, 158, 11, 0.5); }
+
+        .rank-2 {
+            background: linear-gradient(135deg, rgba(148, 163, 184, 0.2) 0%, rgba(148, 163, 184, 0.05) 100%);
+            border: 2px solid var(--accent-silver);
+            box-shadow: 0 0 10px rgba(148, 163, 184, 0.2);
+            font-weight: bold;
+            font-size: 1.2rem;
+            transform: scale(1.01);
+            z-index: 2;
+            position: relative;
+            margin-bottom: 0.8rem;
+        }
+        .rank-2 .user-avatar { width: 45px; height: 45px; border: 2px solid var(--accent-silver); }
+        .rank-2 .rank-num { color: var(--accent-silver); font-size: 1.3rem; }
+
+        .rank-3 {
+            background: linear-gradient(135deg, rgba(217, 119, 6, 0.2) 0%, rgba(217, 119, 6, 0.05) 100%);
+            border: 2px solid var(--accent-bronze);
+            box-shadow: 0 0 10px rgba(217, 119, 6, 0.2);
+            font-weight: bold;
+            font-size: 1.15rem;
+            margin-bottom: 0.8rem;
+        }
+        .rank-3 .user-avatar { width: 45px; height: 45px; border: 2px solid var(--accent-bronze); }
+        .rank-3 .rank-num { color: var(--accent-bronze); font-size: 1.2rem; }
+
+        .crown-icon { font-size: 1.5rem; margin-right: 0.5rem; }
+
+        @media (max-width: 480px) {
+            .leaderboard-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+            .user-info { width: 100%; margin-bottom: 0.5rem; }
+            .rank-xp { align-self: flex-end; font-size: 1.1rem; }
+            .crown-icon { display: none; }
+        }
+
+
+
+
+
         .top-10 { font-weight: 600; }
         .top-50 { color: var(--text-main); }
         .below-50 { color: var(--text-muted); padding: 0.8rem 1.2rem; font-size: 0.95rem; }
@@ -64,6 +114,62 @@
         .rank-xp { font-weight: bold; color: var(--accent-green); }
 
         #loading { text-align: center; font-size: 1.2rem; padding: 3rem; color: var(--text-muted); }
+
+        /* Hamburger Menu Styles */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1001;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-main);
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-card);
+                border-bottom: 1px solid var(--border-color);
+                padding: 1rem 0;
+                z-index: 1000;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav a {
+                margin: 0.5rem 1rem;
+                padding: 0.5rem;
+                border-radius: 4px;
+            }
+
+            nav a:hover {
+                background-color: var(--bg-main);
+            }
+
+            .btn-logout {
+                margin: 0.5rem 1rem !important;
+                width: calc(100% - 2rem);
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -72,7 +178,12 @@
     <div>
         <h2 style="margin:0;">National Leaderboards</h2>
     </div>
-    <nav>
+    <div class="hamburger" id="hamburger-menu">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <nav id="nav-menu">
         <a href="dashboard.html">Dashboard</a>
         <a href="subjects.html">Take a Quiz</a>
         <a href="stats.html">Detailed Stats</a>
@@ -156,8 +267,11 @@
             const safeAvatar = avatarSrc.replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
             const safeDisplayName = displayName.replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
+            let rankDisplay = `#${rank}`;
+            if (rank === 1) rankDisplay = `<span class="crown-icon">👑</span>#1`;
+
             row.innerHTML = `
-                <div class="rank-num">#${rank}</div>
+                <div class="rank-num">${rankDisplay}</div>
                 <div class="user-info">
                     <img class="user-avatar" src="${safeAvatar}" alt="${safeUsername}">
                     <div class="rank-name">${safeDisplayName}</div>
@@ -182,6 +296,26 @@
     }
 
     fetchLeaderboards();
+</script>
+<script>
+// Hamburger Menu Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger-menu');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target) && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+            }
+        });
+    }
+});
 </script>
 
 </body>

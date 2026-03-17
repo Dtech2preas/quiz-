@@ -16,6 +16,26 @@
             }
         };
     </script>
+<script>
+// Hamburger Menu Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger-menu');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target) && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+            }
+        });
+    }
+});
+</script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
@@ -66,6 +86,164 @@
         .bg-success { background-color: rgba(16, 185, 129, 0.2); color: var(--accent-green); border: 1px solid rgba(16, 185, 129, 0.5); }
         .bg-danger { background-color: rgba(239, 68, 68, 0.2); color: var(--accent-red); border: 1px solid rgba(239, 68, 68, 0.5); }
         .bg-warning { background-color: rgba(245, 158, 11, 0.2); color: var(--accent-yellow); border: 1px solid rgba(245, 158, 11, 0.5); }
+
+        /* Responsive Table Cards for Mobile */
+        @media (max-width: 768px) {
+            .table, .table tbody, .table tr, .table td, .table th {
+                display: block;
+            }
+            .table {
+                min-width: unset;
+                border: none;
+            }
+            .table thead {
+                display: none;
+            }
+            .table tr {
+                background-color: var(--bg-main);
+                border: 1px solid var(--border-color);
+                border-radius: 8px;
+                margin-bottom: 1rem;
+                padding: 1rem;
+            }
+            .table tr:hover td {
+                background-color: transparent;
+            }
+            .table td {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.5rem 0;
+            }
+            .table td:last-child {
+                border-bottom: none;
+            }
+
+
+            /* Two column grid for General Information table */
+            .stat-group .table:nth-of-type(1) tr,
+            .stat-group:nth-of-type(2) .table tr {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.5rem;
+                padding: 1rem;
+            }
+            .stat-group .table:nth-of-type(1) th,
+            .stat-group .table:nth-of-type(1) td,
+            .stat-group:nth-of-type(2) .table th,
+            .stat-group:nth-of-type(2) .table td {
+                display: block;
+                padding: 0.5rem;
+                border: none;
+                text-align: left;
+            }
+            /* Use data attributes for labels on mobile */
+            .table td::before {
+                content: attr(data-label);
+                font-weight: 600;
+                color: var(--text-muted);
+                margin-right: 1rem;
+                display: block;
+            }
+            /* Reset the default mobile table styles for the grid-based tables */
+            .stat-group .table:nth-of-type(1) td,
+            .stat-group:nth-of-type(2) .table td {
+                justify-content: flex-start;
+            }
+            .stat-group .table:nth-of-type(1) td::before,
+            .stat-group:nth-of-type(2) .table td::before {
+                display: none;
+            }
+            .stat-group .table:nth-of-type(1) th,
+            .stat-group:nth-of-type(2) .table th {
+                background: transparent;
+                color: var(--text-muted);
+                font-size: 0.9rem;
+            }
+            .stat-group .table:nth-of-type(1) td,
+            .stat-group:nth-of-type(2) .table td {
+                font-weight: 600;
+                color: var(--text-main);
+                font-size: 1.1rem;
+            }
+
+            /* Topic table specific grid */
+            .stat-group:nth-of-type(3) .table tr {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.5rem;
+                padding: 1rem;
+            }
+            .stat-group:nth-of-type(3) .table td {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                border: none;
+                padding: 0.5rem;
+            }
+            .stat-group:nth-of-type(3) .table td::before {
+                margin-right: 0;
+                margin-bottom: 0.2rem;
+            }
+        }
+
+
+        /* Hamburger Menu Styles */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1001;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-main);
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-card);
+                border-bottom: 1px solid var(--border-color);
+                padding: 1rem 0;
+                z-index: 1000;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav a {
+                margin: 0.5rem 1rem;
+                padding: 0.5rem;
+                border-radius: 4px;
+            }
+
+            nav a:hover {
+                background-color: var(--bg-main);
+            }
+
+            .btn-logout {
+                margin: 0.5rem 1rem !important;
+                width: calc(100% - 2rem);
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -74,7 +252,12 @@
     <div>
         <h2 style="margin:0;">Detailed Stats</h2>
     </div>
-    <nav>
+    <div class="hamburger" id="hamburger-menu">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <nav id="nav-menu">
         <a href="dashboard.html">Dashboard</a>
         <a href="subjects.html">Take a Quiz</a>
         <a href="leaderboard.html">Leaderboards</a>
@@ -89,23 +272,23 @@
     <div class="stat-group">
         <h3>General Information</h3>
         <table class="table">
-            <tr><th>Username</th><td id="info-username"></td></tr>
-            <tr><th>Name</th><td id="info-name"></td></tr>
-            <tr><th>Total XP</th><td id="info-total-xp"></td></tr>
-            <tr><th>Math XP</th><td id="info-math-xp"></td></tr>
-            <tr><th>Physics XP</th><td id="info-physics-xp"></td></tr>
-            <tr><th>Weekly XP</th><td id="info-weekly-xp"></td></tr>
+            <tr><th>Username</th><td data-label="Username" id="info-username"></td></tr>
+            <tr><th>Name</th><td data-label="Name" id="info-name"></td></tr>
+            <tr><th>Total XP</th><td data-label="Total XP" id="info-total-xp"></td></tr>
+            <tr><th>Math XP</th><td data-label="Math XP" id="info-math-xp"></td></tr>
+            <tr><th>Physics XP</th><td data-label="Physics XP" id="info-physics-xp"></td></tr>
+            <tr><th>Weekly XP</th><td data-label="Weekly XP" id="info-weekly-xp"></td></tr>
         </table>
     </div>
 
     <div class="stat-group">
         <h3>Quiz History Summary</h3>
         <table class="table">
-            <tr><th>Total Quizzes Completed</th><td id="info-quizzes-completed"></td></tr>
-            <tr><th>Total Questions Answered</th><td id="info-questions-answered"></td></tr>
-            <tr><th>Total Correct Answers</th><td id="info-correct-answers"></td></tr>
-            <tr><th>Overall Accuracy</th><td id="info-accuracy"></td></tr>
-            <tr><th>Current Study Streak</th><td id="info-streak"></td></tr>
+            <tr><th>Total Quizzes Completed</th><td data-label="Quizzes Completed" id="info-quizzes-completed"></td></tr>
+            <tr><th>Total Questions Answered</th><td data-label="Questions Answered" id="info-questions-answered"></td></tr>
+            <tr><th>Total Correct Answers</th><td data-label="Correct Answers" id="info-correct-answers"></td></tr>
+            <tr><th>Overall Accuracy</th><td data-label="Accuracy" id="info-accuracy"></td></tr>
+            <tr><th>Current Study Streak</th><td data-label="Study Streak" id="info-streak"></td></tr>
         </table>
     </div>
 
@@ -176,11 +359,11 @@
 
                     tbody.innerHTML += `
                         <tr>
-                            <td>${formattedTopic}</td>
-                            <td>${stats.total}</td>
-                            <td>${stats.correct}</td>
-                            <td>${accuracy}%</td>
-                            <td>${statusBadge}</td>
+                            <td data-label="Topic">${formattedTopic}</td>
+                            <td data-label="Questions">${stats.total}</td>
+                            <td data-label="Correct Answers">${stats.correct}</td>
+                            <td data-label="Accuracy">${accuracy}%</td>
+                            <td data-label="Status">${statusBadge}</td>
                         </tr>
                     `;
                 }
