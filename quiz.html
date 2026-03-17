@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz - Grade 12 Quiz Platform</title>
+    <title>Quiz - Quiz Platform</title>
 
     <!-- Load MathJax for rendering math formulas -->
     <script>
@@ -258,6 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update Page Title
     const gradeDisplay = userGrade.replace('grade', 'Grade ');
     document.getElementById("page-title-grade").textContent = `${gradeDisplay} Quiz`;
+    document.title = `Quiz - ${gradeDisplay} Quiz Platform`;
 
     let fullDataset = [];
     let quizQuestions = [];
@@ -284,13 +285,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById("loading").style.display = "block";
 
         try {
-            // Strictly enforce fetching the correct dataset path based on the user's registered grade
-            let fetchUrl = "";
-            if (userGrade === "grade12") {
-                fetchUrl = `dataset/${subject}/${filename}`;
-            } else {
-                fetchUrl = `dataset/${userGrade}/${subject}/${filename}`;
-            }
+            // Fetch the dataset from the specific grade folder
+            let fetchUrl = `dataset/${userGrade}/${subject}/${filename}`;
             const response = await fetch(fetchUrl);
             if (!response.ok) throw new Error("Dataset not found");
             const data = await response.json();

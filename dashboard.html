@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Grade 12 Quiz Platform</title>
+    <title>Dashboard - Quiz Platform</title>
     <style>
         :root {
             --bg-dark: #0f172a;
@@ -258,6 +258,7 @@
 
 
             document.getElementById("page-title-grade").textContent = `Dashboard (${data.grade ? data.grade.replace('grade', 'Grade ') : 'Grade 12'})`;
+            document.title = `Dashboard (${data.grade ? data.grade.replace('grade', 'Grade ') : 'Grade 12'}) - Quiz Platform`;
 
             if (data.avatar_url) {
                 document.getElementById("dashboard-avatar").src = data.avatar_url;

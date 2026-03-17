@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detailed Stats - Grade 12 Quiz Platform</title>
+    <title>Detailed Stats - Quiz Platform</title>
     <!-- Load MathJax for rendering math formulas -->
     <script>
         window.MathJax = {
@@ -319,6 +319,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!userId) {
         window.location.href = "index.html";
     }
+
+    const userGrade = localStorage.getItem("user_grade") || "grade12";
+    const gradeDisplay = userGrade.replace('grade', 'Grade ');
+    document.title = `Detailed Stats - ${gradeDisplay} Quiz Platform`;
 
     async function loadStats() {
         try {
