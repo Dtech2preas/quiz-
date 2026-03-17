@@ -182,7 +182,13 @@ color:var(--text-muted);
 
 <header>
 <h2>Settings</h2>
-<nav>
+
+<div class="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <nav>
 <a href="dashboard.html">Dashboard</a>
 <a href="subjects.html">Take Quiz</a>
 <a href="leaderboard.html">Leaderboards</a>
@@ -581,5 +587,42 @@ document.getElementById("profileForm").addEventListener("submit", async (e) => {
 loadProfile();
 </script>
 
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const hamburger = document.querySelector(".hamburger");
+        const nav = document.querySelector("nav");
+        if (hamburger && nav) {
+            hamburger.addEventListener("click", () => {
+                nav.classList.toggle("open");
+            });
+        }
+    });
+</script>
 </body>
 </html>
+        /* Hamburger Menu */
+        .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; z-index: 101; }
+        .hamburger div { width: 25px; height: 3px; background-color: var(--text-main); transition: all 0.3s ease; }
+
+        @media (max-width: 768px) {
+            header { flex-direction: row; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; }
+            .hamburger { display: flex; }
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: var(--bg-card);
+                width: 200px;
+                padding: 1rem;
+                gap: 1rem;
+                border: 1px solid var(--border-color);
+                border-radius: 0 0 0 12px;
+                box-shadow: -4px 4px 10px rgba(0,0,0,0.5);
+                z-index: 100;
+            }
+            nav.open { display: flex; }
+            nav a, nav button { width: 100%; text-align: center; margin: 0; }
+        }
