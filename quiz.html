@@ -277,7 +277,9 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById("loading").style.display = "block";
 
         try {
-            const response = await fetch(`dataset/${subject}/${filename}`);
+            const userGrade = localStorage.getItem("user_grade") || "grade12";
+            const folder = userGrade === "grade12" ? "dataset" : `dataset/${userGrade}`;
+            const response = await fetch(`${folder}/${subject}/${filename}`);
             if (!response.ok) throw new Error("Dataset not found");
             const data = await response.json();
 
