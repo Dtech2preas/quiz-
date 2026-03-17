@@ -473,10 +473,11 @@ async function handleGetLeaderboards(request, env) {
   const currentWeek = getCurrentWeek();
 
   // Grade specific
-  const mathStr = await env.RANK_KV.get(`leaderboard:${grade}:math`) || await env.RANK_KV.get("leaderboard:math") || "[]";
-  const physicsStr = await env.RANK_KV.get(`leaderboard:${grade}:physics`) || await env.RANK_KV.get("leaderboard:physics") || "[]";
-  const overallStr = await env.RANK_KV.get(`leaderboard:${grade}:overall`) || await env.RANK_KV.get("leaderboard:overall") || "[]";
-  const weeklyStr = await env.RANK_KV.get(`leaderboard:${grade}:weekly:${currentWeek}`) || await env.RANK_KV.get(`leaderboard:weekly:${currentWeek}`) || "[]";
+  // For backwards compatibility, only grade12 falls back to global if empty. Other grades strictly return empty if no data.
+  const mathStr = await env.RANK_KV.get(`leaderboard:${grade}:math`) || (grade === "grade12" ? await env.RANK_KV.get("leaderboard:math") : null) || "[]";
+  const physicsStr = await env.RANK_KV.get(`leaderboard:${grade}:physics`) || (grade === "grade12" ? await env.RANK_KV.get("leaderboard:physics") : null) || "[]";
+  const overallStr = await env.RANK_KV.get(`leaderboard:${grade}:overall`) || (grade === "grade12" ? await env.RANK_KV.get("leaderboard:overall") : null) || "[]";
+  const weeklyStr = await env.RANK_KV.get(`leaderboard:${grade}:weekly:${currentWeek}`) || (grade === "grade12" ? await env.RANK_KV.get(`leaderboard:weekly:${currentWeek}`) : null) || "[]";
 
   // All grades
   const allOverallStr = await env.RANK_KV.get("leaderboard:allgrades:overall") || "[]";

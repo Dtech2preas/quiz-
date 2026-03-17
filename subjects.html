@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Select Subject - Grade 12 Quiz Platform</title>
+    <title>Select Subject - Quiz Platform</title>
     <style>
         :root {
             --bg-dark: #0f172a;
@@ -129,60 +129,9 @@
         <a href="global_leaderboard.html">Global Leaderboard</a></nav>
 </header>
 
-<div class="container">
+<div class="container" id="subjects-container">
     <h2>Choose a Subject to Practice</h2>
-
-    <button class="subject-btn" onclick="showTopics('mathematics')">Mathematics</button>
-    <div id="topics-mathematics" class="topic-list">
-        <div class="topic-list-grid">
-            <button class="topic-btn" onclick="startQuiz('mathematics', 'paper1_algebra.json')">Paper 1: Algebra</button>
-            <button class="topic-btn" onclick="startQuiz('mathematics', 'paper1_calculus.json')">Paper 1: Calculus</button>
-            <button class="topic-btn" onclick="startQuiz('mathematics', 'paper1_finance.json')">Paper 1: Finance</button>
-            <button class="topic-btn" onclick="startQuiz('mathematics', 'paper1_functions.json')">Paper 1: Functions</button>
-            <button class="topic-btn" onclick="startQuiz('mathematics', 'paper1_probability.json')">Paper 1: Probability</button>
-            <button class="topic-btn" onclick="startQuiz('mathematics', 'paper1_sequences.json')">Paper 1: Sequences</button>
-            <button class="topic-btn" onclick="startQuiz('mathematics', 'paper2_analytical_geometry.json')">Paper 2: Analytical Geometry</button>
-            <button class="topic-btn" onclick="startQuiz('mathematics', 'paper2_geometry.json')">Paper 2: Euclidean Geometry</button>
-            <button class="topic-btn" onclick="startQuiz('mathematics', 'paper2_statistics.json')">Paper 2: Statistics</button>
-            <button class="topic-btn" onclick="startQuiz('mathematics', 'paper2_trigonometry.json')">Paper 2: Trigonometry</button>
-        </div>
-    </div>
-
-    <button class="subject-btn physics" onclick="showTopics('physics')">Physical Sciences</button>
-    <div id="topics-physics" class="topic-list">
-        <div class="topic-list-grid">
-            <button class="topic-btn" onclick="startQuiz('physics', 'paper1_circular_motion.json')">Paper 1: Circular Motion</button>
-            <button class="topic-btn" onclick="startQuiz('physics', 'paper1_mechanics.json')">Paper 1: Mechanics</button>
-            <button class="topic-btn" onclick="startQuiz('physics', 'paper1_oscillations_waves.json')">Paper 1: Oscillations & Waves</button>
-            <button class="topic-btn" onclick="startQuiz('physics', 'paper1_thermal_physics.json')">Paper 1: Thermal Physics</button>
-            <button class="topic-btn" onclick="startQuiz('physics', 'paper1_work_energy_power.json')">Paper 1: Work, Energy & Power</button>
-            <button class="topic-btn" onclick="startQuiz('physics', 'paper2_acids_bases.json')">Paper 2: Acids & Bases</button>
-            <button class="topic-btn" onclick="startQuiz('physics', 'paper2_atomic_nuclear.json')">Paper 2: Atomic & Nuclear</button>
-            <button class="topic-btn" onclick="startQuiz('physics', 'paper2_bonding_structure.json')">Paper 2: Bonding & Structure</button>
-            <button class="topic-btn" onclick="startQuiz('physics', 'paper2_electrochemistry.json')">Paper 2: Electrochemistry</button>
-            <button class="topic-btn" onclick="startQuiz('physics', 'paper2_kinetics_equilibrium.json')">Paper 2: Kinetics & Equilibrium</button>
-            <button class="topic-btn" onclick="startQuiz('physics', 'paper2_stoichiometry.json')">Paper 2: Stoichiometry</button>
-        </div>
-    </div>
-
-    <button class="subject-btn" onclick="showTopics('life_sciences')" style="background-color: #f59e0b;">Life Sciences</button>
-    <div id="topics-life_sciences" class="topic-list">
-        <div class="topic-list-grid">
-            <button class="topic-btn" onclick="startQuiz('life_sciences', 'paper1_life_meiosis.json')">Paper 1: Meiosis</button>
-            <button class="topic-btn" onclick="startQuiz('life_sciences', 'paper1_life_reproduction_vertebrates.json')">Paper 1: Reproduction in Vertebrates</button>
-            <button class="topic-btn" onclick="startQuiz('life_sciences', 'paper1_life_human_reproduction.json')">Paper 1: Human Reproduction</button>
-            <button class="topic-btn" onclick="startQuiz('life_sciences', 'paper1_life_environment_humans.json')">Paper 1: Responding to the Environment (Humans)</button>
-            <button class="topic-btn" onclick="startQuiz('life_sciences', 'paper1_life_endocrine_system.json')">Paper 1: Human Endocrine System</button>
-            <button class="topic-btn" onclick="startQuiz('life_sciences', 'paper1_life_homeostasis.json')">Paper 1: Homeostasis in Humans</button>
-            <button class="topic-btn" onclick="startQuiz('life_sciences', 'paper1_life_environment_plants.json')">Paper 1: Responding to the Environment (Plants)</button>
-            <button class="topic-btn" onclick="startQuiz('life_sciences', 'paper1_life_human_impact.json')">Paper 1: Human Impact on Environment</button>
-            <button class="topic-btn" onclick="startQuiz('life_sciences', 'paper2_life_dna_code.json')">Paper 2: DNA: Code of Life</button>
-            <button class="topic-btn" onclick="startQuiz('life_sciences', 'paper2_life_meiosis.json')">Paper 2: Meiosis</button>
-            <button class="topic-btn" onclick="startQuiz('life_sciences', 'paper2_life_genetics.json')">Paper 2: Genetics and Inheritance</button>
-            <button class="topic-btn" onclick="startQuiz('life_sciences', 'paper2_life_evolution.json')">Paper 2: Evolution</button>
-        </div>
-    </div>
-
+    <!-- Subjects and Topics will be generated here dynamically based on the user's grade -->
 </div>
 
 <script>
@@ -190,13 +139,122 @@
         window.location.href = "index.html";
     }
 
+    const userGrade = localStorage.getItem("user_grade") || "grade12";
+
+    // Update Page Title
+    const gradeDisplay = userGrade.replace('grade', 'Grade ');
+    document.getElementById("page-title-grade").textContent = `${gradeDisplay} Subjects`;
+
+    // Hardcoded Mapping of Subjects & Topics per Grade
+    const GRADE_MAP = {
+        "grade12": {
+            "mathematics": [
+                { file: "paper1_algebra.json", label: "Paper 1: Algebra" },
+                { file: "paper1_calculus.json", label: "Paper 1: Calculus" },
+                { file: "paper1_finance.json", label: "Paper 1: Finance" },
+                { file: "paper1_functions.json", label: "Paper 1: Functions" },
+                { file: "paper1_probability.json", label: "Paper 1: Probability" },
+                { file: "paper1_sequences.json", label: "Paper 1: Sequences" },
+                { file: "paper2_analytical_geometry.json", label: "Paper 2: Analytical Geometry" },
+                { file: "paper2_geometry.json", label: "Paper 2: Euclidean Geometry" },
+                { file: "paper2_statistics.json", label: "Paper 2: Statistics" },
+                { file: "paper2_trigonometry.json", label: "Paper 2: Trigonometry" }
+            ],
+            "physics": [
+                { file: "paper1_circular_motion.json", label: "Paper 1: Circular Motion" },
+                { file: "paper1_mechanics.json", label: "Paper 1: Mechanics" },
+                { file: "paper1_oscillations_waves.json", label: "Paper 1: Oscillations & Waves" },
+                { file: "paper1_thermal_physics.json", label: "Paper 1: Thermal Physics" },
+                { file: "paper1_work_energy_power.json", label: "Paper 1: Work, Energy & Power" },
+                { file: "paper2_acids_bases.json", label: "Paper 2: Acids & Bases" },
+                { file: "paper2_atomic_nuclear.json", label: "Paper 2: Atomic & Nuclear" },
+                { file: "paper2_bonding_structure.json", label: "Paper 2: Bonding & Structure" },
+                { file: "paper2_electrochemistry.json", label: "Paper 2: Electrochemistry" },
+                { file: "paper2_kinetics_equilibrium.json", label: "Paper 2: Kinetics & Equilibrium" },
+                { file: "paper2_stoichiometry.json", label: "Paper 2: Stoichiometry" }
+            ],
+            "life_sciences": [
+                { file: "paper1_life_meiosis.json", label: "Paper 1: Meiosis" },
+                { file: "paper1_life_reproduction_vertebrates.json", label: "Paper 1: Reproduction in Vertebrates" },
+                { file: "paper1_life_human_reproduction.json", label: "Paper 1: Human Reproduction" },
+                { file: "paper1_life_environment_humans.json", label: "Paper 1: Responding to the Environment (Humans)" },
+                { file: "paper1_life_endocrine_system.json", label: "Paper 1: Human Endocrine System" },
+                { file: "paper1_life_homeostasis.json", label: "Paper 1: Homeostasis in Humans" },
+                { file: "paper1_life_environment_plants.json", label: "Paper 1: Responding to the Environment (Plants)" },
+                { file: "paper1_life_human_impact.json", label: "Paper 1: Human Impact on Environment" },
+                { file: "paper2_life_dna_code.json", label: "Paper 2: DNA: Code of Life" },
+                { file: "paper2_life_meiosis.json", label: "Paper 2: Meiosis" },
+                { file: "paper2_life_genetics.json", label: "Paper 2: Genetics and Inheritance" },
+                { file: "paper2_life_evolution.json", label: "Paper 2: Evolution" }
+            ]
+        }
+        // Additional grades will fallback or use specific maps below if added.
+    };
+
+    // Initialize map for grades 1-11 with dummy/default subsets
+    // This allows the UI to render correctly for lower grades preventing them from accessing grade 12
+    for (let i = 1; i <= 11; i++) {
+        GRADE_MAP[`grade${i}`] = {
+            "mathematics": [
+                { file: "basic_addition.json", label: "Basic Addition" },
+                { file: "basic_subtraction.json", label: "Basic Subtraction" }
+            ]
+        };
+    }
+
+    const SUBJECT_COLORS = {
+        "mathematics": "", // Uses default
+        "physics": "physics", // Uses specific class
+        "life_sciences": "life-sciences"
+    };
+
+    const SUBJECT_LABELS = {
+        "mathematics": "Mathematics",
+        "physics": "Physical Sciences",
+        "life_sciences": "Life Sciences"
+    };
+
+    function renderSubjects() {
+        const container = document.getElementById("subjects-container");
+        const userMap = GRADE_MAP[userGrade] || GRADE_MAP["grade12"];
+
+        let html = `<h2>Choose a Subject to Practice</h2>`;
+
+        for (const [subjectKey, topics] of Object.entries(userMap)) {
+            const subjectLabel = SUBJECT_LABELS[subjectKey] || subjectKey.replace('_', ' ').replace(/\\b\\w/g, l => l.toUpperCase());
+
+            let extraStyle = "";
+            let extraClass = SUBJECT_COLORS[subjectKey] || "";
+            if (subjectKey === "life_sciences") {
+                extraStyle = 'style="background-color: #f59e0b;"';
+                extraClass = "";
+            }
+
+            html += `
+                <button class="subject-btn ${extraClass}" ${extraStyle} onclick="showTopics('${subjectKey}')">${subjectLabel}</button>
+                <div id="topics-${subjectKey}" class="topic-list">
+                    <div class="topic-list-grid">
+            `;
+
+            topics.forEach(topic => {
+                html += `<button class="topic-btn" onclick="startQuiz('${subjectKey}', '${topic.file}')">${topic.label}</button>`;
+            });
+
+            html += `
+                    </div>
+                </div>
+            `;
+        }
+
+        container.innerHTML = html;
+    }
+
     function showTopics(subject) {
-        document.getElementById("topics-mathematics").style.display = "none";
-        document.getElementById("topics-physics").style.display = "none";
+        // Hide all topic lists
+        const allLists = document.querySelectorAll(".topic-list");
+        allLists.forEach(list => list.style.display = "none");
 
-        const lifeTopics = document.getElementById("topics-life_sciences");
-        if (lifeTopics) lifeTopics.style.display = "none";
-
+        // Show the selected one
         const target = document.getElementById(`topics-${subject}`);
         if (target) target.style.display = "block";
     }
@@ -208,6 +266,9 @@
         url.searchParams.set('file', filename);
         window.location.href = url.toString();
     }
+
+    // Render on load
+    renderSubjects();
 </script>
 <script>
 // Hamburger Menu Logic

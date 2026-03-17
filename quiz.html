@@ -253,6 +253,12 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = "subjects.html";
     }
 
+    const userGrade = localStorage.getItem("user_grade") || "grade12";
+
+    // Update Page Title
+    const gradeDisplay = userGrade.replace('grade', 'Grade ');
+    document.getElementById("page-title-grade").textContent = `${gradeDisplay} Quiz`;
+
     let fullDataset = [];
     let quizQuestions = [];
     let currentQuestionIndex = 0;
@@ -278,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById("loading").style.display = "block";
 
         try {
-const userGrade = localStorage.getItem("user_grade") || "grade12";
+            // Strictly enforce fetching the correct dataset path based on the user's registered grade
             let fetchUrl = "";
             if (userGrade === "grade12") {
                 fetchUrl = `dataset/${subject}/${filename}`;

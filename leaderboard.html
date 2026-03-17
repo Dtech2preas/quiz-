@@ -221,8 +221,8 @@
 
     async function fetchLeaderboards() {
         try {
-            const userGrade = localStorage.getItem("user_grade") || "grade12";
-            const response = await fetch(`${API_URL}/api/leaderboard?grade=${userGrade}`);
+            const currentGrade = localStorage.getItem("user_grade") || "grade12";
+            const response = await fetch(`${API_URL}/api/leaderboard?grade=${currentGrade}`);
             const data = await response.json();
 
             document.getElementById("loading").style.display = "none";
