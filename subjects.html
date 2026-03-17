@@ -164,6 +164,24 @@
         </div>
     </div>
 
+    <button class="subject-btn" onclick="showTopics('life_sciences')" style="background-color: #f59e0b;">Life Sciences</button>
+    <div id="topics-life_sciences" class="topic-list">
+        <div class="topic-list-grid">
+            <button class="topic-btn" onclick="startQuiz('life_sciences', 'paper1_life_meiosis.json')">Paper 1: Meiosis</button>
+            <button class="topic-btn" onclick="startQuiz('life_sciences', 'paper1_life_reproduction_vertebrates.json')">Paper 1: Reproduction in Vertebrates</button>
+            <button class="topic-btn" onclick="startQuiz('life_sciences', 'paper1_life_human_reproduction.json')">Paper 1: Human Reproduction</button>
+            <button class="topic-btn" onclick="startQuiz('life_sciences', 'paper1_life_environment_humans.json')">Paper 1: Responding to the Environment (Humans)</button>
+            <button class="topic-btn" onclick="startQuiz('life_sciences', 'paper1_life_endocrine_system.json')">Paper 1: Human Endocrine System</button>
+            <button class="topic-btn" onclick="startQuiz('life_sciences', 'paper1_life_homeostasis.json')">Paper 1: Homeostasis in Humans</button>
+            <button class="topic-btn" onclick="startQuiz('life_sciences', 'paper1_life_environment_plants.json')">Paper 1: Responding to the Environment (Plants)</button>
+            <button class="topic-btn" onclick="startQuiz('life_sciences', 'paper1_life_human_impact.json')">Paper 1: Human Impact on Environment</button>
+            <button class="topic-btn" onclick="startQuiz('life_sciences', 'paper2_life_dna_code.json')">Paper 2: DNA: Code of Life</button>
+            <button class="topic-btn" onclick="startQuiz('life_sciences', 'paper2_life_meiosis.json')">Paper 2: Meiosis</button>
+            <button class="topic-btn" onclick="startQuiz('life_sciences', 'paper2_life_genetics.json')">Paper 2: Genetics and Inheritance</button>
+            <button class="topic-btn" onclick="startQuiz('life_sciences', 'paper2_life_evolution.json')">Paper 2: Evolution</button>
+        </div>
+    </div>
+
 </div>
 
 <script>
@@ -174,7 +192,12 @@
     function showTopics(subject) {
         document.getElementById("topics-mathematics").style.display = "none";
         document.getElementById("topics-physics").style.display = "none";
-        document.getElementById(`topics-${subject}`).style.display = "block";
+
+        const lifeTopics = document.getElementById("topics-life_sciences");
+        if (lifeTopics) lifeTopics.style.display = "none";
+
+        const target = document.getElementById(`topics-${subject}`);
+        if (target) target.style.display = "block";
     }
 
     function startQuiz(subject, filename) {
