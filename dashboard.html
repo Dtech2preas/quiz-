@@ -35,24 +35,32 @@
 
         .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
 
-        .ranks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; margin-bottom: 2rem; }
-        .rank-card { background: var(--bg-card); padding: 1.5rem; border-radius: 12px; text-align: center; border: 1px solid var(--border-color); box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .rank-card h4 { margin: 0 0 0.5rem 0; color: var(--text-muted); font-size: 1rem; font-weight: 500; }
-        .rank-card p { font-size: 2rem !important; font-weight: bold; margin: 0; color: var(--text-main); }
+        .ranks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+        .rank-card { background: linear-gradient(145deg, var(--bg-card), #151e2e); padding: 1.2rem; border-radius: 12px; text-align: center; border: 1px solid var(--border-color); box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.2s; }
+        .rank-card:hover { transform: translateY(-2px); }
+        .rank-card h4 { margin: 0 0 0.5rem 0; color: var(--text-muted); font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+        .rank-card p { font-size: 1.8rem !important; font-weight: bold; margin: 0; color: var(--text-main); text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
 
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; margin-bottom: 2.5rem; }
-        .stat-card { background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color); text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .stat-card h3 { margin: 0 0 0.5rem 0; font-size: 1rem; color: var(--text-muted); font-weight: 500; }
-        .stat-card p { margin: 0; font-size: 1.8rem; font-weight: bold; color: var(--accent-blue); }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2.5rem; }
+        .stat-card { background: linear-gradient(145deg, var(--bg-card), #151e2e); padding: 1.2rem; border-radius: 12px; border: 1px solid var(--border-color); text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.2s; }
+        .stat-card:hover { transform: translateY(-2px); }
+        .stat-card h3 { margin: 0 0 0.5rem 0; font-size: 0.9rem; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+        .stat-card p { margin: 0; font-size: 1.8rem; font-weight: bold; color: var(--accent-blue); text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
 
         .section-title { font-size: 1.3rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1.5rem; color: var(--text-main); font-weight: 600; }
 
-        .progress-list { background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color); margin-bottom: 2rem; }
+        .progress-list { background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color); margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         .progress-item { margin-bottom: 1.2rem; }
         .progress-item:last-child { margin-bottom: 0; }
         .progress-header { display: flex; justify-content: space-between; margin-bottom: 0.5rem; color: var(--text-main); font-weight: 500; font-size: 0.95rem; }
         .progress-bar-container { width: 100%; background-color: var(--bg-dark); border-radius: 6px; height: 8px; overflow: hidden; border: 1px solid var(--border-color); }
-        .progress-bar { height: 100%; background-color: var(--accent-green); transition: width 0.5s ease-in-out; }
+        .progress-bar { height: 100%; background-color: var(--accent-green); width: 0%; transition: width 1s cubic-bezier(0.4, 0, 0.2, 1); }
+
+        /* Avatar Modal */
+        .avatar-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; justify-content: center; align-items: center; cursor: pointer; backdrop-filter: blur(5px); }
+        .avatar-modal img { max-width: 90%; max-height: 90%; border-radius: 50%; border: 4px solid var(--border-color); box-shadow: 0 10px 25px rgba(0,0,0,0.5); transform: scale(0.9); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .avatar-modal.active { display: flex; }
+        .avatar-modal.active img { transform: scale(1); }
 
         .weak-topics { background: rgba(239, 68, 68, 0.1); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(239, 68, 68, 0.2); margin-bottom: 2rem; }
         .weak-topic-item { padding: 0.8rem 0; border-bottom: 1px solid rgba(239, 68, 68, 0.2); display: flex; justify-content: space-between; align-items: center; color: var(--text-main); }
@@ -169,28 +177,29 @@
 
 <div id="loading">Loading dashboard...</div>
 
+<div class="avatar-modal" id="avatar-modal">
+    <img id="avatar-modal-img" src="" alt="Full Avatar">
+</div>
+
 <div class="container" id="dashboard-content">
     <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
-        <img id="dashboard-avatar" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; background-color: var(--bg-card); border: 2px solid var(--border-color);" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzk0YTNiOCI+PHBhdGggZD0iTTEyIDEyYzIuMjEgMCA0LTEuNzkgNC00cy0xLjc5LTQtNC00LTQgMS43OS00IDRzMS43OSA0IDQgNHptMCAyYy0yLjY3IDAtOCAxLjM0LTggNHYyaDE2di0yYzAtMi42Ni01LjMzLTQtOC00eiIvPjwvc3ZnPg==" alt="Avatar">
+        <img id="dashboard-avatar" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; background-color: var(--bg-card); border: 2px solid var(--border-color); cursor: pointer; transition: transform 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.2);" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzk0YTNiOCI+PHBhdGggZD0iTTEyIDEyYzIuMjEgMCA0LTEuNzkgNC00cy0xLjc5LTQtNC00LTQgMS43OS00IDRzMS43OSA0IDQgNHptMCAyYy0yLjY3IDAtOCAxLjM0LTggNHYyaDE2di0yYzAtMi42Ni01LjMzLTQtOC00eiIvPjwvc3ZnPg==" alt="Avatar" onclick="openAvatarModal()">
         <div>
             <h2 id="welcome-message" style="margin: 0; margin-bottom: 0.5rem;">Welcome, User! <span id="user-grade-badge" style="font-size: 0.9rem; background: var(--accent-blue); color: white; padding: 0.2rem 0.6rem; border-radius: 12px; vertical-align: middle; margin-left: 0.5rem;"></span></h2>
             <div id="dashboard-badges" style="display: flex; gap: 0.5rem; flex-wrap: wrap;"></div>
         </div>
     </div>
 
-    <div class="ranks-grid">
+    <div id="sync-warning" style="display: none; background: rgba(245, 158, 11, 0.2); border: 1px solid #f59e0b; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; color: var(--text-main);">
+        <strong>Syncing:</strong> You have offline quiz results waiting to be synced to the server...
+    </div>
+
+    <div class="ranks-grid" id="dynamic-ranks-grid">
         <div class="rank-card">
             <h4>Your Rank in SA</h4>
             <p style="font-size: 1.5rem; font-weight: bold; margin:0;" id="rank-sa">-</p>
         </div>
-        <div class="rank-card">
-            <h4>Rank in Mathematics</h4>
-            <p style="font-size: 1.5rem; font-weight: bold; margin:0;" id="rank-math">-</p>
-        </div>
-        <div class="rank-card">
-            <h4>Rank in Physical Sciences</h4>
-            <p style="font-size: 1.5rem; font-weight: bold; margin:0;" id="rank-physics">-</p>
-        </div>
+        <!-- Dynamic rank cards will be injected here -->
     </div>
 
 
@@ -241,9 +250,92 @@
         window.location.href = "index.html";
     });
 
-    async function loadDashboard() {
+    function openAvatarModal() {
+        const modal = document.getElementById('avatar-modal');
+        const img = document.getElementById('avatar-modal-img');
+        const dashAvatar = document.getElementById('dashboard-avatar');
+        img.src = dashAvatar.src;
+        modal.classList.add('active');
+    }
+
+    document.getElementById('avatar-modal').addEventListener('click', function() {
+        this.classList.remove('active');
+    });
+
+    const SUBJECT_LABELS = {
+        "mathematics": "Mathematics",
+        "math": "Mathematics",
+        "physics": "Physical Sciences",
+        "physical_sciences": "Physical Sciences",
+        "life_sciences": "Life Sciences",
+        "natural_sciences": "Natural Sciences",
+        "mathematical_literacy": "Mathematical Literacy"
+    };
+
+    async function fetchGradeMap() {
         try {
-            const response = await fetch(`${API_URL}/api/user/${userId}`);
+            const response = await fetch('map.json');
+            if (!response.ok) throw new Error("Could not load map.json");
+            return await response.json();
+        } catch (error) {
+            console.error(error);
+            return {};
+        }
+    }
+
+    async function syncOfflineQuizzes() {
+        const offlineQueue = JSON.parse(localStorage.getItem("offlineQuizQueue") || "[]");
+        if (offlineQueue.length === 0 || !navigator.onLine) return;
+
+        const syncWarning = document.getElementById("sync-warning");
+        syncWarning.style.display = "block";
+
+        let remainingQueue = [];
+        for (const payload of offlineQueue) {
+            try {
+                const response = await fetch(`${API_URL}/api/submit-quiz`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+                if (!response.ok) {
+                    remainingQueue.push(payload); // Keep if it fails
+                }
+            } catch (err) {
+                remainingQueue.push(payload); // Keep if it fails
+            }
+        }
+
+        localStorage.setItem("offlineQuizQueue", JSON.stringify(remainingQueue));
+
+        if (remainingQueue.length === 0) {
+            syncWarning.innerHTML = "<strong>Success:</strong> Offline results synced!";
+            syncWarning.style.background = "rgba(16, 185, 129, 0.2)";
+            syncWarning.style.borderColor = "var(--accent-green)";
+            setTimeout(() => { syncWarning.style.display = "none"; }, 3000);
+        } else {
+            syncWarning.innerHTML = "<strong>Notice:</strong> Some results couldn't be synced yet. Will retry later.";
+        }
+    }
+
+    async function loadDashboard() {
+        // Run sync in background
+        syncOfflineQuizzes();
+
+        try {
+            const gradeMap = await fetchGradeMap();
+            let tempGrade = localStorage.getItem("user_grade") || "grade12";
+
+            // Determine dynamic subjects to query for this user's grade
+            let gradeSubjects = gradeMap[tempGrade] ? Object.keys(gradeMap[tempGrade]) : ["math", "physics"];
+            // Map legacy long names to short names for the backend
+            gradeSubjects = gradeSubjects.map(s => s === "mathematics" ? "math" : s === "physical_sciences" ? "physics" : s);
+
+            // Limit to top 2 for dashboard cards
+            const subjectsToQuery = gradeSubjects.slice(0, 2);
+            const queryParams = subjectsToQuery.length > 0 ? `?subjects=${subjectsToQuery.join(',')}` : '';
+
+            const response = await fetch(`${API_URL}/api/user/${userId}${queryParams}`);
 
             if (response.status === 401 || response.status === 404) {
                 localStorage.removeItem("user_id");
@@ -293,8 +385,26 @@
             document.getElementById("stat-questions").textContent = data.questions_answered || 0;
 
             document.getElementById("rank-sa").textContent = data.ranks?.overall !== "-" ? `#${data.ranks.overall}` : "-";
-            document.getElementById("rank-math").textContent = data.ranks?.math !== "-" ? `#${data.ranks.math}` : "-";
-            document.getElementById("rank-physics").textContent = data.ranks?.physics !== "-" ? `#${data.ranks.physics}` : "-";
+
+            // Dynamically inject subject rank cards
+            const ranksGrid = document.getElementById("dynamic-ranks-grid");
+            ranksGrid.innerHTML = `
+                <div class="rank-card">
+                    <h4>Your Rank in SA</h4>
+                    <p id="rank-sa">${data.ranks?.overall !== "-" ? `#${data.ranks.overall}` : "-"}</p>
+                </div>
+            `;
+
+            subjectsToQuery.forEach(sub => {
+                const label = SUBJECT_LABELS[sub] || sub.replace('_', ' ').replace(/\b\w/g, c => c.toUpperCase());
+                const rankVal = data.ranks?.[sub] !== "-" && data.ranks?.[sub] !== undefined ? `#${data.ranks[sub]}` : "-";
+                ranksGrid.innerHTML += `
+                    <div class="rank-card">
+                        <h4>Rank in ${label}</h4>
+                        <p>${rankVal}</p>
+                    </div>
+                `;
+            });
 
             // Process topics
             const topicMasteryList = document.getElementById("topic-mastery-list");
@@ -312,6 +422,7 @@
                     const formattedTopic = topic.replace('paper1_', '').replace('paper2_', '').replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
 
                     // Mastery list
+                    // width is set initially to 0%, target is stored in data-target for animation
                     const progressBarHtml = `
                         <div class="progress-item">
                             <div class="progress-header">
@@ -319,7 +430,7 @@
                                 <span>${accuracy}%</span>
                             </div>
                             <div class="progress-bar-container">
-                                <div class="progress-bar" style="width: ${accuracy}%; background-color: ${accuracy < 60 ? '#dc3545' : '#28a745'};"></div>
+                                <div class="progress-bar" data-target="${accuracy}%" style="width: 0%; background-color: ${accuracy < 60 ? '#dc3545' : '#28a745'};"></div>
                             </div>
                         </div>
                     `;
@@ -344,6 +455,16 @@
 
             document.getElementById("loading").style.display = "none";
             document.getElementById("dashboard-content").style.display = "block";
+
+            // Trigger progress bar animations after layout is done
+            setTimeout(() => {
+                document.querySelectorAll('.progress-bar').forEach(bar => {
+                    const target = bar.getAttribute('data-target');
+                    if (target) {
+                        bar.style.width = target;
+                    }
+                });
+            }, 100);
 
         } catch (error) {
             console.error("Error fetching user data:", error);
