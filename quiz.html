@@ -225,10 +225,13 @@ document.addEventListener('DOMContentLoaded', () => {
     <div id="result-section" class="result-section" style="display:none;">
         <div style="text-align: center; margin-bottom: 2rem;">
             <h2>Quiz Completed!</h2>
-            <p style="font-size: 1.2rem; margin: 1rem 0;">You scored <strong id="final-score"></strong> out of <span id="final-total"></span>.</p>
-            <p style="font-size: 1.2rem; margin-bottom: 2rem;">XP Earned: <strong id="xp-earned" style="color:var(--accent-green);">0</strong></p>
-            <button onclick="window.location.href='dashboard.html'">Back to Dashboard</button>
-            <button onclick="window.location.href='subjects.html'" style="background:var(--option-bg); color:var(--text-main); border:1px solid var(--border-color); margin-left:1rem;">Take Another Quiz</button>
+            <p style="font-size: 1.2rem; margin: 1rem 0;">You scored <strong id="final-score"></strong> out of <span id="final-total"></span> (<span id="final-percentage"></span>%).</p>
+            <div id="xp-message-container" style="background: rgba(0,0,0,0.2); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; margin: 1rem auto; max-width: 500px;">
+                <p id="public-xp-message" style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--accent-green);"></p>
+                <p id="personal-xp-message" style="font-size: 1rem; color: var(--text-muted);"></p>
+            </div>
+            <button onclick="window.location.href='dashboard.html'" style="margin-top: 1rem;">Back to Dashboard</button>
+            <button onclick="window.location.href='subjects.html'" style="background:var(--option-bg); color:var(--text-main); border:1px solid var(--border-color); margin-left:1rem; margin-top: 1rem;">Take Another Quiz</button>
         </div>
 
         <h3 style="border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1.5rem;">Review Your Answers</h3>
@@ -446,7 +449,22 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {
                 document.getElementById("final-score").textContent = correctAnswersCount;
                 document.getElementById("final-total").textContent = quizQuestions.length;
-                document.getElementById("xp-earned").textContent = `+${data.xp_earned} XP`;
+
+                const percentage = ((correctAnswersCount / quizQuestions.length) * 100).toFixed(0);
+                document.getElementById("final-percentage").textContent = percentage;
+
+                const publicXpMsg = document.getElementById("public-xp-message");
+                const personalXpMsg = document.getElementById("personal-xp-message");
+
+                if (data.passed_threshold) {
+                    publicXpMsg.textContent = `+${data.xp_earned} XP added to Public Records!`;
+                    publicXpMsg.style.color = "var(--accent-green)";
+                    personalXpMsg.textContent = `(+${data.personal_xp_earned} XP added to Personal Record)`;
+                } else {
+                    publicXpMsg.textContent = `0 XP added to Public Records.`;
+                    publicXpMsg.style.color = "var(--accent-red)";
+                    personalXpMsg.innerHTML = `You scored less than 50% minimum threshold.<br>But don't worry, <strong>+${data.personal_xp_earned} XP</strong> was still added to your Personal Record!`;
+                }
 
                 document.getElementById("loading").style.display = "none";
                 document.getElementById("result-section").style.display = "block";
