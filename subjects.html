@@ -43,6 +43,8 @@
         /* Specific subject button override */
         .subject-btn.physics { background-color: var(--accent-cyan); }
         .subject-btn.physics:hover { background-color: #0891b2; }
+        .subject-btn.math-lit { background-color: #8b5cf6; } /* Purple color for Math Lit */
+        .subject-btn.math-lit:hover { background-color: #7c3aed; }
 
         .topic-list { display: none; background: var(--bg-card); padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-top: -0.5rem; margin-bottom: 2.5rem; border: 1px solid var(--border-color); }
 
@@ -148,13 +150,15 @@
     const SUBJECT_COLORS = {
         "mathematics": "", // Uses default
         "physics": "physics", // Uses specific class
-        "life_sciences": "life-sciences"
+        "life_sciences": "life-sciences",
+        "mathematical_literacy": "math-lit"
     };
 
     const SUBJECT_LABELS = {
         "mathematics": "Mathematics",
         "physics": "Physical Sciences",
-        "life_sciences": "Life Sciences"
+        "life_sciences": "Life Sciences",
+        "mathematical_literacy": "Mathematical Literacy"
     };
 
     async function fetchGradeMap() {
