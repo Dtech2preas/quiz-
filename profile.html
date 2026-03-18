@@ -176,6 +176,10 @@ color:var(--text-muted);
 
 #profile-content{display:none}
 
+.autocomplete-items { position: absolute; border: 1px solid var(--border-color); border-top: none; z-index: 99; top: 100%; left: 0; right: 0; background-color: var(--bg-card); border-radius: 0 0 6px 6px; max-height: 200px; overflow-y: auto; display: none; text-align: left; }
+.autocomplete-items div { padding: 10px; cursor: pointer; border-bottom: 1px solid var(--border-color); color: var(--text-main); font-size: 0.95rem; }
+.autocomplete-items div:hover { background-color: rgba(255,255,255,0.05); }
+
         /* Hamburger Menu Styles */
         .hamburger {
             display: none;
@@ -271,6 +275,10 @@ Change Avatar
 <input type="text" id="username" placeholder="Username" required>
 <input type="text" id="name" placeholder="First Name">
 <input type="text" id="surname" placeholder="Surname">
+<div style="position: relative; width: 100%;">
+    <input type="text" id="school" placeholder="School Name (e.g. Pretoria Boys High School)" autocomplete="off">
+    <div id="school-autocomplete-list" class="autocomplete-items"></div>
+</div>
 <input type="password" id="password" placeholder="New Password (optional)">
 <button type="submit" id="saveBtn">Save Changes</button>
 </form>
@@ -310,6 +318,7 @@ async function loadProfile() {
         document.getElementById("username").value = data.username || "";
         document.getElementById("name").value = data.name || "";
         document.getElementById("surname").value = data.surname || "";
+        document.getElementById("school").value = data.school || "";
 
         updateAvatarDisplay(data);
 
@@ -323,6 +332,60 @@ async function loadProfile() {
         `;
     }
 }
+
+// Autocomplete Logic
+let schools = [];
+
+async function fetchSchools() {
+    try {
+        const res = await fetch(`${API_URL}/api/schools`);
+        if (res.ok) {
+            const data = await res.json();
+            schools = data.schools || [];
+        }
+    } catch (err) {
+        console.error("Failed to fetch schools list", err);
+    }
+}
+
+fetchSchools();
+
+const schoolInput = document.getElementById("school");
+const autocompleteList = document.getElementById("school-autocomplete-list");
+
+schoolInput.addEventListener("input", function(e) {
+    let val = this.value;
+    autocompleteList.innerHTML = '';
+
+    if (!val) {
+        autocompleteList.style.display = 'none';
+        return false;
+    }
+
+    let matches = schools.filter(s => s.toLowerCase().includes(val.toLowerCase()));
+
+    if (matches.length > 0) {
+        autocompleteList.style.display = 'block';
+        matches.forEach(match => {
+            let div = document.createElement("div");
+            div.innerHTML = match;
+            div.addEventListener("click", function() {
+                schoolInput.value = match;
+                autocompleteList.style.display = 'none';
+            });
+            autocompleteList.appendChild(div);
+        });
+    } else {
+        autocompleteList.style.display = 'none';
+    }
+});
+
+// Close autocomplete when clicking outside
+document.addEventListener("click", function (e) {
+    if (e.target !== schoolInput) {
+        autocompleteList.style.display = 'none';
+    }
+});
 
 function updateAvatarDisplay(userData) {
     const avatarPreview = document.getElementById("avatar-preview");
@@ -617,7 +680,8 @@ document.getElementById("profileForm").addEventListener("submit", async (e) => {
     const payload = {
         username: document.getElementById("username").value,
         name: document.getElementById("name").value,
-        surname: document.getElementById("surname").value
+        surname: document.getElementById("surname").value,
+        school: document.getElementById("school").value.trim()
     };
 
     if (document.getElementById("password").value) {

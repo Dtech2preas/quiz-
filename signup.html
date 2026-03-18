@@ -30,6 +30,9 @@
         p.help-text { text-align: left; font-size: 0.85rem; margin-top: -0.5rem; margin-bottom: 0; color: var(--text-muted); }
         a { color: var(--accent-blue); text-decoration: none; font-weight: 500; }
         a:hover { text-decoration: underline; }
+        .autocomplete-items { position: absolute; border: 1px solid var(--border-color); border-top: none; z-index: 99; top: 100%; left: 0; right: 0; background-color: var(--bg-card); border-radius: 0 0 6px 6px; max-height: 200px; overflow-y: auto; display: none; text-align: left; }
+        .autocomplete-items div { padding: 10px; cursor: pointer; border-bottom: 1px solid var(--border-color); color: var(--text-main); font-size: 0.95rem; }
+        .autocomplete-items div:hover { background-color: rgba(255,255,255,0.05); }
     </style>
 </head>
 <body>
@@ -57,6 +60,11 @@
                 <option value="grade1">Grade 1</option>
             </select>
 
+            <div style="position: relative; width: 100%;">
+                <input type="text" id="school" placeholder="School Name (e.g. Pretoria Boys High School)" autocomplete="off">
+                <div id="school-autocomplete-list" class="autocomplete-items"></div>
+            </div>
+
             <button type="submit">Create Account</button>
         </form>
         <p class="error" id="errorMsg"></p>
@@ -71,6 +79,60 @@
             window.location.href = "dashboard.html";
         }
 
+        // Autocomplete Logic
+        let schools = [];
+
+        async function fetchSchools() {
+            try {
+                const res = await fetch(`${API_URL}/api/schools`);
+                if (res.ok) {
+                    const data = await res.json();
+                    schools = data.schools || [];
+                }
+            } catch (err) {
+                console.error("Failed to fetch schools list", err);
+            }
+        }
+
+        fetchSchools();
+
+        const schoolInput = document.getElementById("school");
+        const autocompleteList = document.getElementById("school-autocomplete-list");
+
+        schoolInput.addEventListener("input", function(e) {
+            let val = this.value;
+            autocompleteList.innerHTML = '';
+
+            if (!val) {
+                autocompleteList.style.display = 'none';
+                return false;
+            }
+
+            let matches = schools.filter(s => s.toLowerCase().includes(val.toLowerCase()));
+
+            if (matches.length > 0) {
+                autocompleteList.style.display = 'block';
+                matches.forEach(match => {
+                    let div = document.createElement("div");
+                    div.innerHTML = match;
+                    div.addEventListener("click", function() {
+                        schoolInput.value = match;
+                        autocompleteList.style.display = 'none';
+                    });
+                    autocompleteList.appendChild(div);
+                });
+            } else {
+                autocompleteList.style.display = 'none';
+            }
+        });
+
+        // Close autocomplete when clicking outside
+        document.addEventListener("click", function (e) {
+            if (e.target !== schoolInput) {
+                autocompleteList.style.display = 'none';
+            }
+        });
+
         document.getElementById("signupForm").addEventListener("submit", async (e) => {
             e.preventDefault();
             const username = document.getElementById("username").value;
@@ -78,6 +140,7 @@
             const name = document.getElementById("name").value;
             const surname = document.getElementById("surname").value;
             const grade = document.getElementById("grade").value;
+            const school = document.getElementById("school").value.trim();
             const errorMsg = document.getElementById("errorMsg");
 
             // Validate password locally too
@@ -91,7 +154,7 @@
                 const response = await fetch(`${API_URL}/api/signup`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ username, password, name, surname, grade })
+                    body: JSON.stringify({ username, password, name, surname, grade, school })
                 });
 
                 const data = await response.json();

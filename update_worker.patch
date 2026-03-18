@@ -1,0 +1,176 @@
+<<<<<<< SEARCH
+      if (request.method === "GET" && path === "/api/leaderboard") {
+        return await handleGetLeaderboards(request, env);
+      }
+=======
+      if (request.method === "GET" && path === "/api/schools") {
+        return await handleGetSchools(request, env);
+      }
+      if (request.method === "GET" && path === "/api/leaderboard") {
+        return await handleGetLeaderboards(request, env);
+      }
+>>>>>>> REPLACE
+<<<<<<< SEARCH
+async function handleSignup(request, env) {
+  const body = await request.json();
+  const { username, password, name, surname, grade } = body;
+=======
+async function handleSignup(request, env) {
+  const body = await request.json();
+  const { username, password, name, surname, grade, school } = body;
+>>>>>>> REPLACE
+<<<<<<< SEARCH
+    surname: surname || "",
+    grade: grade || "grade12",
+    avatar_url: "",
+=======
+    surname: surname || "",
+    grade: grade || "grade12",
+    school: school || "",
+    avatar_url: "",
+>>>>>>> REPLACE
+<<<<<<< SEARCH
+async function handleGetUser(request, env, path) {
+  const userId = path.split("/").pop();
+=======
+async function handleGetUser(request, env, path) {
+  const userId = path.split("/").pop();
+>>>>>>> REPLACE
+<<<<<<< SEARCH
+  if (!userData.grade) userData.grade = "grade12";
+  const grade = userData.grade;
+=======
+  if (!userData.grade) userData.grade = "grade12";
+  const grade = userData.grade;
+  if (!userData.school) userData.school = "";
+>>>>>>> REPLACE
+<<<<<<< SEARCH
+async function handleUpdateProfile(request, env, path) {
+  const match = path.match(/^\/api\/user\/([^/]+)\/profile$/);
+  if (!match) return jsonResponse({ error: "Invalid path" }, 400);
+  const userId = match[1];
+
+  const body = await request.json();
+  const { name, surname, username, password, grade } = body;
+=======
+async function handleUpdateProfile(request, env, path) {
+  const match = path.match(/^\/api\/user\/([^/]+)\/profile$/);
+  if (!match) return jsonResponse({ error: "Invalid path" }, 400);
+  const userId = match[1];
+
+  const body = await request.json();
+  const { name, surname, username, password, grade, school } = body;
+>>>>>>> REPLACE
+<<<<<<< SEARCH
+  if (name !== undefined) userData.name = name;
+  if (surname !== undefined) userData.surname = surname;
+  if (grade !== undefined) userData.grade = grade;
+  if (!userData.grade) userData.grade = "grade12";
+=======
+  if (name !== undefined) userData.name = name;
+  if (surname !== undefined) userData.surname = surname;
+  if (grade !== undefined) userData.grade = grade;
+  if (!userData.grade) userData.grade = "grade12";
+  if (school !== undefined) userData.school = school;
+>>>>>>> REPLACE
+<<<<<<< SEARCH
+  const publicData = {
+    username: userData.username,
+    name: userData.name,
+    surname: userData.surname,
+    grade: userData.grade || "grade12",
+    avatar_url: userData.avatar_url || "",
+=======
+  const publicData = {
+    username: userData.username,
+    name: userData.name,
+    surname: userData.surname,
+    grade: userData.grade || "grade12",
+    school: userData.school || "",
+    avatar_url: userData.avatar_url || "",
+>>>>>>> REPLACE
+<<<<<<< SEARCH
+  // Update leaderboards async (only if public XP was gained, though it's safe to run regardless)
+  ctx.waitUntil(updateLeaderboards(env, userData, currentWeek));
+=======
+  // Update leaderboards async (only if public XP was gained, though it's safe to run regardless)
+  ctx.waitUntil(updateLeaderboards(env, userData, currentWeek, publicXpEarned));
+>>>>>>> REPLACE
+<<<<<<< SEARCH
+async function updateLeaderboards(env, user, currentWeek) {
+  const updateBoard = async (key, sortByField) => {
+=======
+async function updateLeaderboards(env, user, currentWeek, publicXpEarned) {
+  const updateBoard = async (key, sortByField) => {
+>>>>>>> REPLACE
+<<<<<<< SEARCH
+  const grade = user.grade || "grade12";
+  await Promise.all([
+    updateBoard(`leaderboard:${grade}:overall`, "total_xp"),
+=======
+  const grade = user.grade || "grade12";
+
+  // Update school leaderboard if user has a school and earned public XP
+  let schoolPromise = Promise.resolve();
+  if (user.school && publicXpEarned && publicXpEarned > 0) {
+    schoolPromise = (async () => {
+      const schoolKey = "leaderboard:schools:overall";
+      let schoolBoardStr = await env.RANK_KV.get(schoolKey) || "[]";
+      let schoolBoard = JSON.parse(schoolBoardStr);
+
+      let schoolEntry = schoolBoard.find(s => s.school_name === user.school);
+      if (schoolEntry) {
+        schoolEntry.xp += publicXpEarned;
+      } else {
+        schoolBoard.push({
+          school_name: user.school,
+          xp: publicXpEarned
+        });
+      }
+
+      schoolBoard.sort((a, b) => b.xp - a.xp);
+      await env.RANK_KV.put(schoolKey, JSON.stringify(schoolBoard));
+    })();
+  }
+
+  await Promise.all([
+    schoolPromise,
+    updateBoard(`leaderboard:${grade}:overall`, "total_xp"),
+>>>>>>> REPLACE
+<<<<<<< SEARCH
+  const allMathStr = await env.RANK_KV.get("leaderboard:allgrades:math") || "[]";
+  const allPhysicsStr = await env.RANK_KV.get("leaderboard:allgrades:physics") || "[]";
+  const allWeeklyStr = await env.RANK_KV.get(`leaderboard:allgrades:weekly:${currentWeek}`) || "[]";
+
+  return jsonResponse({
+=======
+  const allMathStr = await env.RANK_KV.get("leaderboard:allgrades:math") || "[]";
+  const allPhysicsStr = await env.RANK_KV.get("leaderboard:allgrades:physics") || "[]";
+  const allWeeklyStr = await env.RANK_KV.get(`leaderboard:allgrades:weekly:${currentWeek}`) || "[]";
+  const schoolsOverallStr = await env.RANK_KV.get("leaderboard:schools:overall") || "[]";
+
+  return jsonResponse({
+>>>>>>> REPLACE
+<<<<<<< SEARCH
+    all_physics: JSON.parse(allPhysicsStr),
+    all_weekly: JSON.parse(allWeeklyStr)
+  });
+}
+=======
+    all_physics: JSON.parse(allPhysicsStr),
+    all_weekly: JSON.parse(allWeeklyStr),
+    schools_overall: JSON.parse(schoolsOverallStr)
+  });
+}
+
+async function handleGetSchools(request, env) {
+  // Read from the schools leaderboard to get all active schools
+  const schoolsOverallStr = await env.RANK_KV.get("leaderboard:schools:overall") || "[]";
+  const schoolsBoard = JSON.parse(schoolsOverallStr);
+  const schoolsList = schoolsBoard.map(s => s.school_name);
+
+  return jsonResponse({
+    schools: schoolsList
+  });
+}
+>>>>>>> REPLACE
