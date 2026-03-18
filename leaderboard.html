@@ -92,6 +92,17 @@
         .rank-3 .user-avatar { width: 45px; height: 45px; border: 2px solid var(--accent-bronze); }
         .rank-3 .rank-num { color: var(--accent-bronze); font-size: 1.2rem; }
 
+        /* Silver styling (4-10) */
+        .rank-silver { background-color: rgba(148, 163, 184, 0.05); font-weight: 600; border-left: 4px solid var(--accent-silver); }
+        .rank-silver .rank-num { color: var(--accent-silver); }
+
+        /* Bronze styling (11-25) */
+        .rank-bronze { background-color: rgba(217, 119, 6, 0.05); font-weight: 500; border-left: 4px solid var(--accent-bronze); }
+        .rank-bronze .rank-num { color: var(--accent-bronze); }
+
+        /* Iron styling (26-100) */
+        .rank-iron { border-left: 4px solid #475569; }
+
         .crown-icon { font-size: 1.5rem; margin-right: 0.5rem; }
 
         @media (max-width: 480px) {
@@ -192,19 +203,15 @@
 </header>
 
 <div class="container">
-    <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab('overall')">Overall</button>
-        <button class="tab-btn" onclick="switchTab('mathematics')">Mathematics</button>
-        <button class="tab-btn" onclick="switchTab('physics')">Physical Sciences</button>
-        <button class="tab-btn" onclick="switchTab('weekly')">Weekly</button>
+    <div class="tabs" id="leaderboard-tabs">
+        <!-- Dynamic tabs injected here -->
     </div>
 
     <div id="loading">Loading leaderboards...</div>
 
-    <div id="leaderboard-overall" class="leaderboard-content active"></div>
-    <div id="leaderboard-mathematics" class="leaderboard-content"></div>
-    <div id="leaderboard-physics" class="leaderboard-content"></div>
-    <div id="leaderboard-weekly" class="leaderboard-content"></div>
+    <div id="leaderboards-container">
+        <!-- Dynamic leaderboard contents injected here -->
+    </div>
 </div>
 
 <script>
@@ -220,18 +227,74 @@
     document.getElementById("page-title-grade").textContent = `${gradeDisplay} Leaderboard`;
     document.title = `${gradeDisplay} Leaderboards - Quiz Platform`;
 
+    const SUBJECT_LABELS = {
+        "overall": "Overall",
+        "weekly": "Weekly",
+        "mathematics": "Mathematics",
+        "math": "Mathematics",
+        "physics": "Physical Sciences",
+        "physical_sciences": "Physical Sciences",
+        "life_sciences": "Life Sciences",
+        "natural_sciences": "Natural Sciences",
+        "mathematical_literacy": "Mathematical Literacy"
+    };
+
+    async function fetchGradeMap() {
+        try {
+            const response = await fetch('map.json');
+            if (!response.ok) return null;
+            return await response.json();
+        } catch (error) {
+            return null;
+        }
+    }
+
+    async function setupDynamicLeaderboards() {
+        const gradeMap = await fetchGradeMap();
+
+        // Default subjects
+        let gradeSubjects = ["math", "physics"];
+
+        if (gradeMap && gradeMap[userGrade]) {
+            gradeSubjects = Object.keys(gradeMap[userGrade]);
+            gradeSubjects = gradeSubjects.map(s => s === "mathematics" ? "math" : s === "physical_sciences" ? "physics" : s).slice(0,2);
+        }
+
+        const tabsContainer = document.getElementById("leaderboard-tabs");
+        const boardsContainer = document.getElementById("leaderboards-container");
+
+        tabsContainer.innerHTML = `<button class="tab-btn active" onclick="switchTab('overall', event)">Overall</button>`;
+        boardsContainer.innerHTML = `<div id="leaderboard-overall" class="leaderboard-content active"></div>`;
+
+        gradeSubjects.forEach(sub => {
+            const label = SUBJECT_LABELS[sub] || sub.replace('_', ' ').replace(/\b\w/g, c => c.toUpperCase());
+            tabsContainer.innerHTML += `<button class="tab-btn" onclick="switchTab('${sub}', event)">${label}</button>`;
+            boardsContainer.innerHTML += `<div id="leaderboard-${sub}" class="leaderboard-content"></div>`;
+        });
+
+        tabsContainer.innerHTML += `<button class="tab-btn" onclick="switchTab('weekly', event)">Weekly</button>`;
+        boardsContainer.innerHTML += `<div id="leaderboard-weekly" class="leaderboard-content"></div>`;
+
+        return gradeSubjects;
+    }
+
     async function fetchLeaderboards() {
         try {
+            const subjectsToFetch = await setupDynamicLeaderboards();
+
             const currentGrade = localStorage.getItem("user_grade") || "grade12";
-            const response = await fetch(`${API_URL}/api/leaderboard?grade=${currentGrade}`);
+            const queryParams = subjectsToFetch.length > 0 ? `&subjects=${subjectsToFetch.join(',')}` : '';
+            const response = await fetch(`${API_URL}/api/leaderboard?grade=${currentGrade}${queryParams}`);
             const data = await response.json();
 
             document.getElementById("loading").style.display = "none";
 
             renderLeaderboard("leaderboard-overall", data.overall || []);
-            renderLeaderboard("leaderboard-mathematics", data.math || []);
-            renderLeaderboard("leaderboard-physics", data.physics || []);
             renderLeaderboard("leaderboard-weekly", data.weekly || []);
+
+            subjectsToFetch.forEach(sub => {
+                renderLeaderboard(`leaderboard-${sub}`, data[sub] || []);
+            });
 
         } catch (error) {
             console.error("Error fetching leaderboards:", error);
@@ -258,9 +321,9 @@
             if (rank === 1) row.classList.add("rank-1");
             else if (rank === 2) row.classList.add("rank-2");
             else if (rank === 3) row.classList.add("rank-3");
-            else if (rank <= 10) row.classList.add("top-10");
-            else if (rank <= 25) row.classList.add("top-25");
-            else if (rank <= 50) row.classList.add("top-50");
+            else if (rank <= 10) { row.classList.add("top-10"); row.classList.add("rank-silver"); }
+            else if (rank <= 25) { row.classList.add("top-25"); row.classList.add("rank-bronze"); }
+            else if (rank <= 100) { row.classList.add("top-50"); row.classList.add("rank-iron"); }
             else row.classList.add("below-50");
 
             // Format name (use real name/surname if available, else username)
@@ -291,10 +354,10 @@
         });
     }
 
-    function switchTab(tabId) {
+    function switchTab(tabId, event) {
         // Update buttons
         document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("active"));
-        event.target.classList.add("active");
+        event.currentTarget.classList.add("active");
 
         // Update content
         document.querySelectorAll(".leaderboard-content").forEach(content => {

@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
         :root {
             --bg-dark: #0f172a;
@@ -82,12 +83,18 @@ document.addEventListener('DOMContentLoaded', () => {
         button:hover { background: var(--accent-hover); transform: translateY(-1px); }
         button:active { transform: translateY(0); }
 
-        .question-text { font-size: 1.3rem; margin-bottom: 1.5rem; font-weight: 600; line-height: 1.5; color: var(--text-main); }
+        /* Animations */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+
+        @keyframes popIn { 0% { opacity: 0; transform: scale(0.95); } 100% { opacity: 1; transform: scale(1); } }
+
+        .question-text { font-size: 1.3rem; margin-bottom: 1.5rem; font-weight: 600; line-height: 1.5; color: var(--text-main); opacity: 0; }
         .options { display: flex; flex-direction: column; gap: 1rem; }
-        .option-btn { padding: 1.2rem; background: var(--option-bg); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 1.1rem; color: var(--text-main); transition: all 0.2s; line-height: 1.4; }
+        .option-btn { padding: 1.2rem; background: var(--option-bg); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 1.1rem; color: var(--text-main); transition: all 0.2s; line-height: 1.4; opacity: 0; }
         .option-btn:hover { background: var(--option-hover); border-color: #64748b; }
 
-        .option-btn.selected { background: var(--option-selected); border-color: #60a5fa; color: white; }
+        .option-btn.selected { background: var(--option-selected); border-color: #60a5fa; color: white; transform: scale(1.02); }
 
         /* For Review Section */
         .option-btn.correct { background: var(--option-correct); border-color: var(--accent-green); color: var(--accent-green); }
@@ -223,9 +230,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     <!-- Result Section -->
     <div id="result-section" class="result-section" style="display:none;">
-        <div style="text-align: center; margin-bottom: 2rem;">
-            <h2>Quiz Completed!</h2>
+        <div style="text-align: center; margin-bottom: 2rem; animation: popIn 0.5s ease-out forwards;">
+            <h2 id="quiz-completed-title">Quiz Completed!</h2>
             <p style="font-size: 1.2rem; margin: 1rem 0;">You scored <strong id="final-score"></strong> out of <span id="final-total"></span> (<span id="final-percentage"></span>%).</p>
+
+            <!-- Offline Sync Notice -->
+            <div id="offline-sync-notice" style="display: none; background: rgba(245, 158, 11, 0.2); border: 1px solid var(--accent-yellow); color: var(--text-main); padding: 1rem; border-radius: 8px; margin: 1rem auto; max-width: 500px; font-weight: 500;">
+                <span style="font-size: 1.2rem;">📡</span> You seem to be offline. Your results have been saved locally and will be synced to the server when you return to the dashboard with an internet connection!
+            </div>
+
             <div id="xp-message-container" style="background: rgba(0,0,0,0.2); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; margin: 1rem auto; max-width: 500px;">
                 <p id="public-xp-message" style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--accent-green);"></p>
                 <p id="personal-xp-message" style="font-size: 1rem; color: var(--text-muted);"></p>
@@ -336,7 +349,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.getElementById("progress-text").textContent = `Question ${currentQuestionIndex + 1} of ${quizQuestions.length}`;
 
-        document.getElementById("question-text").innerHTML = q.question;
+        const qText = document.getElementById("question-text");
+        qText.innerHTML = q.question;
+
+        // Reset animations
+        qText.classList.remove('fade-in');
+        void qText.offsetWidth; // trigger reflow
+        qText.classList.add('fade-in');
 
         const optionsContainer = document.getElementById("options-container");
         optionsContainer.innerHTML = "";
@@ -354,6 +373,11 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.innerHTML = opt.text;
             btn.dataset.correct = opt.isCorrect;
             btn.dataset.text = opt.text;
+
+            // Staggered fade in
+            btn.style.animationDelay = `${index * 0.1}s`;
+            btn.classList.add('fade-in');
+
             btn.onclick = () => selectOption(btn);
             optionsContainer.appendChild(btn);
         });
@@ -426,93 +450,157 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function handleOfflineResult() {
+        const payload = {
+            user_id: userId,
+            subject: subject,
+            topic: currentTopic,
+            total_questions: quizQuestions.length,
+            correct_answers: correctAnswersCount,
+            timestamp: new Date().toISOString()
+        };
+
+        // Save to local storage queue
+        let offlineQueue = JSON.parse(localStorage.getItem("offlineQuizQueue") || "[]");
+        offlineQueue.push(payload);
+        localStorage.setItem("offlineQuizQueue", JSON.stringify(offlineQueue));
+
+        document.getElementById("offline-sync-notice").style.display = "block";
+        document.getElementById("xp-message-container").style.display = "none";
+
+        displayResultsUi();
+    }
+
     async function finishQuiz() {
         document.getElementById("quiz-section").style.display = "none";
         document.getElementById("loading").textContent = "Saving your results...";
         document.getElementById("loading").style.display = "block";
 
+        const payload = {
+            user_id: userId,
+            subject: subject,
+            topic: currentTopic,
+            total_questions: quizQuestions.length,
+            correct_answers: correctAnswersCount
+        };
+
+        if (!navigator.onLine) {
+            handleOfflineResult();
+            return;
+        }
+
         try {
             const response = await fetch(`${API_URL}/api/submit-quiz`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    user_id: userId,
-                    subject: subject,
-                    topic: currentTopic,
-                    total_questions: quizQuestions.length,
-                    correct_answers: correctAnswersCount
-                })
+                body: JSON.stringify(payload)
             });
+
+            if (!response.ok) {
+                // If server returns error, we might be offline or server is down.
+                // Treat as offline so user doesn't lose progress.
+                handleOfflineResult();
+                return;
+            }
 
             const data = await response.json();
 
-            if (response.ok) {
-                document.getElementById("final-score").textContent = correctAnswersCount;
-                document.getElementById("final-total").textContent = quizQuestions.length;
+            const publicXpMsg = document.getElementById("public-xp-message");
+            const personalXpMsg = document.getElementById("personal-xp-message");
 
-                const percentage = ((correctAnswersCount / quizQuestions.length) * 100).toFixed(0);
-                document.getElementById("final-percentage").textContent = percentage;
-
-                const publicXpMsg = document.getElementById("public-xp-message");
-                const personalXpMsg = document.getElementById("personal-xp-message");
-
-                if (data.passed_threshold) {
-                    publicXpMsg.textContent = `+${data.xp_earned} XP added to Public Records!`;
-                    publicXpMsg.style.color = "var(--accent-green)";
-                    personalXpMsg.textContent = `(+${data.personal_xp_earned} XP added to Personal Record)`;
-                } else {
-                    publicXpMsg.textContent = `0 XP added to Public Records.`;
-                    publicXpMsg.style.color = "var(--accent-red)";
-                    personalXpMsg.innerHTML = `You scored less than 50% minimum threshold.<br>But don't worry, <strong>+${data.personal_xp_earned} XP</strong> was still added to your Personal Record!`;
-                }
-
-                document.getElementById("loading").style.display = "none";
-                document.getElementById("result-section").style.display = "block";
-
-                // Populate Review Container
-                const reviewContainer = document.getElementById("review-container");
-                reviewContainer.innerHTML = "";
-
-                userAnswers.forEach((ans, idx) => {
-                    const item = document.createElement("div");
-                    item.className = "review-item";
-
-                    let explanationHtml = "";
-                    if (!ans.isCorrect) {
-                        explanationHtml = `
-                            <button class="explain-btn" onclick="toggleExplanation('expl-${idx}')">Explain</button>
-                            <div class="explanation" id="expl-${idx}">
-                                <strong>Explanation:</strong>
-                                <div>${ans.explanation}</div>
-                            </div>
-                        `;
-                    }
-
-                    item.innerHTML = `
-                        <div class="review-q-text">${idx + 1}. ${ans.question}</div>
-                        <div class="review-options">
-                            <div class="review-opt ${ans.isCorrect ? 'r-correct' : 'r-wrong'}">
-                                Your Answer: ${ans.selectedAnswer}
-                            </div>
-                            ${!ans.isCorrect ? `<div class="review-opt r-correct">Correct Answer: ${ans.correctAnswer}</div>` : ''}
-                        </div>
-                        ${explanationHtml}
-                    `;
-                    reviewContainer.appendChild(item);
-                });
-
-                if (window.MathJax) {
-                    MathJax.typesetPromise([document.getElementById("review-container")]);
-                }
-
+            if (data.passed_threshold) {
+                publicXpMsg.textContent = `+${data.xp_earned} XP added to Public Records!`;
+                publicXpMsg.style.color = "var(--accent-green)";
+                personalXpMsg.textContent = `(+${data.personal_xp_earned} XP added to Personal Record)`;
             } else {
-                alert("Failed to save results: " + data.error);
-                window.location.href = "dashboard.html";
+                publicXpMsg.textContent = `0 XP added to Public Records.`;
+                publicXpMsg.style.color = "var(--accent-red)";
+                personalXpMsg.innerHTML = `You scored less than 50% minimum threshold.<br>But don't worry, <strong>+${data.personal_xp_earned} XP</strong> was still added to your Personal Record!`;
             }
+
+            displayResultsUi();
+
         } catch (error) {
             console.error("Submit error:", error);
-            alert("Error saving results.");
-            window.location.href = "dashboard.html";
+            // Network error (CORS, offline, server unreachable)
+            handleOfflineResult();
+        }
+    }
+
+    function displayResultsUi() {
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("result-section").style.display = "block";
+
+        document.getElementById("final-score").textContent = correctAnswersCount;
+        document.getElementById("final-total").textContent = quizQuestions.length;
+
+        const percentage = quizQuestions.length > 0 ? ((correctAnswersCount / quizQuestions.length) * 100).toFixed(0) : 0;
+        document.getElementById("final-percentage").textContent = percentage;
+
+        // Populate Review Container
+        const reviewContainer = document.getElementById("review-container");
+        reviewContainer.innerHTML = "";
+
+        userAnswers.forEach((ans, idx) => {
+            const item = document.createElement("div");
+            item.className = "review-item";
+
+            let explanationHtml = "";
+            if (!ans.isCorrect) {
+                explanationHtml = `
+                    <button class="explain-btn" onclick="toggleExplanation('expl-${idx}')">Explain</button>
+                    <div class="explanation" id="expl-${idx}">
+                        <strong>Explanation:</strong>
+                        <div>${ans.explanation}</div>
+                    </div>
+                `;
+            }
+
+            item.innerHTML = `
+                <div class="review-q-text">${idx + 1}. ${ans.question}</div>
+                <div class="review-options">
+                    <div class="review-opt ${ans.isCorrect ? 'r-correct' : 'r-wrong'}">
+                        Your Answer: ${ans.selectedAnswer}
+                    </div>
+                    ${!ans.isCorrect ? `<div class="review-opt r-correct">Correct Answer: ${ans.correctAnswer}</div>` : ''}
+                </div>
+                ${explanationHtml}
+            `;
+            reviewContainer.appendChild(item);
+        });
+
+        if (window.MathJax) {
+            MathJax.typesetPromise([document.getElementById("review-container")]);
+        }
+
+        // Confetti for perfect score
+        if (percentage == 100 && typeof confetti === 'function') {
+            document.getElementById("quiz-completed-title").innerHTML = "🎉 Perfect Score! 🎉";
+            document.getElementById("quiz-completed-title").style.color = "var(--accent-yellow)";
+
+            var duration = 3000;
+            var end = Date.now() + duration;
+
+            (function frame() {
+                confetti({
+                    particleCount: 5,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: ['#3b82f6', '#10b981', '#f59e0b']
+                });
+                confetti({
+                    particleCount: 5,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: ['#3b82f6', '#10b981', '#f59e0b']
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
         }
     }
 

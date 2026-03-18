@@ -114,9 +114,11 @@ async function handleSignup(request, env) {
     avatar_url: "",
     math_xp: 0,
     physics_xp: 0,
+    subjects_xp: {}, // new dynamic tracking
     total_xp: 0,
     personal_math_xp: 0,
     personal_physics_xp: 0,
+    personal_subjects_xp: {},
     personal_total_xp: 0,
     weekly_xp: 0,
     questions_answered: 0,
@@ -163,8 +165,12 @@ async function handleLogin(request, env) {
 }
 
 async function handleGetUser(request, env, path) {
+  const url = new URL(request.url);
   const userId = path.split("/").pop();
   if (!userId) return jsonResponse({ error: "User ID required" }, 400);
+
+  const requestedSubjectsStr = url.searchParams.get("subjects");
+  const requestedSubjects = requestedSubjectsStr ? requestedSubjectsStr.split(",") : ["math", "physics"];
 
   const userDataString = await env.RANK_KV.get(`user:${userId}`);
   if (!userDataString) return jsonResponse({ error: "User not found" }, 404);
@@ -179,13 +185,8 @@ async function handleGetUser(request, env, path) {
   if (!userData.school) userData.school = "";
 
   // Calculate ranks
-  const mathLeaderboardStr = await env.RANK_KV.get(`leaderboard:${grade}:math`) || await env.RANK_KV.get("leaderboard:math") || "[]";
-  const physicsLeaderboardStr = await env.RANK_KV.get(`leaderboard:${grade}:physics`) || await env.RANK_KV.get("leaderboard:physics") || "[]";
   const overallLeaderboardStr = await env.RANK_KV.get(`leaderboard:${grade}:overall`) || await env.RANK_KV.get("leaderboard:overall") || "[]";
   const allGradesOverallStr = await env.RANK_KV.get("leaderboard:allgrades:overall") || "[]";
-
-  const mathLeaderboard = JSON.parse(mathLeaderboardStr);
-  const physicsLeaderboard = JSON.parse(physicsLeaderboardStr);
   const overallLeaderboard = JSON.parse(overallLeaderboardStr);
   const allGradesOverall = JSON.parse(allGradesOverallStr);
 
@@ -196,10 +197,23 @@ async function handleGetUser(request, env, path) {
 
   userData.ranks = {
     overall: findRank(overallLeaderboard),
-    math: findRank(mathLeaderboard),
-    physics: findRank(physicsLeaderboard),
     all_grades_overall: findRank(allGradesOverall)
   };
+
+  for (const sub of requestedSubjects) {
+    const boardStr = await env.RANK_KV.get(`leaderboard:${grade}:${sub}`) || (grade === "grade12" ? await env.RANK_KV.get(`leaderboard:${sub}`) : null) || "[]";
+    userData.ranks[sub] = findRank(JSON.parse(boardStr));
+  }
+
+  // Ensure backwards compatibility by maintaining math and physics ranks if they weren't requested specifically
+  if (!requestedSubjects.includes("math")) {
+      const mathStr = await env.RANK_KV.get(`leaderboard:${grade}:math`) || await env.RANK_KV.get("leaderboard:math") || "[]";
+      userData.ranks.math = findRank(JSON.parse(mathStr));
+  }
+  if (!requestedSubjects.includes("physics")) {
+      const physStr = await env.RANK_KV.get(`leaderboard:${grade}:physics`) || await env.RANK_KV.get("leaderboard:physics") || "[]";
+      userData.ranks.physics = findRank(JSON.parse(physStr));
+  }
 
   return jsonResponse(userData);
 }
@@ -280,15 +294,30 @@ async function handleUpdateProfile(request, env, path) {
 async function updateLeaderboardUser(env, userId, userData) {
   const currentWeek = getCurrentWeek();
   const grade = userData.grade || "grade12";
-  const keys = [
-    `leaderboard:${grade}:overall`, `leaderboard:${grade}:math`, `leaderboard:${grade}:physics`, `leaderboard:${grade}:weekly:${currentWeek}`,
-    "leaderboard:allgrades:overall", "leaderboard:allgrades:math", "leaderboard:allgrades:physics", `leaderboard:allgrades:weekly:${currentWeek}`,
-    // Fallbacks for legacy leaderboards if they exist
-    "leaderboard:overall", "leaderboard:math", "leaderboard:physics", `leaderboard:weekly:${currentWeek}`
+
+  // Update overall and weekly dynamically, plus any subject leaderboards the user might be in.
+  // Instead of hardcoding keys, we scan standard keys + subject keys found in userData.subjects_xp
+  const baseKeys = [
+    `leaderboard:${grade}:overall`, `leaderboard:${grade}:weekly:${currentWeek}`,
+    "leaderboard:allgrades:overall", `leaderboard:allgrades:weekly:${currentWeek}`,
+    "leaderboard:overall", `leaderboard:weekly:${currentWeek}`
   ];
 
-  for (const key of keys) {
-    let boardStr = await env.RANK_KV.get(key) || "[]";
+  const subjects = Object.keys(userData.subjects_xp || {});
+  // Legacy subjects
+  if (!subjects.includes("math")) subjects.push("math");
+  if (!subjects.includes("physics")) subjects.push("physics");
+
+  for (const sub of subjects) {
+    baseKeys.push(`leaderboard:${grade}:${sub}`);
+    baseKeys.push(`leaderboard:allgrades:${sub}`);
+    baseKeys.push(`leaderboard:${sub}`);
+  }
+
+  for (const key of baseKeys) {
+    let boardStr = await env.RANK_KV.get(key);
+    if (!boardStr) continue;
+
     let board = JSON.parse(boardStr);
 
     let updated = false;
@@ -310,8 +339,12 @@ async function updateLeaderboardUser(env, userId, userData) {
 }
 
 async function handleGetPublicUser(request, env, path) {
+  const url = new URL(request.url);
   const username = decodeURIComponent(path.split("/").pop());
   if (!username) return jsonResponse({ error: "Username required" }, 400);
+
+  const requestedSubjectsStr = url.searchParams.get("subjects");
+  const requestedSubjects = requestedSubjectsStr ? requestedSubjectsStr.split(",") : ["math", "physics"];
 
   const userId = await env.RANK_KV.get(`user_by_name:${username}`);
   if (!userId) return jsonResponse({ error: "User not found" }, 404);
@@ -342,13 +375,9 @@ async function handleGetPublicUser(request, env, path) {
   const grade = userData.grade;
 
   // Calculate ranks
-  const mathLeaderboardStr = await env.RANK_KV.get(`leaderboard:${grade}:math`) || await env.RANK_KV.get("leaderboard:math") || "[]";
-  const physicsLeaderboardStr = await env.RANK_KV.get(`leaderboard:${grade}:physics`) || await env.RANK_KV.get("leaderboard:physics") || "[]";
   const overallLeaderboardStr = await env.RANK_KV.get(`leaderboard:${grade}:overall`) || await env.RANK_KV.get("leaderboard:overall") || "[]";
   const allGradesOverallStr = await env.RANK_KV.get("leaderboard:allgrades:overall") || "[]";
 
-  const mathLeaderboard = JSON.parse(mathLeaderboardStr);
-  const physicsLeaderboard = JSON.parse(physicsLeaderboardStr);
   const overallLeaderboard = JSON.parse(overallLeaderboardStr);
   const allGradesOverall = JSON.parse(allGradesOverallStr);
 
@@ -359,10 +388,23 @@ async function handleGetPublicUser(request, env, path) {
 
   publicData.ranks = {
     overall: findRank(overallLeaderboard),
-    math: findRank(mathLeaderboard),
-    physics: findRank(physicsLeaderboard),
     all_grades_overall: findRank(allGradesOverall)
   };
+
+  for (const sub of requestedSubjects) {
+    const boardStr = await env.RANK_KV.get(`leaderboard:${grade}:${sub}`) || (grade === "grade12" ? await env.RANK_KV.get(`leaderboard:${sub}`) : null) || "[]";
+    publicData.ranks[sub] = findRank(JSON.parse(boardStr));
+  }
+
+  // Ensure backwards compatibility
+  if (!requestedSubjects.includes("math")) {
+      const mathStr = await env.RANK_KV.get(`leaderboard:${grade}:math`) || await env.RANK_KV.get("leaderboard:math") || "[]";
+      publicData.ranks.math = findRank(JSON.parse(mathStr));
+  }
+  if (!requestedSubjects.includes("physics")) {
+      const physStr = await env.RANK_KV.get(`leaderboard:${grade}:physics`) || await env.RANK_KV.get("leaderboard:physics") || "[]";
+      publicData.ranks.physics = findRank(JSON.parse(physStr));
+  }
 
   return jsonResponse(publicData);
 }
@@ -384,15 +426,23 @@ async function handleSubmitQuiz(request, env, ctx) {
   if (userData.personal_total_xp === undefined) userData.personal_total_xp = userData.total_xp || 0;
   if (userData.personal_math_xp === undefined) userData.personal_math_xp = userData.math_xp || 0;
   if (userData.personal_physics_xp === undefined) userData.personal_physics_xp = userData.physics_xp || 0;
+  if (userData.subjects_xp === undefined) userData.subjects_xp = {};
+  if (userData.personal_subjects_xp === undefined) userData.personal_subjects_xp = {};
+
+  // Map legacy mathematics to math
+  const normalizedSubject = subject === "mathematics" ? "math" : subject;
 
   // Personal XP: +5 per correct answer (always added)
   const personalXpEarned = correct_answers * 5;
   userData.personal_total_xp += personalXpEarned;
-  if (subject === "mathematics") {
+  if (normalizedSubject === "math") {
     userData.personal_math_xp += personalXpEarned;
-  } else if (subject === "physics") {
+  } else if (normalizedSubject === "physics") {
     userData.personal_physics_xp += personalXpEarned;
   }
+
+  if (!userData.personal_subjects_xp[normalizedSubject]) userData.personal_subjects_xp[normalizedSubject] = 0;
+  userData.personal_subjects_xp[normalizedSubject] += personalXpEarned;
 
   // Public/Ranked XP and Streak Logic
   const scorePercentage = total_questions > 0 ? (correct_answers / total_questions) * 100 : 0;
@@ -431,11 +481,15 @@ async function handleSubmitQuiz(request, env, ctx) {
 
     userData.daily_xp = (userData.daily_xp || 0) + publicXpEarned;
 
-    if (subject === "mathematics") {
+    if (normalizedSubject === "math") {
       userData.math_xp += publicXpEarned;
-    } else if (subject === "physics") {
+    } else if (normalizedSubject === "physics") {
       userData.physics_xp += publicXpEarned;
     }
+
+    if (!userData.subjects_xp[normalizedSubject]) userData.subjects_xp[normalizedSubject] = 0;
+    userData.subjects_xp[normalizedSubject] += publicXpEarned;
+
     userData.total_xp += publicXpEarned;
 
     // Update weekly XP (reset if new week)
@@ -468,7 +522,7 @@ async function handleSubmitQuiz(request, env, ctx) {
   await env.RANK_KV.put(`user:${user_id}`, JSON.stringify(userData));
 
   // Update leaderboards async (only if public XP was gained, though it's safe to run regardless)
-  ctx.waitUntil(updateLeaderboards(env, userData, currentWeek, publicXpEarned));
+  ctx.waitUntil(updateLeaderboards(env, userData, currentWeek, publicXpEarned, normalizedSubject));
 
   return jsonResponse({
     message: "Quiz submitted successfully",
@@ -479,8 +533,8 @@ async function handleSubmitQuiz(request, env, ctx) {
   });
 }
 
-async function updateLeaderboards(env, user, currentWeek, publicXpEarned) {
-  const updateBoard = async (key, sortByField) => {
+async function updateLeaderboards(env, user, currentWeek, publicXpEarned, subject) {
+  const updateBoard = async (key, sortByField, isDynamicSubject = false) => {
     let boardStr = await env.RANK_KV.get(key) || "[]";
     let board = JSON.parse(boardStr);
 
@@ -488,13 +542,14 @@ async function updateLeaderboards(env, user, currentWeek, publicXpEarned) {
     board = board.filter(u => u.user_id !== user.user_id);
 
     // Add new entry
+    let xpVal = isDynamicSubject ? user.subjects_xp[subject] : user[sortByField];
     board.push({
       user_id: user.user_id,
       username: user.username,
       name: user.name,
       surname: user.surname,
       avatar_url: user.avatar_url,
-      xp: user[sortByField]
+      xp: xpVal
     });
 
     // Sort and keep top (e.g., top 1000)
@@ -529,49 +584,67 @@ async function updateLeaderboards(env, user, currentWeek, publicXpEarned) {
     })();
   }
 
-  await Promise.all([
+  const promises = [
     schoolPromise,
     updateBoard(`leaderboard:${grade}:overall`, "total_xp"),
-    updateBoard(`leaderboard:${grade}:math`, "math_xp"),
-    updateBoard(`leaderboard:${grade}:physics`, "physics_xp"),
     updateBoard(`leaderboard:${grade}:weekly:${currentWeek}`, "weekly_xp"),
     updateBoard("leaderboard:allgrades:overall", "total_xp"),
-    updateBoard("leaderboard:allgrades:math", "math_xp"),
-    updateBoard("leaderboard:allgrades:physics", "physics_xp"),
-    updateBoard(`leaderboard:allgrades:weekly:${currentWeek}`, "weekly_xp")
-  ]);
+    updateBoard(`leaderboard:allgrades:weekly:${currentWeek}`, "weekly_xp"),
+    updateBoard(`leaderboard:${grade}:${subject}`, subject, true),
+    updateBoard(`leaderboard:allgrades:${subject}`, subject, true)
+  ];
+
+  // For backwards compatibility, update old math/physics paths if needed
+  if (subject === "math" || subject === "physics") {
+      promises.push(updateBoard(`leaderboard:${grade}:${subject}`, `${subject}_xp`));
+      promises.push(updateBoard(`leaderboard:allgrades:${subject}`, `${subject}_xp`));
+  }
+
+  await Promise.all(promises);
 }
 
 async function handleGetLeaderboards(request, env) {
   const url = new URL(request.url);
   const grade = url.searchParams.get("grade") || "grade12";
+  const subjectsStr = url.searchParams.get("subjects");
+  const subjects = subjectsStr ? subjectsStr.split(",") : ["math", "physics"];
   const currentWeek = getCurrentWeek();
 
-  // Grade specific
-  // For backwards compatibility, only grade12 falls back to global if empty. Other grades strictly return empty if no data.
-  const mathStr = await env.RANK_KV.get(`leaderboard:${grade}:math`) || (grade === "grade12" ? await env.RANK_KV.get("leaderboard:math") : null) || "[]";
-  const physicsStr = await env.RANK_KV.get(`leaderboard:${grade}:physics`) || (grade === "grade12" ? await env.RANK_KV.get("leaderboard:physics") : null) || "[]";
+  // Common boards
   const overallStr = await env.RANK_KV.get(`leaderboard:${grade}:overall`) || (grade === "grade12" ? await env.RANK_KV.get("leaderboard:overall") : null) || "[]";
   const weeklyStr = await env.RANK_KV.get(`leaderboard:${grade}:weekly:${currentWeek}`) || (grade === "grade12" ? await env.RANK_KV.get(`leaderboard:weekly:${currentWeek}`) : null) || "[]";
 
-  // All grades
   const allOverallStr = await env.RANK_KV.get("leaderboard:allgrades:overall") || "[]";
-  const allMathStr = await env.RANK_KV.get("leaderboard:allgrades:math") || "[]";
-  const allPhysicsStr = await env.RANK_KV.get("leaderboard:allgrades:physics") || "[]";
   const allWeeklyStr = await env.RANK_KV.get(`leaderboard:allgrades:weekly:${currentWeek}`) || "[]";
   const schoolsOverallStr = await env.RANK_KV.get("leaderboard:schools:overall") || "[]";
 
-  return jsonResponse({
+  const response = {
     overall: JSON.parse(overallStr),
-    math: JSON.parse(mathStr),
-    physics: JSON.parse(physicsStr),
     weekly: JSON.parse(weeklyStr),
     all_overall: JSON.parse(allOverallStr),
-    all_math: JSON.parse(allMathStr),
-    all_physics: JSON.parse(allPhysicsStr),
     all_weekly: JSON.parse(allWeeklyStr),
     schools_overall: JSON.parse(schoolsOverallStr)
-  });
+  };
+
+  // Dynamic subject boards
+  for (const sub of subjects) {
+      const subStr = await env.RANK_KV.get(`leaderboard:${grade}:${sub}`) || (grade === "grade12" ? await env.RANK_KV.get(`leaderboard:${sub}`) : null) || "[]";
+      const allSubStr = await env.RANK_KV.get(`leaderboard:allgrades:${sub}`) || "[]";
+      response[sub] = JSON.parse(subStr);
+      response[`all_${sub}`] = JSON.parse(allSubStr);
+  }
+
+  // Backwards compatibility
+  if (!subjects.includes("math")) {
+      response.math = JSON.parse(await env.RANK_KV.get(`leaderboard:${grade}:math`) || (grade === "grade12" ? await env.RANK_KV.get("leaderboard:math") : null) || "[]");
+      response.all_math = JSON.parse(await env.RANK_KV.get("leaderboard:allgrades:math") || "[]");
+  }
+  if (!subjects.includes("physics")) {
+      response.physics = JSON.parse(await env.RANK_KV.get(`leaderboard:${grade}:physics`) || (grade === "grade12" ? await env.RANK_KV.get("leaderboard:physics") : null) || "[]");
+      response.all_physics = JSON.parse(await env.RANK_KV.get("leaderboard:allgrades:physics") || "[]");
+  }
+
+  return jsonResponse(response);
 }
 
 async function handleGetSchools(request, env) {
