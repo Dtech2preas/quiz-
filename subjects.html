@@ -152,6 +152,7 @@
         "physics": "physics", // Uses specific class
         "physical_sciences": "physics", // Uses same class as physics
         "life_sciences": "life-sciences",
+        "natural_sciences": "natural-sciences",
         "mathematical_literacy": "math-lit"
     };
 
@@ -160,6 +161,7 @@
         "physics": "Physical Sciences",
         "physical_sciences": "Physical Sciences",
         "life_sciences": "Life Sciences",
+        "natural_sciences": "Natural Sciences",
         "mathematical_literacy": "Mathematical Literacy"
     };
 
@@ -193,6 +195,9 @@
             let extraClass = SUBJECT_COLORS[subjectKey] || "";
             if (subjectKey === "life_sciences") {
                 extraStyle = 'style="background-color: #f59e0b;"';
+                extraClass = "";
+            } else if (subjectKey === "natural_sciences") {
+                extraStyle = 'style="background-color: #22c55e;"';
                 extraClass = "";
             }
 
