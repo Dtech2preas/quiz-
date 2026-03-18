@@ -41,7 +41,8 @@
 
         .profile-header h1 { margin: 0 0 0.5rem 0; font-size: 2rem; color: var(--text-main); }
         .profile-header .username { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 0.5rem; }
-        .profile-header .grade-label { color: var(--accent-blue); font-size: 1rem; font-weight: bold; margin-bottom: 1.5rem; text-transform: capitalize; }
+        .profile-header .grade-label { color: var(--accent-blue); font-size: 1rem; font-weight: bold; margin-bottom: 0.5rem; text-transform: capitalize; }
+        .profile-header .school-label { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
 
         .badges-container { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1.5rem; }
         .badge { background: var(--badge-bg); border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
@@ -157,6 +158,7 @@
         <h1 id="profile-name">Username</h1>
         <div class="username">@<span id="profile-username">username</span></div>
         <div class="grade-label" id="profile-grade">Grade</div>
+        <div class="school-label" id="profile-school" style="display: none;"></div>
 
         <div class="badges-container" id="badges-container">
             <!-- Badges dynamically inserted here -->
@@ -240,6 +242,12 @@
             const gradeText = (data.grade || "grade12").replace('grade', 'Grade ');
             document.getElementById("profile-grade").textContent = gradeText;
             document.title = `Public Profile - ${gradeText} Quiz Platform`;
+
+            if (data.school) {
+                const schoolEl = document.getElementById("profile-school");
+                schoolEl.textContent = `Representing: ${data.school}`;
+                schoolEl.style.display = "block";
+            }
 
             if (data.avatar_url) {
                 document.getElementById("profile-avatar").src = data.avatar_url;
