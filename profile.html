@@ -235,6 +235,21 @@ color:var(--text-muted);
             }
         }
 
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--header-bg, #0b1120);
+            color: var(--text-muted, #94a3b8);
+            text-align: center;
+            padding: 1.5rem 1rem;
+            margin-top: auto;
+            border-top: 1px solid var(--border-color, #334155);
+            font-size: 0.9rem;
+        }
+        footer p { margin: 0.3rem 0; }
+        footer a { color: var(--accent-blue, #3b82f6); text-decoration: none; font-weight: 500; }
+        footer a:hover { text-decoration: underline; }
+
     </style>
 </head>
 
@@ -247,6 +262,7 @@ color:var(--text-muted);
             <div></div>
             <div></div>
         </div>
+        <img src="logo.png" alt="Dtech Logo" style="height: 30px; cursor: pointer; object-fit: contain;" onclick="window.location.href='dashboard.html'">
         <h2 style="margin:0;" id="page-title-grade">Settings</h2>
     </div>
     <nav>
@@ -747,6 +763,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 </script>
+
+<footer id="dynamic-footer">
+  <p>&copy; <span id="footer-year">2024</span> Dtech &bull; Preasx24</p>
+  <p>Empowering the youth through digital innovation</p>
+  <a href="https://legal.dtech-services.co.za">Terms & Conditions</a>
+</footer>
+<script>
+    // Set dynamic year in footer
+    const currentYear = new Date().getFullYear();
+    document.getElementById('footer-year').textContent = `2024–${currentYear}`;
+</script>
+
 </body>
 </html>
         /* Hamburger Menu */

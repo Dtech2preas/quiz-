@@ -16,7 +16,7 @@
             --border-color: #334155;
             --header-bg: #0b1120;
         }
-        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-dark); color: var(--text-main); }
+        body { display: flex; flex-direction: column; min-height: 100vh; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-dark); color: var(--text-main); }
 
         /* Compact Header / Nav */
         header { background: var(--header-bg); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
@@ -151,6 +151,21 @@
             }
         }
 
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--header-bg, #0b1120);
+            color: var(--text-muted, #94a3b8);
+            text-align: center;
+            padding: 1.5rem 1rem;
+            margin-top: auto;
+            border-top: 1px solid var(--border-color, #334155);
+            font-size: 0.9rem;
+        }
+        footer p { margin: 0.3rem 0; }
+        footer a { color: var(--accent-blue, #3b82f6); text-decoration: none; font-weight: 500; }
+        footer a:hover { text-decoration: underline; }
+
     </style>
 </head>
 <body>
@@ -162,6 +177,7 @@
             <div></div>
             <div></div>
         </div>
+        <img src="logo.png" alt="Dtech Logo" style="height: 30px; cursor: pointer; object-fit: contain;" onclick="window.location.href='dashboard.html'">
         <h2 style="margin:0;" id="page-title-grade">Dashboard</h2>
     </div>
     <nav id="nav-menu">
@@ -493,6 +509,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+</script>
+
+
+<footer id="dynamic-footer">
+  <p>&copy; <span id="footer-year">2024</span> Dtech &bull; Preasx24</p>
+  <p>Empowering the youth through digital innovation</p>
+  <a href="https://legal.dtech-services.co.za">Terms & Conditions</a>
+</footer>
+<script>
+    // Set dynamic year in footer
+    const currentYear = new Date().getFullYear();
+    document.getElementById('footer-year').textContent = `2024–${currentYear}`;
 </script>
 
 </body>

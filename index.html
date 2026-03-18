@@ -15,7 +15,7 @@
             --input-bg: #0f172a;
             --border-color: #334155;
         }
-        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: var(--bg-dark); color: var(--text-main); }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; margin: 0; background-color: var(--bg-dark); color: var(--text-main); }
         .container { background: var(--bg-card); padding: 2.5rem 2rem; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); width: 90%; max-width: 400px; text-align: center; border: 1px solid var(--border-color); }
         h1 { margin-top: 0; margin-bottom: 1.5rem; color: var(--text-main); font-weight: 600; font-size: 1.8rem; }
         form { display: flex; flex-direction: column; gap: 1rem; }
@@ -28,10 +28,26 @@
         p { margin-top: 1.5rem; color: var(--text-muted); font-size: 0.95rem; }
         a { color: var(--accent-blue); text-decoration: none; font-weight: 500; }
         a:hover { text-decoration: underline; }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--header-bg, #0b1120);
+            color: var(--text-muted, #94a3b8);
+            text-align: center;
+            padding: 1.5rem 1rem;
+            margin-top: auto;
+            border-top: 1px solid var(--border-color, #334155);
+            font-size: 0.9rem;
+        }
+        footer p { margin: 0.3rem 0; }
+        footer a { color: var(--accent-blue, #3b82f6); text-decoration: none; font-weight: 500; }
+        footer a:hover { text-decoration: underline; }
+
     </style>
 </head>
 <body>
-    <div class="container">
+    <div style="flex: 1; display: flex; justify-content: center; align-items: center;"><div class="container">
+        <img src="logo.png" alt="Dtech Logo" style="height: 60px; margin-bottom: 1rem;">
         <h1>Login</h1>
         <form id="loginForm">
             <input type="text" id="username" placeholder="Username" required>
@@ -40,7 +56,7 @@
         </form>
         <p class="error" id="errorMsg"></p>
         <p>Don't have an account? <a href="signup.html">Sign up</a></p>
-    </div>
+    </div></div>
 
     <script>
         const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
@@ -78,5 +94,17 @@
             }
         });
     </script>
+
+<footer id="dynamic-footer">
+  <p>&copy; <span id="footer-year">2024</span> Dtech &bull; Preasx24</p>
+  <p>Empowering the youth through digital innovation</p>
+  <a href="https://legal.dtech-services.co.za">Terms & Conditions</a>
+</footer>
+<script>
+    // Set dynamic year in footer
+    const currentYear = new Date().getFullYear();
+    document.getElementById('footer-year').textContent = `2024–${currentYear}`;
+</script>
+
 </body>
 </html>

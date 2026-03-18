@@ -18,7 +18,7 @@
             --border-color: #334155;
             --header-bg: #0b1120;
         }
-        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-dark); color: var(--text-main); }
+        body { display: flex; flex-direction: column; min-height: 100vh; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-dark); color: var(--text-main); }
 
         /* Compact Header / Nav */
         header { background: var(--header-bg); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
@@ -52,73 +52,70 @@
         .user-info { display: flex; align-items: center; flex-grow: 1; }
 
 
-        /* Highlight specific ranks */
-        .rank-1 {
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(245, 158, 11, 0.05) 100%);
-            border: 2px solid var(--accent-yellow);
-            box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+/* Highlight specific ranks */
+        .rank-1, .rank-2, .rank-3 {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.25) 0%, rgba(251, 191, 36, 0.05) 100%);
+            border: 2px solid #fbbf24;
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
             font-weight: bold;
             font-size: 1.3rem;
             transform: scale(1.02);
             z-index: 3;
             position: relative;
             margin-bottom: 1rem;
+            border-radius: 8px;
         }
-        .rank-1 .user-avatar { width: 50px; height: 50px; border: 2px solid var(--accent-yellow); }
-        .rank-1 .rank-num { color: var(--accent-yellow); font-size: 1.5rem; text-shadow: 0 0 10px rgba(245, 158, 11, 0.5); }
-
-        .rank-2 {
-            background: linear-gradient(135deg, rgba(148, 163, 184, 0.2) 0%, rgba(148, 163, 184, 0.05) 100%);
-            border: 2px solid var(--accent-silver);
-            box-shadow: 0 0 10px rgba(148, 163, 184, 0.2);
-            font-weight: bold;
-            font-size: 1.2rem;
-            transform: scale(1.01);
-            z-index: 2;
-            position: relative;
-            margin-bottom: 0.8rem;
+        .rank-1 .user-avatar, .rank-2 .user-avatar, .rank-3 .user-avatar {
+            width: 55px; height: 55px;
+            border: 3px solid #fbbf24;
+            box-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
         }
-        .rank-2 .user-avatar { width: 45px; height: 45px; border: 2px solid var(--accent-silver); }
-        .rank-2 .rank-num { color: var(--accent-silver); font-size: 1.3rem; }
-
-        .rank-3 {
-            background: linear-gradient(135deg, rgba(217, 119, 6, 0.2) 0%, rgba(217, 119, 6, 0.05) 100%);
-            border: 2px solid var(--accent-bronze);
-            box-shadow: 0 0 10px rgba(217, 119, 6, 0.2);
-            font-weight: bold;
-            font-size: 1.15rem;
-            margin-bottom: 0.8rem;
+        .rank-1 .rank-num, .rank-2 .rank-num, .rank-3 .rank-num {
+            color: #fbbf24;
+            font-size: 1.6rem;
+            text-shadow: 0 0 10px rgba(251, 191, 36, 0.6);
         }
-        .rank-3 .user-avatar { width: 45px; height: 45px; border: 2px solid var(--accent-bronze); }
-        .rank-3 .rank-num { color: var(--accent-bronze); font-size: 1.2rem; }
 
         /* Silver styling (4-10) */
-        .rank-silver { background-color: rgba(148, 163, 184, 0.05); font-weight: 600; border-left: 4px solid var(--accent-silver); }
-        .rank-silver .rank-num { color: var(--accent-silver); }
+        .rank-silver {
+            background: linear-gradient(135deg, rgba(148, 163, 184, 0.15) 0%, rgba(148, 163, 184, 0.05) 100%);
+            border: 1px solid #94a3b8;
+            font-weight: 600;
+            border-left: 5px solid #94a3b8;
+            margin-bottom: 0.5rem;
+            border-radius: 6px;
+        }
+        .rank-silver .rank-num { color: #cbd5e1; font-size: 1.2rem; }
+        .rank-silver .user-avatar { border: 2px solid #94a3b8; }
 
         /* Bronze styling (11-25) */
-        .rank-bronze { background-color: rgba(217, 119, 6, 0.05); font-weight: 500; border-left: 4px solid var(--accent-bronze); }
-        .rank-bronze .rank-num { color: var(--accent-bronze); }
+        .rank-bronze {
+            background: linear-gradient(135deg, rgba(217, 119, 6, 0.15) 0%, rgba(217, 119, 6, 0.05) 100%);
+            border: 1px solid #d97706;
+            font-weight: 500;
+            border-left: 5px solid #d97706;
+            margin-bottom: 0.4rem;
+            border-radius: 6px;
+        }
+        .rank-bronze .rank-num { color: #f59e0b; font-size: 1.1rem; }
+        .rank-bronze .user-avatar { border: 2px solid #d97706; }
 
-        /* Iron styling (26-100) */
-        .rank-iron { border-left: 4px solid #475569; }
+        /* Iron/Steel styling (26-100) */
+        .rank-iron {
+            background: rgba(71, 85, 105, 0.1);
+            border-left: 4px solid #475569;
+            margin-bottom: 0.2rem;
+        }
+        .rank-iron .rank-num { color: #94a3b8; }
 
-        .crown-icon { font-size: 1.5rem; margin-right: 0.5rem; }
-
-        @media (max-width: 480px) {
-            .leaderboard-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
-            .user-info { width: 100%; margin-bottom: 0.5rem; }
-            .rank-xp { align-self: flex-end; font-size: 1.1rem; }
-            .crown-icon { display: none; }
+        .below-50 {
+            color: var(--text-muted);
+            padding: 0.8rem 1.2rem;
+            font-size: 0.95rem;
+            opacity: 0.8;
         }
 
-
-
-
-
-        .top-10 { font-weight: 600; }
-        .top-50 { color: var(--text-main); }
-        .below-50 { color: var(--text-muted); padding: 0.8rem 1.2rem; font-size: 0.95rem; }
+        .crown-icon { font-size: 1.5rem; margin-right: 0.5rem; filter: drop-shadow(0 0 5px rgba(251, 191, 36, 0.8)); }
 
         .rank-num { width: 50px; font-weight: bold; color: var(--text-muted); }
         .rank-name { flex-grow: 1; }
@@ -208,6 +205,21 @@
             }
         }
 
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--header-bg, #0b1120);
+            color: var(--text-muted, #94a3b8);
+            text-align: center;
+            padding: 1.5rem 1rem;
+            margin-top: auto;
+            border-top: 1px solid var(--border-color, #334155);
+            font-size: 0.9rem;
+        }
+        footer p { margin: 0.3rem 0; }
+        footer a { color: var(--accent-blue, #3b82f6); text-decoration: none; font-weight: 500; }
+        footer a:hover { text-decoration: underline; }
+
     </style>
 </head>
 <body>
@@ -219,6 +231,7 @@
             <div></div>
             <div></div>
         </div>
+        <img src="logo.png" alt="Dtech Logo" style="height: 30px; cursor: pointer; object-fit: contain;" onclick="window.location.href='dashboard.html'">
         <h2 style="margin:0;" id="page-title-grade">Global Leaderboard (All Grades)</h2>
     </div>
     <nav id="nav-menu">
@@ -593,6 +606,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+</script>
+
+
+<footer id="dynamic-footer">
+  <p>&copy; <span id="footer-year">2024</span> Dtech &bull; Preasx24</p>
+  <p>Empowering the youth through digital innovation</p>
+  <a href="https://legal.dtech-services.co.za">Terms & Conditions</a>
+</footer>
+<script>
+    // Set dynamic year in footer
+    const currentYear = new Date().getFullYear();
+    document.getElementById('footer-year').textContent = `2024–${currentYear}`;
 </script>
 
 </body>
