@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leaderboards - Quiz Platform</title>
+    <title>Global Leaderboard - Quiz Platform</title>
     <style>
         :root {
             --bg-dark: #0f172a;
@@ -59,6 +59,9 @@
             margin: 0;
             font-size: 1.5rem;
             color: var(--text-main);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         nav {
@@ -80,7 +83,8 @@
         }
 
         .container {
-            width: min(1000px, 100%);
+            max-width: 1000px;
+            width: 100%;
             margin: 2rem auto;
             padding: 0 0.75rem;
             overflow-x: hidden;
@@ -101,10 +105,10 @@
         }
 
         .tab-btn {
-            padding: 0.85rem 1.1rem;
+            padding: 1rem 1.5rem;
             background: none;
             border: none;
-            font-size: 0.95rem;
+            font-size: 1rem;
             cursor: pointer;
             color: var(--text-muted);
             font-weight: 600;
@@ -127,7 +131,7 @@
             display: none;
             background: var(--bg-card);
             border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             padding: 0;
             border: 1px solid var(--border-color);
             overflow: hidden;
@@ -144,7 +148,7 @@
             justify-content: space-between;
             align-items: center;
             gap: 0.6rem;
-            padding: 1rem 1rem;
+            padding: 1.15rem 1rem;
             border-bottom: 1px solid var(--border-color);
             color: var(--text-main);
             cursor: pointer;
@@ -152,6 +156,7 @@
             width: 100%;
             max-width: 100%;
             min-width: 0;
+            overflow: hidden;
         }
 
         .rank-row:last-child {
@@ -159,7 +164,7 @@
         }
 
         .rank-row:hover {
-            background-color: rgba(255, 255, 255, 0.05);
+            background-color: rgba(255,255,255,0.05);
         }
 
         .user-avatar {
@@ -169,7 +174,7 @@
             object-fit: cover;
             background-color: var(--bg-dark);
             border: 1px solid var(--border-color);
-            margin-right: 0.8rem;
+            margin-right: 1rem;
             flex-shrink: 0;
         }
 
@@ -181,59 +186,30 @@
             overflow: hidden;
         }
 
-        .rank-num {
-            width: 42px;
-            font-weight: bold;
-            color: var(--text-muted);
-            flex-shrink: 0;
-        }
-
-        .rank-name {
-            flex-grow: 1;
-            min-width: 0;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        .rank-xp {
-            font-weight: bold;
-            color: var(--accent-green);
-            flex-shrink: 0;
-            white-space: nowrap;
-            font-size: 0.95rem;
-        }
-
         /* Highlight specific ranks */
-        .rank-1,
-        .rank-2,
-        .rank-3 {
+        .rank-1, .rank-2, .rank-3 {
             background: linear-gradient(135deg, rgba(251, 191, 36, 0.25) 0%, rgba(251, 191, 36, 0.05) 100%);
             border: 2px solid #fbbf24;
             box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
             font-weight: bold;
-            font-size: 1.15rem;
-            transform: scale(1.01);
+            font-size: 1.3rem;
+            transform: scale(1.02);
             z-index: 3;
             position: relative;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
             border-radius: 8px;
         }
 
-        .rank-1 .user-avatar,
-        .rank-2 .user-avatar,
-        .rank-3 .user-avatar {
-            width: 52px;
-            height: 52px;
+        .rank-1 .user-avatar, .rank-2 .user-avatar, .rank-3 .user-avatar {
+            width: 55px;
+            height: 55px;
             border: 3px solid #fbbf24;
             box-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
         }
 
-        .rank-1 .rank-num,
-        .rank-2 .rank-num,
-        .rank-3 .rank-num {
+        .rank-1 .rank-num, .rank-2 .rank-num, .rank-3 .rank-num {
             color: #fbbf24;
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             text-shadow: 0 0 10px rgba(251, 191, 36, 0.6);
         }
 
@@ -243,13 +219,13 @@
             border: 1px solid #94a3b8;
             font-weight: 600;
             border-left: 5px solid #94a3b8;
-            margin-bottom: 0.45rem;
+            margin-bottom: 0.5rem;
             border-radius: 6px;
         }
 
         .rank-silver .rank-num {
             color: #cbd5e1;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
 
         .rank-silver .user-avatar {
@@ -262,13 +238,13 @@
             border: 1px solid #d97706;
             font-weight: 500;
             border-left: 5px solid #d97706;
-            margin-bottom: 0.35rem;
+            margin-bottom: 0.4rem;
             border-radius: 6px;
         }
 
         .rank-bronze .rank-num {
             color: #f59e0b;
-            font-size: 1rem;
+            font-size: 1.1rem;
         }
 
         .rank-bronze .user-avatar {
@@ -288,22 +264,185 @@
 
         .below-50 {
             color: var(--text-muted);
-            padding: 0.75rem 1rem;
-            font-size: 0.92rem;
-            opacity: 0.85;
+            padding: 0.8rem 1.2rem;
+            font-size: 0.95rem;
+            opacity: 0.8;
         }
 
         .crown-icon {
-            font-size: 1.4rem;
-            margin-right: 0.35rem;
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
             filter: drop-shadow(0 0 5px rgba(251, 191, 36, 0.8));
+        }
+
+        .rank-num {
+            width: 50px;
+            font-weight: bold;
+            color: var(--text-muted);
+            flex-shrink: 0;
+        }
+
+        .rank-name {
+            flex-grow: 1;
+            min-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .rank-xp {
+            font-weight: bold;
+            color: var(--accent-green);
+            flex-shrink: 0;
+            white-space: nowrap;
         }
 
         #loading {
             text-align: center;
-            font-size: 1.05rem;
-            padding: 2.5rem 1rem;
+            font-size: 1.2rem;
+            padding: 3rem;
             color: var(--text-muted);
+        }
+
+        .main-tabs {
+            display: flex;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: none;
+        }
+
+        .main-tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .main-tab-btn {
+            padding: 1rem 1.5rem;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            font-weight: 600;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -1px;
+            transition: color 0.2s;
+            flex: 0 0 auto;
+        }
+
+        .main-tab-btn:hover {
+            color: var(--text-main);
+        }
+
+        .main-tab-btn.active {
+            color: var(--accent-blue);
+            border-bottom: 3px solid var(--accent-blue);
+        }
+
+        #schools-view {
+            display: none;
+        }
+
+        .school-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 1.15rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-main);
+            background: var(--bg-card);
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        .school-row:last-child {
+            border-bottom: none;
+        }
+
+        .school-row:hover {
+            background-color: rgba(255,255,255,0.05);
+        }
+
+        /* Grade Card Styles */
+        .grade-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .grade-header {
+            background: rgba(0,0,0,0.2);
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            gap: 1rem;
+        }
+
+        .grade-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-main);
+            margin: 0;
+        }
+
+        .view-more-btn {
+            background: var(--accent-blue);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.2s;
+            flex-shrink: 0;
+        }
+
+        .view-more-btn:hover {
+            background: #2563eb;
+        }
+
+        .top3-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .top3-empty {
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        /* Details View */
+        #details-view {
+            display: none;
+        }
+
+        .back-btn {
+            background: var(--border-color);
+            color: var(--text-main);
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background 0.2s;
+        }
+
+        .back-btn:hover {
+            background: #475569;
         }
 
         /* Hamburger Menu Styles */
@@ -323,13 +462,20 @@
             transition: all 0.3s ease;
         }
 
-        /* Responsive Nav */
         @media (max-width: 768px) {
             header {
                 flex-direction: row;
                 padding: 0.85rem 1rem;
                 gap: 1rem;
                 justify-content: space-between;
+            }
+
+            header > div {
+                min-width: 0;
+            }
+
+            .hamburger {
+                display: flex;
             }
 
             nav {
@@ -365,46 +511,52 @@
                 width: calc(100% - 2rem);
             }
 
-            .hamburger {
-                display: flex;
-            }
-
             .container {
                 margin: 1rem auto;
                 padding: 0 0.5rem;
             }
 
-            .tabs {
-                margin-bottom: 1rem;
+            .main-tab-btn {
+                padding: 0.8rem 1rem;
+                font-size: 0.95rem;
             }
 
-            .tab-btn {
-                padding: 0.75rem 0.9rem;
-                font-size: 0.88rem;
+            .grade-header {
+                padding: 1rem;
             }
 
-            .rank-row {
-                padding: 0.8rem 0.75rem;
-                gap: 0.5rem;
+            .grade-title {
+                font-size: 1.1rem;
             }
 
-            .user-avatar {
-                width: 32px;
-                height: 32px;
-                margin-right: 0.55rem;
+            .view-more-btn {
+                padding: 0.5rem 0.9rem;
+                font-size: 0.85rem;
+            }
+
+            .rank-row,
+            .school-row {
+                padding: 0.8rem 0.7rem;
+                gap: 0.45rem;
             }
 
             .rank-num {
                 width: 34px;
-                font-size: 0.88rem;
+                font-size: 0.85rem;
+            }
+
+            .user-avatar {
+                width: 30px;
+                height: 30px;
+                margin-right: 0.55rem;
             }
 
             .rank-name {
-                font-size: 0.9rem;
+                font-size: 0.85rem;
             }
 
             .rank-xp {
-                font-size: 0.82rem;
+                font-size: 0.78rem;
             }
 
             .rank-1,
@@ -418,14 +570,14 @@
             .rank-1 .user-avatar,
             .rank-2 .user-avatar,
             .rank-3 .user-avatar {
-                width: 40px;
-                height: 40px;
+                width: 38px;
+                height: 38px;
             }
 
             .rank-1 .rank-num,
             .rank-2 .rank-num,
             .rank-3 .rank-num {
-                font-size: 1.1rem;
+                font-size: 1.05rem;
             }
 
             .rank-silver .rank-num {
@@ -436,42 +588,65 @@
                 font-size: 0.92rem;
             }
 
+            .school-row .rank-name {
+                font-size: 0.9rem;
+            }
+
             .below-50 {
                 padding: 0.65rem 0.75rem;
                 font-size: 0.85rem;
+            }
+
+            .crown-icon {
+                font-size: 1.2rem;
+                margin-right: 0.3rem;
             }
         }
 
         @media (max-width: 480px) {
             header h2 {
-                font-size: 1.1rem;
+                font-size: 1.05rem;
             }
 
-            .rank-row {
-                padding: 0.7rem 0.6rem;
-            }
-
-            .user-avatar {
-                width: 28px;
-                height: 28px;
+            .rank-row,
+            .school-row {
+                padding: 0.68rem 0.6rem;
             }
 
             .rank-num {
                 width: 30px;
-                font-size: 0.82rem;
+                font-size: 0.78rem;
+            }
+
+            .user-avatar {
+                width: 27px;
+                height: 27px;
             }
 
             .rank-name {
-                font-size: 0.84rem;
+                font-size: 0.8rem;
             }
 
             .rank-xp {
-                font-size: 0.76rem;
+                font-size: 0.72rem;
             }
 
-            .tab-btn {
-                padding: 0.7rem 0.75rem;
-                font-size: 0.82rem;
+            .main-tab-btn {
+                padding: 0.7rem 0.8rem;
+                font-size: 0.88rem;
+            }
+
+            .grade-header {
+                padding: 0.85rem;
+            }
+
+            .grade-title {
+                font-size: 1rem;
+            }
+
+            .view-more-btn {
+                font-size: 0.8rem;
+                padding: 0.45rem 0.8rem;
             }
         }
 
@@ -511,25 +686,45 @@
             <div></div>
         </div>
         <img src="logo.png" alt="Dtech Logo" style="height: 30px; cursor: pointer; object-fit: contain; flex-shrink: 0;" onclick="window.location.href='dashboard.html'">
-        <h2 style="margin:0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" id="page-title-grade">National Leaderboards</h2>
+        <h2 style="margin:0;" id="page-title-grade">Global Leaderboard (All Grades)</h2>
     </div>
     <nav id="nav-menu">
         <a href="dashboard.html">Dashboard</a>
         <a href="subjects.html">Take a Quiz</a>
+        <a href="leaderboard.html">Grade Leaderboards</a>
         <a href="stats.html">Detailed Stats</a>
-        <a href="global_leaderboard.html">Global Leaderboard</a>
+        <a href="profile.html">Profile</a>
+        <button id="logoutBtn" class="btn-logout" style="margin-left: 1rem;">Logout</button>
     </nav>
 </header>
 
 <div class="container">
-    <div class="tabs" id="leaderboard-tabs">
-        <!-- Dynamic tabs injected here -->
+    <div class="main-tabs">
+        <button class="main-tab-btn active" onclick="switchMainTab('grades', event)">Grades</button>
+        <button class="main-tab-btn" onclick="switchMainTab('schools', event)">Schools</button>
     </div>
 
     <div id="loading">Loading leaderboards...</div>
 
-    <div id="leaderboards-container">
-        <!-- Dynamic leaderboard contents injected here -->
+    <!-- Main Grades List View -->
+    <div id="grades-list-view"></div>
+
+    <!-- Schools View -->
+    <div id="schools-view">
+        <div id="leaderboard-schools" class="leaderboard-content active" style="display: block;"></div>
+    </div>
+
+    <!-- Detailed Grade View -->
+    <div id="details-view">
+        <button class="back-btn" onclick="showGradesList()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/></svg>
+            Back to Grades List
+        </button>
+        <h2 id="details-grade-title" style="margin-top: 0;">Grade Details</h2>
+
+        <div class="tabs" id="details-tabs"></div>
+
+        <div id="details-boards"></div>
     </div>
 </div>
 
@@ -540,10 +735,8 @@
         window.location.href = "index.html";
     }
 
-    const userGrade = localStorage.getItem("user_grade") || "grade12";
-    const gradeDisplay = userGrade.replace('grade', 'Grade ');
-    document.getElementById("page-title-grade").textContent = `${gradeDisplay} Leaderboard`;
-    document.title = `${gradeDisplay} Leaderboards - Quiz Platform`;
+    const gradeDataCache = {};
+    const globalGradeMapCache = {};
 
     const SUBJECT_LABELS = {
         "overall": "Overall",
@@ -558,32 +751,172 @@
     };
 
     async function fetchGradeMap() {
+        if (Object.keys(globalGradeMapCache).length > 0) return globalGradeMapCache;
         try {
             const response = await fetch('map.json');
             if (!response.ok) return null;
-            return await response.json();
+            const data = await response.json();
+            Object.assign(globalGradeMapCache, data);
+            return data;
         } catch (error) {
             return null;
         }
     }
 
-    async function setupDynamicLeaderboards() {
-        const gradeMap = await fetchGradeMap();
+    async function fetchAllGradesLeaderboards() {
+        document.getElementById("loading").style.display = "block";
+        document.getElementById("grades-list-view").style.display = "none";
+        document.getElementById("details-view").style.display = "none";
+        document.getElementById("schools-view").style.display = "none";
 
-        let gradeSubjects = ["math", "physics"];
+        try {
+            const gradesListContainer = document.getElementById("grades-list-view");
+            gradesListContainer.innerHTML = "";
 
-        if (gradeMap && gradeMap[userGrade]) {
-            gradeSubjects = Object.keys(gradeMap[userGrade]);
-            gradeSubjects = gradeSubjects.map(s => s === "mathematics" ? "math" : s === "physical_sciences" ? "physics" : s).slice(0, 2);
+            const gradeMap = await fetchGradeMap();
+
+            const fetchPromises = [];
+            for (let i = 12; i >= 1; i--) {
+                const gradeId = `grade${i}`;
+
+                let gradeSubjects = ["math", "physics"];
+                if (gradeMap && gradeMap[gradeId]) {
+                    gradeSubjects = Object.keys(gradeMap[gradeId])
+                        .map(s => s === "mathematics" ? "math" : s === "physical_sciences" ? "physics" : s)
+                        .slice(0, 2);
+                }
+
+                const queryParams = gradeSubjects.length > 0 ? `&subjects=${gradeSubjects.join(',')}` : '';
+
+                fetchPromises.push(
+                    fetch(`${API_URL}/api/leaderboard?grade=${gradeId}${queryParams}`)
+                        .then(res => res.json())
+                        .then(data => ({ gradeId, title: `Grade ${i}`, data, subjects: gradeSubjects }))
+                        .catch(err => ({ gradeId, title: `Grade ${i}`, data: { overall: [] }, error: err, subjects: [] }))
+                );
+            }
+
+            fetchPromises.push(
+                fetch(`${API_URL}/api/leaderboard?grade=all`)
+                    .then(res => res.json())
+                    .then(data => ({ gradeId: 'all', title: 'All Grades', data }))
+                    .catch(err => ({ gradeId: 'all', title: 'All Grades', data: { schools_overall: [] }, error: err }))
+            );
+
+            const results = await Promise.all(fetchPromises);
+
+            const allGradesResult = results.find(r => r.gradeId === 'all');
+            const schoolsOverallList = allGradesResult && allGradesResult.data.schools_overall ? allGradesResult.data.schools_overall : [];
+            renderSchoolsLeaderboard(schoolsOverallList);
+
+            const gradeResults = results.filter(r => r.gradeId !== 'all');
+
+            gradeResults.sort((a, b) => {
+                const numA = parseInt(a.gradeId.replace("grade", ""));
+                const numB = parseInt(b.gradeId.replace("grade", ""));
+                return numB - numA;
+            });
+
+            gradeResults.forEach(result => {
+                gradeDataCache[result.gradeId] = { data: result.data, subjects: result.subjects };
+                renderGradeCard(result.gradeId, result.title, result.data.overall || []);
+            });
+
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("grades-list-view").style.display = "block";
+
+        } catch (error) {
+            console.error("Error fetching leaderboards:", error);
+            document.getElementById("loading").textContent = "Failed to load leaderboards. Please refresh.";
+            document.getElementById("loading").style.display = "block";
+        }
+    }
+
+    function renderGradeCard(gradeId, title, overallList) {
+        const container = document.getElementById("grades-list-view");
+
+        const card = document.createElement("div");
+        card.className = "grade-card";
+
+        const header = document.createElement("div");
+        header.className = "grade-header";
+        header.innerHTML = `
+            <h3 class="grade-title">${title}</h3>
+            <button class="view-more-btn" onclick="showGradeDetails('${gradeId}', '${title}')">View More</button>
+        `;
+        card.appendChild(header);
+
+        const top3Container = document.createElement("div");
+        top3Container.className = "top3-container";
+
+        const top3 = overallList.slice(0, 3);
+
+        if (top3.length === 0) {
+            top3Container.innerHTML = `<div class="top3-empty">No learners ranked yet for ${title}.</div>`;
+        } else {
+            top3.forEach((user, index) => {
+                const row = buildRankRowHTML(user, index + 1);
+                top3Container.appendChild(row);
+            });
         }
 
-        const tabsContainer = document.getElementById("leaderboard-tabs");
-        const boardsContainer = document.getElementById("leaderboards-container");
+        card.appendChild(top3Container);
+        container.appendChild(card);
+    }
+
+    function buildRankRowHTML(user, rank) {
+        const row = document.createElement("a");
+        row.href = `public_profile.html?user=${encodeURIComponent(user.username)}`;
+        row.className = "rank-row";
+
+        if (rank === 1) row.classList.add("rank-1");
+        else if (rank === 2) row.classList.add("rank-2");
+        else if (rank === 3) row.classList.add("rank-3");
+        else if (rank <= 10) { row.classList.add("top-10"); row.classList.add("rank-silver"); }
+        else if (rank <= 25) { row.classList.add("top-25"); row.classList.add("rank-bronze"); }
+        else if (rank <= 100) { row.classList.add("top-50"); row.classList.add("rank-iron"); }
+        else row.classList.add("below-50");
+
+        let displayName = user.username;
+        if (user.name || user.surname) {
+            displayName = `${user.name || ''} ${user.surname || ''}`.trim() + ` (@${user.username})`;
+        }
+
+        const avatarSrc = user.avatar_url || "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzk0YTNiOCI+PHBhdGggZD0iTTEyIDEyYzIuMjEgMCA0LTEuNzkgNC00cy0xLjc5LTQtNC00LTQgMS43OS00IDRzMS43OSA0IDQgNHptMCAyYy0yLjY3IDAtOCAxLjM0LTggNHYyaDE2di0yYzAtMi42Ni01LjMzLTQtOC00eiIvPjwvc3ZnPg==";
+        const safeUsername = user.username ? user.username.replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;') : 'User';
+        const safeAvatar = avatarSrc.replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        const safeDisplayName = displayName.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+        let rankDisplay = `#${rank}`;
+        if (rank === 1) rankDisplay = `<span class="crown-icon">👑</span>#1`;
+
+        row.innerHTML = `
+            <div class="rank-num">${rankDisplay}</div>
+            <div class="user-info">
+                <img class="user-avatar" src="${safeAvatar}" alt="${safeUsername}">
+                <div class="rank-name">${safeDisplayName}</div>
+            </div>
+            <div class="rank-xp">${user.xp.toLocaleString()} XP</div>
+        `;
+        return row;
+    }
+
+    function showGradeDetails(gradeId, title) {
+        document.getElementById("grades-list-view").style.display = "none";
+        document.getElementById("details-view").style.display = "block";
+        document.getElementById("details-grade-title").textContent = `${title} Leaderboard`;
+
+        const cacheEntry = gradeDataCache[gradeId] || { data: {}, subjects: [] };
+        const data = cacheEntry.data;
+        const subjects = cacheEntry.subjects;
+
+        const tabsContainer = document.getElementById("details-tabs");
+        const boardsContainer = document.getElementById("details-boards");
 
         tabsContainer.innerHTML = `<button class="tab-btn active" onclick="switchTab('overall', event)">Overall</button>`;
         boardsContainer.innerHTML = `<div id="leaderboard-overall" class="leaderboard-content active"></div>`;
 
-        gradeSubjects.forEach(sub => {
+        subjects.forEach(sub => {
             const label = SUBJECT_LABELS[sub] || sub.replace('_', ' ').replace(/\b\w/g, c => c.toUpperCase());
             tabsContainer.innerHTML += `<button class="tab-btn" onclick="switchTab('${sub}', event)">${label}</button>`;
             boardsContainer.innerHTML += `<div id="leaderboard-${sub}" class="leaderboard-content"></div>`;
@@ -592,30 +925,79 @@
         tabsContainer.innerHTML += `<button class="tab-btn" onclick="switchTab('weekly', event)">Weekly</button>`;
         boardsContainer.innerHTML += `<div id="leaderboard-weekly" class="leaderboard-content"></div>`;
 
-        return gradeSubjects;
+        renderLeaderboard("leaderboard-overall", data.overall || []);
+        subjects.forEach(sub => {
+            renderLeaderboard(`leaderboard-${sub}`, data[sub] || []);
+        });
+        renderLeaderboard("leaderboard-weekly", data.weekly || []);
+
+        document.querySelectorAll("#details-tabs .tab-btn").forEach(btn => btn.classList.remove("active"));
+        const overallBtn = document.querySelector(`#details-tabs .tab-btn[onclick="switchTab('overall', event)"]`);
+        if (overallBtn) overallBtn.classList.add("active");
+
+        document.querySelectorAll("#details-boards .leaderboard-content").forEach(content => content.classList.remove("active"));
+        document.getElementById("leaderboard-overall").classList.add("active");
+
+        window.scrollTo(0, 0);
     }
 
-    async function fetchLeaderboards() {
-        try {
-            const subjectsToFetch = await setupDynamicLeaderboards();
+    function showGradesList() {
+        document.getElementById("details-view").style.display = "none";
+        document.getElementById("grades-list-view").style.display = "block";
+        document.getElementById("schools-view").style.display = "none";
+        window.scrollTo(0, 0);
+    }
 
-            const currentGrade = localStorage.getItem("user_grade") || "grade12";
-            const queryParams = subjectsToFetch.length > 0 ? `&subjects=${subjectsToFetch.join(',')}` : '';
-            const response = await fetch(`${API_URL}/api/leaderboard?grade=${currentGrade}${queryParams}`);
-            const data = await response.json();
+    function renderSchoolsLeaderboard(list) {
+        const container = document.getElementById("leaderboard-schools");
+        container.innerHTML = "";
 
-            document.getElementById("loading").style.display = "none";
+        if (!list || list.length === 0) {
+            container.innerHTML = "<p style='text-align:center; padding: 2rem;'>No school data available yet.</p>";
+            return;
+        }
 
-            renderLeaderboard("leaderboard-overall", data.overall || []);
-            renderLeaderboard("leaderboard-weekly", data.weekly || []);
+        list.forEach((school, index) => {
+            const rank = index + 1;
+            const row = document.createElement("div");
+            row.className = "school-row";
 
-            subjectsToFetch.forEach(sub => {
-                renderLeaderboard(`leaderboard-${sub}`, data[sub] || []);
-            });
+            if (rank === 1) row.classList.add("rank-1");
+            else if (rank === 2) row.classList.add("rank-2");
+            else if (rank === 3) row.classList.add("rank-3");
+            else if (rank <= 10) row.classList.add("top-10");
+            else if (rank <= 25) row.classList.add("top-25");
+            else if (rank <= 50) row.classList.add("top-50");
+            else row.classList.add("below-50");
 
-        } catch (error) {
-            console.error("Error fetching leaderboards:", error);
-            document.getElementById("loading").textContent = "Failed to load leaderboards. Please refresh.";
+            let rankDisplay = `#${rank}`;
+            if (rank === 1) rankDisplay = `<span class="crown-icon">👑</span>#1`;
+
+            const safeSchoolName = school.school_name ? school.school_name.replace(/</g, '&lt;').replace(/>/g, '&gt;') : 'Unknown School';
+
+            row.innerHTML = `
+                <div class="rank-num">${rankDisplay}</div>
+                <div class="user-info">
+                    <div class="rank-name" style="font-size: 1.1rem; font-weight: 500;">${safeSchoolName}</div>
+                </div>
+                <div class="rank-xp">${school.xp.toLocaleString()} XP</div>
+            `;
+            container.appendChild(row);
+        });
+    }
+
+    function switchMainTab(tabId, event) {
+        document.querySelectorAll(".main-tab-btn").forEach(btn => btn.classList.remove("active"));
+        if (event && event.currentTarget) event.currentTarget.classList.add("active");
+
+        if (tabId === 'grades') {
+            document.getElementById('schools-view').style.display = 'none';
+            document.getElementById('grades-list-view').style.display = 'block';
+            document.getElementById('details-view').style.display = 'none';
+        } else if (tabId === 'schools') {
+            document.getElementById('grades-list-view').style.display = 'none';
+            document.getElementById('details-view').style.display = 'none';
+            document.getElementById('schools-view').style.display = 'block';
         }
     }
 
@@ -623,82 +1005,49 @@
         const container = document.getElementById(containerId);
         container.innerHTML = "";
 
-        if (list.length === 0) {
+        if (!list || list.length === 0) {
             container.innerHTML = "<p style='text-align:center; padding: 2rem;'>No data available yet.</p>";
             return;
         }
 
         list.forEach((user, index) => {
-            const rank = index + 1;
-            const row = document.createElement("a");
-            row.href = `public_profile.html?user=${encodeURIComponent(user.username)}`;
-            row.className = "rank-row";
-
-            if (rank === 1) row.classList.add("rank-1");
-            else if (rank === 2) row.classList.add("rank-2");
-            else if (rank === 3) row.classList.add("rank-3");
-            else if (rank <= 10) { row.classList.add("top-10"); row.classList.add("rank-silver"); }
-            else if (rank <= 25) { row.classList.add("top-25"); row.classList.add("rank-bronze"); }
-            else if (rank <= 100) { row.classList.add("top-50"); row.classList.add("rank-iron"); }
-            else row.classList.add("below-50");
-
-            let displayName = user.username;
-            if (user.name || user.surname) {
-                displayName = `${user.name || ''} ${user.surname || ''}`.trim() + ` (@${user.username})`;
-            }
-
-            const avatarSrc = user.avatar_url || "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzk0YTNiOCI+PHBhdGggZD0iTTEyIDEyYzIuMjEgMCA0LTEuNzkgNC00cy0xLjc5LTQtNC00LTQgMS43OS00IDRzMS43OSA0IDQgNHptMCAyYy0yLjY3IDAtOCAxLjM0LTggNHYyaDE2di0yYzAtMi42Ni01LjMzLTQtOC00eiIvPjwvc3ZnPg==";
-
-            const safeUsername = user.username ? user.username.replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;') : 'User';
-            const safeAvatar = avatarSrc.replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-            const safeDisplayName = displayName.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-
-            let rankDisplay = `#${rank}`;
-            if (rank === 1) rankDisplay = `<span class="crown-icon">👑</span>#1`;
-
-            row.innerHTML = `
-                <div class="rank-num">${rankDisplay}</div>
-                <div class="user-info">
-                    <img class="user-avatar" src="${safeAvatar}" alt="${safeUsername}">
-                    <div class="rank-name">${safeDisplayName}</div>
-                </div>
-                <div class="rank-xp">${user.xp.toLocaleString()} XP</div>
-            `;
-
+            const row = buildRankRowHTML(user, index + 1);
             container.appendChild(row);
         });
     }
 
     function switchTab(tabId, event) {
-        document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("active"));
-        event.currentTarget.classList.add("active");
+        document.querySelectorAll("#details-tabs .tab-btn").forEach(btn => btn.classList.remove("active"));
+        if (event && event.currentTarget) {
+            event.currentTarget.classList.add("active");
+        }
 
-        document.querySelectorAll(".leaderboard-content").forEach(content => {
+        document.querySelectorAll("#details-boards .leaderboard-content").forEach(content => {
             content.classList.remove("active");
         });
         document.getElementById(`leaderboard-${tabId}`).classList.add("active");
     }
 
-    fetchLeaderboards();
+    fetchAllGradesLeaderboards();
 </script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const hamburger = document.getElementById('hamburger-menu');
-        const navMenu = document.getElementById('nav-menu');
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger-menu');
+    const navMenu = document.getElementById('nav-menu');
 
-        if (hamburger && navMenu) {
-            hamburger.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-            });
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
 
-            document.addEventListener('click', (e) => {
-                if (!hamburger.contains(e.target) && !navMenu.contains(e.target) && navMenu.classList.contains('active')) {
-                    navMenu.classList.remove('active');
-                }
-            });
-        }
-    });
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target) && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+            }
+        });
+    }
+});
 </script>
 
 <footer id="dynamic-footer">
