@@ -111,6 +111,9 @@ async function handleSignup(request, env) {
     math_xp: 0,
     physics_xp: 0,
     total_xp: 0,
+    personal_math_xp: 0,
+    personal_physics_xp: 0,
+    personal_total_xp: 0,
     weekly_xp: 0,
     questions_answered: 0,
     correct_answers: 0,
@@ -317,11 +320,15 @@ async function handleGetPublicUser(request, env, path) {
     username: userData.username,
     name: userData.name,
     surname: userData.surname,
+    grade: userData.grade || "grade12",
     avatar_url: userData.avatar_url || "",
-    total_xp: userData.total_xp,
-    questions_answered: userData.questions_answered,
-    accuracy_percentage: userData.accuracy_percentage,
-    study_streak_days: userData.study_streak_days
+    total_xp: userData.total_xp || 0,
+    personal_total_xp: userData.personal_total_xp || 0,
+    questions_answered: userData.questions_answered || 0,
+    correct_answers: userData.correct_answers || 0,
+    accuracy_percentage: userData.accuracy_percentage || 0,
+    study_streak_days: userData.study_streak_days || 0,
+    topic_accuracy: userData.topic_accuracy || {}
   };
 
   if (!userData.grade) userData.grade = "grade12";
@@ -366,52 +373,82 @@ async function handleSubmitQuiz(request, env, ctx) {
 
   let userData = JSON.parse(userDataString);
 
-  // Calculate XP
-  const xpEarned = (correct_answers * 10) + 50; // +10 per correct, +50 completion
+  // Initialize new personal XP fields if they don't exist
+  if (userData.personal_total_xp === undefined) userData.personal_total_xp = userData.total_xp || 0;
+  if (userData.personal_math_xp === undefined) userData.personal_math_xp = userData.math_xp || 0;
+  if (userData.personal_physics_xp === undefined) userData.personal_physics_xp = userData.physics_xp || 0;
 
-  // Check daily cap (basic implementation based on date string)
+  // Personal XP: +5 per correct answer (always added)
+  const personalXpEarned = correct_answers * 5;
+  userData.personal_total_xp += personalXpEarned;
+  if (subject === "mathematics") {
+    userData.personal_math_xp += personalXpEarned;
+  } else if (subject === "physics") {
+    userData.personal_physics_xp += personalXpEarned;
+  }
+
+  // Public/Ranked XP and Streak Logic
+  const scorePercentage = total_questions > 0 ? (correct_answers / total_questions) * 100 : 0;
+  const passedThreshold = scorePercentage >= 50; // New minimum threshold requirement
+
+  let publicXpEarned = 0;
+  const currentWeek = getCurrentWeek();
   const today = new Date().toISOString().split('T')[0];
-  if (userData.last_quiz_date !== today) {
-    userData.daily_xp = 0;
-    userData.last_quiz_date = today;
 
-    // Manage streak
-    const yesterday = new Date();
-    yesterday.setDate(yesterday.getDate() - 1);
-    const yesterdayStr = yesterday.toISOString().split('T')[0];
-    if (userData.last_active_date === yesterdayStr) {
-      userData.study_streak_days += 1;
-    } else if (userData.last_active_date !== today) {
-      userData.study_streak_days = 1;
+  if (passedThreshold) {
+    const rawPublicXpEarned = correct_answers * 5;
+
+    // Check daily cap (350 XP max)
+    if (userData.last_quiz_date !== today) {
+      userData.daily_xp = 0;
+      userData.last_quiz_date = today;
+
+      // Manage streak only if they pass
+      const yesterday = new Date();
+      yesterday.setDate(yesterday.getDate() - 1);
+      const yesterdayStr = yesterday.toISOString().split('T')[0];
+      if (userData.last_active_date === yesterdayStr) {
+        userData.study_streak_days += 1;
+      } else if (userData.last_active_date !== today) {
+        userData.study_streak_days = 1;
+      }
+    }
+
+    userData.last_active_date = today;
+
+    if ((userData.daily_xp || 0) + rawPublicXpEarned > 350) {
+      publicXpEarned = Math.max(0, 350 - (userData.daily_xp || 0));
+    } else {
+      publicXpEarned = rawPublicXpEarned;
+    }
+
+    userData.daily_xp = (userData.daily_xp || 0) + publicXpEarned;
+
+    if (subject === "mathematics") {
+      userData.math_xp += publicXpEarned;
+    } else if (subject === "physics") {
+      userData.physics_xp += publicXpEarned;
+    }
+    userData.total_xp += publicXpEarned;
+
+    // Update weekly XP (reset if new week)
+    if (userData.last_week !== currentWeek) {
+      userData.weekly_xp = 0;
+      userData.last_week = currentWeek;
+    }
+    userData.weekly_xp += publicXpEarned;
+  } else {
+    // Did not pass the threshold. Still reset weekly xp logic if it's a new week so old data isn't kept.
+    if (userData.last_week !== currentWeek) {
+      userData.weekly_xp = 0;
+      userData.last_week = currentWeek;
     }
   }
 
-  userData.last_active_date = today;
-
-  let actualXpEarned = xpEarned;
-  if ((userData.daily_xp || 0) + xpEarned > 500) {
-    actualXpEarned = Math.max(0, 500 - (userData.daily_xp || 0));
-  }
-  userData.daily_xp = (userData.daily_xp || 0) + actualXpEarned;
-
-  if (subject === "mathematics") {
-    userData.math_xp += actualXpEarned;
-  } else if (subject === "physics") {
-    userData.physics_xp += actualXpEarned;
-  }
-  userData.total_xp += actualXpEarned;
-
-  // Update weekly XP (reset if new week)
-  const currentWeek = getCurrentWeek();
-  if (userData.last_week !== currentWeek) {
-    userData.weekly_xp = 0;
-    userData.last_week = currentWeek;
-  }
-  userData.weekly_xp += actualXpEarned;
-
+  // Always update global stats regardless of score
   userData.questions_answered += total_questions;
   userData.correct_answers += correct_answers;
-  userData.accuracy_percentage = Math.round((userData.correct_answers / userData.questions_answered) * 100);
+  userData.accuracy_percentage = userData.questions_answered > 0 ? Math.round((userData.correct_answers / userData.questions_answered) * 100) : 0;
   userData.quizzes_completed += 1;
 
   // Topic accuracy
@@ -423,10 +460,16 @@ async function handleSubmitQuiz(request, env, ctx) {
 
   await env.RANK_KV.put(`user:${user_id}`, JSON.stringify(userData));
 
-  // Update leaderboards async
+  // Update leaderboards async (only if public XP was gained, though it's safe to run regardless)
   ctx.waitUntil(updateLeaderboards(env, userData, currentWeek));
 
-  return jsonResponse({ message: "Quiz submitted successfully", xp_earned: actualXpEarned });
+  return jsonResponse({
+    message: "Quiz submitted successfully",
+    xp_earned: publicXpEarned,
+    personal_xp_earned: personalXpEarned,
+    passed_threshold: passedThreshold,
+    score_percentage: scorePercentage
+  });
 }
 
 async function updateLeaderboards(env, user, currentWeek) {
