@@ -1,0 +1,999 @@
+[
+  {
+    "id": "FIN_296",
+    "topic": "Finance, Growth and Decay",
+    "subtopic": "depreciation",
+    "difficulty": "hard",
+    "question": "A machine bought for R$368000$ has a book value of R$205493$ after $5$ years on the reducing-balance method. Calculate the annual rate of depreciation $r$ (as a percentage).",
+    "correct_answer": "11.00",
+    "wrong_answers_pool": [
+      "0.09",
+      "1.27",
+      "3.17",
+      "5.50",
+      "10.00",
+      "12.00",
+      "16.50",
+      "19.98"
+    ],
+    "explanation": "$A = P(1 - i)^n \\implies 205493 = 368000(1 - i)^5 \\implies 1 - i = \\sqrt[5]{\\frac{205493}{368000}} \\implies i \\approx 11.0\\%$",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_1"
+  },
+  {
+    "id": "ANAGEO_376",
+    "topic": "Analytical Geometry",
+    "subtopic": "midpoint formula",
+    "difficulty": "hard",
+    "question": "A$(8; -6)$, B$(0; 8)$, C$(0; 5)$, and D$(x; y)$ are the vertices of a parallelogram ABCD. Determine the coordinates of D.",
+    "correct_answer": "(8; -9)",
+    "wrong_answers_pool": [
+      "(6; -11)",
+      "(6; -13)",
+      "(6; -5)",
+      "(13; -8)",
+      "(3; -13)",
+      "(4; -13)",
+      "(13; -4)",
+      "(4; -14)"
+    ],
+    "explanation": "Diagonals bisect each other. Midpoint AC = Midpoint BD. $\\frac{8+0}{2} = \\frac{0+x}{2} \\implies x = 8$. $\\frac{-6+5}{2} = \\frac{8+y}{2} \\implies y = -9$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_2"
+  },
+  {
+    "id": "ALG_727",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "linear equations",
+    "difficulty": "hard",
+    "question": "Solve the system of equations for $x$: \n$ 2x -1y = -8 $ \n$ 2x + 3y = -8 $",
+    "correct_answer": "-4",
+    "wrong_answers_pool": [
+      "1",
+      "4",
+      "10",
+      "-22",
+      "13",
+      "15",
+      "-12",
+      "-1"
+    ],
+    "explanation": "Using substitution or elimination, we find $x = -4$ and $y = 0$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_3"
+  },
+  {
+    "id": "STAT_531",
+    "topic": "Statistics and Regression",
+    "subtopic": "linear regression",
+    "difficulty": "hard",
+    "question": "The equation of the least squares regression line for a dataset is $\\hat{y} = 4.69 -2.75x$. Predict the value of $y$ when $x = 12$ (correct to 2 decimal places).",
+    "correct_answer": "-28.31",
+    "wrong_answers_pool": [
+      "-29.31",
+      "-27.31",
+      "-56.63",
+      "-21.80",
+      "-0.04",
+      "-16.74",
+      "-14.16",
+      "-12.10"
+    ],
+    "explanation": "Substitute $x = 12$ into the equation: $\\hat{y} = 4.69 -2.75(12) \\approx -28.31$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_4"
+  },
+  {
+    "id": "PROB_963",
+    "topic": "Probability",
+    "subtopic": "basic probability",
+    "difficulty": "medium",
+    "question": "Given $P(A) = 0.16$, $P(B) = 0.36$, and $P(A \\cup B) = 0.4$. Calculate $P(A \\cap B)$.",
+    "correct_answer": "0.12",
+    "wrong_answers_pool": [
+      "0.46",
+      "0.59",
+      "0.16",
+      "0.58",
+      "0.75",
+      "0.40",
+      "0.69",
+      "0.08"
+    ],
+    "explanation": "$P(A \\cup B) = P(A) + P(B) - P(A \\cap B) \\implies 0.4 = 0.16 + 0.36 - P(A \\cap B) \\implies P(A \\cap B) = 0.12$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_5"
+  },
+  {
+    "id": "ALG_894",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "quadratic equations",
+    "difficulty": "medium",
+    "question": "Solve for $x$ (correct to 2 decimal places): $3 x^{2} + 7 x - 4 = 0$",
+    "correct_answer": "-2.81, 0.47",
+    "wrong_answers_pool": [
+      "-1.49, 2.09",
+      "-2.47, 0.00",
+      "-1.50, 1.98",
+      "-3.62, 2.33",
+      "-0.95, 2.23",
+      "-1.97, -1.18",
+      "-1.18, -0.03",
+      "-1.12, 1.79"
+    ],
+    "explanation": "Using the quadratic formula $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$, we get $x = -2.81$ or $x = 0.47$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_6"
+  },
+  {
+    "id": "FIN_178",
+    "topic": "Finance, Growth and Decay",
+    "subtopic": "compound interest",
+    "difficulty": "hard",
+    "question": "An amount grows to R$396985.78$ after $19$ years at an interest rate of $12\\%$ p.a. compounded quarterly. Calculate the original principal amount $P$.",
+    "correct_answer": "41990",
+    "wrong_answers_pool": [
+      "41985",
+      "41978",
+      "20995",
+      "41988",
+      "41989",
+      "41987",
+      "41991",
+      "41992"
+    ],
+    "explanation": "$A = P(1+\\frac{i}{k})^{nk} \\implies 396985.78 = P(1 + \\frac{0.12}{4})^{76} \\implies P = \\frac{396985.78}{(1 + 0.0300)^{76}} \\approx 41990$",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_7"
+  },
+  {
+    "id": "FIN_175",
+    "topic": "Finance, Growth and Decay",
+    "subtopic": "compound interest",
+    "difficulty": "medium",
+    "question": "An investment of R$42720$ grows to R$236444$ at an interest rate of $13\\%$ p.a. compounded annually. Find the number of years $n$.",
+    "correct_answer": "14",
+    "wrong_answers_pool": [
+      "33",
+      "6",
+      "7",
+      "42",
+      "12",
+      "13",
+      "15",
+      "16"
+    ],
+    "explanation": "$A = P(1+i)^n \\implies 236444 = 42720(1 + 0.13)^n \\implies (1.13)^n = 5.5347 \\implies n = \\log_{1.13}(5.5347) \\approx 14$",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_8"
+  },
+  {
+    "id": "FUN_305",
+    "topic": "Functions and Graphs",
+    "subtopic": "intercepts and turning points",
+    "difficulty": "hard",
+    "question": "State the equations of the asymptotes for the hyperbola $y = \\frac{-3}{x + 1} - 4$.",
+    "correct_answer": "x = -1, y = -4",
+    "wrong_answers_pool": [
+      "x = 1, y = -4",
+      "x = -1, y = 4",
+      "x = 1, y = 4",
+      "x = -4, y = -1",
+      "x = 4, y = 1",
+      "x = -3, y = -4",
+      "x = -1, y = -3"
+    ],
+    "explanation": "The vertical asymptote is where the denominator is zero: $x + 1 = 0 \\implies x = -1$. The horizontal asymptote is the vertical shift: $y = -4$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_9"
+  },
+  {
+    "id": "FUN_292",
+    "topic": "Functions and Graphs",
+    "subtopic": "cubic functions",
+    "difficulty": "medium",
+    "question": "Given $f(x) = x^{3} + 3 x^{2} - 9 x - 27$, find the x-intercepts.",
+    "correct_answer": "-3, 3",
+    "wrong_answers_pool": [
+      "-1, 3",
+      "-3, 1, 5",
+      "-5, 1",
+      "-4, 1, 4",
+      "2, 3, 5",
+      "-4, -1, 0",
+      "-5, -4, -3",
+      "-3, -1"
+    ],
+    "explanation": "$f(x) = (x - -3)(x - 3)(x - -3) = 0$. The intercepts are $x = -3$, $x = 3$, $x = -3$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_10"
+  },
+  {
+    "id": "PROB_236",
+    "topic": "Probability",
+    "subtopic": "basic probability",
+    "difficulty": "hard",
+    "question": "Events A and B are mutually exclusive. $P(A) = 0.19$ and $P(B) = 0.36$. Find $P(A' \\cap B')$, where $A'$ is the complement of A.",
+    "correct_answer": "0.45",
+    "wrong_answers_pool": [
+      "0.92",
+      "0.46",
+      "0.16",
+      "0.23",
+      "0.96",
+      "0.94",
+      "0.02",
+      "0.36"
+    ],
+    "explanation": "Since mutually exclusive, $P(A \\cup B) = 0.19 + 0.36 = 0.55$. $P(A' \\cap B') = 1 - P(A \\cup B) = 1 - 0.55 = 0.45$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_11"
+  },
+  {
+    "id": "ALG_698",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "linear equations",
+    "difficulty": "medium",
+    "question": "Solve for $x$: $4(x +2) = 3(x +0) +6$",
+    "correct_answer": "-2",
+    "wrong_answers_pool": [
+      "0",
+      "1",
+      "2",
+      "9",
+      "-21",
+      "-14",
+      "-11",
+      "-8"
+    ],
+    "explanation": "Expand both sides: $4x +8 = 3x +0 +6$. Then simplify to find $x = -2$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_12"
+  },
+  {
+    "id": "ANAGEO_346",
+    "topic": "Analytical Geometry",
+    "subtopic": "gradient of a line",
+    "difficulty": "hard",
+    "question": "Line AB passes through A$(-1; 4)$ and B$(7; 10)$. Line CD passes through C$(4; 1)$ and D$(10; y)$. If AB $\\perp$ CD, find $y$.",
+    "correct_answer": "-7",
+    "wrong_answers_pool": [
+      "3",
+      "6",
+      "7",
+      "10",
+      "-21",
+      "-20",
+      "12",
+      "-14"
+    ],
+    "explanation": "$m_{AB} = \\frac{10 - 4}{7 - -1} = 0.75$. For perpendicular lines, $m_{CD} = -\\frac{1}{m_{AB}} = -1.3333333333333333$. $\\frac{y - 1}{10 - 4} = -1.3333333333333333 \\implies y = -7$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_13"
+  },
+  {
+    "id": "CALC_275",
+    "topic": "Differential Calculus",
+    "subtopic": "gradients of curves",
+    "difficulty": "hard",
+    "question": "Find the equation of the tangent to the curve $y = x^{2} + 5 x$ at the point $(2; 14)$.",
+    "correct_answer": "y = 9 x - 4",
+    "wrong_answers_pool": [
+      "y = 10 x - 4",
+      "y = 9 x - 5",
+      "y = 9",
+      "y = 9 x - 3",
+      "y = 18 x - 8",
+      "y = 4 - 9 x",
+      "y = 8 x - 4",
+      "y = 9 x - 1"
+    ],
+    "explanation": "Gradient $m = \\frac{dy}{dx}$ at $x=2$ is $9$. Using $y - y_1 = m(x - x_1)$, we get $y - 14 = 9(x - 2) \\implies y = 9 x - 4$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_14"
+  },
+  {
+    "id": "CALC_769",
+    "topic": "Differential Calculus",
+    "subtopic": "derivative rules",
+    "difficulty": "medium",
+    "question": "Find $\\frac{dy}{dx}$ if $y = x^{2} - \\frac{1}{x}$.",
+    "correct_answer": "2 x + \\frac{1}{x^{2}}",
+    "wrong_answers_pool": [
+      "x + \\frac{1}{x^{2}}",
+      "4 x + \\frac{2}{x^{2}}",
+      "- 2 x - \\frac{1}{x^{2}}",
+      "3 x + \\frac{1}{x^{2}}",
+      "2 x + 1 + \\frac{1}{x^{2}}",
+      "2 - \\frac{2}{x^{3}}",
+      "2 x - 1 + \\frac{1}{x^{2}}",
+      "2 x + 3 + \\frac{1}{x^{2}}"
+    ],
+    "explanation": "Apply the power rule to each term: $\\frac{dy}{dx} = 2 x + \\frac{1}{x^{2}}$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_15"
+  },
+  {
+    "id": "CALC_868",
+    "topic": "Differential Calculus",
+    "subtopic": "turning points",
+    "difficulty": "medium",
+    "question": "Find the x-coordinates of the turning points of $f(x) = 2 x^{3} - 6 x^{2} + 5$.",
+    "correct_answer": "0 and 2",
+    "wrong_answers_pool": [
+      "-2 and 5",
+      "-5 and 4",
+      "0 and 1",
+      "-4 and -3",
+      "-5 and 3",
+      "-1 and 5",
+      "4 and 5",
+      "3 and 5"
+    ],
+    "explanation": "$f'(x) = 6 x \\left(x - 2\\right) = 0$. So $x = 0$ or $x = 2$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_16"
+  },
+  {
+    "id": "GEOM_380",
+    "topic": "Euclidean Geometry",
+    "subtopic": "triangle theorems",
+    "difficulty": "medium",
+    "question": "The exterior angle of a triangle is $97^\\circ$. If one of the opposite interior angles is $34^\\circ$, find the other opposite interior angle.",
+    "correct_answer": "63^\\circ",
+    "wrong_answers_pool": [
+      "64^\\circ",
+      "-63^\\circ",
+      "65^\\circ",
+      "66^\\circ",
+      "68^\\circ",
+      "77^\\circ",
+      "52^\\circ",
+      "189^\\circ"
+    ],
+    "explanation": "Exterior angle = sum of opposite interior angles. $97^\\circ = 34^\\circ + x \\implies x = 63^\\circ$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_17"
+  },
+  {
+    "id": "ANAGEO_304",
+    "topic": "Analytical Geometry",
+    "subtopic": "midpoint formula",
+    "difficulty": "hard",
+    "question": "A$(3; 4)$, B$(-5; 9)$, C$(5; 4)$, and D$(x; y)$ are the vertices of a parallelogram ABCD. Determine the coordinates of D.",
+    "correct_answer": "(13; -1)",
+    "wrong_answers_pool": [
+      "(16; 4)",
+      "(14; 1)",
+      "(12; -4)",
+      "(12; 3)",
+      "(9; -6)",
+      "(12; -6)",
+      "(10; -2)",
+      "(10; -5)"
+    ],
+    "explanation": "Diagonals bisect each other. Midpoint AC = Midpoint BD. $\\frac{3+5}{2} = \\frac{-5+x}{2} \\implies x = 13$. $\\frac{4+4}{2} = \\frac{9+y}{2} \\implies y = -1$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_18"
+  },
+  {
+    "id": "FIN_938",
+    "topic": "Finance, Growth and Decay",
+    "subtopic": "exponential growth",
+    "difficulty": "medium",
+    "question": "The population of a town is currently $20883$ and grows at $7\\%$ per year. What will the population be in $38$ years?",
+    "correct_answer": "273134",
+    "wrong_answers_pool": [
+      "273148",
+      "273125",
+      "273124",
+      "819402",
+      "273131",
+      "273132",
+      "273133",
+      "273135"
+    ],
+    "explanation": "$A = P(1+i)^n = 20883(1 + 0.07)^38 \\approx 273134$",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_19"
+  },
+  {
+    "id": "STAT_782",
+    "topic": "Statistics and Regression",
+    "subtopic": "standard deviation",
+    "difficulty": "medium",
+    "question": "For the dataset [25, 17, 18, 25, 23, 29, 17, 10, 21, 13], how many data points lie within one standard deviation of the mean?",
+    "correct_answer": "7",
+    "wrong_answers_pool": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "8"
+    ],
+    "explanation": "Mean = $19.80$, Std Dev = $5.58$. The interval is $(14.22; 25.38)$. There are $7$ values in this interval.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_20"
+  },
+  {
+    "id": "ANAGEO_414",
+    "topic": "Analytical Geometry",
+    "subtopic": "distance formula",
+    "difficulty": "hard",
+    "question": "The distance between A$(2; -7)$ and B$(x; -4)$ is $\\sqrt{130}$. Find the possible value(s) of $x$.",
+    "correct_answer": "-9, 13",
+    "wrong_answers_pool": [
+      "-8, -7",
+      "-12, -11",
+      "-13, 12",
+      "-13, 5",
+      "-6, -4",
+      "-9, -6",
+      "-6, -2",
+      "-15, 14"
+    ],
+    "explanation": "$\\sqrt{(x - 2)^2 + (-4 - -7)^2} = \\sqrt{130} \\implies (x - 2)^2 + 9 = 130 \\implies (x - 2)^2 = 121 \\implies x - 2 = \\pm 11 \\implies x = 13$ or $x = -9$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_21"
+  },
+  {
+    "id": "CALC_211",
+    "topic": "Differential Calculus",
+    "subtopic": "turning points",
+    "difficulty": "hard",
+    "question": "Determine the x-coordinate of the local MAXIMUM of $f(x) = x^{3} - \\frac{3 x^{2}}{2} - 6 x - 1$.",
+    "correct_answer": "-1",
+    "wrong_answers_pool": [
+      "0",
+      "1",
+      "6",
+      "14",
+      "15",
+      "18",
+      "-13",
+      "-10"
+    ],
+    "explanation": "$f'(x) = \\left(x - 2\\right) \\left(3 x + 3\\right) = 0 \\implies x = -1$ or $x = 2$. $f''(x) = 6 x - 3$. Substituting the critical values, $f''(-1) < 0$, so $x = -1$ is a local maximum.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_22"
+  },
+  {
+    "id": "ALG_050",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "inequalities",
+    "difficulty": "hard",
+    "question": "Solve for $x$: $\\frac{(x - -2)(x - 2)}{x - 6} \\geq 0$",
+    "correct_answer": "-2 \\leq x \\leq 2 \\text{ or } x > 6",
+    "wrong_answers_pool": [
+      "x \\leq -2 \\text{ or } 2 \\leq x < 6",
+      "-2 \\leq x \\leq 2 \\text{ or } x \\geq 6",
+      "-2 < x < 2 \\text{ or } x > 6",
+      "x < -2 \\text{ or } x > 6",
+      "x \\geq 6",
+      "-2 \\leq x < 6",
+      "x \\leq -2 \\text{ or } x \\geq 2"
+    ],
+    "explanation": "Critical values are $-2, 2, 6$. Checking regions with a sign table gives $-2 \\leq x \\leq 2 \\text{ or } x > 6$. Note $x \\neq 6$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_23"
+  },
+  {
+    "id": "SEQ_018",
+    "topic": "Patterns and Sequences",
+    "subtopic": "series sums",
+    "difficulty": "hard",
+    "question": "Evaluate: $\\sum_{k=2}^{7} 2(2)^{k-1}$",
+    "correct_answer": "252",
+    "wrong_answers_pool": [
+      "258",
+      "-252",
+      "267",
+      "235",
+      "272",
+      "242",
+      "756",
+      "254"
+    ],
+    "explanation": "Geometric series with $a = 4$, $r = 2$, $n = 6$. $S_n = \\frac{a(r^n - 1)}{r - 1} = 252$",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_24"
+  },
+  {
+    "id": "ALG_711",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "linear equations",
+    "difficulty": "medium",
+    "question": "Solve for $x$: $2(x -5) = 2(x +0) -10$",
+    "correct_answer": "-3",
+    "wrong_answers_pool": [
+      "3",
+      "7",
+      "9",
+      "-22",
+      "-19",
+      "-14",
+      "-11",
+      "-1"
+    ],
+    "explanation": "Expand both sides: $2x -10 = 2x +0 -10$. Then simplify to find $x = -3$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_25"
+  },
+  {
+    "id": "ANAGEO_576",
+    "topic": "Analytical Geometry",
+    "subtopic": "gradient of a line",
+    "difficulty": "hard",
+    "question": "Line AB passes through A$(-2; -5)$ and B$(6; 9)$. Line CD passes through C$(1; -3)$ and D$(15; y)$. If AB $\\perp$ CD, find $y$.",
+    "correct_answer": "-11",
+    "wrong_answers_pool": [
+      "-28",
+      "-25",
+      "-22",
+      "11",
+      "-13",
+      "-12",
+      "-10",
+      "-9"
+    ],
+    "explanation": "$m_{AB} = \\frac{9 - -5}{6 - -2} = 1.75$. For perpendicular lines, $m_{CD} = -\\frac{1}{m_{AB}} = -0.5714285714285714$. $\\frac{y - -3}{15 - 1} = -0.5714285714285714 \\implies y = -11$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_26"
+  },
+  {
+    "id": "ANAGEO_421",
+    "topic": "Analytical Geometry",
+    "subtopic": "gradient of a line",
+    "difficulty": "hard",
+    "question": "Line AB passes through A$(-6; -4)$ and B$(-7; 9)$. Line CD passes through C$(1; 1)$ and D$(14; y)$. If AB $\\perp$ CD, find $y$.",
+    "correct_answer": "2",
+    "wrong_answers_pool": [
+      "0",
+      "1",
+      "3",
+      "4",
+      "6",
+      "11",
+      "-17",
+      "-15"
+    ],
+    "explanation": "$m_{AB} = \\frac{9 - -4}{-7 - -6} = -13.0$. For perpendicular lines, $m_{CD} = -\\frac{1}{m_{AB}} = 0.07692307692307693$. $\\frac{y - 1}{14 - 1} = 0.07692307692307693 \\implies y = 2$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_27"
+  },
+  {
+    "id": "GEOM_622",
+    "topic": "Euclidean Geometry",
+    "subtopic": "triangle theorems",
+    "difficulty": "hard",
+    "question": "In an isosceles triangle, the two equal base angles each measure $(2x + 11)^\\circ$. The vertex angle measures $(3x + 25)^\\circ$. Find the value of $x$.",
+    "correct_answer": "19",
+    "wrong_answers_pool": [
+      "1",
+      "5",
+      "38",
+      "9",
+      "12",
+      "-19",
+      "16",
+      "17"
+    ],
+    "explanation": "Sum of angles is $180^\\circ$. $2(2x + 11) + (3x + 25) = 180 \\implies 7x + 47 = 180 \\implies 7x = 133 \\implies x = 19$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_28"
+  },
+  {
+    "id": "SEQ_509",
+    "topic": "Patterns and Sequences",
+    "subtopic": "sigma notation",
+    "difficulty": "hard",
+    "question": "Evaluate: $\\sum_{k=2}^{8} 6(2)^{k-1}$",
+    "correct_answer": "1524",
+    "wrong_answers_pool": [
+      "1536",
+      "1505",
+      "3048",
+      "1544",
+      "1512",
+      "-1524",
+      "1518",
+      "1522"
+    ],
+    "explanation": "Geometric series with $a = 12$, $r = 2$, $n = 7$. $S_n = \\frac{a(r^n - 1)}{r - 1} = 1524$",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_29"
+  },
+  {
+    "id": "ANAGEO_708",
+    "topic": "Analytical Geometry",
+    "subtopic": "midpoint formula",
+    "difficulty": "medium",
+    "question": "The midpoint of line segment AB is M$(-8.5; -4)$. If A is $(-8; -7)$, find the coordinates of B.",
+    "correct_answer": "(-9; -1)",
+    "wrong_answers_pool": [
+      "(-14; 0)",
+      "(-8; -6)",
+      "(-12; 0)",
+      "(-12; -5)",
+      "(-4; -2)",
+      "(-6; -3)",
+      "(-4; 2)",
+      "(-8; -3)"
+    ],
+    "explanation": "$\\frac{-8 + x_2}{2} = -8.5 \\implies x_2 = -9$. $\\frac{-7 + y_2}{2} = -4 \\implies y_2 = -1$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_30"
+  },
+  {
+    "id": "SEQ_232",
+    "topic": "Patterns and Sequences",
+    "subtopic": "geometric sequences",
+    "difficulty": "medium",
+    "question": "In a geometric sequence, the first term is $10$ and the $4^\\text{th}$ term is $640$. Find the common ratio $r$ (assume $r > 0$).",
+    "correct_answer": "4",
+    "wrong_answers_pool": [
+      "2",
+      "3",
+      "5",
+      "6",
+      "8",
+      "12",
+      "14",
+      "15"
+    ],
+    "explanation": "$T_n = ar^{n-1} \\implies 640 = 10r^{4-1} \\implies r^{4-1} = 64 \\implies r = 4$",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_31"
+  },
+  {
+    "id": "STAT_992",
+    "topic": "Statistics and Regression",
+    "subtopic": "standard deviation",
+    "difficulty": "medium",
+    "question": "For the dataset [20, 17, 29, 18, 10, 21, 12, 20, 15, 12], how many data points lie within one standard deviation of the mean?",
+    "correct_answer": "6",
+    "wrong_answers_pool": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "7",
+      "8"
+    ],
+    "explanation": "Mean = $17.40$, Std Dev = $5.30$. The interval is $(12.10; 22.70)$. There are $6$ values in this interval.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_32"
+  },
+  {
+    "id": "STAT_183",
+    "topic": "Statistics and Regression",
+    "subtopic": "linear regression",
+    "difficulty": "medium",
+    "question": "Given the bivariate data: x = [1, 2, 3, 4, 5], y = [-8.7, -7.8, -6.8, -3.8, -5.4]. Calculate the gradient ($b$) of the least squares regression line $\\hat{y} = a + bx$ (correct to 2 decimal places).",
+    "correct_answer": "1.06",
+    "wrong_answers_pool": [
+      "0.06",
+      "1.59",
+      "2.06",
+      "0.53",
+      "2.12",
+      "0.94",
+      "2.83",
+      "1.58"
+    ],
+    "explanation": "Using a calculator (STAT mode), enter the data points. The gradient $b \\approx 1.06$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_33"
+  },
+  {
+    "id": "TRIG_461",
+    "topic": "Trigonometry",
+    "subtopic": "cosine rule",
+    "difficulty": "hard",
+    "question": "In $\\Delta ABC$, $a = 12$, $\\angle B = 45^\\circ$, and $\\angle C = 68^\\circ$. Calculate the area of the triangle (to 1 decimal place).",
+    "correct_answer": "51.3",
+    "wrong_answers_pool": [
+      "0.0",
+      "34.1",
+      "102.6",
+      "40.2",
+      "42.1",
+      "76.9",
+      "-51.3",
+      "50.3"
+    ],
+    "explanation": "$\\angle A = 180^\\circ - (45^\\circ + 68^\\circ) = 67^\\circ$. By Sine Rule, $c = \\frac{12\\sin 68^\\circ}{\\sin 67^\\circ} \\approx 12.09$. Area = $\\frac{1}{2}ac\\sin B \\approx 51.3$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_34"
+  },
+  {
+    "id": "TRIG_982",
+    "topic": "Trigonometry",
+    "subtopic": "cosine rule",
+    "difficulty": "medium",
+    "question": "In $\\Delta ABC$, $a = 7$, $b = 14$, and $c = 11$. Find the size of $\\angle C$ (to 1 decimal place).",
+    "correct_answer": "50.8^\\circ",
+    "wrong_answers_pool": [
+      "0.0^\\circ",
+      "67.5^\\circ",
+      "101.6^\\circ",
+      "38.0^\\circ",
+      "69.6^\\circ",
+      "42.2^\\circ",
+      "76.2^\\circ",
+      "-50.8^\\circ"
+    ],
+    "explanation": "$\\cos C = \\frac{a^2 + b^2 - c^2}{2ab} = \\frac{7^2 + 14^2 - 11^2}{2(7)(14)} = 0.6327 \\implies C \\approx 50.8^\\circ$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_35"
+  },
+  {
+    "id": "ANAGEO_828",
+    "topic": "Analytical Geometry",
+    "subtopic": "midpoint formula",
+    "difficulty": "medium",
+    "question": "The midpoint of line segment AB is M$(-3; 0)$. If A is $(-3; 8)$, find the coordinates of B.",
+    "correct_answer": "(-3; -8)",
+    "wrong_answers_pool": [
+      "(-4; -5)",
+      "(-2; -4)",
+      "(-6; -13)",
+      "(1; -9)",
+      "(0; -9)",
+      "(2; -11)",
+      "(1; -4)",
+      "(-3; -13)"
+    ],
+    "explanation": "$\\frac{-3 + x_2}{2} = -3 \\implies x_2 = -3$. $\\frac{8 + y_2}{2} = 0 \\implies y_2 = -8$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_36"
+  },
+  {
+    "id": "STAT_548",
+    "topic": "Statistics and Regression",
+    "subtopic": "mean, median, mode",
+    "difficulty": "hard",
+    "question": "The mean of the dataset [10, 28, 29, 30, 39, 42, 46, 46, 'x'] is $33$. Find the value of $x$.",
+    "correct_answer": "27",
+    "wrong_answers_pool": [
+      "35",
+      "-27",
+      "41",
+      "13",
+      "81",
+      "21",
+      "54",
+      "22"
+    ],
+    "explanation": "$\\frac{270 + x}{9} = 33 \\implies 270 + x = 297 \\implies x = 27$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_37"
+  },
+  {
+    "id": "STAT_175",
+    "topic": "Statistics and Regression",
+    "subtopic": "scatter plots",
+    "difficulty": "medium",
+    "question": "Given the bivariate data: x = [1, 2, 3, 4, 5], y = [4.5, 1.4, 1.9, -4.2, -4.8]. Calculate the gradient ($b$) of the least squares regression line $\\hat{y} = a + bx$ (correct to 2 decimal places).",
+    "correct_answer": "-2.42",
+    "wrong_answers_pool": [
+      "-0.41",
+      "2.42",
+      "9.17",
+      "12.23",
+      "-16.97",
+      "-3.42",
+      "16.13",
+      "17.41"
+    ],
+    "explanation": "Using a calculator (STAT mode), enter the data points. The gradient $b \\approx -2.42$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_38"
+  },
+  {
+    "id": "STAT_689",
+    "topic": "Statistics and Regression",
+    "subtopic": "mean, median, mode",
+    "difficulty": "medium",
+    "question": "Determine the median of the following dataset: [23, 14, 43, 50, 38, 30, 32, 41, 17, 47].",
+    "correct_answer": "35",
+    "wrong_answers_pool": [
+      "29",
+      "51",
+      "46",
+      "22",
+      "23.5",
+      "43.5",
+      "48",
+      "14.5"
+    ],
+    "explanation": "First, sort the data: [14, 17, 23, 30, 32, 38, 41, 43, 47, 50]. The median is the middle value: $35$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_39"
+  },
+  {
+    "id": "FUN_357",
+    "topic": "Functions and Graphs",
+    "subtopic": "intercepts and turning points",
+    "difficulty": "medium",
+    "question": "What is the range of the function $f(x) = - x^{2} + 2 x - 3$?",
+    "correct_answer": "y \\leq -2",
+    "wrong_answers_pool": [
+      "y \\geq -2",
+      "y \\leq 2",
+      "y \\geq 2",
+      "y \\leq 1",
+      "y \\geq 1",
+      "y \\in \\mathbb{R}",
+      "y < -2"
+    ],
+    "explanation": "The maximum value is $y = -2$. Therefore, range is $y \\leq -2$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_40"
+  },
+  {
+    "id": "GEOM_495",
+    "topic": "Euclidean Geometry",
+    "subtopic": "triangle theorems",
+    "difficulty": "hard",
+    "question": "In an isosceles triangle, the two equal base angles each measure $(3x + 14)^\\circ$. The vertex angle measures $(1x + 19)^\\circ$. Find the value of $x$.",
+    "correct_answer": "19",
+    "wrong_answers_pool": [
+      "33",
+      "36",
+      "38",
+      "7",
+      "9",
+      "-19",
+      "14",
+      "17"
+    ],
+    "explanation": "Sum of angles is $180^\\circ$. $2(3x + 14) + (1x + 19) = 180 \\implies 7x + 47 = 180 \\implies 7x = 133 \\implies x = 19$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_41"
+  },
+  {
+    "id": "ANAGEO_768",
+    "topic": "Analytical Geometry",
+    "subtopic": "midpoint formula",
+    "difficulty": "medium",
+    "question": "The midpoint of line segment AB is M$(4; 3.5)$. If A is $(2; 0)$, find the coordinates of B.",
+    "correct_answer": "(6; 7)",
+    "wrong_answers_pool": [
+      "(2; 8)",
+      "(6; 4)",
+      "(5; 2)",
+      "(11; 5)",
+      "(7; 2)",
+      "(7; 9)",
+      "(2; 3)",
+      "(7; 7)"
+    ],
+    "explanation": "$\\frac{2 + x_2}{2} = 4 \\implies x_2 = 6$. $\\frac{0 + y_2}{2} = 3.5 \\implies y_2 = 7$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_42"
+  },
+  {
+    "id": "TRIG_299",
+    "topic": "Trigonometry",
+    "subtopic": "sine rule",
+    "difficulty": "hard",
+    "question": "In $\\Delta ABC$, $a = 10$, $b = 12$, and $\\angle C = 56^\\circ$. Calculate the area of the triangle (to 2 decimal places).",
+    "correct_answer": "49.74",
+    "wrong_answers_pool": [
+      "99.48",
+      "36.78",
+      "36.97",
+      "58.89",
+      "74.61",
+      "-49.74",
+      "48.74",
+      "50.74"
+    ],
+    "explanation": "$\\text{Area} = \\frac{1}{2}ab\\sin C = 0.5(10)(12)\\sin(56^\\circ) \\approx 49.74$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_43"
+  },
+  {
+    "id": "FIN_882",
+    "topic": "Finance, Growth and Decay",
+    "subtopic": "exponential growth",
+    "difficulty": "medium",
+    "question": "The population of a town is currently $21357$ and grows at $1\\%$ per year. What will the population be in $29$ years?",
+    "correct_answer": "28500",
+    "wrong_answers_pool": [
+      "28483",
+      "28486",
+      "57000",
+      "14250",
+      "-28500",
+      "28493",
+      "28497",
+      "28498"
+    ],
+    "explanation": "$A = P(1+i)^n = 21357(1 + 0.01)^29 \\approx 28500$",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_44"
+  },
+  {
+    "id": "PROB_796",
+    "topic": "Probability",
+    "subtopic": "independent events",
+    "difficulty": "medium",
+    "question": "A and B are independent events. $P(A) = 0.56$ and $P(B) = 0.2$. Find $P(A \\cup B)$.",
+    "correct_answer": "0.6480",
+    "wrong_answers_pool": [
+      "0.1060",
+      "0.7151",
+      "0.3870",
+      "0.7433",
+      "0.4260",
+      "0.7057",
+      "0.3191",
+      "0.3344"
+    ],
+    "explanation": "Independent means $P(A \\cap B) = 0.56 \\times 0.2 = 0.1120$. $P(A \\cup B) = P(A) + P(B) - P(A \\cap B) = 0.56 + 0.2 - 0.1120 = 0.6480$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_45"
+  },
+  {
+    "id": "FIN_067",
+    "topic": "Finance, Growth and Decay",
+    "subtopic": "depreciation",
+    "difficulty": "hard",
+    "question": "A machine bought for R$182000$ has a book value of R$79058$ after $10$ years on the reducing-balance method. Calculate the annual rate of depreciation $r$ (as a percentage).",
+    "correct_answer": "8.00",
+    "wrong_answers_pool": [
+      "0.12",
+      "4.00",
+      "7.00",
+      "9.00",
+      "12.00",
+      "16.00",
+      "19.04",
+      "20.10"
+    ],
+    "explanation": "$A = P(1 - i)^n \\implies 79058 = 182000(1 - i)^10 \\implies 1 - i = \\sqrt[10]{\\frac{79058}{182000}} \\implies i \\approx 8.0\\%$",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_46"
+  },
+  {
+    "id": "ANAGEO_891",
+    "topic": "Analytical Geometry",
+    "subtopic": "midpoint formula",
+    "difficulty": "medium",
+    "question": "The midpoint of line segment AB is M$(6; -7)$. If A is $(5; -9)$, find the coordinates of B.",
+    "correct_answer": "(7; -5)",
+    "wrong_answers_pool": [
+      "(3; -2)",
+      "(7; -7)",
+      "(11; -9)",
+      "(7; -3)",
+      "(9; -6)",
+      "(5; -1)",
+      "(7; -9)",
+      "(8; -10)"
+    ],
+    "explanation": "$\\frac{5 + x_2}{2} = 6 \\implies x_2 = 7$. $\\frac{-9 + y_2}{2} = -7 \\implies y_2 = -5$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_47"
+  },
+  {
+    "id": "PROB_172",
+    "topic": "Probability",
+    "subtopic": "basic probability",
+    "difficulty": "hard",
+    "question": "Events A and B are mutually exclusive. $P(A) = 0.33$ and $P(B) = 0.31$. Find $P(A' \\cap B')$, where $A'$ is the complement of A.",
+    "correct_answer": "0.36",
+    "wrong_answers_pool": [
+      "0.62",
+      "0.50",
+      "0.34",
+      "0.96",
+      "0.08",
+      "0.43",
+      "0.56",
+      "0.24"
+    ],
+    "explanation": "Since mutually exclusive, $P(A \\cup B) = 0.33 + 0.31 = 0.64$. $P(A' \\cap B') = 1 - P(A \\cup B) = 1 - 0.64 = 0.36$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_48"
+  },
+  {
+    "id": "GEOM_416",
+    "topic": "Euclidean Geometry",
+    "subtopic": "cyclic quadrilaterals",
+    "difficulty": "medium",
+    "question": "An exterior angle of a cyclic quadrilateral measures $104^\\circ$. Find the measure of the interior opposite angle.",
+    "correct_answer": "104^\\circ",
+    "wrong_answers_pool": [
+      "312^\\circ",
+      "102^\\circ",
+      "103^\\circ",
+      "105^\\circ",
+      "106^\\circ",
+      "107^\\circ",
+      "208^\\circ",
+      "113^\\circ"
+    ],
+    "explanation": "The exterior angle of a cyclic quadrilateral is equal to the interior opposite angle, so it is $104^\\circ$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_49"
+  },
+  {
+    "id": "TRIG_560",
+    "topic": "Trigonometry",
+    "subtopic": "cosine rule",
+    "difficulty": "hard",
+    "question": "In $\\Delta ABC$, $a = 14$, $\\angle B = 38^\\circ$, and $\\angle C = 37^\\circ$. Calculate the area of the triangle (to 1 decimal place).",
+    "correct_answer": "37.6",
+    "wrong_answers_pool": [
+      "0.0",
+      "34.1",
+      "36.6",
+      "36.2",
+      "38.6",
+      "39.3",
+      "75.2",
+      "48.5"
+    ],
+    "explanation": "$\\angle A = 180^\\circ - (38^\\circ + 37^\\circ) = 105^\\circ$. By Sine Rule, $c = \\frac{14\\sin 37^\\circ}{\\sin 105^\\circ} \\approx 8.72$. Area = $\\frac{1}{2}ac\\sin B \\approx 37.6$.",
+    "exam_id": "EXAM_2026-W12_grade12_mathematics_50"
+  }
+]
