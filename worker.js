@@ -35,6 +35,9 @@ export default {
       if (request.method === "POST" && path === "/api/submit-quiz") {
         return await handleSubmitQuiz(request, env, ctx);
       }
+      if (request.method === "POST" && path === "/api/submit-weekly-exam") {
+        return await handleSubmitWeeklyExam(request, env, ctx);
+      }
       if (request.method === "GET" && path === "/api/schools") {
         return await handleGetSchools(request, env);
       }
@@ -127,7 +130,8 @@ async function handleSignup(request, env) {
     study_streak_days: 0,
     quizzes_completed: 0,
     last_quiz_date: null,
-    topic_accuracy: {}
+    topic_accuracy: {},
+    completed_weekly_exams: {}
   };
 
   await env.RANK_KV.put(`user:${userId}`, JSON.stringify(newUser));
@@ -368,7 +372,8 @@ async function handleGetPublicUser(request, env, path) {
     correct_answers: userData.correct_answers || 0,
     accuracy_percentage: userData.accuracy_percentage || 0,
     study_streak_days: userData.study_streak_days || 0,
-    topic_accuracy: userData.topic_accuracy || {}
+    topic_accuracy: userData.topic_accuracy || {},
+    completed_weekly_exams: userData.completed_weekly_exams || {}
   };
 
   if (!userData.grade) userData.grade = "grade12";
@@ -529,6 +534,104 @@ async function handleSubmitQuiz(request, env, ctx) {
     xp_earned: publicXpEarned,
     personal_xp_earned: personalXpEarned,
     passed_threshold: passedThreshold,
+    score_percentage: scorePercentage
+  });
+}
+
+async function handleSubmitWeeklyExam(request, env, ctx) {
+  const body = await request.json();
+  const { user_id, subject, exam_week, total_questions, correct_answers } = body;
+
+  if (!user_id || !subject || !exam_week || total_questions === undefined || correct_answers === undefined) {
+    return jsonResponse({ error: "Missing required fields" }, 400);
+  }
+
+  const userDataString = await env.RANK_KV.get(`user:${user_id}`);
+  if (!userDataString) return jsonResponse({ error: "User not found" }, 404);
+
+  let userData = JSON.parse(userDataString);
+
+  if (userData.completed_weekly_exams === undefined) userData.completed_weekly_exams = {};
+
+  const examKey = `${exam_week}_${subject}`;
+  if (userData.completed_weekly_exams[examKey]) {
+    return jsonResponse({ error: "Weekly exam already completed for this subject" }, 403);
+  }
+
+  // Mark as completed
+  userData.completed_weekly_exams[examKey] = {
+    date: new Date().toISOString(),
+    score: correct_answers,
+    total: total_questions
+  };
+
+  if (userData.personal_total_xp === undefined) userData.personal_total_xp = userData.total_xp || 0;
+  if (userData.subjects_xp === undefined) userData.subjects_xp = {};
+  if (userData.personal_subjects_xp === undefined) userData.personal_subjects_xp = {};
+
+  const normalizedSubject = subject === "mathematics" ? "math" : subject;
+
+  const scorePercentage = total_questions > 0 ? (correct_answers / total_questions) * 100 : 0;
+
+  // Weekly exam gives 8 XP per correct answer
+  let examXpEarned = correct_answers * 8;
+
+  // Plus a bonus of 50 to 150 if score > 80%
+  let bonusXp = 0;
+  if (scorePercentage > 80) {
+    bonusXp = Math.floor(Math.random() * (150 - 50 + 1)) + 50;
+    examXpEarned += bonusXp;
+  }
+
+  const currentWeek = getCurrentWeek();
+
+  // Note: Weekly exam points bypass the daily cap!
+
+  // Update Personal XP
+  userData.personal_total_xp += examXpEarned;
+  if (!userData.personal_subjects_xp[normalizedSubject]) userData.personal_subjects_xp[normalizedSubject] = 0;
+  userData.personal_subjects_xp[normalizedSubject] += examXpEarned;
+
+  // Update Public XP
+  userData.total_xp += examXpEarned;
+  if (!userData.subjects_xp[normalizedSubject]) userData.subjects_xp[normalizedSubject] = 0;
+  userData.subjects_xp[normalizedSubject] += examXpEarned;
+
+  // Legacy fields mapping
+  if (normalizedSubject === "math") {
+    userData.math_xp += examXpEarned;
+    if (userData.personal_math_xp === undefined) userData.personal_math_xp = userData.math_xp || 0;
+    userData.personal_math_xp += examXpEarned;
+  } else if (normalizedSubject === "physics") {
+    userData.physics_xp += examXpEarned;
+    if (userData.personal_physics_xp === undefined) userData.personal_physics_xp = userData.physics_xp || 0;
+    userData.personal_physics_xp += examXpEarned;
+  }
+
+  // Update weekly XP
+  if (userData.last_week !== currentWeek) {
+    userData.weekly_xp = 0;
+    userData.last_week = currentWeek;
+  }
+  userData.weekly_xp += examXpEarned;
+
+  // Global stats
+  userData.questions_answered += total_questions;
+  userData.correct_answers += correct_answers;
+  userData.accuracy_percentage = userData.questions_answered > 0 ? Math.round((userData.correct_answers / userData.questions_answered) * 100) : 0;
+  userData.quizzes_completed += 1;
+
+  const today = new Date().toISOString().split('T')[0];
+  userData.last_active_date = today;
+
+  await env.RANK_KV.put(`user:${user_id}`, JSON.stringify(userData));
+
+  ctx.waitUntil(updateLeaderboards(env, userData, currentWeek, examXpEarned, normalizedSubject));
+
+  return jsonResponse({
+    message: "Weekly exam submitted successfully",
+    xp_earned: examXpEarned,
+    bonus_xp: bonusXp,
     score_percentage: scorePercentage
   });
 }

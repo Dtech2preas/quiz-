@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Exam - Dtech Educational Platform</title>
+
+    <!-- Load MathJax for rendering math formulas -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style>
+        :root {
+            --primary-bg: #121212;
+            --surface: #1e1e1e;
+            --surface-variant: #2d2d2d;
+            --accent: #00d2ff;
+            --text-main: #e0e0e0;
+            --text-secondary: #aaaaaa;
+            --correct: #4CAF50;
+            --incorrect: #F44336;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- Header / Nav --- */
+        header {
+            background-color: var(--surface);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        .menu-btn {
+            background: none;
+            border: none;
+            color: var(--accent);
+            font-size: 24px;
+            cursor: pointer;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header-logo {
+            height: 40px;
+            cursor: pointer;
+        }
+        nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--surface);
+            width: 200px;
+            flex-direction: column;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        nav.active {
+            display: flex;
+        }
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--surface-variant);
+            transition: background 0.2s;
+        }
+        nav a:hover {
+            background-color: var(--surface-variant);
+            color: var(--accent);
+        }
+
+        h1, h2, h3 { color: var(--accent); text-align: center; }
+
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            background: var(--surface);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            flex: 1;
+            width: 90%;
+        }
+
+        .exam-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .exam-item {
+            background: var(--surface-variant);
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s;
+            border-left: 4px solid var(--accent);
+        }
+
+        .exam-item:hover {
+            transform: translateX(5px);
+        }
+
+        .exam-info h4 {
+            margin: 0 0 5px 0;
+            color: #fff;
+        }
+
+        .exam-info p {
+            margin: 0;
+            font-size: 0.9em;
+            color: var(--text-secondary);
+        }
+
+        /* --- Buttons --- */
+        button {
+            background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: opacity 0.2s, transform 0.2s;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        button:hover { opacity: 0.9; transform: translateY(-2px); }
+        button:disabled { background: #555; cursor: not-allowed; transform: none; box-shadow: none; color: #888; }
+        .back-btn { background: #555; margin-bottom: 20px; }
+
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .option-btn {
+            background: var(--surface-variant);
+            color: var(--text-main);
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            text-align: left;
+            transition: all 0.2s;
+            font-size: 1.1em;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .option-btn:hover:not(:disabled) {
+            border-color: var(--accent);
+            background: #333;
+        }
+
+        .option-btn.correct { background-color: var(--correct) !important; color: white !important; border-color: var(--correct); }
+        .option-btn.wrong { background-color: var(--incorrect) !important; color: white !important; border-color: var(--incorrect); }
+        .option-btn.selected { border-color: var(--accent); background: rgba(0, 210, 255, 0.1); }
+
+        .progress-bar {
+            width: 100%;
+            background-color: var(--surface-variant);
+            height: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .progress {
+            height: 100%;
+            background-color: var(--accent);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #FFC107;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .offline-toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #FF9800;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: var(--surface);
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            border-top: 1px solid var(--surface-variant);
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        <img src="logo.png" alt="Dtech Logo" class="header-logo" onclick="window.location.href='dashboard.html'">
+        <nav id="nav-menu">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="subjects.html">Subjects</a>
+            <a href="leaderboard.html">Leaderboards</a>
+            <a href="stats.html">My Stats</a>
+            <a href="profile.html">Profile</a>
+            <a href="index.html" onclick="localStorage.clear()">Logout</a>
+        </nav>
+    </header>
+
+    <div class="container" id="exam-list-container">
+        <h1>Weekly Exams</h1>
+        <p style="text-align: center;">Take the latest 50-question weekly exam for bonus XP! Exams reset every week.</p>
+        <div class="exam-list" id="exam-list">
+            <p style="text-align: center;">Loading exams...</p>
+        </div>
+    </div>
+
+    <div class="container" id="quiz-container" style="display: none;">
+        <button class="back-btn" onclick="goBackToList()">← Back</button>
+        <h2 id="quiz-title">Weekly Exam</h2>
+        <div class="progress-bar"><div class="progress" id="progress"></div></div>
+        <p id="question-count">Question 1 / 50</p>
+        <h3 id="question-text" style="text-align: left; color: #fff;"></h3>
+        <div class="options-container" id="options"></div>
+        <div id="explanation" class="explanation"></div>
+        <button id="next-btn" style="display: none; margin-top: 20px; width: 100%;" onclick="nextQuestion()">Next Question</button>
+    </div>
+
+    <div class="container" id="result-container" style="display: none; text-align: center;">
+        <h2 id="result-title">Exam Complete!</h2>
+        <p id="score-text" style="font-size: 1.5em;"></p>
+        <p id="xp-text" style="font-size: 1.2em; color: var(--accent);"></p>
+        <div id="review-container" style="margin-top: 30px; text-align: left;"></div>
+        <button onclick="window.location.href='dashboard.html'" style="margin-top: 20px;">Back to Dashboard</button>
+    </div>
+
+    <div id="offline-toast" class="offline-toast">You are offline. Exam results will sync when connection is restored.</div>
+
+    <footer>
+        &copy; <span id="year"></span> Dtech Educational Platform. All rights reserved.
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+        function toggleMenu() { document.getElementById("nav-menu").classList.toggle("active"); }
+
+        const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
+        const userId = localStorage.getItem("user_id");
+        const userGrade = localStorage.getItem("user_grade") || "grade12";
+        let completedExams = {};
+
+        if (!userId) window.location.href = "index.html";
+
+        let currentExamData = [];
+        let currentQuestionIndex = 0;
+        let correctAnswersCount = 0;
+        let userAnswers = [];
+        let currentExamWeek = "";
+        let currentSubject = "";
+
+        async function fetchUserData() {
+            try {
+                const res = await fetch(`${API_URL}/api/user/${userId}`);
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.completed_weekly_exams) {
+                        completedExams = data.completed_weekly_exams;
+                    }
+                }
+            } catch (e) {
+                console.error("Failed to fetch user data", e);
+            }
+        }
+
+        async function loadWeeklyExams() {
+            await fetchUserData();
+
+            try {
+                const response = await fetch('dataset/weekly_quiz/weekly_map.json');
+                if (!response.ok) throw new Error("Could not load weekly map");
+                const mapData = await response.json();
+
+                const listContainer = document.getElementById("exam-list");
+                listContainer.innerHTML = "";
+
+                // Get weeks sorted newest first
+                const weeks = Object.keys(mapData).sort().reverse();
+
+                if (weeks.length === 0) {
+                    listContainer.innerHTML = "<p style='text-align:center;'>No weekly exams available yet.</p>";
+                    return;
+                }
+
+                let hasExams = false;
+
+                for (const week of weeks) {
+                    const weekData = mapData[week];
+                    if (weekData[userGrade]) {
+                        for (const subject in weekData[userGrade]) {
+                            hasExams = true;
+                            const examInfo = weekData[userGrade][subject];
+
+                            const div = document.createElement("div");
+                            div.className = "exam-item";
+
+                            const infoDiv = document.createElement("div");
+                            infoDiv.className = "exam-info";
+                            infoDiv.innerHTML = `<h4>${examInfo.label} (${week})</h4><p>${examInfo.total_questions} Questions</p>`;
+
+                            const btn = document.createElement("button");
+
+                            const examKey = `${week}_${subject}`;
+                            const isCompleted = completedExams[examKey];
+
+                            if (isCompleted) {
+                                btn.textContent = "Review / Retake (No XP)";
+                                btn.style.background = "#555";
+                                btn.onclick = () => startExam(week, subject, examInfo.file, true);
+                            } else {
+                                btn.textContent = "Start Exam";
+                                btn.onclick = () => startExam(week, subject, examInfo.file, false);
+                            }
+
+                            div.appendChild(infoDiv);
+                            div.appendChild(btn);
+                            listContainer.appendChild(div);
+                        }
+                    }
+                }
+
+                if (!hasExams) {
+                    listContainer.innerHTML = `<p style='text-align:center;'>No weekly exams available for ${userGrade}.</p>`;
+                }
+
+            } catch (error) {
+                console.error(error);
+                document.getElementById("exam-list").innerHTML = "<p style='text-align:center;color:red;'>Failed to load exams.</p>";
+            }
+        }
+
+        async function startExam(week, subject, filepath, isPractice) {
+            currentExamWeek = week;
+            currentSubject = subject;
+            document.getElementById("exam-list-container").style.display = "none";
+            document.getElementById("quiz-container").style.display = "block";
+            document.getElementById("quiz-title").innerHTML = "Loading Exam...";
+            document.getElementById("options").innerHTML = "";
+            document.getElementById("question-text").innerHTML = "";
+
+            try {
+                const response = await fetch(`dataset/weekly_quiz/${filepath}`);
+                if (!response.ok) throw new Error("Exam dataset not found");
+                currentExamData = await response.json();
+
+                document.getElementById("quiz-title").textContent = `Weekly Exam (${subject.replace('_', ' ')})`;
+                currentExamData.isPractice = isPractice;
+
+                currentQuestionIndex = 0;
+                correctAnswersCount = 0;
+                userAnswers = [];
+                loadQuestion();
+
+            } catch (e) {
+                alert("Error loading exam data.");
+                goBackToList();
+            }
+        }
+
+        function loadQuestion() {
+            document.getElementById("next-btn").style.display = "none";
+            document.getElementById("explanation").style.display = "none";
+
+            const q = currentExamData[currentQuestionIndex];
+            document.getElementById("question-count").textContent = `Question ${currentQuestionIndex + 1} / ${currentExamData.length}`;
+            document.getElementById("question-text").innerHTML = q.question;
+
+            const progress = ((currentQuestionIndex) / currentExamData.length) * 100;
+            document.getElementById("progress").style.width = `${progress}%`;
+
+            const optionsContainer = document.getElementById("options");
+            optionsContainer.innerHTML = "";
+
+            // Get up to 3 wrong answers + 1 correct answer
+            let options = [];
+            if (q.wrong_answers_pool && q.wrong_answers_pool.length > 0) {
+                let shuffledWrong = [...q.wrong_answers_pool].sort(() => 0.5 - Math.random());
+                options = shuffledWrong.slice(0, 3);
+            }
+            options.push(q.correct_answer);
+            options.sort(() => Math.random() - 0.5);
+
+            options.forEach(opt => {
+                const btn = document.createElement("button");
+                btn.className = "option-btn";
+                btn.innerHTML = opt;
+                btn.onclick = () => checkAnswer(btn, opt, q.correct_answer, q.explanation);
+                optionsContainer.appendChild(btn);
+            });
+
+            if (window.MathJax && window.MathJax.typesetPromise) {
+                MathJax.typesetPromise([document.getElementById("quiz-container")]);
+            }
+        }
+
+        function checkAnswer(selectedBtn, selectedOption, correctAnswer, explanation) {
+            const btns = document.querySelectorAll(".option-btn");
+            btns.forEach(b => b.disabled = true); // Disable all
+
+            const isCorrect = (selectedOption === correctAnswer);
+
+            userAnswers.push({
+                question: currentExamData[currentQuestionIndex].question,
+                selected: selectedOption,
+                correct: correctAnswer,
+                isCorrect: isCorrect,
+                explanation: explanation
+            });
+
+            if (isCorrect) {
+                selectedBtn.classList.add("correct");
+                correctAnswersCount++;
+            } else {
+                selectedBtn.classList.add("wrong");
+                // Highlight correct
+                btns.forEach(b => {
+                    if (b.innerHTML === correctAnswer || b.textContent === correctAnswer) {
+                        b.classList.add("correct");
+                    }
+                });
+            }
+
+            const expDiv = document.getElementById("explanation");
+            if (explanation) {
+                expDiv.innerHTML = `<strong>Explanation:</strong> ${explanation}`;
+                expDiv.style.display = "block";
+            }
+
+            if (window.MathJax && window.MathJax.typesetPromise) {
+                MathJax.typesetPromise([expDiv]);
+            }
+
+            document.getElementById("next-btn").style.display = "block";
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < currentExamData.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        async function showResults() {
+            document.getElementById("quiz-container").style.display = "none";
+            document.getElementById("result-container").style.display = "block";
+
+            document.getElementById("progress").style.width = "100%";
+
+            const percentage = Math.round((correctAnswersCount / currentExamData.length) * 100);
+            document.getElementById("score-text").innerHTML = `You scored <strong>${correctAnswersCount}</strong> out of ${currentExamData.length} (${percentage}%)`;
+
+            if (percentage >= 80) confetti();
+
+            if (!currentExamData.isPractice) {
+                submitExamResults(currentExamData.length, correctAnswersCount, percentage);
+            } else {
+                document.getElementById("xp-text").innerHTML = "Practice Mode - No XP Awarded.";
+                renderReview();
+            }
+        }
+
+        async function submitExamResults(total, correct, percentage) {
+            const payload = {
+                user_id: userId,
+                subject: currentSubject,
+                exam_week: currentExamWeek,
+                total_questions: total,
+                correct_answers: correct
+            };
+
+            if (!navigator.onLine) {
+                document.getElementById("offline-toast").style.display = "block";
+                let queue = JSON.parse(localStorage.getItem("offlineExamQueue") || "[]");
+                queue.push(payload);
+                localStorage.setItem("offlineExamQueue", JSON.stringify(queue));
+                document.getElementById("xp-text").textContent = "Offline. Results saved locally.";
+                renderReview();
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_URL}/api/submit-weekly-exam`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    let xpMsg = `Earned ${result.xp_earned} XP!`;
+                    if (result.bonus_xp > 0) {
+                        xpMsg += ` (Includes ${result.bonus_xp} Bonus XP for scoring > 80%!)`;
+                    }
+                    document.getElementById("xp-text").textContent = xpMsg;
+                } else {
+                    const err = await response.json();
+                    document.getElementById("xp-text").textContent = `Error: ${err.error}`;
+                }
+            } catch (error) {
+                console.error(error);
+                document.getElementById("xp-text").textContent = "Network error submitting results.";
+            }
+
+            renderReview();
+        }
+
+        function renderReview() {
+            const container = document.getElementById("review-container");
+            container.innerHTML = "<h3>Review</h3>";
+            userAnswers.forEach((ans, i) => {
+                const div = document.createElement("div");
+                div.style.marginBottom = "15px";
+                div.style.padding = "10px";
+                div.style.background = ans.isCorrect ? "rgba(76, 175, 80, 0.1)" : "rgba(244, 67, 54, 0.1)";
+                div.style.borderLeft = ans.isCorrect ? "4px solid var(--correct)" : "4px solid var(--incorrect)";
+
+                div.innerHTML = `
+                    <p><strong>Q${i+1}:</strong> ${ans.question}</p>
+                    <p style="color: ${ans.isCorrect ? 'var(--correct)' : 'var(--incorrect)'}">Your answer: ${ans.selected}</p>
+                    ${!ans.isCorrect ? `<p style="color: var(--correct)">Correct: ${ans.correct}</p>` : ''}
+                `;
+                container.appendChild(div);
+            });
+
+            if (window.MathJax && window.MathJax.typesetPromise) {
+                MathJax.typesetPromise([container]);
+            }
+        }
+
+        function goBackToList() {
+            document.getElementById("quiz-container").style.display = "none";
+            document.getElementById("exam-list-container").style.display = "block";
+        }
+
+        // Offline syncing
+        window.addEventListener('online', async () => {
+            document.getElementById("offline-toast").style.display = "none";
+            let queue = JSON.parse(localStorage.getItem("offlineExamQueue") || "[]");
+            if (queue.length > 0) {
+                for (const p of queue) {
+                    try {
+                        await fetch(`${API_URL}/api/submit-weekly-exam`, {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(p)
+                        });
+                    } catch (e) { console.error(e); }
+                }
+                localStorage.removeItem("offlineExamQueue");
+                alert("Offline exams have been synced!");
+            }
+        });
+
+        loadWeeklyExams();
+
+    </script>
+</body>
+</html>
