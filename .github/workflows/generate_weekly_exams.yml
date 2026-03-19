@@ -2,9 +2,11 @@ name: Generate Weekly Exams
 
 on:
   schedule:
-    # Runs every Saturday at 00:01 UTC
     - cron: '1 0 * * 6'
-  workflow_dispatch: # Allows manual trigger from the GitHub Actions UI
+  workflow_dispatch:
+
+permissions:
+  contents: write   # ✅ THIS FIXES THE 403 ERROR
 
 jobs:
   generate-exams:
@@ -29,7 +31,6 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add dataset/weekly_quiz/
-          # Only commit if there are changes
           if ! git diff --staged --quiet; then
             git commit -m "chore: auto-generate weekly exams"
             git push
