@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grade 12 Quiz Platform - Login</title>
+    <title>Grade 1–12 Quiz Platform | Mathematics, Physical Sciences & More | DTech Services</title>
+    <meta name="description" content="Practice quizzes for Grade 1–12 learners in South Africa. Improve your marks with Mathematics, Physical Sciences and more. Track stats, compete in rankings, and take daily exam-style quizzes.">
+
     <style>
         :root {
             --bg-dark: #0f172a;
@@ -12,99 +14,205 @@
             --text-muted: #94a3b8;
             --accent-blue: #3b82f6;
             --accent-hover: #2563eb;
-            --input-bg: #0f172a;
             --border-color: #334155;
+            --header-bg: #0b1120;
         }
-        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; margin: 0; background-color: var(--bg-dark); color: var(--text-main); }
-        .container { background: var(--bg-card); padding: 2.5rem 2rem; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); width: 90%; max-width: 400px; text-align: center; border: 1px solid var(--border-color); }
-        h1 { margin-top: 0; margin-bottom: 1.5rem; color: var(--text-main); font-weight: 600; font-size: 1.8rem; }
-        form { display: flex; flex-direction: column; gap: 1rem; }
-        input { width: 100%; padding: 12px; background: var(--input-bg); border: 1px solid var(--border-color); border-radius: 6px; box-sizing: border-box; color: var(--text-main); font-size: 1rem; transition: border-color 0.2s; }
-        input:focus { outline: none; border-color: var(--accent-blue); }
-        input::placeholder { color: #64748b; }
-        button { width: 100%; padding: 12px; background: var(--accent-blue); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 1.1rem; font-weight: 500; transition: background-color 0.2s; margin-top: 0.5rem; }
-        button:hover { background: var(--accent-hover); }
-        .error { color: #ef4444; margin-top: 10px; display: none; font-size: 0.9rem; }
-        p { margin-top: 1.5rem; color: var(--text-muted); font-size: 0.95rem; }
-        a { color: var(--accent-blue); text-decoration: none; font-weight: 500; }
-        a:hover { text-decoration: underline; }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Header Navigation */
+        header {
+            background-color: var(--header-bg);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        header img { height: 40px; }
+
+        .nav-links { display: flex; gap: 1rem; }
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: background-color 0.2s;
+        }
+        .nav-links a:hover { background-color: var(--bg-card); }
+        .nav-links a.primary-btn {
+            background-color: var(--accent-blue);
+            color: white;
+        }
+        .nav-links a.primary-btn:hover { background-color: var(--accent-hover); }
+
+        /* Main Content Container */
+        main {
+            flex: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--accent-blue);
+            margin-top: 0;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-container {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .cta-container a {
+            display: inline-block;
+            background-color: var(--accent-blue);
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .cta-container a:hover {
+            background-color: var(--accent-hover);
+            transform: scale(1.02);
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        li { margin-bottom: 0.5rem; }
+
+        /* Hidden SEO text inside footer container */
+        .seo-text {
+            font-size: 0.75rem;
+            color: var(--border-color); /* blends in more */
+            margin-top: 2rem;
+            text-align: center;
+            opacity: 0.6;
+        }
 
         /* Footer Styles */
         footer {
-            background-color: var(--header-bg, #0b1120);
-            color: var(--text-muted, #94a3b8);
+            background-color: var(--header-bg);
+            color: var(--text-muted);
             text-align: center;
             padding: 1.5rem 1rem;
             margin-top: auto;
-            border-top: 1px solid var(--border-color, #334155);
+            border-top: 1px solid var(--border-color);
             font-size: 0.9rem;
         }
         footer p { margin: 0.3rem 0; }
-        footer a { color: var(--accent-blue, #3b82f6); text-decoration: none; font-weight: 500; }
+        footer a { color: var(--accent-blue); text-decoration: none; font-weight: 500; }
         footer a:hover { text-decoration: underline; }
 
+        @media (max-width: 600px) {
+            header { flex-direction: column; gap: 1rem; }
+            h1 { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
-    <div style="flex: 1; display: flex; justify-content: center; align-items: center;"><div class="container">
-        <img src="logo.png" alt="Dtech Logo" style="height: 60px; margin-bottom: 1rem;">
-        <h1>Login</h1>
-        <form id="loginForm">
-            <input type="text" id="username" placeholder="Username" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-        </form>
-        <p class="error" id="errorMsg"></p>
-        <p>Don't have an account? <a href="signup.html">Sign up</a></p>
-    </div></div>
+
+    <header>
+        <img src="logo.png" alt="DTech Services Logo">
+        <div class="nav-links">
+            <a href="login.html">Log In</a>
+            <a href="signup.html" class="primary-btn">Sign Up</a>
+        </div>
+    </header>
+
+    <main>
+        <h1>Grade 1–12 Quiz Platform for South African Learners</h1>
+
+        <p>Practice and improve your understanding across multiple subjects with our interactive quiz platform for Grade 1–12 learners. Access structured quizzes aligned with the CAPS curriculum, get instant feedback, track your performance, and take daily exam-style tests designed to match real South African assessment standards.</p>
+
+        <p>The platform offers subject-based quizzes including Mathematics, Physical Sciences, Life Sciences and more. Each quiz is designed to reflect real NSC and CAPS exam questions, helping learners prepare effectively. Features include accuracy tracking, study streaks, XP points, topic mastery insights, and national rankings to compare performance with other learners across South Africa.</p>
+
+        <div class="cta-container">
+            <a href="signup.html">Start Practicing Now</a>
+        </div>
+
+        <p>Learners can choose their grade, select topics, and generate custom quizzes or take daily challenges. The system focuses on medium and hard questions to improve problem-solving skills and exam readiness. All quizzes include explanations to support learning and reinforce key concepts.</p>
+
+        <p>This platform is developed by DTech Services, focused on building digital tools that improve learning outcomes for students. The system is continuously updated to ensure alignment with the South African CAPS curriculum and evolving exam standards.</p>
+
+        <h2>Subjects Available</h2>
+        <ul>
+            <li>Mathematics (Grade 7–12)</li>
+            <li>Physical Sciences (Grade 10–12)</li>
+            <li>Life Sciences (Grade 10–12)</li>
+            <li>Mathematical Literacy</li>
+            <li>More subjects coming soon</li>
+        </ul>
+
+        <h2>Features</h2>
+        <ul>
+            <li>Daily exam-style quizzes</li>
+            <li>Topic-based practice questions</li>
+            <li>Medium & hard difficulty focus</li>
+            <li>Instant feedback and explanations</li>
+            <li>XP system and study streak tracking</li>
+            <li>National leaderboards (South Africa)</li>
+        </ul>
+
+        <h2>Why Use This Platform</h2>
+        <ul>
+            <li>Based on CAPS curriculum</li>
+            <li>Designed for real exam preparation</li>
+            <li>Covers multiple grades (not just Grade 12)</li>
+            <li>Helps identify weak topics</li>
+            <li>Encourages consistent studying</li>
+        </ul>
+
+    </main>
+
+    <footer id="dynamic-footer">
+        <p>&copy; <span id="footer-year">2024</span> Dtech &bull; Preasx24</p>
+        <p>Empowering the youth through digital innovation</p>
+        <a href="https://legal.dtech-services.co.za">Terms & Conditions</a>
+        <div class="seo-text">
+            Developed by DTech Services. Educational quiz platform for South African learners from Grade 1 to Grade 12. Covers Mathematics, Physical Sciences, Life Sciences, Mathematical Literacy and more. Designed for CAPS and NSC exam preparation, revision, and practice.
+        </div>
+    </footer>
 
     <script>
-        const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
-
-        // Redirect if already logged in
-        if (localStorage.getItem("user_id")) {
-            window.location.href = "dashboard.html";
-        }
-
-        document.getElementById("loginForm").addEventListener("submit", async (e) => {
-            e.preventDefault();
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-            const errorMsg = document.getElementById("errorMsg");
-
-            try {
-                const response = await fetch(`${API_URL}/api/login`, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ username, password })
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    localStorage.setItem("user_id", data.user_id);
-                    window.location.href = "dashboard.html";
-                } else {
-                    errorMsg.textContent = data.error;
-                    errorMsg.style.display = "block";
-                }
-            } catch (err) {
-                errorMsg.textContent = "Failed to connect to the server.";
-                errorMsg.style.display = "block";
-            }
-        });
+        const currentYear = new Date().getFullYear();
+        document.getElementById('footer-year').textContent = `2020–${currentYear}`;
     </script>
-
-<footer id="dynamic-footer">
-  <p>&copy; <span id="footer-year">2024</span> Dtech &bull; Preasx24</p>
-  <p>Empowering the youth through digital innovation</p>
-  <a href="https://legal.dtech-services.co.za">Terms & Conditions</a>
-</footer>
-<script>
-    // Set dynamic year in footer
-    const currentYear = new Date().getFullYear();
-    document.getElementById('footer-year').textContent = `2020–${currentYear}`;
-</script>
-
 </body>
 </html>

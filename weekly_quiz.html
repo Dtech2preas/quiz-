@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <a href="global_leaderboard.html">Global Leaderboard</a>
         <a href="stats.html">Detailed Stats</a>
         <a href="profile.html">Profile</a>
-        <a href="index.html" onclick="localStorage.clear()">Logout</a>
+        <a href="login.html" onclick="localStorage.clear()">Logout</a>
     </nav>
 </header>
 
@@ -297,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let completedExams = {};
 
     if (!userId) {
-        window.location.href = "index.html";
+        window.location.href = "login.html";
     }
 
     let currentExamData = [];
