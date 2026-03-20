@@ -443,7 +443,7 @@ footer a:hover{ text-decoration:underline; }
         <a href="global_leaderboard.html">Global Leaderboard</a>
         <a href="stats.html">Detailed Stats</a>
         <a href="profile.html">Profile</a>
-        <a href="index.html" onclick="localStorage.clear()">Logout</a>
+        <a href="login.html" onclick="localStorage.clear()">Logout</a>
     </nav>
 </header>
 
@@ -482,7 +482,7 @@ const IMGBB_KEY = "cedf418c6d844af9c47a7775a17161a6";
 const userId = localStorage.getItem("user_id");
 
 if (!userId) {
-    window.location.href = "index.html";
+    window.location.href = "login.html";
 }
 
 function showMessage(msg, isError = false) {

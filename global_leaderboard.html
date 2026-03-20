@@ -696,7 +696,7 @@
         <a href="global_leaderboard.html">Global Leaderboard</a>
         <a href="stats.html">Detailed Stats</a>
         <a href="profile.html">Profile</a>
-        <a href="index.html" onclick="localStorage.clear()">Logout</a>
+        <a href="login.html" onclick="localStorage.clear()">Logout</a>
     </nav>
 </header>
 
@@ -734,7 +734,7 @@
     const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
 
     if (!localStorage.getItem("user_id")) {
-        window.location.href = "index.html";
+        window.location.href = "login.html";
     }
 
     const gradeDataCache = {};

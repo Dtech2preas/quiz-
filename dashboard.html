@@ -188,7 +188,7 @@
         <a href="global_leaderboard.html">Global Leaderboard</a>
         <a href="stats.html">Detailed Stats</a>
         <a href="profile.html">Profile</a>
-        <a href="index.html" onclick="localStorage.clear()">Logout</a>
+        <a href="login.html" onclick="localStorage.clear()">Logout</a>
     </nav>
 </header>
 
@@ -271,14 +271,14 @@
     const userId = localStorage.getItem("user_id");
 
     if (!userId) {
-        window.location.href = "index.html";
+        window.location.href = "login.html";
     }
 
     const logoutBtn = document.getElementById("logoutBtn");
     if (logoutBtn) {
         logoutBtn.addEventListener("click", () => {
             localStorage.removeItem("user_id");
-            window.location.href = "index.html";
+            window.location.href = "login.html";
         });
     }
 
@@ -371,7 +371,7 @@
 
             if (response.status === 401 || response.status === 404) {
                 localStorage.removeItem("user_id");
-                window.location.href = "index.html";
+                window.location.href = "login.html";
                 return;
             }
 
@@ -383,11 +383,11 @@
                 localStorage.setItem("user_grade", "grade12");
             }
 
-            document.getElementById("welcome-message").innerHTML = `Welcome, ${data.username}! <span id="user-grade-badge" style="font-size: 0.9rem; background: var(--accent-blue); color: white; padding: 0.2rem 0.6rem; border-radius: 12px; vertical-align: middle; margin-left: 0.5rem;">${data.grade ? data.grade.replace('grade', 'Grade ') : 'Grade 12'}</span>`;
+            document.getElementById("welcome-message").innerHTML = `Welcome, ${data.username}! <span id="user-grade-badge" style="font-size: 0.9rem; background: var(--accent-blue); color: white; padding: 0.2rem 0.6rem; border-radius: 12px; vertical-align: middle; margin-left: 0.5rem;">${data.grade ? data.grade.replace('grade', 'Grade ') : 'Grade 1–12'}</span>`;
 
 
-            document.getElementById("page-title-grade").textContent = `Dashboard (${data.grade ? data.grade.replace('grade', 'Grade ') : 'Grade 12'})`;
-            document.title = `Dashboard (${data.grade ? data.grade.replace('grade', 'Grade ') : 'Grade 12'}) - Quiz Platform`;
+            document.getElementById("page-title-grade").textContent = `Dashboard (${data.grade ? data.grade.replace('grade', 'Grade ') : 'Grade 1–12'})`;
+            document.title = `Dashboard (${data.grade ? data.grade.replace('grade', 'Grade ') : 'Grade 1–12'}) - Quiz Platform`;
 
             if (data.avatar_url) {
                 document.getElementById("dashboard-avatar").src = data.avatar_url;
