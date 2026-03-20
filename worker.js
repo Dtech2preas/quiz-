@@ -1,11 +1,20 @@
+const ALLOWED_ORIGIN = "https://quiz.dtech-services.co.za";
+
 const CORS_HEADERS = {
-  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
   "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
   "Access-Control-Allow-Headers": "Content-Type",
 };
 
 export default {
   async fetch(request, env, ctx) {
+    const origin = request.headers.get("Origin");
+
+    // Block if Origin is present and doesn't match ALLOWED_ORIGIN
+    if (origin && origin !== ALLOWED_ORIGIN) {
+      return new Response("Forbidden", { status: 403 });
+    }
+
     if (request.method === "OPTIONS") {
       return new Response(null, { headers: CORS_HEADERS });
     }
@@ -58,12 +67,13 @@ export default {
   },
 };
 
-function jsonResponse(body, status = 200) {
+function jsonResponse(body, status = 200, extraHeaders = {}) {
   return new Response(JSON.stringify(body), {
     status,
     headers: {
       "Content-Type": "application/json",
       ...CORS_HEADERS,
+      ...extraHeaders,
     },
   });
 }
@@ -172,8 +182,10 @@ async function handleLogin(request, env) {
   }
 
   const today = new Date().toISOString().split('T')[0];
-  userData.last_active_date = today;
-  await env.RANK_KV.put(`user:${userId}`, JSON.stringify(userData));
+  if (userData.last_active_date !== today) {
+    userData.last_active_date = today;
+    await env.RANK_KV.put(`user:${userId}`, JSON.stringify(userData));
+  }
 
   return jsonResponse({ message: "Login successful", user_id: userId });
 }
@@ -421,7 +433,9 @@ async function handleGetPublicUser(request, env, path) {
       publicData.ranks.physics = findRank(JSON.parse(physStr));
   }
 
-  return jsonResponse(publicData);
+  return jsonResponse(publicData, 200, {
+    "Cache-Control": "public, max-age=60"
+  });
 }
 
 async function handleSubmitQuiz(request, env, ctx) {
@@ -536,8 +550,10 @@ async function handleSubmitQuiz(request, env, ctx) {
 
   await env.RANK_KV.put(`user:${user_id}`, JSON.stringify(userData));
 
-  // Update leaderboards async (only if public XP was gained, though it's safe to run regardless)
-  ctx.waitUntil(updateLeaderboards(env, userData, currentWeek, publicXpEarned, normalizedSubject));
+  // Update leaderboards async
+  if (publicXpEarned > 0) {
+    ctx.waitUntil(updateLeaderboards(env, userData, currentWeek, publicXpEarned, normalizedSubject));
+  }
 
   return jsonResponse({
     message: "Quiz submitted successfully",
@@ -636,7 +652,9 @@ async function handleSubmitWeeklyExam(request, env, ctx) {
 
   await env.RANK_KV.put(`user:${user_id}`, JSON.stringify(userData));
 
-  ctx.waitUntil(updateLeaderboards(env, userData, currentWeek, examXpEarned, normalizedSubject));
+  if (examXpEarned > 0) {
+    ctx.waitUntil(updateLeaderboards(env, userData, currentWeek, examXpEarned, normalizedSubject));
+  }
 
   return jsonResponse({
     message: "Weekly exam submitted successfully",
@@ -757,7 +775,9 @@ async function handleGetLeaderboards(request, env) {
       response.all_physics = JSON.parse(await env.RANK_KV.get("leaderboard:allgrades:physics") || "[]");
   }
 
-  return jsonResponse(response);
+  return jsonResponse(response, 200, {
+    "Cache-Control": "public, max-age=300"
+  });
 }
 
 async function handleGetSchools(request, env) {
@@ -768,6 +788,8 @@ async function handleGetSchools(request, env) {
 
   return jsonResponse({
     schools: schoolsList
+  }, 200, {
+    "Cache-Control": "public, max-age=86400"
   });
 }
 
