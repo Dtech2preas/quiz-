@@ -674,6 +674,18 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        /* Loading Spinner */
+        .loader {
+            border: 4px solid rgba(255,255,255,0.1);
+            border-left-color: var(--accent-blue, #3b82f6);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem auto;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
 <body>
@@ -706,7 +718,7 @@
         <button class="main-tab-btn" onclick="switchMainTab('schools', event)">Schools</button>
     </div>
 
-    <div id="loading">Loading leaderboards...</div>
+    <div id="loading" style="text-align: center; margin-top: 3rem; color: var(--text-muted);"><div class="loader"></div><p>Loading data...</p></div>
 
     <!-- Main Grades List View -->
     <div id="grades-list-view"></div>

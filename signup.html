@@ -81,7 +81,7 @@
                 <div id="school-autocomplete-list" class="autocomplete-items"></div>
             </div>
 
-            <button type="submit">Create Account</button>
+            <button type="submit" id="signupBtn">Create Account</button>
         </form>
         <p class="error" id="errorMsg"></p>
         <p>Already have an account? <a href="login.html">Login</a></p>
@@ -158,11 +158,18 @@
             const grade = document.getElementById("grade").value;
             const school = document.getElementById("school").value.trim();
             const errorMsg = document.getElementById("errorMsg");
+            const btn = document.getElementById("signupBtn");
+
+            btn.disabled = true;
+            btn.textContent = "Creating Account...";
+            errorMsg.style.display = "none";
 
             // Validate password locally too
             if (password.length < 8 || !/[A-Z]/.test(password) || !/[0-9]/.test(password)) {
                 errorMsg.textContent = "Password must be at least 8 characters long, contain at least one capital letter and one number.";
                 errorMsg.style.display = "block";
+                btn.disabled = false;
+                btn.textContent = "Create Account";
                 return;
             }
 
@@ -185,6 +192,9 @@
             } catch (err) {
                 errorMsg.textContent = "Failed to connect to the server.";
                 errorMsg.style.display = "block";
+            } finally {
+                btn.disabled = false;
+                btn.textContent = "Create Account";
             }
         });
     </script>
