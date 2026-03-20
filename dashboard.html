@@ -274,10 +274,13 @@
         window.location.href = "index.html";
     }
 
-    document.getElementById("logoutBtn").addEventListener("click", () => {
-        localStorage.removeItem("user_id");
-        window.location.href = "index.html";
-    });
+    const logoutBtn = document.getElementById("logoutBtn");
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", () => {
+            localStorage.removeItem("user_id");
+            window.location.href = "index.html";
+        });
+    }
 
     function openAvatarModal() {
         const modal = document.getElementById('avatar-modal');
@@ -393,16 +396,18 @@
             // Generate basic badges for dashboard
             const badgeContainer = document.getElementById("dashboard-badges");
             badgeContainer.innerHTML = "";
-            const overallRank = data.ranks?.overall;
+            const overallRank = (data.ranks && data.ranks.overall && data.ranks.overall !== "-") ? data.ranks.overall : null;
 
             const badgeStyle = "background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); padding: 0.2rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;";
 
-            if (overallRank === 1) {
-                badgeContainer.innerHTML += `<div style="${badgeStyle} color: #fbbf24; border-color: #fbbf24;">🏆 Champion (#1)</div>`;
-            } else if (overallRank !== "-" && overallRank <= 10) {
-                badgeContainer.innerHTML += `<div style="${badgeStyle} color: #9ca3af; border-color: #9ca3af;">🥈 Top 10 Elite</div>`;
-            } else if (overallRank !== "-" && overallRank <= 100) {
-                badgeContainer.innerHTML += `<div style="${badgeStyle} color: #b45309; border-color: #b45309;">🥉 Top 100 Player</div>`;
+            if (overallRank !== null) {
+                if (overallRank === 1) {
+                    badgeContainer.innerHTML += `<div style="${badgeStyle} color: #fbbf24; border-color: #fbbf24;">🏆 Champion (#1)</div>`;
+                } else if (overallRank <= 10) {
+                    badgeContainer.innerHTML += `<div style="${badgeStyle} color: #9ca3af; border-color: #9ca3af;">🥈 Top 10 Elite</div>`;
+                } else if (overallRank <= 100) {
+                    badgeContainer.innerHTML += `<div style="${badgeStyle} color: #b45309; border-color: #b45309;">🥉 Top 100 Player</div>`;
+                }
             }
             if (data.study_streak_days && data.study_streak_days >= 7) {
                 badgeContainer.innerHTML += `<div style="${badgeStyle} color: #f97316; border-color: #f97316;">🔥 ${data.study_streak_days} Day Streak</div>`;
@@ -413,20 +418,22 @@
             document.getElementById("stat-xp").textContent = data.total_xp || 0;
             document.getElementById("stat-questions").textContent = data.questions_answered || 0;
 
-            document.getElementById("rank-sa").textContent = data.ranks?.overall !== "-" ? `#${data.ranks.overall}` : "-";
+            const displayRankSA = (data.ranks && data.ranks.overall && data.ranks.overall !== "-") ? `#${data.ranks.overall}` : "-";
+
+            document.getElementById("rank-sa").textContent = displayRankSA;
 
             // Dynamically inject subject rank cards
             const ranksGrid = document.getElementById("dynamic-ranks-grid");
             ranksGrid.innerHTML = `
                 <div class="rank-card">
                     <h4>Your Rank in SA</h4>
-                    <p id="rank-sa">${data.ranks?.overall !== "-" ? `#${data.ranks.overall}` : "-"}</p>
+                    <p id="rank-sa">${displayRankSA}</p>
                 </div>
             `;
 
             subjectsToQuery.forEach(sub => {
                 const label = SUBJECT_LABELS[sub] || sub.replace('_', ' ').replace(/\b\w/g, c => c.toUpperCase());
-                const rankVal = data.ranks?.[sub] !== "-" && data.ranks?.[sub] !== undefined ? `#${data.ranks[sub]}` : "-";
+                const rankVal = (data.ranks && data.ranks[sub] && data.ranks[sub] !== "-") ? `#${data.ranks[sub]}` : "-";
                 ranksGrid.innerHTML += `
                     <div class="rank-card">
                         <h4>Rank in ${label}</h4>
