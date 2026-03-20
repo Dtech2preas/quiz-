@@ -44,6 +44,12 @@ export default {
       if (request.method === "GET" && path === "/api/leaderboard") {
         return await handleGetLeaderboards(request, env);
       }
+      if (request.method === "GET" && path === "/api/admin/data") {
+        return await handleAdminData(request, env);
+      }
+      if (request.method === "DELETE" && path.startsWith("/api/admin/user/")) {
+        return await handleAdminDeleteUser(request, env, path);
+      }
 
       return jsonResponse({ error: "Not Found" }, 404);
     } catch (err) {
@@ -164,6 +170,10 @@ async function handleLogin(request, env) {
   if (userData.password_hash !== passwordHash) {
     return jsonResponse({ error: "Invalid username or password" }, 401);
   }
+
+  const today = new Date().toISOString().split('T')[0];
+  userData.last_active_date = today;
+  await env.RANK_KV.put(`user:${userId}`, JSON.stringify(userData));
 
   return jsonResponse({ message: "Login successful", user_id: userId });
 }
@@ -759,4 +769,195 @@ async function handleGetSchools(request, env) {
   return jsonResponse({
     schools: schoolsList
   });
+}
+
+async function handleAdminData(request, env) {
+  const url = new URL(request.url);
+  const secret = url.searchParams.get("secret");
+  if (secret !== "admin-secret-123") {
+    return jsonResponse({ error: "Unauthorized" }, 401);
+  }
+
+  // Iterate over all keys starting with "user:"
+  let users = [];
+  let cursor = "";
+  let listComplete = false;
+
+  while (!listComplete) {
+    const listResult = await env.RANK_KV.list({ prefix: "user:", cursor: cursor });
+
+    // Process this batch of keys
+    const promises = listResult.keys.map(key => env.RANK_KV.get(key.name));
+    const userStrings = await Promise.all(promises);
+
+    for (const userStr of userStrings) {
+      if (userStr) {
+        users.push(JSON.parse(userStr));
+      }
+    }
+
+    listComplete = listResult.list_complete;
+    cursor = listResult.cursor;
+  }
+
+  const today = new Date();
+  const todayStr = today.toISOString().split('T')[0];
+
+  // Calculate active thresholds
+  const oneWeekAgo = new Date(today);
+  oneWeekAgo.setDate(today.getDate() - 7);
+  const oneWeekAgoStr = oneWeekAgo.toISOString().split('T')[0];
+
+  const oneMonthAgo = new Date(today);
+  oneMonthAgo.setMonth(today.getMonth() - 1);
+  const oneMonthAgoStr = oneMonthAgo.toISOString().split('T')[0];
+
+  const oneYearAgo = new Date(today);
+  oneYearAgo.setFullYear(today.getFullYear() - 1);
+  const oneYearAgoStr = oneYearAgo.toISOString().split('T')[0];
+
+  let activeToday = 0;
+  let activeWeek = 0;
+  let activeMonth = 0;
+  let activeYear = 0;
+  let activeAllTime = users.length; // Same as total users
+
+  let totalQuizzes = 0;
+  let totalQuestions = 0;
+  let totalCorrect = 0;
+
+  let mostActiveUserToday = null;
+  let maxQuestionsToday = -1;
+
+  // Prepare user list for the admin panel, omit sensitive fields like password
+  const adminUserList = [];
+
+  for (const user of users) {
+    const lastActive = user.last_active_date;
+    if (lastActive) {
+      if (lastActive === todayStr) activeToday++;
+      if (lastActive >= oneWeekAgoStr) activeWeek++;
+      if (lastActive >= oneMonthAgoStr) activeMonth++;
+      if (lastActive >= oneYearAgoStr) activeYear++;
+    }
+
+    totalQuizzes += (user.quizzes_completed || 0);
+    totalQuestions += (user.questions_answered || 0);
+    totalCorrect += (user.correct_answers || 0);
+
+    // Naive "most active today" - could use daily_xp or last_active_date combined with questions answered
+    // If they were active today and answered more questions overall (simplification since daily questions aren't strictly tracked in isolation here, but daily_xp is tracked per quiz submission)
+    if (lastActive === todayStr) {
+        const activityScore = user.daily_xp || 0;
+        if (activityScore > maxQuestionsToday) {
+            maxQuestionsToday = activityScore;
+            mostActiveUserToday = {
+                username: user.username,
+                xp_today: activityScore
+            };
+        }
+    }
+
+    adminUserList.push({
+      user_id: user.user_id,
+      username: user.username,
+      name: user.name,
+      surname: user.surname,
+      grade: user.grade || "grade12",
+      total_xp: user.total_xp || 0,
+      quizzes_completed: user.quizzes_completed || 0,
+      questions_answered: user.questions_answered || 0,
+      accuracy_percentage: user.accuracy_percentage || 0,
+      last_active_date: user.last_active_date || "Never"
+    });
+  }
+
+  const averageScore = totalQuestions > 0 ? Math.round((totalCorrect / totalQuestions) * 100) : 0;
+
+  // Sort for top 5 users
+  const topUsers = [...adminUserList].sort((a, b) => b.total_xp - a.total_xp).slice(0, 5);
+
+  return jsonResponse({
+    stats: {
+      total_users: users.length,
+      active_today: activeToday,
+      active_week: activeWeek,
+      active_month: activeMonth,
+      active_year: activeYear,
+      active_all_time: activeAllTime,
+      total_quizzes: totalQuizzes,
+      total_questions: totalQuestions,
+      average_score: averageScore,
+      most_active_user_today: mostActiveUserToday,
+      last_updated: new Date().toISOString()
+    },
+    top_users: topUsers,
+    users: adminUserList
+  });
+}
+
+async function handleAdminDeleteUser(request, env, path) {
+  const url = new URL(request.url);
+  const secret = url.searchParams.get("secret");
+  if (secret !== "admin-secret-123") {
+    return jsonResponse({ error: "Unauthorized" }, 401);
+  }
+
+  const userId = path.split("/").pop();
+  if (!userId) {
+    return jsonResponse({ error: "User ID required" }, 400);
+  }
+
+  const userStr = await env.RANK_KV.get(`user:${userId}`);
+  if (!userStr) {
+    return jsonResponse({ error: "User not found" }, 404);
+  }
+
+  const user = JSON.parse(userStr);
+  const username = user.username;
+  const grade = user.grade || "grade12";
+  const school = user.school;
+
+  // 1. Delete user record and username mapping
+  await env.RANK_KV.delete(`user:${userId}`);
+  if (username) {
+    await env.RANK_KV.delete(`user_by_name:${username}`);
+  }
+
+  // 2. Remove user from all relevant leaderboards immediately
+  const currentWeek = getCurrentWeek();
+  const keysToUpdate = [
+    `leaderboard:${grade}:overall`,
+    `leaderboard:${grade}:weekly:${currentWeek}`,
+    `leaderboard:allgrades:overall`,
+    `leaderboard:allgrades:weekly:${currentWeek}`,
+    `leaderboard:overall`, // legacy
+    `leaderboard:weekly:${currentWeek}` // legacy
+  ];
+
+  const subjects = Object.keys(user.subjects_xp || {});
+  if (!subjects.includes("math")) subjects.push("math");
+  if (!subjects.includes("physics")) subjects.push("physics");
+
+  for (const sub of subjects) {
+    keysToUpdate.push(`leaderboard:${grade}:${sub}`);
+    keysToUpdate.push(`leaderboard:allgrades:${sub}`);
+    keysToUpdate.push(`leaderboard:${sub}`); // legacy
+  }
+
+  for (const key of keysToUpdate) {
+    let boardStr = await env.RANK_KV.get(key);
+    if (boardStr) {
+      let board = JSON.parse(boardStr);
+      const originalLength = board.length;
+      board = board.filter(u => u.user_id !== userId);
+
+      // Only write back if we actually removed someone
+      if (board.length !== originalLength) {
+        await env.RANK_KV.put(key, JSON.stringify(board));
+      }
+    }
+  }
+
+  return jsonResponse({ message: "User completely deleted" });
 }
