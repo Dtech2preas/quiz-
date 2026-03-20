@@ -291,7 +291,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentYear = new Date().getFullYear();
     document.getElementById('footer-year').textContent = `2020–${currentYear}`;
 
-    const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
+
+    function formatLatexOption(text) {
+        if (!text) return text;
+
+        // Ensure text is a string
+        text = String(text);
+
+        // If it already contains inline math or display math delimiters, return as is
+        if (text.includes('$') || text.includes('\\(') || text.includes('\\[')) {
+            return text;
+        }
+
+        // Common LaTeX indicators
+        const latexIndicators = ['\\', '^', '_', '{', '}'];
+        const hasLatex = latexIndicators.some(indicator => text.includes(indicator));
+
+        if (hasLatex) {
+            // If it has latex indicators but no wrapping, wrap it in \( ... \)
+            return '\\(' + text + '\\)';
+        }
+
+        return text;
+    }
+const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
     const userId = localStorage.getItem("user_id");
     const userGrade = localStorage.getItem("user_grade") || "grade12";
     let completedExams = {};
@@ -433,7 +456,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById("progress-text").textContent = `Question ${currentQuestionIndex + 1} of ${currentExamData.length}`;
 
         const qText = document.getElementById("question-text");
-        qText.innerHTML = q.question;
+        qText.innerHTML = formatLatexOption(q.question);
 
         // Reset animations
         qText.classList.remove('fade-in');
@@ -444,12 +467,12 @@ document.addEventListener('DOMContentLoaded', () => {
         optionsContainer.innerHTML = "";
 
         // Combine correct and wrong answers, then shuffle
-        let allOptions = [{ text: q.correct_answer, isCorrect: true }];
+        let allOptions = [{ text: formatLatexOption(q.correct_answer), isCorrect: true }];
 
         // Select up to 3 random wrong answers
         if (q.wrong_answers_pool && q.wrong_answers_pool.length > 0) {
             const wrongAnswers = [...q.wrong_answers_pool].sort(() => 0.5 - Math.random()).slice(0, 3);
-            wrongAnswers.forEach(w => allOptions.push({ text: w, isCorrect: false }));
+            wrongAnswers.forEach(w => allOptions.push({ text: formatLatexOption(w), isCorrect: false }));
         }
         allOptions = allOptions.sort(() => 0.5 - Math.random());
 
@@ -504,11 +527,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Store result for review later
         userAnswers.push({
-            question: q.question,
-            correctAnswer: q.correct_answer,
+            question: formatLatexOption(q.question),
+            correctAnswer: formatLatexOption(q.correct_answer),
             selectedAnswer: selectedText,
             isCorrect: isCorrect,
-            explanation: q.explanation || `The correct answer is: ${q.correct_answer}`
+            explanation: formatLatexOption(q.explanation) || `The correct answer is: ${formatLatexOption(q.correct_answer)}`
         });
 
         if (isCorrect) {
