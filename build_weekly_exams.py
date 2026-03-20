@@ -44,61 +44,98 @@ def generate_weekly_exams():
             weekly_map[exam_week_str][grade] = {}
 
         for subject, files in subjects.items():
-            all_medium_questions = []
-            all_hard_questions = []
+            paper1_files = []
+            paper2_files = []
+            unclassified_files = []
 
             for file_entry in files:
-                filepath = os.path.join('dataset', grade, subject, file_entry['file'])
-                questions = load_json(filepath)
-                if questions:
-                    for q in questions:
-                        if q.get('difficulty') == 'medium':
-                            all_medium_questions.append(q)
-                        elif q.get('difficulty') == 'hard':
-                            all_hard_questions.append(q)
+                text_to_check = (file_entry['file'] + " " + file_entry['label']).lower()
+                is_paper1 = 'paper 1' in text_to_check or 'paper_1' in text_to_check or 'paper1' in text_to_check
+                is_paper2 = 'paper 2' in text_to_check or 'paper_2' in text_to_check or 'paper2' in text_to_check
 
-            exam_questions = []
-
-            # Select Medium
-            if len(all_medium_questions) >= 25:
-                exam_questions.extend(random.sample(all_medium_questions, 25))
-            else:
-                exam_questions.extend(all_medium_questions)
-
-            # Select Hard
-            if len(all_hard_questions) >= 25:
-                exam_questions.extend(random.sample(all_hard_questions, 25))
-            else:
-                exam_questions.extend(all_hard_questions)
-
-            shortfall = 50 - len(exam_questions)
-            if shortfall > 0:
-                used_ids = {q.get('id', '') for q in exam_questions}
-                remaining_pool = [q for q in all_medium_questions + all_hard_questions if q.get('id', '') not in used_ids]
-                if len(remaining_pool) >= shortfall:
-                    exam_questions.extend(random.sample(remaining_pool, shortfall))
+                if is_paper1:
+                    paper1_files.append(file_entry)
+                elif is_paper2:
+                    paper2_files.append(file_entry)
                 else:
-                    exam_questions.extend(remaining_pool)
+                    unclassified_files.append(file_entry)
 
-            random.shuffle(exam_questions)
+            def build_exam_for_files(exam_files, paper_suffix="", label_suffix=""):
+                if not exam_files:
+                    return
 
-            if len(exam_questions) > 0:
-                exam_filename = f"{subject}_{exam_week_str}.json"
-                exam_filepath = os.path.join('dataset', 'weekly_quiz', grade, exam_filename)
+                all_medium_questions = []
+                all_hard_questions = []
 
-                # Assign sequential IDs to the selected questions for the exam context
-                for i, q in enumerate(exam_questions):
-                    q['exam_id'] = f"EXAM_{exam_week_str}_{grade}_{subject}_{i+1}"
+                for f_entry in exam_files:
+                    filepath = os.path.join('dataset', grade, subject, f_entry['file'])
+                    questions = load_json(filepath)
+                    if questions:
+                        for q in questions:
+                            if q.get('difficulty') == 'medium':
+                                all_medium_questions.append(q)
+                            elif q.get('difficulty') == 'hard':
+                                all_hard_questions.append(q)
 
-                save_json(exam_filepath, exam_questions)
+                exam_questions = []
 
-                weekly_map[exam_week_str][grade][subject] = {
-                    "file": f"{grade}/{exam_filename}", # relative path from weekly_quiz
-                    "label": f"{subject.replace('_', ' ').title()} Weekly Exam",
-                    "total_questions": len(exam_questions)
-                }
+                # Select Medium
+                if len(all_medium_questions) >= 25:
+                    exam_questions.extend(random.sample(all_medium_questions, 25))
+                else:
+                    exam_questions.extend(all_medium_questions)
 
-                print(f"Generated exam for {grade} - {subject} with {len(exam_questions)} questions.")
+                # Select Hard
+                if len(all_hard_questions) >= 25:
+                    exam_questions.extend(random.sample(all_hard_questions, 25))
+                else:
+                    exam_questions.extend(all_hard_questions)
+
+                shortfall = 50 - len(exam_questions)
+                if shortfall > 0:
+                    used_ids = {q.get('id', '') for q in exam_questions}
+                    remaining_pool = [q for q in all_medium_questions + all_hard_questions if q.get('id', '') not in used_ids]
+                    if len(remaining_pool) >= shortfall:
+                        exam_questions.extend(random.sample(remaining_pool, shortfall))
+                    else:
+                        exam_questions.extend(remaining_pool)
+
+                random.shuffle(exam_questions)
+
+                if len(exam_questions) > 0:
+                    exam_key = subject
+                    if paper_suffix:
+                        exam_key = f"{subject}_{paper_suffix}"
+
+                    exam_filename = f"{exam_key}_{exam_week_str}.json"
+                    exam_filepath = os.path.join('dataset', 'weekly_quiz', grade, exam_filename)
+
+                    # Assign sequential IDs to the selected questions for the exam context
+                    for i, q in enumerate(exam_questions):
+                        q['exam_id'] = f"EXAM_{exam_week_str}_{grade}_{exam_key}_{i+1}"
+
+                    save_json(exam_filepath, exam_questions)
+
+                    subject_title = subject.replace('_', ' ').title()
+                    exam_label = f"{subject_title} Weekly Exam"
+                    if label_suffix:
+                        exam_label = f"{subject_title} {label_suffix} Weekly Exam"
+
+                    weekly_map[exam_week_str][grade][exam_key] = {
+                        "file": f"{grade}/{exam_filename}", # relative path from weekly_quiz
+                        "label": exam_label,
+                        "total_questions": len(exam_questions)
+                    }
+
+                    print(f"Generated exam for {grade} - {exam_key} with {len(exam_questions)} questions.")
+
+            if len(paper1_files) > 0 or len(paper2_files) > 0:
+                if len(paper1_files) > 0:
+                    build_exam_for_files(paper1_files, "paper1", "Paper 1")
+                if len(paper2_files) > 0:
+                    build_exam_for_files(paper2_files, "paper2", "Paper 2")
+            else:
+                build_exam_for_files(unclassified_files)
 
     save_json(weekly_map_path, weekly_map)
     print(f"Updated weekly map for {exam_week_str}")

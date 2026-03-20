@@ -1,388 +1,677 @@
 [
   {
-    "id": "PSC_MAT_884",
-    "topic": "Matter and Materials",
-    "subtopic": "Atomic Structure",
-    "difficulty": "medium",
-    "question": "An ion has an atomic number of 104 and a charge of +3. How many electrons does it have?",
-    "correct_answer": "101",
+    "id": "PSC_ELE_989",
+    "topic": "Electricity and Magnetism",
+    "subtopic": "Electric Circuits",
+    "difficulty": "hard",
+    "question": "Two resistors (54 \u03a9, 43 \u03a9) are in parallel. Calculate equivalent resistance.",
+    "correct_answer": "23.94",
     "wrong_answers_pool": [
-      "202",
-      "1010",
-      "102",
-      "100",
-      "91",
-      "111"
+      "13.94",
+      "2.39",
+      "33.94",
+      "11.97",
+      "239.40",
+      "47.88"
     ],
-    "explanation": "Electrons = Protons - Charge = 104 - (3) = 101.",
+    "explanation": "1/R_eq = 1/54 + 1/43. R_eq = (54*43) / (54+43) = 23.94 \u03a9.",
     "exam_id": "EXAM_2026-W12_grade10_physical_sciences_1"
   },
   {
-    "id": "PSC_MAT_396",
-    "topic": "Matter and Materials",
-    "subtopic": "Atomic Structure",
-    "difficulty": "hard",
-    "question": "An element has two isotopes: one with mass 122 amu (abundance 69%) and another with mass 125 amu (abundance 31%). Calculate the relative atomic mass.",
-    "correct_answer": "122.93",
-    "wrong_answers_pool": [
-      "61.47",
-      "132.93",
-      "12.29",
-      "245.86",
-      "112.93",
-      "1229.30"
-    ],
-    "explanation": "RAM = (122 * 69 + 125 * 31) / 100 = 122.93 amu.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_2"
-  },
-  {
-    "id": "PSC_ENE_710",
-    "topic": "Energy and Energy Transfer",
-    "subtopic": "Mechanical Energy",
-    "difficulty": "medium",
-    "question": "A 94 kg drone flies at height 40 m and speed 28 m/s. What is its mechanical energy?",
-    "correct_answer": "73696.00",
-    "wrong_answers_pool": [
-      "36848.00",
-      "73706.00",
-      "147392.00",
-      "73686.00",
-      "736960.00",
-      "7369.60"
-    ],
-    "explanation": "Em = Ep + Ek = (94*9.8*40) + (0.5*94*28^2) = 73696.00 J.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_3"
-  },
-  {
-    "id": "PSC_FOR_235",
-    "topic": "Newton\u2019s Laws and Forces",
-    "subtopic": "Motion in One Dimension",
-    "difficulty": "hard",
-    "question": "A vehicle accelerates from 15 m/s to 52 m/s at 4.5 m/s^2. What is the distance traveled?",
-    "correct_answer": "275.44",
-    "wrong_answers_pool": [
-      "137.72",
-      "2754.40",
-      "550.88",
-      "27.54",
-      "265.44",
-      "285.44"
-    ],
-    "explanation": "v^2 = u^2 + 2as. s = (52^2 - 15^2) / (2 * 4.5) = 275.44 m.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_4"
-  },
-  {
-    "id": "PSC_MAT_777",
-    "topic": "Matter and Materials",
-    "subtopic": "Atomic Structure",
-    "difficulty": "medium",
-    "question": "An ion has an atomic number of 25 and a charge of -1. How many electrons does it have?",
-    "correct_answer": "26",
-    "wrong_answers_pool": [
-      "25",
-      "36",
-      "27",
-      "260",
-      "52",
-      "16"
-    ],
-    "explanation": "Electrons = Protons - Charge = 25 - (-1) = 26.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_5"
-  },
-  {
-    "id": "PSC_CHE_626",
-    "topic": "Chemical Change",
-    "subtopic": "Stoichiometry",
-    "difficulty": "hard",
-    "question": "In the reaction 5A + 1B -> Products, you have 1.1 mol of A and 0.5 mol of B. Which is the limiting reactant?",
-    "correct_answer": "Reactant A",
-    "wrong_answers_pool": [
-      "Reactant B",
-      "Products",
-      "Both A and B",
-      "Cannot be determined",
-      "Water",
-      "Depends on mass"
-    ],
-    "explanation": "Ratio A = 1.1/5 = 0.22. Ratio B = 0.5/1 = 0.50. Smaller ratio determines limiting reactant: Reactant A.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_6"
-  },
-  {
-    "id": "PSC_MAT_190",
-    "topic": "Matter and Materials",
-    "subtopic": "Atomic Structure",
-    "difficulty": "hard",
-    "question": "An element has two isotopes: one with mass 32 amu (abundance 48%) and another with mass 34 amu (abundance 52%). Calculate the relative atomic mass.",
-    "correct_answer": "33.04",
-    "wrong_answers_pool": [
-      "43.04",
-      "66.08",
-      "16.52",
-      "23.04",
-      "3.30",
-      "330.40"
-    ],
-    "explanation": "RAM = (32 * 48 + 34 * 52) / 100 = 33.04 amu.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_7"
-  },
-  {
-    "id": "PSC_FOR_766",
-    "topic": "Newton\u2019s Laws and Forces",
-    "subtopic": "Motion in One Dimension",
-    "difficulty": "medium",
-    "question": "An object has an initial velocity of 29 m/s and accelerates at 9.0 m/s^2 for 35 s. What is the final velocity?",
-    "correct_answer": "344.00",
-    "wrong_answers_pool": [
-      "3440.00",
-      "688.00",
-      "34.40",
-      "334.00",
-      "172.00",
-      "354.00"
-    ],
-    "explanation": "v = u + at = 29 + (9.0 * 35) = 344.00 m/s.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_8"
-  },
-  {
-    "id": "PSC_FOR_288",
-    "topic": "Newton\u2019s Laws and Forces",
-    "subtopic": "Vectors and Scalars",
-    "difficulty": "medium",
-    "question": "Forces of 127 N and 116 N act on an object in the same direction. What is the resultant force?",
-    "correct_answer": "243",
-    "wrong_answers_pool": [
-      "242",
-      "486",
-      "244",
-      "253",
-      "2430",
-      "233"
-    ],
-    "explanation": "Resultant = 127 + 116 = 243 N.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_9"
-  },
-  {
-    "id": "PSC_ELE_760",
-    "topic": "Electricity and Magnetism",
-    "subtopic": "Electric Circuits",
-    "difficulty": "medium",
-    "question": "Three resistors (5 \u03a9, 82 \u03a9, 99 \u03a9) are in series. Find equivalent resistance.",
-    "correct_answer": "186.0",
-    "wrong_answers_pool": [
-      "176.00",
-      "372.00",
-      "93.00",
-      "1860.00",
-      "18.60",
-      "196.00"
-    ],
-    "explanation": "R_eq = 5 + 82 + 99 = 186.0 \u03a9.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_10"
-  },
-  {
-    "id": "PSC_ENE_460",
-    "topic": "Energy and Energy Transfer",
-    "subtopic": "Conservation of Energy",
-    "difficulty": "medium",
-    "question": "An object drops from height 396 m. What is its speed right before hitting the ground? (Ignore air resistance)",
-    "correct_answer": "88.10",
-    "wrong_answers_pool": [
-      "98.10",
-      "44.05",
-      "8.81",
-      "78.10",
-      "176.20",
-      "881.00"
-    ],
-    "explanation": "mgh = 0.5mv^2 -> v = sqrt(2gh) = sqrt(2 * 9.8 * 396) = 88.10 m/s.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_11"
-  },
-  {
-    "id": "PSC_WAV_317",
+    "id": "PSC_WAV_904",
     "topic": "Waves, Sound and Light",
     "subtopic": "Sound",
     "difficulty": "medium",
-    "question": "Lightning strikes 1137 m away. Speed of sound is 339 m/s. How long until thunder is heard?",
-    "correct_answer": "3.354",
+    "question": "Lightning strikes 681 m away. Speed of sound is 349 m/s. How long until thunder is heard?",
+    "correct_answer": "1.951",
     "wrong_answers_pool": [
-      "13.35",
-      "6.71",
-      "0.34",
-      "11.25",
-      "33.54",
-      "1.68"
+      "3.81",
+      "3.90",
+      "0.98",
+      "0.20",
+      "11.95",
+      "19.51"
     ],
-    "explanation": "t = d / v = 1137 / 339 = 3.354 s.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_12"
+    "explanation": "t = d / v = 681 / 349 = 1.951 s.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_2"
   },
   {
-    "id": "PSC_MAT_874",
-    "topic": "Matter and Materials",
-    "subtopic": "Atomic Structure",
+    "id": "PSC_CHE_920",
+    "topic": "Chemical Change",
+    "subtopic": "Stoichiometry",
     "difficulty": "medium",
-    "question": "An ion has an atomic number of 99 and a charge of +3. How many electrons does it have?",
-    "correct_answer": "96",
+    "question": "What mass of solute (Molar mass = 35 g/mol) is needed to prepare 5.1 dm^3 of a 1.3 mol.dm^-3 solution?",
+    "correct_answer": "232.05",
     "wrong_answers_pool": [
-      "97",
-      "960",
-      "106",
-      "192",
-      "95",
-      "86"
+      "464.10",
+      "242.05",
+      "23.21",
+      "222.05",
+      "116.03",
+      "2320.50"
     ],
-    "explanation": "Electrons = Protons - Charge = 99 - (3) = 96.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_13"
+    "explanation": "n = C * V = 1.3 * 5.1 = 6.63 mol. Mass = n * M = 6.63 * 35 = 232.05 g.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_3"
   },
   {
-    "id": "PSC_ENE_505",
+    "id": "PSC_CHE_168",
+    "topic": "Chemical Change",
+    "subtopic": "Stoichiometry",
+    "difficulty": "medium",
+    "question": "What mass of solute (Molar mass = 115 g/mol) is needed to prepare 1.4 dm^3 of a 0.3 mol.dm^-3 solution?",
+    "correct_answer": "48.30",
+    "wrong_answers_pool": [
+      "58.30",
+      "4.83",
+      "38.30",
+      "96.60",
+      "24.15",
+      "483.00"
+    ],
+    "explanation": "n = C * V = 0.3 * 1.4 = 0.42 mol. Mass = n * M = 0.42 * 115 = 48.30 g.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_4"
+  },
+  {
+    "id": "PSC_ELE_268",
+    "topic": "Electricity and Magnetism",
+    "subtopic": "Electric Circuits",
+    "difficulty": "medium",
+    "question": "Three resistors (78 \u03a9, 94 \u03a9, 41 \u03a9) are in series. Find equivalent resistance.",
+    "correct_answer": "213.0",
+    "wrong_answers_pool": [
+      "2130.00",
+      "106.50",
+      "203.00",
+      "426.00",
+      "223.00",
+      "21.30"
+    ],
+    "explanation": "R_eq = 78 + 94 + 41 = 213.0 \u03a9.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_5"
+  },
+  {
+    "id": "PSC_ENE_153",
     "topic": "Energy and Energy Transfer",
     "subtopic": "Conservation of Energy",
     "difficulty": "hard",
-    "question": "A roller coaster (mass m) moves at 1 m/s at height 172 m. It drops to height 108 m. Find its speed there. (No friction)",
-    "correct_answer": "35.43",
+    "question": "A roller coaster (mass m) moves at 12 m/s at height 139 m. It drops to height 66 m. Find its speed there. (No friction)",
+    "correct_answer": "39.68",
     "wrong_answers_pool": [
-      "45.43",
-      "17.71",
-      "25.43",
-      "3.54",
-      "354.30",
-      "70.86"
+      "19.84",
+      "396.80",
+      "3.97",
+      "79.36",
+      "49.68",
+      "29.68"
     ],
-    "explanation": "Em1 = Em2 -> g*h1 + 0.5*u^2 = g*h2 + 0.5*v^2. v = sqrt(2*9.8*(172-108) + 1^2) = 35.43 m/s.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_14"
+    "explanation": "Em1 = Em2 -> g*h1 + 0.5*u^2 = g*h2 + 0.5*v^2. v = sqrt(2*9.8*(139-66) + 12^2) = 39.68 m/s.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_6"
   },
   {
-    "id": "PSC_WAV_165",
+    "id": "PSC_ELE_389",
+    "topic": "Electricity and Magnetism",
+    "subtopic": "Electric Circuits",
+    "difficulty": "medium",
+    "question": "Three resistors (55 \u03a9, 32 \u03a9, 70 \u03a9) are in series. Find equivalent resistance.",
+    "correct_answer": "157.0",
+    "wrong_answers_pool": [
+      "15.70",
+      "147.00",
+      "167.00",
+      "314.00",
+      "1570.00",
+      "78.50"
+    ],
+    "explanation": "R_eq = 55 + 32 + 70 = 157.0 \u03a9.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_7"
+  },
+  {
+    "id": "PSC_WAV_122",
     "topic": "Waves, Sound and Light",
     "subtopic": "Electromagnetic Radiation",
     "difficulty": "hard",
-    "question": "Calculate the energy of a photon with wavelength 491 nm. (h=6.63x10^-34, c=3x10^8)",
-    "correct_answer": "4.051x10^-19",
+    "question": "Calculate the energy of a photon with wavelength 799 nm. (h=6.63x10^-34, c=3x10^8)",
+    "correct_answer": "2.489x10^-19",
     "wrong_answers_pool": [
-      "0.41x10^-18",
-      "3.86x10^-22",
-      "40.51x10^-16",
-      "4.05x10^-22",
-      "4.70x10^-22",
-      "2.03x10^-20"
+      "12.45x10^-19",
+      "12.45x10^-16",
+      "2.49x10^-19",
+      "2.49x10^-17",
+      "4.98x10^-18",
+      "0.25x10^-16"
     ],
-    "explanation": "E = hc/\u03bb = (6.63x10^-34 * 3x10^8) / (491x10^-9) = 4.051x10^-19 J.",
+    "explanation": "E = hc/\u03bb = (6.63x10^-34 * 3x10^8) / (799x10^-9) = 2.489x10^-19 J.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_8"
+  },
+  {
+    "id": "PSC_FOR_237",
+    "topic": "Newton\u2019s Laws and Forces",
+    "subtopic": "Vectors and Scalars",
+    "difficulty": "medium",
+    "question": "Forces of 135 N and 17 N act on an object in the same direction. What is the resultant force?",
+    "correct_answer": "152",
+    "wrong_answers_pool": [
+      "142",
+      "1520",
+      "153",
+      "151",
+      "162",
+      "304"
+    ],
+    "explanation": "Resultant = 135 + 17 = 152 N.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_9"
+  },
+  {
+    "id": "PSC_ENE_621",
+    "topic": "Energy and Energy Transfer",
+    "subtopic": "Mechanical Energy",
+    "difficulty": "medium",
+    "question": "A 94 kg drone flies at height 56 m and speed 27 m/s. What is its mechanical energy?",
+    "correct_answer": "85850.20",
+    "wrong_answers_pool": [
+      "85840.20",
+      "85860.20",
+      "858502.00",
+      "42925.10",
+      "8585.02",
+      "171700.40"
+    ],
+    "explanation": "Em = Ep + Ek = (94*9.8*56) + (0.5*94*27^2) = 85850.20 J.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_10"
+  },
+  {
+    "id": "PSC_ENE_458",
+    "topic": "Energy and Energy Transfer",
+    "subtopic": "Conservation of Energy",
+    "difficulty": "hard",
+    "question": "A roller coaster (mass m) moves at 7 m/s at height 100 m. It drops to height 35 m. Find its speed there. (No friction)",
+    "correct_answer": "36.37",
+    "wrong_answers_pool": [
+      "26.37",
+      "363.70",
+      "72.74",
+      "18.18",
+      "46.37",
+      "3.64"
+    ],
+    "explanation": "Em1 = Em2 -> g*h1 + 0.5*u^2 = g*h2 + 0.5*v^2. v = sqrt(2*9.8*(100-35) + 7^2) = 36.37 m/s.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_11"
+  },
+  {
+    "id": "PSC_WAV_724",
+    "topic": "Waves, Sound and Light",
+    "subtopic": "Electromagnetic Radiation",
+    "difficulty": "medium",
+    "question": "Calculate the energy of a photon with frequency 1.0x10^16 Hz. (h=6.63x10^-34)",
+    "correct_answer": "6.630x10^-18",
+    "wrong_answers_pool": [
+      "33.15x10^-18",
+      "33.15x10^-16",
+      "0.66x10^-16",
+      "0.66x10^-18",
+      "33.15x10^-17",
+      "33.15x10^-15"
+    ],
+    "explanation": "E = hf = (6.63x10^-34) * (1.0x10^16) = 6.630x10^-18 J.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_12"
+  },
+  {
+    "id": "PSC_CHE_045",
+    "topic": "Chemical Change",
+    "subtopic": "Stoichiometry",
+    "difficulty": "medium",
+    "question": "What mass of solute (Molar mass = 67 g/mol) is needed to prepare 4.8 dm^3 of a 3.0 mol.dm^-3 solution?",
+    "correct_answer": "964.80",
+    "wrong_answers_pool": [
+      "1929.60",
+      "96.48",
+      "482.40",
+      "9648.00",
+      "974.80",
+      "954.80"
+    ],
+    "explanation": "n = C * V = 3.0 * 4.8 = 14.40 mol. Mass = n * M = 14.40 * 67 = 964.80 g.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_13"
+  },
+  {
+    "id": "PSC_CHE_994",
+    "topic": "Chemical Change",
+    "subtopic": "Stoichiometry",
+    "difficulty": "medium",
+    "question": "Calculate the concentration (in mol.dm^-3) of a solution containing 1.4 moles of solute in 1382 cm^3 of solution.",
+    "correct_answer": "1.013",
+    "wrong_answers_pool": [
+      "1.03",
+      "0.51",
+      "0.10",
+      "10.13",
+      "2.03",
+      "11.01"
+    ],
+    "explanation": "V = 1382 / 1000 = 1.382 dm^3. C = n / V = 1.4 / 1.382 = 1.013 mol.dm^-3.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_14"
+  },
+  {
+    "id": "PSC_CHE_512",
+    "topic": "Chemical Change",
+    "subtopic": "Stoichiometry",
+    "difficulty": "medium",
+    "question": "How many molecules are in 5.2 moles of a substance? (Use N_A = 6.02 x 10^23)",
+    "correct_answer": "31.30x10^23",
+    "wrong_answers_pool": [
+      "50.17x10^24",
+      "31.30x10^22",
+      "31.30x10^26",
+      "15.65x10^25",
+      "156.50x10^21",
+      "15.65x10^21"
+    ],
+    "explanation": "Particles = n * N_A = 5.2 * 6.02 x 10^23 = 31.30x10^23.",
     "exam_id": "EXAM_2026-W12_grade10_physical_sciences_15"
   },
   {
-    "id": "PSC_CHE_347",
-    "topic": "Chemical Change",
-    "subtopic": "Stoichiometry",
-    "difficulty": "medium",
-    "question": "How many molecules are in 0.5 moles of a substance? (Use N_A = 6.02 x 10^23)",
-    "correct_answer": "3.01x10^23",
+    "id": "PSC_WAV_538",
+    "topic": "Waves, Sound and Light",
+    "subtopic": "Electromagnetic Radiation",
+    "difficulty": "hard",
+    "question": "Calculate the energy of a photon with wavelength 233 nm. (h=6.63x10^-34, c=3x10^8)",
+    "correct_answer": "8.536x10^-19",
     "wrong_answers_pool": [
-      "0.30x10^24",
-      "3.01x10^21",
-      "4.85x10^22",
-      "3.01x10^24",
-      "2.02x10^25",
-      "2.41x10^26"
+      "4.27x10^-21",
+      "16.82x10^-20",
+      "8.54x10^-19",
+      "11.13x10^-16",
+      "42.68x10^-16",
+      "85.36x10^-18"
     ],
-    "explanation": "Particles = n * N_A = 0.5 * 6.02 x 10^23 = 3.01x10^23.",
+    "explanation": "E = hc/\u03bb = (6.63x10^-34 * 3x10^8) / (233x10^-9) = 8.536x10^-19 J.",
     "exam_id": "EXAM_2026-W12_grade10_physical_sciences_16"
   },
   {
-    "id": "PSC_CHE_656",
-    "topic": "Chemical Change",
-    "subtopic": "Stoichiometry",
-    "difficulty": "hard",
-    "question": "In the reaction 5A + 1B -> Products, you have 3.5 mol of A and 2.1 mol of B. Which is the limiting reactant?",
-    "correct_answer": "Reactant A",
+    "id": "PSC_FOR_246",
+    "topic": "Newton\u2019s Laws and Forces",
+    "subtopic": "Motion in One Dimension",
+    "difficulty": "medium",
+    "question": "An object has an initial velocity of 24 m/s and accelerates at 2.5 m/s^2 for 18 s. What is the final velocity?",
+    "correct_answer": "69.00",
     "wrong_answers_pool": [
-      "Reactant B",
-      "Products",
-      "Both A and B",
-      "Cannot be determined",
-      "Water",
-      "Depends on mass"
+      "6.90",
+      "138.00",
+      "79.00",
+      "34.50",
+      "690.00",
+      "59.00"
     ],
-    "explanation": "Ratio A = 3.5/5 = 0.70. Ratio B = 2.1/1 = 2.10. Smaller ratio determines limiting reactant: Reactant A.",
+    "explanation": "v = u + at = 24 + (2.5 * 18) = 69.00 m/s.",
     "exam_id": "EXAM_2026-W12_grade10_physical_sciences_17"
   },
   {
-    "id": "PSC_ELE_423",
-    "topic": "Electricity and Magnetism",
-    "subtopic": "Electrostatics",
+    "id": "PSC_WAV_474",
+    "topic": "Waves, Sound and Light",
+    "subtopic": "Electromagnetic Radiation",
     "difficulty": "hard",
-    "question": "Two identical spheres with charges 46.5 \u03bcC and 11.5 \u03bcC touch and separate. What is the new charge on each?",
-    "correct_answer": "29.00",
+    "question": "Calculate the energy of a photon with wavelength 702 nm. (h=6.63x10^-34, c=3x10^8)",
+    "correct_answer": "2.833x10^-19",
     "wrong_answers_pool": [
-      "39.00",
-      "290.00",
-      "14.50",
-      "58.00",
-      "2.90",
-      "19.00"
+      "5.67x10^-17",
+      "28.33x10^-22",
+      "2.80x10^-18",
+      "5.67x10^-22",
+      "2.83x10^-20",
+      "14.17x10^-20"
     ],
-    "explanation": "Q_new = (Q1 + Q2) / 2 = (46.5 + 11.5) / 2 = 29.00 \u03bcC.",
+    "explanation": "E = hc/\u03bb = (6.63x10^-34 * 3x10^8) / (702x10^-9) = 2.833x10^-19 J.",
     "exam_id": "EXAM_2026-W12_grade10_physical_sciences_18"
   },
   {
-    "id": "PSC_ENE_367",
+    "id": "PSC_ENE_379",
     "topic": "Energy and Energy Transfer",
     "subtopic": "Conservation of Energy",
-    "difficulty": "medium",
-    "question": "An object drops from height 159 m. What is its speed right before hitting the ground? (Ignore air resistance)",
-    "correct_answer": "55.82",
+    "difficulty": "hard",
+    "question": "A roller coaster (mass m) moves at 8 m/s at height 86 m. It drops to height 26 m. Find its speed there. (No friction)",
+    "correct_answer": "35.21",
     "wrong_answers_pool": [
-      "65.82",
-      "111.64",
-      "5.58",
-      "558.20",
-      "45.82",
-      "27.91"
+      "25.21",
+      "352.10",
+      "45.21",
+      "70.42",
+      "3.52",
+      "17.61"
     ],
-    "explanation": "mgh = 0.5mv^2 -> v = sqrt(2gh) = sqrt(2 * 9.8 * 159) = 55.82 m/s.",
+    "explanation": "Em1 = Em2 -> g*h1 + 0.5*u^2 = g*h2 + 0.5*v^2. v = sqrt(2*9.8*(86-26) + 8^2) = 35.21 m/s.",
     "exam_id": "EXAM_2026-W12_grade10_physical_sciences_19"
   },
   {
-    "id": "PSC_ELE_805",
-    "topic": "Electricity and Magnetism",
-    "subtopic": "Electric Circuits",
-    "difficulty": "hard",
-    "question": "Two resistors (9 \u03a9, 48 \u03a9) are in parallel. Calculate equivalent resistance.",
-    "correct_answer": "7.58",
+    "id": "PSC_CHE_242",
+    "topic": "Chemical Change",
+    "subtopic": "Stoichiometry",
+    "difficulty": "medium",
+    "question": "What mass of solute (Molar mass = 154 g/mol) is needed to prepare 3.8 dm^3 of a 2.3 mol.dm^-3 solution?",
+    "correct_answer": "1345.96",
     "wrong_answers_pool": [
-      "15.16",
-      "17.58",
-      "57.46",
-      "3.79",
-      "0.76",
-      "75.80"
+      "2691.92",
+      "672.98",
+      "1335.96",
+      "1355.96",
+      "13459.60",
+      "134.60"
     ],
-    "explanation": "1/R_eq = 1/9 + 1/48. R_eq = (9*48) / (9+48) = 7.58 \u03a9.",
+    "explanation": "n = C * V = 2.3 * 3.8 = 8.74 mol. Mass = n * M = 8.74 * 154 = 1345.96 g.",
     "exam_id": "EXAM_2026-W12_grade10_physical_sciences_20"
   },
   {
-    "id": "PSC_FOR_219",
-    "topic": "Newton\u2019s Laws and Forces",
-    "subtopic": "Newton's Second Law",
+    "id": "PSC_WAV_677",
+    "topic": "Waves, Sound and Light",
+    "subtopic": "Electromagnetic Radiation",
     "difficulty": "medium",
-    "question": "A net force of 305 N causes an acceleration of 17.5 m/s^2. What is the object's mass?",
-    "correct_answer": "17.43",
+    "question": "Calculate the energy of a photon with frequency 9.8x10^19 Hz. (h=6.63x10^-34)",
+    "correct_answer": "6.497x10^-14",
     "wrong_answers_pool": [
-      "1.74",
-      "27.43",
-      "7.43",
-      "8.71",
-      "174.30",
-      "34.86"
+      "12.99x10^-11",
+      "6.50x10^-12",
+      "6.50x10^-14",
+      "3.25x10^-17",
+      "64.97x10^-17",
+      "0.65x10^-13"
     ],
-    "explanation": "m = F / a = 305 / 17.5 = 17.43 kg.",
+    "explanation": "E = hf = (6.63x10^-34) * (9.8x10^19) = 6.497x10^-14 J.",
     "exam_id": "EXAM_2026-W12_grade10_physical_sciences_21"
   },
   {
-    "id": "PSC_MAT_611",
+    "id": "PSC_CHE_885",
+    "topic": "Chemical Change",
+    "subtopic": "Stoichiometry",
+    "difficulty": "hard",
+    "question": "Calculate the percentage composition by mass of Carbon in C8H6O1.",
+    "correct_answer": "81.36",
+    "wrong_answers_pool": [
+      "162.72",
+      "813.60",
+      "40.68",
+      "8.14",
+      "71.36",
+      "91.36"
+    ],
+    "explanation": "Molar mass = 118. %C = (96/118) * 100 = 81.36%.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_22"
+  },
+  {
+    "id": "PSC_WAV_929",
+    "topic": "Waves, Sound and Light",
+    "subtopic": "Electromagnetic Radiation",
+    "difficulty": "medium",
+    "question": "Calculate the energy of a photon with frequency 2.5x10^20 Hz. (h=6.63x10^-34)",
+    "correct_answer": "1.658x10^-13",
+    "wrong_answers_pool": [
+      "1.66x10^-10",
+      "16.58x10^-14",
+      "8.29x10^-11",
+      "0.17x10^-11",
+      "16.58x10^-12",
+      "16.58x10^-11"
+    ],
+    "explanation": "E = hf = (6.63x10^-34) * (2.5x10^20) = 1.658x10^-13 J.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_23"
+  },
+  {
+    "id": "PSC_FOR_883",
+    "topic": "Newton\u2019s Laws and Forces",
+    "subtopic": "Newton's Second Law",
+    "difficulty": "hard",
+    "question": "Two blocks (m1 = 40 kg, m2 = 7 kg) are connected by a string. A force of 169 N pulls m2. What is the tension in the string pulling m1? (Frictionless)",
+    "correct_answer": "143.83",
+    "wrong_answers_pool": [
+      "1438.30",
+      "14.38",
+      "133.83",
+      "287.66",
+      "71.92",
+      "153.83"
+    ],
+    "explanation": "a = F / (m1+m2) = 169 / 47 = 3.596 m/s^2. T = m1 * a = 40 * 3.596 = 143.83 N.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_24"
+  },
+  {
+    "id": "PSC_ELE_531",
+    "topic": "Electricity and Magnetism",
+    "subtopic": "Electrostatics",
+    "difficulty": "medium",
+    "question": "An object has an excess of 3.8x10^12 electrons. What is its total negative charge? (e=1.6x10^-19)",
+    "correct_answer": "6.080x10^-07",
+    "wrong_answers_pool": [
+      "3.04x10^-4",
+      "60.80x10^-5",
+      "3.04x10^-9",
+      "60.80x10^-6",
+      "3.21x10^-10",
+      "12.16x10^-8"
+    ],
+    "explanation": "Q = n * e = (3.8x10^12) * 1.6x10^-19 = 6.080x10^-07 C.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_25"
+  },
+  {
+    "id": "PSC_MAT_343",
     "topic": "Matter and Materials",
     "subtopic": "Atomic Structure",
     "difficulty": "hard",
-    "question": "Element X-444 has an atomic number of 17. What is its full spdf electron configuration for a neutral atom?",
+    "question": "Element X-720 has an atomic number of 19. What is its full spdf electron configuration for a neutral atom?",
+    "correct_answer": "1s2 2s2 2p6 3s2 3p6 4s1",
+    "wrong_answers_pool": [
+      "1s2 2s2 2p6 3s2 3p6 4s2",
+      "1s2 2s2 2p6 3s2 3p6",
+      "1s2 2s2 2p5 3s3 3p6 4s1",
+      "1s1 2s1 2p5 3s1 3p5 4s1",
+      "1s2 2s2 2p4 3s2",
+      "1s2 2s2 2p6 3s1 3p1",
+      "1s2 2s2 2p8"
+    ],
+    "explanation": "Electrons fill in the order 1s, 2s, 2p, 3s, 3p, 4s. For 19 electrons, it is 1s2 2s2 2p6 3s2 3p6 4s1.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_26"
+  },
+  {
+    "id": "PSC_WAV_912",
+    "topic": "Waves, Sound and Light",
+    "subtopic": "Electromagnetic Radiation",
+    "difficulty": "medium",
+    "question": "Calculate the energy of a photon with frequency 7.7x10^10 Hz. (h=6.63x10^-34)",
+    "correct_answer": "5.105x10^-23",
+    "wrong_answers_pool": [
+      "2.55x10^-21",
+      "10.21x10^-25",
+      "5.11x10^-24",
+      "5.11x10^-25",
+      "3.28x10^-21",
+      "2.55x10^-24"
+    ],
+    "explanation": "E = hf = (6.63x10^-34) * (7.7x10^10) = 5.105x10^-23 J.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_27"
+  },
+  {
+    "id": "PSC_ENE_105",
+    "topic": "Energy and Energy Transfer",
+    "subtopic": "Conservation of Energy",
+    "difficulty": "hard",
+    "question": "A roller coaster (mass m) moves at 4 m/s at height 64 m. It drops to height 25 m. Find its speed there. (No friction)",
+    "correct_answer": "27.94",
+    "wrong_answers_pool": [
+      "17.94",
+      "37.94",
+      "2.79",
+      "13.97",
+      "279.40",
+      "55.88"
+    ],
+    "explanation": "Em1 = Em2 -> g*h1 + 0.5*u^2 = g*h2 + 0.5*v^2. v = sqrt(2*9.8*(64-25) + 4^2) = 27.94 m/s.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_28"
+  },
+  {
+    "id": "PSC_WAV_351",
+    "topic": "Waves, Sound and Light",
+    "subtopic": "Electromagnetic Radiation",
+    "difficulty": "medium",
+    "question": "Calculate the energy of a photon with frequency 3.6x10^15 Hz. (h=6.63x10^-34)",
+    "correct_answer": "2.387x10^-18",
+    "wrong_answers_pool": [
+      "23.87x10^-17",
+      "4.06x10^-15",
+      "4.77x10^-17",
+      "2.51x10^-16",
+      "11.94x10^-15",
+      "1.19x10^-17"
+    ],
+    "explanation": "E = hf = (6.63x10^-34) * (3.6x10^15) = 2.387x10^-18 J.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_29"
+  },
+  {
+    "id": "PSC_ELE_859",
+    "topic": "Electricity and Magnetism",
+    "subtopic": "Electrostatics",
+    "difficulty": "hard",
+    "question": "Two identical spheres with charges -21.0 \u03bcC and -29.5 \u03bcC touch and separate. What is the new charge on each?",
+    "correct_answer": "-25.25",
+    "wrong_answers_pool": [
+      "-50.50",
+      "-12.62",
+      "-252.50",
+      "-2.52",
+      "-15.25",
+      "-35.25"
+    ],
+    "explanation": "Q_new = (Q1 + Q2) / 2 = (-21.0 + -29.5) / 2 = -25.25 \u03bcC.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_30"
+  },
+  {
+    "id": "PSC_FOR_410",
+    "topic": "Newton\u2019s Laws and Forces",
+    "subtopic": "Newton's Second Law",
+    "difficulty": "hard",
+    "question": "Two blocks (m1 = 33 kg, m2 = 42 kg) are connected by a string. A force of 80 N pulls m2. What is the tension in the string pulling m1? (Frictionless)",
+    "correct_answer": "35.20",
+    "wrong_answers_pool": [
+      "45.20",
+      "17.60",
+      "352.00",
+      "70.40",
+      "3.52",
+      "25.20"
+    ],
+    "explanation": "a = F / (m1+m2) = 80 / 75 = 1.067 m/s^2. T = m1 * a = 33 * 1.067 = 35.20 N.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_31"
+  },
+  {
+    "id": "PSC_MAT_976",
+    "topic": "Matter and Materials",
+    "subtopic": "Atomic Structure",
+    "difficulty": "medium",
+    "question": "An ion has an atomic number of 50 and a charge of +2. How many electrons does it have?",
+    "correct_answer": "48",
+    "wrong_answers_pool": [
+      "480",
+      "47",
+      "49",
+      "58",
+      "38",
+      "96"
+    ],
+    "explanation": "Electrons = Protons - Charge = 50 - (2) = 48.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_32"
+  },
+  {
+    "id": "PSC_ELE_381",
+    "topic": "Electricity and Magnetism",
+    "subtopic": "Electric Circuits",
+    "difficulty": "medium",
+    "question": "Three resistors (13 \u03a9, 59 \u03a9, 18 \u03a9) are in series. Find equivalent resistance.",
+    "correct_answer": "90.0",
+    "wrong_answers_pool": [
+      "900.00",
+      "9.00",
+      "100.00",
+      "45.00",
+      "80.00",
+      "180.00"
+    ],
+    "explanation": "R_eq = 13 + 59 + 18 = 90.0 \u03a9.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_33"
+  },
+  {
+    "id": "PSC_ENE_539",
+    "topic": "Energy and Energy Transfer",
+    "subtopic": "Conservation of Energy",
+    "difficulty": "hard",
+    "question": "A roller coaster (mass m) moves at 3 m/s at height 45 m. It drops to height 17 m. Find its speed there. (No friction)",
+    "correct_answer": "23.62",
+    "wrong_answers_pool": [
+      "11.81",
+      "33.62",
+      "47.24",
+      "13.62",
+      "236.20",
+      "2.36"
+    ],
+    "explanation": "Em1 = Em2 -> g*h1 + 0.5*u^2 = g*h2 + 0.5*v^2. v = sqrt(2*9.8*(45-17) + 3^2) = 23.62 m/s.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_34"
+  },
+  {
+    "id": "PSC_FOR_323",
+    "topic": "Newton\u2019s Laws and Forces",
+    "subtopic": "Newton's Second Law",
+    "difficulty": "medium",
+    "question": "A net force of 128 N causes an acceleration of 18.0 m/s^2. What is the object's mass?",
+    "correct_answer": "7.11",
+    "wrong_answers_pool": [
+      "50.55",
+      "0.71",
+      "3.56",
+      "14.22",
+      "17.11",
+      "71.10"
+    ],
+    "explanation": "m = F / a = 128 / 18.0 = 7.11 kg.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_35"
+  },
+  {
+    "id": "PSC_ELE_564",
+    "topic": "Electricity and Magnetism",
+    "subtopic": "Electric Circuits",
+    "difficulty": "hard",
+    "question": "Two resistors (59 \u03a9, 35 \u03a9) are in parallel. Calculate equivalent resistance.",
+    "correct_answer": "21.97",
+    "wrong_answers_pool": [
+      "11.97",
+      "10.98",
+      "43.94",
+      "2.20",
+      "31.97",
+      "219.70"
+    ],
+    "explanation": "1/R_eq = 1/59 + 1/35. R_eq = (59*35) / (59+35) = 21.97 \u03a9.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_36"
+  },
+  {
+    "id": "PSC_ENE_129",
+    "topic": "Energy and Energy Transfer",
+    "subtopic": "Conservation of Energy",
+    "difficulty": "hard",
+    "question": "A roller coaster (mass m) moves at 10 m/s at height 62 m. It drops to height 35 m. Find its speed there. (No friction)",
+    "correct_answer": "25.08",
+    "wrong_answers_pool": [
+      "35.08",
+      "250.80",
+      "12.54",
+      "50.16",
+      "15.08",
+      "2.51"
+    ],
+    "explanation": "Em1 = Em2 -> g*h1 + 0.5*u^2 = g*h2 + 0.5*v^2. v = sqrt(2*9.8*(62-35) + 10^2) = 25.08 m/s.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_37"
+  },
+  {
+    "id": "PSC_MAT_026",
+    "topic": "Matter and Materials",
+    "subtopic": "Atomic Structure",
+    "difficulty": "hard",
+    "question": "Element X-296 has an atomic number of 17. What is its full spdf electron configuration for a neutral atom?",
     "correct_answer": "1s2 2s2 2p6 3s2 3p5",
     "wrong_answers_pool": [
       "1s2 2s2 2p6 3s2 3p6",
@@ -395,497 +684,115 @@
       "1s2 2s2 2p8"
     ],
     "explanation": "Electrons fill in the order 1s, 2s, 2p, 3s, 3p, 4s. For 17 electrons, it is 1s2 2s2 2p6 3s2 3p5.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_22"
-  },
-  {
-    "id": "PSC_WAV_563",
-    "topic": "Waves, Sound and Light",
-    "subtopic": "Electromagnetic Radiation",
-    "difficulty": "hard",
-    "question": "Calculate the energy of a photon with wavelength 962 nm. (h=6.63x10^-34, c=3x10^8)",
-    "correct_answer": "2.068x10^-19",
-    "wrong_answers_pool": [
-      "4.14x10^-20",
-      "2.07x10^-16",
-      "2.07x10^-20",
-      "1.03x10^-16",
-      "10.34x10^-22",
-      "4.14x10^-17"
-    ],
-    "explanation": "E = hc/\u03bb = (6.63x10^-34 * 3x10^8) / (962x10^-9) = 2.068x10^-19 J.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_23"
-  },
-  {
-    "id": "PSC_MAT_982",
-    "topic": "Matter and Materials",
-    "subtopic": "Atomic Structure",
-    "difficulty": "medium",
-    "question": "An ion has an atomic number of 28 and a charge of +1. How many electrons does it have?",
-    "correct_answer": "27",
-    "wrong_answers_pool": [
-      "54",
-      "17",
-      "28",
-      "37",
-      "26",
-      "270"
-    ],
-    "explanation": "Electrons = Protons - Charge = 28 - (1) = 27.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_24"
-  },
-  {
-    "id": "PSC_MAT_271",
-    "topic": "Matter and Materials",
-    "subtopic": "Atomic Structure",
-    "difficulty": "hard",
-    "question": "Element X-927 has an atomic number of 14. What is its full spdf electron configuration for a neutral atom?",
-    "correct_answer": "1s2 2s2 2p6 3s2 3p2",
-    "wrong_answers_pool": [
-      "1s2 2s2 2p6 3s2 3p3",
-      "1s2 2s2 2p6 3s2 3p1",
-      "1s2 2s2 2p5 3s3 3p2",
-      "1s1 2s1 2p5 3s1 3p2",
-      "1s2 2s2 2p6 3s2 3p6 4s2",
-      "1s2 2s2 2p4 3s2",
-      "1s2 2s2 2p6 3s1 3p1",
-      "1s2 2s2 2p8"
-    ],
-    "explanation": "Electrons fill in the order 1s, 2s, 2p, 3s, 3p, 4s. For 14 electrons, it is 1s2 2s2 2p6 3s2 3p2.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_25"
-  },
-  {
-    "id": "PSC_ELE_224",
-    "topic": "Electricity and Magnetism",
-    "subtopic": "Electrostatics",
-    "difficulty": "hard",
-    "question": "Two identical spheres with charges 18.0 \u03bcC and 6.5 \u03bcC touch and separate. What is the new charge on each?",
-    "correct_answer": "12.25",
-    "wrong_answers_pool": [
-      "1.23",
-      "22.25",
-      "2.25",
-      "122.50",
-      "6.12",
-      "24.50"
-    ],
-    "explanation": "Q_new = (Q1 + Q2) / 2 = (18.0 + 6.5) / 2 = 12.25 \u03bcC.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_26"
-  },
-  {
-    "id": "PSC_ELE_545",
-    "topic": "Electricity and Magnetism",
-    "subtopic": "Electrostatics",
-    "difficulty": "medium",
-    "question": "An object has an excess of 6.2x10^7 electrons. What is its total negative charge? (e=1.6x10^-19)",
-    "correct_answer": "9.920x10^-12",
-    "wrong_answers_pool": [
-      "99.20x10^-15",
-      "0.99x10^-9",
-      "0.99x10^-13",
-      "16.05x10^-11",
-      "9.92x10^-14",
-      "9.92x10^-10"
-    ],
-    "explanation": "Q = n * e = (6.2x10^7) * 1.6x10^-19 = 9.920x10^-12 C.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_27"
-  },
-  {
-    "id": "PSC_MAT_313",
-    "topic": "Matter and Materials",
-    "subtopic": "Atomic Structure",
-    "difficulty": "hard",
-    "question": "Element X-907 has an atomic number of 7. What is its full spdf electron configuration for a neutral atom?",
-    "correct_answer": "1s2 2s2 2p3",
-    "wrong_answers_pool": [
-      "1s2 2s2 2p4",
-      "1s2 2s2 2p2",
-      "1s2 2s1 2p1 2p3",
-      "1s1 2s1 2p3",
-      "1s2 2s2 2p6 3s2 3p6 4s2",
-      "1s2 2s2 2p4 3s2",
-      "1s2 2s2 2p6 3s1 3p1",
-      "1s2 2s2 2p8"
-    ],
-    "explanation": "Electrons fill in the order 1s, 2s, 2p, 3s, 3p, 4s. For 7 electrons, it is 1s2 2s2 2p3.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_28"
-  },
-  {
-    "id": "PSC_WAV_233",
-    "topic": "Waves, Sound and Light",
-    "subtopic": "Electromagnetic Radiation",
-    "difficulty": "hard",
-    "question": "Calculate the energy of a photon with wavelength 188 nm. (h=6.63x10^-34, c=3x10^8)",
-    "correct_answer": "1.058x10^-18",
-    "wrong_answers_pool": [
-      "10.58x10^-20",
-      "1.99x10^-18",
-      "0.11x10^-21",
-      "10.58x10^-18",
-      "1.87x10^-19",
-      "1.66x10^-20"
-    ],
-    "explanation": "E = hc/\u03bb = (6.63x10^-34 * 3x10^8) / (188x10^-9) = 1.058x10^-18 J.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_29"
-  },
-  {
-    "id": "PSC_CHE_926",
-    "topic": "Chemical Change",
-    "subtopic": "Stoichiometry",
-    "difficulty": "medium",
-    "question": "How many molecules are in 1.0 moles of a substance? (Use N_A = 6.02 x 10^23)",
-    "correct_answer": "6.02x10^23",
-    "wrong_answers_pool": [
-      "10.78x10^21",
-      "12.04x10^22",
-      "0.60x10^20",
-      "0.60x10^21",
-      "30.10x10^21",
-      "12.04x10^24"
-    ],
-    "explanation": "Particles = n * N_A = 1.0 * 6.02 x 10^23 = 6.02x10^23.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_30"
-  },
-  {
-    "id": "PSC_FOR_980",
-    "topic": "Newton\u2019s Laws and Forces",
-    "subtopic": "Newton's Second Law",
-    "difficulty": "medium",
-    "question": "A net force of 434 N causes an acceleration of 4.0 m/s^2. What is the object's mass?",
-    "correct_answer": "108.50",
-    "wrong_answers_pool": [
-      "1085.00",
-      "217.00",
-      "54.25",
-      "10.85",
-      "98.50",
-      "118.50"
-    ],
-    "explanation": "m = F / a = 434 / 4.0 = 108.50 kg.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_31"
-  },
-  {
-    "id": "PSC_CHE_873",
-    "topic": "Chemical Change",
-    "subtopic": "Stoichiometry",
-    "difficulty": "hard",
-    "question": "Calculate the percentage composition by mass of Carbon in C5H12O2.",
-    "correct_answer": "57.69",
-    "wrong_answers_pool": [
-      "28.84",
-      "47.69",
-      "576.90",
-      "115.38",
-      "67.69",
-      "5.77"
-    ],
-    "explanation": "Molar mass = 104. %C = (60/104) * 100 = 57.69%.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_32"
-  },
-  {
-    "id": "PSC_FOR_093",
-    "topic": "Newton\u2019s Laws and Forces",
-    "subtopic": "Motion in One Dimension",
-    "difficulty": "hard",
-    "question": "A vehicle accelerates from 30 m/s to 92 m/s at 5.5 m/s^2. What is the distance traveled?",
-    "correct_answer": "687.64",
-    "wrong_answers_pool": [
-      "68.76",
-      "343.82",
-      "6876.40",
-      "677.64",
-      "1375.28",
-      "697.64"
-    ],
-    "explanation": "v^2 = u^2 + 2as. s = (92^2 - 30^2) / (2 * 5.5) = 687.64 m.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_33"
-  },
-  {
-    "id": "PSC_WAV_299",
-    "topic": "Waves, Sound and Light",
-    "subtopic": "Electromagnetic Radiation",
-    "difficulty": "hard",
-    "question": "Calculate the energy of a photon with wavelength 963 nm. (h=6.63x10^-34, c=3x10^8)",
-    "correct_answer": "2.065x10^-19",
-    "wrong_answers_pool": [
-      "1.12x10^-19",
-      "1.03x10^-22",
-      "20.65x10^-22",
-      "2.20x10^-20",
-      "0.21x10^-22",
-      "2.06x10^-22"
-    ],
-    "explanation": "E = hc/\u03bb = (6.63x10^-34 * 3x10^8) / (963x10^-9) = 2.065x10^-19 J.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_34"
-  },
-  {
-    "id": "PSC_WAV_908",
-    "topic": "Waves, Sound and Light",
-    "subtopic": "Electromagnetic Radiation",
-    "difficulty": "hard",
-    "question": "Calculate the energy of a photon with wavelength 791 nm. (h=6.63x10^-34, c=3x10^8)",
-    "correct_answer": "2.515x10^-19",
-    "wrong_answers_pool": [
-      "5.03x10^-18",
-      "5.03x10^-20",
-      "2.52x10^-22",
-      "2.38x10^-21",
-      "2.03x10^-21",
-      "1.26x10^-21"
-    ],
-    "explanation": "E = hc/\u03bb = (6.63x10^-34 * 3x10^8) / (791x10^-9) = 2.515x10^-19 J.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_35"
-  },
-  {
-    "id": "PSC_ELE_992",
-    "topic": "Electricity and Magnetism",
-    "subtopic": "Electrostatics",
-    "difficulty": "hard",
-    "question": "Two identical spheres with charges -15.5 \u03bcC and 24.0 \u03bcC touch and separate. What is the new charge on each?",
-    "correct_answer": "4.25",
-    "wrong_answers_pool": [
-      "2.12",
-      "8.50",
-      "42.50",
-      "0.42",
-      "14.25",
-      "-5.75"
-    ],
-    "explanation": "Q_new = (Q1 + Q2) / 2 = (-15.5 + 24.0) / 2 = 4.25 \u03bcC.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_36"
-  },
-  {
-    "id": "PSC_FOR_744",
-    "topic": "Newton\u2019s Laws and Forces",
-    "subtopic": "Motion in One Dimension",
-    "difficulty": "medium",
-    "question": "An object has an initial velocity of 18 m/s and accelerates at 5.5 m/s^2 for 49 s. What is the final velocity?",
-    "correct_answer": "287.50",
-    "wrong_answers_pool": [
-      "28.75",
-      "575.00",
-      "277.50",
-      "2875.00",
-      "143.75",
-      "297.50"
-    ],
-    "explanation": "v = u + at = 18 + (5.5 * 49) = 287.50 m/s.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_37"
-  },
-  {
-    "id": "PSC_MAT_546",
-    "topic": "Matter and Materials",
-    "subtopic": "Atomic Structure",
-    "difficulty": "hard",
-    "question": "An element has two isotopes: one with mass 76 amu (abundance 26%) and another with mass 80 amu (abundance 74%). Calculate the relative atomic mass.",
-    "correct_answer": "78.96",
-    "wrong_answers_pool": [
-      "88.96",
-      "39.48",
-      "789.60",
-      "68.96",
-      "157.92",
-      "7.90"
-    ],
-    "explanation": "RAM = (76 * 26 + 80 * 74) / 100 = 78.96 amu.",
     "exam_id": "EXAM_2026-W12_grade10_physical_sciences_38"
   },
   {
-    "id": "PSC_MAT_844",
-    "topic": "Matter and Materials",
-    "subtopic": "Atomic Structure",
-    "difficulty": "medium",
-    "question": "An ion has an atomic number of 45 and a charge of -2. How many electrons does it have?",
-    "correct_answer": "47",
+    "id": "PSC_CHE_359",
+    "topic": "Chemical Change",
+    "subtopic": "Stoichiometry",
+    "difficulty": "hard",
+    "question": "Calculate the percentage composition by mass of Carbon in C2H12O3.",
+    "correct_answer": "28.57",
     "wrong_answers_pool": [
-      "94",
-      "46",
-      "57",
-      "37",
-      "470",
-      "48"
+      "2.86",
+      "57.14",
+      "38.57",
+      "18.57",
+      "285.70",
+      "14.29"
     ],
-    "explanation": "Electrons = Protons - Charge = 45 - (-2) = 47.",
+    "explanation": "Molar mass = 84. %C = (24/84) * 100 = 28.57%.",
     "exam_id": "EXAM_2026-W12_grade10_physical_sciences_39"
   },
   {
-    "id": "PSC_MAT_872",
-    "topic": "Matter and Materials",
-    "subtopic": "Atomic Structure",
-    "difficulty": "medium",
-    "question": "An ion has an atomic number of 109 and a charge of -3. How many electrons does it have?",
-    "correct_answer": "112",
+    "id": "PSC_CHE_422",
+    "topic": "Chemical Change",
+    "subtopic": "Stoichiometry",
+    "difficulty": "hard",
+    "question": "Calculate the percentage composition by mass of Carbon in C4H7O4.",
+    "correct_answer": "40.34",
     "wrong_answers_pool": [
-      "224",
-      "102",
-      "113",
-      "1120",
-      "111",
-      "122"
+      "20.17",
+      "50.34",
+      "80.68",
+      "403.40",
+      "30.34",
+      "4.03"
     ],
-    "explanation": "Electrons = Protons - Charge = 109 - (-3) = 112.",
+    "explanation": "Molar mass = 119. %C = (48/119) * 100 = 40.34%.",
     "exam_id": "EXAM_2026-W12_grade10_physical_sciences_40"
   },
   {
-    "id": "PSC_FOR_856",
+    "id": "PSC_FOR_683",
     "topic": "Newton\u2019s Laws and Forces",
-    "subtopic": "Newton's Second Law",
+    "subtopic": "Motion in One Dimension",
     "difficulty": "hard",
-    "question": "Two blocks (m1 = 7 kg, m2 = 8 kg) are connected by a string. A force of 344 N pulls m2. What is the tension in the string pulling m1? (Frictionless)",
-    "correct_answer": "160.53",
+    "question": "A vehicle accelerates from 11 m/s to 97 m/s at 6.0 m/s^2. What is the distance traveled?",
+    "correct_answer": "774.00",
     "wrong_answers_pool": [
-      "170.53",
-      "1605.30",
-      "321.06",
-      "16.05",
-      "150.53",
-      "80.27"
+      "1548.00",
+      "77.40",
+      "7740.00",
+      "764.00",
+      "784.00",
+      "387.00"
     ],
-    "explanation": "a = F / (m1+m2) = 344 / 15 = 22.933 m/s^2. T = m1 * a = 7 * 22.933 = 160.53 N.",
+    "explanation": "v^2 = u^2 + 2as. s = (97^2 - 11^2) / (2 * 6.0) = 774.00 m.",
     "exam_id": "EXAM_2026-W12_grade10_physical_sciences_41"
   },
   {
-    "id": "PSC_MAT_020",
+    "id": "PSC_MAT_968",
     "topic": "Matter and Materials",
-    "subtopic": "Periodic Table",
+    "subtopic": "Atomic Structure",
     "difficulty": "medium",
-    "question": "How many core electrons does a neutral atom with atomic number 16 have?",
-    "correct_answer": "10",
+    "question": "An ion has an atomic number of 70 and a charge of -3. How many electrons does it have?",
+    "correct_answer": "73",
     "wrong_answers_pool": [
-      "20",
-      "1",
-      "9",
-      "11",
-      "100",
-      "0"
+      "83",
+      "146",
+      "74",
+      "730",
+      "63",
+      "72"
     ],
-    "explanation": "For atomic number 16, the noble gas core has 10 electrons.",
+    "explanation": "Electrons = Protons - Charge = 70 - (-3) = 73.",
     "exam_id": "EXAM_2026-W12_grade10_physical_sciences_42"
   },
   {
-    "id": "PSC_ELE_122",
-    "topic": "Electricity and Magnetism",
-    "subtopic": "Electric Circuits",
+    "id": "PSC_CHE_490",
+    "topic": "Chemical Change",
+    "subtopic": "Stoichiometry",
     "difficulty": "medium",
-    "question": "Three resistors (68 \u03a9, 5 \u03a9, 17 \u03a9) are in series. Find equivalent resistance.",
-    "correct_answer": "90.0",
+    "question": "Calculate the concentration (in mol.dm^-3) of a solution containing 9.5 moles of solute in 1808 cm^3 of solution.",
+    "correct_answer": "5.254",
     "wrong_answers_pool": [
-      "900.00",
-      "9.00",
-      "100.00",
-      "45.00",
-      "80.00",
-      "180.00"
+      "27.60",
+      "15.25",
+      "52.54",
+      "10.51",
+      "0.53",
+      "2.63"
     ],
-    "explanation": "R_eq = 68 + 5 + 17 = 90.0 \u03a9.",
+    "explanation": "V = 1808 / 1000 = 1.808 dm^3. C = n / V = 9.5 / 1.808 = 5.254 mol.dm^-3.",
     "exam_id": "EXAM_2026-W12_grade10_physical_sciences_43"
   },
   {
-    "id": "PSC_FOR_851",
-    "topic": "Newton\u2019s Laws and Forces",
-    "subtopic": "Newton's Second Law",
+    "id": "PSC_ELE_240",
+    "topic": "Electricity and Magnetism",
+    "subtopic": "Electrostatics",
     "difficulty": "hard",
-    "question": "Two blocks (m1 = 19 kg, m2 = 44 kg) are connected by a string. A force of 343 N pulls m2. What is the tension in the string pulling m1? (Frictionless)",
-    "correct_answer": "103.44",
+    "question": "Two identical spheres with charges 28.5 \u03bcC and 32.0 \u03bcC touch and separate. What is the new charge on each?",
+    "correct_answer": "30.25",
     "wrong_answers_pool": [
-      "113.44",
-      "93.44",
-      "1034.40",
-      "51.72",
-      "206.88",
-      "10.34"
+      "40.25",
+      "15.12",
+      "3.02",
+      "20.25",
+      "302.50",
+      "60.50"
     ],
-    "explanation": "a = F / (m1+m2) = 343 / 63 = 5.444 m/s^2. T = m1 * a = 19 * 5.444 = 103.44 N.",
+    "explanation": "Q_new = (Q1 + Q2) / 2 = (28.5 + 32.0) / 2 = 30.25 \u03bcC.",
     "exam_id": "EXAM_2026-W12_grade10_physical_sciences_44"
-  },
-  {
-    "id": "PSC_MAT_011",
-    "topic": "Matter and Materials",
-    "subtopic": "Periodic Table",
-    "difficulty": "medium",
-    "question": "How many core electrons does a neutral atom with atomic number 13 have?",
-    "correct_answer": "10",
-    "wrong_answers_pool": [
-      "20",
-      "1",
-      "9",
-      "11",
-      "100",
-      "0"
-    ],
-    "explanation": "For atomic number 13, the noble gas core has 10 electrons.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_45"
-  },
-  {
-    "id": "PSC_ENE_032",
-    "topic": "Energy and Energy Transfer",
-    "subtopic": "Conservation of Energy",
-    "difficulty": "hard",
-    "question": "A roller coaster (mass m) moves at 26 m/s at height 24 m. It drops to height 4 m. Find its speed there. (No friction)",
-    "correct_answer": "32.68",
-    "wrong_answers_pool": [
-      "16.34",
-      "22.68",
-      "3.27",
-      "42.68",
-      "65.36",
-      "326.80"
-    ],
-    "explanation": "Em1 = Em2 -> g*h1 + 0.5*u^2 = g*h2 + 0.5*v^2. v = sqrt(2*9.8*(24-4) + 26^2) = 32.68 m/s.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_46"
-  },
-  {
-    "id": "PSC_CHE_578",
-    "topic": "Chemical Change",
-    "subtopic": "Stoichiometry",
-    "difficulty": "medium",
-    "question": "Calculate the concentration (in mol.dm^-3) of a solution containing 5.6 moles of solute in 1196 cm^3 of solution.",
-    "correct_answer": "4.682",
-    "wrong_answers_pool": [
-      "21.92",
-      "46.82",
-      "0.47",
-      "9.36",
-      "2.34",
-      "14.68"
-    ],
-    "explanation": "V = 1196 / 1000 = 1.196 dm^3. C = n / V = 5.6 / 1.196 = 4.682 mol.dm^-3.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_47"
-  },
-  {
-    "id": "PSC_FOR_068",
-    "topic": "Newton\u2019s Laws and Forces",
-    "subtopic": "Motion in One Dimension",
-    "difficulty": "medium",
-    "question": "An object has an initial velocity of 38 m/s and accelerates at 6.0 m/s^2 for 47 s. What is the final velocity?",
-    "correct_answer": "320.00",
-    "wrong_answers_pool": [
-      "32.00",
-      "310.00",
-      "330.00",
-      "640.00",
-      "3200.00",
-      "160.00"
-    ],
-    "explanation": "v = u + at = 38 + (6.0 * 47) = 320.00 m/s.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_48"
-  },
-  {
-    "id": "PSC_CHE_988",
-    "topic": "Chemical Change",
-    "subtopic": "Stoichiometry",
-    "difficulty": "medium",
-    "question": "What mass of solute (Molar mass = 155 g/mol) is needed to prepare 5.3 dm^3 of a 2.3 mol.dm^-3 solution?",
-    "correct_answer": "1889.45",
-    "wrong_answers_pool": [
-      "3778.90",
-      "1899.45",
-      "18894.50",
-      "1879.45",
-      "188.94",
-      "944.73"
-    ],
-    "explanation": "n = C * V = 2.3 * 5.3 = 12.19 mol. Mass = n * M = 12.19 * 155 = 1889.45 g.",
-    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_49"
   },
   {
     "id": "PSC_ELE_254",
@@ -903,6 +810,96 @@
       "0.40"
     ],
     "explanation": "Q_new = (Q1 + Q2) / 2 = (1.5 + 6.5) / 2 = 4.00 \u03bcC.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_45"
+  },
+  {
+    "id": "PSC_CHE_033",
+    "topic": "Chemical Change",
+    "subtopic": "Stoichiometry",
+    "difficulty": "hard",
+    "question": "In the reaction 3A + 5B -> Products, you have 0.7 mol of A and 1.2 mol of B. Which is the limiting reactant?",
+    "correct_answer": "Reactant A",
+    "wrong_answers_pool": [
+      "Reactant B",
+      "Products",
+      "Both A and B",
+      "Cannot be determined",
+      "Water",
+      "Depends on mass"
+    ],
+    "explanation": "Ratio A = 0.7/3 = 0.23. Ratio B = 1.2/5 = 0.24. Smaller ratio determines limiting reactant: Reactant A.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_46"
+  },
+  {
+    "id": "PSC_WAV_591",
+    "topic": "Waves, Sound and Light",
+    "subtopic": "Electromagnetic Radiation",
+    "difficulty": "hard",
+    "question": "Calculate the energy of a photon with wavelength 629 nm. (h=6.63x10^-34, c=3x10^8)",
+    "correct_answer": "3.162x10^-19",
+    "wrong_answers_pool": [
+      "3.94x10^-22",
+      "1.58x10^-22",
+      "6.32x10^-22",
+      "6.32x10^-21",
+      "15.81x10^-20",
+      "31.62x10^-16"
+    ],
+    "explanation": "E = hc/\u03bb = (6.63x10^-34 * 3x10^8) / (629x10^-9) = 3.162x10^-19 J.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_47"
+  },
+  {
+    "id": "PSC_WAV_244",
+    "topic": "Waves, Sound and Light",
+    "subtopic": "Sound",
+    "difficulty": "medium",
+    "question": "Lightning strikes 1109 m away. Speed of sound is 342 m/s. How long until thunder is heard?",
+    "correct_answer": "3.243",
+    "wrong_answers_pool": [
+      "1.62",
+      "0.32",
+      "13.24",
+      "32.43",
+      "10.52",
+      "6.49"
+    ],
+    "explanation": "t = d / v = 1109 / 342 = 3.243 s.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_48"
+  },
+  {
+    "id": "PSC_ENE_316",
+    "topic": "Energy and Energy Transfer",
+    "subtopic": "Conservation of Energy",
+    "difficulty": "hard",
+    "question": "A roller coaster (mass m) moves at 14 m/s at height 181 m. It drops to height 158 m. Find its speed there. (No friction)",
+    "correct_answer": "25.43",
+    "wrong_answers_pool": [
+      "2.54",
+      "254.30",
+      "15.43",
+      "50.86",
+      "12.71",
+      "35.43"
+    ],
+    "explanation": "Em1 = Em2 -> g*h1 + 0.5*u^2 = g*h2 + 0.5*v^2. v = sqrt(2*9.8*(181-158) + 14^2) = 25.43 m/s.",
+    "exam_id": "EXAM_2026-W12_grade10_physical_sciences_49"
+  },
+  {
+    "id": "PSC_FOR_247",
+    "topic": "Newton\u2019s Laws and Forces",
+    "subtopic": "Motion in One Dimension",
+    "difficulty": "medium",
+    "question": "An object has an initial velocity of 39 m/s and accelerates at 6.5 m/s^2 for 32 s. What is the final velocity?",
+    "correct_answer": "247.00",
+    "wrong_answers_pool": [
+      "494.00",
+      "24.70",
+      "257.00",
+      "2470.00",
+      "123.50",
+      "237.00"
+    ],
+    "explanation": "v = u + at = 39 + (6.5 * 32) = 247.00 m/s.",
     "exam_id": "EXAM_2026-W12_grade10_physical_sciences_50"
   }
 ]
