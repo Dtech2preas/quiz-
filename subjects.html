@@ -175,7 +175,8 @@
         "physical_sciences": "physics", // Uses same class as physics
         "life_sciences": "life-sciences",
         "natural_sciences": "natural-sciences",
-        "mathematical_literacy": "math-lit"
+        "mathematical_literacy": "math-lit",
+        "agricultural_sciences": "agri-sciences"
     };
 
     const SUBJECT_LABELS = {
@@ -184,7 +185,8 @@
         "physical_sciences": "Physical Sciences",
         "life_sciences": "Life Sciences",
         "natural_sciences": "Natural Sciences",
-        "mathematical_literacy": "Mathematical Literacy"
+        "mathematical_literacy": "Mathematical Literacy",
+        "agricultural_sciences": "Agricultural Sciences"
     };
 
     async function fetchGradeMap() {
@@ -220,6 +222,9 @@
                 extraClass = "";
             } else if (subjectKey === "natural_sciences") {
                 extraStyle = 'style="background-color: #22c55e;"';
+                extraClass = "";
+            } else if (subjectKey === "agricultural_sciences") {
+                extraStyle = 'style="background-color: #84cc16;"'; // lime color for agriculture
                 extraClass = "";
             }
 
