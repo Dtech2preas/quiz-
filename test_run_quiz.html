@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Test Run | DTech Services</title>
+
+    <!-- Load MathJax for rendering math formulas -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-hover: #059669;
+            --accent-red: #ef4444;
+            --border-color: #334155;
+            --header-bg: #0b1120;
+            --option-bg: #334155;
+            --option-hover: #475569;
+            --option-selected: #2563eb;
+        }
+        body { display: flex; flex-direction: column; min-height: 100vh; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-dark); color: var(--text-main); }
+
+        /* Compact Header / Nav */
+        header { background: var(--header-bg); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
+        header img { height: 40px; cursor: pointer; }
+        .nav-links { display: flex; gap: 1rem; align-items: center; }
+        .nav-links a { color: var(--text-main); text-decoration: none; font-weight: 500; padding: 0.5rem 1rem; border-radius: 6px; transition: background-color 0.2s; }
+        .nav-links a:hover { background-color: var(--bg-card); }
+        .nav-links a.primary-btn { background-color: var(--accent-blue); color: white; }
+        .nav-links a.primary-btn:hover { background-color: var(--accent-hover); }
+
+        /* Responsive Nav */
+        @media (max-width: 768px) {
+            header { flex-direction: column; padding: 1rem; gap: 1rem; justify-content: center; }
+        }
+
+        .container { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+
+        .setup-section, .quiz-section, .result-section { background: var(--bg-card); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 2rem; border: 1px solid var(--border-color); }
+
+        button.action-btn { padding: 0.8rem 1.5rem; background: var(--accent-green); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 1.05rem; font-weight: 500; transition: background-color 0.2s, transform 0.1s; }
+        button.action-btn:hover { background: var(--accent-hover); transform: translateY(-1px); }
+        button.action-btn:active { transform: translateY(0); }
+
+        /* Animations */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+
+        @keyframes popIn { 0% { opacity: 0; transform: scale(0.95); } 100% { opacity: 1; transform: scale(1); } }
+
+        .question-text { font-size: 1.3rem; margin-bottom: 1.5rem; font-weight: 600; line-height: 1.5; color: var(--text-main); opacity: 0; }
+        .options { display: flex; flex-direction: column; gap: 1rem; }
+        .option-btn { padding: 1.2rem; background: var(--option-bg); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 1.1rem; color: var(--text-main); transition: all 0.2s; line-height: 1.4; opacity: 0; }
+        .option-btn:hover { background: var(--option-hover); border-color: #64748b; }
+
+        .option-btn.selected { background: var(--option-selected); border-color: #60a5fa; color: white; transform: scale(1.02); }
+
+        .quiz-footer { margin-top: 2rem; display: flex; justify-content: flex-end; align-items: center; border-top: 1px solid var(--border-color); padding-top: 1.5rem; }
+        #next-btn { background: var(--accent-blue); width: 100%; max-width: 200px; padding: 0.8rem 1.5rem; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 1.05rem; font-weight: 500; transition: background-color 0.2s, transform 0.1s; }
+        #next-btn:hover { background: #2563eb; }
+        #next-btn:disabled { background: var(--border-color); cursor: not-allowed; transform: none; color: var(--text-muted); }
+
+        #loading { text-align: center; font-size: 1.2rem; padding: 2rem; color: var(--text-muted); }
+
+        .signup-banner {
+            background-color: rgba(59, 130, 246, 0.1);
+            border: 1px solid var(--accent-blue);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .signup-banner h3 { color: var(--accent-blue); margin-top: 0; }
+        .signup-banner p { color: var(--text-main); font-size: 1.05rem; margin-bottom: 1.5rem; }
+
+        .signup-btn {
+            background-color: var(--accent-blue);
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            font-weight: bold;
+            display: inline-block;
+            transition: background-color 0.2s;
+        }
+        .signup-btn:hover { background-color: var(--accent-hover); }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--header-bg, #0b1120);
+            color: var(--text-muted, #94a3b8);
+            text-align: center;
+            padding: 1.5rem 1rem;
+            margin-top: auto;
+            border-top: 1px solid var(--border-color, #334155);
+            font-size: 0.9rem;
+        }
+        footer p { margin: 0.3rem 0; }
+        footer a { color: var(--accent-blue, #3b82f6); text-decoration: none; font-weight: 500; }
+        footer a:hover { text-decoration: underline; }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.png" alt="Dtech Logo" onclick="window.location.href='index.html'">
+    <div class="nav-links">
+        <a href="test_run_subjects.html">Back to Subjects</a>
+        <a href="login.html">Log In</a>
+        <a href="signup.html" class="primary-btn">Sign Up</a>
+    </div>
+</header>
+
+<div class="container">
+    <div id="loading" style="display: none;">Loading dataset...</div>
+
+    <!-- Quiz Setup -->
+    <div id="setup-section" class="setup-section">
+        <h2 id="quiz-title">Loading...</h2>
+        <p>Test Run Quiz: 10 Questions</p>
+        <button class="action-btn" onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <!-- Active Quiz -->
+    <div id="quiz-section" class="quiz-section" style="display:none;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 1rem; color: var(--text-muted);">
+            <span id="progress-text">Question 1 of 10</span>
+        </div>
+
+        <div class="question-text" id="question-text"></div>
+        <div class="options" id="options-container"></div>
+
+        <div class="quiz-footer">
+            <button id="next-btn" onclick="nextQuestion()" disabled>Next Question</button>
+        </div>
+    </div>
+
+    <!-- Result Section -->
+    <div id="result-section" class="result-section" style="display:none;">
+        <div style="text-align: center; margin-bottom: 2rem; animation: popIn 0.5s ease-out forwards;">
+            <h2 id="quiz-completed-title">Test Run Completed!</h2>
+            <p style="font-size: 1.2rem; margin: 1rem 0;">You scored <strong id="final-score"></strong> out of <span id="final-total">10</span> (<span id="final-percentage"></span>%).</p>
+
+            <div class="signup-banner">
+                <h3>Want to improve your score?</h3>
+                <p>Sign up to see detailed explanations of what went wrong, get an unlimited number of questions per quiz, track your performance, and see your ranking on the leaderboard!</p>
+                <a href="signup.html" class="signup-btn">Sign Up Now</a>
+            </div>
+
+            <button class="action-btn" onclick="window.location.href='test_run_subjects.html'" style="background:var(--option-bg); color:var(--text-main); border:1px solid var(--border-color); margin-top: 1rem;">Take Another Test Run</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Redirect if logged in
+    if (localStorage.getItem("user_id")) {
+        window.location.href = "dashboard.html";
+    }
+
+    if (localStorage.getItem("is_test_run") !== "true") {
+        window.location.href = "test_run_grades.html";
+    }
+
+    function formatLatexOption(text) {
+        if (!text) return text;
+        text = String(text);
+        if (text.includes('$') || text.includes('\\(') || text.includes('\\[')) {
+            return text;
+        }
+        const latexIndicators = ['\\', '^', '_', '{', '}'];
+        const hasLatex = latexIndicators.some(indicator => text.includes(indicator));
+        if (hasLatex) {
+            return '\\(' + text + '\\)';
+        }
+        return text;
+    }
+
+    // Get subject and file from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const subject = urlParams.get('subject');
+    const filename = urlParams.get('file');
+
+    if (!subject || !filename) {
+        window.location.href = "test_run_subjects.html";
+    }
+
+    const testRunGrade = localStorage.getItem("test_run_grade") || "grade12";
+
+    let fullDataset = [];
+    let quizQuestions = [];
+    let currentQuestionIndex = 0;
+    let correctAnswersCount = 0;
+    let currentTopic = filename.replace('.json', '');
+
+    // Initialize
+    document.getElementById("quiz-title").textContent = currentTopic.replace('paper1_', '').replace('paper2_', '').replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase()) + " Quiz";
+
+    async function loadDataset() {
+        document.getElementById("setup-section").style.display = "none";
+        document.getElementById("loading").style.display = "block";
+
+        try {
+            // Fetch the dataset from the specific grade folder
+            let fetchUrl = `dataset/${testRunGrade}/${subject}/${filename}`;
+            const response = await fetch(fetchUrl);
+            if (!response.ok) throw new Error("Dataset not found");
+            const data = await response.json();
+            fullDataset = data;
+        } catch (error) {
+            console.error(error);
+            alert("Error loading dataset. Please try again.");
+            window.location.href = "test_run_subjects.html";
+        }
+    }
+
+    async function startQuiz() {
+        await loadDataset();
+
+        let numQuestions = 10;
+        if (numQuestions > fullDataset.length) {
+            numQuestions = fullDataset.length;
+        }
+
+        // Shuffle and select
+        quizQuestions = [...fullDataset].sort(() => 0.5 - Math.random()).slice(0, numQuestions);
+
+        currentQuestionIndex = 0;
+        correctAnswersCount = 0;
+
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("quiz-section").style.display = "block";
+
+        showQuestion();
+    }
+
+    function showQuestion() {
+        const q = quizQuestions[currentQuestionIndex];
+
+        document.getElementById("progress-text").textContent = `Question ${currentQuestionIndex + 1} of ${quizQuestions.length}`;
+
+        const qText = document.getElementById("question-text");
+        qText.innerHTML = formatLatexOption(q.question);
+
+        // Reset animations
+        qText.classList.remove('fade-in');
+        void qText.offsetWidth; // trigger reflow
+        qText.classList.add('fade-in');
+
+        const optionsContainer = document.getElementById("options-container");
+        optionsContainer.innerHTML = "";
+
+        // Combine correct and wrong answers, then shuffle
+        let allOptions = [{ text: formatLatexOption(q.correct_answer), isCorrect: true }];
+        const wrongAnswers = [...q.wrong_answers_pool].sort(() => 0.5 - Math.random()).slice(0, 3);
+        wrongAnswers.forEach(w => allOptions.push({ text: formatLatexOption(w), isCorrect: false }));
+        allOptions = allOptions.sort(() => 0.5 - Math.random());
+
+        allOptions.forEach((opt, index) => {
+            const btn = document.createElement("button");
+            btn.className = "option-btn";
+            btn.innerHTML = opt.text;
+            btn.dataset.correct = opt.isCorrect;
+            btn.dataset.text = opt.text;
+
+            // Staggered fade in
+            btn.style.animationDelay = `${index * 0.1}s`;
+            btn.classList.add('fade-in');
+
+            btn.onclick = () => selectOption(btn);
+            optionsContainer.appendChild(btn);
+        });
+
+        // Set up Next/Finish button
+        const nextBtn = document.getElementById("next-btn");
+        nextBtn.style.display = "block";
+        nextBtn.disabled = true;
+
+        if (currentQuestionIndex === quizQuestions.length - 1) {
+            nextBtn.textContent = "Finish Quiz";
+        } else {
+            nextBtn.textContent = "Next Question";
+        }
+
+        // Tell MathJax to typeset the new math content
+        if (window.MathJax) {
+            MathJax.typesetPromise();
+        }
+    }
+
+    let selectedBtn = null;
+
+    function selectOption(btn) {
+        const buttons = document.querySelectorAll(".option-btn");
+        buttons.forEach(b => b.classList.remove("selected"));
+        btn.classList.add("selected");
+        selectedBtn = btn;
+        document.getElementById("next-btn").disabled = false;
+    }
+
+    async function nextQuestion() {
+        if (!selectedBtn) return;
+
+        const isCorrect = selectedBtn.dataset.correct === "true";
+        if (isCorrect) {
+            correctAnswersCount++;
+        }
+
+        selectedBtn = null;
+
+        if (currentQuestionIndex < quizQuestions.length - 1) {
+            currentQuestionIndex++;
+            showQuestion();
+        } else {
+            finishQuiz();
+        }
+    }
+
+    function finishQuiz() {
+        document.getElementById("quiz-section").style.display = "none";
+
+        // Display results directly without sending to backend or review container
+        document.getElementById("result-section").style.display = "block";
+
+        document.getElementById("final-score").textContent = correctAnswersCount;
+        document.getElementById("final-total").textContent = quizQuestions.length;
+
+        const percentage = quizQuestions.length > 0 ? ((correctAnswersCount / quizQuestions.length) * 100).toFixed(0) : 0;
+        document.getElementById("final-percentage").textContent = percentage;
+
+        if (percentage == 100 && typeof confetti === 'function') {
+            document.getElementById("quiz-completed-title").innerHTML = "🎉 Perfect Score! 🎉";
+            document.getElementById("quiz-completed-title").style.color = "var(--accent-yellow)";
+
+            var duration = 3000;
+            var end = Date.now() + duration;
+
+            (function frame() {
+                confetti({
+                    particleCount: 5, angle: 60, spread: 55, origin: { x: 0 },
+                    colors: ['#3b82f6', '#10b981', '#f59e0b']
+                });
+                confetti({
+                    particleCount: 5, angle: 120, spread: 55, origin: { x: 1 },
+                    colors: ['#3b82f6', '#10b981', '#f59e0b']
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+        }
+    }
+
+</script>
+
+<footer id="dynamic-footer">
+  <p>&copy; <span id="footer-year">2024</span> DTech Services</p>
+  <p>Empowering the youth through digital innovation</p>
+  <a href="https://legal.dtech-services.co.za">Terms & Conditions</a>
+</footer>
+<script>
+    const currentYear = new Date().getFullYear();
+    document.getElementById('footer-year').textContent = `2020–${currentYear}`;
+</script>
+
+</body>
+</html>
