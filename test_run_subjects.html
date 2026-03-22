@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Subject - Test Run | DTech Services</title>
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-cyan: #06b6d4;
+            --accent-hover: #2563eb;
+            --border-color: #334155;
+            --header-bg: #0b1120;
+            --topic-btn-bg: #334155;
+            --topic-btn-hover: #475569;
+        }
+        body { display: flex; flex-direction: column; min-height: 100vh; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-dark); color: var(--text-main); }
+
+        /* Compact Header / Nav */
+        header { background: var(--header-bg); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
+        header img { height: 40px; cursor: pointer; }
+        .nav-links { display: flex; gap: 1rem; align-items: center; }
+        .nav-links a { color: var(--text-main); text-decoration: none; font-weight: 500; padding: 0.5rem 1rem; border-radius: 6px; transition: background-color 0.2s; }
+        .nav-links a:hover { background-color: var(--bg-card); }
+        .nav-links a.primary-btn { background-color: var(--accent-blue); color: white; }
+        .nav-links a.primary-btn:hover { background-color: var(--accent-hover); }
+
+        /* Responsive Nav */
+        @media (max-width: 768px) {
+            header { flex-direction: column; padding: 1rem; gap: 1rem; justify-content: center; }
+        }
+
+        .container { max-width: 800px; margin: 2rem auto; padding: 0 1rem; text-align: center; width: 100%; box-sizing: border-box; }
+        h2 { font-weight: 600; color: var(--text-main); margin-bottom: 0.5rem; }
+        p { color: var(--text-muted); margin-bottom: 1.5rem; }
+
+        .subject-btn { padding: 1.5rem; background: var(--accent-green); color: white; font-size: 1.5rem; border: none; border-radius: 12px; cursor: pointer; display: block; width: 100%; margin-bottom: 1.5rem; text-align: center; font-weight: 600; transition: background-color 0.2s, transform 0.1s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .subject-btn:hover { background: #059669; transform: translateY(-2px); }
+        .subject-btn:active { transform: translateY(0); }
+
+        /* Specific subject button override */
+        .subject-btn.physics { background-color: var(--accent-cyan); }
+        .subject-btn.physics:hover { background-color: #0891b2; }
+        .subject-btn.math-lit { background-color: #8b5cf6; } /* Purple color for Math Lit */
+        .subject-btn.math-lit:hover { background-color: #7c3aed; }
+
+        .topic-list { display: none; background: var(--bg-card); padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-top: -0.5rem; margin-bottom: 2.5rem; border: 1px solid var(--border-color); }
+
+        /* Grid layout for topics on larger screens */
+        @media (min-width: 600px) {
+            .topic-list-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+            .topic-btn { margin-bottom: 0 !important; }
+        }
+
+        .topic-btn { padding: 1.2rem; background: var(--topic-btn-bg); color: var(--text-main); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; display: block; width: 100%; margin-bottom: 0.8rem; text-align: left; font-size: 1.05rem; transition: background-color 0.2s; font-weight: 500; }
+        .topic-btn:hover { background: var(--topic-btn-hover); }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--header-bg, #0b1120);
+            color: var(--text-muted, #94a3b8);
+            text-align: center;
+            padding: 1.5rem 1rem;
+            margin-top: auto;
+            border-top: 1px solid var(--border-color, #334155);
+            font-size: 0.9rem;
+        }
+        footer p { margin: 0.3rem 0; }
+        footer a { color: var(--accent-blue, #3b82f6); text-decoration: none; font-weight: 500; }
+        footer a:hover { text-decoration: underline; }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.png" alt="Dtech Logo" onclick="window.location.href='index.html'">
+    <div class="nav-links">
+        <a href="test_run_grades.html">Change Grade</a>
+        <a href="login.html">Log In</a>
+        <a href="signup.html" class="primary-btn">Sign Up</a>
+    </div>
+</header>
+
+<div class="container" id="subjects-container">
+    <h2>Choose a Subject</h2>
+    <p>Test Run Mode (10 Questions)</p>
+    <!-- Subjects and Topics will be generated here dynamically based on the user's grade -->
+</div>
+
+<script>
+    // Redirect if logged in
+    if (localStorage.getItem("user_id")) {
+        window.location.href = "dashboard.html";
+    }
+
+    // Check test run flag
+    if (localStorage.getItem("is_test_run") !== "true") {
+        window.location.href = "test_run_grades.html";
+    }
+
+    const testRunGrade = localStorage.getItem("test_run_grade") || "grade12";
+
+    const SUBJECT_COLORS = {
+        "mathematics": "", // Uses default
+        "physics": "physics", // Uses specific class
+        "physical_sciences": "physics", // Uses same class as physics
+        "life_sciences": "life-sciences",
+        "natural_sciences": "natural-sciences",
+        "mathematical_literacy": "math-lit",
+        "agricultural_sciences": "agri-sciences"
+    };
+
+    const SUBJECT_LABELS = {
+        "mathematics": "Mathematics",
+        "physics": "Physical Sciences",
+        "physical_sciences": "Physical Sciences",
+        "life_sciences": "Life Sciences",
+        "natural_sciences": "Natural Sciences",
+        "mathematical_literacy": "Mathematical Literacy",
+        "agricultural_sciences": "Agricultural Sciences"
+    };
+
+    async function fetchGradeMap() {
+        try {
+            const response = await fetch('map.json');
+            if (!response.ok) throw new Error("Could not load map.json");
+            return await response.json();
+        } catch (error) {
+            console.error(error);
+            return {};
+        }
+    }
+
+    async function renderSubjects() {
+        const GRADE_MAP = await fetchGradeMap();
+        const container = document.getElementById("subjects-container");
+        const userMap = GRADE_MAP[testRunGrade];
+
+        if (!userMap) {
+            container.innerHTML = "<h2>No subjects available for your grade yet.</h2>";
+            return;
+        }
+
+        let html = `
+            <h2>Choose a Subject to Practice</h2>
+            <p>Test Run Mode - ${testRunGrade.replace('grade', 'Grade ')}</p>
+        `;
+
+        for (const [subjectKey, topics] of Object.entries(userMap)) {
+            const subjectLabel = SUBJECT_LABELS[subjectKey] || subjectKey.replace('_', ' ').replace(/\\b\\w/g, l => l.toUpperCase());
+
+            let extraStyle = "";
+            let extraClass = SUBJECT_COLORS[subjectKey] || "";
+            if (subjectKey === "life_sciences") {
+                extraStyle = 'style="background-color: #f59e0b;"';
+                extraClass = "";
+            } else if (subjectKey === "natural_sciences") {
+                extraStyle = 'style="background-color: #22c55e;"';
+                extraClass = "";
+            } else if (subjectKey === "agricultural_sciences") {
+                extraStyle = 'style="background-color: #84cc16;"'; // lime color for agriculture
+                extraClass = "";
+            }
+
+            html += `
+                <button class="subject-btn ${extraClass}" ${extraStyle} onclick="showTopics('${subjectKey}')">${subjectLabel}</button>
+                <div id="topics-${subjectKey}" class="topic-list">
+                    <div class="topic-list-grid">
+            `;
+
+            topics.forEach(topic => {
+                html += `<button class="topic-btn" onclick="startTestQuiz('${subjectKey}', '${topic.file}')">${topic.label}</button>`;
+            });
+
+            html += `
+                    </div>
+                </div>
+            `;
+        }
+
+        container.innerHTML = html;
+    }
+
+    function showTopics(subject) {
+        // Hide all topic lists
+        const allLists = document.querySelectorAll(".topic-list");
+        allLists.forEach(list => list.style.display = "none");
+
+        // Show the selected one
+        const target = document.getElementById(`topics-${subject}`);
+        if (target) target.style.display = "block";
+    }
+
+    function startTestQuiz(subject, filename) {
+        // Redirect to test_run_quiz.html with query parameters
+        const url = new URL("test_run_quiz.html", window.location.origin + window.location.pathname.replace('test_run_subjects.html',''));
+        url.searchParams.set('subject', subject);
+        url.searchParams.set('file', filename);
+        window.location.href = url.toString();
+    }
+
+    // Render on load
+    renderSubjects();
+</script>
+
+<footer id="dynamic-footer">
+  <p>&copy; <span id="footer-year">2024</span> Dtech &bull; Preasx24</p>
+  <p>Empowering the youth through digital innovation</p>
+  <a href="https://legal.dtech-services.co.za">Terms & Conditions</a>
+</footer>
+<script>
+    // Set dynamic year in footer
+    const currentYear = new Date().getFullYear();
+    document.getElementById('footer-year').textContent = `2020–${currentYear}`;
+</script>
+
+</body>
+</html>
