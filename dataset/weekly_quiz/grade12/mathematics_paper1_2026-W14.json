@@ -1,0 +1,994 @@
+[
+  {
+    "id": "FUN_789",
+    "topic": "Functions and Graphs",
+    "subtopic": "intercepts and turning points",
+    "difficulty": "medium",
+    "question": "What is the range of the function $f(x) = - x^{2} + 4 x - 11$?",
+    "correct_answer": "y \\leq -7",
+    "wrong_answers_pool": [
+      "y \\geq -7",
+      "y \\leq 7",
+      "y \\geq 7",
+      "y \\leq 2",
+      "y \\geq 2",
+      "y \\in \\mathbb{R}",
+      "y < -7"
+    ],
+    "explanation": "The maximum value is $y = -7$. Therefore, range is $y \\leq -7$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_1"
+  },
+  {
+    "id": "PROB_840",
+    "topic": "Probability",
+    "subtopic": "basic probability",
+    "difficulty": "medium",
+    "question": "Given $P(A) = 0.11$, $P(B) = 0.2$, and $P(A \\cup B) = 0.21$. Calculate $P(A \\cap B)$.",
+    "correct_answer": "0.10",
+    "wrong_answers_pool": [
+      "0.50",
+      "0.57",
+      "0.38",
+      "0.63",
+      "0.56",
+      "0.06",
+      "0.69",
+      "0.02"
+    ],
+    "explanation": "$P(A \\cup B) = P(A) + P(B) - P(A \\cap B) \\implies 0.21 = 0.11 + 0.2 - P(A \\cap B) \\implies P(A \\cap B) = 0.10$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_2"
+  },
+  {
+    "id": "PROB_815",
+    "topic": "Probability",
+    "subtopic": "basic probability",
+    "difficulty": "medium",
+    "question": "Given $P(A) = 0.33$, $P(B) = 0.28$, and $P(A \\cup B) = 0.5$. Calculate $P(A \\cap B)$.",
+    "correct_answer": "0.11",
+    "wrong_answers_pool": [
+      "0.93",
+      "0.57",
+      "0.13",
+      "0.40",
+      "0.18",
+      "0.55",
+      "0.89",
+      "0.45"
+    ],
+    "explanation": "$P(A \\cup B) = P(A) + P(B) - P(A \\cap B) \\implies 0.5 = 0.33 + 0.28 - P(A \\cap B) \\implies P(A \\cap B) = 0.11$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_3"
+  },
+  {
+    "id": "FIN_076",
+    "topic": "Finance, Growth and Decay",
+    "subtopic": "compound interest",
+    "difficulty": "hard",
+    "question": "An amount grows to R$72618.97$ after $6$ years at an interest rate of $6\\%$ p.a. compounded monthly. Calculate the original principal amount $P$.",
+    "correct_answer": "50710",
+    "wrong_answers_pool": [
+      "152130",
+      "50690",
+      "50692",
+      "50728",
+      "50697",
+      "-50710",
+      "25355",
+      "101420"
+    ],
+    "explanation": "$A = P(1+\\frac{i}{k})^{nk} \\implies 72618.97 = P(1 + \\frac{0.06}{12})^{72} \\implies P = \\frac{72618.97}{(1 + 0.0050)^{72}} \\approx 50710$",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_4"
+  },
+  {
+    "id": "SEQ_340",
+    "topic": "Patterns and Sequences",
+    "subtopic": "arithmetic sequences",
+    "difficulty": "hard",
+    "question": "In an arithmetic sequence, $T_{17} = 578$ and $T_{71} = 2414$. Find the common difference $d$.",
+    "correct_answer": "34",
+    "wrong_answers_pool": [
+      "32",
+      "33",
+      "35",
+      "68",
+      "36",
+      "102",
+      "14",
+      "46"
+    ],
+    "explanation": "$T_{17} = a + 16d = 578$ and $T_{71} = a + 70d = 2414$. Subtracting the equations gives $d = 34$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_5"
+  },
+  {
+    "id": "ALG_259",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "inequalities",
+    "difficulty": "medium",
+    "question": "Solve for $x$: $x^{2} - 4 x - 5 \\leq 0$",
+    "correct_answer": "-1 \\leq x \\leq 5",
+    "wrong_answers_pool": [
+      "x \\leq -1 \\text{ or } x \\geq 5",
+      "-1 < x < 5",
+      "-5 \\leq x \\leq 1",
+      "x \\leq -5 \\text{ or } x \\geq 1",
+      "5 \\leq x \\leq -1",
+      "-2 \\leq x \\leq 6",
+      "x \\leq -1"
+    ],
+    "explanation": "Critical values are $x = -1$ and $x = 5$. Since the parabola opens upwards, it is $\\leq 0$ between the roots: $-1 \\leq x \\leq 5$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_6"
+  },
+  {
+    "id": "CALC_187",
+    "topic": "Differential Calculus",
+    "subtopic": "derivative rules",
+    "difficulty": "hard",
+    "question": "Determine $D_x \\left[ \\frac{x^2 +1x -4}{x} \\right]$.",
+    "correct_answer": "1 + \\frac{4}{x^{2}}",
+    "wrong_answers_pool": [
+      "2 + \\frac{8}{x^{2}}",
+      "- x + 1 + \\frac{4}{x^{2}}",
+      "x + 1 + \\frac{4}{x^{2}}",
+      "2 + \\frac{4}{x^{2}}",
+      "-1 - \\frac{4}{x^{2}}",
+      "- \\frac{8}{x^{3}}",
+      "\\frac{4}{x^{2}}",
+      "6 + \\frac{4}{x^{2}}"
+    ],
+    "explanation": "First simplify the expression to $x + 1 + -4x^{-1}$. Then differentiate: $1 - -4x^{-2} = 1 + \\frac{4}{x^{2}}$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_7"
+  },
+  {
+    "id": "FUN_919",
+    "topic": "Functions and Graphs",
+    "subtopic": "cubic functions",
+    "difficulty": "medium",
+    "question": "Given $f(x) = x^{3} - 3 x + 2$, find the x-intercepts.",
+    "correct_answer": "-2, 1",
+    "wrong_answers_pool": [
+      "-3, 1, 2",
+      "-5, -3, -1",
+      "-4, -1, 4",
+      "-5, -4, 0",
+      "-3, -2, 3",
+      "-3, 5",
+      "-3, -2, 0",
+      "-5, 4"
+    ],
+    "explanation": "$f(x) = (x - -2)(x - 1)(x - 1) = 0$. The intercepts are $x = -2$, $x = 1$, $x = 1$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_8"
+  },
+  {
+    "id": "FIN_566",
+    "topic": "Finance, Growth and Decay",
+    "subtopic": "compound interest",
+    "difficulty": "hard",
+    "question": "An amount grows to R$115279.29$ after $13$ years at an interest rate of $8\\%$ p.a. compounded semi-annually. Calculate the original principal amount $P$.",
+    "correct_answer": "41580",
+    "wrong_answers_pool": [
+      "41568",
+      "124740",
+      "41578",
+      "41579",
+      "41581",
+      "41582",
+      "41584",
+      "41586"
+    ],
+    "explanation": "$A = P(1+\\frac{i}{k})^{nk} \\implies 115279.29 = P(1 + \\frac{0.08}{2})^{26} \\implies P = \\frac{115279.29}{(1 + 0.0400)^{26}} \\approx 41580$",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_9"
+  },
+  {
+    "id": "FUN_885",
+    "topic": "Functions and Graphs",
+    "subtopic": "quadratic functions",
+    "difficulty": "medium",
+    "question": "Find the x-intercepts of the function $f(x) = - 2 x^{2} - 14 x - 24$.",
+    "correct_answer": "-4 and -3",
+    "wrong_answers_pool": [
+      "3 and 4",
+      "-3 and 4",
+      "3 and -4",
+      "-5 and -4",
+      "-3 and -2",
+      "-6 and -8",
+      "0 and -7"
+    ],
+    "explanation": "$f(x) = 0 \\implies -2(x - -3)(x - -4) = 0$. The x-intercepts are $x = -3$ and $x = -4$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_10"
+  },
+  {
+    "id": "PROB_183",
+    "topic": "Probability",
+    "subtopic": "basic probability",
+    "difficulty": "hard",
+    "question": "Events A and B are mutually exclusive. $P(A) = 0.32$ and $P(B) = 0.36$. Find $P(A' \\cap B')$, where $A'$ is the complement of A.",
+    "correct_answer": "0.32",
+    "wrong_answers_pool": [
+      "0.74",
+      "0.58",
+      "0.81",
+      "0.10",
+      "0.80",
+      "0.08",
+      "0.05",
+      "0.98"
+    ],
+    "explanation": "Since mutually exclusive, $P(A \\cup B) = 0.32 + 0.36 = 0.6799999999999999$. $P(A' \\cap B') = 1 - P(A \\cup B) = 1 - 0.6799999999999999 = 0.32$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_11"
+  },
+  {
+    "id": "FUN_668",
+    "topic": "Functions and Graphs",
+    "subtopic": "quadratic functions",
+    "difficulty": "hard",
+    "question": "A parabola has x-intercepts at $(-2; 0)$ and $(-1; 0)$ and passes through the point $(-5; 36)$. Find its equation in the form $y = ax^2 + bx + c$.",
+    "correct_answer": "y = 3 x^{2} + 9 x + 6",
+    "wrong_answers_pool": [
+      "y = 3 x^{2} + 9 x + 7",
+      "y = 6 x^{2} + 18 x + 12",
+      "y = 3 x^{2} + 9 x + 5",
+      "y = 3 x^{2} + 8 x + 6",
+      "y = 6 x + 9",
+      "y = - 3 x^{2} - 9 x - 6",
+      "y = 3 x^{2} + 10 x + 6",
+      "y = 3 x^{2} + 9 x + 1"
+    ],
+    "explanation": "$y = a(x - -2)(x - -1)$. Substitute $(-5; 36)$: $36 = a(-5 - -2)(-5 - -1) \\implies a = 3$. Equation: $y = 3 x^{2} + 9 x + 6$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_12"
+  },
+  {
+    "id": "FUN_380",
+    "topic": "Functions and Graphs",
+    "subtopic": "cubic functions",
+    "difficulty": "medium",
+    "question": "Given $f(x) = x^{3} + 5 x^{2} + 7 x + 3$, find the x-intercepts.",
+    "correct_answer": "-3, -1",
+    "wrong_answers_pool": [
+      "-3, -2, 2",
+      "-2, 2, 5",
+      "-3, -1, 0",
+      "-4, 0, 5",
+      "1, 3, 5",
+      "-1, 1, 4",
+      "-3, 0, 1",
+      "-2, 5"
+    ],
+    "explanation": "$f(x) = (x - -1)(x - -3)(x - -1) = 0$. The intercepts are $x = -1$, $x = -3$, $x = -1$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_13"
+  },
+  {
+    "id": "PROB_415",
+    "topic": "Probability",
+    "subtopic": "dependent events",
+    "difficulty": "hard",
+    "question": "The probability that it rains is $0.24$. If it rains, the probability a bus is late is $0.65$. If it does not rain, the probability it is late is $0.23$. Find the total probability that the bus is late.",
+    "correct_answer": "0.3308",
+    "wrong_answers_pool": [
+      "0.4942",
+      "0.7830",
+      "0.3822",
+      "0.2415",
+      "0.7315",
+      "0.6280",
+      "0.8635",
+      "0.9641"
+    ],
+    "explanation": "P(Late) = P(Rain $\\cap$ Late) + P(No Rain $\\cap$ Late) = $(0.24 \\times 0.65) + (0.76 \\times 0.23) = 0.3308$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_14"
+  },
+  {
+    "id": "FUN_038",
+    "topic": "Functions and Graphs",
+    "subtopic": "quadratic functions",
+    "difficulty": "hard",
+    "question": "A parabola has x-intercepts at $(-3; 0)$ and $(6; 0)$ and passes through the point $(4; -42)$. Find its equation in the form $y = ax^2 + bx + c$.",
+    "correct_answer": "y = 3 x^{2} - 9 x - 54",
+    "wrong_answers_pool": [
+      "y = - 3 x^{2} + 9 x + 54",
+      "y = 3 x^{2} - 9 x - 55",
+      "y = 3 x^{2} - 10 x - 54",
+      "y = 6 x^{2} - 18 x - 108",
+      "y = 3 x^{2} - 9 x - 53",
+      "y = 3 x^{2} - 8 x - 54",
+      "y = 6 x - 9",
+      "y = 3 x^{2} - 9 x - 59"
+    ],
+    "explanation": "$y = a(x - -3)(x - 6)$. Substitute $(4; -42)$: $-42 = a(4 - -3)(4 - 6) \\implies a = 3$. Equation: $y = 3 x^{2} - 9 x - 54$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_15"
+  },
+  {
+    "id": "FUN_370",
+    "topic": "Functions and Graphs",
+    "subtopic": "intercepts and turning points",
+    "difficulty": "hard",
+    "question": "State the equations of the asymptotes for the hyperbola $y = \\frac{2}{x + 5} + 1$.",
+    "correct_answer": "x = -5, y = 1",
+    "wrong_answers_pool": [
+      "x = 5, y = 1",
+      "x = -5, y = -1",
+      "x = 5, y = -1",
+      "x = 1, y = -5",
+      "x = -1, y = 5",
+      "x = 2, y = 1",
+      "x = -5, y = 2"
+    ],
+    "explanation": "The vertical asymptote is where the denominator is zero: $x + 5 = 0 \\implies x = -5$. The horizontal asymptote is the vertical shift: $y = 1$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_16"
+  },
+  {
+    "id": "CALC_311",
+    "topic": "Differential Calculus",
+    "subtopic": "optimization problems",
+    "difficulty": "hard",
+    "question": "The profit of selling $x$ items is given by $P(x) = 48x - 3x^2 - 10$. How many items must be sold to maximize profit?",
+    "correct_answer": "8",
+    "wrong_answers_pool": [
+      "4",
+      "6",
+      "7",
+      "9",
+      "10",
+      "15",
+      "16",
+      "19"
+    ],
+    "explanation": "$P'(x) = 48 - 6x = 0 \\implies x = 8$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_17"
+  },
+  {
+    "id": "PROB_198",
+    "topic": "Probability",
+    "subtopic": "basic probability",
+    "difficulty": "hard",
+    "question": "Events A and B are mutually exclusive. $P(A) = 0.31$ and $P(B) = 0.2$. Find $P(A' \\cap B')$, where $A'$ is the complement of A.",
+    "correct_answer": "0.49",
+    "wrong_answers_pool": [
+      "0.60",
+      "0.61",
+      "0.67",
+      "0.88",
+      "0.90",
+      "0.40",
+      "0.52",
+      "0.21"
+    ],
+    "explanation": "Since mutually exclusive, $P(A \\cup B) = 0.31 + 0.2 = 0.51$. $P(A' \\cap B') = 1 - P(A \\cup B) = 1 - 0.51 = 0.49$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_18"
+  },
+  {
+    "id": "FUN_466",
+    "topic": "Functions and Graphs",
+    "subtopic": "transformations",
+    "difficulty": "hard",
+    "question": "Describe the transformation from $f(x) = 3^x$ to $g(x) = 3^{x - 1} + 3$.",
+    "correct_answer": "Translated 1 units right and 3 units up",
+    "wrong_answers_pool": [
+      "Translated 1 units left and 3 units up",
+      "Translated 1 units right and 3 units down",
+      "Translated 1 units left and 3 units down",
+      "Translated 3 units right and 1 units up",
+      "Translated 3 units left and 1 units down",
+      "Scaled by 1 and translated 3 units up",
+      "Reflected and translated 1 units right"
+    ],
+    "explanation": "$x \\mapsto x - 1$ is a shift of 1 units right. Adding $3$ is a shift of 3 units up.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_19"
+  },
+  {
+    "id": "PROB_787",
+    "topic": "Probability",
+    "subtopic": "basic probability",
+    "difficulty": "medium",
+    "question": "Given $P(A) = 0.15$, $P(B) = 0.29$, and $P(A \\cup B) = 0.39$. Calculate $P(A \\cap B)$.",
+    "correct_answer": "0.05",
+    "wrong_answers_pool": [
+      "0.93",
+      "0.46",
+      "0.99",
+      "0.74",
+      "0.33",
+      "0.43",
+      "0.07",
+      "0.82"
+    ],
+    "explanation": "$P(A \\cup B) = P(A) + P(B) - P(A \\cap B) \\implies 0.39 = 0.15 + 0.29 - P(A \\cap B) \\implies P(A \\cap B) = 0.05$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_20"
+  },
+  {
+    "id": "ALG_996",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "linear equations",
+    "difficulty": "medium",
+    "question": "Solve for $x$: $3(x +0) = 1(x -5) +7$",
+    "correct_answer": "1",
+    "wrong_answers_pool": [
+      "0",
+      "2",
+      "3",
+      "5",
+      "-17",
+      "-16",
+      "19",
+      "-12"
+    ],
+    "explanation": "Expand both sides: $3x +0 = 1x -5 +7$. Then simplify to find $x = 1$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_21"
+  },
+  {
+    "id": "ALG_920",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "linear equations",
+    "difficulty": "medium",
+    "question": "Solve for $x$: $3(x +1) = 2(x -3) +7$",
+    "correct_answer": "-2",
+    "wrong_answers_pool": [
+      "0",
+      "2",
+      "9",
+      "11",
+      "-21",
+      "13",
+      "15",
+      "-16"
+    ],
+    "explanation": "Expand both sides: $3x +3 = 2x -6 +7$. Then simplify to find $x = -2$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_22"
+  },
+  {
+    "id": "CALC_166",
+    "topic": "Differential Calculus",
+    "subtopic": "gradients of curves",
+    "difficulty": "hard",
+    "question": "Find the equation of the tangent to the curve $y = 2 x^{2} - 5 x$ at the point $(-1; 7)$.",
+    "correct_answer": "y = - 9 x - 2",
+    "wrong_answers_pool": [
+      "y = - 8 x - 2",
+      "y = - 10 x - 2",
+      "y = - 9 x - 1",
+      "y = -9",
+      "y = - 9 x - 3",
+      "y = - 18 x - 4",
+      "y = 9 x + 2",
+      "y = - x^{2} - 9 x - 2"
+    ],
+    "explanation": "Gradient $m = \\frac{dy}{dx}$ at $x=-1$ is $-9$. Using $y - y_1 = m(x - x_1)$, we get $y - 7 = -9(x - -1) \\implies y = - 9 x - 2$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_23"
+  },
+  {
+    "id": "FUN_731",
+    "topic": "Functions and Graphs",
+    "subtopic": "intercepts and turning points",
+    "difficulty": "medium",
+    "question": "What is the range of the function $f(x) = - x^{2} - 2 x + 5$?",
+    "correct_answer": "y \\leq 6",
+    "wrong_answers_pool": [
+      "y \\geq 6",
+      "y \\leq -6",
+      "y \\geq -6",
+      "y \\leq -1",
+      "y \\geq -1",
+      "y \\in \\mathbb{R}",
+      "y < 6"
+    ],
+    "explanation": "The maximum value is $y = 6$. Therefore, range is $y \\leq 6$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_24"
+  },
+  {
+    "id": "FIN_673",
+    "topic": "Finance, Growth and Decay",
+    "subtopic": "depreciation",
+    "difficulty": "hard",
+    "question": "A machine bought for R$96000$ has a book value of R$60232$ after $4$ years on the reducing-balance method. Calculate the annual rate of depreciation $r$ (as a percentage).",
+    "correct_answer": "11.00",
+    "wrong_answers_pool": [
+      "0.09",
+      "1.20",
+      "5.50",
+      "6.47",
+      "6.67",
+      "10.00",
+      "12.00",
+      "16.50"
+    ],
+    "explanation": "$A = P(1 - i)^n \\implies 60232 = 96000(1 - i)^4 \\implies 1 - i = \\sqrt[4]{\\frac{60232}{96000}} \\implies i \\approx 11.0\\%$",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_25"
+  },
+  {
+    "id": "SEQ_083",
+    "topic": "Patterns and Sequences",
+    "subtopic": "arithmetic sequences",
+    "difficulty": "hard",
+    "question": "In an arithmetic sequence, $T_{39} = -1793$ and $T_{51} = -2333$. Find the common difference $d$.",
+    "correct_answer": "-45",
+    "wrong_answers_pool": [
+      "-63",
+      "-90",
+      "-25",
+      "-22",
+      "45",
+      "-48",
+      "-47",
+      "-46"
+    ],
+    "explanation": "$T_{39} = a + 38d = -1793$ and $T_{51} = a + 50d = -2333$. Subtracting the equations gives $d = -45$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_26"
+  },
+  {
+    "id": "FUN_043",
+    "topic": "Functions and Graphs",
+    "subtopic": "quadratic functions",
+    "difficulty": "hard",
+    "question": "A parabola has x-intercepts at $(2; 0)$ and $(4; 0)$ and passes through the point $(-5; -63)$. Find its equation in the form $y = ax^2 + bx + c$.",
+    "correct_answer": "y = - x^{2} + 6 x - 8",
+    "wrong_answers_pool": [
+      "y = - x^{2} + 6 x - 7",
+      "y = - x^{2} + 7 x - 8",
+      "y = - 2 x^{2} + 12 x - 16",
+      "y = - x^{2} + 6 x - 9",
+      "y = x^{2} - 6 x + 8",
+      "y = 6 - 2 x",
+      "y = - x^{2} + 5 x - 8",
+      "y = - x^{2} + 6 x - 12"
+    ],
+    "explanation": "$y = a(x - 2)(x - 4)$. Substitute $(-5; -63)$: $-63 = a(-5 - 2)(-5 - 4) \\implies a = -1$. Equation: $y = - x^{2} + 6 x - 8$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_27"
+  },
+  {
+    "id": "CALC_733",
+    "topic": "Differential Calculus",
+    "subtopic": "gradients of curves",
+    "difficulty": "medium",
+    "question": "Find the x-coordinates of the points on the curve $f(x) = x^{3}$ where the gradient is $12$.",
+    "correct_answer": "-2, 2",
+    "wrong_answers_pool": [
+      "-4, 1",
+      "-5, 4",
+      "1, 2",
+      "-5, -4",
+      "4",
+      "-2, -1",
+      "2, 3",
+      "0, 2"
+    ],
+    "explanation": "$f'(x) = 3 x^{2}$. Set $f'(x) = 12$: $3 x^{2} = 12$. Solving this quadratic gives $x = -2, 2$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_28"
+  },
+  {
+    "id": "SEQ_068",
+    "topic": "Patterns and Sequences",
+    "subtopic": "series sums",
+    "difficulty": "hard",
+    "question": "Evaluate: $\\sum_{k=3}^{10} 3(3)^{k-1}$",
+    "correct_answer": "88560",
+    "wrong_answers_pool": [
+      "177120",
+      "88547",
+      "88558",
+      "88559",
+      "-88560",
+      "88561",
+      "88562",
+      "265680"
+    ],
+    "explanation": "Geometric series with $a = 27$, $r = 3$, $n = 8$. $S_n = \\frac{a(r^n - 1)}{r - 1} = 88560$",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_29"
+  },
+  {
+    "id": "FIN_438",
+    "topic": "Finance, Growth and Decay",
+    "subtopic": "compound interest",
+    "difficulty": "hard",
+    "question": "An amount grows to R$36688.70$ after $15$ years at an interest rate of $6\\%$ p.a. compounded monthly. Calculate the original principal amount $P$.",
+    "correct_answer": "14950",
+    "wrong_answers_pool": [
+      "14948",
+      "14949",
+      "14951",
+      "14952",
+      "29900",
+      "14961",
+      "44850",
+      "7475"
+    ],
+    "explanation": "$A = P(1+\\frac{i}{k})^{nk} \\implies 36688.70 = P(1 + \\frac{0.06}{12})^{180} \\implies P = \\frac{36688.70}{(1 + 0.0050)^{180}} \\approx 14950$",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_30"
+  },
+  {
+    "id": "CALC_074",
+    "topic": "Differential Calculus",
+    "subtopic": "turning points",
+    "difficulty": "medium",
+    "question": "Find the x-coordinates of the turning points of $f(x) = - x^{3} - \\frac{15 x^{2}}{2} - 18 x + 3$.",
+    "correct_answer": "-3 and -2",
+    "wrong_answers_pool": [
+      "-3 and 3",
+      "-4 and 4",
+      "-3 and 0",
+      "1 and 3",
+      "-3 and 2",
+      "3 and 4",
+      "-5 and 5",
+      "1 and 5"
+    ],
+    "explanation": "$f'(x) = \\left(- 3 x - 6\\right) \\left(x + 3\\right) = 0$. So $x = -3$ or $x = -2$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_31"
+  },
+  {
+    "id": "FIN_568",
+    "topic": "Finance, Growth and Decay",
+    "subtopic": "exponential growth",
+    "difficulty": "medium",
+    "question": "The population of a town is currently $48686$ and grows at $6\\%$ per year. What will the population be in $21$ years?",
+    "correct_answer": "165511",
+    "wrong_answers_pool": [
+      "82755",
+      "165509",
+      "165510",
+      "165512",
+      "165513",
+      "165496",
+      "331022",
+      "165491"
+    ],
+    "explanation": "$A = P(1+i)^n = 48686(1 + 0.06)^21 \\approx 165511$",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_32"
+  },
+  {
+    "id": "SEQ_931",
+    "topic": "Patterns and Sequences",
+    "subtopic": "geometric sequences",
+    "difficulty": "medium",
+    "question": "In a geometric sequence, the first term is $-3$ and the $6^\\text{th}$ term is $-9375$. Find the common ratio $r$ (assume $r > 0$).",
+    "correct_answer": "5",
+    "wrong_answers_pool": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "6",
+      "7",
+      "10",
+      "15"
+    ],
+    "explanation": "$T_n = ar^{n-1} \\implies -9375 = -3r^{6-1} \\implies r^{6-1} = 3125 \\implies r = 5$",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_33"
+  },
+  {
+    "id": "FUN_922",
+    "topic": "Functions and Graphs",
+    "subtopic": "intercepts and turning points",
+    "difficulty": "medium",
+    "question": "What is the range of the function $f(x) = x^{2} + 9$?",
+    "correct_answer": "y \\geq 9",
+    "wrong_answers_pool": [
+      "y \\leq 9",
+      "y \\geq -9",
+      "y \\leq -9",
+      "y \\geq 0",
+      "y \\leq 0",
+      "y \\in \\mathbb{R}",
+      "y > 9"
+    ],
+    "explanation": "The minimum value is $y = 9$. Therefore, range is $y \\geq 9$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_34"
+  },
+  {
+    "id": "ALG_639",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "linear equations",
+    "difficulty": "hard",
+    "question": "Solve the system of equations for $x$: \n$ 1x -4y = -6 $ \n$ 2x + 3y = -1 $",
+    "correct_answer": "-2",
+    "wrong_answers_pool": [
+      "0",
+      "2",
+      "10",
+      "-21",
+      "15",
+      "18",
+      "-14",
+      "-11"
+    ],
+    "explanation": "Using substitution or elimination, we find $x = -2$ and $y = 1$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_35"
+  },
+  {
+    "id": "CALC_920",
+    "topic": "Differential Calculus",
+    "subtopic": "turning points",
+    "difficulty": "medium",
+    "question": "Find the x-coordinates of the turning points of $f(x) = - 2 x^{3} + 3 x^{2} + 5$.",
+    "correct_answer": "0 and 1",
+    "wrong_answers_pool": [
+      "-5 and 4",
+      "-3 and 0",
+      "-5 and -1",
+      "0 and 2",
+      "-4 and 3",
+      "-3 and 1",
+      "-3 and -2",
+      "3 and 5"
+    ],
+    "explanation": "$f'(x) = - 6 x \\left(x - 1\\right) = 0$. So $x = 0$ or $x = 1$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_36"
+  },
+  {
+    "id": "SEQ_396",
+    "topic": "Patterns and Sequences",
+    "subtopic": "series sums",
+    "difficulty": "medium",
+    "question": "Evaluate: $\\sum_{k=9}^{80} (3k + 19)$",
+    "correct_answer": "10980",
+    "wrong_answers_pool": [
+      "10978",
+      "10979",
+      "10981",
+      "10982",
+      "21960",
+      "10987",
+      "32940",
+      "10960"
+    ],
+    "explanation": "This is an arithmetic series with $n = 80 - 9 + 1 = 72$ terms. $a = 46$. Sum = $10980$",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_37"
+  },
+  {
+    "id": "FUN_101",
+    "topic": "Functions and Graphs",
+    "subtopic": "cubic functions",
+    "difficulty": "medium",
+    "question": "Given $f(x) = x^{3} - 2 x^{2} - 4 x + 8$, find the x-intercepts.",
+    "correct_answer": "-2, 2",
+    "wrong_answers_pool": [
+      "2, 4",
+      "-1, 2, 5",
+      "-1, 3",
+      "-3, 1, 5",
+      "-3, 3",
+      "-5, -3, 1",
+      "-3, -1, 2",
+      "-3, -2, 0"
+    ],
+    "explanation": "$f(x) = (x - 2)(x - 2)(x - -2) = 0$. The intercepts are $x = 2$, $x = 2$, $x = -2$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_38"
+  },
+  {
+    "id": "FUN_991",
+    "topic": "Functions and Graphs",
+    "subtopic": "quadratic functions",
+    "difficulty": "medium",
+    "question": "Find the x-intercepts of the function $f(x) = - x^{2} + 7 x - 12$.",
+    "correct_answer": "3 and 4",
+    "wrong_answers_pool": [
+      "-3 and -4",
+      "3 and -4",
+      "-3 and 4",
+      "2 and 3",
+      "4 and 5",
+      "6 and 8",
+      "0 and 7"
+    ],
+    "explanation": "$f(x) = 0 \\implies -1(x - 3)(x - 4) = 0$. The x-intercepts are $x = 3$ and $x = 4$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_39"
+  },
+  {
+    "id": "FIN_718",
+    "topic": "Finance, Growth and Decay",
+    "subtopic": "compound interest",
+    "difficulty": "hard",
+    "question": "An amount grows to R$398318.20$ after $12$ years at an interest rate of $14\\%$ p.a. compounded quarterly. Calculate the original principal amount $P$.",
+    "correct_answer": "76400",
+    "wrong_answers_pool": [
+      "152800",
+      "76420",
+      "76390",
+      "76398",
+      "76399",
+      "-76400",
+      "76401",
+      "76402"
+    ],
+    "explanation": "$A = P(1+\\frac{i}{k})^{nk} \\implies 398318.20 = P(1 + \\frac{0.14}{4})^{48} \\implies P = \\frac{398318.20}{(1 + 0.0350)^{48}} \\approx 76400$",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_40"
+  },
+  {
+    "id": "ALG_150",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "linear equations",
+    "difficulty": "hard",
+    "question": "Solve the system of equations for $x$: \n$ 2x -1y = 5 $ \n$ 4x + 2y = -10 $",
+    "correct_answer": "0",
+    "wrong_answers_pool": [
+      "1",
+      "2",
+      "4",
+      "7",
+      "8",
+      "12",
+      "-19",
+      "-18"
+    ],
+    "explanation": "Using substitution or elimination, we find $x = 0$ and $y = -5$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_41"
+  },
+  {
+    "id": "PROB_652",
+    "topic": "Probability",
+    "subtopic": "independent events",
+    "difficulty": "medium",
+    "question": "A and B are independent events. $P(A) = 0.37$ and $P(B) = 0.32$. Find $P(A \\cup B)$.",
+    "correct_answer": "0.5716",
+    "wrong_answers_pool": [
+      "0.5148",
+      "0.7137",
+      "0.7571",
+      "0.2655",
+      "0.1530",
+      "0.3212",
+      "0.6383",
+      "0.3853"
+    ],
+    "explanation": "Independent means $P(A \\cap B) = 0.37 \\times 0.32 = 0.1184$. $P(A \\cup B) = P(A) + P(B) - P(A \\cap B) = 0.37 + 0.32 - 0.1184 = 0.5716$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_42"
+  },
+  {
+    "id": "CALC_949",
+    "topic": "Differential Calculus",
+    "subtopic": "turning points",
+    "difficulty": "medium",
+    "question": "Find the x-coordinates of the turning points of $f(x) = - x^{3} + \\frac{3 x^{2}}{2} + 6 x$.",
+    "correct_answer": "-1 and 2",
+    "wrong_answers_pool": [
+      "-2 and 5",
+      "-4 and 5",
+      "-4 and 4",
+      "2 and 4",
+      "-5 and 5",
+      "-3 and -1",
+      "0 and 3",
+      "3 and 5"
+    ],
+    "explanation": "$f'(x) = \\left(- 3 x - 3\\right) \\left(x - 2\\right) = 0$. So $x = -1$ or $x = 2$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_43"
+  },
+  {
+    "id": "ALG_235",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "quadratic equations",
+    "difficulty": "medium",
+    "question": "Solve for $x$ (correct to 2 decimal places): $3 x^{2} + 7 x = 0$",
+    "correct_answer": "-2.33, 0.00",
+    "wrong_answers_pool": [
+      "-3.66, 0.12",
+      "-1.04, 1.77",
+      "-1.48, 0.43",
+      "-1.31, 0.41",
+      "-4.10, 0.19",
+      "-4.26, 1.30",
+      "-1.40, 0.87",
+      "-3.29, 0.73"
+    ],
+    "explanation": "Using the quadratic formula $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$, we get $x = -2.33$ or $x = 0.00$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_44"
+  },
+  {
+    "id": "SEQ_895",
+    "topic": "Patterns and Sequences",
+    "subtopic": "series sums",
+    "difficulty": "medium",
+    "question": "Evaluate: $\\sum_{k=13}^{33} (16k + -53)$",
+    "correct_answer": "6615",
+    "wrong_answers_pool": [
+      "6627",
+      "19845",
+      "6600",
+      "-6615",
+      "6632",
+      "3307",
+      "13230",
+      "6609"
+    ],
+    "explanation": "This is an arithmetic series with $n = 33 - 13 + 1 = 21$ terms. $a = 155$. Sum = $6615$",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_45"
+  },
+  {
+    "id": "ALG_822",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "linear equations",
+    "difficulty": "medium",
+    "question": "Solve for $x$: $4(x +2) = 3(x +0) +4$",
+    "correct_answer": "-4",
+    "wrong_answers_pool": [
+      "3",
+      "4",
+      "10",
+      "-20",
+      "13",
+      "-19",
+      "-12",
+      "-8"
+    ],
+    "explanation": "Expand both sides: $4x +8 = 3x +0 +4$. Then simplify to find $x = -4$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_46"
+  },
+  {
+    "id": "PROB_201",
+    "topic": "Probability",
+    "subtopic": "independent events",
+    "difficulty": "hard",
+    "question": "A and B are independent events with $P(A) = 0.24$ and $P(A \\cup B) = 0.4148$. Find $P(B)$.",
+    "correct_answer": "0.23",
+    "wrong_answers_pool": [
+      "0.92",
+      "0.76",
+      "0.78",
+      "0.47",
+      "0.09",
+      "0.96",
+      "0.10",
+      "0.48"
+    ],
+    "explanation": "$P(A \\cup B) = P(A) + P(B) - P(A)P(B) \\implies 0.4148 = 0.24 + P(B)(1 - 0.24) \\implies P(B) = \\frac{0.4148 - 0.24}{0.76} = 0.23$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_47"
+  },
+  {
+    "id": "FIN_089",
+    "topic": "Finance, Growth and Decay",
+    "subtopic": "depreciation",
+    "difficulty": "hard",
+    "question": "A machine bought for R$493000$ has a book value of R$344280$ after $7$ years on the reducing-balance method. Calculate the annual rate of depreciation $r$ (as a percentage).",
+    "correct_answer": "5.00",
+    "wrong_answers_pool": [
+      "0.20",
+      "2.50",
+      "4.00",
+      "6.00",
+      "7.50",
+      "-5.68",
+      "10.00",
+      "17.59"
+    ],
+    "explanation": "$A = P(1 - i)^n \\implies 344280 = 493000(1 - i)^7 \\implies 1 - i = \\sqrt[7]{\\frac{344280}{493000}} \\implies i \\approx 5.0\\%$",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_48"
+  },
+  {
+    "id": "PROB_247",
+    "topic": "Probability",
+    "subtopic": "independent events",
+    "difficulty": "hard",
+    "question": "A and B are independent events with $P(A) = 0.14$ and $P(A \\cup B) = 0.4238$. Find $P(B)$.",
+    "correct_answer": "0.33",
+    "wrong_answers_pool": [
+      "0.19",
+      "0.73",
+      "0.92",
+      "0.22",
+      "0.31",
+      "0.65",
+      "0.75",
+      "0.12"
+    ],
+    "explanation": "$P(A \\cup B) = P(A) + P(B) - P(A)P(B) \\implies 0.4238 = 0.14 + P(B)(1 - 0.14) \\implies P(B) = \\frac{0.4238 - 0.14}{0.86} = 0.33$.",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_49"
+  },
+  {
+    "id": "SEQ_178",
+    "topic": "Patterns and Sequences",
+    "subtopic": "sigma notation",
+    "difficulty": "hard",
+    "question": "Evaluate: $\\sum_{k=1}^{7} 2(4)^{k-1}$",
+    "correct_answer": "10922",
+    "wrong_answers_pool": [
+      "10914",
+      "10920",
+      "10921",
+      "10923",
+      "10924",
+      "10931",
+      "21844",
+      "5461"
+    ],
+    "explanation": "Geometric series with $a = 2$, $r = 4$, $n = 7$. $S_n = \\frac{a(r^n - 1)}{r - 1} = 10922$",
+    "exam_id": "EXAM_2026-W14_grade12_mathematics_paper1_50"
+  }
+]
