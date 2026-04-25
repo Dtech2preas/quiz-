@@ -1,0 +1,982 @@
+[
+  {
+    "id": "MEAS_382",
+    "topic": "Measurement",
+    "subtopic": "Surface area and volume",
+    "difficulty": "medium",
+    "question": "Calculate the surface area of a rectangular prism with length $7$ cm, width $6$ cm, and height $2$ cm.",
+    "correct_answer": "136 cm$^2$",
+    "wrong_answers_pool": [
+      "131 cm$^2$",
+      "68 cm$^2$",
+      "408 cm$^2$",
+      "134 cm$^2$",
+      "135 cm$^2$",
+      "137 cm$^2$",
+      "138 cm$^2$",
+      "143 cm$^2$"
+    ],
+    "explanation": "Surface Area $= 2(lw + lh + wh) = 2(42 + 14 + 12) = 136$ cm$^2$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_1"
+  },
+  {
+    "id": "ALG_779",
+    "topic": "Patterns, Functions and Algebra",
+    "subtopic": "Linear equations",
+    "difficulty": "hard",
+    "question": "Solve for x: $2(x + -4) = 5x + -2$",
+    "correct_answer": "x = -2",
+    "wrong_answers_pool": [
+      "x = 0",
+      "x = 2",
+      "x = 5",
+      "x = 6",
+      "x = -22",
+      "x = -21",
+      "x = -20",
+      "x = 17"
+    ],
+    "explanation": "Expand: $2x + -8 = 5x + -2$. Group x terms: $-3x = 6$. Therefore $x = -2$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_2"
+  },
+  {
+    "id": "DATA_996",
+    "topic": "Data Handling",
+    "subtopic": "Mean, median, mode",
+    "difficulty": "hard",
+    "question": "Determine the mode(s) of the data set: $28, 15, 28, 15, 28, 15$",
+    "correct_answer": "Bimodal: 15 and 28",
+    "wrong_answers_pool": [
+      "Only 15",
+      "Only 28",
+      "21.5",
+      "No mode",
+      "43",
+      "13"
+    ],
+    "explanation": "The mode is the most frequent value. Both $15$ and $28$ appear 3 times, so the data set is bimodal.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_3"
+  },
+  {
+    "id": "GEO_937",
+    "topic": "Space and Shape (Geometry)",
+    "subtopic": "Triangles and quadrilaterals",
+    "difficulty": "medium",
+    "question": "In a triangle, two interior opposite angles are $46^\\circ$ and $53^\\circ$. Calculate the size of the exterior angle.",
+    "correct_answer": "99^\\circ",
+    "wrong_answers_pool": [
+      "97^\\circ",
+      "98^\\circ",
+      "100^\\circ",
+      "101^\\circ",
+      "198^\\circ",
+      "104^\\circ",
+      "297^\\circ",
+      "105^\\circ"
+    ],
+    "explanation": "The exterior angle of a triangle is equal to the sum of the two interior opposite angles. $46^\\circ + 53^\\circ = 99^\\circ$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_4"
+  },
+  {
+    "id": "MEAS_174",
+    "topic": "Measurement",
+    "subtopic": "Perimeter and area",
+    "difficulty": "hard",
+    "question": "The area of a triangle is $32.0$ cm$^2$ and its base is $8$ cm. Calculate the perpendicular height.",
+    "correct_answer": "8 cm",
+    "wrong_answers_pool": [
+      "1 cm",
+      "4 cm",
+      "6 cm",
+      "7 cm",
+      "9 cm",
+      "10 cm",
+      "16 cm",
+      "18 cm"
+    ],
+    "explanation": "Area $= \\frac{1}{2} b h$. So $h = \\frac{2 \\times \\text{Area}}{b} = \\frac{2 \\times 32.0}{8} = 8$ cm.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_5"
+  },
+  {
+    "id": "ALG_441",
+    "topic": "Patterns, Functions and Algebra",
+    "subtopic": "Numeric and geometric patterns",
+    "difficulty": "medium",
+    "question": "Determine the $12$th term of the sequence: $8, 11, 14, ...$",
+    "correct_answer": "41",
+    "wrong_answers_pool": [
+      "36",
+      "39",
+      "40",
+      "42",
+      "43",
+      "49",
+      "82",
+      "20"
+    ],
+    "explanation": "The general rule is $T_n = 3n + 5$. Therefore, $T_{12} = 3(12) + 5 = 41$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_6"
+  },
+  {
+    "id": "NUM_597",
+    "topic": "Numbers, Operations and Relationships",
+    "subtopic": "Integers",
+    "difficulty": "medium",
+    "question": "Calculate: $-13 \\times -14$",
+    "correct_answer": "182",
+    "wrong_answers_pool": [
+      "546",
+      "164",
+      "165",
+      "-182",
+      "202",
+      "364",
+      "173",
+      "180"
+    ],
+    "explanation": "The product of two negative numbers is positive: $-13 \\times -14 = 182$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_7"
+  },
+  {
+    "id": "NUM_329",
+    "topic": "Numbers, Operations and Relationships",
+    "subtopic": "Percentages and financial maths",
+    "difficulty": "hard",
+    "question": "Calculate the final amount if R$3097$ is invested at $10\\%$ p.a. compound interest for $3$ years. (Round to 2 decimal places)",
+    "correct_answer": "R$4122.11$",
+    "wrong_answers_pool": [
+      "R$0.00",
+      "R$4132.08",
+      "R$-4122.11",
+      "R$6183.16",
+      "R$4105.52",
+      "R$4106.79",
+      "R$4139.47",
+      "R$2061.05"
+    ],
+    "explanation": "$A = P(1 + i)^n = 3097(1 + 0.1)^3 = 4122.11$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_8"
+  },
+  {
+    "id": "MEAS_537",
+    "topic": "Measurement",
+    "subtopic": "Perimeter and area",
+    "difficulty": "hard",
+    "question": "The area of a triangle is $65.0$ cm$^2$ and its base is $13$ cm. Calculate the perpendicular height.",
+    "correct_answer": "10 cm",
+    "wrong_answers_pool": [
+      "2 cm",
+      "3 cm",
+      "5 cm",
+      "8 cm",
+      "9 cm",
+      "11 cm",
+      "12 cm",
+      "15 cm"
+    ],
+    "explanation": "Area $= \\frac{1}{2} b h$. So $h = \\frac{2 \\times \\text{Area}}{b} = \\frac{2 \\times 65.0}{13} = 10$ cm.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_9"
+  },
+  {
+    "id": "DATA_405",
+    "topic": "Data Handling",
+    "subtopic": "Mean, median, mode",
+    "difficulty": "hard",
+    "question": "Determine the mode(s) of the data set: $16, 16, 16, 23, 23, 23$",
+    "correct_answer": "Bimodal: 16 and 23",
+    "wrong_answers_pool": [
+      "Only 16",
+      "Only 23",
+      "19.5",
+      "No mode",
+      "39",
+      "7"
+    ],
+    "explanation": "The mode is the most frequent value. Both $16$ and $23$ appear 3 times, so the data set is bimodal.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_10"
+  },
+  {
+    "id": "GEO_161",
+    "topic": "Space and Shape (Geometry)",
+    "subtopic": "Triangles and quadrilaterals",
+    "difficulty": "medium",
+    "question": "In a triangle, two interior opposite angles are $74^\\circ$ and $47^\\circ$. Calculate the size of the exterior angle.",
+    "correct_answer": "121^\\circ",
+    "wrong_answers_pool": [
+      "-121^\\circ",
+      "138^\\circ",
+      "363^\\circ",
+      "141^\\circ",
+      "112^\\circ",
+      "242^\\circ",
+      "114^\\circ",
+      "119^\\circ"
+    ],
+    "explanation": "The exterior angle of a triangle is equal to the sum of the two interior opposite angles. $74^\\circ + 47^\\circ = 121^\\circ$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_11"
+  },
+  {
+    "id": "GEO_581",
+    "topic": "Space and Shape (Geometry)",
+    "subtopic": "Triangles and quadrilaterals",
+    "difficulty": "medium",
+    "question": "In a triangle, two interior opposite angles are $64^\\circ$ and $53^\\circ$. Calculate the size of the exterior angle.",
+    "correct_answer": "117^\\circ",
+    "wrong_answers_pool": [
+      "132^\\circ",
+      "134^\\circ",
+      "234^\\circ",
+      "-117^\\circ",
+      "107^\\circ",
+      "106^\\circ",
+      "115^\\circ",
+      "116^\\circ"
+    ],
+    "explanation": "The exterior angle of a triangle is equal to the sum of the two interior opposite angles. $64^\\circ + 53^\\circ = 117^\\circ$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_12"
+  },
+  {
+    "id": "ALG_897",
+    "topic": "Patterns, Functions and Algebra",
+    "subtopic": "Functions and graphs",
+    "difficulty": "hard",
+    "question": "Find the equation of the line with gradient $2$ passing through the point $(3; 2)$.",
+    "correct_answer": "$y = 2x - 4$",
+    "wrong_answers_pool": [
+      "$y = 2x - 3$",
+      "$y = 2x - 5$",
+      "$y = -2x - 4$",
+      "$y = 2x + 4$",
+      "$y = -4x + 2$",
+      "$y = 3x + 2$",
+      "$y = 2x - 2$"
+    ],
+    "explanation": "Use $y = mx + c$. Substitute $m=2, x=3, y=2$: $2 = 2(3) + c$. Solving for $c$ gives $c = -4$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_13"
+  },
+  {
+    "id": "NUM_869",
+    "topic": "Numbers, Operations and Relationships",
+    "subtopic": "Percentages and financial maths",
+    "difficulty": "medium",
+    "question": "Calculate the simple interest on R$5963$ at $13\\%$ p.a. for $2$ years.",
+    "correct_answer": "R$1550.38$",
+    "wrong_answers_pool": [
+      "R$0.00",
+      "R$775.19",
+      "R$1548.06",
+      "R$1549.38",
+      "R$1549.43",
+      "R$1551.38",
+      "R$-1550.38",
+      "R$2325.57"
+    ],
+    "explanation": "Simple interest = $P \\times r \\times t = 5963 \\times 0.13 \\times 2 = 1550.38$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_14"
+  },
+  {
+    "id": "MEAS_932",
+    "topic": "Measurement",
+    "subtopic": "Unit conversions",
+    "difficulty": "medium",
+    "question": "Convert $6764$ m$\\ell$ to liters.",
+    "correct_answer": "6.764 $\\ell$",
+    "wrong_answers_pool": [
+      "0.148 $\\ell$",
+      "2.117 $\\ell$",
+      "3.382 $\\ell$",
+      "26.262 $\\ell$",
+      "5.764 $\\ell$",
+      "6.631 $\\ell$",
+      "7.764 $\\ell$",
+      "10.146 $\\ell$"
+    ],
+    "explanation": "Divide by 1000: $6764 \\div 1000 = 6.764$ $\\ell$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_15"
+  },
+  {
+    "id": "GEO_518",
+    "topic": "Space and Shape (Geometry)",
+    "subtopic": "Pythagoras",
+    "difficulty": "hard",
+    "question": "In a right-angled triangle, the two shorter sides are $8$ cm and $5$ cm. Calculate the length of the hypotenuse correct to 2 decimal places.",
+    "correct_answer": "9.43 cm",
+    "wrong_answers_pool": [
+      "0.11 cm",
+      "0.71 cm",
+      "4.71 cm",
+      "5.07 cm",
+      "8.43 cm",
+      "10.43 cm",
+      "11.82 cm",
+      "13.11 cm"
+    ],
+    "explanation": "Using Pythagoras: $c^2 = 8^2 + 5^2 = 64 + 25 = 89$. $c = \\sqrt{89} \\approx 9.43$ cm.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_16"
+  },
+  {
+    "id": "MEAS_612",
+    "topic": "Measurement",
+    "subtopic": "Unit conversions",
+    "difficulty": "hard",
+    "question": "Convert $39900$ cm$^2$ to m$^2$.",
+    "correct_answer": "3.99 m$^2$",
+    "wrong_answers_pool": [
+      "0.251 m$^2$",
+      "1.995 m$^2$",
+      "2.990 m$^2$",
+      "3.793 m$^2$",
+      "4.990 m$^2$",
+      "5.985 m$^2$",
+      "5.794 m$^2$",
+      "7.980 m$^2$"
+    ],
+    "explanation": "Since $1$ m $= 100$ cm, $1$ m$^2 = 100 \\times 100 = 10,000$ cm$^2$. Divide by $10,000$: $39900 \\div 10000 = 3.99$ m$^2$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_17"
+  },
+  {
+    "id": "MEAS_307",
+    "topic": "Measurement",
+    "subtopic": "Unit conversions",
+    "difficulty": "hard",
+    "question": "Convert $27900$ cm$^2$ to m$^2$.",
+    "correct_answer": "2.79 m$^2$",
+    "wrong_answers_pool": [
+      "0.358 m$^2$",
+      "1.395 m$^2$",
+      "1.790 m$^2$",
+      "3.790 m$^2$",
+      "4.185 m$^2$",
+      "5.580 m$^2$",
+      "15.364 m$^2$",
+      "-16.291 m$^2$"
+    ],
+    "explanation": "Since $1$ m $= 100$ cm, $1$ m$^2 = 100 \\times 100 = 10,000$ cm$^2$. Divide by $10,000$: $27900 \\div 10000 = 2.79$ m$^2$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_18"
+  },
+  {
+    "id": "ALG_376",
+    "topic": "Patterns, Functions and Algebra",
+    "subtopic": "Linear equations",
+    "difficulty": "medium",
+    "question": "Solve for x: $3x + 1 = -11$",
+    "correct_answer": "x = -4",
+    "wrong_answers_pool": [
+      "x = 0",
+      "x = 4",
+      "x = 5",
+      "x = -21",
+      "x = -15",
+      "x = -12",
+      "x = -11",
+      "x = -9"
+    ],
+    "explanation": "Subtract $1$ from both sides, then divide by $3$ to get $x = -4$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_19"
+  },
+  {
+    "id": "MEAS_446",
+    "topic": "Measurement",
+    "subtopic": "Perimeter and area",
+    "difficulty": "hard",
+    "question": "The area of a triangle is $25.0$ cm$^2$ and its base is $5$ cm. Calculate the perpendicular height.",
+    "correct_answer": "10 cm",
+    "wrong_answers_pool": [
+      "1 cm",
+      "2 cm",
+      "5 cm",
+      "6 cm",
+      "8 cm",
+      "9 cm",
+      "-8 cm",
+      "11 cm"
+    ],
+    "explanation": "Area $= \\frac{1}{2} b h$. So $h = \\frac{2 \\times \\text{Area}}{b} = \\frac{2 \\times 25.0}{5} = 10$ cm.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_20"
+  },
+  {
+    "id": "GEO_858",
+    "topic": "Space and Shape (Geometry)",
+    "subtopic": "Pythagoras",
+    "difficulty": "hard",
+    "question": "In a right-angled triangle, the two shorter sides are $6$ cm and $5$ cm. Calculate the length of the hypotenuse correct to 2 decimal places.",
+    "correct_answer": "7.81 cm",
+    "wrong_answers_pool": [
+      "0.13 cm",
+      "0.77 cm",
+      "3.90 cm",
+      "6.81 cm",
+      "8.81 cm",
+      "11.71 cm",
+      "14.41 cm",
+      "15.62 cm"
+    ],
+    "explanation": "Using Pythagoras: $c^2 = 6^2 + 5^2 = 36 + 25 = 61$. $c = \\sqrt{61} \\approx 7.81$ cm.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_21"
+  },
+  {
+    "id": "DATA_929",
+    "topic": "Data Handling",
+    "subtopic": "Mean, median, mode",
+    "difficulty": "hard",
+    "question": "Determine the mode(s) of the data set: $17, 17, 29, 29, 29, 17$",
+    "correct_answer": "Bimodal: 17 and 29",
+    "wrong_answers_pool": [
+      "Only 17",
+      "Only 29",
+      "23.0",
+      "No mode",
+      "46",
+      "12"
+    ],
+    "explanation": "The mode is the most frequent value. Both $17$ and $29$ appear 3 times, so the data set is bimodal.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_22"
+  },
+  {
+    "id": "GEO_523",
+    "topic": "Space and Shape (Geometry)",
+    "subtopic": "Transformations",
+    "difficulty": "hard",
+    "question": "Point $B(5; 5)$ is enlarged by a scale factor of $2$ through the origin. What are the new coordinates?",
+    "correct_answer": "(10; 10)",
+    "wrong_answers_pool": [
+      "(7; 7)",
+      "(10; 5)",
+      "(5; 10)",
+      "(2.5; 2.5)",
+      "(-10; -10)",
+      "(11; 11)"
+    ],
+    "explanation": "Multiply both coordinates by the scale factor $2$: $(5 \\times 2; 5 \\times 2) = (10; 10)$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_23"
+  },
+  {
+    "id": "MEAS_690",
+    "topic": "Measurement",
+    "subtopic": "Surface area and volume",
+    "difficulty": "medium",
+    "question": "Calculate the surface area of a rectangular prism with length $12$ cm, width $5$ cm, and height $3$ cm.",
+    "correct_answer": "222 cm$^2$",
+    "wrong_answers_pool": [
+      "224 cm$^2$",
+      "-222 cm$^2$",
+      "231 cm$^2$",
+      "205 cm$^2$",
+      "111 cm$^2$",
+      "240 cm$^2$",
+      "241 cm$^2$",
+      "210 cm$^2$"
+    ],
+    "explanation": "Surface Area $= 2(lw + lh + wh) = 2(60 + 36 + 15) = 222$ cm$^2$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_24"
+  },
+  {
+    "id": "MEAS_735",
+    "topic": "Measurement",
+    "subtopic": "Surface area and volume",
+    "difficulty": "medium",
+    "question": "Calculate the surface area of a rectangular prism with length $11$ cm, width $8$ cm, and height $5$ cm.",
+    "correct_answer": "366 cm$^2$",
+    "wrong_answers_pool": [
+      "355 cm$^2$",
+      "356 cm$^2$",
+      "1098 cm$^2$",
+      "364 cm$^2$",
+      "365 cm$^2$",
+      "367 cm$^2$",
+      "368 cm$^2$",
+      "-366 cm$^2$"
+    ],
+    "explanation": "Surface Area $= 2(lw + lh + wh) = 2(88 + 55 + 40) = 366$ cm$^2$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_25"
+  },
+  {
+    "id": "NUM_146",
+    "topic": "Numbers, Operations and Relationships",
+    "subtopic": "Fractions and decimals",
+    "difficulty": "medium",
+    "question": "Calculate: $8.6 \\times 1.57$",
+    "correct_answer": "13.502",
+    "wrong_answers_pool": [
+      "0.0741",
+      "33.0142",
+      "1.5232",
+      "6.7510",
+      "12.5020",
+      "-4.2083",
+      "14.5020",
+      "14.6473"
+    ],
+    "explanation": "$8.6 \\times 1.57 = 13.502$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_26"
+  },
+  {
+    "id": "NUM_852",
+    "topic": "Numbers, Operations and Relationships",
+    "subtopic": "Ratio and proportion",
+    "difficulty": "hard",
+    "question": "If $x$ and $y$ are directly proportional, and $y = 8$ when $x = 4$, find $y$ when $x = 15$.",
+    "correct_answer": "30",
+    "wrong_answers_pool": [
+      "32",
+      "-30",
+      "41",
+      "10",
+      "12",
+      "28",
+      "15",
+      "47"
+    ],
+    "explanation": "Since $y = kx$, $k = \\frac{8}{4} = 2.0$. Then $y = 2.0 \\times 15 = 30$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_27"
+  },
+  {
+    "id": "NUM_328",
+    "topic": "Numbers, Operations and Relationships",
+    "subtopic": "Exponents",
+    "difficulty": "hard",
+    "question": "Simplify: $(4^4)^5$",
+    "correct_answer": "$4^{20}$",
+    "wrong_answers_pool": [
+      "4^{9}",
+      "4^{1}",
+      "8^{20}",
+      "4^{21}",
+      "4^{19}",
+      "5^{20}",
+      "3^{20}"
+    ],
+    "explanation": "When raising a power to a power, multiply the exponents: $4 \\times 5 = 20$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_28"
+  },
+  {
+    "id": "ALG_144",
+    "topic": "Patterns, Functions and Algebra",
+    "subtopic": "Numeric and geometric patterns",
+    "difficulty": "hard",
+    "question": "Find the next term in the geometric sequence: $1, 3, 9, 27, ...$",
+    "correct_answer": "81",
+    "wrong_answers_pool": [
+      "64",
+      "96",
+      "162",
+      "99",
+      "40",
+      "72",
+      "-81",
+      "80"
+    ],
+    "explanation": "The constant ratio is $3$. Therefore, $27 \\times 3 = 81$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_29"
+  },
+  {
+    "id": "DATA_904",
+    "topic": "Data Handling",
+    "subtopic": "Mean, median, mode",
+    "difficulty": "hard",
+    "question": "Determine the mode(s) of the data set: $18, 28, 18, 28, 28, 18$",
+    "correct_answer": "Bimodal: 18 and 28",
+    "wrong_answers_pool": [
+      "Only 18",
+      "Only 28",
+      "23.0",
+      "No mode",
+      "46",
+      "10"
+    ],
+    "explanation": "The mode is the most frequent value. Both $18$ and $28$ appear 3 times, so the data set is bimodal.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_30"
+  },
+  {
+    "id": "ALG_643",
+    "topic": "Patterns, Functions and Algebra",
+    "subtopic": "Functions and graphs",
+    "difficulty": "hard",
+    "question": "Find the equation of the line with gradient $2$ passing through the point $(-3; 3)$.",
+    "correct_answer": "$y = 2x + 9$",
+    "wrong_answers_pool": [
+      "$y = 2x + 10$",
+      "$y = 2x + 8$",
+      "$y = -2x + 9$",
+      "$y = 2x - 9$",
+      "$y = 9x + 2$",
+      "$y = -3x + 3$",
+      "$y = 2x + 11$"
+    ],
+    "explanation": "Use $y = mx + c$. Substitute $m=2, x=-3, y=3$: $3 = 2(-3) + c$. Solving for $c$ gives $c = 9$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_31"
+  },
+  {
+    "id": "DATA_978",
+    "topic": "Data Handling",
+    "subtopic": "Mean, median, mode",
+    "difficulty": "medium",
+    "question": "Find the median of the data set: $6, 10, 13, 16, 17, 19$",
+    "correct_answer": "14.5",
+    "wrong_answers_pool": [
+      "0.1",
+      "-0.0",
+      "34.1",
+      "3.4",
+      "4.6",
+      "6.0",
+      "7.2",
+      "13.5"
+    ],
+    "explanation": "The data is ordered. Since there is an even number of values, the median is the average of the two middle values: $\\frac{13 + 16}{2} = 14.5$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_32"
+  },
+  {
+    "id": "ALG_280",
+    "topic": "Patterns, Functions and Algebra",
+    "subtopic": "Algebraic expressions",
+    "difficulty": "medium",
+    "question": "Expand: $4(2x + 3)$",
+    "correct_answer": "$8x + 12$",
+    "wrong_answers_pool": [
+      "8x + 3",
+      "2x + 12",
+      "6x + 7",
+      "8x - 12",
+      "8x + 13",
+      "9x + 12",
+      "8x^2 + 12"
+    ],
+    "explanation": "Multiply each term inside the bracket by $4$: $4 \\times 2x + 4 \\times 3 = 8x + 12$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_33"
+  },
+  {
+    "id": "NUM_126",
+    "topic": "Numbers, Operations and Relationships",
+    "subtopic": "Exponents",
+    "difficulty": "hard",
+    "question": "Simplify: $(5^5)^4$",
+    "correct_answer": "$5^{20}$",
+    "wrong_answers_pool": [
+      "5^{9}",
+      "5^{1}",
+      "10^{20}",
+      "5^{21}",
+      "5^{19}",
+      "6^{20}",
+      "4^{20}"
+    ],
+    "explanation": "When raising a power to a power, multiply the exponents: $5 \\times 4 = 20$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_34"
+  },
+  {
+    "id": "DATA_943",
+    "topic": "Data Handling",
+    "subtopic": "Mean, median, mode",
+    "difficulty": "medium",
+    "question": "Find the median of the data set: $2, 4, 6, 8, 13, 17$",
+    "correct_answer": "7.0",
+    "wrong_answers_pool": [
+      "0.1",
+      "3.5",
+      "6.0",
+      "8.0",
+      "9.9",
+      "10.5",
+      "13.2",
+      "14.0"
+    ],
+    "explanation": "The data is ordered. Since there is an even number of values, the median is the average of the two middle values: $\\frac{6 + 8}{2} = 7.0$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_35"
+  },
+  {
+    "id": "NUM_268",
+    "topic": "Numbers, Operations and Relationships",
+    "subtopic": "Whole numbers",
+    "difficulty": "medium",
+    "question": "Calculate the product: $106 \\times 20$",
+    "correct_answer": "2120",
+    "wrong_answers_pool": [
+      "1060",
+      "2106",
+      "2118",
+      "2119",
+      "2121",
+      "2122",
+      "2124",
+      "4240"
+    ],
+    "explanation": "$106 \\times 20 = 2120$",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_36"
+  },
+  {
+    "id": "DATA_878",
+    "topic": "Data Handling",
+    "subtopic": "Mean, median, mode",
+    "difficulty": "hard",
+    "question": "Determine the mode(s) of the data set: $26, 15, 15, 15, 26, 26$",
+    "correct_answer": "Bimodal: 15 and 26",
+    "wrong_answers_pool": [
+      "Only 15",
+      "Only 26",
+      "20.5",
+      "No mode",
+      "41",
+      "11"
+    ],
+    "explanation": "The mode is the most frequent value. Both $15$ and $26$ appear 3 times, so the data set is bimodal.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_37"
+  },
+  {
+    "id": "NUM_261",
+    "topic": "Numbers, Operations and Relationships",
+    "subtopic": "Whole numbers",
+    "difficulty": "medium",
+    "question": "Calculate the product: $658 \\times 56$",
+    "correct_answer": "36848",
+    "wrong_answers_pool": [
+      "73696",
+      "36833",
+      "36835",
+      "36836",
+      "36837",
+      "36846",
+      "36847",
+      "-36848"
+    ],
+    "explanation": "$658 \\times 56 = 36848$",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_38"
+  },
+  {
+    "id": "ALG_617",
+    "topic": "Patterns, Functions and Algebra",
+    "subtopic": "Numeric and geometric patterns",
+    "difficulty": "medium",
+    "question": "Determine the $14$th term of the sequence: $10, 13, 16, ...$",
+    "correct_answer": "49",
+    "wrong_answers_pool": [
+      "98",
+      "67",
+      "-49",
+      "48",
+      "47",
+      "50",
+      "51",
+      "147"
+    ],
+    "explanation": "The general rule is $T_n = 3n + 7$. Therefore, $T_{14} = 3(14) + 7 = 49$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_39"
+  },
+  {
+    "id": "GEO_367",
+    "topic": "Space and Shape (Geometry)",
+    "subtopic": "Triangles and quadrilaterals",
+    "difficulty": "medium",
+    "question": "In a triangle, two interior opposite angles are $73^\\circ$ and $70^\\circ$. Calculate the size of the exterior angle.",
+    "correct_answer": "143^\\circ",
+    "wrong_answers_pool": [
+      "132^\\circ",
+      "71^\\circ",
+      "136^\\circ",
+      "137^\\circ",
+      "138^\\circ",
+      "141^\\circ",
+      "142^\\circ",
+      "429^\\circ"
+    ],
+    "explanation": "The exterior angle of a triangle is equal to the sum of the two interior opposite angles. $73^\\circ + 70^\\circ = 143^\\circ$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_40"
+  },
+  {
+    "id": "NUM_686",
+    "topic": "Numbers, Operations and Relationships",
+    "subtopic": "Integers",
+    "difficulty": "hard",
+    "question": "Calculate: $7 - (-13) \\times (-6)$",
+    "correct_answer": "-71",
+    "wrong_answers_pool": [
+      "-63",
+      "-61",
+      "-58",
+      "71",
+      "-55",
+      "-213",
+      "-67",
+      "-142"
+    ],
+    "explanation": "Follow BODMAS: first multiply $(-13) \\times (-6) = 78$, then subtract from $7$: $7 - (78) = -71$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_41"
+  },
+  {
+    "id": "DATA_281",
+    "topic": "Data Handling",
+    "subtopic": "Mean, median, mode",
+    "difficulty": "medium",
+    "question": "Find the median of the data set: $12, 13, 15, 17, 19, 20$",
+    "correct_answer": "16.0",
+    "wrong_answers_pool": [
+      "32.0",
+      "0.1",
+      "0.2",
+      "3.1",
+      "8.0",
+      "10.4",
+      "12.3",
+      "15.0"
+    ],
+    "explanation": "The data is ordered. Since there is an even number of values, the median is the average of the two middle values: $\\frac{15 + 17}{2} = 16.0$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_42"
+  },
+  {
+    "id": "NUM_367",
+    "topic": "Numbers, Operations and Relationships",
+    "subtopic": "Whole numbers",
+    "difficulty": "medium",
+    "question": "Calculate the product: $554 \\times 94$",
+    "correct_answer": "52076",
+    "wrong_answers_pool": [
+      "52096",
+      "52065",
+      "156228",
+      "52074",
+      "52075",
+      "52077",
+      "52078",
+      "52081"
+    ],
+    "explanation": "$554 \\times 94 = 52076$",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_43"
+  },
+  {
+    "id": "GEO_158",
+    "topic": "Space and Shape (Geometry)",
+    "subtopic": "Transformations",
+    "difficulty": "hard",
+    "question": "Point $B(5; 1)$ is enlarged by a scale factor of $2$ through the origin. What are the new coordinates?",
+    "correct_answer": "(10; 2)",
+    "wrong_answers_pool": [
+      "(7; 3)",
+      "(10; 1)",
+      "(5; 2)",
+      "(2.5; 0.5)",
+      "(2; 10)",
+      "(-10; -2)",
+      "(11; 3)"
+    ],
+    "explanation": "Multiply both coordinates by the scale factor $2$: $(5 \\times 2; 1 \\times 2) = (10; 2)$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_44"
+  },
+  {
+    "id": "ALG_712",
+    "topic": "Patterns, Functions and Algebra",
+    "subtopic": "Algebraic expressions",
+    "difficulty": "hard",
+    "question": "Expand and simplify: $(4x + 2)(3x - 5)$",
+    "correct_answer": "$12x^2 - 14x - 10$",
+    "wrong_answers_pool": [
+      "12x^2 + 15x - 10",
+      "12x^2 - 15x - 10",
+      "12x^2 + 16x - 10",
+      "12x^2 - 16x - 10",
+      "13x^2 + -14x - 10",
+      "12x^2 + -14x - 11",
+      "12x^2 + -14x + 10"
+    ],
+    "explanation": "Use FOIL: $(4x)(3x) + (4x)(-5) + (2)(3x) + (2)(-5) = 12x^2 - 14x - 10$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_45"
+  },
+  {
+    "id": "ALG_005",
+    "topic": "Patterns, Functions and Algebra",
+    "subtopic": "Factorisation",
+    "difficulty": "medium",
+    "question": "Factorise the difference of two squares: $x^2 - 36$",
+    "correct_answer": "$(x - 6)(x + 6)$",
+    "wrong_answers_pool": [
+      "(x - 6)(x - 6)",
+      "(x + 6)(x + 6)",
+      "(x - 36)(x + 1)",
+      "(x - 7)(x + 5)",
+      "(x - 6)(x + 7)",
+      "(x - 7)(x + 6)",
+      "(x - 12)(x + 12)"
+    ],
+    "explanation": "Use the rule $a^2 - b^2 = (a - b)(a + b)$. Here $a = x$ and $b = 6$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_46"
+  },
+  {
+    "id": "DATA_366",
+    "topic": "Data Handling",
+    "subtopic": "Mean, median, mode",
+    "difficulty": "medium",
+    "question": "Find the median of the data set: $3, 5, 12, 15, 15, 20$",
+    "correct_answer": "13.5",
+    "wrong_answers_pool": [
+      "0.1",
+      "5.6",
+      "6.8",
+      "7.4",
+      "-5.8",
+      "12.5",
+      "14.5",
+      "17.5"
+    ],
+    "explanation": "The data is ordered. Since there is an even number of values, the median is the average of the two middle values: $\\frac{12 + 15}{2} = 13.5$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_47"
+  },
+  {
+    "id": "GEO_576",
+    "topic": "Space and Shape (Geometry)",
+    "subtopic": "Triangles and quadrilaterals",
+    "difficulty": "medium",
+    "question": "In a triangle, two interior opposite angles are $66^\\circ$ and $74^\\circ$. Calculate the size of the exterior angle.",
+    "correct_answer": "140^\\circ",
+    "wrong_answers_pool": [
+      "160^\\circ",
+      "128^\\circ",
+      "420^\\circ",
+      "70^\\circ",
+      "138^\\circ",
+      "139^\\circ",
+      "141^\\circ",
+      "142^\\circ"
+    ],
+    "explanation": "The exterior angle of a triangle is equal to the sum of the two interior opposite angles. $66^\\circ + 74^\\circ = 140^\\circ$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_48"
+  },
+  {
+    "id": "NUM_798",
+    "topic": "Numbers, Operations and Relationships",
+    "subtopic": "Ratio and proportion",
+    "difficulty": "medium",
+    "question": "Divide $66$ in the ratio $2:4$. What is the smaller part?",
+    "correct_answer": "$22$",
+    "wrong_answers_pool": [
+      "66",
+      "37",
+      "41",
+      "-22",
+      "11",
+      "44",
+      "10",
+      "20"
+    ],
+    "explanation": "Total parts = $2 + 4 = 6$. One part = $66 \\div 6 = 11$. Smaller part = $2 \\times 11 = 22$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_49"
+  },
+  {
+    "id": "MEAS_271",
+    "topic": "Measurement",
+    "subtopic": "Unit conversions",
+    "difficulty": "hard",
+    "question": "Convert $27200$ cm$^2$ to m$^2$.",
+    "correct_answer": "2.72 m$^2$",
+    "wrong_answers_pool": [
+      "0.368 m$^2$",
+      "1.360 m$^2$",
+      "1.720 m$^2$",
+      "3.720 m$^2$",
+      "4.080 m$^2$",
+      "5.440 m$^2$",
+      "2.502 m$^2$",
+      "3.629 m$^2$"
+    ],
+    "explanation": "Since $1$ m $= 100$ cm, $1$ m$^2 = 100 \\times 100 = 10,000$ cm$^2$. Divide by $10,000$: $27200 \\div 10000 = 2.72$ m$^2$.",
+    "exam_id": "EXAM_2026-W17_grade9_mathematics_50"
+  }
+]
