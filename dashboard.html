@@ -179,6 +179,7 @@
         }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
+<script src="dtech_cosmetics.js"></script>
 </head>
 <body>
 
@@ -223,16 +224,35 @@
         <strong>Syncing:</strong> You have offline quiz results waiting to be synced to the server...
     </div>
 
-    <div style="margin-bottom: 2rem;">
-        <button onclick="window.location.href='weekly_quiz.html'"
-            style="width: 100%; max-width: 400px; display: block; margin: 0 auto;
-                   background: linear-gradient(135deg, #FF9800, #F44336);
+    <div style="margin-bottom: 2rem; max-width: 400px; margin-left: auto; margin-right: auto;">
+        <button onclick="window.location.href='subjects.html'"
+            style="width: 100%; display: block; margin-bottom: 1rem;
+                   background: linear-gradient(135deg, var(--accent-blue), #2563eb);
                    color: white; border: none; padding: 12px 24px; border-radius: 8px;
                    font-size: 1.2rem; font-weight: bold; cursor: pointer;
-                   box-shadow: 0 4px 15px rgba(244, 67, 54, 0.4); text-align: center;
+                   box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); text-align: center;
                    transition: transform 0.2s, box-shadow 0.2s;">
-            Weekly Exam Available 🏆
+            Try out a Quiz 📝
         </button>
+        <div style="display: flex; gap: 1rem;">
+            <button onclick="window.location.href='store.html'"
+                style="flex: 1; background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+                       color: white; border: none; padding: 12px 10px; border-radius: 8px;
+                       font-size: 1rem; font-weight: bold; cursor: pointer;
+                       box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4); text-align: center;
+                       transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <span>D-TECH POINTS 💎</span>
+                <span id="stat-dtech-points" style="font-size: 0.8rem; font-weight: normal; margin-top: 2px;">0 pts</span>
+            </button>
+            <button onclick="window.location.href='weekly_quiz.html'"
+                style="flex: 1; background: linear-gradient(135deg, #FF9800, #F44336);
+                       color: white; border: none; padding: 12px 10px; border-radius: 8px;
+                       font-size: 1rem; font-weight: bold; cursor: pointer;
+                       box-shadow: 0 4px 15px rgba(244, 67, 54, 0.4); text-align: center;
+                       transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <span>Weekly Exam 🏆</span>
+            </button>
+        </div>
     </div>
 
     <div class="ranks-grid" id="dynamic-ranks-grid">
@@ -429,6 +449,9 @@
             document.getElementById("stat-streak").textContent = `${data.study_streak_days || 0} days`;
             document.getElementById("stat-xp").textContent = data.total_xp || 0;
             document.getElementById("stat-questions").textContent = data.questions_answered || 0;
+            if (document.getElementById("stat-dtech-points")) {
+                document.getElementById("stat-dtech-points").textContent = `${data.dtech_points || 0} pts`;
+            }
 
             const displayRankSA = (data.ranks && data.ranks.overall && data.ranks.overall !== "-") ? `#${data.ranks.overall}` : "-";
 

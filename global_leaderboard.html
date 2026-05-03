@@ -687,6 +687,7 @@
         }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
+<script src="dtech_cosmetics.js"></script>
 </head>
 <body>
 
@@ -904,10 +905,22 @@
         let rankDisplay = `#${rank}`;
         if (rank === 1) rankDisplay = `<span class="crown-icon">👑</span>#1`;
 
+        let avatarHtml = `<img class="user-avatar" src="${safeAvatar}" alt="${safeUsername}">`;
+        if (user.equipped_cosmetics && user.equipped_cosmetics.avatar_border) {
+            // Validate cosmetic input to prevent XSS
+            const allowedBorders = ['border_gold', 'border_diamond', 'border_neon'];
+            const safeBorder = allowedBorders.includes(user.equipped_cosmetics.avatar_border) ? user.equipped_cosmetics.avatar_border : '';
+            if (safeBorder) {
+                avatarHtml = `<div class="avatar-border-wrapper ${safeBorder}" style="margin-right: 1rem; padding: 2px;">
+                                <img class="user-avatar" src="${safeAvatar}" alt="${safeUsername}" style="margin-right: 0;">
+                              </div>`;
+            }
+        }
+
         row.innerHTML = `
             <div class="rank-num">${rankDisplay}</div>
             <div class="user-info">
-                <img class="user-avatar" src="${safeAvatar}" alt="${safeUsername}">
+                ${avatarHtml}
                 <div class="rank-name">${safeDisplayName}</div>
             </div>
             <div class="rank-xp">${user.xp.toLocaleString()} XP</div>

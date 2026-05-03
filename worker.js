@@ -50,6 +50,15 @@ export default {
       if (request.method === "GET" && path === "/api/schools") {
         return await handleGetSchools(request, env);
       }
+      if (request.method === "POST" && path === "/api/store/click-ad") {
+        return await handleAdClick(request, env);
+      }
+      if (request.method === "POST" && path === "/api/store/purchase") {
+        return await handleStorePurchase(request, env);
+      }
+      if (request.method === "POST" && path === "/api/store/equip") {
+        return await handleStoreEquip(request, env);
+      }
       if (request.method === "GET" && path === "/api/leaderboard") {
         return await handleGetLeaderboards(request, env);
       }
@@ -209,6 +218,13 @@ async function handleGetUser(request, env, path) {
   if (!userData.grade) userData.grade = "grade12";
   const grade = userData.grade;
   if (!userData.school) userData.school = "";
+
+  // Initialize new cosmetic fields if missing
+  if (userData.dtech_points === undefined) userData.dtech_points = 0;
+  if (userData.ad_clicks_today === undefined) userData.ad_clicks_today = 0;
+  if (!userData.last_ad_click_date) userData.last_ad_click_date = "";
+  if (!userData.unlocked_cosmetics) userData.unlocked_cosmetics = [];
+  if (!userData.equipped_cosmetics) userData.equipped_cosmetics = {};
 
   // Calculate ranks
   const overallLeaderboardStr = await env.RANK_KV.get(`leaderboard:${grade}:overall`) || await env.RANK_KV.get("leaderboard:overall") || "[]";
@@ -395,7 +411,8 @@ async function handleGetPublicUser(request, env, path) {
     accuracy_percentage: userData.accuracy_percentage || 0,
     study_streak_days: userData.study_streak_days || 0,
     topic_accuracy: userData.topic_accuracy || {},
-    completed_weekly_exams: userData.completed_weekly_exams || {}
+    completed_weekly_exams: userData.completed_weekly_exams || {},
+    equipped_cosmetics: userData.equipped_cosmetics || {}
   };
 
   if (!userData.grade) userData.grade = "grade12";
@@ -680,6 +697,7 @@ async function updateLeaderboards(env, user, currentWeek, publicXpEarned, subjec
       name: user.name,
       surname: user.surname,
       avatar_url: user.avatar_url,
+      equipped_cosmetics: user.equipped_cosmetics || {},
       xp: xpVal
     });
 
@@ -982,4 +1000,120 @@ async function handleAdminDeleteUser(request, env, path) {
   }
 
   return jsonResponse({ message: "User completely deleted" });
+}
+
+async function handleAdClick(request, env) {
+  const { user_id } = await request.json();
+  if (!user_id) return jsonResponse({ error: "user_id required" }, 400);
+
+  const userDataString = await env.RANK_KV.get(`user:${user_id}`);
+  if (!userDataString) return jsonResponse({ error: "User not found" }, 404);
+
+  const userData = JSON.parse(userDataString);
+  const today = new Date().toISOString().split("T")[0];
+
+  if (userData.last_ad_click_date !== today) {
+    userData.last_ad_click_date = today;
+    userData.ad_clicks_today = 0;
+  }
+
+  if (userData.ad_clicks_today >= 25) {
+    return jsonResponse({ error: "Daily ad click limit reached" }, 400);
+  }
+
+  const pointsEarned = Math.floor(Math.random() * 50) + 1; // 1 to 50
+
+  if (userData.dtech_points === undefined) userData.dtech_points = 0;
+  userData.dtech_points += pointsEarned;
+  userData.ad_clicks_today += 1;
+
+  await env.RANK_KV.put(`user:${user_id}`, JSON.stringify(userData));
+
+  return jsonResponse({
+    success: true,
+    points_earned: pointsEarned,
+    new_balance: userData.dtech_points,
+    clicks_today: userData.ad_clicks_today
+  });
+}
+
+const STORE_CATALOG = {
+  theme_gold: { price: 500, type: 'theme' },
+  theme_diamond: { price: 1000, type: 'theme' },
+  theme_neon: { price: 1500, type: 'theme' },
+  border_gold: { price: 400, type: 'avatar_border' },
+  border_diamond: { price: 800, type: 'avatar_border' },
+  border_neon: { price: 1200, type: 'avatar_border' }
+};
+
+async function handleStorePurchase(request, env) {
+  const { user_id, item_id } = await request.json();
+  if (!user_id || !item_id) return jsonResponse({ error: "Missing parameters" }, 400);
+
+  if (!STORE_CATALOG[item_id]) {
+    return jsonResponse({ error: "Invalid item" }, 400);
+  }
+  const price = STORE_CATALOG[item_id].price;
+
+  const userDataString = await env.RANK_KV.get(`user:${user_id}`);
+  if (!userDataString) return jsonResponse({ error: "User not found" }, 404);
+
+  const userData = JSON.parse(userDataString);
+  if (userData.dtech_points === undefined) userData.dtech_points = 0;
+  if (!userData.unlocked_cosmetics) userData.unlocked_cosmetics = [];
+
+  if (userData.dtech_points < price) {
+    return jsonResponse({ error: "Not enough D-TECH POINTS" }, 400);
+  }
+
+  if (userData.unlocked_cosmetics.includes(item_id)) {
+    return jsonResponse({ error: "Item already unlocked" }, 400);
+  }
+
+  userData.dtech_points -= price;
+  userData.unlocked_cosmetics.push(item_id);
+
+  await env.RANK_KV.put(`user:${user_id}`, JSON.stringify(userData));
+
+  return jsonResponse({
+    success: true,
+    new_balance: userData.dtech_points,
+    unlocked_cosmetics: userData.unlocked_cosmetics
+  });
+}
+
+async function handleStoreEquip(request, env) {
+  const { user_id, type, item_id } = await request.json();
+  if (!user_id || !type || item_id === undefined) return jsonResponse({ error: "Missing parameters" }, 400);
+
+  if (item_id !== null && !STORE_CATALOG[item_id]) {
+    return jsonResponse({ error: "Invalid item" }, 400);
+  }
+  if (item_id !== null && STORE_CATALOG[item_id].type !== type) {
+    return jsonResponse({ error: "Type mismatch" }, 400);
+  }
+
+  const userDataString = await env.RANK_KV.get(`user:${user_id}`);
+  if (!userDataString) return jsonResponse({ error: "User not found" }, 404);
+
+  const userData = JSON.parse(userDataString);
+  if (!userData.unlocked_cosmetics) userData.unlocked_cosmetics = [];
+  if (!userData.equipped_cosmetics) userData.equipped_cosmetics = {};
+
+  if (item_id !== null && !userData.unlocked_cosmetics.includes(item_id)) {
+    return jsonResponse({ error: "Item not unlocked" }, 400);
+  }
+
+  if (item_id === null) {
+    delete userData.equipped_cosmetics[type];
+  } else {
+    userData.equipped_cosmetics[type] = item_id;
+  }
+
+  await env.RANK_KV.put(`user:${user_id}`, JSON.stringify(userData));
+
+  return jsonResponse({
+    success: true,
+    equipped_cosmetics: userData.equipped_cosmetics
+  });
 }

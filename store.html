@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhance Experience - Quiz Platform</title>
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --border-color: #334155;
+            --header-bg: #0b1120;
+            --theme-gold: linear-gradient(135deg, #fbbf24, #b45309);
+            --theme-diamond: linear-gradient(135deg, #60a5fa, #3b82f6);
+            --theme-neon: linear-gradient(135deg, #f472b6, #db2777);
+        }
+        body { display: flex; flex-direction: column; min-height: 100vh; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-dark); color: var(--text-main); }
+
+        /* Compact Header / Nav */
+        header { background: var(--header-bg); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
+        header h2 { margin: 0; font-size: 1.5rem; color: var(--text-main); }
+        nav { display: flex; gap: 1.5rem; align-items: center; }
+        nav a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        nav a:hover, nav a.active { color: var(--accent-blue); }
+
+        /* Responsive Nav */
+        @media (max-width: 768px) {
+            header { flex-direction: row; padding: 1rem; gap: 1rem; justify-content: space-between; }
+            nav { width: 100%; justify-content: center; flex-wrap: wrap; gap: 1rem; }
+        }
+
+        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+
+        .points-banner {
+            background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+        }
+
+        .points-banner h1 { margin: 0 0 0.5rem 0; font-size: 2.5rem; }
+        .points-banner p { margin: 0; font-size: 1.2rem; opacity: 0.9; }
+
+        .section-title { font-size: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1.5rem; color: var(--text-main); font-weight: 600; margin-top: 3rem; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card:hover { transform: translateY(-4px); }
+
+        .card h3 { margin: 0 0 1rem 0; font-size: 1.2rem; }
+        .card p { color: var(--text-muted); margin-bottom: 1.5rem; flex-grow: 1; }
+
+        .btn {
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            width: 100%;
+        }
+        .btn:hover { opacity: 0.9; }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .btn-ad { background: var(--accent-blue); color: white; }
+        .btn-buy { background: var(--accent-green); color: white; }
+        .btn-equip { background: #8b5cf6; color: white; }
+        .btn-equipped { background: var(--border-color); color: var(--text-main); cursor: default; }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #fbbf24;
+            margin-bottom: 1rem;
+        }
+
+        /* Hamburger Menu Styles */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1001;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-main);
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-card);
+                border-bottom: 1px solid var(--border-color);
+                padding: 1rem 0;
+                z-index: 1000;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav a {
+                margin: 0.5rem 1rem;
+                padding: 0.5rem;
+                border-radius: 4px;
+            }
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--header-bg, #0b1120);
+            color: var(--text-muted, #94a3b8);
+            text-align: center;
+            padding: 1.5rem 1rem;
+            margin-top: auto;
+            border-top: 1px solid var(--border-color, #334155);
+            font-size: 0.9rem;
+        }
+
+        /* Toast */
+        #toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--bg-card);
+            color: var(--text-main);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-blue);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transform: translateX(150%);
+            transition: transform 0.3s ease-out;
+            z-index: 2000;
+        }
+        #toast.show { transform: translateX(0); }
+
+    </style>
+<script src="dtech_cosmetics.js"></script>
+</head>
+<body>
+
+<header>
+    <div style="display: flex; align-items: center; gap: 1rem;">
+        <div class="hamburger" id="hamburger-menu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <img src="logo.png" alt="Dtech Logo" style="height: 30px; cursor: pointer; object-fit: contain;" onclick="window.location.href='dashboard.html'">
+        <h2 style="margin:0;">Enhance Experience</h2>
+    </div>
+    <nav id="nav-menu">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="subjects.html">Take a Quiz</a>
+        <a href="weekly_quiz.html">Weekly Exam</a>
+        <a href="leaderboard.html">Grade Leaderboards</a>
+        <a href="global_leaderboard.html">Global Leaderboard</a>
+        <a href="stats.html">Detailed Stats</a>
+        <a href="profile.html">Profile</a>
+        <a href="login.html" onclick="localStorage.clear()">Logout</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="points-banner">
+        <h1 id="dtech-points-display">💎 0</h1>
+        <p>D-TECH POINTS</p>
+    </div>
+
+    <h2 class="section-title">Earn Points</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Sponsored Partner Offer</h3>
+            <p>Visit our sponsor to earn points! Random drop between 1 and 50 points.</p>
+            <p style="font-size: 0.8rem; color: var(--text-muted);">Clicks remaining today: <span id="clicks-remaining">25</span></p>
+            <button class="btn btn-ad" id="ad-btn" onclick="watchAd()">Visit Sponsor (+Points)</button>
+        </div>
+        <!-- We can add more ad placements here in the future -->
+    </div>
+
+    <h2 class="section-title">Cosmetics Shop</h2>
+
+    <h3>Site Themes (Local)</h3>
+    <div class="grid" style="margin-bottom: 2rem;">
+        <div class="card" style="border-top: 4px solid #fbbf24;">
+            <h3>Gold Theme</h3>
+            <p>A luxurious gold and dark interface.</p>
+            <div class="price">💎 100</div>
+            <button class="btn btn-buy" id="btn-theme_gold" onclick="buyOrEquip('theme', 'theme_gold', 100)">Purchase</button>
+        </div>
+        <div class="card" style="border-top: 4px solid #60a5fa;">
+            <h3>Diamond Theme</h3>
+            <p>A sleek, cool blue diamond aesthetic.</p>
+            <div class="price">💎 250</div>
+            <button class="btn btn-buy" id="btn-theme_diamond" onclick="buyOrEquip('theme', 'theme_diamond', 250)">Purchase</button>
+        </div>
+        <div class="card" style="border-top: 4px solid #f472b6;">
+            <h3>Neon Theme</h3>
+            <p>Cyberpunk-inspired bright neon colors.</p>
+            <div class="price">💎 500</div>
+            <button class="btn btn-buy" id="btn-theme_neon" onclick="buyOrEquip('theme', 'theme_neon', 500)">Purchase</button>
+        </div>
+        <div class="card">
+            <h3>Default Theme</h3>
+            <p>The classic D-TECH look.</p>
+            <div class="price">Free</div>
+            <button class="btn btn-equip" id="btn-theme_null" onclick="equipCosmetic('theme', null)">Equip</button>
+        </div>
+    </div>
+
+    <h3>Profile Avatar Borders (Global)</h3>
+    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">These are visible to everyone on the Global Leaderboards and your Public Profile!</p>
+    <div class="grid">
+        <div class="card" style="box-shadow: 0 0 15px rgba(251, 191, 36, 0.2);">
+            <h3>Gold Aura</h3>
+            <p>A glowing gold border around your profile picture.</p>
+            <div class="price">💎 500</div>
+            <button class="btn btn-buy" id="btn-border_gold" onclick="buyOrEquip('avatar_border', 'border_gold', 500)">Purchase</button>
+        </div>
+        <div class="card" style="box-shadow: 0 0 15px rgba(96, 165, 250, 0.2);">
+            <h3>Diamond Aura</h3>
+            <p>A radiant blue border around your profile picture.</p>
+            <div class="price">💎 1000</div>
+            <button class="btn btn-buy" id="btn-border_diamond" onclick="buyOrEquip('avatar_border', 'border_diamond', 1000)">Purchase</button>
+        </div>
+        <div class="card" style="box-shadow: 0 0 15px rgba(244, 114, 182, 0.2);">
+            <h3>Neon Aura</h3>
+            <p>A pulsing neon border around your profile picture.</p>
+            <div class="price">💎 2000</div>
+            <button class="btn btn-buy" id="btn-border_neon" onclick="buyOrEquip('avatar_border', 'border_neon', 2000)">Purchase</button>
+        </div>
+        <div class="card">
+            <h3>No Border</h3>
+            <p>Standard clean avatar.</p>
+            <div class="price">Free</div>
+            <button class="btn btn-equip" id="btn-border_null" onclick="equipCosmetic('avatar_border', null)">Equip</button>
+        </div>
+    </div>
+</div>
+
+<div id="toast">Message here</div>
+
+<footer id="dynamic-footer">
+  <p>&copy; <span id="footer-year">2024</span> Dtech &bull; Preasx24</p>
+  <p>Empowering the youth through digital innovation</p>
+  <a href="https://legal.dtech-services.co.za">Terms & Conditions</a>
+</footer>
+
+<script>
+    const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
+    const userId = localStorage.getItem("user_id");
+
+    if (!userId) {
+        window.location.href = "login.html";
+    }
+
+    let userPoints = 0;
+    let unlockedItems = [];
+    let equippedItems = {};
+
+    function showToast(msg, isError = false) {
+        const toast = document.getElementById('toast');
+        toast.textContent = msg;
+        toast.style.borderLeftColor = isError ? "var(--accent-red)" : "var(--accent-green)";
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+    async function loadUserData() {
+        try {
+            const response = await fetch(`${API_URL}/api/user/${userId}`);
+            if (response.ok) {
+                const data = await response.json();
+                userPoints = data.dtech_points || 0;
+                unlockedItems = data.unlocked_cosmetics || [];
+                equippedItems = data.equipped_cosmetics || {};
+
+                document.getElementById('dtech-points-display').textContent = `💎 ${userPoints}`;
+
+                const clicksToday = data.ad_clicks_today || 0;
+                const remaining = Math.max(0, 25 - clicksToday);
+                document.getElementById('clicks-remaining').textContent = remaining;
+                if (remaining === 0) {
+                    document.getElementById('ad-btn').disabled = true;
+                    document.getElementById('ad-btn').textContent = "Daily limit reached";
+                }
+
+                updateButtons();
+            }
+        } catch (error) {
+            console.error("Failed to load user data:", error);
+        }
+    }
+
+    function updateButtons() {
+        const items = ['theme_gold', 'theme_diamond', 'theme_neon', 'border_gold', 'border_diamond', 'border_neon'];
+
+        items.forEach(item => {
+            const btn = document.getElementById(`btn-${item}`);
+            if (!btn) return;
+
+            const type = item.startsWith('theme') ? 'theme' : 'avatar_border';
+
+            if (equippedItems[type] === item) {
+                btn.textContent = "Equipped";
+                btn.className = "btn btn-equipped";
+                btn.onclick = null;
+            } else if (unlockedItems.includes(item)) {
+                btn.textContent = "Equip";
+                btn.className = "btn btn-equip";
+                btn.onclick = () => equipCosmetic(type, item);
+            }
+        });
+
+        // Handle null (default) equips
+        ['theme', 'avatar_border'].forEach(type => {
+            const btn = document.getElementById(`btn-${type}_null`);
+            if (!btn) return;
+            if (!equippedItems[type] || equippedItems[type] === null) {
+                btn.textContent = "Equipped";
+                btn.className = "btn btn-equipped";
+            } else {
+                btn.textContent = "Equip";
+                btn.className = "btn btn-equip";
+            }
+        });
+    }
+
+    async function watchAd() {
+        // Open a dummy ad link in a new tab (you can replace this with a real ad URL)
+        window.open('https://google.com', '_blank');
+
+        try {
+            const response = await fetch(`${API_URL}/api/store/click-ad`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ user_id: userId })
+            });
+            const data = await response.json();
+
+            if (response.ok) {
+                userPoints = data.new_balance;
+                document.getElementById('dtech-points-display').textContent = `💎 ${userPoints}`;
+                showToast(`You earned ${data.points_earned} D-TECH POINTS!`);
+
+                const remaining = Math.max(0, 25 - data.clicks_today);
+                document.getElementById('clicks-remaining').textContent = remaining;
+                if (remaining === 0) {
+                    document.getElementById('ad-btn').disabled = true;
+                    document.getElementById('ad-btn').textContent = "Daily limit reached";
+                }
+            } else {
+                showToast(data.error || "Failed to earn points", true);
+            }
+        } catch (error) {
+            showToast("Network error", true);
+        }
+    }
+
+    async function buyOrEquip(type, itemId, price) {
+        if (unlockedItems.includes(itemId)) {
+            equipCosmetic(type, itemId);
+            return;
+        }
+
+        if (userPoints < price) {
+            showToast("Not enough D-TECH POINTS!", true);
+            return;
+        }
+
+        if (!confirm(`Are you sure you want to purchase this for ${price} points?`)) return;
+
+        try {
+            const response = await fetch(`${API_URL}/api/store/purchase`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ user_id: userId, item_id: itemId })
+            });
+            const data = await response.json();
+
+            if (response.ok) {
+                userPoints = data.new_balance;
+                unlockedItems = data.unlocked_cosmetics;
+                document.getElementById('dtech-points-display').textContent = `💎 ${userPoints}`;
+                showToast("Purchase successful!");
+                updateButtons();
+                // Automatically equip after buying
+                equipCosmetic(type, itemId);
+            } else {
+                showToast(data.error || "Purchase failed", true);
+            }
+        } catch (error) {
+            showToast("Network error", true);
+        }
+    }
+
+    async function equipCosmetic(type, itemId) {
+        try {
+            const response = await fetch(`${API_URL}/api/store/equip`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ user_id: userId, type: type, item_id: itemId })
+            });
+            const data = await response.json();
+
+            if (response.ok) {
+                equippedItems = data.equipped_cosmetics;
+                showToast("Equipped successfully!");
+                updateButtons();
+
+                // If they equipped a theme, apply it immediately to this page
+                if (type === 'theme') {
+                    applyTheme(itemId);
+                }
+            } else {
+                showToast(data.error || "Equip failed", true);
+            }
+        } catch (error) {
+            showToast("Network error", true);
+        }
+    }
+
+    function applyTheme(themeId) {
+        // We will define themes via CSS classes on the body
+        document.body.className = '';
+        if (themeId) {
+            document.body.classList.add(themeId);
+            localStorage.setItem('dtech_theme', themeId);
+        } else {
+            localStorage.removeItem('dtech_theme');
+        }
+    }
+
+    // Apply cached theme on load
+    const cachedTheme = localStorage.getItem('dtech_theme');
+    if (cachedTheme) {
+        document.body.classList.add(cachedTheme);
+    }
+
+    loadUserData();
+
+    // Hamburger Logic
+    document.getElementById('hamburger-menu').addEventListener('click', () => {
+        document.getElementById('nav-menu').classList.toggle('active');
+    });
+
+    const currentYear = new Date().getFullYear();
+    document.getElementById('footer-year').textContent = `2020–${currentYear}`;
+</script>
+
+</body>
+</html>
