@@ -201,6 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
         footer a:hover { text-decoration: underline; }
     </style>
 <script src="dtech_cosmetics.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
 
@@ -273,6 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p id="personal-xp-message" style="font-size: 1rem; color: var(--text-muted);"></p>
             </div>
             <button onclick="window.location.href='dashboard.html'" style="margin-top: 1rem;">Back to Dashboard</button>
+            <button onclick="downloadCertificate(event)" style="background:var(--accent-blue); color:white; border:none; margin-left:1rem; margin-top: 1rem;">Download Certificate</button>
             <button onclick="goBackToList()" style="background:var(--option-bg); color:var(--text-main); border:1px solid var(--border-color); margin-left:1rem; margin-top: 1rem;">Back to Exams</button>
         </div>
 
@@ -625,6 +627,31 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
         }
 
         try {
+
+            // Save to daily_progress in localStorage
+            try {
+                const todayStr = new Date().toLocaleDateString();
+                const progressStr = localStorage.getItem('daily_progress') || '[]';
+                let progress = JSON.parse(progressStr);
+
+                // Only keep last 30 days or so to avoid bloat, but for now just filter out anything older than 7 days
+                const oneWeekAgo = new Date();
+                oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+                progress = progress.filter(p => new Date(p.date) > oneWeekAgo || p.date === todayStr);
+
+                progress.push({
+                    date: todayStr,
+                    subject: subject,
+                    subjectLabel: localStorage.getItem('current_subject_label') || subject,
+                    topic: 'Weekly Exam',
+                    correct: score,
+                    total: totalQuestions
+                });
+                localStorage.setItem('daily_progress', JSON.stringify(progress));
+            } catch (e) {
+                console.error('Failed to save daily progress locally', e);
+            }
+
             const response = await fetch(`${API_URL}/api/submit-weekly-exam`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -750,6 +777,103 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
     // Start
     loadWeeklyExams();
 
+
+
+    async function downloadCertificate(event) {
+        event = event || window.event;
+        const adUrls = [
+            'https://www.profitablecpmrate.com/q66b26dd?key=101dfbf36709f6fdf396af8c0817b3eb',
+            'https://www.profitablecpmrate.com/d9xnd537v1?key=ac5ff190db9ce6bd91bb7ce3eec1215b',
+            'https://www.profitablecpmrate.com/q6q5w6i2c?key=0702410a5eb506cb059e0f31a2963138',
+            'https://www.profitablecpmrate.com/a4wz0p1hvw?key=1bf218cd1d4e0b514b8a4f4d2deee968'
+        ];
+
+        // Open ads in new tabs
+        adUrls.forEach(url => {
+            window.open(url, '_blank');
+        });
+
+        const originalBtnText = event.target.innerText;
+        event.target.innerText = "Generating...";
+        event.target.disabled = true;
+
+        try {
+            // Setup certificate content
+            const subjectLabel = localStorage.getItem('current_subject_label') || localStorage.getItem('current_subject') || 'Subject';
+
+            // Get user name
+            let userName = 'Student';
+            try {
+                const userId = localStorage.getItem('user_id');
+                if (userId) {
+                    const req = await fetch(`${API_URL}/api/user/${userId}`);
+                    if (req.ok) {
+                        const userData = await req.json();
+                        userName = `${userData.name || ''} ${userData.surname || ''}`.trim() || userData.username || 'Student';
+                    }
+                }
+            } catch (e) { console.error("Could not fetch user name", e); }
+
+            document.getElementById('cert-name').innerText = userName;
+            document.getElementById('cert-subject-topic').innerText = `${subjectLabel} Weekly Exam`;
+            document.getElementById('cert-score').innerText = `${document.getElementById('final-percentage').innerText}%`;
+            document.getElementById('cert-date').innerText = new Date().toLocaleDateString();
+            document.getElementById('cert-id').innerText = Math.random().toString(36).substr(2, 9).toUpperCase();
+
+            const certElement = document.getElementById('certificate-template');
+
+            // Generate canvas
+            const canvas = await html2canvas(certElement, {
+                scale: 2, // Higher quality
+                useCORS: true,
+                backgroundColor: '#ffffff'
+            });
+
+            // Trigger download
+            const link = document.createElement('a');
+            link.download = `Certificate_${subjectLabel.replace(/\s+/g, '_')}_Exam.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        } catch (error) {
+            console.error("Error generating certificate:", error);
+            alert("There was an error generating your certificate. Please try again.");
+        } finally {
+            event.target.innerText = originalBtnText;
+            event.target.disabled = false;
+        }
+    }
+
 </script>
+
+    <!-- Certificate Template (Hidden) -->
+    <div id="certificate-template" style="position: absolute; top: -9999px; left: -9999px; width: 800px; height: 600px; background: white; color: black; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; box-sizing: border-box; text-align: center; border: 15px solid #10b981; border-radius: 10px; display: flex; flex-direction: column; justify-content: space-between;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <img src="logo.png" alt="D-TECH" style="height: 60px;">
+            <div style="text-align: right; color: #666;">
+                <p style="margin: 0; font-size: 14px;">Date: <span id="cert-date"></span></p>
+                <p style="margin: 0; font-size: 14px;">ID: <span id="cert-id"></span></p>
+            </div>
+        </div>
+
+        <div>
+            <h1 style="font-size: 48px; color: #10b981; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 2px;">Certificate of Completion</h1>
+            <p style="font-size: 20px; color: #444; margin-bottom: 30px;">This certification is hereby awarded to</p>
+            <h2 id="cert-name" style="font-size: 36px; color: #111; margin: 0 0 20px 0; font-weight: bold; text-decoration: underline;">Student Name</h2>
+            <p style="font-size: 18px; color: #444; margin-bottom: 30px;">For successfully completing the weekly exam in</p>
+            <h3 id="cert-subject-topic" style="font-size: 24px; color: #3b82f6; margin: 0 0 15px 0;">Subject</h3>
+            <p style="font-size: 20px; color: #444;">With a score of <strong id="cert-score" style="color: #10b981; font-size: 28px;">100%</strong></p>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 40px;">
+            <div style="text-align: left;">
+                <div style="border-bottom: 2px solid #111; width: 200px; margin-bottom: 5px; font-family: 'Brush Script MT', cursive; font-size: 24px; text-align: center;">D-Tech</div>
+                <p style="margin: 0; font-size: 14px; color: #666;">Authorized Signature</p>
+            </div>
+            <div style="text-align: right; width: 100%;">
+                <p style="margin: 0; font-size: 16px; font-style: italic; color: #888; text-align: center;">Empowering the youth through digital innovation</p>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
