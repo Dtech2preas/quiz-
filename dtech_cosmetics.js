@@ -3,7 +3,13 @@
     function applyTheme() {
         const theme = localStorage.getItem('dtech_theme');
         if (theme) {
-            document.body.classList.add(theme);
+            if (document.body) {
+                document.body.classList.add(theme);
+            } else {
+                window.addEventListener('DOMContentLoaded', () => {
+                    document.body.classList.add(theme);
+                });
+            }
         }
     }
 
@@ -52,24 +58,33 @@
         .avatar-border-wrapper.border_diamond { background: linear-gradient(135deg, #60a5fa, #3b82f6); box-shadow: 0 0 15px rgba(96, 165, 250, 0.5); }
         .avatar-border-wrapper.border_neon { background: linear-gradient(135deg, #f472b6, #db2777); box-shadow: 0 0 15px rgba(244, 114, 182, 0.5); }
     `;
-    document.head.appendChild(style);
+
+    if (document.head) {
+        document.head.appendChild(style);
+    } else {
+        window.addEventListener('DOMContentLoaded', () => {
+            document.head.appendChild(style);
+        });
+    }
 
     // Apply theme on load
     applyTheme();
 
     // Re-fetch equipped items occasionally to sync localStorage
     const userId = localStorage.getItem("user_id");
-    if (userId && window.location.pathname.includes('dashboard.html')) {
-        fetch(\`https://billowing-hall-4748.nakiaklocko57.workers.dev/api/user/\${userId}\`)
+    if (userId) {
+        fetch(`https://billowing-hall-4748.nakiaklocko57.workers.dev/api/user/${userId}`)
             .then(res => res.json())
             .then(data => {
                 if (data.equipped_cosmetics && data.equipped_cosmetics.theme) {
                     localStorage.setItem('dtech_theme', data.equipped_cosmetics.theme);
-                    document.body.className = '';
-                    document.body.classList.add(data.equipped_cosmetics.theme);
+                    if(document.body) {
+                        document.body.className = '';
+                        document.body.classList.add(data.equipped_cosmetics.theme);
+                    }
                 } else {
                     localStorage.removeItem('dtech_theme');
-                    document.body.className = '';
+                    if(document.body) document.body.className = '';
                 }
             }).catch(e => console.error(e));
     }
