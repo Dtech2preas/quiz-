@@ -699,10 +699,9 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
             'https://www.profitablecpmrate.com/a4wz0p1hvw?key=1bf218cd1d4e0b514b8a4f4d2deee968'
         ];
 
-        // Open ads in new tabs
-        adUrls.forEach(url => {
-            window.open(url, '_blank');
-        });
+        // Open one random ad in new tab
+        const randomAdUrl = adUrls[Math.floor(Math.random() * adUrls.length)];
+        window.open(randomAdUrl, '_blank');
 
         const originalBtnText = event.target.innerText;
         event.target.innerText = "Generating...";
@@ -726,13 +725,41 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
                 }
             } catch (e) { console.error("Could not fetch user name", e); }
 
+            const currentScore = document.getElementById('final-score').innerText;
+            const currentTotal = document.getElementById('final-total').innerText;
+            const currentPercentage = parseInt(document.getElementById('final-percentage').innerText) || 0;
+
             document.getElementById('cert-name').innerText = userName;
             document.getElementById('cert-subject-topic').innerText = `${subjectLabel} - ${topic}`;
-            document.getElementById('cert-score').innerText = `${document.getElementById('final-percentage').innerText}%`;
-            document.getElementById('cert-date').innerText = new Date().toLocaleDateString();
-            document.getElementById('cert-id').innerText = Math.random().toString(36).substr(2, 9).toUpperCase();
+            document.getElementById('cert-score').innerText = `${currentScore} / ${currentTotal}`;
+            document.getElementById('cert-perf').innerText = `${currentPercentage}%`;
+
+            const now = new Date();
+            const dateStr = now.toLocaleDateString();
+            const timeStr = now.toLocaleTimeString([], { hour12: false });
+            document.getElementById('cert-date').innerText = `${dateStr} at ${timeStr}`;
 
             const certElement = document.getElementById('certificate-template');
+
+            // Dynamic Styling based on score
+            let color = '#ef4444'; // Red for low score
+            let feedback = 'Needs improvement. Keep practicing.';
+
+            if (currentPercentage === 100) {
+                color = '#eab308'; // Gold
+                feedback = 'Outstanding! Perfect score!';
+            } else if (currentPercentage >= 80) {
+                color = '#94a3b8'; // Silver
+                feedback = 'Excellent work! You have a great understanding.';
+            } else if (currentPercentage >= 50) {
+                color = '#d97706'; // Bronze
+                feedback = 'Good effort! Keep studying to improve further.';
+            }
+
+            certElement.style.borderColor = color;
+            document.getElementById('cert-score-text').style.color = color;
+            document.getElementById('cert-perf-text').style.color = color;
+            document.getElementById('cert-feedback').innerText = feedback;
 
             // Generate canvas
             const canvas = await html2canvas(certElement, {
@@ -759,32 +786,44 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
 
 
     <!-- Certificate Template (Hidden) -->
-    <div id="certificate-template" style="position: absolute; top: -9999px; left: -9999px; width: 800px; height: 600px; background: white; color: black; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; box-sizing: border-box; text-align: center; border: 15px solid #10b981; border-radius: 10px; display: flex; flex-direction: column; justify-content: space-between;">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-            <img src="logo.png" alt="D-TECH" style="height: 60px;">
-            <div style="text-align: right; color: #666;">
-                <p style="margin: 0; font-size: 14px;">Date: <span id="cert-date"></span></p>
-                <p style="margin: 0; font-size: 14px;">ID: <span id="cert-id"></span></p>
+    <div id="certificate-template" style="position: absolute; top: -9999px; left: -9999px; width: 600px; height: 800px; background: white; color: black; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; box-sizing: border-box; text-align: center; border: 15px solid #111; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; z-index: 1;">
+
+        <!-- Watermark -->
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: -1; display: flex; justify-content: center; align-items: center; pointer-events: none; overflow: hidden;">
+            <div style="font-size: 140px; color: rgba(200, 200, 200, 0.2); font-weight: bold; transform: rotate(-45deg); white-space: nowrap; font-family: Impact, sans-serif; letter-spacing: 10px;">D-TECH</div>
+        </div>
+
+        <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+            <img src="logo.png" alt="D-TECH" style="height: 100px; margin-bottom: 20px;">
+            <h1 style="font-size: 24px; color: #3b82f6; margin: 0; text-transform: uppercase; font-weight: bold; text-decoration: underline; letter-spacing: 1px;">D-TECH CERTIFICATE OF ACHIEVEMENT</h1>
+        </div>
+
+        <div style="margin-top: 30px;">
+            <p style="font-size: 18px; color: #333; margin-bottom: 20px; font-style: italic;">This certificate is proudly presented to</p>
+            <h2 id="cert-name" style="font-size: 32px; color: #000; margin: 0 0 20px 0; font-weight: bold;">Student Name</h2>
+
+            <p style="font-size: 16px; color: #333; margin-bottom: 15px;">In recognition of outstanding performance in:</p>
+            <h3 id="cert-subject-topic" style="font-size: 20px; color: #000; margin: 0 0 30px 0; text-transform: uppercase;">SUBJECT - TOPIC</h3>
+
+            <p style="font-size: 24px; color: #10b981; font-weight: bold; margin: 10px 0;" id="cert-score-text">Score: <span id="cert-score">0 / 0</span></p>
+            <p style="font-size: 24px; color: #10b981; font-weight: bold; margin: 10px 0;" id="cert-perf-text">Performance: <span id="cert-perf">0%</span></p>
+
+            <p style="font-size: 16px; color: #333; margin-top: 25px; font-style: italic;">Feedback: <span id="cert-feedback">Needs improvement. Keep practicing.</span></p>
+        </div>
+
+        <div style="margin-top: auto; display: flex; flex-direction: column; align-items: center;">
+            <p style="font-size: 12px; color: #555; margin-bottom: 30px;">Issued on: <span id="cert-date"></span></p>
+
+            <div style="width: 100%; display: flex; justify-content: flex-end; padding-right: 20px;">
+                <div style="text-align: center;">
+                    <div style="border-bottom: 1px solid #000; width: 150px; margin-bottom: 5px;"></div>
+                    <p style="margin: 0; font-size: 12px; color: #333;">Signature</p>
+                </div>
             </div>
         </div>
 
-        <div>
-            <h1 style="font-size: 48px; color: #10b981; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 2px;">Certificate of Completion</h1>
-            <p style="font-size: 20px; color: #444; margin-bottom: 30px;">This certification is hereby awarded to</p>
-            <h2 id="cert-name" style="font-size: 36px; color: #111; margin: 0 0 20px 0; font-weight: bold; text-decoration: underline;">Student Name</h2>
-            <p style="font-size: 18px; color: #444; margin-bottom: 30px;">For successfully completing the quiz in</p>
-            <h3 id="cert-subject-topic" style="font-size: 24px; color: #3b82f6; margin: 0 0 15px 0;">Subject - Topic</h3>
-            <p style="font-size: 20px; color: #444;">With a score of <strong id="cert-score" style="color: #10b981; font-size: 28px;">100%</strong></p>
-        </div>
-
-        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 40px;">
-            <div style="text-align: left;">
-                <div style="border-bottom: 2px solid #111; width: 200px; margin-bottom: 5px; font-family: 'Brush Script MT', cursive; font-size: 24px; text-align: center;">D-Tech</div>
-                <p style="margin: 0; font-size: 14px; color: #666;">Authorized Signature</p>
-            </div>
-            <div style="text-align: right; width: 100%;">
-                <p style="margin: 0; font-size: 16px; font-style: italic; color: #888; text-align: center;">Empowering the youth through digital innovation</p>
-            </div>
+        <div style="margin-top: 30px;">
+            <p style="margin: 0; font-size: 12px; color: #888; text-align: center;">Powered by DTECH | Empowering the Youth Through Digital Innovation</p>
         </div>
     </div>
 
