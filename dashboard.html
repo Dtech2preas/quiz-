@@ -638,13 +638,22 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Populate today's activity
-            const todayStr = new Date().toLocaleDateString();
+            const todayStr = new Date().toISOString().split('T')[0];
             const dailyProgressStr = localStorage.getItem('daily_progress') || '[]';
             const dailyProgress = JSON.parse(dailyProgressStr);
 
             const todayActivity = dailyProgress.filter(p => p.date === todayStr);
             const rcActivityList = document.getElementById('rc-today-activity');
             rcActivityList.innerHTML = '';
+
+            // Calculate new metrics
+            const totalQuestionsAnswered = todayActivity.reduce((sum, act) => sum + (act.total || 0), 0);
+            const totalQuizzesCompleted = todayActivity.length;
+            const currentStreak = userData.study_streak_days || 0;
+
+            document.getElementById('rc-total-questions').innerText = totalQuestionsAnswered;
+            document.getElementById('rc-total-quizzes').innerText = totalQuizzesCompleted;
+            document.getElementById('rc-streak').innerText = currentStreak;
 
             if (todayActivity.length === 0) {
                 rcActivityList.innerHTML = '<li style="color: #94a3b8; font-style: italic;">No quizzes completed today.</li>';
@@ -710,6 +719,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h3 style="font-size: 24px; color: #1e293b; margin-top: 0; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px; display: flex; align-items: center;">
                     <span style="background: #e0f2fe; color: #0369a1; padding: 4px 10px; border-radius: 6px; margin-right: 10px; font-size: 18px;">📅</span> Today's Activity
                 </h3>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+                    <div style="background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0; text-align: center;">
+                        <div style="font-size: 14px; color: #64748b; font-weight: 600; text-transform: uppercase;">Quizzes</div>
+                        <div id="rc-total-quizzes" style="font-size: 28px; color: #3b82f6; font-weight: bold;">0</div>
+                    </div>
+                    <div style="background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0; text-align: center;">
+                        <div style="font-size: 14px; color: #64748b; font-weight: 600; text-transform: uppercase;">Questions</div>
+                        <div id="rc-total-questions" style="font-size: 28px; color: #3b82f6; font-weight: bold;">0</div>
+                    </div>
+                    <div style="background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0; text-align: center;">
+                        <div style="font-size: 14px; color: #64748b; font-weight: 600; text-transform: uppercase;">Streak</div>
+                        <div style="font-size: 28px; color: #f59e0b; font-weight: bold;"><span id="rc-streak">0</span> 🔥</div>
+                    </div>
+                </div>
+
                 <ul id="rc-today-activity" style="font-size: 18px; color: #334155; list-style-type: none; padding-left: 0; margin-bottom: 0;">
                     <!-- Activity injected here -->
                 </ul>

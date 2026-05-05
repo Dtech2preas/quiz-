@@ -630,7 +630,7 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
 
             // Save to daily_progress in localStorage
             try {
-                const todayStr = new Date().toLocaleDateString();
+                const todayStr = new Date().toISOString().split('T')[0];
                 const progressStr = localStorage.getItem('daily_progress') || '[]';
                 let progress = JSON.parse(progressStr);
 
@@ -798,7 +798,8 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
 
         try {
             // Setup certificate content
-            const subjectLabel = localStorage.getItem('current_subject_label') || localStorage.getItem('current_subject') || 'Subject';
+            const subjectLabel = subject ? subject.replace('_', ' ').replace(/\b\w/g, c => c.toUpperCase()) : (localStorage.getItem('current_subject_label') || 'Subject');
+            const topic = `Weekly Exam (${paper.toUpperCase()})`;
 
             // Get user name
             let userName = 'Student';
@@ -818,7 +819,7 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
             const currentPercentage = parseInt(document.getElementById('final-percentage').innerText) || 0;
 
             document.getElementById('cert-name').innerText = userName;
-            document.getElementById('cert-subject-topic').innerText = `${subjectLabel} Weekly Exam`;
+            document.getElementById('cert-subject-topic').innerText = `${subjectLabel} - ${topic}`;
             document.getElementById('cert-score').innerText = `${currentScore} / ${currentTotal}`;
             document.getElementById('cert-perf').innerText = `${currentPercentage}%`;
 
@@ -873,11 +874,11 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
 </script>
 
     <!-- Certificate Template (Hidden) -->
-    <div id="certificate-template" style="position: absolute; top: -9999px; left: -9999px; width: 600px; height: 800px; background: white; color: black; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; box-sizing: border-box; text-align: center; border: 15px solid #111; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; z-index: 1;">
+    <div id="certificate-template" style="position: absolute; top: -9999px; left: -9999px; width: 600px; height: 800px; background: linear-gradient(135deg, #f0f8ff, #ffffff); color: black; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; box-sizing: border-box; text-align: center; border: 15px solid #111; outline: 4px solid #fff; outline-offset: -10px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; z-index: 1; box-shadow: inset 0 0 20px rgba(59, 130, 246, 0.1);">
 
         <!-- Watermark -->
         <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: -1; display: flex; justify-content: center; align-items: center; pointer-events: none; overflow: hidden;">
-            <div style="font-size: 140px; color: rgba(200, 200, 200, 0.2); font-weight: bold; transform: rotate(-45deg); white-space: nowrap; font-family: Impact, sans-serif; letter-spacing: 10px;">D-TECH</div>
+            <div style="font-size: 140px; color: rgba(59, 130, 246, 0.05); font-weight: bold; transform: rotate(-45deg); white-space: nowrap; font-family: Impact, sans-serif; letter-spacing: 10px;">D-TECH</div>
         </div>
 
         <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
@@ -903,8 +904,8 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
 
             <div style="width: 100%; display: flex; justify-content: flex-end; padding-right: 20px;">
                 <div style="text-align: center;">
-                    <div style="border-bottom: 1px solid #000; width: 150px; margin-bottom: 5px;"></div>
-                    <p style="margin: 0; font-size: 12px; color: #333;">Signature</p>
+                    <div style="border-bottom: 1px solid #000; width: 150px; margin-bottom: 5px; font-family: 'Brush Script MT', cursive; font-size: 24px; color: #0f172a; line-height: 1.2;">D-Tech</div>
+                    <p style="margin: 0; font-size: 12px; color: #333; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Authorized Signature</p>
                 </div>
             </div>
         </div>
