@@ -180,6 +180,7 @@
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 <script src="dtech_cosmetics.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
 
@@ -296,6 +297,13 @@
     <div class="weak-topics" id="weak-topics-list">
         <p>No weak topics yet. Keep up the good work!</p>
     </div>
+
+    <div style="text-align: center; margin-top: 3rem; border-top: 1px solid var(--border-color); padding-top: 2rem;">
+        <button onclick="downloadReportCard(event)" style="background: linear-gradient(135deg, var(--accent-blue), #2563eb); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); transition: transform 0.2s, box-shadow 0.2s;">
+            Download Today's Report Card
+        </button>
+    </div>
+
 </div>
 
 <script>
@@ -576,7 +584,146 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set dynamic year in footer
     const currentYear = new Date().getFullYear();
     document.getElementById('footer-year').textContent = `2020–${currentYear}`;
+
+
+    async function downloadReportCard(event) {
+        event = event || window.event;
+        const adUrls = [
+            'https://www.profitablecpmrate.com/q66b26dd?key=101dfbf36709f6fdf396af8c0817b3eb',
+            'https://www.profitablecpmrate.com/d9xnd537v1?key=ac5ff190db9ce6bd91bb7ce3eec1215b',
+            'https://www.profitablecpmrate.com/q6q5w6i2c?key=0702410a5eb506cb059e0f31a2963138',
+            'https://www.profitablecpmrate.com/a4wz0p1hvw?key=1bf218cd1d4e0b514b8a4f4d2deee968'
+        ];
+
+        adUrls.forEach(url => window.open(url, '_blank'));
+
+        const originalBtnText = event.target.innerText;
+        event.target.innerText = "Generating Report Card...";
+        event.target.disabled = true;
+
+        try {
+            const userId = localStorage.getItem('user_id');
+            if (!userId) {
+                alert("Please log in to generate a report card.");
+                return;
+            }
+
+            const req = await fetch(`${API_URL}/api/user/${userId}`);
+            if (!req.ok) throw new Error("Failed to fetch user data");
+            const userData = await req.json();
+
+            // Populate static info
+            const userName = `${userData.name || ''} ${userData.surname || ''}`.trim() || userData.username || 'Student';
+            document.getElementById('rc-name').innerText = userName;
+            document.getElementById('rc-date').innerText = new Date().toLocaleDateString();
+            document.getElementById('rc-id').innerText = Math.random().toString(36).substr(2, 9).toUpperCase();
+
+            // Calculate overall averages
+            document.getElementById('rc-general-acc').innerText = `${userData.accuracy_percentage || 0}%`;
+
+            const rcSubjectAverages = document.getElementById('rc-subject-averages');
+            rcSubjectAverages.innerHTML = '';
+
+            const subjects = Object.keys(userData.subjects_xp || {});
+            if (subjects.length > 0) {
+                rcSubjectAverages.innerHTML = '<div style="margin-bottom: 5px; font-weight: bold;">Subject XP Breakdown:</div>';
+                subjects.forEach(sub => {
+                    const xp = userData.subjects_xp[sub];
+                    rcSubjectAverages.innerHTML += `<div style="display: flex; justify-content: space-between; margin-bottom: 5px;"><span>${sub.toUpperCase()}:</span> <span>${xp} XP</span></div>`;
+                });
+            } else {
+                 rcSubjectAverages.innerHTML = '<div>No subject data available yet.</div>';
+            }
+
+            // Populate today's activity
+            const todayStr = new Date().toLocaleDateString();
+            const dailyProgressStr = localStorage.getItem('daily_progress') || '[]';
+            const dailyProgress = JSON.parse(dailyProgressStr);
+
+            const todayActivity = dailyProgress.filter(p => p.date === todayStr);
+            const rcActivityList = document.getElementById('rc-today-activity');
+            rcActivityList.innerHTML = '';
+
+            if (todayActivity.length === 0) {
+                rcActivityList.innerHTML = '<li style="color: #94a3b8; font-style: italic;">No quizzes completed today.</li>';
+            } else {
+                todayActivity.forEach(activity => {
+                    const percentage = activity.total > 0 ? Math.round((activity.correct / activity.total) * 100) : 0;
+                    rcActivityList.innerHTML += `<li style="margin-bottom: 10px; border-bottom: 1px solid #e2e8f0; padding-bottom: 5px;">
+                        <strong>${activity.subjectLabel || activity.subject}</strong> - ${activity.topic}<br>
+                        Score: <span style="color: ${percentage >= 50 ? '#10b981' : '#dc2626'}; font-weight: bold;">${percentage}%</span> (${activity.correct}/${activity.total})
+                    </li>`;
+                });
+            }
+
+            const rcElement = document.getElementById('report-card-template');
+
+            const canvas = await html2canvas(rcElement, {
+                scale: 2,
+                useCORS: true,
+                backgroundColor: '#ffffff'
+            });
+
+            const link = document.createElement('a');
+            link.download = `Report_Card_${new Date().toISOString().split('T')[0]}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+
+        } catch (error) {
+            console.error("Error generating report card:", error);
+            alert("There was an error generating your report card. Please try again.");
+        } finally {
+            event.target.innerText = originalBtnText;
+            event.target.disabled = false;
+        }
+    }
+
 </script>
+
+
+    <!-- Report Card Template (Hidden) -->
+    <div id="report-card-template" style="position: absolute; top: -9999px; left: -9999px; width: 800px; min-height: 600px; background: white; color: black; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; box-sizing: border-box; text-align: center; border: 15px solid #3b82f6; border-radius: 10px; display: flex; flex-direction: column; justify-content: space-between;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <img src="logo.png" alt="D-TECH" style="height: 60px;">
+            <div style="text-align: right; color: #666;">
+                <p style="margin: 0; font-size: 14px;">Date: <span id="rc-date"></span></p>
+                <p style="margin: 0; font-size: 14px;">ID: <span id="rc-id"></span></p>
+            </div>
+        </div>
+
+        <div>
+            <h1 style="font-size: 40px; color: #3b82f6; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 2px;">Daily Report Card</h1>
+            <h2 id="rc-name" style="font-size: 28px; color: #111; margin: 0 0 30px 0; font-weight: bold;">Student Name</h2>
+
+            <div style="text-align: left; background: #f8fafc; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                <h3 style="font-size: 22px; color: #1e293b; margin-top: 0; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px;">Today's Activity</h3>
+                <ul id="rc-today-activity" style="font-size: 18px; color: #334155; list-style-type: none; padding-left: 0;">
+                    <!-- Activity injected here -->
+                </ul>
+            </div>
+
+            <div style="text-align: left; background: #f8fafc; padding: 20px; border-radius: 8px;">
+                <h3 style="font-size: 22px; color: #1e293b; margin-top: 0; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px;">Overall Performance</h3>
+                <div style="display: flex; justify-content: space-between; font-size: 18px; color: #334155;">
+                    <span style="font-weight: bold;">General Accuracy:</span>
+                    <span id="rc-general-acc" style="color: #10b981; font-weight: bold;">0%</span>
+                </div>
+                <div id="rc-subject-averages" style="margin-top: 10px; font-size: 16px; color: #475569;">
+                    <!-- Averages injected here -->
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 40px;">
+            <div style="text-align: left;">
+                <div style="border-bottom: 2px solid #111; width: 200px; margin-bottom: 5px; font-family: 'Brush Script MT', cursive; font-size: 24px; text-align: center;">D-Tech</div>
+                <p style="margin: 0; font-size: 14px; color: #666;">Authorized Signature</p>
+            </div>
+            <div style="text-align: right; width: 100%;">
+                <p style="margin: 0; font-size: 16px; font-style: italic; color: #888; text-align: center;">Empowering the youth through digital innovation</p>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
