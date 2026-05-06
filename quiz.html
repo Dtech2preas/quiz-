@@ -651,29 +651,39 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
             document.getElementById("quiz-completed-title").innerHTML = "🎉 Perfect Score! 🎉";
             document.getElementById("quiz-completed-title").style.color = "var(--accent-yellow)";
 
+            const celebrationType = localStorage.getItem('dtech_effect');
             var duration = 3000;
             var end = Date.now() + duration;
 
-            (function frame() {
-                confetti({
-                    particleCount: 5,
-                    angle: 60,
-                    spread: 55,
-                    origin: { x: 0 },
-                    colors: ['#3b82f6', '#10b981', '#f59e0b']
-                });
-                confetti({
-                    particleCount: 5,
-                    angle: 120,
-                    spread: 55,
-                    origin: { x: 1 },
-                    colors: ['#3b82f6', '#10b981', '#f59e0b']
-                });
-
-                if (Date.now() < end) {
-                    requestAnimationFrame(frame);
-                }
-            }());
+            if (celebrationType === 'effect_matrix') {
+                // Matrix green confetti
+                (function frame() {
+                    confetti({ particleCount: 10, angle: 90, spread: 360, origin: { x: Math.random(), y: 0 }, colors: ['#10b981', '#059669', '#34d399'], shapes: ['square'] });
+                    if (Date.now() < end) requestAnimationFrame(frame);
+                }());
+            } else if (celebrationType === 'effect_emoji') {
+                // Emoji shower
+                const scalar = 2;
+                const emojis = [confetti.shapeFromText({ text: '🔥', scalar }), confetti.shapeFromText({ text: '💯', scalar }), confetti.shapeFromText({ text: '🚀', scalar })];
+                (function frame() {
+                    confetti({ particleCount: 5, angle: 60, spread: 55, origin: { x: 0 }, shapes: emojis });
+                    confetti({ particleCount: 5, angle: 120, spread: 55, origin: { x: 1 }, shapes: emojis });
+                    if (Date.now() < end) requestAnimationFrame(frame);
+                }());
+            } else if (celebrationType === 'effect_fireworks') {
+                // Fireworks
+                (function frame() {
+                    confetti({ particleCount: 20, spread: 360, startVelocity: 30, origin: { x: Math.random(), y: Math.random() - 0.2 }, colors: ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff'] });
+                    if (Date.now() < end) requestAnimationFrame(frame);
+                }());
+            } else {
+                // Default Confetti
+                (function frame() {
+                    confetti({ particleCount: 5, angle: 60, spread: 55, origin: { x: 0 }, colors: ['#3b82f6', '#10b981', '#f59e0b'] });
+                    confetti({ particleCount: 5, angle: 120, spread: 55, origin: { x: 1 }, colors: ['#3b82f6', '#10b981', '#f59e0b'] });
+                    if (Date.now() < end) requestAnimationFrame(frame);
+                }());
+            }
         }
     }
 
@@ -766,11 +776,48 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
             document.getElementById('cert-perf-text').style.color = color;
             document.getElementById('cert-feedback').innerText = feedback;
 
+            // Apply custom certificate themes if equipped
+            const certTheme = localStorage.getItem('dtech_cert');
+            let bgColor = '#ffffff';
+            let bgGradient = 'linear-gradient(135deg, #f0f8ff, #ffffff)';
+            let textColor = 'black';
+            let mutedColor = '#333';
+            let titleColor = '#3b82f6';
+
+            if (certTheme === 'cert_dark') {
+                bgColor = '#111111';
+                bgGradient = 'none';
+                textColor = '#ffffff';
+                mutedColor = '#aaaaaa';
+            } else if (certTheme === 'cert_gold') {
+                bgColor = '#fef08a';
+                bgGradient = 'linear-gradient(135deg, #fef08a, #ca8a04)';
+                textColor = '#000000';
+                titleColor = '#000000';
+            } else if (certTheme === 'cert_cyber') {
+                bgColor = '#0f172a';
+                bgGradient = 'none';
+                textColor = '#e2e8f0';
+                mutedColor = '#94a3b8';
+                titleColor = '#f472b6';
+                certElement.style.border = '15px solid #3b82f6';
+            }
+
+            certElement.style.background = bgGradient;
+            if (bgGradient === 'none') certElement.style.backgroundColor = bgColor;
+            certElement.style.color = textColor;
+            document.getElementById('cert-name').style.color = textColor;
+            document.getElementById('cert-subject-topic').style.color = textColor;
+            document.getElementById('cert-title-header').style.color = titleColor;
+
+            const pTags = certElement.querySelectorAll('p:not(.cert-colored-text)');
+            pTags.forEach(p => p.style.color = mutedColor);
+
             // Generate canvas
             const canvas = await html2canvas(certElement, {
                 scale: 2, // Higher quality
                 useCORS: true,
-                backgroundColor: '#ffffff'
+                backgroundColor: bgColor
             });
 
             // Trigger download
@@ -800,7 +847,7 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
 
         <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
             <img src="logo.png" alt="D-TECH" style="height: 100px; margin-bottom: 20px;">
-            <h1 style="font-size: 24px; color: #3b82f6; margin: 0; text-transform: uppercase; font-weight: bold; text-decoration: underline; letter-spacing: 1px;">D-TECH CERTIFICATE OF ACHIEVEMENT</h1>
+            <h1 id="cert-title-header" style="font-size: 24px; color: #3b82f6; margin: 0; text-transform: uppercase; font-weight: bold; text-decoration: underline; letter-spacing: 1px;">D-TECH CERTIFICATE OF ACHIEVEMENT</h1>
         </div>
 
         <div style="margin-top: 30px;">
@@ -810,10 +857,10 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
             <p style="font-size: 16px; color: #333; margin-bottom: 15px;">In recognition of outstanding performance in:</p>
             <h3 id="cert-subject-topic" style="font-size: 20px; color: #000; margin: 0 0 30px 0; text-transform: uppercase;">SUBJECT - TOPIC</h3>
 
-            <p style="font-size: 24px; color: #10b981; font-weight: bold; margin: 10px 0;" id="cert-score-text">Score: <span id="cert-score">0 / 0</span></p>
-            <p style="font-size: 24px; color: #10b981; font-weight: bold; margin: 10px 0;" id="cert-perf-text">Performance: <span id="cert-perf">0%</span></p>
+            <p class="cert-colored-text" style="font-size: 24px; color: #10b981; font-weight: bold; margin: 10px 0;" id="cert-score-text">Score: <span id="cert-score">0 / 0</span></p>
+            <p class="cert-colored-text" style="font-size: 24px; color: #10b981; font-weight: bold; margin: 10px 0;" id="cert-perf-text">Performance: <span id="cert-perf">0%</span></p>
 
-            <p style="font-size: 16px; color: #333; margin-top: 25px; font-style: italic;">Feedback: <span id="cert-feedback">Needs improvement. Keep practicing.</span></p>
+            <p style="font-size: 16px; color: #333; margin-top: 25px; font-style: italic;">Feedback: <span id="cert-feedback" class="cert-colored-text">Needs improvement. Keep practicing.</span></p>
         </div>
 
         <div style="margin-top: auto; display: flex; flex-direction: column; align-items: center;">
@@ -821,7 +868,7 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
 
             <div style="width: 100%; display: flex; justify-content: flex-end; padding-right: 20px;">
                 <div style="text-align: center;">
-                    <div style="border-bottom: 1px solid #000; width: 150px; margin-bottom: 5px; font-family: 'Brush Script MT', cursive; font-size: 24px; color: #0f172a; line-height: 1.2;">D-Tech</div>
+                    <div style="border-bottom: 1px solid #000; width: 150px; margin-bottom: 5px; font-family: 'Brush Script MT', cursive; font-size: 24px; line-height: 1.2;">D-Tech</div>
                     <p style="margin: 0; font-size: 12px; color: #333; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Authorized Signature</p>
                 </div>
             </div>

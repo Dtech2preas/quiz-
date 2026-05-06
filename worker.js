@@ -1038,12 +1038,42 @@ async function handleAdClick(request, env) {
 }
 
 const STORE_CATALOG = {
-  theme_gold: { price: 500, type: 'theme' },
-  theme_diamond: { price: 1000, type: 'theme' },
-  theme_neon: { price: 1500, type: 'theme' },
-  border_gold: { price: 400, type: 'avatar_border' },
-  border_diamond: { price: 800, type: 'avatar_border' },
-  border_neon: { price: 1200, type: 'avatar_border' }
+  theme_gold: { price: 100, type: 'theme' },
+  theme_diamond: { price: 250, type: 'theme' },
+  theme_neon: { price: 500, type: 'theme' },
+  theme_dark: { price: 150, type: 'theme' },
+  theme_forest: { price: 300, type: 'theme' },
+  theme_ocean: { price: 400, type: 'theme' },
+  theme_sunset: { price: 600, type: 'theme' },
+
+  font_retro: { price: 200, type: 'font' },
+  font_handwriting: { price: 300, type: 'font' },
+  font_serif: { price: 100, type: 'font' },
+
+  border_gold: { price: 500, type: 'avatar_border' },
+  border_diamond: { price: 1000, type: 'avatar_border' },
+  border_neon: { price: 2000, type: 'avatar_border' },
+  border_fire: { price: 1500, type: 'avatar_border' },
+  border_cosmic: { price: 2500, type: 'avatar_border' },
+  border_rainbow: { price: 3500, type: 'avatar_border' },
+  border_glitch: { price: 5000, type: 'avatar_border' },
+
+  name_red: { price: 800, type: 'name_color' },
+  name_blue: { price: 800, type: 'name_color' },
+  name_green: { price: 800, type: 'name_color' },
+  name_gold: { price: 2000, type: 'name_color' },
+
+  effect_matrix: { price: 1000, type: 'quiz_celebration' },
+  effect_emoji: { price: 1500, type: 'quiz_celebration' },
+  effect_fireworks: { price: 2500, type: 'quiz_celebration' },
+
+  cert_dark: { price: 1000, type: 'certificate_template' },
+  cert_gold: { price: 2000, type: 'certificate_template' },
+  cert_cyber: { price: 3000, type: 'certificate_template' },
+
+  banner_cyber: { price: 2000, type: 'profile_banner' },
+  banner_space: { price: 2000, type: 'profile_banner' },
+  banner_sunset: { price: 2000, type: 'profile_banner' }
 };
 
 async function handleStorePurchase(request, env) {

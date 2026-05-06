@@ -612,6 +612,15 @@ function updateAvatarDisplay(userData) {
         const initials = (firstName.charAt(0) + lastName.charAt(0)).toUpperCase();
         avatarPreview.innerText = initials || "?";
     }
+
+    if (userData.equipped_cosmetics) {
+        if (userData.equipped_cosmetics.avatar_border) {
+            const allowedBorders = ['border_gold', 'border_diamond', 'border_neon', 'border_fire', 'border_cosmic', 'border_rainbow', 'border_glitch'];
+            if (allowedBorders.includes(userData.equipped_cosmetics.avatar_border)) {
+                document.getElementById("avatar-wrapper").classList.add(userData.equipped_cosmetics.avatar_border);
+            }
+        }
+    }
 }
 
 // =============================================
