@@ -565,7 +565,8 @@
 <div id="error-message">User not found.</div>
 
 <div class="container" id="profile-content">
-    <div class="profile-header">
+    <div id="profile-banner" class="profile-banner-wrapper" style="display: none;"></div>
+    <div class="profile-header" style="position: relative; z-index: 2;">
         <div id="avatar-wrapper" class="avatar-border-wrapper">
             <img
                 id="profile-avatar"
@@ -675,10 +676,29 @@
                 document.getElementById("profile-avatar").src = data.avatar_url;
             }
 
-            if (data.equipped_cosmetics && data.equipped_cosmetics.avatar_border) {
-                const allowedBorders = ['border_gold', 'border_diamond', 'border_neon'];
-                if (allowedBorders.includes(data.equipped_cosmetics.avatar_border)) {
-                    document.getElementById("avatar-wrapper").classList.add(data.equipped_cosmetics.avatar_border);
+            if (data.equipped_cosmetics) {
+                if (data.equipped_cosmetics.avatar_border) {
+                    const allowedBorders = ['border_gold', 'border_diamond', 'border_neon', 'border_fire', 'border_cosmic', 'border_rainbow', 'border_glitch'];
+                    if (allowedBorders.includes(data.equipped_cosmetics.avatar_border)) {
+                        document.getElementById("avatar-wrapper").classList.add(data.equipped_cosmetics.avatar_border);
+                    }
+                }
+
+                if (data.equipped_cosmetics.name_color) {
+                    const allowedNameColors = ['name_red', 'name_blue', 'name_green', 'name_gold'];
+                    if (allowedNameColors.includes(data.equipped_cosmetics.name_color)) {
+                        document.getElementById("profile-username").classList.add(data.equipped_cosmetics.name_color);
+                        document.getElementById("profile-name").classList.add(data.equipped_cosmetics.name_color);
+                    }
+                }
+
+                if (data.equipped_cosmetics.profile_banner) {
+                    const allowedBanners = ['banner_cyber', 'banner_space', 'banner_sunset'];
+                    if (allowedBanners.includes(data.equipped_cosmetics.profile_banner)) {
+                        const bannerEl = document.getElementById("profile-banner");
+                        bannerEl.classList.add(data.equipped_cosmetics.profile_banner);
+                        bannerEl.style.display = 'block';
+                    }
                 }
             }
 

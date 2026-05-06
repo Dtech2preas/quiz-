@@ -676,7 +676,7 @@
             let avatarHtml = `<img class="user-avatar" src="${safeAvatar}" alt="${safeUsername}">`;
             if (user.equipped_cosmetics && user.equipped_cosmetics.avatar_border) {
                 // Validate cosmetic input to prevent XSS
-                const allowedBorders = ['border_gold', 'border_diamond', 'border_neon'];
+                const allowedBorders = ['border_gold', 'border_diamond', 'border_neon', 'border_fire', 'border_cosmic', 'border_rainbow', 'border_glitch'];
                 const safeBorder = allowedBorders.includes(user.equipped_cosmetics.avatar_border) ? user.equipped_cosmetics.avatar_border : '';
                 if (safeBorder) {
                     avatarHtml = `<div class="avatar-border-wrapper ${safeBorder}" style="margin-right: 0.8rem; padding: 2px;">
