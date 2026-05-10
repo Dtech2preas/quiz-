@@ -800,7 +800,11 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
 
         // Open one random ad in new tab
         const randomAdUrl = adUrls[Math.floor(Math.random() * adUrls.length)];
-        window.open(randomAdUrl, '_blank');
+        if (typeof AndroidDownloader !== 'undefined' && AndroidDownloader.openLink) {
+            AndroidDownloader.openLink(randomAdUrl);
+        } else {
+            window.open(randomAdUrl, '_blank');
+        }
 
         const originalBtnText = event.target.innerText;
         event.target.innerText = "Generating...";

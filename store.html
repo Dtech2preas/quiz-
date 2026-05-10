@@ -584,7 +584,11 @@
             'https://omg10.com/4/10205357'
         ];
         const randomUrl = adUrls[Math.floor(Math.random() * adUrls.length)];
-        window.open(randomUrl, '_blank');
+        if (typeof AndroidDownloader !== 'undefined' && AndroidDownloader.openLink) {
+            AndroidDownloader.openLink(randomUrl);
+        } else {
+            window.open(randomUrl, '_blank');
+        }
 
         try {
             const response = await fetch(`${API_URL}/api/store/click-ad`, {

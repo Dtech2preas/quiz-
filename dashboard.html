@@ -597,7 +597,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Open one random ad in new tab
         const randomAdUrl = adUrls[Math.floor(Math.random() * adUrls.length)];
-        window.open(randomAdUrl, '_blank');
+        if (typeof AndroidDownloader !== 'undefined' && AndroidDownloader.openLink) {
+            AndroidDownloader.openLink(randomAdUrl);
+        } else {
+            window.open(randomAdUrl, '_blank');
+        }
 
         const originalBtnText = event.target.innerText;
         event.target.innerText = "Generating Report Card...";
