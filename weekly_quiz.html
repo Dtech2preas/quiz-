@@ -904,11 +904,19 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
                 backgroundColor: bgColor
             });
 
-            // Trigger download
-            const link = document.createElement('a');
-            link.download = `Certificate_${subjectLabel.replace(/\s+/g, '_')}_Exam.png`;
-            link.href = canvas.toDataURL('image/png');
-            link.click();
+            const dataUrl = canvas.toDataURL('image/png');
+            const filename = `Certificate_${subjectLabel.replace(/\s+/g, '_')}_Exam`;
+
+            // Check if running inside Android App
+            if (typeof AndroidDownloader !== 'undefined' && AndroidDownloader.saveBase64Image) {
+                AndroidDownloader.saveBase64Image(dataUrl, filename);
+            } else {
+                // Trigger download
+                const link = document.createElement('a');
+                link.download = `${filename}.png`;
+                link.href = dataUrl;
+                link.click();
+            }
         } catch (error) {
             console.error("Error generating certificate:", error);
             alert("There was an error generating your certificate. Please try again.");
