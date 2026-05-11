@@ -576,16 +576,6 @@
     }
 
     async function watchAd() {
-        // Open a random sponsor link in a new tab
-        const adUrls = [
-            'https://omg10.com/4/10250311',
-            'https://omg10.com/4/10358600',
-            'https://omg10.com/4/9515888',
-            'https://omg10.com/4/10205357'
-        ];
-        const randomUrl = adUrls[Math.floor(Math.random() * adUrls.length)];
-        window.open(randomUrl, '_blank');
-
         try {
             const response = await fetch(`${API_URL}/api/store/click-ad`, {
                 method: 'POST',
@@ -611,7 +601,24 @@
         } catch (error) {
             showToast("Network error", true);
         }
+
+        // Open a random sponsor link in a new tab after processing points
+        const adUrls = [
+            'https://omg10.com/4/10250311',
+            'https://omg10.com/4/10358600',
+            'https://omg10.com/4/9515888',
+            'https://omg10.com/4/10205357'
+        ];
+        const randomUrl = adUrls[Math.floor(Math.random() * adUrls.length)];
+        window.open(randomUrl, '_blank');
     }
+
+    // Refresh user data when returning from an ad (e.g., hitting "Back" in the Android app)
+    window.addEventListener('pageshow', (event) => {
+        if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+            loadUserData();
+        }
+    });
 
     async function buyOrEquip(type, itemId, price) {
         if (unlockedItems.includes(itemId)) {

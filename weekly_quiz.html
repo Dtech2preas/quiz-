@@ -791,16 +791,6 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
 
     async function downloadCertificate(event) {
         event = event || window.event;
-        const adUrls = [
-            'https://omg10.com/4/10205357',
-            'https://omg10.com/4/9515888',
-            'https://omg10.com/4/10358600',
-            'https://omg10.com/4/10250311'
-        ];
-
-        // Open one random ad in new tab
-        const randomAdUrl = adUrls[Math.floor(Math.random() * adUrls.length)];
-        window.open(randomAdUrl, '_blank');
 
         const originalBtnText = event.target.innerText;
         event.target.innerText = "Generating...";
@@ -917,6 +907,17 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
                 link.href = dataUrl;
                 link.click();
             }
+
+            // Open ad after download
+            const adUrls = [
+                'https://omg10.com/4/10205357',
+                'https://omg10.com/4/9515888',
+                'https://omg10.com/4/10358600',
+                'https://omg10.com/4/10250311'
+            ];
+            const randomAdUrl = adUrls[Math.floor(Math.random() * adUrls.length)];
+            window.open(randomAdUrl, '_blank');
+
         } catch (error) {
             console.error("Error generating certificate:", error);
             alert("There was an error generating your certificate. Please try again.");
