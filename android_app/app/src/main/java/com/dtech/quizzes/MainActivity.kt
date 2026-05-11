@@ -172,18 +172,4 @@ class AndroidDownloader(private val context: Context) {
             }
         }
     }
-
-    @JavascriptInterface
-    fun openLink(url: String) {
-        val uiHandler = android.os.Handler(android.os.Looper.getMainLooper())
-        try {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-            context.startActivity(intent)
-        } catch (e: Exception) {
-            e.printStackTrace()
-            uiHandler.post {
-                Toast.makeText(context, "Failed to open link", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
 }
