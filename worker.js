@@ -53,6 +53,9 @@ export default {
       if (request.method === "POST" && path === "/api/store/click-ad") {
         return await handleAdClick(request, env);
       }
+      if (request.method === "POST" && path === "/api/store/sync-points") {
+        return await handleSyncPoints(request, env);
+      }
       if (request.method === "POST" && path === "/api/store/purchase") {
         return await handleStorePurchase(request, env);
       }
@@ -223,6 +226,7 @@ async function handleGetUser(request, env, path) {
   if (userData.dtech_points === undefined) userData.dtech_points = 0;
   if (userData.ad_clicks_today === undefined) userData.ad_clicks_today = 0;
   if (!userData.last_ad_click_date) userData.last_ad_click_date = "";
+  if (!userData.last_push_claim_date) userData.last_push_claim_date = "";
   if (!userData.unlocked_cosmetics) userData.unlocked_cosmetics = [];
   if (!userData.equipped_cosmetics) userData.equipped_cosmetics = {};
 
@@ -1017,7 +1021,7 @@ async function handleAdClick(request, env) {
     userData.ad_clicks_today = 0;
   }
 
-  if (userData.ad_clicks_today >= 25) {
+  if (userData.ad_clicks_today >= 30) {
     return jsonResponse({ error: "Daily ad click limit reached" }, 400);
   }
 
@@ -1034,6 +1038,63 @@ async function handleAdClick(request, env) {
     points_earned: pointsEarned,
     new_balance: userData.dtech_points,
     clicks_today: userData.ad_clicks_today
+  });
+}
+
+async function handleSyncPoints(request, env) {
+  const { user_id, added_points, ads_clicked, push_claim } = await request.json();
+  if (!user_id) return jsonResponse({ error: "user_id required" }, 400);
+
+  const userDataString = await env.RANK_KV.get(`user:${user_id}`);
+  if (!userDataString) return jsonResponse({ error: "User not found" }, 404);
+
+  const userData = JSON.parse(userDataString);
+  const today = new Date().toISOString().split("T")[0];
+
+  if (userData.last_ad_click_date !== today) {
+    userData.last_ad_click_date = today;
+    userData.ad_clicks_today = 0;
+  }
+
+  if (userData.dtech_points === undefined) userData.dtech_points = 0;
+
+  let actualPointsAdded = 0;
+  let actualAdsClickedAdded = 0;
+
+  if (ads_clicked && added_points) {
+    // Determine how many clicks we can actually add
+    const clicksAllowed = Math.max(0, 30 - userData.ad_clicks_today);
+    const validClicksToAdd = Math.min(ads_clicked, clicksAllowed);
+
+    if (validClicksToAdd > 0) {
+       // Estimate how much of the added points correspond to the valid clicks
+       // To be safe, if they clicked more than allowed offline, we cap points
+       // proportional to valid clicks. E.g., max 50 pts per click.
+       const maxPointsPossible = validClicksToAdd * 50;
+       const validPointsToAdd = Math.min(added_points, maxPointsPossible);
+
+       userData.ad_clicks_today += validClicksToAdd;
+       userData.dtech_points += validPointsToAdd;
+       actualPointsAdded += validPointsToAdd;
+       actualAdsClickedAdded += validClicksToAdd;
+    }
+  }
+
+  if (push_claim) {
+      if (userData.last_push_claim_date !== today) {
+          userData.last_push_claim_date = today;
+          userData.dtech_points += 100;
+          actualPointsAdded += 100;
+      }
+  }
+
+  await env.RANK_KV.put(`user:${user_id}`, JSON.stringify(userData));
+
+  return jsonResponse({
+    success: true,
+    new_balance: userData.dtech_points,
+    clicks_today: userData.ad_clicks_today,
+    actual_points_added: actualPointsAdded
   });
 }
 
