@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="monetag" content="a807b416afdc0d66c4123211a69bb53f">
+    <script src="https://quge5.com/88/tag.min.js" data-zone="238328" async data-cfasync="false"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earn D-TECH Points</title>
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --border-color: #334155;
+            --header-bg: #0b1120;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+        }
+
+        /* Compact Header / Nav */
+        header { background: var(--header-bg); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
+        header h2 { margin: 0; font-size: 1.5rem; color: var(--text-main); }
+        nav { display: flex; gap: 1.5rem; align-items: center; }
+        nav a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        nav a:hover, nav a.active { color: var(--accent-blue); }
+
+        /* Responsive Nav */
+        @media (max-width: 768px) {
+            header { flex-direction: row; padding: 1rem; gap: 1rem; justify-content: space-between; }
+            nav { width: 100%; justify-content: center; flex-wrap: wrap; gap: 1rem; }
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1001;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-main);
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            nav { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background-color: var(--bg-card); border-bottom: 1px solid var(--border-color); padding: 1rem 0; z-index: 1000; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+            nav.active { display: flex; }
+            nav a { margin: 0.5rem 1rem; padding: 0.5rem; border-radius: 4px; }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2rem;
+            text-align: center;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .balance-display {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #fbbf24;
+            margin: 1rem 0;
+            text-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
+        }
+
+        .instructions {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .status-message {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 1rem;
+            min-height: 2rem;
+        }
+
+        .status-success { color: var(--accent-green); }
+        .status-error { color: var(--accent-red); }
+
+        .btn-back {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 12px 24px;
+            background: var(--accent-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: opacity 0.2s;
+        }
+        .btn-back:hover { opacity: 0.9; }
+
+        .clicks-info {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div style="display: flex; align-items: center; gap: 1rem;">
+        <div class="hamburger" id="hamburger-menu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <img src="logo.png" alt="Dtech Logo" style="height: 30px; cursor: pointer; object-fit: contain;" onclick="window.location.href='dashboard.html'">
+        <h2 style="margin:0;">Earn Points</h2>
+    </div>
+    <nav id="nav-menu">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="store.html">Store</a>
+        <a href="subjects.html">Take a Quiz</a>
+        <a href="weekly_quiz.html">Weekly Exam</a>
+        <a href="leaderboard.html">Grade Leaderboards</a>
+        <a href="global_leaderboard.html">Global Leaderboard</a>
+        <a href="stats.html">Detailed Stats</a>
+        <a href="profile.html">Profile</a>
+        <a href="login.html" onclick="localStorage.clear()">Logout</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Your Balance</h2>
+    <div class="balance-display" id="balance-display">💎 0</div>
+
+    <div class="instructions">
+        Click on any ad that appears, wait for at least 10 seconds, then return here to earn points!
+    </div>
+
+    <div class="clicks-info">
+        Ads clicked today: <span id="clicks-today">0</span>/30
+    </div>
+
+    <div class="status-message" id="status-message"></div>
+
+    <a href="store.html" class="btn-back" onclick="syncPointsBeforeLeaving(event)">Back to Store</a>
+</div>
+
+<script>
+    const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
+    const userId = localStorage.getItem("user_id");
+
+    if (!userId) {
+        window.location.href = "login.html";
+    }
+
+    // Local state for the session
+    let localPoints = parseInt(localStorage.getItem('dtech_points_local')) || 0;
+    let localClicksToday = parseInt(localStorage.getItem('dtech_clicks_today')) || 0;
+    let pointsToSync = 0;
+    let clicksToSync = 0;
+
+    // Time tracking
+    let hideTime = 0;
+    let isHidden = false;
+
+    const balanceDisplay = document.getElementById('balance-display');
+    const clicksTodayDisplay = document.getElementById('clicks-today');
+    const statusMessage = document.getElementById('status-message');
+
+    // Display initial local cache or fetch fresh if none
+    function updateDisplay() {
+        balanceDisplay.textContent = `💎 ${localPoints}`;
+        clicksTodayDisplay.textContent = localClicksToday;
+    }
+
+    async function initialize() {
+        try {
+            const response = await fetch(`${API_URL}/api/user/${userId}`);
+            if (response.ok) {
+                const data = await response.json();
+                localPoints = data.dtech_points || 0;
+                localClicksToday = data.ad_clicks_today || 0;
+
+                // Cache locally
+                localStorage.setItem('dtech_points_local', localPoints);
+                localStorage.setItem('dtech_clicks_today', localClicksToday);
+                updateDisplay();
+            }
+        } catch (error) {
+            console.error("Failed to load user data:", error);
+            updateDisplay(); // fallback to local cache
+        }
+    }
+
+    initialize();
+
+    // Hamburger Logic
+    document.getElementById('hamburger-menu').addEventListener('click', () => {
+        document.getElementById('nav-menu').classList.toggle('active');
+    });
+
+    // Tracking logic
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            hideTime = Date.now();
+            isHidden = true;
+            statusMessage.textContent = "";
+        } else {
+            if (isHidden) {
+                const timeAway = (Date.now() - hideTime) / 1000;
+                isHidden = false;
+
+                if (timeAway >= 10) {
+                    awardPoints();
+                } else if (timeAway > 1) { // Ignore very quick blinks
+                    showStatus("Try again, wait for at least 10 seconds!", false);
+                }
+            }
+        }
+    });
+
+    // Also support focus/blur for some browsers/webviews
+    window.addEventListener('blur', () => {
+        if (!document.hidden) {
+            hideTime = Date.now();
+            isHidden = true;
+            statusMessage.textContent = "";
+        }
+    });
+
+    window.addEventListener('focus', () => {
+        if (isHidden && !document.hidden) {
+            const timeAway = (Date.now() - hideTime) / 1000;
+            isHidden = false;
+
+            if (timeAway >= 10) {
+                awardPoints();
+            } else if (timeAway > 1) {
+                showStatus("Try again, wait for at least 10 seconds!", false);
+            }
+        }
+    });
+
+    function awardPoints() {
+        if (localClicksToday >= 30) {
+            showStatus("Daily ad click limit reached (30/30).", false);
+            return;
+        }
+
+        const pointsEarned = Math.floor(Math.random() * 50) + 1; // 1 to 50
+
+        localPoints += pointsEarned;
+        localClicksToday += 1;
+
+        pointsToSync += pointsEarned;
+        clicksToSync += 1;
+
+        // Update local cache
+        localStorage.setItem('dtech_points_local', localPoints);
+        localStorage.setItem('dtech_clicks_today', localClicksToday);
+
+        updateDisplay();
+        showStatus(`Success! You earned ${pointsEarned} D-TECH POINTS!`, true);
+    }
+
+    function showStatus(msg, isSuccess) {
+        statusMessage.textContent = msg;
+        statusMessage.className = `status-message ${isSuccess ? 'status-success' : 'status-error'}`;
+        setTimeout(() => {
+            if (statusMessage.textContent === msg) {
+                statusMessage.textContent = "";
+            }
+        }, 4000);
+    }
+
+    // Sync before leaving
+    function syncPointsBeforeLeaving(e) {
+        if (pointsToSync > 0 || clicksToSync > 0) {
+            // Using keepalive allows the request to outlive the page
+            fetch(`${API_URL}/api/store/sync-points`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    user_id: userId,
+                    added_points: pointsToSync,
+                    ads_clicked: clicksToSync
+                }),
+                keepalive: true
+            }).catch(console.error);
+
+            pointsToSync = 0;
+            clicksToSync = 0;
+        }
+    }
+
+    // Attempt to sync on page unload as a fallback
+    window.addEventListener('pagehide', syncPointsBeforeLeaving);
+    window.addEventListener('beforeunload', syncPointsBeforeLeaving);
+
+</script>
+</body>
+</html>

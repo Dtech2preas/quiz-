@@ -173,6 +173,120 @@
         }
         #toast.show { transform: translateX(0); }
 
+        /* Accordion Styles */
+        .accordion-header {
+            background-color: var(--bg-card);
+            color: var(--text-main);
+            cursor: pointer;
+            padding: 1rem 1.5rem;
+            width: 100%;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            text-align: left;
+            outline: none;
+            font-size: 1.25rem;
+            font-weight: bold;
+            transition: 0.4s;
+            margin-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-header:hover {
+            background-color: #2e3d54;
+        }
+
+        .accordion-header.active {
+            background-color: var(--accent-blue);
+            color: white;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .accordion-header::after {
+            content: '\002B';
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .accordion-header.active::after {
+            content: "\2212";
+        }
+
+        .accordion-content {
+            padding: 0 1.5rem;
+            background-color: var(--bg-dark);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            border: 1px solid var(--border-color);
+            border-top: none;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .accordion-content .grid {
+            padding: 1.5rem 0;
+            margin-bottom: 0;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 3000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 400px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.show .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-content h3 {
+            margin-top: 0;
+            color: var(--accent-blue);
+        }
+
+        .modal-content p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
     </style>
 <script src="dtech_cosmetics.js"></script>
 </head>
@@ -211,18 +325,23 @@
     <h2 class="section-title">Earn Points</h2>
     <div class="grid">
         <div class="card">
-            <h3>Sponsored Partner Offer</h3>
-            <p>Visit our sponsor to earn points! Random drop between 1 and 50 points.</p>
-            <p style="font-size: 0.8rem; color: var(--text-muted);">Clicks remaining today: <span id="clicks-remaining">25</span></p>
-            <button class="btn btn-ad" id="ad-btn" onclick="watchAd()">Visit Sponsor (+Points)</button>
+            <h3>Watch Ads & Earn</h3>
+            <p>Earn D-TECH points by watching short sponsored ads.</p>
+            <button class="btn btn-ad" id="btn-increase-points" onclick="handleIncreasePoints()">Increase D-TECH points</button>
         </div>
-        <!-- We can add more ad placements here in the future -->
+        <div class="card">
+            <h3>Push Notifications</h3>
+            <p>Enable notifications and claim 100 points daily!</p>
+            <button class="btn" style="background: #eab308; color: black;" id="btn-push-claim" onclick="handlePushClaim()">Claim Daily 100 Points</button>
+        </div>
     </div>
 
     <h2 class="section-title">Cosmetics Shop</h2>
 
-    <h3>Site Themes (Local)</h3>
-    <div class="grid" style="margin-bottom: 2rem;">
+    <button class="accordion-header">Site Themes (Local)</button>
+    <div class="accordion-content">
+        <p style="color: var(--text-muted); margin-top: 1rem;">Customize the look and feel of your entire platform.</p>
+        <div class="grid">
         <div class="card" style="border-top: 4px solid #fbbf24;">
             <h3>Gold Theme</h3>
             <p>A luxurious gold and dark interface.</p>
@@ -271,10 +390,13 @@
             <div class="price">Free</div>
             <button class="btn btn-equip" id="btn-theme_null" onclick="equipCosmetic('theme', null)">Equip</button>
         </div>
+        </div>
     </div>
 
-    <h3>Custom Site Fonts (Local)</h3>
-    <div class="grid" style="margin-bottom: 2rem;">
+    <button class="accordion-header">Custom Site Fonts (Local)</button>
+    <div class="accordion-content">
+        <p style="color: var(--text-muted); margin-top: 1rem;">Change the typography across the site.</p>
+        <div class="grid">
         <div class="card" style="font-family: 'Courier New', Courier, monospace;">
             <h3>Retro Pixel</h3>
             <p>A classic monospaced programming font.</p>
@@ -299,11 +421,13 @@
             <div class="price">Free</div>
             <button class="btn btn-equip" id="btn-font_null" onclick="equipCosmetic('font', null)">Equip</button>
         </div>
+        </div>
     </div>
 
-    <h3>Profile Avatar Borders (Global)</h3>
-    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">These are visible to everyone on the Global Leaderboards and your Public Profile!</p>
-    <div class="grid" style="margin-bottom: 2rem;">
+    <button class="accordion-header">Profile Avatar Borders (Global)</button>
+    <div class="accordion-content">
+        <p style="color: var(--text-muted); margin-top: 1rem;">These are visible to everyone on the Global Leaderboards and your Public Profile!</p>
+        <div class="grid">
         <div class="card" style="box-shadow: 0 0 15px rgba(251, 191, 36, 0.2);">
             <h3>Gold Aura</h3>
             <p>A glowing gold border around your profile picture.</p>
@@ -352,11 +476,13 @@
             <div class="price">Free</div>
             <button class="btn btn-equip" id="btn-border_null" onclick="equipCosmetic('avatar_border', null)">Equip</button>
         </div>
+        </div>
     </div>
 
-    <h3>Name Colors (Global)</h3>
-    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Stand out with a colored name on leaderboards and profiles!</p>
-    <div class="grid" style="margin-bottom: 2rem;">
+    <button class="accordion-header">Name Colors (Global)</button>
+    <div class="accordion-content">
+        <p style="color: var(--text-muted); margin-top: 1rem;">Stand out with a colored name on leaderboards and profiles!</p>
+        <div class="grid">
         <div class="card">
             <h3 style="color: #ef4444;">Red Name</h3>
             <p>Fierce and noticeable.</p>
@@ -387,11 +513,13 @@
             <div class="price">Free</div>
             <button class="btn btn-equip" id="btn-name_null" onclick="equipCosmetic('name_color', null)">Equip</button>
         </div>
+        </div>
     </div>
 
-    <h3>Quiz Celebration Effects (Local)</h3>
-    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Changes the effect that plays when you score 100% on a quiz!</p>
-    <div class="grid" style="margin-bottom: 2rem;">
+    <button class="accordion-header">Quiz Celebration Effects (Local)</button>
+    <div class="accordion-content">
+        <p style="color: var(--text-muted); margin-top: 1rem;">Changes the effect that plays when you score 100% on a quiz!</p>
+        <div class="grid">
         <div class="card">
             <h3 style="color: #10b981;">Matrix Rain</h3>
             <p>Hacker-style green code cascading down.</p>
@@ -416,11 +544,13 @@
             <div class="price">Free</div>
             <button class="btn btn-equip" id="btn-effect_null" onclick="equipCosmetic('quiz_celebration', null)">Equip</button>
         </div>
+        </div>
     </div>
 
-    <h3>Premium Certificate Templates (Global)</h3>
-    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Customize the look of your downloaded certificates!</p>
-    <div class="grid" style="margin-bottom: 2rem;">
+    <button class="accordion-header">Premium Certificate Templates (Global)</button>
+    <div class="accordion-content">
+        <p style="color: var(--text-muted); margin-top: 1rem;">Customize the look of your downloaded certificates!</p>
+        <div class="grid">
         <div class="card" style="background: #111;">
             <h3 style="color: #fff;">Dark Mode Certificate</h3>
             <p>Sleek black certificate with white text.</p>
@@ -445,11 +575,13 @@
             <div class="price">Free</div>
             <button class="btn btn-equip" id="btn-cert_null" onclick="equipCosmetic('certificate_template', null)">Equip</button>
         </div>
+        </div>
     </div>
 
-    <h3>Profile Banner Backgrounds (Global)</h3>
-    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">A custom banner at the top of your public profile.</p>
-    <div class="grid">
+    <button class="accordion-header">Profile Banner Backgrounds (Global)</button>
+    <div class="accordion-content">
+        <p style="color: var(--text-muted); margin-top: 1rem;">A custom banner at the top of your public profile.</p>
+        <div class="grid">
         <div class="card" style="background: linear-gradient(to right, #0f2027, #203a43, #2c5364);">
             <h3>Cyberpunk City</h3>
             <p>Dark, neon-lit vibes.</p>
@@ -474,10 +606,23 @@
             <div class="price">Free</div>
             <button class="btn btn-equip" id="btn-banner_null" onclick="equipCosmetic('profile_banner', null)">Equip</button>
         </div>
+        </div>
     </div>
 </div>
 
 <div id="toast">Message here</div>
+
+<div class="modal-overlay" id="ads-modal">
+    <div class="modal-content">
+        <h3>Earn Points!</h3>
+        <p>You are about to go to the Ads page to earn D-TECH POINTS.</p>
+        <p><strong>Instructions:</strong><br>1. Click on an ad.<br>2. Wait for at least <strong>10 seconds</strong> on the ad page.<br>3. Return to earn your points!</p>
+        <div class="modal-buttons">
+            <button class="btn btn-equipped" onclick="closeModal()">Cancel</button>
+            <button class="btn btn-ad" onclick="proceedToAds()">Let's Go!</button>
+        </div>
+    </div>
+</div>
 
 <footer id="dynamic-footer">
   <p>&copy; <span id="footer-year">2024</span> Dtech &bull; Preasx24</p>
@@ -496,6 +641,27 @@
     let userPoints = 0;
     let unlockedItems = [];
     let equippedItems = {};
+
+    // Accordion Logic
+    const accordions = document.querySelectorAll('.accordion-header');
+    accordions.forEach(acc => {
+        acc.addEventListener('click', function() {
+            const isActive = this.classList.contains('active');
+
+            // Close all
+            accordions.forEach(a => {
+                a.classList.remove('active');
+                a.nextElementSibling.style.maxHeight = null;
+            });
+
+            // If it wasn't active, open it
+            if (!isActive) {
+                this.classList.add('active');
+                const content = this.nextElementSibling;
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    });
 
     function showToast(msg, isError = false) {
         const toast = document.getElementById('toast');
@@ -517,11 +683,10 @@
                 document.getElementById('dtech-points-display').textContent = `💎 ${userPoints}`;
 
                 const clicksToday = data.ad_clicks_today || 0;
-                const remaining = Math.max(0, 25 - clicksToday);
-                document.getElementById('clicks-remaining').textContent = remaining;
-                if (remaining === 0) {
-                    document.getElementById('ad-btn').disabled = true;
-                    document.getElementById('ad-btn').textContent = "Daily limit reached";
+                // Clicks limit logic is now handled in earn_points.html
+                // We keep push claim state synced with server
+                if (data.last_push_claim_date === new Date().toISOString().split('T')[0]) {
+                    localStorage.setItem('dtech_push_claimed_today', data.last_push_claim_date);
                 }
 
                 updateButtons();
@@ -532,6 +697,14 @@
     }
 
     function updateButtons() {
+        // Update Push claim button state if needed
+        const pushClaimBtn = document.getElementById('btn-push-claim');
+        if (localStorage.getItem('dtech_push_claimed_today') === new Date().toISOString().split('T')[0]) {
+            pushClaimBtn.textContent = "Claimed Today";
+            pushClaimBtn.className = "btn btn-equipped";
+            pushClaimBtn.disabled = true;
+        }
+
         const items = [
             'theme_gold', 'theme_diamond', 'theme_neon', 'theme_dark', 'theme_forest', 'theme_ocean', 'theme_sunset',
             'font_retro', 'font_handwriting', 'font_serif',
@@ -579,42 +752,70 @@
         });
     }
 
-    async function watchAd() {
+    function handleIncreasePoints() {
+        if (!localStorage.getItem('dtech_ads_modal_shown')) {
+            document.getElementById('ads-modal').classList.add('show');
+            localStorage.setItem('dtech_ads_modal_shown', 'true');
+        } else {
+            proceedToAds();
+        }
+    }
+
+    function closeModal() {
+        document.getElementById('ads-modal').classList.remove('show');
+    }
+
+    function proceedToAds() {
+        window.location.href = 'earn_points.html';
+    }
+
+    async function handlePushClaim() {
+        const today = new Date().toISOString().split('T')[0];
+        if (localStorage.getItem('dtech_push_claimed_today') === today) {
+            showToast("You've already claimed your daily push reward today!", true);
+            return;
+        }
+
+        if (!("Notification" in window)) {
+            showToast("This browser does not support desktop notification", true);
+            return;
+        }
+
+        if (Notification.permission === "granted") {
+            await syncPushClaim(today);
+        } else if (Notification.permission !== "denied") {
+            const permission = await Notification.requestPermission();
+            if (permission === "granted") {
+                await syncPushClaim(today);
+            } else {
+                showToast("Permission denied. Cannot claim points.", true);
+            }
+        } else {
+            showToast("Notifications are blocked. Cannot claim points.", true);
+        }
+    }
+
+    async function syncPushClaim(today) {
         try {
-            const response = await fetch(`${API_URL}/api/store/click-ad`, {
+            const response = await fetch(`${API_URL}/api/store/sync-points`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ user_id: userId })
+                body: JSON.stringify({ user_id: userId, push_claim: true })
             });
             const data = await response.json();
 
             if (response.ok) {
                 userPoints = data.new_balance;
                 document.getElementById('dtech-points-display').textContent = `💎 ${userPoints}`;
-                showToast(`You earned ${data.points_earned} D-TECH POINTS!`);
-
-                const remaining = Math.max(0, 25 - data.clicks_today);
-                document.getElementById('clicks-remaining').textContent = remaining;
-                if (remaining === 0) {
-                    document.getElementById('ad-btn').disabled = true;
-                    document.getElementById('ad-btn').textContent = "Daily limit reached";
-                }
+                localStorage.setItem('dtech_push_claimed_today', today);
+                showToast("100 D-TECH POINTS claimed successfully!");
+                updateButtons();
             } else {
-                showToast(data.error || "Failed to earn points", true);
+                showToast(data.error || "Failed to claim", true);
             }
         } catch (error) {
             showToast("Network error", true);
         }
-
-        // Open a random sponsor link in a new tab after processing points
-        const adUrls = [
-            'https://omg10.com/4/10250311',
-            'https://omg10.com/4/10358600',
-            'https://omg10.com/4/9515888',
-            'https://omg10.com/4/10205357'
-        ];
-        const randomUrl = adUrls[Math.floor(Math.random() * adUrls.length)];
-        window.open(randomUrl, '_blank');
     }
 
     // Refresh user data when returning from an ad (e.g., hitting "Back" in the Android app)
