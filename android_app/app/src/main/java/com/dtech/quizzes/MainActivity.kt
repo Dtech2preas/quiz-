@@ -41,6 +41,8 @@ class MainActivity : AppCompatActivity() {
         webSettings.domStorageEnabled = true
         webSettings.allowFileAccess = true
         webSettings.allowContentAccess = true
+        webSettings.setSupportMultipleWindows(true)
+        webSettings.javaScriptCanOpenWindowsAutomatically = true
 
         // Add Javascript interface for base64 downloads
         webView.addJavascriptInterface(AndroidDownloader(this), "AndroidDownloader")
@@ -101,7 +103,81 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        webView.webChromeClient = WebChromeClient()
+        webView.webChromeClient = object : WebChromeClient() {
+            override fun onCreateWindow(
+                view: WebView?,
+                isDialog: Boolean,
+                isUserGesture: Boolean,
+                resultMsg: android.os.Message?
+            ): Boolean {
+                val newWebView = WebView(this@MainActivity)
+                newWebView.settings.javaScriptEnabled = true
+                newWebView.webViewClient = object : WebViewClient() {
+                    override fun shouldOverrideUrlLoading(
+                        view: WebView?,
+                        request: WebResourceRequest?
+                    ): Boolean {
+                        val url = request?.url.toString()
+                        if (url.startsWith("http://") || url.startsWith("https://")) {
+                            try {
+                                val customTabsIntent = CustomTabsIntent.Builder().build()
+                                customTabsIntent.launchUrl(this@MainActivity, Uri.parse(url))
+                            } catch (e: Exception) {
+                                e.printStackTrace()
+                                try {
+                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                                    startActivity(intent)
+                                } catch (e2: Exception) {
+                                    e2.printStackTrace()
+                                }
+                            }
+                        } else {
+                            try {
+                                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                                startActivity(intent)
+                            } catch (e: Exception) {
+                                e.printStackTrace()
+                            }
+                        }
+                        // Always return true to intercept, then we can destroy the newWebView
+                        return true
+                    }
+
+                    @Deprecated("Deprecated in Java")
+                    override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+                        if (url != null) {
+                            if (url.startsWith("http://") || url.startsWith("https://")) {
+                                try {
+                                    val customTabsIntent = CustomTabsIntent.Builder().build()
+                                    customTabsIntent.launchUrl(this@MainActivity, Uri.parse(url))
+                                } catch (e: Exception) {
+                                    e.printStackTrace()
+                                    try {
+                                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                                        startActivity(intent)
+                                    } catch (e2: Exception) {
+                                        e2.printStackTrace()
+                                    }
+                                }
+                            } else {
+                                try {
+                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                                    startActivity(intent)
+                                } catch (e: Exception) {
+                                    e.printStackTrace()
+                                }
+                            }
+                        }
+                        return true
+                    }
+                }
+
+                val transport = resultMsg?.obj as WebView.WebViewTransport
+                transport.webView = newWebView
+                resultMsg.sendToTarget()
+                return true
+            }
+        }
 
         // Handle normal downloads (if any)
         webView.setDownloadListener { url, userAgent, contentDisposition, mimetype, contentLength ->
