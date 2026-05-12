@@ -134,7 +134,7 @@
     </div>
     <nav id="nav-menu">
         <a href="dashboard.html">Dashboard</a>
-        <a href="store.html">Store</a>
+        <a href="#" onclick="openExternalOrLocal('https://quiz.dtech-services.co.za/store.html', 'store.html'); return false;">Store</a>
         <a href="subjects.html">Take a Quiz</a>
         <a href="weekly_quiz.html">Weekly Exam</a>
         <a href="leaderboard.html">Grade Leaderboards</a>
@@ -159,10 +159,34 @@
 
     <div class="status-message" id="status-message"></div>
 
-    <a href="store.html" class="btn-back" onclick="syncPointsBeforeLeaving(event)">Back to Store</a>
+    <a href="#" class="btn-back" onclick="handleBackToStore(event)">Back to Store</a>
 </div>
 
 <script>
+    // Auto-login logic for external browser launching
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('auto_login') === 'true' && urlParams.get('user_id')) {
+        localStorage.setItem('user_id', urlParams.get('user_id'));
+        // Strip the parameters from the URL so they aren't visible or shared accidentally
+        const newUrl = window.location.pathname + window.location.hash;
+        window.history.replaceState({}, document.title, newUrl);
+    }
+
+    function openExternalOrLocal(externalUrl, localPath) {
+        const userId = localStorage.getItem('user_id');
+        if (typeof AndroidExternalLauncher !== 'undefined' && AndroidExternalLauncher.openExternalBrowser) {
+            AndroidExternalLauncher.openExternalBrowser(externalUrl, userId || '');
+        } else {
+            window.location.href = localPath;
+        }
+    }
+
+    function handleBackToStore(event) {
+        event.preventDefault();
+        syncPointsBeforeLeaving(event);
+        openExternalOrLocal('https://quiz.dtech-services.co.za/store.html', 'store.html');
+    }
+
     const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
     const userId = localStorage.getItem("user_id");
 
