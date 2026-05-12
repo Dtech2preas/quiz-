@@ -41,12 +41,35 @@ class MainActivity : AppCompatActivity() {
         webSettings.domStorageEnabled = true
         webSettings.allowFileAccess = true
         webSettings.allowContentAccess = true
+        webSettings.setSupportMultipleWindows(true)
+        webSettings.javaScriptCanOpenWindowsAutomatically = true
 
         // Add Javascript interface for base64 downloads
         webView.addJavascriptInterface(AndroidDownloader(this), "AndroidDownloader")
 
         webView.webViewClient = object : WebViewClient() {
             private fun handleUrlLoading(url: String): Boolean {
+                // Intercept links to store.html and earn_points.html to open them in external browser with auto_login
+                if (url.endsWith("store.html") || url.endsWith("earn_points.html")) {
+                    webView.evaluateJavascript("localStorage.getItem('user_id');") { userId ->
+                        val cleanUserId = userId?.replace("\"", "") ?: ""
+                        val externalUrl = if (url.contains("?")) {
+                            "$url&auto_login=true&user_id=$cleanUserId"
+                        } else {
+                            "$url?auto_login=true&user_id=$cleanUserId"
+                        }
+                        try {
+                            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(externalUrl))
+                            // Add flags to ensure it opens in a new task (the system browser)
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                            startActivity(intent)
+                        } catch (e: Exception) {
+                            e.printStackTrace()
+                        }
+                    }
+                    return true // Prevent WebView from loading it
+                }
+
                 // Let WebView handle navigation within our own domain
                 if (url.startsWith("http://quiz.dtech-services.co.za") || url.startsWith("https://quiz.dtech-services.co.za")) {
                     return false
@@ -101,7 +124,81 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        webView.webChromeClient = WebChromeClient()
+        webView.webChromeClient = object : WebChromeClient() {
+            override fun onCreateWindow(
+                view: WebView?,
+                isDialog: Boolean,
+                isUserGesture: Boolean,
+                resultMsg: android.os.Message?
+            ): Boolean {
+                val newWebView = WebView(this@MainActivity)
+                newWebView.settings.javaScriptEnabled = true
+                newWebView.webViewClient = object : WebViewClient() {
+                    override fun shouldOverrideUrlLoading(
+                        view: WebView?,
+                        request: WebResourceRequest?
+                    ): Boolean {
+                        val url = request?.url.toString()
+                        if (url.startsWith("http://") || url.startsWith("https://")) {
+                            try {
+                                val customTabsIntent = CustomTabsIntent.Builder().build()
+                                customTabsIntent.launchUrl(this@MainActivity, Uri.parse(url))
+                            } catch (e: Exception) {
+                                e.printStackTrace()
+                                try {
+                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                                    startActivity(intent)
+                                } catch (e2: Exception) {
+                                    e2.printStackTrace()
+                                }
+                            }
+                        } else {
+                            try {
+                                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                                startActivity(intent)
+                            } catch (e: Exception) {
+                                e.printStackTrace()
+                            }
+                        }
+                        // Always return true to intercept, then we can destroy the newWebView
+                        return true
+                    }
+
+                    @Deprecated("Deprecated in Java")
+                    override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+                        if (url != null) {
+                            if (url.startsWith("http://") || url.startsWith("https://")) {
+                                try {
+                                    val customTabsIntent = CustomTabsIntent.Builder().build()
+                                    customTabsIntent.launchUrl(this@MainActivity, Uri.parse(url))
+                                } catch (e: Exception) {
+                                    e.printStackTrace()
+                                    try {
+                                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                                        startActivity(intent)
+                                    } catch (e2: Exception) {
+                                        e2.printStackTrace()
+                                    }
+                                }
+                            } else {
+                                try {
+                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                                    startActivity(intent)
+                                } catch (e: Exception) {
+                                    e.printStackTrace()
+                                }
+                            }
+                        }
+                        return true
+                    }
+                }
+
+                val transport = resultMsg?.obj as WebView.WebViewTransport
+                transport.webView = newWebView
+                resultMsg.sendToTarget()
+                return true
+            }
+        }
 
         // Handle normal downloads (if any)
         webView.setDownloadListener { url, userAgent, contentDisposition, mimetype, contentLength ->
