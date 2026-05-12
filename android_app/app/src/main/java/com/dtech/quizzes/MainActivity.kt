@@ -10,17 +10,19 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
+import android.os.Message
 import android.provider.MediaStore
 import android.util.Base64
+import android.view.ViewGroup
 import android.webkit.JavascriptInterface
 import android.webkit.WebChromeClient
 import android.webkit.WebResourceRequest
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.browser.customtabs.CustomTabsIntent
 import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
@@ -41,36 +43,19 @@ class MainActivity : AppCompatActivity() {
         webSettings.domStorageEnabled = true
         webSettings.allowFileAccess = true
         webSettings.allowContentAccess = true
+        webSettings.setSupportMultipleWindows(true)
+        webSettings.javaScriptCanOpenWindowsAutomatically = true
 
         // Add Javascript interface for base64 downloads
         webView.addJavascriptInterface(AndroidDownloader(this), "AndroidDownloader")
 
         webView.webViewClient = object : WebViewClient() {
             private fun handleUrlLoading(url: String): Boolean {
-                // Let WebView handle navigation within our own domain
-                if (url.startsWith("http://quiz.dtech-services.co.za") || url.startsWith("https://quiz.dtech-services.co.za")) {
-                    return false
-                }
-
+                // Let all http/https URLs load inside the main WebView.
                 if (url.startsWith("http://") || url.startsWith("https://")) {
-                    // It's an external link (like Monetag ads), open in Chrome Custom Tab
-                    try {
-                        val customTabsIntent = CustomTabsIntent.Builder().build()
-                        customTabsIntent.launchUrl(this@MainActivity, Uri.parse(url))
-                        return true
-                    } catch (e: Exception) {
-                        e.printStackTrace()
-                        // Fallback to normal intent if Custom Tabs fails
-                        try {
-                            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                            startActivity(intent)
-                            return true
-                        } catch (e2: Exception) {
-                            e2.printStackTrace()
-                        }
-                    }
+                    return false
                 } else {
-                    // For other links (like shein://, intent://, market://, etc.), try to launch an Intent
+                    // For other links (like shein://, intent://, mailto:, tel:, market://, etc.), try to launch an Intent
                     try {
                         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
                         startActivity(intent)
@@ -81,7 +66,6 @@ class MainActivity : AppCompatActivity() {
                         return true
                     }
                 }
-                return false
             }
 
             override fun shouldOverrideUrlLoading(
@@ -101,7 +85,88 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        webView.webChromeClient = WebChromeClient()
+        webView.webChromeClient = object : WebChromeClient() {
+            @SuppressLint("SetJavaScriptEnabled")
+            override fun onCreateWindow(
+                view: WebView?,
+                isDialog: Boolean,
+                isUserGesture: Boolean,
+                resultMsg: Message?
+            ): Boolean {
+                if (view == null || resultMsg == null) return false
+
+                val newWebView = WebView(this@MainActivity)
+                val newSettings = newWebView.settings
+                newSettings.javaScriptEnabled = true
+                newSettings.domStorageEnabled = true
+                newSettings.setSupportMultipleWindows(true)
+                newSettings.javaScriptCanOpenWindowsAutomatically = true
+
+                newWebView.webViewClient = object : WebViewClient() {
+                    override fun shouldOverrideUrlLoading(
+                        v: WebView?,
+                        request: WebResourceRequest?
+                    ): Boolean {
+                        val url = request?.url.toString()
+                        if (url.startsWith("http://") || url.startsWith("https://")) {
+                            return false // Load in this new WebView
+                        } else {
+                            try {
+                                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                                startActivity(intent)
+                                return true
+                            } catch (e: Exception) {
+                                e.printStackTrace()
+                                return true
+                            }
+                        }
+                    }
+
+                    @Deprecated("Deprecated in Java")
+                    override fun shouldOverrideUrlLoading(v: WebView?, url: String?): Boolean {
+                        if (url != null) {
+                            if (url.startsWith("http://") || url.startsWith("https://")) {
+                                return false
+                            } else {
+                                try {
+                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                                    startActivity(intent)
+                                    return true
+                                } catch (e: Exception) {
+                                    e.printStackTrace()
+                                    return true
+                                }
+                            }
+                        }
+                        return false
+                    }
+                }
+
+                newWebView.webChromeClient = object : WebChromeClient() {
+                    override fun onCloseWindow(window: WebView?) {
+                        super.onCloseWindow(window)
+                        if (window != null) {
+                            (window.parent as? ViewGroup)?.removeView(window)
+                            window.destroy()
+                        }
+                    }
+                }
+
+                newWebView.layoutParams = FrameLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT
+                )
+
+                // Add to the main view hierarchy over the current WebView
+                (webView.parent as? ViewGroup)?.addView(newWebView)
+
+                val transport = resultMsg.obj as WebView.WebViewTransport
+                transport.webView = newWebView
+                resultMsg.sendToTarget()
+
+                return true
+            }
+        }
 
         // Handle normal downloads (if any)
         webView.setDownloadListener { url, userAgent, contentDisposition, mimetype, contentLength ->
@@ -118,6 +183,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
+        // If there's a secondary WebView added on top, we should handle going back in it or closing it
+        val parent = webView.parent as? ViewGroup
+        if (parent != null && parent.childCount > 1) {
+            val topView = parent.getChildAt(parent.childCount - 1)
+            if (topView is WebView && topView != webView) {
+                if (topView.canGoBack()) {
+                    topView.goBack()
+                } else {
+                    parent.removeView(topView)
+                    topView.destroy()
+                }
+                return
+            }
+        }
+
         if (webView.canGoBack()) {
             webView.goBack()
         } else {
