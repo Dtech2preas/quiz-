@@ -104,23 +104,129 @@
 
         /* Global Profile Avatar Borders */
         .avatar-border-wrapper {
-            display: inline-block;
+            display: inline-flex;
             position: relative;
             border-radius: 50%;
-            padding: 4px;
+            padding: 6px;
+            z-index: 1;
         }
-        .avatar-border-wrapper.border_gold { background: linear-gradient(135deg, #fbbf24, #b45309); box-shadow: 0 0 15px rgba(251, 191, 36, 0.5); }
-        .avatar-border-wrapper.border_diamond { background: linear-gradient(135deg, #60a5fa, #3b82f6); box-shadow: 0 0 15px rgba(96, 165, 250, 0.5); }
-        .avatar-border-wrapper.border_neon { background: linear-gradient(135deg, #f472b6, #db2777); box-shadow: 0 0 15px rgba(244, 114, 182, 0.5); }
-        .avatar-border-wrapper.border_fire { background: linear-gradient(180deg, #ef4444, #f97316, #facc15); box-shadow: 0 0 15px rgba(239, 68, 68, 0.6); animation: firePulse 2s infinite; }
-        .avatar-border-wrapper.border_cosmic { background: linear-gradient(135deg, #4c1d95, #c026d3, #1e3a8a); box-shadow: 0 0 15px rgba(192, 38, 211, 0.5); animation: cosmicRotate 4s linear infinite; }
-        .avatar-border-wrapper.border_rainbow { background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3); box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); animation: rainbowShift 3s linear infinite; background-size: 200% 200%; }
-        .avatar-border-wrapper.border_glitch { background: repeating-linear-gradient(45deg, #000, #000 5px, #10b981 5px, #10b981 10px); box-shadow: 2px 2px 0px #f43f5e, -2px -2px 0px #3b82f6; animation: glitchBorder 0.5s infinite; }
 
-        @keyframes firePulse { 0% { box-shadow: 0 0 10px rgba(239,68,68,0.5); } 50% { box-shadow: 0 0 20px rgba(249,115,22,0.8); } 100% { box-shadow: 0 0 10px rgba(239,68,68,0.5); } }
-        @keyframes cosmicRotate { 0% { filter: hue-rotate(0deg); } 100% { filter: hue-rotate(360deg); } }
-        @keyframes rainbowShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        @keyframes glitchBorder { 0% { transform: translate(0); } 20% { transform: translate(-2px, 1px); } 40% { transform: translate(-1px, -1px); } 60% { transform: translate(2px, 1px); } 80% { transform: translate(1px, -1px); } 100% { transform: translate(0); } }
+        /* Inner overlay to ensure avatar image sits above the border effects */
+        .avatar-border-wrapper > img, .avatar-border-wrapper > div {
+            z-index: 2;
+            position: relative;
+        }
+
+        /* Gold Aura */
+        .avatar-border-wrapper.border_gold {
+            background: linear-gradient(135deg, #fbbf24, #b45309, #fde047, #b45309);
+            background-size: 300% 300%;
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.6), inset 0 0 15px rgba(251, 191, 36, 0.4);
+            animation: gradientMove 4s ease infinite;
+        }
+        .avatar-border-wrapper.border_gold::before {
+            content: ''; position: absolute; top: -4px; left: -4px; right: -4px; bottom: -4px;
+            border-radius: 50%; border: 2px dashed rgba(251, 191, 36, 0.8);
+            animation: cosmicRotate 10s linear infinite; z-index: -1;
+        }
+
+        /* Diamond Aura */
+        .avatar-border-wrapper.border_diamond {
+            background: linear-gradient(135deg, #60a5fa, #3b82f6, #93c5fd, #2563eb);
+            background-size: 300% 300%;
+            box-shadow: 0 0 25px rgba(96, 165, 250, 0.7), inset 0 0 20px rgba(96, 165, 250, 0.5);
+            animation: gradientMove 3s ease infinite;
+        }
+        .avatar-border-wrapper.border_diamond::before {
+            content: ''; position: absolute; top: -6px; left: -6px; right: -6px; bottom: -6px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, transparent, rgba(96, 165, 250, 0.8), transparent 30%);
+            animation: cosmicRotate 2s linear infinite; z-index: -1;
+        }
+
+        /* Fire Border */
+        .avatar-border-wrapper.border_fire {
+            background: #ef4444;
+            box-shadow: 0 0 20px #ef4444, 0 0 40px #f97316, inset 0 0 20px #facc15;
+            animation: firePulse 1.5s infinite alternate;
+        }
+        .avatar-border-wrapper.border_fire::before {
+            content: ''; position: absolute; top: -8px; left: -8px; right: -8px; bottom: -8px;
+            border-radius: 50%;
+            background: radial-gradient(circle, transparent 40%, rgba(239, 68, 68, 0.4) 60%, transparent 80%);
+            animation: fireRing 2s infinite linear; z-index: -1;
+        }
+
+        /* Neon Aura */
+        .avatar-border-wrapper.border_neon {
+            background: linear-gradient(135deg, #f472b6, #db2777);
+            box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #f472b6, 0 0 40px #db2777, 0 0 50px #db2777, 0 0 60px #db2777;
+            animation: neonFlicker 2s infinite alternate;
+        }
+
+        /* Cosmic Border */
+        .avatar-border-wrapper.border_cosmic {
+            background: linear-gradient(135deg, #4c1d95, #c026d3, #1e3a8a, #4c1d95);
+            background-size: 400% 400%;
+            box-shadow: 0 0 30px rgba(192, 38, 211, 0.8), inset 0 0 20px rgba(30, 58, 138, 0.8);
+            animation: gradientMove 5s ease infinite;
+        }
+        .avatar-border-wrapper.border_cosmic::before, .avatar-border-wrapper.border_cosmic::after {
+            content: ''; position: absolute; border-radius: 50%; z-index: -1;
+            background: conic-gradient(from 0deg, transparent, rgba(192, 38, 211, 0.8) 10%, transparent 40%);
+        }
+        .avatar-border-wrapper.border_cosmic::before {
+            top: -5px; left: -5px; right: -5px; bottom: -5px; animation: cosmicRotate 3s linear infinite;
+        }
+        .avatar-border-wrapper.border_cosmic::after {
+            top: -10px; left: -10px; right: -10px; bottom: -10px; animation: cosmicRotate 5s linear infinite reverse;
+        }
+
+        /* Rainbow Border */
+        .avatar-border-wrapper.border_rainbow {
+            background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3, #ff0000);
+            background-size: 400% 400%;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+            animation: rainbowShift 4s linear infinite;
+        }
+        .avatar-border-wrapper.border_rainbow::before {
+            content: ''; position: absolute; top: -6px; left: -6px; right: -6px; bottom: -6px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3, #ff0000);
+            background-size: 400% 400%;
+            filter: blur(8px);
+            animation: rainbowShift 4s linear infinite; z-index: -1;
+        }
+
+        /* Glitch Border */
+        .avatar-border-wrapper.border_glitch {
+            background: #000;
+            box-shadow: 4px 4px 0px rgba(244, 63, 94, 0.8), -4px -4px 0px rgba(59, 130, 246, 0.8);
+            animation: glitchBorder 0.2s infinite;
+        }
+        .avatar-border-wrapper.border_glitch::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 50%;
+            box-shadow: inset 0 0 15px #10b981;
+            background: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(16, 185, 129, 0.5) 5px, rgba(16, 185, 129, 0.5) 10px);
+            z-index: 1; pointer-events: none;
+            mix-blend-mode: overlay;
+        }
+
+        @keyframes firePulse { 0% { box-shadow: 0 0 20px #ef4444, 0 0 30px #f97316; transform: scale(1); } 100% { box-shadow: 0 0 30px #ef4444, 0 0 50px #facc15, 0 0 10px #facc15 inset; transform: scale(1.02); } }
+        @keyframes fireRing { 0% { transform: scale(0.8) rotate(0deg); opacity: 1; } 100% { transform: scale(1.3) rotate(180deg); opacity: 0; } }
+        @keyframes cosmicRotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes gradientMove { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes rainbowShift { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
+        @keyframes neonFlicker { 0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #f472b6, 0 0 40px #db2777, 0 0 50px #db2777; } 20%, 24%, 55% { box-shadow: none; } }
+        @keyframes glitchBorder {
+            0% { transform: translate(0); box-shadow: 4px 4px 0px rgba(244, 63, 94, 0.8), -4px -4px 0px rgba(59, 130, 246, 0.8); }
+            20% { transform: translate(-3px, 2px); box-shadow: -4px 4px 0px rgba(244, 63, 94, 0.8), 4px -4px 0px rgba(59, 130, 246, 0.8); }
+            40% { transform: translate(-2px, -2px); box-shadow: 4px -4px 0px rgba(244, 63, 94, 0.8), -4px 4px 0px rgba(59, 130, 246, 0.8); }
+            60% { transform: translate(3px, 2px); box-shadow: -4px -4px 0px rgba(244, 63, 94, 0.8), 4px 4px 0px rgba(59, 130, 246, 0.8); }
+            80% { transform: translate(2px, -2px); box-shadow: 4px 4px 0px rgba(244, 63, 94, 0.8), -4px -4px 0px rgba(59, 130, 246, 0.8); }
+            100% { transform: translate(0); box-shadow: 4px 4px 0px rgba(244, 63, 94, 0.8), -4px -4px 0px rgba(59, 130, 246, 0.8); }
+        }
 
         /* Global Name Colors */
         .name_red { color: #ef4444 !important; font-weight: bold; }
@@ -138,10 +244,66 @@
             background-position: center;
             border-radius: 12px 12px 0 0;
             margin-bottom: -50px;
+            position: relative;
+            overflow: hidden;
         }
-        .profile-banner-wrapper.banner_cyber { background: linear-gradient(to right, #0f2027, #203a43, #2c5364); border-bottom: 2px solid #3b82f6; }
-        .profile-banner-wrapper.banner_space { background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%); }
-        .profile-banner-wrapper.banner_sunset { background: linear-gradient(to right, #ff512f, #f09819); }
+
+        /* Cyberpunk Banner */
+        .profile-banner-wrapper.banner_cyber {
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            border-bottom: 2px solid #3b82f6;
+            box-shadow: inset 0 -10px 20px rgba(59, 130, 246, 0.5);
+        }
+        .profile-banner-wrapper.banner_cyber::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.2), transparent);
+            transform: skewX(-20deg); animation: cyberSweep 3s infinite linear;
+        }
+        .profile-banner-wrapper.banner_cyber::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, #f472b6, #3b82f6, #10b981);
+            background-size: 200% 200%; animation: rainbowShift 2s linear infinite;
+        }
+
+        /* Deep Space Banner */
+        .profile-banner-wrapper.banner_space {
+            background: radial-gradient(circle at bottom, #1b2735 0%, #090a0f 100%);
+            border-bottom: 2px solid #c026d3;
+        }
+        .profile-banner-wrapper.banner_space::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 4px),
+                              radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 3px),
+                              radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 4px),
+                              radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 3px);
+            background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+            background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+            animation: spaceDrift 60s linear infinite;
+            opacity: 0.8;
+        }
+
+        /* Sunset Mountains Banner */
+        .profile-banner-wrapper.banner_sunset {
+            background: linear-gradient(to right, #ff512f, #f09819);
+            border-bottom: 2px solid #facc15;
+            background-size: 200% 200%;
+            animation: gradientMove 5s ease infinite;
+        }
+        .profile-banner-wrapper.banner_sunset::before {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 60%;
+            background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+        }
+        .profile-banner-wrapper.banner_sunset::after {
+            content: ''; position: absolute; top: 20%; right: 10%; width: 60px; height: 60px;
+            background: #fef08a; border-radius: 50%;
+            box-shadow: 0 0 40px #facc15, 0 0 80px #f97316;
+            animation: sunPulse 4s infinite alternate;
+        }
+
+        @keyframes cyberSweep { 0% { left: -100%; } 100% { left: 200%; } }
+        @keyframes spaceDrift { 0% { background-position: 0 0, 40px 60px, 130px 270px, 70px 100px; } 100% { background-position: 550px 550px, 390px 410px, 380px 520px, 220px 250px; } }
+        @keyframes sunPulse { 0% { transform: scale(1); box-shadow: 0 0 20px #facc15, 0 0 40px #f97316; } 100% { transform: scale(1.1); box-shadow: 0 0 40px #facc15, 0 0 80px #f97316; } }
+
     `;
 
     if (document.head) {

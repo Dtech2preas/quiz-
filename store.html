@@ -338,33 +338,64 @@
 
     <h2 class="section-title">Cosmetics Shop</h2>
 
+    <button class="accordion-header">Custom Site Fonts (Local)</button>
+    <div class="accordion-content">
+        <p style="color: var(--text-muted); margin-top: 1rem;">Change the typography across the site.</p>
+        <div class="grid">
+        <div class="card">
+            <h3>Default Font</h3>
+            <p>The standard system font.</p>
+            <div class="price">Free</div>
+            <button class="btn btn-equip" id="btn-font_null" onclick="equipCosmetic('font', null)">Equip</button>
+        </div>
+        <div class="card" style="font-family: 'Times New Roman', Times, serif;">
+            <h3>Classic Serif</h3>
+            <p>A traditional, formal serif font.</p>
+            <div class="price">💎 100</div>
+            <button class="btn btn-buy" id="btn-font_serif" onclick="buyOrEquip('font', 'font_serif', 100)">Purchase</button>
+        </div>
+        <div class="card" style="font-family: 'Courier New', Courier, monospace;">
+            <h3>Retro Pixel</h3>
+            <p>A classic monospaced programming font.</p>
+            <div class="price">💎 200</div>
+            <button class="btn btn-buy" id="btn-font_retro" onclick="buyOrEquip('font', 'font_retro', 200)">Purchase</button>
+        </div>
+        <div class="card" style="font-family: 'Comic Sans MS', cursive, sans-serif;">
+            <h3>Handwriting</h3>
+            <p>A casual, playful handwriting font.</p>
+            <div class="price">💎 300</div>
+            <button class="btn btn-buy" id="btn-font_handwriting" onclick="buyOrEquip('font', 'font_handwriting', 300)">Purchase</button>
+        </div>
+        </div>
+    </div>
+
     <button class="accordion-header">Site Themes (Local)</button>
     <div class="accordion-content">
         <p style="color: var(--text-muted); margin-top: 1rem;">Customize the look and feel of your entire platform.</p>
         <div class="grid">
+        <div class="card">
+            <h3>Default Theme</h3>
+            <p>The classic D-TECH look.</p>
+            <div class="price">Free</div>
+            <button class="btn btn-equip" id="btn-theme_null" onclick="equipCosmetic('theme', null)">Equip</button>
+        </div>
         <div class="card" style="border-top: 4px solid #fbbf24;">
             <h3>Gold Theme</h3>
             <p>A luxurious gold and dark interface.</p>
             <div class="price">💎 100</div>
             <button class="btn btn-buy" id="btn-theme_gold" onclick="buyOrEquip('theme', 'theme_gold', 100)">Purchase</button>
         </div>
-        <div class="card" style="border-top: 4px solid #60a5fa;">
-            <h3>Diamond Theme</h3>
-            <p>A sleek, cool blue diamond aesthetic.</p>
-            <div class="price">💎 250</div>
-            <button class="btn btn-buy" id="btn-theme_diamond" onclick="buyOrEquip('theme', 'theme_diamond', 250)">Purchase</button>
-        </div>
-        <div class="card" style="border-top: 4px solid #f472b6;">
-            <h3>Neon Theme</h3>
-            <p>Cyberpunk-inspired bright neon colors.</p>
-            <div class="price">💎 500</div>
-            <button class="btn btn-buy" id="btn-theme_neon" onclick="buyOrEquip('theme', 'theme_neon', 500)">Purchase</button>
-        </div>
         <div class="card" style="border-top: 4px solid #000000; background: #000;">
             <h3>Dark Mode</h3>
             <p>True black background for OLED screens.</p>
             <div class="price">💎 150</div>
             <button class="btn btn-buy" id="btn-theme_dark" onclick="buyOrEquip('theme', 'theme_dark', 150)">Purchase</button>
+        </div>
+        <div class="card" style="border-top: 4px solid #60a5fa;">
+            <h3>Diamond Theme</h3>
+            <p>A sleek, cool blue diamond aesthetic.</p>
+            <div class="price">💎 250</div>
+            <button class="btn btn-buy" id="btn-theme_diamond" onclick="buyOrEquip('theme', 'theme_diamond', 250)">Purchase</button>
         </div>
         <div class="card" style="border-top: 4px solid #10b981;">
             <h3>Forest Theme</h3>
@@ -378,48 +409,17 @@
             <div class="price">💎 400</div>
             <button class="btn btn-buy" id="btn-theme_ocean" onclick="buyOrEquip('theme', 'theme_ocean', 400)">Purchase</button>
         </div>
+        <div class="card" style="border-top: 4px solid #f472b6;">
+            <h3>Neon Theme</h3>
+            <p>Cyberpunk-inspired bright neon colors.</p>
+            <div class="price">💎 500</div>
+            <button class="btn btn-buy" id="btn-theme_neon" onclick="buyOrEquip('theme', 'theme_neon', 500)">Purchase</button>
+        </div>
         <div class="card" style="border-top: 4px solid #f97316;">
             <h3>Sunset Theme</h3>
             <p>Warm oranges and pinks of dusk.</p>
             <div class="price">💎 600</div>
             <button class="btn btn-buy" id="btn-theme_sunset" onclick="buyOrEquip('theme', 'theme_sunset', 600)">Purchase</button>
-        </div>
-        <div class="card">
-            <h3>Default Theme</h3>
-            <p>The classic D-TECH look.</p>
-            <div class="price">Free</div>
-            <button class="btn btn-equip" id="btn-theme_null" onclick="equipCosmetic('theme', null)">Equip</button>
-        </div>
-        </div>
-    </div>
-
-    <button class="accordion-header">Custom Site Fonts (Local)</button>
-    <div class="accordion-content">
-        <p style="color: var(--text-muted); margin-top: 1rem;">Change the typography across the site.</p>
-        <div class="grid">
-        <div class="card" style="font-family: 'Courier New', Courier, monospace;">
-            <h3>Retro Pixel</h3>
-            <p>A classic monospaced programming font.</p>
-            <div class="price">💎 200</div>
-            <button class="btn btn-buy" id="btn-font_retro" onclick="buyOrEquip('font', 'font_retro', 200)">Purchase</button>
-        </div>
-        <div class="card" style="font-family: 'Comic Sans MS', cursive, sans-serif;">
-            <h3>Handwriting</h3>
-            <p>A casual, playful handwriting font.</p>
-            <div class="price">💎 300</div>
-            <button class="btn btn-buy" id="btn-font_handwriting" onclick="buyOrEquip('font', 'font_handwriting', 300)">Purchase</button>
-        </div>
-        <div class="card" style="font-family: 'Times New Roman', Times, serif;">
-            <h3>Classic Serif</h3>
-            <p>A traditional, formal serif font.</p>
-            <div class="price">💎 100</div>
-            <button class="btn btn-buy" id="btn-font_serif" onclick="buyOrEquip('font', 'font_serif', 100)">Purchase</button>
-        </div>
-        <div class="card">
-            <h3>Default Font</h3>
-            <p>The standard system font.</p>
-            <div class="price">Free</div>
-            <button class="btn btn-equip" id="btn-font_null" onclick="equipCosmetic('font', null)">Equip</button>
         </div>
         </div>
     </div>
@@ -428,6 +428,12 @@
     <div class="accordion-content">
         <p style="color: var(--text-muted); margin-top: 1rem;">These are visible to everyone on the Global Leaderboards and your Public Profile!</p>
         <div class="grid">
+        <div class="card">
+            <h3>No Border</h3>
+            <p>Standard clean avatar.</p>
+            <div class="price">Free</div>
+            <button class="btn btn-equip" id="btn-border_null" onclick="equipCosmetic('avatar_border', null)">Equip</button>
+        </div>
         <div class="card" style="box-shadow: 0 0 15px rgba(251, 191, 36, 0.2);">
             <h3>Gold Aura</h3>
             <p>A glowing gold border around your profile picture.</p>
@@ -440,17 +446,17 @@
             <div class="price">💎 1000</div>
             <button class="btn btn-buy" id="btn-border_diamond" onclick="buyOrEquip('avatar_border', 'border_diamond', 1000)">Purchase</button>
         </div>
-        <div class="card" style="box-shadow: 0 0 15px rgba(244, 114, 182, 0.2);">
-            <h3>Neon Aura</h3>
-            <p>A pulsing neon border around your profile picture.</p>
-            <div class="price">💎 2000</div>
-            <button class="btn btn-buy" id="btn-border_neon" onclick="buyOrEquip('avatar_border', 'border_neon', 2000)">Purchase</button>
-        </div>
         <div class="card" style="box-shadow: 0 0 15px rgba(239, 68, 68, 0.2);">
             <h3>Fire Border</h3>
             <p>A burning red/orange animated aura.</p>
             <div class="price">💎 1500</div>
             <button class="btn btn-buy" id="btn-border_fire" onclick="buyOrEquip('avatar_border', 'border_fire', 1500)">Purchase</button>
+        </div>
+        <div class="card" style="box-shadow: 0 0 15px rgba(244, 114, 182, 0.2);">
+            <h3>Neon Aura</h3>
+            <p>A pulsing neon border around your profile picture.</p>
+            <div class="price">💎 2000</div>
+            <button class="btn btn-buy" id="btn-border_neon" onclick="buyOrEquip('avatar_border', 'border_neon', 2000)">Purchase</button>
         </div>
         <div class="card" style="box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);">
             <h3>Cosmic Border</h3>
@@ -470,12 +476,6 @@
             <div class="price">💎 5000</div>
             <button class="btn btn-buy" id="btn-border_glitch" onclick="buyOrEquip('avatar_border', 'border_glitch', 5000)">Purchase</button>
         </div>
-        <div class="card">
-            <h3>No Border</h3>
-            <p>Standard clean avatar.</p>
-            <div class="price">Free</div>
-            <button class="btn btn-equip" id="btn-border_null" onclick="equipCosmetic('avatar_border', null)">Equip</button>
-        </div>
         </div>
     </div>
 
@@ -483,6 +483,12 @@
     <div class="accordion-content">
         <p style="color: var(--text-muted); margin-top: 1rem;">Stand out with a colored name on leaderboards and profiles!</p>
         <div class="grid">
+        <div class="card">
+            <h3>Default Name</h3>
+            <p>Standard white/gray.</p>
+            <div class="price">Free</div>
+            <button class="btn btn-equip" id="btn-name_null" onclick="equipCosmetic('name_color', null)">Equip</button>
+        </div>
         <div class="card">
             <h3 style="color: #ef4444;">Red Name</h3>
             <p>Fierce and noticeable.</p>
@@ -507,12 +513,6 @@
             <div class="price">💎 2000</div>
             <button class="btn btn-buy" id="btn-name_gold" onclick="buyOrEquip('name_color', 'name_gold', 2000)">Purchase</button>
         </div>
-        <div class="card">
-            <h3>Default Name</h3>
-            <p>Standard white/gray.</p>
-            <div class="price">Free</div>
-            <button class="btn btn-equip" id="btn-name_null" onclick="equipCosmetic('name_color', null)">Equip</button>
-        </div>
         </div>
     </div>
 
@@ -520,6 +520,12 @@
     <div class="accordion-content">
         <p style="color: var(--text-muted); margin-top: 1rem;">Changes the effect that plays when you score 100% on a quiz!</p>
         <div class="grid">
+        <div class="card">
+            <h3>Default Confetti</h3>
+            <p>The classic celebration.</p>
+            <div class="price">Free</div>
+            <button class="btn btn-equip" id="btn-effect_null" onclick="equipCosmetic('quiz_celebration', null)">Equip</button>
+        </div>
         <div class="card">
             <h3 style="color: #10b981;">Matrix Rain</h3>
             <p>Hacker-style green code cascading down.</p>
@@ -538,12 +544,6 @@
             <div class="price">💎 2500</div>
             <button class="btn btn-buy" id="btn-effect_fireworks" onclick="buyOrEquip('quiz_celebration', 'effect_fireworks', 2500)">Purchase</button>
         </div>
-        <div class="card">
-            <h3>Default Confetti</h3>
-            <p>The classic celebration.</p>
-            <div class="price">Free</div>
-            <button class="btn btn-equip" id="btn-effect_null" onclick="equipCosmetic('quiz_celebration', null)">Equip</button>
-        </div>
         </div>
     </div>
 
@@ -551,6 +551,12 @@
     <div class="accordion-content">
         <p style="color: var(--text-muted); margin-top: 1rem;">Customize the look of your downloaded certificates!</p>
         <div class="grid">
+        <div class="card">
+            <h3>Default Certificate</h3>
+            <p>The standard light theme.</p>
+            <div class="price">Free</div>
+            <button class="btn btn-equip" id="btn-cert_null" onclick="equipCosmetic('certificate_template', null)">Equip</button>
+        </div>
         <div class="card" style="background: #111;">
             <h3 style="color: #fff;">Dark Mode Certificate</h3>
             <p>Sleek black certificate with white text.</p>
@@ -569,12 +575,6 @@
             <div class="price">💎 3000</div>
             <button class="btn btn-buy" id="btn-cert_cyber" onclick="buyOrEquip('certificate_template', 'cert_cyber', 3000)">Purchase</button>
         </div>
-        <div class="card">
-            <h3>Default Certificate</h3>
-            <p>The standard light theme.</p>
-            <div class="price">Free</div>
-            <button class="btn btn-equip" id="btn-cert_null" onclick="equipCosmetic('certificate_template', null)">Equip</button>
-        </div>
         </div>
     </div>
 
@@ -582,6 +582,12 @@
     <div class="accordion-content">
         <p style="color: var(--text-muted); margin-top: 1rem;">A custom banner at the top of your public profile.</p>
         <div class="grid">
+        <div class="card">
+            <h3>Default Banner</h3>
+            <p>Standard header.</p>
+            <div class="price">Free</div>
+            <button class="btn btn-equip" id="btn-banner_null" onclick="equipCosmetic('profile_banner', null)">Equip</button>
+        </div>
         <div class="card" style="background: linear-gradient(to right, #0f2027, #203a43, #2c5364);">
             <h3>Cyberpunk City</h3>
             <p>Dark, neon-lit vibes.</p>
@@ -599,12 +605,6 @@
             <p>Warm, beautiful scenic view.</p>
             <div class="price">💎 2000</div>
             <button class="btn btn-buy" id="btn-banner_sunset" onclick="buyOrEquip('profile_banner', 'banner_sunset', 2000)">Purchase</button>
-        </div>
-        <div class="card">
-            <h3>Default Banner</h3>
-            <p>Standard header.</p>
-            <div class="price">Free</div>
-            <button class="btn btn-equip" id="btn-banner_null" onclick="equipCosmetic('profile_banner', null)">Equip</button>
         </div>
         </div>
     </div>

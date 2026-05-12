@@ -1099,39 +1099,46 @@ async function handleSyncPoints(request, env) {
 }
 
 const STORE_CATALOG = {
-  theme_gold: { price: 100, type: 'theme' },
-  theme_diamond: { price: 250, type: 'theme' },
-  theme_neon: { price: 500, type: 'theme' },
-  theme_dark: { price: 150, type: 'theme' },
-  theme_forest: { price: 300, type: 'theme' },
-  theme_ocean: { price: 400, type: 'theme' },
-  theme_sunset: { price: 600, type: 'theme' },
-
+  // Fonts (Starts at 100)
+  font_serif: { price: 100, type: 'font' },
   font_retro: { price: 200, type: 'font' },
   font_handwriting: { price: 300, type: 'font' },
-  font_serif: { price: 100, type: 'font' },
 
+  // Themes (Starts at 100)
+  theme_gold: { price: 100, type: 'theme' },
+  theme_dark: { price: 150, type: 'theme' },
+  theme_diamond: { price: 250, type: 'theme' },
+  theme_forest: { price: 300, type: 'theme' },
+  theme_ocean: { price: 400, type: 'theme' },
+  theme_neon: { price: 500, type: 'theme' },
+  theme_sunset: { price: 600, type: 'theme' },
+
+  // Avatar Borders (Starts at 500)
   border_gold: { price: 500, type: 'avatar_border' },
   border_diamond: { price: 1000, type: 'avatar_border' },
-  border_neon: { price: 2000, type: 'avatar_border' },
   border_fire: { price: 1500, type: 'avatar_border' },
+  border_neon: { price: 2000, type: 'avatar_border' },
   border_cosmic: { price: 2500, type: 'avatar_border' },
   border_rainbow: { price: 3500, type: 'avatar_border' },
   border_glitch: { price: 5000, type: 'avatar_border' },
 
+  // Name Colors (Starts at 800)
   name_red: { price: 800, type: 'name_color' },
   name_blue: { price: 800, type: 'name_color' },
   name_green: { price: 800, type: 'name_color' },
   name_gold: { price: 2000, type: 'name_color' },
 
+  // Quiz Celebrations (Starts at 1000)
   effect_matrix: { price: 1000, type: 'quiz_celebration' },
   effect_emoji: { price: 1500, type: 'quiz_celebration' },
   effect_fireworks: { price: 2500, type: 'quiz_celebration' },
 
+  // Certificate Templates (Starts at 1000)
   cert_dark: { price: 1000, type: 'certificate_template' },
   cert_gold: { price: 2000, type: 'certificate_template' },
   cert_cyber: { price: 3000, type: 'certificate_template' },
 
+  // Profile Banners (Starts at 2000)
   banner_cyber: { price: 2000, type: 'profile_banner' },
   banner_space: { price: 2000, type: 'profile_banner' },
   banner_sunset: { price: 2000, type: 'profile_banner' }
