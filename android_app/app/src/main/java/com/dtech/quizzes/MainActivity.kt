@@ -45,6 +45,9 @@ class MainActivity : AppCompatActivity() {
         // Add Javascript interface for base64 downloads
         webView.addJavascriptInterface(AndroidDownloader(this), "AndroidDownloader")
 
+        // Add Javascript interface for launching external browser
+        webView.addJavascriptInterface(AndroidExternalLauncher(this), "AndroidExternalLauncher")
+
         webView.webViewClient = object : WebViewClient() {
             private fun handleUrlLoading(url: String): Boolean {
                 // Let WebView handle navigation within our own domain
@@ -122,6 +125,24 @@ class MainActivity : AppCompatActivity() {
             webView.goBack()
         } else {
             super.onBackPressed()
+        }
+    }
+}
+
+class AndroidExternalLauncher(private val context: Context) {
+    @JavascriptInterface
+    fun openExternalBrowser(url: String, userId: String?) {
+        try {
+            var finalUrl = url
+            if (!userId.isNullOrEmpty()) {
+                finalUrl += if (url.contains("?")) "&" else "?"
+                finalUrl += "auto_login=true&user_id=${Uri.encode(userId)}"
+            }
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(finalUrl))
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            context.startActivity(intent)
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 }

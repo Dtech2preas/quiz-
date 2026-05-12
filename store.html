@@ -631,6 +631,15 @@
 </footer>
 
 <script>
+    // Auto-login logic for external browser launching
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('auto_login') === 'true' && urlParams.get('user_id')) {
+        localStorage.setItem('user_id', urlParams.get('user_id'));
+        // Strip the parameters from the URL so they aren't visible or shared accidentally
+        const newUrl = window.location.pathname + window.location.hash;
+        window.history.replaceState({}, document.title, newUrl);
+    }
+
     const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
     const userId = localStorage.getItem("user_id");
 
@@ -765,8 +774,17 @@
         document.getElementById('ads-modal').classList.remove('show');
     }
 
+    function openExternalOrLocal(externalUrl, localPath) {
+        const userId = localStorage.getItem('user_id');
+        if (typeof AndroidExternalLauncher !== 'undefined' && AndroidExternalLauncher.openExternalBrowser) {
+            AndroidExternalLauncher.openExternalBrowser(externalUrl, userId || '');
+        } else {
+            window.location.href = localPath;
+        }
+    }
+
     function proceedToAds() {
-        window.location.href = 'earn_points.html';
+        openExternalOrLocal('https://quiz.dtech-services.co.za/earn_points.html', 'earn_points.html');
     }
 
     async function handlePushClaim() {
