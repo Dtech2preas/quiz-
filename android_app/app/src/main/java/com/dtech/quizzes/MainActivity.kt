@@ -20,6 +20,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.browser.customtabs.CustomTabsIntent
 import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
@@ -45,41 +46,56 @@ class MainActivity : AppCompatActivity() {
         webView.addJavascriptInterface(AndroidDownloader(this), "AndroidDownloader")
 
         webView.webViewClient = object : WebViewClient() {
-            override fun shouldOverrideUrlLoading(
-                view: WebView?,
-                request: WebResourceRequest?
-            ): Boolean {
-                val url = request?.url.toString()
+            private fun handleUrlLoading(url: String): Boolean {
+                // Let WebView handle navigation within our own domain
+                if (url.startsWith("http://quiz.dtech-services.co.za") || url.startsWith("https://quiz.dtech-services.co.za")) {
+                    return false
+                }
+
                 if (url.startsWith("http://") || url.startsWith("https://")) {
-                    return false // Let WebView handle normal links
-                }
-
-                // For other links (like shein://, intent://, market://, etc.), try to launch an Intent
-                try {
-                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                    startActivity(intent)
-                    return true
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                    // Fallback or ignore if no app can handle the intent
-                    return true
-                }
-            }
-
-            @Deprecated("Deprecated in Java")
-            override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
-                if (url != null) {
-                    if (url.startsWith("http://") || url.startsWith("https://")) {
-                        return false
+                    // It's an external link (like Monetag ads), open in Chrome Custom Tab
+                    try {
+                        val customTabsIntent = CustomTabsIntent.Builder().build()
+                        customTabsIntent.launchUrl(this@MainActivity, Uri.parse(url))
+                        return true
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                        // Fallback to normal intent if Custom Tabs fails
+                        try {
+                            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                            startActivity(intent)
+                            return true
+                        } catch (e2: Exception) {
+                            e2.printStackTrace()
+                        }
                     }
+                } else {
+                    // For other links (like shein://, intent://, market://, etc.), try to launch an Intent
                     try {
                         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
                         startActivity(intent)
                         return true
                     } catch (e: Exception) {
                         e.printStackTrace()
+                        // Fallback or ignore if no app can handle the intent
                         return true
                     }
+                }
+                return false
+            }
+
+            override fun shouldOverrideUrlLoading(
+                view: WebView?,
+                request: WebResourceRequest?
+            ): Boolean {
+                val url = request?.url.toString()
+                return handleUrlLoading(url)
+            }
+
+            @Deprecated("Deprecated in Java")
+            override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+                if (url != null) {
+                    return handleUrlLoading(url)
                 }
                 return false
             }
