@@ -6,6 +6,13 @@
         <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enhance Experience - Quiz Platform</title>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('auto_login') === 'true' && urlParams.get('user_id')) {
+            localStorage.setItem('user_id', urlParams.get('user_id'));
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+    </script>
     <style>
         :root {
             --bg-dark: #0f172a;

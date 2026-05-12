@@ -49,6 +49,27 @@ class MainActivity : AppCompatActivity() {
 
         webView.webViewClient = object : WebViewClient() {
             private fun handleUrlLoading(url: String): Boolean {
+                // Intercept links to store.html and earn_points.html to open them in external browser with auto_login
+                if (url.endsWith("store.html") || url.endsWith("earn_points.html")) {
+                    webView.evaluateJavascript("localStorage.getItem('user_id');") { userId ->
+                        val cleanUserId = userId?.replace("\"", "") ?: ""
+                        val externalUrl = if (url.contains("?")) {
+                            "$url&auto_login=true&user_id=$cleanUserId"
+                        } else {
+                            "$url?auto_login=true&user_id=$cleanUserId"
+                        }
+                        try {
+                            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(externalUrl))
+                            // Add flags to ensure it opens in a new task (the system browser)
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                            startActivity(intent)
+                        } catch (e: Exception) {
+                            e.printStackTrace()
+                        }
+                    }
+                    return true // Prevent WebView from loading it
+                }
+
                 // Let WebView handle navigation within our own domain
                 if (url.startsWith("http://quiz.dtech-services.co.za") || url.startsWith("https://quiz.dtech-services.co.za")) {
                     return false
