@@ -43,6 +43,8 @@ class MainActivity : AppCompatActivity() {
         webSettings.domStorageEnabled = true
         webSettings.allowFileAccess = true
         webSettings.allowContentAccess = true
+        webSettings.databaseEnabled = true
+        webSettings.cacheMode = WebSettings.LOAD_DEFAULT
         webSettings.setSupportMultipleWindows(true)
         webSettings.javaScriptCanOpenWindowsAutomatically = true
 
@@ -82,6 +84,12 @@ class MainActivity : AppCompatActivity() {
                     return handleUrlLoading(url)
                 }
                 return false
+            }
+
+            override fun onPageFinished(view: WebView?, url: String?) {
+                super.onPageFinished(view, url)
+                // Inject a flag into the window object to notify the web app it's running in Android
+                view?.evaluateJavascript("window.IS_ANDROID_APP = true; if(window.onAndroidAppDetected) { window.onAndroidAppDetected(); }", null)
             }
         }
 

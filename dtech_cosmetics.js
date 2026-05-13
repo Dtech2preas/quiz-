@@ -15,7 +15,7 @@
 
             // Retain the ultimate viewing flag if it's there
             document.body.className = Array.from(document.body.classList)
-                .filter(c => !c.startsWith('theme_') && !c.startsWith('font_') && !c.startsWith('ultimate_') || c === 'viewing-ultimate-profile')
+                .filter(c => (!c.startsWith('theme_') && !c.startsWith('font_') && !c.startsWith('ultimate_')) || c === 'viewing-ultimate-profile' || (document.body.classList.contains('viewing-ultimate-profile') && c.startsWith('ultimate_')))
                 .join(' ');
 
             // If public_profile.html applied its own ultimate theme from the API, DO NOT OVERRIDE with viewer's local storage
@@ -353,25 +353,76 @@
 
         /* 1. God Tier / Ascended */
         body.ultimate_god {
-            background: linear-gradient(135deg, #fffbeb, #fef3c7);
-            color: #78350f;
-            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #2a1f0c, #1f1805);
+            background-size: 200% 200%;
+            animation: godBgShift 15s ease infinite;
+            color: #fff8e7;
+            font-family: 'Cinzel', 'Georgia', serif;
         }
         body.ultimate_god::before {
-            content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at top, rgba(251, 191, 36, 0.4) 0%, transparent 60%);
-            pointer-events: none; z-index: 9998; mix-blend-mode: overlay;
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 50% 10%, rgba(255, 215, 0, 0.25) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 9998;
+            mix-blend-mode: screen;
+            animation: godPulse 4s ease-in-out infinite alternate;
         }
-        body.ultimate_god .container { background: rgba(255, 255, 255, 0.9); box-shadow: 0 10px 40px rgba(251, 191, 36, 0.3); border: 1px solid #fde68a; border-radius: 24px; position: relative; }
-        body.ultimate_god .profile-header { background: linear-gradient(to bottom, #fffbeb, #ffffff); border-bottom: none; position: relative; overflow: visible; }
-        body.ultimate_god .avatar-wrapper { box-shadow: 0 0 50px #fbbf24; border: 4px solid #fff; transform: scale(1.1); animation: floatGod 4s ease-in-out infinite; }
+        body.ultimate_god .container {
+            background: rgba(30, 25, 15, 0.85);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 50px rgba(255, 215, 0, 0.2), inset 0 0 20px rgba(255, 215, 0, 0.1);
+            border: 2px solid rgba(255, 215, 0, 0.5);
+            border-radius: 24px;
+            position: relative;
+        }
+        body.ultimate_god .profile-header {
+            background: linear-gradient(to bottom, rgba(255, 215, 0, 0.1), transparent);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+            position: relative;
+            overflow: visible;
+        }
+        body.ultimate_god .avatar-wrapper {
+            box-shadow: 0 0 60px rgba(255, 215, 0, 0.8), inset 0 0 20px rgba(255, 255, 255, 0.5);
+            border: 4px solid #ffd700;
+            transform: scale(1.15);
+            animation: floatGod 4s ease-in-out infinite;
+            background: linear-gradient(45deg, #ffd700, #ffdf00, #d4af37);
+            padding: 4px;
+        }
+        body.ultimate_god .avatar-wrapper img {
+            border-radius: 50%;
+            border: 2px solid #2a1f0c;
+        }
         body.ultimate_god .avatar-wrapper::after {
-            content: '✨'; position: absolute; top: -20px; right: -20px; font-size: 2rem; animation: starTwinkle 2s infinite alternate;
+            content: '🌟'; position: absolute; top: -15px; right: -15px; font-size: 2.5rem; animation: starTwinkleGod 2s infinite alternate; text-shadow: 0 0 20px #ffd700;
         }
-        body.ultimate_god h1, body.ultimate_god h2, body.ultimate_god h3 { color: #b45309; text-shadow: 0 2px 4px rgba(251, 191, 36, 0.5); }
-        body.ultimate_god .btn { background: linear-gradient(45deg, #f59e0b, #fbbf24); color: white; border: none; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4); border-radius: 30px; }
+        body.ultimate_god h1, body.ultimate_god h2, body.ultimate_god h3 {
+            background: linear-gradient(to right, #ffd700, #ffdf00, #fff, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+        body.ultimate_god .btn {
+            background: linear-gradient(45deg, #d4af37, #ffd700, #ffdf00);
+            color: #2a1f0c;
+            font-weight: bold;
+            border: 1px solid #fff;
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.6);
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        body.ultimate_god .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 215, 0, 0.8);
+        }
 
-        @keyframes floatGod { 0%, 100% { transform: translateY(0) scale(1.1); } 50% { transform: translateY(-15px) scale(1.1); } }
+        @keyframes godBgShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes godPulse { 0% { opacity: 0.5; transform: scale(1); } 100% { opacity: 0.8; transform: scale(1.05); } }
+        @keyframes floatGod { 0%, 100% { transform: translateY(0) scale(1.15); } 50% { transform: translateY(-15px) scale(1.15); } }
+        @keyframes starTwinkleGod { 0% { transform: scale(0.8) rotate(0deg); opacity: 0.6; } 100% { transform: scale(1.2) rotate(15deg); opacity: 1; } }
         @keyframes starTwinkle { 0% { opacity: 0.5; transform: scale(0.8) rotate(0deg); } 100% { opacity: 1; transform: scale(1.2) rotate(20deg); } }
 
 
