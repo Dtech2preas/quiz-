@@ -609,6 +609,48 @@
         </div>
         </div>
     </div>
+
+    <button class="accordion-header" style="background: linear-gradient(135deg, #8b5cf6, #d946ef); color: white; border: none; box-shadow: 0 4px 15px rgba(217, 70, 239, 0.4);">👑 Ultimate Premium Profiles</button>
+    <div class="accordion-content">
+        <p style="color: var(--text-muted); margin-top: 1rem;">The most advanced and visually appealing purchases. Overhaul your profile entirely, or apply the ultimate theme to the entire site!</p>
+        <div class="grid">
+        <div class="card" style="border: 2px solid #fbbf24; background: linear-gradient(to bottom right, rgba(251, 191, 36, 0.1), transparent);">
+            <h3 style="color: #fbbf24; text-shadow: 0 0 10px rgba(251, 191, 36, 0.8);">God Tier / Ascended</h3>
+            <p>Golden/white aura, floating particles, angelic vibes.</p>
+            <div class="price">💎 10000</div>
+            <div id="ultimate_god_buttons" style="display: flex; gap: 0.5rem; flex-direction: column;">
+                <button class="btn btn-buy" id="btn-ultimate_god" onclick="buyOrEquipUltimate('ultimate_god', 10000)">Purchase</button>
+            </div>
+        </div>
+        <div class="card" style="border: 2px solid #10b981; background: #000;">
+            <h3 style="color: #10b981; font-family: monospace;">Hacker / Terminal</h3>
+            <p>Green-on-black terminal theme, digital rain.</p>
+            <div class="price">💎 10000</div>
+            <div id="ultimate_hacker_buttons" style="display: flex; gap: 0.5rem; flex-direction: column;">
+                <button class="btn btn-buy" id="btn-ultimate_hacker" onclick="buyOrEquipUltimate('ultimate_hacker', 10000)">Purchase</button>
+            </div>
+        </div>
+        <div class="card" style="border: 2px dashed #f43f5e; background: #1e1b4b;">
+            <h3 style="color: #f43f5e; font-family: 'Press Start 2P', monospace; font-size: 0.9rem;">RPG Hero Status</h3>
+            <p>Pixel art borders, 8-bit font, retro game status screen.</p>
+            <div class="price">💎 10000</div>
+            <div id="ultimate_rpg_buttons" style="display: flex; gap: 0.5rem; flex-direction: column;">
+                <button class="btn btn-buy" id="btn-ultimate_rpg" onclick="buyOrEquipUltimate('ultimate_rpg', 10000)">Purchase</button>
+            </div>
+        </div>
+        <div class="card" style="border: 2px solid #06b6d4; background: linear-gradient(to bottom, #0f172a, #312e81);">
+            <h3 style="color: #06b6d4; text-shadow: 2px 2px #ec4899;">Cyberpunk Overdrive</h3>
+            <p>Glitching neon effects, holographic UI, scanlines.</p>
+            <div class="price">💎 10000</div>
+            <div id="ultimate_cyberpunk_buttons" style="display: flex; gap: 0.5rem; flex-direction: column;">
+                <button class="btn btn-buy" id="btn-ultimate_cyberpunk" onclick="buyOrEquipUltimate('ultimate_cyberpunk', 10000)">Purchase</button>
+            </div>
+        </div>
+        </div>
+        <div style="margin-top: 1rem; text-align: center;">
+            <button class="btn btn-equipped" id="btn-ultimate_null" onclick="unequipUltimate()" style="display: none; width: 100%; max-width: 300px; margin: 0 auto;">Unequip Ultimate Theme</button>
+        </div>
+    </div>
 </div>
 
 <div id="toast">Message here</div>
@@ -751,6 +793,134 @@
                 btn.className = "btn btn-equip";
             }
         });
+
+        // Handle Ultimate Buttons
+        const ultimateItems = ['ultimate_god', 'ultimate_hacker', 'ultimate_rpg', 'ultimate_cyberpunk'];
+        let isAnyUltimateEquipped = false;
+
+        ultimateItems.forEach(item => {
+            const container = document.getElementById(`${item}_buttons`);
+            if (!container) return;
+
+            if (unlockedItems.includes(item)) {
+                // If unlocked, check if it's equipped in either slot
+                if (equippedItems['ultimate_profile'] === item || equippedItems['ultimate_global'] === item) {
+                    isAnyUltimateEquipped = true;
+                    const mode = equippedItems['ultimate_profile'] === item ? 'Profile Only' : 'Global';
+                    container.innerHTML = `<button class="btn btn-equipped" disabled>Equipped (${mode})</button>`;
+                } else {
+                    container.innerHTML = `
+                        <button class="btn btn-equip" onclick="equipUltimate('${item}', 'ultimate_profile')" style="font-size: 0.8rem;">Equip Profile Only</button>
+                        <button class="btn btn-equip" onclick="equipUltimate('${item}', 'ultimate_global')" style="font-size: 0.8rem;">Equip Globally</button>
+                    `;
+                }
+            } else {
+                // If not unlocked, show purchase button
+                container.innerHTML = `<button class="btn btn-buy" id="btn-${item}" onclick="buyOrEquipUltimate('${item}', 10000)">Purchase</button>`;
+            }
+        });
+
+        const unequipUltimateBtn = document.getElementById('btn-ultimate_null');
+        if (unequipUltimateBtn) {
+            unequipUltimateBtn.style.display = isAnyUltimateEquipped ? 'block' : 'none';
+        }
+    }
+
+    async function buyOrEquipUltimate(itemId, price) {
+        if (unlockedItems.includes(itemId)) {
+            // Already unlocked, logic handled by updated buttons
+            return;
+        }
+
+        if (userPoints < price) {
+            showToast("Not enough D-TECH POINTS!", true);
+            return;
+        }
+
+        if (!confirm(`Are you sure you want to purchase this Ultimate Bundle for ${price} points?`)) return;
+
+        try {
+            const response = await fetch(`${API_URL}/api/store/purchase`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ user_id: userId, item_id: itemId })
+            });
+            const data = await response.json();
+
+            if (response.ok) {
+                userPoints = data.dtech_points;
+                unlockedItems = data.unlocked_cosmetics;
+                document.getElementById('dtech-points-display').textContent = `💎 ${userPoints}`;
+                showToast("Ultimate Bundle purchased successfully! You can now choose how to equip it.");
+                updateButtons();
+            } else {
+                showToast(data.error || "Purchase failed", true);
+            }
+        } catch (err) {
+            showToast("Network error", true);
+        }
+    }
+
+    async function equipUltimate(itemId, mode) {
+        try {
+            const response = await fetch(`${API_URL}/api/store/equip`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ user_id: userId, type: mode, item_id: itemId })
+            });
+            const data = await response.json();
+
+            if (response.ok) {
+                equippedItems = data.equipped_cosmetics;
+                showToast(`Equipped ${mode === 'ultimate_profile' ? 'to Profile Only' : 'Globally'} successfully!`);
+                updateButtons();
+
+                // Immediately apply locally so user sees effect
+                localStorage.setItem('dtech_ultimate_profile', equippedItems['ultimate_profile'] || '');
+                localStorage.setItem('dtech_ultimate_global', equippedItems['ultimate_global'] || '');
+                if (typeof applyThemeAndFont === 'function') applyThemeAndFont();
+                if (mode === 'ultimate_global') {
+                     // Reload to apply global overhauls everywhere
+                     setTimeout(() => window.location.reload(), 1500);
+                }
+            } else {
+                showToast(data.error || "Equip failed", true);
+            }
+        } catch (err) {
+            showToast("Network error", true);
+        }
+    }
+
+    async function unequipUltimate() {
+        try {
+            // Determine which mode is currently active
+            const activeMode = equippedItems['ultimate_profile'] ? 'ultimate_profile' : 'ultimate_global';
+
+            const response = await fetch(`${API_URL}/api/store/equip`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ user_id: userId, type: activeMode, item_id: null })
+            });
+            const data = await response.json();
+
+            if (response.ok) {
+                equippedItems = data.equipped_cosmetics;
+                showToast("Unequipped Ultimate Theme successfully! Your individual cosmetics have been restored.");
+                updateButtons();
+
+                // Remove local storage ultimate cache
+                localStorage.removeItem('dtech_ultimate_profile');
+                localStorage.removeItem('dtech_ultimate_global');
+
+                // Reapply normal themes immediately or reload
+                if (typeof applyThemeAndFont === 'function') applyThemeAndFont();
+                setTimeout(() => window.location.reload(), 1500);
+            } else {
+                showToast(data.error || "Unequip failed", true);
+            }
+        } catch (err) {
+            showToast("Network error", true);
+        }
     }
 
     function handleIncreasePoints() {

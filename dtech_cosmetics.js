@@ -4,14 +4,40 @@
         const theme = localStorage.getItem('dtech_theme');
         const font = localStorage.getItem('dtech_font');
 
+        const ultimateProfile = localStorage.getItem('dtech_ultimate_profile');
+        const ultimateGlobal = localStorage.getItem('dtech_ultimate_global');
+
+        const isProfilePage = window.location.pathname.includes('profile.html') || window.location.pathname.includes('public_profile.html');
+
         const applyToBody = () => {
-            // Remove previous
+            // Check if we're viewing someone else's ultimate profile
+            const isViewingSomeoneElsesUltimate = document.body.classList.contains('viewing-ultimate-profile');
+
+            // Retain the ultimate viewing flag if it's there
             document.body.className = Array.from(document.body.classList)
-                .filter(c => !c.startsWith('theme_') && !c.startsWith('font_'))
+                .filter(c => !c.startsWith('theme_') && !c.startsWith('font_') && !c.startsWith('ultimate_') || c === 'viewing-ultimate-profile')
                 .join(' ');
 
-            if (theme) document.body.classList.add(theme);
-            if (font) document.body.classList.add(font);
+            // If public_profile.html applied its own ultimate theme from the API, DO NOT OVERRIDE with viewer's local storage
+            if (isViewingSomeoneElsesUltimate && isProfilePage) {
+                return;
+            }
+
+            let ultimateApplied = false;
+
+            if (ultimateGlobal) {
+                document.body.classList.add(ultimateGlobal);
+                ultimateApplied = true;
+            } else if (ultimateProfile && isProfilePage) {
+                document.body.classList.add(ultimateProfile);
+                ultimateApplied = true;
+            }
+
+            // If an ultimate theme is applied locally, it overrides standard themes and fonts
+            if (!ultimateApplied) {
+                if (theme) document.body.classList.add(theme);
+                if (font) document.body.classList.add(font);
+            }
         };
 
         if (document.body) {
@@ -19,6 +45,23 @@
         } else {
             window.addEventListener('DOMContentLoaded', applyToBody);
         }
+
+        // Setup observer so if public_profile.html dynamically adds the viewing-ultimate-profile flag later, we rerun
+        window.addEventListener('DOMContentLoaded', () => {
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.attributeName === 'class') {
+                        if (document.body.classList.contains('viewing-ultimate-profile') && !document.body.dataset.ultimateProcessed) {
+                            document.body.dataset.ultimateProcessed = 'true';
+                            applyToBody();
+                        }
+                    }
+                });
+            });
+            if (document.body) {
+                observer.observe(document.body, { attributes: true });
+            }
+        });
     }
 
     // Define the theme styles dynamically or via injected stylesheet
@@ -304,6 +347,99 @@
         @keyframes spaceDrift { 0% { background-position: 0 0, 40px 60px, 130px 270px, 70px 100px; } 100% { background-position: 550px 550px, 390px 410px, 380px 520px, 220px 250px; } }
         @keyframes sunPulse { 0% { transform: scale(1); box-shadow: 0 0 20px #facc15, 0 0 40px #f97316; } 100% { transform: scale(1.1); box-shadow: 0 0 40px #facc15, 0 0 80px #f97316; } }
 
+        /* ========================================================== */
+        /* ULTIMATE PREMIUM PROFILES (GLOBAL AND PROFILE OVERHAULS)     */
+        /* ========================================================== */
+
+        /* 1. God Tier / Ascended */
+        body.ultimate_god {
+            background: linear-gradient(135deg, #fffbeb, #fef3c7);
+            color: #78350f;
+            font-family: 'Georgia', serif;
+        }
+        body.ultimate_god::before {
+            content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at top, rgba(251, 191, 36, 0.4) 0%, transparent 60%);
+            pointer-events: none; z-index: 9998; mix-blend-mode: overlay;
+        }
+        body.ultimate_god .container { background: rgba(255, 255, 255, 0.9); box-shadow: 0 10px 40px rgba(251, 191, 36, 0.3); border: 1px solid #fde68a; border-radius: 24px; position: relative; }
+        body.ultimate_god .profile-header { background: linear-gradient(to bottom, #fffbeb, #ffffff); border-bottom: none; position: relative; overflow: visible; }
+        body.ultimate_god .avatar-wrapper { box-shadow: 0 0 50px #fbbf24; border: 4px solid #fff; transform: scale(1.1); animation: floatGod 4s ease-in-out infinite; }
+        body.ultimate_god .avatar-wrapper::after {
+            content: '✨'; position: absolute; top: -20px; right: -20px; font-size: 2rem; animation: starTwinkle 2s infinite alternate;
+        }
+        body.ultimate_god h1, body.ultimate_god h2, body.ultimate_god h3 { color: #b45309; text-shadow: 0 2px 4px rgba(251, 191, 36, 0.5); }
+        body.ultimate_god .btn { background: linear-gradient(45deg, #f59e0b, #fbbf24); color: white; border: none; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4); border-radius: 30px; }
+
+        @keyframes floatGod { 0%, 100% { transform: translateY(0) scale(1.1); } 50% { transform: translateY(-15px) scale(1.1); } }
+        @keyframes starTwinkle { 0% { opacity: 0.5; transform: scale(0.8) rotate(0deg); } 100% { opacity: 1; transform: scale(1.2) rotate(20deg); } }
+
+
+        /* 2. Hacker / Terminal */
+        body.ultimate_hacker {
+            background: #000;
+            color: #10b981;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        body.ultimate_hacker::before {
+            content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(16, 185, 129, 0.1) 2px, rgba(16, 185, 129, 0.1) 4px);
+            pointer-events: none; z-index: 9998;
+        }
+        body.ultimate_hacker .container { background: #050505; border: 1px solid #10b981; box-shadow: inset 0 0 20px rgba(16, 185, 129, 0.2); border-radius: 0; }
+        body.ultimate_hacker .profile-header { background: #000; border-bottom: 1px dashed #10b981; }
+        body.ultimate_hacker .avatar-wrapper { border-radius: 0; border: 2px solid #10b981; background: #000; box-shadow: 4px 4px 0 rgba(16, 185, 129, 0.5); }
+        body.ultimate_hacker h1::before { content: '> root@dtech:~$ '; color: #34d399; }
+        body.ultimate_hacker .btn { background: transparent; color: #10b981; border: 1px solid #10b981; border-radius: 0; text-transform: uppercase; }
+        body.ultimate_hacker .btn:hover { background: #10b981; color: #000; }
+        body.ultimate_hacker .stat-card { border: 1px dashed #059669; background: #000; }
+
+
+        /* 3. RPG Hero Status */
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        body.ultimate_rpg {
+            background: #1e1b4b;
+            color: #e2e8f0;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 0.8rem;
+        }
+        body.ultimate_rpg .container {
+            background: #312e81;
+            border: 4px solid #fcd34d;
+            box-shadow: 4px 4px 0 #000, -4px -4px 0 #000, 4px -4px 0 #000, -4px 4px 0 #000;
+            border-radius: 0;
+            margin-top: 3rem;
+        }
+        body.ultimate_rpg .profile-header { background: #1e1b4b; border-bottom: 4px solid #fcd34d; }
+        body.ultimate_rpg .avatar-wrapper { border-radius: 0; border: 4px solid #fcd34d; box-shadow: 4px 4px 0 #000; image-rendering: pixelated; }
+        body.ultimate_rpg h1, body.ultimate_rpg h2, body.ultimate_rpg h3 { color: #fcd34d; text-shadow: 2px 2px #000; line-height: 1.5; }
+        body.ultimate_rpg .btn { background: #ef4444; color: white; border: 4px solid #fca5a5; border-right-color: #991b1b; border-bottom-color: #991b1b; border-radius: 0; box-shadow: 2px 2px 0 #000; }
+        body.ultimate_rpg .btn:active { border-top-color: #991b1b; border-left-color: #991b1b; border-right-color: #fca5a5; border-bottom-color: #fca5a5; }
+        body.ultimate_rpg .stat-card { border: 2px solid #cbd5e1; background: #475569; }
+        body.ultimate_rpg .profile-stats .stat-card::before { content: 'HP '; color: #ef4444; }
+
+
+        /* 4. Cyberpunk Overdrive */
+        body.ultimate_cyberpunk {
+            background: #09090b;
+            color: #f4f4f5;
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+        }
+        body.ultimate_cyberpunk::after {
+            content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 2px, 3px 100%; pointer-events: none; z-index: 9999;
+        }
+        body.ultimate_cyberpunk .container { background: linear-gradient(135deg, #18181b 0%, #0f172a 100%); border-top: 4px solid #06b6d4; border-bottom: 4px solid #ec4899; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%); border-radius: 0; }
+        body.ultimate_cyberpunk .profile-header { background: transparent; border-bottom: 2px solid #3f3f46; position: relative; }
+        body.ultimate_cyberpunk .profile-header::before { content: 'SYS.ACTIVE'; position: absolute; top: 10px; right: 10px; color: #ec4899; font-size: 0.7rem; letter-spacing: 2px; }
+        body.ultimate_cyberpunk .avatar-wrapper { border-radius: 0; border: 2px solid #06b6d4; background: #000; box-shadow: -5px 5px 0 #ec4899; clip-path: polygon(20% 0%, 100% 0, 100% 80%, 80% 100%, 0 100%, 0% 20%); }
+        body.ultimate_cyberpunk h1, body.ultimate_cyberpunk h2, body.ultimate_cyberpunk h3 { color: #fef08a; text-shadow: 2px 0px #ec4899, -2px 0px #06b6d4; letter-spacing: 1px; }
+        body.ultimate_cyberpunk .btn { background: #fef08a; color: #000; border: none; font-weight: bold; border-radius: 0; clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px); box-shadow: inset -2px -2px 0px rgba(0,0,0,0.5); }
+        body.ultimate_cyberpunk .btn:hover { background: #06b6d4; color: #fff; text-shadow: 1px 1px #000; }
+        body.ultimate_cyberpunk .stat-card { background: #18181b; border: 1px solid #3f3f46; border-left: 4px solid #06b6d4; }
+
     `;
 
     if (document.head) {
@@ -355,6 +491,18 @@
                     } else {
                         localStorage.removeItem('dtech_name_color');
                     }
+
+                    if (data.equipped_cosmetics.ultimate_profile) {
+                        localStorage.setItem('dtech_ultimate_profile', data.equipped_cosmetics.ultimate_profile);
+                    } else {
+                        localStorage.removeItem('dtech_ultimate_profile');
+                    }
+                    if (data.equipped_cosmetics.ultimate_global) {
+                        localStorage.setItem('dtech_ultimate_global', data.equipped_cosmetics.ultimate_global);
+                    } else {
+                        localStorage.removeItem('dtech_ultimate_global');
+                    }
+
                     applyThemeAndFont();
                 }
             }).catch(e => console.error(e));

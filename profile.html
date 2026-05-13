@@ -465,11 +465,15 @@ footer a:hover{ text-decoration:underline; }
 <div class="container" id="profile-content">
     <h1>Edit Profile</h1>
 
-    <div class="avatar-section">
-        <img id="avatar-preview" class="avatar-preview" alt="Profile avatar">
-        <label for="avatarInput" class="avatar-upload-btn" id="uploadBtnLabel">Change Avatar</label>
-        <input type="file" id="avatarInput" accept="image/png,image/jpeg,image/webp,image/gif">
-        <div id="avatar-msg"></div>
+    <div class="profile-header" style="text-align: center; border: none; background: transparent; padding: 0;">
+        <div class="avatar-section">
+            <div id="avatar-wrapper" class="avatar-border-wrapper" style="display: inline-block; margin-bottom: 1rem;">
+                <img id="avatar-preview" class="avatar-preview" alt="Profile avatar" style="margin-bottom: 0;">
+            </div>
+            <label for="avatarInput" class="avatar-upload-btn" id="uploadBtnLabel">Change Avatar</label>
+            <input type="file" id="avatarInput" accept="image/png,image/jpeg,image/webp,image/gif">
+            <div id="avatar-msg"></div>
+        </div>
     </div>
 
     <form id="profileForm">
