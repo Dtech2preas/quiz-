@@ -29,16 +29,17 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     document.body.insertAdjacentHTML('beforeend', modalHtml);
 
-    // Inject loading overlay for caching
-    const loadingHtml = `
-        <div id="caching-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-dark, #1a202c); z-index: 10001; justify-content: center; align-items: center; flex-direction: column;">
-            <div class="spinner" style="border: 4px solid rgba(255,255,255,0.1); width: 40px; height: 40px; border-radius: 50%; border-left-color: #fbbf24; animation: spin 1s linear infinite; margin-bottom: 20px;"></div>
-            <h2 style="color: #fff; margin: 0;">Setting up offline database...</h2>
-            <p style="color: #a0aec0;">Please wait while we download your grade's materials.</p>
+    // Inject background progress banner for caching
+    const progressBannerHtml = `
+        <div id="caching-progress-banner" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #2d3748; color: #fff; padding: 15px 20px; border-radius: 10px; z-index: 9999; box-shadow: 0 4px 6px rgba(0,0,0,0.3); width: 90%; max-width: 400px; text-align: center; border: 1px solid #4a5568;">
+            <div style="font-weight: bold; margin-bottom: 8px; font-size: 14px;">Setting up offline database...</div>
+            <div style="width: 100%; background: #1a202c; border-radius: 5px; height: 10px; overflow: hidden; margin-bottom: 5px;">
+                <div id="caching-progress-bar" style="width: 0%; height: 100%; background: #eab308; transition: width 0.3s;"></div>
+            </div>
+            <div id="caching-progress-text" style="font-size: 12px; color: #a0aec0;">Starting download...</div>
         </div>
-        <style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }</style>
     `;
-    document.body.insertAdjacentHTML('beforeend', loadingHtml);
+    document.body.insertAdjacentHTML('beforeend', progressBannerHtml);
 
     // Offline status logic
     function updateOnlineStatus() {
@@ -133,18 +134,39 @@ if ('serviceWorker' in navigator) {
 }
 
 function cacheGradeDatasets(grade, cacheKey) {
-    const overlay = document.getElementById('caching-overlay');
-    if (overlay) overlay.style.display = 'flex';
+    const progressBanner = document.getElementById('caching-progress-banner');
+    const progressBar = document.getElementById('caching-progress-bar');
+    const progressText = document.getElementById('caching-progress-text');
+
+    if (progressBanner) progressBanner.style.display = 'block';
 
     const messageChannel = new MessageChannel();
     messageChannel.port1.onmessage = (event) => {
-        if (event.data.status === 'success') {
+        if (event.data.status === 'progress') {
+            const current = event.data.current;
+            const total = event.data.total;
+            const percentage = Math.round((current / total) * 100);
+            if (progressBar) progressBar.style.width = percentage + '%';
+            if (progressText) progressText.innerText = \`Downloading \${current} of \${total} files...\`;
+        } else if (event.data.status === 'success') {
             console.log('Datasets cached successfully!');
             localStorage.setItem(cacheKey, 'true');
+            if (progressBanner) {
+                if (progressText) progressText.innerText = 'Download complete!';
+                if (progressBar) progressBar.style.width = '100%';
+                setTimeout(() => {
+                    progressBanner.style.display = 'none';
+                }, 2000);
+            }
         } else {
             console.error('Failed to cache datasets:', event.data.error);
+            if (progressBanner) {
+                if (progressText) progressText.innerText = 'Download finished with some errors.';
+                setTimeout(() => {
+                    progressBanner.style.display = 'none';
+                }, 3000);
+            }
         }
-        if (overlay) overlay.style.display = 'none';
     };
 
     navigator.serviceWorker.controller.postMessage(

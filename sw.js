@@ -120,7 +120,10 @@ self.addEventListener('message', async (event) => {
 
             if (datasetsToCache.length > 0) {
                 const cache = await caches.open(CACHE_NAME);
-                await Promise.all(datasetsToCache.map(async (url) => {
+                let completedCount = 0;
+
+                // Fetch datasets sequentially to avoid network congestion and allow for progress updates
+                for (const url of datasetsToCache) {
                     try {
                         const response = await fetch(url);
                         if (response.ok) {
@@ -129,7 +132,13 @@ self.addEventListener('message', async (event) => {
                     } catch(e) {
                         console.error('Failed to cache dataset:', url, e);
                     }
-                }));
+                    completedCount++;
+                    event.ports[0].postMessage({
+                        status: 'progress',
+                        current: completedCount,
+                        total: datasetsToCache.length
+                    });
+                }
             }
 
             // Notify client that caching is complete
