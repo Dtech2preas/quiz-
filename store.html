@@ -290,6 +290,7 @@
 
     </style>
 <script src="dtech_cosmetics.js"></script>
+    <script src="offline_mode.js"></script>
 </head>
 <body>
 
@@ -1048,11 +1049,14 @@
 
                 // If they equipped a theme, apply it immediately to this page
                 if (type === 'theme') {
+                    localStorage.setItem('dtech_theme', itemId);
                     applyTheme(itemId);
                 }
                 if (type === 'font') {
+                    localStorage.setItem('dtech_font', itemId);
                     applyFont(itemId);
                 }
+                if (typeof applyThemeAndFont === 'function') applyThemeAndFont();
             } else {
                 showToast(data.error || "Equip failed", true);
             }
