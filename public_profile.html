@@ -677,27 +677,45 @@
             }
 
             if (data.equipped_cosmetics) {
-                if (data.equipped_cosmetics.avatar_border) {
-                    const allowedBorders = ['border_gold', 'border_diamond', 'border_neon', 'border_fire', 'border_cosmic', 'border_rainbow', 'border_glitch'];
-                    if (allowedBorders.includes(data.equipped_cosmetics.avatar_border)) {
-                        document.getElementById("avatar-wrapper").classList.add(data.equipped_cosmetics.avatar_border);
+                let ultimateApplied = false;
+
+                // Handle Ultimate Profile Overhaul First
+                if (data.equipped_cosmetics.ultimate_profile || data.equipped_cosmetics.ultimate_global) {
+                    const ultimateItem = data.equipped_cosmetics.ultimate_profile || data.equipped_cosmetics.ultimate_global;
+                    const allowedUltimates = ['ultimate_god', 'ultimate_hacker', 'ultimate_rpg', 'ultimate_cyberpunk'];
+
+                    if (allowedUltimates.includes(ultimateItem)) {
+                        // Apply to body and flag to prevent conflicting individual cosmetics
+                        document.body.classList.add(ultimateItem);
+                        document.body.classList.add("viewing-ultimate-profile"); // Helper for dtech_cosmetics.js
+                        ultimateApplied = true;
                     }
                 }
 
-                if (data.equipped_cosmetics.name_color) {
-                    const allowedNameColors = ['name_red', 'name_blue', 'name_green', 'name_gold'];
-                    if (allowedNameColors.includes(data.equipped_cosmetics.name_color)) {
-                        document.getElementById("profile-username").classList.add(data.equipped_cosmetics.name_color);
-                        document.getElementById("profile-name").classList.add(data.equipped_cosmetics.name_color);
+                // Apply individual cosmetics only if no ultimate profile is overriding
+                if (!ultimateApplied) {
+                    if (data.equipped_cosmetics.avatar_border) {
+                        const allowedBorders = ['border_gold', 'border_diamond', 'border_neon', 'border_fire', 'border_cosmic', 'border_rainbow', 'border_glitch'];
+                        if (allowedBorders.includes(data.equipped_cosmetics.avatar_border)) {
+                            document.getElementById("avatar-wrapper").classList.add(data.equipped_cosmetics.avatar_border);
+                        }
                     }
-                }
 
-                if (data.equipped_cosmetics.profile_banner) {
-                    const allowedBanners = ['banner_cyber', 'banner_space', 'banner_sunset'];
-                    if (allowedBanners.includes(data.equipped_cosmetics.profile_banner)) {
-                        const bannerEl = document.getElementById("profile-banner");
-                        bannerEl.classList.add(data.equipped_cosmetics.profile_banner);
-                        bannerEl.style.display = 'block';
+                    if (data.equipped_cosmetics.name_color) {
+                        const allowedNameColors = ['name_red', 'name_blue', 'name_green', 'name_gold'];
+                        if (allowedNameColors.includes(data.equipped_cosmetics.name_color)) {
+                            document.getElementById("profile-username").classList.add(data.equipped_cosmetics.name_color);
+                            document.getElementById("profile-name").classList.add(data.equipped_cosmetics.name_color);
+                        }
+                    }
+
+                    if (data.equipped_cosmetics.profile_banner) {
+                        const allowedBanners = ['banner_cyber', 'banner_space', 'banner_sunset'];
+                        if (allowedBanners.includes(data.equipped_cosmetics.profile_banner)) {
+                            const bannerEl = document.getElementById("profile-banner");
+                            bannerEl.classList.add(data.equipped_cosmetics.profile_banner);
+                            bannerEl.style.display = 'block';
+                        }
                     }
                 }
             }

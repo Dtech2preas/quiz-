@@ -1141,7 +1141,13 @@ const STORE_CATALOG = {
   // Profile Banners (Starts at 2000)
   banner_cyber: { price: 2000, type: 'profile_banner' },
   banner_space: { price: 2000, type: 'profile_banner' },
-  banner_sunset: { price: 2000, type: 'profile_banner' }
+  banner_sunset: { price: 2000, type: 'profile_banner' },
+
+  // Ultimate Bundles (Starts at 10000)
+  ultimate_god: { price: 10000, type: 'ultimate_bundle' },
+  ultimate_hacker: { price: 10000, type: 'ultimate_bundle' },
+  ultimate_rpg: { price: 10000, type: 'ultimate_bundle' },
+  ultimate_cyberpunk: { price: 10000, type: 'ultimate_bundle' }
 };
 
 async function handleStorePurchase(request, env) {
@@ -1187,8 +1193,16 @@ async function handleStoreEquip(request, env) {
   if (item_id !== null && !STORE_CATALOG[item_id]) {
     return jsonResponse({ error: "Invalid item" }, 400);
   }
-  if (item_id !== null && STORE_CATALOG[item_id].type !== type) {
-    return jsonResponse({ error: "Type mismatch" }, 400);
+
+  if (item_id !== null) {
+    const catalogType = STORE_CATALOG[item_id].type;
+    if (catalogType === 'ultimate_bundle') {
+        if (type !== 'ultimate_profile' && type !== 'ultimate_global') {
+            return jsonResponse({ error: "Type mismatch for ultimate bundle" }, 400);
+        }
+    } else if (catalogType !== type) {
+        return jsonResponse({ error: "Type mismatch" }, 400);
+    }
   }
 
   const userDataString = await env.RANK_KV.get(`user:${user_id}`);
@@ -1206,6 +1220,12 @@ async function handleStoreEquip(request, env) {
     delete userData.equipped_cosmetics[type];
   } else {
     userData.equipped_cosmetics[type] = item_id;
+    // For ultimate bundles, equipping one mode should clear the other
+    if (type === 'ultimate_profile') {
+        delete userData.equipped_cosmetics['ultimate_global'];
+    } else if (type === 'ultimate_global') {
+        delete userData.equipped_cosmetics['ultimate_profile'];
+    }
   }
 
   await env.RANK_KV.put(`user:${user_id}`, JSON.stringify(userData));
