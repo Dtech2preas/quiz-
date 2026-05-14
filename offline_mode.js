@@ -110,6 +110,18 @@ window.queueOfflineProgress = function(quizData) {
 
 
 
+// Helper to attempt caching once we know we're on Android
+function attemptCacheDatasets() {
+    const userGrade = localStorage.getItem('user_grade');
+    // Only trigger dataset caching if it's the Android app and user is logged in
+    if (window.IS_ANDROID_APP && userGrade) {
+        const cacheKey = `dtech_datasets_cached_${userGrade}`;
+        if (!localStorage.getItem(cacheKey)) {
+            cacheGradeDatasets(userGrade, cacheKey);
+        }
+    }
+}
+
 // Service Worker Registration and Caching Logic
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
@@ -118,13 +130,11 @@ if ('serviceWorker' in navigator) {
 
             // Wait to ensure window.IS_ANDROID_APP is set by Android App onPageFinished
             setTimeout(() => {
-                const userGrade = localStorage.getItem('user_grade');
-                // Only trigger dataset caching if it's the Android app and user is logged in
-                if (window.IS_ANDROID_APP && userGrade) {
-                    const cacheKey = `dtech_datasets_cached_${userGrade}`;
-                    if (!localStorage.getItem(cacheKey)) {
-                        cacheGradeDatasets(userGrade, cacheKey);
-                    }
+                if (navigator.serviceWorker.controller) {
+                    attemptCacheDatasets();
+                } else {
+                    // Wait for the controller to be available (e.g., first install)
+                    navigator.serviceWorker.ready.then(() => attemptCacheDatasets());
                 }
             }, 1000);
 
@@ -143,16 +153,7 @@ function cacheGradeDatasets(grade, cacheKey) {
 
     const messageChannel = new MessageChannel();
 
-    // Add a fallback timeout in case the service worker completely fails to respond
-    let swTimeout = setTimeout(() => {
-        console.error("Service worker caching timed out completely.");
-        if (progressBanner) {
-            if (progressText) progressText.innerText = 'Download timed out.';
-            setTimeout(() => {
-                progressBanner.style.display = 'none';
-            }, 3000);
-        }
-    }, 60000); // 60 seconds total timeout for safety, gets cleared on success/error
+    let swTimeout;
 
     messageChannel.port1.onmessage = (event) => {
         if (event.data.status === 'progress') {
@@ -196,30 +197,59 @@ function cacheGradeDatasets(grade, cacheKey) {
         }
     };
 
-    if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+    function sendMessageToSW() {
+        // Add a fallback timeout in case the service worker completely fails to respond
+        swTimeout = setTimeout(() => {
+            console.error("Service worker caching timed out completely.");
+            if (progressBanner) {
+                if (progressText) progressText.innerText = 'Download timed out.';
+                setTimeout(() => {
+                    progressBanner.style.display = 'none';
+                }, 3000);
+            }
+        }, 60000); // 60 seconds total timeout for safety, gets cleared on success/error
+
         navigator.serviceWorker.controller.postMessage(
             { action: 'CACHE_GRADE_DATASETS', grade: grade },
             [messageChannel.port2]
         );
+    }
+
+    if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+        sendMessageToSW();
+    } else if (navigator.serviceWorker) {
+        // Wait for it to become active if it isn't yet
+        navigator.serviceWorker.ready.then(() => {
+            if (navigator.serviceWorker.controller) {
+                 sendMessageToSW();
+            } else {
+                 // Even if ready, controller might be null until clients.claim() takes effect
+                 navigator.serviceWorker.addEventListener('controllerchange', () => {
+                     if (navigator.serviceWorker.controller) {
+                         sendMessageToSW();
+                     }
+                 }, { once: true });
+            }
+        });
     } else {
-        clearTimeout(swTimeout);
-        console.error("Service worker controller not active.");
-        if (progressBanner) {
-            if (progressText) progressText.innerText = 'Service Worker not active.';
-            setTimeout(() => {
-                progressBanner.style.display = 'none';
-            }, 3000);
-        }
+         clearTimeout(swTimeout);
+         console.error("Service worker not supported.");
     }
 }
 
 // Fallback listener for Android app detection (if called directly by WebView)
 window.onAndroidAppDetected = function() {
     const userGrade = localStorage.getItem('user_grade');
-    if (userGrade && navigator.serviceWorker && navigator.serviceWorker.controller) {
+    if (userGrade && navigator.serviceWorker) {
         const cacheKey = `dtech_datasets_cached_${userGrade}`;
         if (!localStorage.getItem(cacheKey)) {
-            cacheGradeDatasets(userGrade, cacheKey);
+            if (navigator.serviceWorker.controller) {
+                cacheGradeDatasets(userGrade, cacheKey);
+            } else {
+                navigator.serviceWorker.ready.then(() => {
+                    cacheGradeDatasets(userGrade, cacheKey);
+                });
+            }
         }
     }
 };
