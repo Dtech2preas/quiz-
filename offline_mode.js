@@ -142,6 +142,18 @@ function cacheGradeDatasets(grade, cacheKey) {
     if (progressBanner) progressBanner.style.display = 'block';
 
     const messageChannel = new MessageChannel();
+
+    // Add a fallback timeout in case the service worker completely fails to respond
+    let swTimeout = setTimeout(() => {
+        console.error("Service worker caching timed out completely.");
+        if (progressBanner) {
+            if (progressText) progressText.innerText = 'Download timed out.';
+            setTimeout(() => {
+                progressBanner.style.display = 'none';
+            }, 3000);
+        }
+    }, 60000); // 60 seconds total timeout for safety, gets cleared on success/error
+
     messageChannel.port1.onmessage = (event) => {
         if (event.data.status === 'progress') {
             const current = event.data.current;
@@ -149,7 +161,20 @@ function cacheGradeDatasets(grade, cacheKey) {
             const percentage = Math.round((current / total) * 100);
             if (progressBar) progressBar.style.width = percentage + '%';
             if (progressText) progressText.innerText = `${percentage}% - ${current} of ${total} files downloaded`;
+
+            // Reset the timeout on each progress ping
+            clearTimeout(swTimeout);
+            swTimeout = setTimeout(() => {
+                console.error("Service worker caching timed out during progress.");
+                if (progressBanner) {
+                    if (progressText) progressText.innerText = 'Download stalled and timed out.';
+                    setTimeout(() => {
+                        progressBanner.style.display = 'none';
+                    }, 3000);
+                }
+            }, 15000); // 15 seconds without a progress update
         } else if (event.data.status === 'success') {
+            clearTimeout(swTimeout);
             console.log('Datasets cached successfully!');
             localStorage.setItem(cacheKey, 'true');
             if (progressBanner) {
@@ -160,6 +185,7 @@ function cacheGradeDatasets(grade, cacheKey) {
                 }, 2000);
             }
         } else {
+            clearTimeout(swTimeout);
             console.error('Failed to cache datasets:', event.data.error);
             if (progressBanner) {
                 if (progressText) progressText.innerText = 'Download finished with some errors.';
@@ -170,10 +196,21 @@ function cacheGradeDatasets(grade, cacheKey) {
         }
     };
 
-    navigator.serviceWorker.controller.postMessage(
-        { action: 'CACHE_GRADE_DATASETS', grade: grade },
-        [messageChannel.port2]
-    );
+    if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+        navigator.serviceWorker.controller.postMessage(
+            { action: 'CACHE_GRADE_DATASETS', grade: grade },
+            [messageChannel.port2]
+        );
+    } else {
+        clearTimeout(swTimeout);
+        console.error("Service worker controller not active.");
+        if (progressBanner) {
+            if (progressText) progressText.innerText = 'Service Worker not active.';
+            setTimeout(() => {
+                progressBanner.style.display = 'none';
+            }, 3000);
+        }
+    }
 }
 
 // Fallback listener for Android app detection (if called directly by WebView)
