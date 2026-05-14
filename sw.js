@@ -105,7 +105,31 @@ self.addEventListener('message', async (event) => {
     if (event.data && event.data.action === 'CACHE_GRADE_DATASETS') {
         const grade = event.data.grade;
         try {
-            const mapResponse = await fetch('/map.json');
+            // Helper function to fetch with a timeout
+            const fetchWithTimeout = async (url, options, timeout = 10000) => {
+                const controller = new AbortController();
+                const id = setTimeout(() => controller.abort(), timeout);
+                try {
+                    const response = await fetch(url, { ...options, signal: controller.signal });
+                    clearTimeout(id);
+                    return response;
+                } catch (err) {
+                    clearTimeout(id);
+                    throw err;
+                }
+            };
+
+            // Fetch map.json with timeout and cache fallback
+            let mapResponse;
+            try {
+                mapResponse = await fetchWithTimeout('/map.json', {}, 5000);
+            } catch (err) {
+                console.warn('Network fetch for map.json failed or timed out, trying cache...', err);
+                const cache = await caches.open(CACHE_NAME);
+                mapResponse = await cache.match('/map.json');
+                if (!mapResponse) throw new Error('map.json not found in cache and network fetch failed.');
+            }
+
             const mapData = await mapResponse.json();
 
             const datasetsToCache = [];
@@ -125,7 +149,7 @@ self.addEventListener('message', async (event) => {
                 // Fetch datasets sequentially to avoid network congestion and allow for progress updates
                 for (const url of datasetsToCache) {
                     try {
-                        const response = await fetch(url);
+                        const response = await fetchWithTimeout(url, {}, 5000);
                         if (response.ok) {
                             await cache.put(url, response.clone());
                         }
