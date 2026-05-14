@@ -1,3 +1,12 @@
+
+// Force unregister any existing zombie Service Workers
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        for(let registration of registrations) {
+            registration.unregister();
+        }
+    });
+}
 // offline_mode.js - Handles offline detection, caching logic, and UI adjustments
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -111,147 +120,33 @@ window.queueOfflineProgress = function(quizData) {
 
 
 // Helper to attempt caching once we know we're on Android
+let isCachingInitiated = false;
 function attemptCacheDatasets() {
+    if (isCachingInitiated) return;
+
     const userGrade = localStorage.getItem('user_grade');
     // Only trigger dataset caching if it's the Android app and user is logged in
     if (window.IS_ANDROID_APP && userGrade) {
         const cacheKey = `dtech_datasets_cached_${userGrade}`;
         if (!localStorage.getItem(cacheKey)) {
-            cacheGradeDatasets(userGrade, cacheKey);
-        }
-    }
-}
-
-// Service Worker Registration and Caching Logic
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').then(registration => {
-            console.log('ServiceWorker registered:', registration.scope);
-
-            // Wait to ensure window.IS_ANDROID_APP is set by Android App onPageFinished
-            setTimeout(() => {
-                if (navigator.serviceWorker.controller) {
-                    attemptCacheDatasets();
-                } else {
-                    // Wait for the controller to be available (e.g., first install)
-                    navigator.serviceWorker.ready.then(() => attemptCacheDatasets());
-                }
-            }, 1000);
-
-        }).catch(err => {
-            console.log('ServiceWorker registration failed: ', err);
-        });
-    });
-}
-
-function cacheGradeDatasets(grade, cacheKey) {
-    const progressBanner = document.getElementById('caching-progress-banner');
-    const progressBar = document.getElementById('caching-progress-bar');
-    const progressText = document.getElementById('caching-progress-text');
-
-    if (progressBanner) progressBanner.style.display = 'block';
-
-    const messageChannel = new MessageChannel();
-
-    let swTimeout;
-
-    messageChannel.port1.onmessage = (event) => {
-        if (event.data.status === 'progress') {
-            const current = event.data.current;
-            const total = event.data.total;
-            const percentage = Math.round((current / total) * 100);
-            if (progressBar) progressBar.style.width = percentage + '%';
-            if (progressText) progressText.innerText = `${percentage}% - ${current} of ${total} files downloaded`;
-
-            // Reset the timeout on each progress ping
-            clearTimeout(swTimeout);
-            swTimeout = setTimeout(() => {
-                console.error("Service worker caching timed out during progress.");
-                if (progressBanner) {
-                    if (progressText) progressText.innerText = 'Download stalled and timed out.';
-                    setTimeout(() => {
-                        progressBanner.style.display = 'none';
-                    }, 3000);
-                }
-            }, 15000); // 15 seconds without a progress update
-        } else if (event.data.status === 'success') {
-            clearTimeout(swTimeout);
-            console.log('Datasets cached successfully!');
-            localStorage.setItem(cacheKey, 'true');
-            if (progressBanner) {
-                if (progressText) progressText.innerText = 'Download complete!';
-                if (progressBar) progressBar.style.width = '100%';
-                setTimeout(() => {
-                    progressBanner.style.display = 'none';
-                }, 2000);
-            }
-        } else {
-            clearTimeout(swTimeout);
-            console.error('Failed to cache datasets:', event.data.error);
-            if (progressBanner) {
-                if (progressText) progressText.innerText = 'Download finished with some errors.';
-                setTimeout(() => {
-                    progressBanner.style.display = 'none';
-                }, 3000);
+            if (window.AndroidCacher) {
+                isCachingInitiated = true;
+                window.AndroidCacher.cacheGradeDatasets(userGrade);
             }
         }
-    };
-
-    function sendMessageToSW() {
-        // Add a fallback timeout in case the service worker completely fails to respond
-        swTimeout = setTimeout(() => {
-            console.error("Service worker caching timed out completely.");
-            if (progressBanner) {
-                if (progressText) progressText.innerText = 'Download timed out.';
-                setTimeout(() => {
-                    progressBanner.style.display = 'none';
-                }, 3000);
-            }
-        }, 60000); // 60 seconds total timeout for safety, gets cleared on success/error
-
-        navigator.serviceWorker.controller.postMessage(
-            { action: 'CACHE_GRADE_DATASETS', grade: grade },
-            [messageChannel.port2]
-        );
-    }
-
-    if (navigator.serviceWorker && navigator.serviceWorker.controller) {
-        sendMessageToSW();
-    } else if (navigator.serviceWorker) {
-        // Wait for it to become active if it isn't yet
-        navigator.serviceWorker.ready.then(() => {
-            if (navigator.serviceWorker.controller) {
-                 sendMessageToSW();
-            } else {
-                 // Even if ready, controller might be null until clients.claim() takes effect
-                 navigator.serviceWorker.addEventListener('controllerchange', () => {
-                     if (navigator.serviceWorker.controller) {
-                         sendMessageToSW();
-                     }
-                 }, { once: true });
-            }
-        });
-    } else {
-         clearTimeout(swTimeout);
-         console.error("Service worker not supported.");
     }
 }
+
+// Check for Android App Flag slightly delayed to let WebView finish loading interface
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        attemptCacheDatasets();
+    }, 1000);
+});
 
 // Fallback listener for Android app detection (if called directly by WebView)
 window.onAndroidAppDetected = function() {
-    const userGrade = localStorage.getItem('user_grade');
-    if (userGrade && navigator.serviceWorker) {
-        const cacheKey = `dtech_datasets_cached_${userGrade}`;
-        if (!localStorage.getItem(cacheKey)) {
-            if (navigator.serviceWorker.controller) {
-                cacheGradeDatasets(userGrade, cacheKey);
-            } else {
-                navigator.serviceWorker.ready.then(() => {
-                    cacheGradeDatasets(userGrade, cacheKey);
-                });
-            }
-        }
-    }
+    attemptCacheDatasets();
 };
 
 // Intercept fetch to mock backend responses when offline
