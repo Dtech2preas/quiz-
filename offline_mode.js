@@ -196,19 +196,40 @@ function cacheGradeDatasets(grade, cacheKey) {
         }
     };
 
-    if (navigator.serviceWorker && navigator.serviceWorker.controller) {
-        navigator.serviceWorker.controller.postMessage(
-            { action: 'CACHE_GRADE_DATASETS', grade: grade },
-            [messageChannel.port2]
-        );
+    if (navigator.serviceWorker) {
+        if (navigator.serviceWorker.controller) {
+            navigator.serviceWorker.controller.postMessage(
+                { action: 'CACHE_GRADE_DATASETS', grade: grade },
+                [messageChannel.port2]
+            );
+        } else {
+            // Wait for the service worker to be ready and active
+            navigator.serviceWorker.ready.then(registration => {
+                if (registration.active) {
+                    registration.active.postMessage(
+                        { action: 'CACHE_GRADE_DATASETS', grade: grade },
+                        [messageChannel.port2]
+                    );
+                } else {
+                    clearTimeout(swTimeout);
+                    if (progressBanner) {
+                        if (progressText) progressText.innerText = 'Service Worker failed to activate.';
+                        setTimeout(() => progressBanner.style.display = 'none', 3000);
+                    }
+                }
+            }).catch(err => {
+                clearTimeout(swTimeout);
+                if (progressBanner) {
+                    if (progressText) progressText.innerText = 'Service Worker error.';
+                    setTimeout(() => progressBanner.style.display = 'none', 3000);
+                }
+            });
+        }
     } else {
         clearTimeout(swTimeout);
-        console.error("Service worker controller not active.");
         if (progressBanner) {
-            if (progressText) progressText.innerText = 'Service Worker not active.';
-            setTimeout(() => {
-                progressBanner.style.display = 'none';
-            }, 3000);
+            if (progressText) progressText.innerText = 'Service Worker not supported.';
+            setTimeout(() => progressBanner.style.display = 'none', 3000);
         }
     }
 }
