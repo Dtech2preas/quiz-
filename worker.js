@@ -6,6 +6,46 @@ const CORS_HEADERS = {
   "Access-Control-Allow-Headers": "Content-Type",
 };
 
+async function handleGenerateToken(request, env) {
+  const body = await request.json();
+  const { user_id } = body;
+  if (!user_id) {
+    return jsonResponse({ error: "User ID is required" }, 400);
+  }
+
+  // Verify user exists
+  const userStr = await env.RANK_KV.get(`user:${user_id}`);
+  if (!userStr) {
+    return jsonResponse({ error: "User not found" }, 404);
+  }
+
+  // Generate a random token
+  const token = crypto.randomUUID();
+
+  // Save to KV with expiration of 5 minutes (300 seconds)
+  await env.RANK_KV.put(`login_token:${token}`, user_id, { expirationTtl: 300 });
+
+  return jsonResponse({ token: token }, 200);
+}
+
+async function handleConsumeToken(request, env) {
+  const body = await request.json();
+  const { token } = body;
+  if (!token) {
+    return jsonResponse({ error: "Token is required" }, 400);
+  }
+
+  const userId = await env.RANK_KV.get(`login_token:${token}`);
+  if (!userId) {
+    return jsonResponse({ error: "Invalid or expired token" }, 401);
+  }
+
+  // Token is single use, so delete it immediately
+  await env.RANK_KV.delete(`login_token:${token}`);
+
+  return jsonResponse({ user_id: userId }, 200);
+}
+
 export default {
   async fetch(request, env, ctx) {
     const origin = request.headers.get("Origin");
@@ -23,6 +63,12 @@ export default {
     const path = url.pathname;
 
     try {
+      if (request.method === "POST" && path === "/api/generate-token") {
+        return await handleGenerateToken(request, env);
+      }
+      if (request.method === "POST" && path === "/api/consume-token") {
+        return await handleConsumeToken(request, env);
+      }
       if (request.method === "POST" && path === "/api/signup") {
         return await handleSignup(request, env);
       }
