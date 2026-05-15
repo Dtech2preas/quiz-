@@ -375,7 +375,7 @@ class AndroidCacher(private val context: Context, private val activity: MainActi
                     "/test_run_subjects.html", "/test_run_quiz.html", "/leaderboard.html",
                     "/global_leaderboard.html", "/profile.html", "/public_profile.html",
                     "/store.html", "/earn_points.html", "/stats.html", "/admin.html",
-                    "/map.json", "/dtech_cosmetics.js", "/offline_mode.js"
+                    "/map.json", "/dataset/weekly_quiz/weekly_map.json", "/dtech_cosmetics.js", "/offline_mode.js"
                 )
 
                 val baseUrl = "https://quiz.dtech-services.co.za"
@@ -477,15 +477,29 @@ class AndroidCacher(private val context: Context, private val activity: MainActi
                 val outputStream = FileOutputStream(targetFile)
                 val buffer = ByteArray(4096)
                 var bytesRead: Int
+                var totalBytesRead = 0
                 while (inputStream.read(buffer).also { bytesRead = it } != -1) {
                     outputStream.write(buffer, 0, bytesRead)
+                    totalBytesRead += bytesRead
                 }
                 outputStream.close()
                 inputStream.close()
-                return targetFile
+
+                if (totalBytesRead > 0) {
+                    return targetFile
+                } else {
+                    targetFile.delete()
+                    return null
+                }
+            } else {
+                targetFile.delete()
+                return null
             }
         } catch (e: Exception) {
             e.printStackTrace()
+            if (targetFile.exists()) {
+                targetFile.delete()
+            }
         }
         return null
     }

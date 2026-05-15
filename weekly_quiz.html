@@ -365,8 +365,41 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
 
             listContainer.innerHTML = "";
 
-            // Get weeks sorted newest first
-            const weeks = Object.keys(mapData).sort().reverse();
+            function getWeekNumber(d) {
+                d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+                d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay()||7));
+                var yearStart = new Date(Date.UTC(d.getUTCFullYear(),0,1));
+                var weekNo = Math.ceil(( ( (d - yearStart) / 86400000) + 1)/7);
+                return d.getUTCFullYear() + "-W" + (weekNo < 10 ? "0" : "") + weekNo;
+            }
+
+            const currentWeekStr = getWeekNumber(new Date());
+
+            // Helper to get beautiful month/week text
+            function formatWeekLabel(weekStr) {
+                // e.g. "2026-W17"
+                const parts = weekStr.split('-W');
+                if (parts.length !== 2) return weekStr;
+                const weekNum = parseInt(parts[1], 10);
+
+                // Assuming Week 1 to 4 is Jan, 5 to 8 is Feb, etc.
+                const monthIndex = Math.floor((weekNum - 1) / 4);
+                const weekInMonth = ((weekNum - 1) % 4) + 1;
+
+                const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+                // Wrap around safely
+                const safeMonthIndex = monthIndex % 12;
+
+                return `${months[safeMonthIndex]} Week ${weekInMonth}`;
+            }
+
+            // Get weeks sorted newest first, but put current week on top if it exists
+            let weeks = Object.keys(mapData).sort().reverse();
+            if (weeks.includes(currentWeekStr)) {
+                weeks = weeks.filter(w => w !== currentWeekStr);
+                weeks.unshift(currentWeekStr);
+            }
 
             if (weeks.length === 0) {
                 listContainer.innerHTML = "<p style='text-align:center; color: var(--text-muted);'>No weekly exams available yet.</p>";
@@ -385,9 +418,26 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
                         const div = document.createElement("div");
                         div.className = "exam-item";
 
+                        const isCurrentWeek = week === currentWeekStr;
+                        if (isCurrentWeek) {
+                            div.style.borderLeftColor = "var(--accent-green)";
+                            div.style.background = "linear-gradient(to right, rgba(16, 185, 129, 0.1), var(--option-bg))";
+                        }
+
                         const infoDiv = document.createElement("div");
                         infoDiv.className = "exam-info";
-                        infoDiv.innerHTML = `<h4>${examInfo.label} (${week})</h4><p>${examInfo.total_questions} Questions</p>`;
+
+                        const beautifulWeekStr = formatWeekLabel(week);
+
+                        let titleHtml = `<h4>${examInfo.label}</h4>`;
+                        if (isCurrentWeek) {
+                            titleHtml += `<p style="color: var(--accent-green); font-weight: bold; margin-bottom: 0.2rem;">🌟 THIS WEEK: ${beautifulWeekStr}</p>`;
+                        } else {
+                            titleHtml += `<p style="color: var(--text-muted); margin-bottom: 0.2rem;">${beautifulWeekStr}</p>`;
+                        }
+                        titleHtml += `<p>${examInfo.total_questions} Questions</p>`;
+
+                        infoDiv.innerHTML = titleHtml;
 
                         const btn = document.createElement("button");
 

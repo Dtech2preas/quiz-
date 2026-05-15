@@ -580,6 +580,7 @@
         <div class="username">@<span id="profile-username">username</span></div>
         <div class="grade-label" id="profile-grade">Grade</div>
         <div class="school-label" id="profile-school" style="display: none;"></div>
+        <div id="cosmetic-status" style="display: none; margin-bottom: 1rem; font-weight: bold; font-size: 0.95rem;"></div>
 
         <div class="badges-container" id="badges-container"></div>
 
@@ -679,6 +680,7 @@
 
             if (data.equipped_cosmetics) {
                 let ultimateApplied = false;
+                const cosmeticStatusEl = document.getElementById("cosmetic-status");
 
                 // Handle Ultimate Profile Overhaul First
                 if (data.equipped_cosmetics.ultimate_profile || data.equipped_cosmetics.ultimate_global) {
@@ -690,15 +692,39 @@
                         document.body.classList.add(ultimateItem);
                         document.body.classList.add("viewing-ultimate-profile"); // Helper for dtech_cosmetics.js
                         ultimateApplied = true;
+
+                        // Display name textually
+                        let ultimateName = "";
+                        if (ultimateItem === 'ultimate_god') ultimateName = "🌟 God Tier / Ascended Profile 🌟";
+                        if (ultimateItem === 'ultimate_hacker') ultimateName = "Terminal Hacker Profile";
+                        if (ultimateItem === 'ultimate_rpg') ultimateName = "⚔️ RPG Hero Status ⚔️";
+                        if (ultimateItem === 'ultimate_cyberpunk') ultimateName = "⚡ Cyberpunk Overdrive ⚡";
+
+                        cosmeticStatusEl.textContent = ultimateName;
+                        cosmeticStatusEl.style.display = "block";
+
+                        if (ultimateItem === 'ultimate_god') cosmeticStatusEl.style.color = "#ffd700";
+                        if (ultimateItem === 'ultimate_hacker') cosmeticStatusEl.style.color = "#10b981";
+                        if (ultimateItem === 'ultimate_rpg') cosmeticStatusEl.style.color = "#fcd34d";
+                        if (ultimateItem === 'ultimate_cyberpunk') cosmeticStatusEl.style.color = "#06b6d4";
                     }
                 }
 
                 // Apply individual cosmetics only if no ultimate profile is overriding
                 if (!ultimateApplied) {
+                    let cosmeticDescriptions = [];
+
+                    if (data.equipped_cosmetics.theme) {
+                        const themeName = data.equipped_cosmetics.theme.replace('theme_', '').replace(/\b\w/g, c => c.toUpperCase());
+                        cosmeticDescriptions.push(`${themeName} Theme`);
+                    }
+
                     if (data.equipped_cosmetics.avatar_border) {
                         const allowedBorders = ['border_gold', 'border_diamond', 'border_neon', 'border_fire', 'border_cosmic', 'border_rainbow', 'border_glitch'];
                         if (allowedBorders.includes(data.equipped_cosmetics.avatar_border)) {
                             document.getElementById("avatar-wrapper").classList.add(data.equipped_cosmetics.avatar_border);
+                            const borderName = data.equipped_cosmetics.avatar_border.replace('border_', '').replace(/\b\w/g, c => c.toUpperCase());
+                            cosmeticDescriptions.push(`${borderName} Border`);
                         }
                     }
 
@@ -716,7 +742,15 @@
                             const bannerEl = document.getElementById("profile-banner");
                             bannerEl.classList.add(data.equipped_cosmetics.profile_banner);
                             bannerEl.style.display = 'block';
+                            const bannerName = data.equipped_cosmetics.profile_banner.replace('banner_', '').replace(/\b\w/g, c => c.toUpperCase());
+                            cosmeticDescriptions.push(`${bannerName} Banner`);
                         }
+                    }
+
+                    if (cosmeticDescriptions.length > 0) {
+                        cosmeticStatusEl.textContent = "Equipped: " + cosmeticDescriptions.join(", ");
+                        cosmeticStatusEl.style.display = "block";
+                        cosmeticStatusEl.style.color = "var(--accent-blue)";
                     }
                 }
             }
