@@ -936,8 +936,26 @@
         document.getElementById('ads-modal').classList.remove('show');
     }
 
-    function proceedToAds() {
-        window.location.href = 'earn_points.html';
+    async function proceedToAds() {
+        try {
+            const response = await fetch(`${API_URL}/api/generate-token`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ user_id: userId })
+            });
+            const result = await response.json();
+            if (response.ok && result.token) {
+                window.location.href = `earn_points.html?token=${result.token}`;
+            } else {
+                showToast("Failed to generate secure token. Try again.", true);
+                console.error("Token error:", result.error);
+                // Fallback to normal behavior just in case
+                window.location.href = 'earn_points.html';
+            }
+        } catch (error) {
+            console.error("Error generating token:", error);
+            window.location.href = 'earn_points.html';
+        }
     }
 
     async function handlePushClaim() {

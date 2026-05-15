@@ -71,6 +71,17 @@ class MainActivity : AppCompatActivity() {
 
         webView.webViewClient = object : WebViewClient() {
             private fun handleUrlLoading(url: String): Boolean {
+                // If it's the token link for earn_points.html, force it to open in external browser
+                if (url.contains("earn_points.html?token=")) {
+                    try {
+                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                        startActivity(intent)
+                        return true
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
+                }
+
                 // Let all http/https URLs load inside the main WebView.
                 if (url.startsWith("http://") || url.startsWith("https://")) {
                     return false

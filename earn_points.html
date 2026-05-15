@@ -167,10 +167,52 @@
 
 <script>
     const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
-    const userId = localStorage.getItem("user_id");
+    let userId = localStorage.getItem("user_id");
 
-    if (!userId) {
-        window.location.href = "login.html";
+    // Token consumption logic for external browser auto-login
+    async function checkAndConsumeToken() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+
+        if (token) {
+            try {
+                const response = await fetch(`${API_URL}/api/consume-token`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ token: token })
+                });
+                const result = await response.json();
+
+                if (response.ok && result.user_id) {
+                    userId = result.user_id;
+                    localStorage.setItem("user_id", userId);
+                    // Clean URL
+                    const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+                    window.history.replaceState({ path: cleanUrl }, '', cleanUrl);
+                } else {
+                    console.error("Token consumption failed:", result.error);
+                }
+            } catch (error) {
+                console.error("Error consuming token:", error);
+            }
+        }
+
+        // Handle auto_login legacy as fallback
+        const isAutoLogin = urlParams.get('auto_login');
+        const legacyUserId = urlParams.get('user_id');
+        if (isAutoLogin && legacyUserId) {
+            userId = legacyUserId;
+            localStorage.setItem("user_id", userId);
+            const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+            window.history.replaceState({ path: cleanUrl }, '', cleanUrl);
+        }
+
+        if (!userId) {
+            window.location.href = "login.html";
+        } else {
+            // Once user is validated, start page setup
+            initialize();
+        }
     }
 
     // Local state for the session
@@ -216,8 +258,6 @@
             updateDisplay(); // fallback to local cache
         }
     }
-
-    initialize();
 
     // Hamburger Logic
     document.getElementById('hamburger-menu').addEventListener('click', () => {
@@ -368,6 +408,9 @@
             clicksToSync = 0;
         }
     }
+
+    // Start process
+    checkAndConsumeToken();
 
     // Attempt to sync on page unload as a fallback
     window.addEventListener('pagehide', syncPointsBeforeLeaving);
