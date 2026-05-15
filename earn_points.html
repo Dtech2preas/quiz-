@@ -152,6 +152,8 @@
 
     <div class="instructions">
         Click on any ad that appears, wait for at least 10 seconds, then return here to earn points!
+        <br><br>
+        <strong>Bonus:</strong> Clicking inside the ad will reward you with extra bonus points!
     </div>
 
     <div class="clicks-info">
@@ -177,9 +179,14 @@
     let pointsToSync = 0;
     let clicksToSync = 0;
 
-    // Time tracking
+    // Time tracking (Legacy visibility fallback)
     let hideTime = 0;
     let isHidden = false;
+
+    // Ad overlay tracking (Android App)
+    let adOpenedTime = 0;
+    let adWasClicked = false;
+    let isAdOpen = false;
 
     const balanceDisplay = document.getElementById('balance-display');
     const clicksTodayDisplay = document.getElementById('clicks-today');
@@ -217,8 +224,41 @@
         document.getElementById('nav-menu').classList.toggle('active');
     });
 
-    // Tracking logic
+    // Native App Ad Tracking Hooks
+    window.onAdOpened = () => {
+        isAdOpen = true;
+        adOpenedTime = Date.now();
+        adWasClicked = false;
+        // Clear status but don't fade out any previous persistent success message unless a new session starts
+        statusMessage.textContent = "";
+    };
+
+    window.onAdClicked = () => {
+        adWasClicked = true;
+    };
+
+    window.onAdClosed = () => {
+        if (!isAdOpen) return;
+        isAdOpen = false;
+
+        const timeAway = (Date.now() - adOpenedTime) / 1000;
+
+        if (timeAway >= 10) {
+            awardPoints(adWasClicked);
+        } else {
+            showStatus("Try again, wait for at least 10 seconds!", false, false);
+        }
+
+        // Reset legacy fallback so it doesn't double-trigger
+        isHidden = false;
+    };
+
+
+    // Tracking logic (Legacy fallback for non-app environments)
     document.addEventListener('visibilitychange', () => {
+        // If the native app is handling it, ignore visibility changes
+        if (isAdOpen) return;
+
         if (document.hidden) {
             hideTime = Date.now();
             isHidden = true;
@@ -229,16 +269,17 @@
                 isHidden = false;
 
                 if (timeAway >= 10) {
-                    awardPoints();
+                    awardPoints(false); // No click bonus in web fallback
                 } else if (timeAway > 1) { // Ignore very quick blinks
-                    showStatus("Try again, wait for at least 10 seconds!", false);
+                    showStatus("Try again, wait for at least 10 seconds!", false, false);
                 }
             }
         }
     });
 
-    // Also support focus/blur for some browsers/webviews
+    // Also support focus/blur for some browsers/webviews (Legacy fallback)
     window.addEventListener('blur', () => {
+        if (isAdOpen) return;
         if (!document.hidden) {
             hideTime = Date.now();
             isHidden = true;
@@ -247,30 +288,38 @@
     });
 
     window.addEventListener('focus', () => {
+        if (isAdOpen) return;
         if (isHidden && !document.hidden) {
             const timeAway = (Date.now() - hideTime) / 1000;
             isHidden = false;
 
             if (timeAway >= 10) {
-                awardPoints();
+                awardPoints(false); // No click bonus in web fallback
             } else if (timeAway > 1) {
-                showStatus("Try again, wait for at least 10 seconds!", false);
+                showStatus("Try again, wait for at least 10 seconds!", false, false);
             }
         }
     });
 
-    function awardPoints() {
+    function awardPoints(withClickBonus) {
         if (localClicksToday >= 30) {
-            showStatus("Daily ad click limit reached (30/30).", false);
+            showStatus("Daily ad click limit reached (30/30).", false, false);
             return;
         }
 
-        const pointsEarned = Math.floor(Math.random() * 50) + 1; // 1 to 50
+        const waitPoints = Math.floor(Math.random() * 50) + 1; // 1 to 50
+        let clickPoints = 0;
+        let totalPoints = waitPoints;
 
-        localPoints += pointsEarned;
+        if (withClickBonus) {
+            clickPoints = Math.floor(Math.random() * 50) + 1; // 1 to 50 bonus
+            totalPoints += clickPoints;
+        }
+
+        localPoints += totalPoints;
         localClicksToday += 1;
 
-        pointsToSync += pointsEarned;
+        pointsToSync += totalPoints;
         clicksToSync += 1;
 
         // Update local cache
@@ -278,17 +327,26 @@
         localStorage.setItem('dtech_clicks_today', localClicksToday);
 
         updateDisplay();
-        showStatus(`Success! You earned ${pointsEarned} D-TECH POINTS!`, true);
+
+        if (withClickBonus) {
+            showStatus(`Success! You earned ${waitPoints} points for waiting, and ${clickPoints} extra points for interacting with the ad! Total: ${totalPoints} D-TECH POINTS!`, true, true);
+        } else {
+            showStatus(`Success! You earned ${totalPoints} D-TECH POINTS!`, true, true);
+        }
     }
 
-    function showStatus(msg, isSuccess) {
+    // isPersistent determines if the message stays indefinitely
+    function showStatus(msg, isSuccess, isPersistent) {
         statusMessage.textContent = msg;
         statusMessage.className = `status-message ${isSuccess ? 'status-success' : 'status-error'}`;
-        setTimeout(() => {
-            if (statusMessage.textContent === msg) {
-                statusMessage.textContent = "";
-            }
-        }, 4000);
+
+        if (!isPersistent) {
+            setTimeout(() => {
+                if (statusMessage.textContent === msg) {
+                    statusMessage.textContent = "";
+                }
+            }, 4000);
+        }
     }
 
     // Sync before leaving

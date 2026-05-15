@@ -171,6 +171,19 @@ class MainActivity : AppCompatActivity() {
                 newSettings.setSupportMultipleWindows(true)
                 newSettings.javaScriptCanOpenWindowsAutomatically = true
 
+                // Notify frontend that an ad overlay has opened
+                this@MainActivity.webView.evaluateJavascript("if(window.onAdOpened) window.onAdOpened();", null)
+
+                // Track first tap on the ad WebView
+                var adClicked = false
+                newWebView.setOnTouchListener { _, event ->
+                    if (event.action == android.view.MotionEvent.ACTION_DOWN && !adClicked) {
+                        adClicked = true
+                        this@MainActivity.webView.evaluateJavascript("if(window.onAdClicked) window.onAdClicked();", null)
+                    }
+                    false
+                }
+
                 newWebView.webViewClient = object : WebViewClient() {
                     override fun shouldOverrideUrlLoading(
                         v: WebView?,
@@ -262,6 +275,7 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     parent.removeView(topView)
                     topView.destroy()
+                    webView.evaluateJavascript("if(window.onAdClosed) window.onAdClosed();", null)
                 }
                 return
             }
