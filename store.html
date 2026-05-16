@@ -945,7 +945,12 @@
             });
             const result = await response.json();
             if (response.ok && result.token) {
-                window.location.href = `earn_points.html?token=${result.token}`;
+                const targetUrl = `https://quiz.dtech-services.co.za/earn_points.html?token=${result.token}`;
+                if (window.IS_ANDROID_APP && window.AndroidExternalBrowser) {
+                    window.AndroidExternalBrowser.openUrl(targetUrl);
+                } else {
+                    window.location.href = targetUrl;
+                }
             } else {
                 showToast("Failed to generate secure token. Try again.", true);
                 console.error("Token error:", result.error);
