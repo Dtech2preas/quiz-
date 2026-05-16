@@ -1,4 +1,3 @@
-
 // Force unregister any existing zombie Service Workers
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.getRegistrations().then(function(registrations) {
@@ -7,7 +6,7 @@ if ('serviceWorker' in navigator) {
         }
     });
 }
-// offline_mode.js - Handles offline detection, caching logic, and UI adjustments
+// offline_mode.js - Handles offline detection, caching logic, UI adjustments, and Android batch syncing
 
 document.addEventListener('DOMContentLoaded', () => {
     // Inject Free Mode Banner
@@ -51,6 +50,17 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     document.body.insertAdjacentHTML('beforeend', progressBannerHtml);
 
+    // Inject Sync Overlay
+    const syncOverlayHtml = `
+        <div id="sync-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 20000; justify-content: center; align-items: center; flex-direction: column; color: white;">
+            <div class="spinner" style="border: 4px solid rgba(255,255,255,0.3); border-top: 4px solid #eab308; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin-bottom: 20px;"></div>
+            <h2 style="margin: 0; font-size: 1.5rem; color: #eab308;">Syncing your progress...</h2>
+            <p style="margin-top: 10px; font-size: 1rem;">Please wait</p>
+            <style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }</style>
+        </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', syncOverlayHtml);
+
     // Offline status logic
     function updateOnlineStatus() {
         const isOffline = !navigator.onLine;
@@ -62,7 +72,10 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             banner.style.display = 'none';
             enableFeatures();
-            syncOfflineProgress();
+            if (!window.IS_ANDROID_APP) {
+                // If not android, sync normally when back online
+                syncOfflineProgress();
+            }
         }
     }
 
@@ -110,14 +123,40 @@ window.closeOfflineInfo = function() {
     document.getElementById('offline-modal').style.display = 'none';
 };
 
-// Queue progress function (to be called by quiz.html when offline)
+// Queue progress function
 window.queueOfflineProgress = function(quizData) {
     let queue = JSON.parse(localStorage.getItem('dtech_offline_queue') || '[]');
     queue.push(quizData);
     localStorage.setItem('dtech_offline_queue', JSON.stringify(queue));
 };
 
+// Compute local virtual XP from queue
+function getLocalVirtualStats() {
+    let queue = JSON.parse(localStorage.getItem('dtech_offline_queue') || '[]');
+    let localXp = 0;
+    let localPoints = 0;
 
+    for (const item of queue) {
+        if (item.url.includes('/api/submit-quiz')) {
+            const percentage = (item.data.correct_answers / item.data.total_questions) * 100;
+            if (percentage >= 50) {
+                localXp += 50; // Approximated max for first try, UI read is approximate
+                localPoints += 10;
+            }
+        } else if (item.url.includes('/api/submit-weekly-exam')) {
+            const percentage = (item.data.correct_answers / item.data.total_questions) * 100;
+            if (percentage >= 50) {
+                localXp += 100;
+                localPoints += 20;
+            }
+        } else if (item.url.includes('/api/store/sync-points')) {
+            if (item.data.added_points) localPoints += item.data.added_points;
+            if (item.data.push_claim) localPoints += 100;
+        }
+    }
+
+    return { xp: localXp, points: localPoints };
+}
 
 // Helper to attempt caching once we know we're on Android
 let isCachingInitiated = false;
@@ -149,46 +188,80 @@ window.onAndroidAppDetected = function() {
     attemptCacheDatasets();
 };
 
-// Intercept fetch to mock backend responses when offline
+// Intercept fetch to mock backend responses when offline or batching in Android
 const originalFetch = window.fetch;
 window.fetch = async function(...args) {
-    if (!navigator.onLine) {
-        const url = typeof args[0] === 'string' ? args[0] : args[0].url;
+    const url = typeof args[0] === 'string' ? args[0] : args[0].url;
 
-        // Mock submit-quiz
-        if (url.includes('/api/submit-quiz') || url.includes('/api/submit-weekly-exam')) {
-            const options = args[1] || {};
-            if (options.body) {
-                const data = JSON.parse(options.body);
-                window.queueOfflineProgress({ url: url, data: data });
+    const isWrite = url.includes('/api/submit-quiz') || url.includes('/api/submit-weekly-exam') || url.includes('/api/store/sync-points');
+    const isOfflineOrBatching = !navigator.onLine || window.IS_ANDROID_APP;
+
+    if (isWrite && isOfflineOrBatching) {
+        const options = args[1] || {};
+        if (options.body) {
+            const data = JSON.parse(options.body);
+            window.queueOfflineProgress({ url: url, data: data });
+
+            // Return fake success
+            return new Response(JSON.stringify({
+                success: true,
+                message: "Progress saved locally.",
+                xpEarned: 0,
+                pointsEarned: 0,
+                offline: true,
+                batched: true
+            }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+        }
+    }
+
+    // For reads, we intercept to append virtual local stats if available
+    if (window.IS_ANDROID_APP && url.includes('/api/user/')) {
+        try {
+            const response = await originalFetch.apply(this, args);
+            if (response.ok) {
+                const data = await response.json();
+                const virtualStats = getLocalVirtualStats();
+                data.xp = (data.xp || 0) + virtualStats.xp;
+                data.dtech_points = (data.dtech_points || 0) + virtualStats.points;
+                data.level = Math.floor(data.xp / 100) + 1;
+                // Note: rank cannot be easily simulated, we use server rank
+                return new Response(JSON.stringify(data), { status: 200, headers: { 'Content-Type': 'application/json' } });
+            }
+        } catch (e) {
+            // Fallback if truly offline
+            if (!navigator.onLine) {
+                const virtualStats = getLocalVirtualStats();
                 return new Response(JSON.stringify({
-                    success: true,
-                    message: "Offline: Progress saved locally.",
-                    xpEarned: 0,
-                    pointsEarned: 0,
+                    xp: virtualStats.xp,
+                    dtech_points: virtualStats.points,
+                    rank: "Offline",
+                    level: Math.floor(virtualStats.xp / 100) + 1,
+                    username: "Offline User",
                     offline: true
                 }), { status: 200, headers: { 'Content-Type': 'application/json' } });
             }
         }
+    }
 
-        // Mock user stats fetch
-        if (url.includes('/api/user/')) {
-            return new Response(JSON.stringify({
-                xp: 0,
-                dtech_points: 0,
-                rank: "Offline",
-                level: 1,
-                username: "Offline User",
-                offline: true
-            }), { status: 200, headers: { 'Content-Type': 'application/json' } });
-        }
+    if (!navigator.onLine && url.includes('/api/user/')) {
+         const virtualStats = getLocalVirtualStats();
+         return new Response(JSON.stringify({
+            xp: virtualStats.xp,
+            dtech_points: virtualStats.points,
+            rank: "Offline",
+            level: Math.floor(virtualStats.xp / 100) + 1,
+            username: "Offline User",
+            offline: true
+        }), { status: 200, headers: { 'Content-Type': 'application/json' } });
     }
 
     return originalFetch.apply(this, args);
 };
 
-// Update sync to use the mocked queue format
+// Standard offline sync for browsers
 window.syncOfflineProgress = async function() {
+    if (window.IS_ANDROID_APP) return; // Handled differently
+
     let queue = JSON.parse(localStorage.getItem('dtech_offline_queue') || '[]');
     if (queue.length === 0) return;
 
@@ -207,4 +280,57 @@ window.syncOfflineProgress = async function() {
         }
     }
     localStorage.removeItem('dtech_offline_queue');
+};
+
+let isSyncing = false;
+
+// Android Batch Sync invoked by Back Button or onPause
+window.triggerFinalSync = async function(closeApp = true) {
+    if (!window.IS_ANDROID_APP) return;
+    if (isSyncing) return;
+
+    let queue = JSON.parse(localStorage.getItem('dtech_offline_queue') || '[]');
+    if (queue.length === 0) {
+        if (closeApp && window.AndroidExit) {
+            window.AndroidExit.closeApp();
+        }
+        return;
+    }
+
+    const userId = localStorage.getItem('user_id');
+    if (!userId) {
+        localStorage.removeItem('dtech_offline_queue');
+        if (closeApp && window.AndroidExit) {
+            window.AndroidExit.closeApp();
+        }
+        return;
+    }
+
+    if (closeApp) {
+        const overlay = document.getElementById('sync-overlay');
+        if (overlay) overlay.style.display = 'flex';
+    }
+
+    isSyncing = true;
+    try {
+        const response = await originalFetch('/api/batch-sync', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ user_id: userId, queue: queue })
+        });
+        if (response.ok) {
+            // Success, clear queue
+            localStorage.removeItem('dtech_offline_queue');
+        } else {
+            console.error('Batch sync responded with error status:', response.status);
+        }
+    } catch(e) {
+        console.error('Failed batch sync:', e);
+    } finally {
+        isSyncing = false;
+    }
+
+    if (closeApp && window.AndroidExit) {
+        window.AndroidExit.closeApp();
+    }
 };
