@@ -84,6 +84,25 @@ document.addEventListener('DOMContentLoaded', () => {
         button:hover { background: var(--accent-hover); transform: translateY(-1px); }
         button:active { transform: translateY(0); }
 
+
+        /* Accordion Styles */
+        .month-group { margin-bottom: 1rem; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; }
+        .month-header { background: var(--bg-card); padding: 1rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 1.1rem; color: var(--text-main); transition: background-color 0.2s; user-select: none; }
+        .month-header:hover { background: var(--option-hover); }
+        .month-header::after { content: '▼'; font-size: 0.8rem; transition: transform 0.3s; }
+        .month-group.active .month-header::after { transform: rotate(180deg); }
+        .month-content { display: none; padding: 1rem; background: var(--bg-dark); border-top: 1px solid var(--border-color); }
+        .month-group.active .month-content { display: block; }
+
+        .week-group { margin-bottom: 1rem; }
+        .week-group:last-child { margin-bottom: 0; }
+        .week-header { font-weight: 600; color: var(--text-muted); margin-bottom: 0.5rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.2rem; }
+
+        .current-week-section { background: linear-gradient(145deg, rgba(16, 185, 129, 0.1), rgba(37, 99, 235, 0.1)); border: 2px solid var(--accent-green); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; position: relative; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15); }
+        .current-week-section::before { content: '🌟 THIS WEEK'; position: absolute; top: -12px; left: 20px; background: var(--accent-green); color: white; padding: 2px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: bold; letter-spacing: 0.05em; }
+
+        .previous-exams-title { font-size: 1.2rem; margin-bottom: 1rem; color: var(--text-main); border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+
         /* Exam List specific styles */
         .exam-list { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
         .exam-item { background: var(--option-bg); padding: 1.5rem; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; border-left: 4px solid var(--accent-blue); transition: transform 0.2s; border: 1px solid var(--border-color); border-left-width: 4px; }
@@ -235,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <div id="setup-section" class="setup-section">
         <h2 id="setup-title" style="margin-top: 0;">Weekly Exams</h2>
         <p style="color: var(--text-muted);">Take the latest 50-question weekly exam for bonus XP! Exams reset every week.</p>
-        <div class="exam-list" id="exam-list">
+        <div id="exam-list-container">
             <p style="text-align: center;">Loading exams...</p>
         </div>
     </div>
@@ -349,12 +368,12 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
         }
     }
 
-    async function loadWeeklyExams() {
+        async function loadWeeklyExams() {
         document.getElementById("setup-section").style.display = "block";
         document.getElementById("quiz-section").style.display = "none";
         document.getElementById("result-section").style.display = "none";
-        const listContainer = document.getElementById("exam-list");
-        listContainer.innerHTML = "<p style='text-align:center;'>Loading exams...</p>";
+        const container = document.getElementById("exam-list-container");
+        container.innerHTML = "<p style='text-align:center;'>Loading exams...</p>";
 
         await fetchUserData();
 
@@ -363,7 +382,7 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
             if (!response.ok) throw new Error("Could not load weekly map");
             const mapData = await response.json();
 
-            listContainer.innerHTML = "";
+            container.innerHTML = "";
 
             function getWeekNumber(d) {
                 d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
@@ -376,37 +395,34 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
             const currentWeekStr = getWeekNumber(new Date());
 
             // Helper to get beautiful month/week text
-            function formatWeekLabel(weekStr) {
-                // e.g. "2026-W17"
+            function getMonthAndWeek(weekStr) {
                 const parts = weekStr.split('-W');
-                if (parts.length !== 2) return weekStr;
+                if (parts.length !== 2) return { month: "Unknown", week: weekStr };
+                const year = parts[0];
                 const weekNum = parseInt(parts[1], 10);
 
-                // Assuming Week 1 to 4 is Jan, 5 to 8 is Feb, etc.
                 const monthIndex = Math.floor((weekNum - 1) / 4);
                 const weekInMonth = ((weekNum - 1) % 4) + 1;
 
                 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
-                // Wrap around safely
                 const safeMonthIndex = monthIndex % 12;
 
-                return `${months[safeMonthIndex]} Week ${weekInMonth}`;
+                return {
+                    month: `${months[safeMonthIndex]} ${year}`,
+                    week: `Week ${weekInMonth}`
+                };
             }
 
-            // Get weeks sorted newest first, but put current week on top if it exists
             let weeks = Object.keys(mapData).sort().reverse();
-            if (weeks.includes(currentWeekStr)) {
-                weeks = weeks.filter(w => w !== currentWeekStr);
-                weeks.unshift(currentWeekStr);
-            }
-
             if (weeks.length === 0) {
-                listContainer.innerHTML = "<p style='text-align:center; color: var(--text-muted);'>No weekly exams available yet.</p>";
+                container.innerHTML = "<p style='text-align:center; color: var(--text-muted);'>No weekly exams available yet.</p>";
                 return;
             }
 
             let hasExams = false;
+
+            let currentWeekHtml = "";
+            let previousExamsByMonth = {};
 
             for (const week of weeks) {
                 const weekData = mapData[week];
@@ -415,60 +431,94 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
                         hasExams = true;
                         const examInfo = weekData[userGrade][subject];
 
-                        const div = document.createElement("div");
-                        div.className = "exam-item";
-
                         const isCurrentWeek = week === currentWeekStr;
-                        if (isCurrentWeek) {
-                            div.style.borderLeftColor = "var(--accent-green)";
-                            div.style.background = "linear-gradient(to right, rgba(16, 185, 129, 0.1), var(--option-bg))";
-                        }
-
-                        const infoDiv = document.createElement("div");
-                        infoDiv.className = "exam-info";
-
-                        const beautifulWeekStr = formatWeekLabel(week);
-
-                        let titleHtml = `<h4>${examInfo.label}</h4>`;
-                        if (isCurrentWeek) {
-                            titleHtml += `<p style="color: var(--accent-green); font-weight: bold; margin-bottom: 0.2rem;">🌟 THIS WEEK: ${beautifulWeekStr}</p>`;
-                        } else {
-                            titleHtml += `<p style="color: var(--text-muted); margin-bottom: 0.2rem;">${beautifulWeekStr}</p>`;
-                        }
-                        titleHtml += `<p>${examInfo.total_questions} Questions</p>`;
-
-                        infoDiv.innerHTML = titleHtml;
-
-                        const btn = document.createElement("button");
+                        const { month, week: weekLabel } = getMonthAndWeek(week);
 
                         const examKey = `${week}_${subject}`;
                         const isCompleted = completedExams[examKey];
 
+                        let btnHtml = "";
                         if (isCompleted) {
-                            btn.textContent = "Review / Retake";
-                            btn.style.background = "transparent";
-                            btn.style.border = "1px solid var(--border-color)";
-                            btn.style.color = "var(--text-main)";
-                            btn.onclick = () => startExam(week, subject, examInfo.file, true);
+                            btnHtml = `<button style="background: transparent; border: 1px solid var(--border-color); color: var(--text-main);" onclick="startExam('${week}', '${subject}', '${examInfo.file}', true)">Review / Retake</button>`;
                         } else {
-                            btn.textContent = "Start Exam";
-                            btn.onclick = () => startExam(week, subject, examInfo.file, false);
+                            btnHtml = `<button onclick="startExam('${week}', '${subject}', '${examInfo.file}', false)">Start Exam</button>`;
                         }
 
-                        div.appendChild(infoDiv);
-                        div.appendChild(btn);
-                        listContainer.appendChild(div);
+                        const examItemHtml = `
+                            <div class="exam-item" style="${isCurrentWeek ? 'border-left-color: var(--accent-green); background: transparent; border-width: 1px 1px 1px 4px;' : ''}">
+                                <div class="exam-info">
+                                    <h4>${examInfo.label}</h4>
+                                    <p style="color: var(--text-muted); margin-bottom: 0.2rem;">${month} - ${weekLabel}</p>
+                                    <p>${examInfo.total_questions} Questions</p>
+                                </div>
+                                ${btnHtml}
+                            </div>
+                        `;
+
+                        if (isCurrentWeek) {
+                            currentWeekHtml += examItemHtml;
+                        } else {
+                            if (!previousExamsByMonth[month]) previousExamsByMonth[month] = {};
+                            if (!previousExamsByMonth[month][weekLabel]) previousExamsByMonth[month][weekLabel] = [];
+                            previousExamsByMonth[month][weekLabel].push(examItemHtml);
+                        }
                     }
                 }
             }
 
             if (!hasExams) {
-                listContainer.innerHTML = `<p style='text-align:center; color: var(--text-muted);'>No weekly exams available for ${userGrade}.</p>`;
+                container.innerHTML = `<p style='text-align:center; color: var(--text-muted);'>No weekly exams available for ${userGrade}.</p>`;
+                return;
             }
+
+            let finalHtml = "";
+
+            if (currentWeekHtml !== "") {
+                finalHtml += `
+                    <div class="current-week-section">
+                        <div class="exam-list">
+                            ${currentWeekHtml}
+                        </div>
+                    </div>
+                `;
+            }
+
+            if (Object.keys(previousExamsByMonth).length > 0) {
+                finalHtml += `<div class="previous-exams-title">Previous Exams</div>`;
+
+                for (const month in previousExamsByMonth) {
+                    let monthHtml = `
+                        <div class="month-group">
+                            <div class="month-header" onclick="this.parentElement.classList.toggle('active')">
+                                ${month}
+                            </div>
+                            <div class="month-content">
+                    `;
+
+                    for (const weekLabel in previousExamsByMonth[month]) {
+                        monthHtml += `
+                            <div class="week-group">
+                                <div class="week-header">${weekLabel}</div>
+                                <div class="exam-list">
+                                    ${previousExamsByMonth[month][weekLabel].join('')}
+                                </div>
+                            </div>
+                        `;
+                    }
+
+                    monthHtml += `
+                            </div>
+                        </div>
+                    `;
+                    finalHtml += monthHtml;
+                }
+            }
+
+            container.innerHTML = finalHtml;
 
         } catch (error) {
             console.error(error);
-            document.getElementById("exam-list").innerHTML = "<p style='text-align:center;color:var(--accent-red);'>Failed to load exams.</p>";
+            document.getElementById("exam-list-container").innerHTML = "<p style='text-align:center;color:var(--accent-red);'>Failed to load exams.</p>";
         }
     }
 
