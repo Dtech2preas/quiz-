@@ -67,6 +67,8 @@ class MainActivity : AppCompatActivity() {
         webView.addJavascriptInterface(AndroidDownloader(this), "AndroidDownloader")
         // Add Javascript interface for dataset caching
         webView.addJavascriptInterface(AndroidCacher(this, this), "AndroidCacher")
+        // Add Javascript interface for opening URLs in external browser
+        webView.addJavascriptInterface(AndroidExternalBrowser(this), "AndroidExternalBrowser")
 
 
         webView.webViewClient = object : WebViewClient() {
@@ -513,5 +515,19 @@ class AndroidCacher(private val context: Context, private val activity: MainActi
             }
         }
         return null
+    }
+}
+
+
+class AndroidExternalBrowser(private val context: Context) {
+    @JavascriptInterface
+    fun openUrl(url: String) {
+        try {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            context.startActivity(intent)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 }
