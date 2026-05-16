@@ -250,8 +250,9 @@
                 style="flex: 1; background: linear-gradient(135deg, #FF9800, #F44336);
                        color: white; border: none; padding: 12px 10px; border-radius: 8px;
                        font-size: 1rem; font-weight: bold; cursor: pointer;
-                       box-shadow: 0 4px 15px rgba(244, 67, 54, 0.4); text-align: center;
+                       box-shadow: 0 4px 15px rgba(244, 67, 54, 0.4); text-align: center; position: relative;
                        transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <span id="weekly-quiz-badge" style="display: none; position: absolute; top: -5px; right: -5px; background: #ef4444; color: white; border-radius: 50%; font-size: 0.75rem; padding: 2px 6px; font-weight: bold; border: 2px solid var(--bg-dark); box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></span>
                 <span>Weekly Exam 🏆</span>
             </button>
         </div>
@@ -531,6 +532,43 @@
                 if (hasWeak) {
                     weakTopicsList.innerHTML = weakTopicsHtml;
                 }
+            }
+
+            // Check for weekly exams
+            try {
+                const weeklyMapRes = await fetch('dataset/weekly_quiz/weekly_map.json');
+                if (weeklyMapRes.ok) {
+                    const weeklyMap = await weeklyMapRes.json();
+
+                    function getWeekNumber(d) {
+                        d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+                        d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay()||7));
+                        var yearStart = new Date(Date.UTC(d.getUTCFullYear(),0,1));
+                        var weekNo = Math.ceil(( ( (d - yearStart) / 86400000) + 1)/7);
+                        return d.getUTCFullYear() + "-W" + (weekNo < 10 ? "0" : "") + weekNo;
+                    }
+
+                    const currentWeekStr = getWeekNumber(new Date());
+
+                    let uncompletedCount = 0;
+                    if (weeklyMap[currentWeekStr] && weeklyMap[currentWeekStr][tempGrade]) {
+                        const examsForGrade = weeklyMap[currentWeekStr][tempGrade];
+                        for (const subject in examsForGrade) {
+                            const examKey = `${currentWeekStr}_${subject}`;
+                            if (!data.completed_weekly_exams || !data.completed_weekly_exams[examKey]) {
+                                uncompletedCount++;
+                            }
+                        }
+                    }
+
+                    const badgeEl = document.getElementById("weekly-quiz-badge");
+                    if (uncompletedCount > 0) {
+                        badgeEl.textContent = uncompletedCount;
+                        badgeEl.style.display = "block";
+                    }
+                }
+            } catch (err) {
+                console.error("Failed to load weekly map", err);
             }
 
             document.getElementById("loading").style.display = "none";
