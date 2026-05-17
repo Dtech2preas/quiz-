@@ -203,11 +203,43 @@ window.fetch = async function(...args) {
             window.queueOfflineProgress({ url: url, data: data });
 
             // Return fake success
+
+            // Calculate mock response values based on the data
+            let xpEarned = 0;
+            let pointsEarned = 0;
+            let personalXpEarned = 0;
+            let passedThreshold = false;
+
+            if (url.includes('/api/submit-quiz')) {
+                const percentage = (data.correct_answers / data.total_questions) * 100;
+                passedThreshold = percentage >= 50;
+                personalXpEarned = data.correct_answers * 5;
+                if (passedThreshold) {
+                    xpEarned = data.correct_answers * 5; // Simplified assumption
+                    pointsEarned = 10;
+                }
+            } else if (url.includes('/api/submit-weekly-exam')) {
+                const percentage = (data.correct_answers / data.total_questions) * 100;
+                passedThreshold = percentage >= 50;
+                xpEarned = data.correct_answers * 8; // Assuming offline weekly exam mock matches worker.js
+                if (percentage > 80) {
+                    xpEarned += 100; // Mock bonus
+                }
+                pointsEarned = 20; // Generic offline mock fallback for points
+            } else if (url.includes('/api/store/sync-points')) {
+                if (data.added_points) pointsEarned += data.added_points;
+                if (data.push_claim) pointsEarned += 100;
+            }
+
             return new Response(JSON.stringify({
                 success: true,
                 message: "Progress saved locally.",
-                xpEarned: 0,
-                pointsEarned: 0,
+                xpEarned: xpEarned, // Keep original property just in case
+                pointsEarned: pointsEarned, // Keep original property just in case
+                xp_earned: xpEarned,
+                personal_xp_earned: personalXpEarned,
+                passed_threshold: passedThreshold,
+                points_earned: pointsEarned,
                 offline: true,
                 batched: true
             }), { status: 200, headers: { 'Content-Type': 'application/json' } });
@@ -285,13 +317,25 @@ window.syncOfflineProgress = async function() {
 let isSyncing = false;
 
 // Android Batch Sync invoked by Back Button or onPause
-window.triggerFinalSync = async function(closeApp = true) {
+window.triggerFinalSync = async function(closeApp = true, isExplicitExit = false) {
     if (!window.IS_ANDROID_APP) return;
     if (isSyncing) return;
 
     let queue = JSON.parse(localStorage.getItem('dtech_offline_queue') || '[]');
     if (queue.length === 0) {
-        if (closeApp && window.AndroidExit) {
+        if (isExplicitExit && window.AndroidExit) {
+            // Show exit dialog immediately if no sync needed
+            const overlay = document.getElementById('sync-overlay');
+            if (overlay) {
+                overlay.innerHTML = `<div style="background: var(--bg-card, #2d3748); padding: 20px; border-radius: 10px; text-align: center;">
+                    <h3 style="margin-top: 0; color: #10b981;">Ready to exit?</h3>
+                    <p>No new offline progress to sync.</p>
+                    <button onclick="window.AndroidExit.closeApp()" style="margin-top: 10px; padding: 10px 20px; background: #ef4444; color: white; border: none; border-radius: 5px; cursor: pointer;">Exit App</button>
+                    <button onclick="document.getElementById('sync-overlay').style.display = 'none';" style="margin-top: 10px; margin-left: 10px; padding: 10px 20px; background: #3b82f6; color: white; border: none; border-radius: 5px; cursor: pointer;">Cancel</button>
+                </div>`;
+                overlay.style.display = 'flex';
+            }
+        } else if (closeApp && window.AndroidExit) {
             window.AndroidExit.closeApp();
         }
         return;
@@ -306,9 +350,14 @@ window.triggerFinalSync = async function(closeApp = true) {
         return;
     }
 
-    if (closeApp) {
-        const overlay = document.getElementById('sync-overlay');
-        if (overlay) overlay.style.display = 'flex';
+    const overlay = document.getElementById('sync-overlay');
+    if (isExplicitExit && overlay) {
+        overlay.innerHTML = `<div class="spinner" style="border: 4px solid rgba(255,255,255,0.3); border-top: 4px solid #eab308; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin-bottom: 20px;"></div>
+            <h2 style="margin: 0; font-size: 1.5rem; color: #eab308;">Syncing your progress...</h2>
+            <p style="margin-top: 10px; font-size: 1rem;">Please wait</p>`;
+        overlay.style.display = 'flex';
+    } else if (closeApp && overlay) { // Retain original closeApp behavior just in case
+        overlay.style.display = 'flex';
     }
 
     isSyncing = true;
@@ -328,6 +377,16 @@ window.triggerFinalSync = async function(closeApp = true) {
         console.error('Failed batch sync:', e);
     } finally {
         isSyncing = false;
+        if (isExplicitExit && overlay) {
+            overlay.innerHTML = `<div style="background: var(--bg-card, #2d3748); padding: 20px; border-radius: 10px; text-align: center;">
+                <h3 style="margin-top: 0; color: #10b981;">Sync Complete!</h3>
+                <p>Your local data has been backed up.</p>
+                <button onclick="window.AndroidExit.closeApp()" style="margin-top: 10px; padding: 10px 20px; background: #ef4444; color: white; border: none; border-radius: 5px; cursor: pointer;">Exit App</button>
+                <button onclick="document.getElementById('sync-overlay').style.display = 'none';" style="margin-top: 10px; margin-left: 10px; padding: 10px 20px; background: #3b82f6; color: white; border: none; border-radius: 5px; cursor: pointer;">Return to App</button>
+            </div>`;
+        } else if (overlay) {
+            overlay.style.display = 'none';
+        }
     }
 
     if (closeApp && window.AndroidExit) {

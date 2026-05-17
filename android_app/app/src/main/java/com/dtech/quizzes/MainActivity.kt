@@ -275,13 +275,21 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        webView.loadUrl("https://quiz.dtech-services.co.za")
+        val sharedPrefs = getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
+        val isFirstLaunch = sharedPrefs.getBoolean("isFirstLaunch", true)
+
+        if (isFirstLaunch) {
+            sharedPrefs.edit().putBoolean("isFirstLaunch", false).apply()
+            webView.loadUrl("https://quiz.dtech-services.co.za")
+        } else {
+            webView.loadUrl("https://quiz.dtech-services.co.za/login.html")
+        }
     }
 
 
     override fun onPause() {
         super.onPause()
-        webView.evaluateJavascript("if(window.triggerFinalSync) { window.triggerFinalSync(false); }", null)
+        webView.evaluateJavascript("if(window.triggerFinalSync) { window.triggerFinalSync(false, false); }", null)
     }
 
     override fun onBackPressed() {
@@ -304,7 +312,7 @@ class MainActivity : AppCompatActivity() {
         if (webView.canGoBack()) {
             webView.goBack()
         } else {
-            webView.evaluateJavascript("if(window.triggerFinalSync) { window.triggerFinalSync(true); } else { window.AndroidExit.closeApp(); }", null)
+            webView.evaluateJavascript("if(window.triggerFinalSync) { window.triggerFinalSync(false, true); } else { window.AndroidExit.closeApp(); }", null)
         }
     }
 }
