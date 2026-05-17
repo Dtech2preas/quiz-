@@ -108,6 +108,9 @@ export default {
       if (request.method === "POST" && path === "/api/store/equip") {
         return await handleStoreEquip(request, env);
       }
+      if (request.method === "POST" && path === "/api/batch-sync") {
+        return await handleBatchSync(request, env, ctx);
+      }
       if (request.method === "GET" && path === "/api/leaderboard") {
         return await handleGetLeaderboards(request, env);
       }
@@ -800,6 +803,207 @@ async function updateLeaderboards(env, user, currentWeek, publicXpEarned, subjec
   }
 
   await Promise.all(promises);
+}
+
+async function handleBatchSync(request, env, ctx) {
+  const body = await request.json();
+  const { user_id, queue } = body;
+
+  if (!user_id || !Array.isArray(queue)) {
+    return jsonResponse({ error: "Missing user_id or invalid queue" }, 400);
+  }
+
+  const userDataString = await env.RANK_KV.get(`user:${user_id}`);
+  if (!userDataString) return jsonResponse({ error: "User not found" }, 404);
+
+  let userData = JSON.parse(userDataString);
+  let totalXpEarned = 0;
+  let totalPointsEarned = 0;
+  let xpGained = false; // To know if we should update leaderboard asynchronously
+  let today = new Date().toISOString().split("T")[0];
+
+  for (const item of queue) {
+    if (item.url.includes('/api/submit-quiz')) {
+      const { subject, topic, total_questions, correct_answers } = item.data;
+      if (!subject || !topic || total_questions === undefined || correct_answers === undefined) continue;
+
+      // Initialize fields
+      if (userData.personal_total_xp === undefined) userData.personal_total_xp = userData.total_xp || 0;
+      if (userData.personal_math_xp === undefined) userData.personal_math_xp = userData.math_xp || 0;
+      if (userData.personal_physics_xp === undefined) userData.personal_physics_xp = userData.physics_xp || 0;
+      if (userData.subjects_xp === undefined) userData.subjects_xp = {};
+      if (userData.personal_subjects_xp === undefined) userData.personal_subjects_xp = {};
+
+      const mappedSubject = subject === "mathematics" ? "math" : subject;
+      const historyKey = `${mappedSubject}_${topic}`;
+      const percentage = (correct_answers / total_questions) * 100;
+      const passed = percentage >= 50;
+
+      if (userData.quiz_history === undefined) userData.quiz_history = {};
+      const attempts = userData.quiz_history[historyKey] || 0;
+
+      let xpEarned = 0;
+      let pointsEarned = 0;
+
+      if (passed && attempts < 3) {
+        if (attempts === 0) {
+          xpEarned = 50;
+          pointsEarned = 10;
+        } else if (attempts === 1) {
+          xpEarned = 25;
+          pointsEarned = 5;
+        } else if (attempts === 2) {
+          xpEarned = 10;
+          pointsEarned = 2;
+        }
+
+        userData.personal_total_xp += xpEarned;
+        userData.total_xp = userData.personal_total_xp;
+
+        if (mappedSubject === "math") {
+          userData.personal_math_xp += xpEarned;
+          userData.math_xp = userData.personal_math_xp;
+        } else if (mappedSubject === "physics") {
+          userData.personal_physics_xp += xpEarned;
+          userData.physics_xp = userData.personal_physics_xp;
+        } else {
+          userData.personal_subjects_xp[mappedSubject] = (userData.personal_subjects_xp[mappedSubject] || 0) + xpEarned;
+          userData.subjects_xp[mappedSubject] = userData.personal_subjects_xp[mappedSubject];
+        }
+
+        if (userData.dtech_points === undefined) userData.dtech_points = 0;
+        userData.dtech_points += pointsEarned;
+
+        totalXpEarned += xpEarned;
+        totalPointsEarned += pointsEarned;
+        xpGained = true;
+      }
+
+      userData.quiz_history[historyKey] = attempts + 1;
+
+    } else if (item.url.includes('/api/submit-weekly-exam')) {
+      const { subject, exam_week, total_questions, correct_answers } = item.data;
+      if (!subject || !exam_week || total_questions === undefined || correct_answers === undefined) continue;
+
+      if (userData.completed_weekly_exams === undefined) userData.completed_weekly_exams = {};
+      const examKey = `${exam_week}_${subject}`;
+
+      if (userData.completed_weekly_exams[examKey]) continue;
+
+      userData.completed_weekly_exams[examKey] = {
+        score: correct_answers,
+        total: total_questions,
+        date: today
+      };
+
+      const percentage = (correct_answers / total_questions) * 100;
+      const passed = percentage >= 50;
+
+      let xpEarned = 0;
+      let pointsEarned = 0;
+
+      if (passed) {
+        xpEarned = 100;
+        pointsEarned = 20;
+
+        // Ensure fields
+        if (userData.personal_total_xp === undefined) userData.personal_total_xp = userData.total_xp || 0;
+        if (userData.personal_math_xp === undefined) userData.personal_math_xp = userData.math_xp || 0;
+        if (userData.personal_physics_xp === undefined) userData.personal_physics_xp = userData.physics_xp || 0;
+        if (userData.subjects_xp === undefined) userData.subjects_xp = {};
+        if (userData.personal_subjects_xp === undefined) userData.personal_subjects_xp = {};
+
+        userData.personal_total_xp += xpEarned;
+        userData.total_xp = userData.personal_total_xp;
+
+        const mappedSubject = subject === "mathematics" ? "math" : subject;
+
+        if (mappedSubject === "math") {
+          userData.personal_math_xp += xpEarned;
+          userData.math_xp = userData.personal_math_xp;
+        } else if (mappedSubject === "physics") {
+          userData.personal_physics_xp += xpEarned;
+          userData.physics_xp = userData.personal_physics_xp;
+        } else {
+          userData.personal_subjects_xp[mappedSubject] = (userData.personal_subjects_xp[mappedSubject] || 0) + xpEarned;
+          userData.subjects_xp[mappedSubject] = userData.personal_subjects_xp[mappedSubject];
+        }
+
+        if (userData.dtech_points === undefined) userData.dtech_points = 0;
+        userData.dtech_points += pointsEarned;
+
+        totalXpEarned += xpEarned;
+        totalPointsEarned += pointsEarned;
+        xpGained = true;
+      }
+    } else if (item.url.includes('/api/store/sync-points')) {
+      const { added_points, ads_clicked, push_claim } = item.data;
+
+      if (userData.last_ad_click_date !== today) {
+        userData.last_ad_click_date = today;
+        userData.ad_clicks_today = 0;
+      }
+
+      if (userData.dtech_points === undefined) userData.dtech_points = 0;
+
+      if (ads_clicked && added_points) {
+        let maxAllowedClicks = 30; // Max 30 ad points per day
+        let currentClicks = userData.ad_clicks_today || 0;
+
+        let actuallyAddClicks = Math.min(ads_clicked, maxAllowedClicks - currentClicks);
+
+        if (actuallyAddClicks > 0) {
+           userData.ad_clicks_today = currentClicks + actuallyAddClicks;
+           let pointsFromClicks = actuallyAddClicks * 1;
+
+           let extraBonusPoints = added_points - pointsFromClicks;
+           let validExtraBonus = Math.max(0, extraBonusPoints);
+
+           let totalToAdd = pointsFromClicks + validExtraBonus;
+
+           userData.dtech_points += totalToAdd;
+           totalPointsEarned += totalToAdd;
+        }
+      } else if (added_points && !ads_clicked) {
+          // just bonus points
+          userData.dtech_points += added_points;
+          totalPointsEarned += added_points;
+      }
+
+      if (push_claim) {
+        if (userData.last_push_claim_date !== today) {
+           userData.last_push_claim_date = today;
+           userData.dtech_points += 100;
+           totalPointsEarned += 100;
+        }
+      }
+    }
+  }
+
+  // Update level
+  const oldLevel = userData.level || 1;
+  const newLevel = Math.floor((userData.personal_total_xp || userData.total_xp || 0) / 100) + 1;
+  userData.level = newLevel;
+
+  if (userData.last_active_date !== today) {
+    userData.last_active_date = today;
+  }
+
+  await env.RANK_KV.put(`user:${user_id}`, JSON.stringify(userData));
+
+  if (xpGained) {
+    const currentWeek = Math.floor(new Date().getTime() / (1000 * 60 * 60 * 24 * 7));
+    ctx.waitUntil(updateLeaderboards(env, userData, currentWeek, totalXpEarned, "batch"));
+  }
+
+  return jsonResponse({
+    success: true,
+    message: "Batch sync successful",
+    xpEarned: totalXpEarned,
+    pointsEarned: totalPointsEarned,
+    newLevel: newLevel,
+    leveledUp: newLevel > oldLevel
+  }, 200);
 }
 
 async function handleGetLeaderboards(request, env) {

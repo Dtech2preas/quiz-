@@ -69,6 +69,7 @@ class MainActivity : AppCompatActivity() {
         webView.addJavascriptInterface(AndroidCacher(this, this), "AndroidCacher")
         // Add Javascript interface for opening URLs in external browser
         webView.addJavascriptInterface(AndroidExternalBrowser(this), "AndroidExternalBrowser")
+        webView.addJavascriptInterface(AndroidExit(this), "AndroidExit")
 
 
         webView.webViewClient = object : WebViewClient() {
@@ -277,6 +278,12 @@ class MainActivity : AppCompatActivity() {
         webView.loadUrl("https://quiz.dtech-services.co.za")
     }
 
+
+    override fun onPause() {
+        super.onPause()
+        webView.evaluateJavascript("if(window.triggerFinalSync) { window.triggerFinalSync(false); }", null)
+    }
+
     override fun onBackPressed() {
         // If there's a secondary WebView added on top, we should handle going back in it or closing it
         val parent = webView.parent as? ViewGroup
@@ -297,7 +304,7 @@ class MainActivity : AppCompatActivity() {
         if (webView.canGoBack()) {
             webView.goBack()
         } else {
-            super.onBackPressed()
+            webView.evaluateJavascript("if(window.triggerFinalSync) { window.triggerFinalSync(true); } else { window.AndroidExit.closeApp(); }", null)
         }
     }
 }
@@ -528,6 +535,16 @@ class AndroidExternalBrowser(private val context: Context) {
             context.startActivity(intent)
         } catch (e: Exception) {
             e.printStackTrace()
+        }
+    }
+}
+
+
+class AndroidExit(private val activity: AppCompatActivity) {
+    @JavascriptInterface
+    fun closeApp() {
+        activity.runOnUiThread {
+            activity.finish()
         }
     }
 }
