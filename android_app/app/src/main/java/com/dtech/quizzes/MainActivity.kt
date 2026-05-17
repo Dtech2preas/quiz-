@@ -280,7 +280,7 @@ class MainActivity : AppCompatActivity() {
 
         if (isFirstLaunch) {
             sharedPrefs.edit().putBoolean("isFirstLaunch", false).apply()
-            webView.loadUrl("https://quiz.dtech-services.co.za")
+            webView.loadUrl("https://quiz.dtech-services.co.za/login.html")
         } else {
             webView.loadUrl("https://quiz.dtech-services.co.za/login.html")
         }
