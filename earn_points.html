@@ -162,7 +162,7 @@
 
     <div class="status-message" id="status-message"></div>
 
-    <a href="store.html" class="btn-back" onclick="syncPointsBeforeLeaving(event)">Back to Store</a>
+    <a href="store.html" class="btn-back">Back to Store</a>
 </div>
 
 <script>
@@ -218,8 +218,6 @@
     // Local state for the session
     let localPoints = parseInt(localStorage.getItem('dtech_points_local')) || 0;
     let localClicksToday = parseInt(localStorage.getItem('dtech_clicks_today')) || 0;
-    let pointsToSync = 0;
-    let clicksToSync = 0;
 
     // Time tracking (Legacy visibility fallback)
     let hideTime = 0;
@@ -242,9 +240,14 @@
 
     async function initialize() {
         try {
-            const response = await fetch(`${API_URL}/api/user/${userId}`);
-            if (response.ok) {
-                const data = await response.json();
+            let data = null;
+            if (window.getCombinedUserData) {
+                data = await window.getCombinedUserData(userId);
+            } else {
+                const response = await fetch(`${API_URL}/api/user/${userId}`);
+                if (response.ok) data = await response.json();
+            }
+            if (data) {
                 localPoints = data.dtech_points || 0;
                 localClicksToday = data.ad_clicks_today || 0;
 
@@ -359,8 +362,13 @@
         localPoints += totalPoints;
         localClicksToday += 1;
 
-        pointsToSync += totalPoints;
-        clicksToSync += 1;
+        if (window.queueFirebaseAction) {
+            window.queueFirebaseAction({
+                action: "points",
+                userId: userId,
+                points: totalPoints
+            });
+        }
 
         // Update local cache
         localStorage.setItem('dtech_points_local', localPoints);
@@ -389,28 +397,8 @@
         }
     }
 
-    // Sync before leaving
-    function syncPointsBeforeLeaving(e) {
-        if (pointsToSync > 0 || clicksToSync > 0) {
-            if (window.queueFirebaseAction) {
-                window.queueFirebaseAction({
-                    action: "points",
-                    userId: userId,
-                    points: pointsToSync
-                });
-            }
-
-            pointsToSync = 0;
-            clicksToSync = 0;
-        }
-    }
-
     // Start process
     checkAndConsumeToken();
-
-    // Attempt to sync on page unload as a fallback
-    window.addEventListener('pagehide', syncPointsBeforeLeaving);
-    window.addEventListener('beforeunload', syncPointsBeforeLeaving);
 
 </script>
 </body>

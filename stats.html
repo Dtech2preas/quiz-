@@ -356,15 +356,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function loadStats() {
         try {
-            const response = await fetch(`${API_URL}/api/user/${userId}`);
+            let data = null;
+            if (window.getCombinedUserData) {
+                data = await window.getCombinedUserData(userId);
+            } else {
+                const response = await fetch(`${API_URL}/api/user/${userId}`);
+                if (response.ok) data = await response.json();
+            }
 
-            if (response.status === 401 || response.status === 404) {
+            if (!data) {
                 localStorage.removeItem("user_id");
                 window.location.href = "login.html";
                 return;
             }
-
-            const data = await response.json();
 
             if (data.grade) {
                 localStorage.setItem("user_grade", data.grade);
