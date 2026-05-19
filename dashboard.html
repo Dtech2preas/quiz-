@@ -181,7 +181,7 @@
     </style>
 <script src="dtech_cosmetics.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="offline_mode.js"></script>
+    <script type="module" src="firebase_config.js"></script>
 </head>
 <body>
 
@@ -357,44 +357,7 @@
         }
     }
 
-    async function syncOfflineQuizzes() {
-        const offlineQueue = JSON.parse(localStorage.getItem("offlineQuizQueue") || "[]");
-        if (offlineQueue.length === 0 || !navigator.onLine) return;
-
-        const syncWarning = document.getElementById("sync-warning");
-        syncWarning.style.display = "block";
-
-        let remainingQueue = [];
-        for (const payload of offlineQueue) {
-            try {
-                const response = await fetch(`${API_URL}/api/submit-quiz`, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(payload)
-                });
-                if (!response.ok) {
-                    remainingQueue.push(payload); // Keep if it fails
-                }
-            } catch (err) {
-                remainingQueue.push(payload); // Keep if it fails
-            }
-        }
-
-        localStorage.setItem("offlineQuizQueue", JSON.stringify(remainingQueue));
-
-        if (remainingQueue.length === 0) {
-            syncWarning.innerHTML = "<strong>Success:</strong> Offline results synced!";
-            syncWarning.style.background = "rgba(16, 185, 129, 0.2)";
-            syncWarning.style.borderColor = "var(--accent-green)";
-            setTimeout(() => { syncWarning.style.display = "none"; }, 3000);
-        } else {
-            syncWarning.innerHTML = "<strong>Notice:</strong> Some results couldn't be synced yet. Will retry later.";
-        }
-    }
-
     async function loadDashboard() {
-        // Run sync in background
-        syncOfflineQuizzes();
 
         try {
             const gradeMap = await fetchGradeMap();
@@ -417,7 +380,22 @@
                 return;
             }
 
-            const data = await response.json();
+            let data = await response.json();
+
+            // Initial transition strategy: Merge live Firebase data over the KV data for UI display
+            if (window.firebaseGet) {
+                try {
+                    const userRef = window.firebaseRef(window.firebaseDatabase, `users/${userId}`);
+                    const snap = await window.firebaseGet(userRef);
+                    if (snap.exists()) {
+                        const fbData = snap.val();
+                        // Merge personal XP, points, etc.
+                        data = { ...data, ...fbData, subjects_xp: { ...(data.subjects_xp || {}), ...(fbData.subjects_xp || {}) } };
+                    }
+                } catch (e) {
+                    console.error("Firebase read error", e);
+                }
+            }
 
             if (data.grade) {
                 localStorage.setItem("user_grade", data.grade);

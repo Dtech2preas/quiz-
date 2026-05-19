@@ -119,7 +119,7 @@
         }
 
     </style>
-    <script src="offline_mode.js"></script>
+    <script type="module" src="firebase_config.js"></script>
 </head>
 <body>
 
@@ -392,17 +392,13 @@
     // Sync before leaving
     function syncPointsBeforeLeaving(e) {
         if (pointsToSync > 0 || clicksToSync > 0) {
-            // Using keepalive allows the request to outlive the page
-            fetch(`${API_URL}/api/store/sync-points`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    user_id: userId,
-                    added_points: pointsToSync,
-                    ads_clicked: clicksToSync
-                }),
-                keepalive: true
-            }).catch(console.error);
+            if (window.queueFirebaseAction) {
+                window.queueFirebaseAction({
+                    action: "points",
+                    userId: userId,
+                    points: pointsToSync
+                });
+            }
 
             pointsToSync = 0;
             clicksToSync = 0;

@@ -434,7 +434,7 @@ footer a:hover{ text-decoration:underline; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 <script src="dtech_cosmetics.js"></script>
-    <script src="offline_mode.js"></script>
+    <script type="module" src="firebase_config.js"></script>
 </head>
 
 <body>
@@ -515,7 +515,21 @@ async function loadProfile() {
     try {
         const res = await fetch(`${API_URL}/api/user/${userId}`);
         if (!res.ok) throw new Error("Failed to load profile");
-        const data = await res.json();
+        let data = await res.json();
+
+        // Initial transition strategy: Merge live Firebase data over the KV data for UI display
+        if (window.firebaseGet) {
+            try {
+                const userRef = window.firebaseRef(window.firebaseDatabase, `users/${userId}`);
+                const snap = await window.firebaseGet(userRef);
+                if (snap.exists()) {
+                    const fbData = snap.val();
+                    data = { ...data, ...fbData };
+                }
+            } catch (e) {
+                console.error("Firebase read error", e);
+            }
+        }
 
         if (data.grade) {
             localStorage.setItem("user_grade", data.grade);

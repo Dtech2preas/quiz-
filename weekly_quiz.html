@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
     </style>
 <script src="dtech_cosmetics.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="offline_mode.js"></script>
+    <script type="module" src="firebase_config.js"></script>
 </head>
 <body>
 
@@ -745,7 +745,6 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
                 const progressStr = localStorage.getItem('daily_progress') || '[]';
                 let progress = JSON.parse(progressStr);
 
-                // Only keep last 30 days or so to avoid bloat, but for now just filter out anything older than 7 days
                 const oneWeekAgo = new Date();
                 oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
                 progress = progress.filter(p => new Date(p.date) > oneWeekAgo || p.date === todayStr);
@@ -763,42 +762,45 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
                 console.error('Failed to save daily progress locally', e);
             }
 
-            const response = await fetch(`${API_URL}/api/submit-weekly-exam`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(payload)
-            });
-
             const publicXpMsg = document.getElementById("public-xp-message");
             const personalXpMsg = document.getElementById("personal-xp-message");
             document.getElementById("xp-message-container").style.display = "block";
             document.getElementById("offline-sync-notice").style.display = "none";
 
-            if (response.ok) {
-                const result = await response.json();
-
-                let xpMsg = `+${result.xp_earned} XP Earned!`;
-                publicXpMsg.style.color = "var(--accent-green)";
-
-                if (result.bonus_xp > 0) {
-                    personalXpMsg.textContent = `Includes ${result.bonus_xp} Bonus XP for scoring ≥ 80%!`;
-                } else {
-                    personalXpMsg.textContent = "Great job completing the weekly exam.";
-                }
-                publicXpMsg.textContent = xpMsg;
-            } else {
-                const err = await response.json();
-                publicXpMsg.textContent = `Error submitting results.`;
-                publicXpMsg.style.color = "var(--accent-red)";
-                personalXpMsg.textContent = err.error || "Please try again later.";
+            const normalizedSubject = subject === "mathematics" ? "math" : subject;
+            let examXpEarned = score * 8;
+            let bonusXp = 0;
+            if (percentage > 80) {
+                if (percentage >= 95) bonusXp = 150;
+                else if (percentage >= 90) bonusXp = 100;
+                else bonusXp = 50;
             }
+            const totalXpEarned = examXpEarned + bonusXp;
+
+            if (window.queueFirebaseAction) {
+                window.queueFirebaseAction({
+                    action: "weekly",
+                    userId: userId,
+                    subject: normalizedSubject,
+                    examKey: `${currentExamWeek}_${subject}`,
+                    totalXp: totalXpEarned,
+                    score: score,
+                    totalQs: totalQuestions
+                });
+            }
+
+            let xpMsg = `+${totalXpEarned} XP Earned!`;
+            publicXpMsg.style.color = "var(--accent-green)";
+
+            if (bonusXp > 0) {
+                personalXpMsg.textContent = `Includes ${bonusXp} Bonus XP for scoring ≥ 80%!`;
+            } else {
+                personalXpMsg.textContent = "Great job completing the weekly exam.";
+            }
+            publicXpMsg.textContent = xpMsg;
+
         } catch (error) {
             console.error(error);
-            document.getElementById("offline-sync-notice").style.display = "block";
-            document.getElementById("xp-message-container").style.display = "none";
-            let queue = JSON.parse(localStorage.getItem("offlineExamQueue") || "[]");
-            queue.push(payload);
-            localStorage.setItem("offlineExamQueue", JSON.stringify(queue));
         }
 
         displayResultsUi(percentage);
@@ -855,35 +857,6 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
         document.getElementById("setup-section").style.display = "block";
         loadWeeklyExams(); // Reload to update "Start Exam" vs "Review/Retake" status
     }
-
-    // Offline syncing
-    window.addEventListener('online', async () => {
-        document.getElementById("offline-sync-notice").style.display = "none";
-        let queue = JSON.parse(localStorage.getItem("offlineExamQueue") || "[]");
-        if (queue.length > 0) {
-            let successCount = 0;
-            let remainingQueue = [];
-            for (const p of queue) {
-                try {
-                    const res = await fetch(`${API_URL}/api/submit-weekly-exam`, {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify(p)
-                    });
-                    if (res.ok) successCount++;
-                    else remainingQueue.push(p);
-                } catch (e) {
-                    console.error(e);
-                    remainingQueue.push(p);
-                }
-            }
-            localStorage.setItem("offlineExamQueue", JSON.stringify(remainingQueue));
-            if (successCount > 0) {
-                // Optionally show a toast, but console log is fine for background sync
-                console.log(`Successfully synced ${successCount} offline exams!`);
-            }
-        }
-    });
 
     // Start
     loadWeeklyExams();

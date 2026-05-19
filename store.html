@@ -290,7 +290,7 @@
 
     </style>
 <script src="dtech_cosmetics.js"></script>
-    <script src="offline_mode.js"></script>
+    <script type="module" src="firebase_config.js"></script>
 </head>
 <body>
 
@@ -991,23 +991,30 @@
 
     async function syncPushClaim(today) {
         try {
-            const response = await fetch(`${API_URL}/api/store/sync-points`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ user_id: userId, push_claim: true })
-            });
-            const data = await response.json();
+            if (window.queueFirebaseAction) {
+                window.queueFirebaseAction({
+                    action: "points",
+                    userId: userId,
+                    points: 100
+                });
 
-            if (response.ok) {
-                userPoints = data.new_balance;
+                // Get updated points
+                const snapshot = await window.firebaseGet(userRef);
+                if (snapshot.exists()) {
+                    userPoints = snapshot.val().dtech_points || 0;
+                } else {
+                    userPoints += 100; // fallback
+                }
+
                 document.getElementById('dtech-points-display').textContent = `💎 ${userPoints}`;
                 localStorage.setItem('dtech_push_claimed_today', today);
                 showToast("100 D-TECH POINTS claimed successfully!");
                 updateButtons();
             } else {
-                showToast(data.error || "Failed to claim", true);
+                showToast("Firebase not initialized", true);
             }
         } catch (error) {
+            console.error(error);
             showToast("Network error", true);
         }
     }
