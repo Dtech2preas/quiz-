@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
     </style>
 <script src="dtech_cosmetics.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="offline_mode.js"></script>
+    <script type="module" src="firebase_config.js"></script>
 </head>
 <body>
 
@@ -498,27 +498,6 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
         }
     }
 
-    function handleOfflineResult() {
-        const payload = {
-            user_id: userId,
-            subject: subject,
-            topic: currentTopic,
-            total_questions: quizQuestions.length,
-            correct_answers: correctAnswersCount,
-            timestamp: new Date().toISOString()
-        };
-
-        // Save to local storage queue
-        let offlineQueue = JSON.parse(localStorage.getItem("offlineQuizQueue") || "[]");
-        offlineQueue.push(payload);
-        localStorage.setItem("offlineQuizQueue", JSON.stringify(offlineQueue));
-
-        document.getElementById("offline-sync-notice").style.display = "block";
-        document.getElementById("xp-message-container").style.display = "none";
-
-        displayResultsUi();
-    }
-
     async function finishQuiz() {
         document.getElementById("quiz-section").style.display = "none";
         document.getElementById("loading").textContent = "Saving your results...";
@@ -564,40 +543,44 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
                 console.error('Failed to save daily progress locally', e);
             }
 
-            const response = await fetch(`${API_URL}/api/submit-quiz`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(payload)
-            });
+            // Write directly to Firebase
+            const personalXpEarned = correctAnswersCount * 5;
+            const scorePercentage = quizQuestions.length > 0 ? (correctAnswersCount / quizQuestions.length) * 100 : 0;
+            const passedThreshold = scorePercentage >= 50;
+            const normalizedSubject = subject === "mathematics" ? "math" : subject;
+            let publicXpEarned = passedThreshold ? (correctAnswersCount * 5) : 0;
 
-            if (!response.ok) {
-                // If server returns error, we might be offline or server is down.
-                // Treat as offline so user doesn't lose progress.
-                handleOfflineResult();
-                return;
+            if (window.queueFirebaseAction) {
+                window.queueFirebaseAction({
+                    action: "quiz",
+                    userId: userId,
+                    subject: normalizedSubject,
+                    personalXp: personalXpEarned,
+                    publicXp: publicXpEarned,
+                    passed: passedThreshold,
+                    date: new Date().toISOString().split('T')[0],
+                    totalQs: quizQuestions.length,
+                    correct: correctAnswersCount
+                });
             }
-
-            const data = await response.json();
 
             const publicXpMsg = document.getElementById("public-xp-message");
             const personalXpMsg = document.getElementById("personal-xp-message");
 
-            if (data.passed_threshold) {
-                publicXpMsg.textContent = `+${data.xp_earned} XP added to Public Records!`;
+            if (passedThreshold) {
+                publicXpMsg.textContent = `+${publicXpEarned} XP added to Public Records!`;
                 publicXpMsg.style.color = "var(--accent-green)";
-                personalXpMsg.textContent = `(+${data.personal_xp_earned} XP added to Personal Record)`;
+                personalXpMsg.textContent = `(+${personalXpEarned} XP added to Personal Record)`;
             } else {
                 publicXpMsg.textContent = `0 XP added to Public Records.`;
                 publicXpMsg.style.color = "var(--accent-red)";
-                personalXpMsg.innerHTML = `You scored less than 50% minimum threshold.<br>But don't worry, <strong>+${data.personal_xp_earned} XP</strong> was still added to your Personal Record!`;
+                personalXpMsg.innerHTML = `You scored less than 50% minimum threshold.<br>But don't worry, <strong>+${personalXpEarned} XP</strong> was still added to your Personal Record!`;
             }
 
             displayResultsUi();
 
         } catch (error) {
             console.error("Submit error:", error);
-            // Network error (CORS, offline, server unreachable)
-            handleOfflineResult();
         }
     }
 
