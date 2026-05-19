@@ -372,29 +372,20 @@
             const subjectsToQuery = gradeSubjects.slice(0, 2);
             const queryParams = subjectsToQuery.length > 0 ? `?subjects=${subjectsToQuery.join(',')}` : '';
 
-            const response = await fetch(`${API_URL}/api/user/${userId}${queryParams}`);
+            let data = null;
+            if (window.getCombinedUserData) {
+                data = await window.getCombinedUserData(userId);
+            } else {
+                const response = await fetch(`${API_URL}/api/user/${userId}${queryParams}`);
+                if (response.ok) {
+                    data = await response.json();
+                }
+            }
 
-            if (response.status === 401 || response.status === 404) {
+            if (!data) {
                 localStorage.removeItem("user_id");
                 window.location.href = "login.html";
                 return;
-            }
-
-            let data = await response.json();
-
-            // Initial transition strategy: Merge live Firebase data over the KV data for UI display
-            if (window.firebaseGet) {
-                try {
-                    const userRef = window.firebaseRef(window.firebaseDatabase, `users/${userId}`);
-                    const snap = await window.firebaseGet(userRef);
-                    if (snap.exists()) {
-                        const fbData = snap.val();
-                        // Merge personal XP, points, etc.
-                        data = { ...data, ...fbData, subjects_xp: { ...(data.subjects_xp || {}), ...(fbData.subjects_xp || {}) } };
-                    }
-                } catch (e) {
-                    console.error("Firebase read error", e);
-                }
             }
 
             if (data.grade) {
@@ -617,9 +608,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            const req = await fetch(`${API_URL}/api/user/${userId}`);
-            if (!req.ok) throw new Error("Failed to fetch user data");
-            const userData = await req.json();
+            let userData = null;
+            if (window.getCombinedUserData) {
+                userData = await window.getCombinedUserData(userId);
+            } else {
+                const req = await fetch(`${API_URL}/api/user/${userId}`);
+                if (!req.ok) throw new Error("Failed to fetch user data");
+                userData = await req.json();
+            }
+
+            if (!userData) throw new Error("Failed to fetch user data");
 
             // Populate static info
             const userName = `${userData.name || ''} ${userData.surname || ''}`.trim() || userData.username || 'Student';

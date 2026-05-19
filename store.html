@@ -716,9 +716,14 @@
 
     async function loadUserData() {
         try {
-            const response = await fetch(`${API_URL}/api/user/${userId}`);
-            if (response.ok) {
-                const data = await response.json();
+            let data = null;
+            if (window.getCombinedUserData) {
+                data = await window.getCombinedUserData(userId);
+            } else {
+                const response = await fetch(`${API_URL}/api/user/${userId}`);
+                if (response.ok) data = await response.json();
+            }
+            if (data) {
                 userPoints = data.dtech_points || 0;
                 unlockedItems = data.unlocked_cosmetics || [];
                 equippedItems = data.equipped_cosmetics || {};

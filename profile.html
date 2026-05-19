@@ -513,23 +513,14 @@ function showMessage(msg, isError = false) {
 
 async function loadProfile() {
     try {
-        const res = await fetch(`${API_URL}/api/user/${userId}`);
-        if (!res.ok) throw new Error("Failed to load profile");
-        let data = await res.json();
-
-        // Initial transition strategy: Merge live Firebase data over the KV data for UI display
-        if (window.firebaseGet) {
-            try {
-                const userRef = window.firebaseRef(window.firebaseDatabase, `users/${userId}`);
-                const snap = await window.firebaseGet(userRef);
-                if (snap.exists()) {
-                    const fbData = snap.val();
-                    data = { ...data, ...fbData };
-                }
-            } catch (e) {
-                console.error("Firebase read error", e);
-            }
+        let data = null;
+        if (window.getCombinedUserData) {
+            data = await window.getCombinedUserData(userId);
+        } else {
+            const res = await fetch(`${API_URL}/api/user/${userId}`);
+            if (res.ok) data = await res.json();
         }
+        if (!data) throw new Error("Failed to load profile");
 
         if (data.grade) {
             localStorage.setItem("user_grade", data.grade);
@@ -856,9 +847,18 @@ document.getElementById("avatarInput").addEventListener("change", async (e) => {
         msg.style.color = "#f87171";
 
         try {
-            const userRes = await fetch(`${API_URL}/api/user/${userId}`);
-            const userData = await userRes.json();
-            updateAvatarDisplay(userData);
+            let userData = null;
+            if (window.getCombinedUserData) {
+                userData = await window.getCombinedUserData(userId);
+            } else {
+                const userRes = await fetch(`${API_URL}/api/user/${userId}`);
+                if (userRes.ok) userData = await userRes.json();
+            }
+            if (userData) {
+                updateAvatarDisplay(userData);
+            } else {
+                updateAvatarDisplay({ name: "", surname: "" });
+            }
         } catch {
             updateAvatarDisplay({ name: "", surname: "" });
         }

@@ -356,12 +356,15 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
 
     async function fetchUserData() {
         try {
-            const res = await fetch(`${API_URL}/api/user/${userId}`);
-            if (res.ok) {
-                const data = await res.json();
-                if (data.completed_weekly_exams) {
-                    completedExams = data.completed_weekly_exams;
-                }
+            let data = null;
+            if (window.getCombinedUserData) {
+                data = await window.getCombinedUserData(userId);
+            } else {
+                const res = await fetch(`${API_URL}/api/user/${userId}`);
+                if (res.ok) data = await res.json();
+            }
+            if (data && data.completed_weekly_exams) {
+                completedExams = data.completed_weekly_exams;
             }
         } catch (e) {
             console.error("Failed to fetch user data", e);
@@ -880,9 +883,14 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
             try {
                 const userId = localStorage.getItem('user_id');
                 if (userId) {
-                    const req = await fetch(`${API_URL}/api/user/${userId}`);
-                    if (req.ok) {
-                        const userData = await req.json();
+                    let userData = null;
+                    if (window.getCombinedUserData) {
+                        userData = await window.getCombinedUserData(userId);
+                    } else {
+                        const req = await fetch(`${API_URL}/api/user/${userId}`);
+                        if (req.ok) userData = await req.json();
+                    }
+                    if (userData) {
                         userName = `${userData.name || ''} ${userData.surname || ''}`.trim() || userData.username || 'Student';
                     }
                 }

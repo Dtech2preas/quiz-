@@ -706,9 +706,14 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
             try {
                 const userId = localStorage.getItem('user_id');
                 if (userId) {
-                    const req = await fetch(`${API_URL}/api/user/${userId}`);
-                    if (req.ok) {
-                        const userData = await req.json();
+                    let userData = null;
+                    if (window.getCombinedUserData) {
+                        userData = await window.getCombinedUserData(userId);
+                    } else {
+                        const req = await fetch(`${API_URL}/api/user/${userId}`);
+                        if (req.ok) userData = await req.json();
+                    }
+                    if (userData) {
                         userName = `${userData.name || ''} ${userData.surname || ''}`.trim() || userData.username || 'Student';
                     }
                 }
