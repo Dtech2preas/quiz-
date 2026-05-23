@@ -1,182 +1,63 @@
 [
   {
-    "id": "PHYS_AN_870",
-    "topic": "Atomic & Nuclear Physics",
-    "subtopic": "Photoelectric Effect",
-    "difficulty": "hard",
-    "question": "Light of frequency $9.72\\times 10^{+14}~\\text{Hz}$ shines on a metal with a work function of $3.86\\times 10^{-19}~\\text{J}$. Calculate the maximum kinetic energy of the emitted photoelectrons. ($h = 6.63 \\times 10^{-34}~\\text{J\\cdot s}$)",
-    "correct_answer": "2.58\\times 10^{-19}~\\text{J}",
+    "id": "CHEM_KIN_566",
+    "topic": "Chemical Kinetics & Equilibrium",
+    "subtopic": "Reaction Rates",
+    "difficulty": "medium",
+    "question": "In a reaction, $92~\\text{cm}^3$ of hydrogen gas is produced in $21~\\text{s}$. Calculate the rate of production of hydrogen gas.",
+    "correct_answer": "4.38~\\text{cm}^3/\\text{s}",
     "wrong_answers_pool": [
-      "2.58\\times 10^{-18}~\\text{J}",
-      "2.58\\times 10^{-20}~\\text{J}",
-      "5.17\\times 10^{-19}~\\text{J}",
-      "1.29\\times 10^{-19}~\\text{J}",
-      "1.03\\times 10^{-18}~\\text{J}",
-      "6.45\\times 10^{-19}~\\text{J}",
-      "3.86\\times 10^{-19}~\\text{J}"
+      "0.44~\\text{cm}^3/\\text{s}",
+      "2.19~\\text{cm}^3/\\text{s}",
+      "3.85~\\text{cm}^3/\\text{s}",
+      "4.97~\\text{cm}^3/\\text{s}",
+      "5.43~\\text{cm}^3/\\text{s}",
+      "2.77~\\text{cm}^3/\\text{s}",
+      "7.55~\\text{cm}^3/\\text{s}",
+      "8.76~\\text{cm}^3/\\text{s}"
     ],
-    "explanation": "Using $E = W_0 + K_{\\max} \\Rightarrow K_{\\max} = hf - W_0 = (6.63 \\times 10^{-34})(9.72\\times 10^{+14}) - 3.86\\times 10^{-19} = 2.58\\times 10^{-19}~\\text{J}$.",
+    "explanation": "Rate = $\\frac{\\Delta V}{\\Delta t} = \\frac{92}{21} = 4.38~\\text{cm}^3/\\text{s}$.",
     "exam_id": "EXAM_2026-W21_grade12_physics_paper2_1"
   },
   {
-    "id": "CHEM_ELEC_863",
-    "topic": "Electrochemistry",
-    "subtopic": "Faraday's Laws",
-    "difficulty": "medium",
-    "question": "Calculate the number of moles of electrons transferred when a charge of $11711.83~\\text{C}$ passes through a cell. (Faraday's constant $F = 96485~\\text{C/mol}$)",
-    "correct_answer": "0.121~\\text{mol}",
+    "id": "CHEM_STO_071",
+    "topic": "Stoichiometry & Chemical Calculations",
+    "subtopic": "Limiting Reactant",
+    "difficulty": "hard",
+    "question": "For the reaction $2\\text{A} + 3\\text{B} \\rightarrow \\text{Products}$, you have $1.9~\\text{mol}$ of A and $1.94~\\text{mol}$ of B. Calculate the moles of the excess reactant remaining after the reaction goes to completion.",
+    "correct_answer": "0.61~\\text{mol}",
     "wrong_answers_pool": [
-      "0.243~\\text{mol}",
-      "1.214~\\text{mol}",
-      "0.061~\\text{mol}",
-      "-0.121~\\text{mol}",
-      "0.319~\\text{mol}",
-      "0.475~\\text{mol}",
-      "0.194~\\text{mol}",
-      "0.737~\\text{mol}"
+      "0.3~\\text{mol}",
+      "1.22~\\text{mol}",
+      "-0.61~\\text{mol}",
+      "1.35~\\text{mol}",
+      "1.34~\\text{mol}",
+      "0.31~\\text{mol}",
+      "6.09~\\text{mol}",
+      "1.7~\\text{mol}"
     ],
-    "explanation": "Using $n_e = \\frac{Q}{F} = \\frac{11711.83}{96485} \\approx 0.121~\\text{mol}$.",
+    "explanation": "Limiting is B. Moles of A used = $\\frac{2}{3} \\times 1.94 = 1.29~\\text{mol}$. Remaining = $1.9 - 1.29 = 0.61~\\text{mol}$.",
     "exam_id": "EXAM_2026-W21_grade12_physics_paper2_2"
   },
   {
-    "id": "CHEM_ELEC_601",
-    "topic": "Electrochemistry",
-    "subtopic": "Faraday's Laws",
-    "difficulty": "medium",
-    "question": "Calculate the number of moles of electrons transferred when a charge of $7725.38~\\text{C}$ passes through a cell. (Faraday's constant $F = 96485~\\text{C/mol}$)",
-    "correct_answer": "0.08~\\text{mol}",
-    "wrong_answers_pool": [
-      "0.16~\\text{mol}",
-      "0.801~\\text{mol}",
-      "-0.08~\\text{mol}",
-      "0.852~\\text{mol}",
-      "0.579~\\text{mol}",
-      "0.832~\\text{mol}",
-      "1.08~\\text{mol}",
-      "0.087~\\text{mol}"
-    ],
-    "explanation": "Using $n_e = \\frac{Q}{F} = \\frac{7725.38}{96485} \\approx 0.08~\\text{mol}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_3"
-  },
-  {
-    "id": "CHEM_AB_637",
-    "topic": "Acids, Bases & Salts",
-    "subtopic": "Titration",
-    "difficulty": "medium",
-    "question": "In a titration, $10~\\text{cm}^3$ of $0.1~\\text{mol/dm}^3$ $\\text{H}_2\\text{SO}_4$ is exactly neutralized by $16.9~\\text{cm}^3$ of $\\text{NaOH}$ solution. Calculate the concentration of the $\\text{NaOH}$ solution.",
-    "correct_answer": "0.12~\\text{mol/dm}^3",
-    "wrong_answers_pool": [
-      "0.24~\\text{mol/dm}^3",
-      "1.18~\\text{mol/dm}^3",
-      "0.06~\\text{mol/dm}^3",
-      "-0.12~\\text{mol/dm}^3",
-      "0.56~\\text{mol/dm}^3",
-      "0.75~\\text{mol/dm}^3",
-      "1.05~\\text{mol/dm}^3",
-      "0.22~\\text{mol/dm}^3"
-    ],
-    "explanation": "Using $\\frac{c_a v_a}{n_a} = \\frac{c_b v_b}{n_b} \\Rightarrow \\frac{(0.1)(10)}{1} = \\frac{c_b(16.9)}{2} \\Rightarrow c_b = \\frac{2(0.1)(10)}{16.9} = 0.12~\\text{mol/dm}^3$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_4"
-  },
-  {
-    "id": "CHEM_AB_136",
-    "topic": "Acids, Bases & Salts",
-    "subtopic": "Titration",
-    "difficulty": "medium",
-    "question": "In a titration, $25~\\text{cm}^3$ of $0.2~\\text{mol/dm}^3$ $\\text{H}_2\\text{SO}_4$ is exactly neutralized by $20.04~\\text{cm}^3$ of $\\text{NaOH}$ solution. Calculate the concentration of the $\\text{NaOH}$ solution.",
-    "correct_answer": "0.5~\\text{mol/dm}^3",
-    "wrong_answers_pool": [
-      "1~\\text{mol/dm}^3",
-      "0.25~\\text{mol/dm}^3",
-      "0.05~\\text{mol/dm}^3",
-      "-0.5~\\text{mol/dm}^3",
-      "4.99~\\text{mol/dm}^3",
-      "1.64~\\text{mol/dm}^3",
-      "0.34~\\text{mol/dm}^3",
-      "1.36~\\text{mol/dm}^3"
-    ],
-    "explanation": "Using $\\frac{c_a v_a}{n_a} = \\frac{c_b v_b}{n_b} \\Rightarrow \\frac{(0.2)(25)}{1} = \\frac{c_b(20.04)}{2} \\Rightarrow c_b = \\frac{2(0.2)(25)}{20.04} = 0.5~\\text{mol/dm}^3$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_5"
-  },
-  {
-    "id": "CHEM_BND_467",
-    "topic": "Chemical Bonding & Structure",
-    "subtopic": "Electronegativity",
-    "difficulty": "hard",
-    "question": "The electronegativity difference between Atom P and Atom Q is $1.3$. If Atom P is the more electronegative atom with an electronegativity of $3.9$, what is the electronegativity of Atom Q?",
-    "correct_answer": "2.6",
-    "wrong_answers_pool": [
-      "0.3~\\text{}",
-      "1.3~\\text{}",
-      "1.9~\\text{}",
-      "2.7~\\text{}",
-      "4.4~\\text{}",
-      "5.2~\\text{}",
-      "3.7~\\text{}",
-      "2.1~\\text{}"
-    ],
-    "explanation": "$\\Delta EN = EN_P - EN_Q \\Rightarrow 1.3 = 3.9 - EN_Q \\Rightarrow EN_Q = 2.6$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_6"
-  },
-  {
-    "id": "CHEM_KIN_110",
+    "id": "CHEM_KIN_051",
     "topic": "Chemical Kinetics & Equilibrium",
-    "subtopic": "Reaction Rates",
+    "subtopic": "Equilibrium Constant (Kc)",
     "difficulty": "hard",
-    "question": "A reaction produces $\\text{CO}_2$ gas ($M = 44.0~\\text{g/mol}$). If $0.036~\\text{moles}$ of $\\text{CO}_2$ are produced in $38~\\text{s}$, calculate the rate of reaction in $\\text{g/s}$.",
-    "correct_answer": "0.0418~\\text{g/s}",
+    "question": "For the reaction $\\text{A}(g) + \\text{B}(g) \\rightleftharpoons 2\\text{C}(g)$, the equilibrium constant is $K_c = 71$. If equilibrium concentrations of A and B are $0.42~\\text{M}$ and $0.35~\\text{M}$ respectively, calculate the equilibrium concentration of C.",
+    "correct_answer": "3.23~\\text{M}",
     "wrong_answers_pool": [
-      "0.0836~\\text{g/s}",
-      "0.4181~\\text{g/s}",
-      "0.5211~\\text{g/s}",
-      "0.6674~\\text{g/s}",
-      "0.4697~\\text{g/s}",
-      "0.7282~\\text{g/s}",
-      "0.4465~\\text{g/s}",
-      "0.2295~\\text{g/s}"
+      "32.32~\\text{M}",
+      "1.62~\\text{M}",
+      "0.32~\\text{M}",
+      "2.59~\\text{M}",
+      "3.77~\\text{M}",
+      "5.65~\\text{M}",
+      "6.46~\\text{M}",
+      "5.36~\\text{M}"
     ],
-    "explanation": "Mass of $\\text{CO}_2$ = $n \\times M = (0.036)(44.0) = 1.59~\\text{g}$. Rate = $\\frac{\\Delta m}{\\Delta t} = \\frac{1.59}{38} = 0.0418~\\text{g/s}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_7"
-  },
-  {
-    "id": "PHYS_AN_363",
-    "topic": "Atomic & Nuclear Physics",
-    "subtopic": "Radioactivity",
-    "difficulty": "medium",
-    "question": "A sample of a radioactive substance initially contains $155~\\text{g}$. After $220~\\text{days}$, $4.84~\\text{g}$ remains. Calculate the half-life of the substance.",
-    "correct_answer": "44~\\text{days}",
-    "wrong_answers_pool": [
-      "34~\\text{days}",
-      "35~\\text{days}",
-      "36~\\text{days}",
-      "42~\\text{days}",
-      "43~\\text{days}",
-      "45~\\text{days}",
-      "47~\\text{days}",
-      "48~\\text{days}"
-    ],
-    "explanation": "Using $N(t) = N_0 \\left(\\frac{1}{2}\\right)^{\\frac{t}{T_{1/2}}} \\Rightarrow 4.84 = 155 \\left(\\frac{1}{2}\\right)^{\\frac{220}{T_{1/2}}} \\Rightarrow \\left(\\frac{1}{2}\\right)^{\\frac{220}{T_{1/2}}} = 0.0312 \\Rightarrow \\frac{220}{T_{1/2}} = 5.0 \\Rightarrow T_{1/2} = 44~\\text{days}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_8"
-  },
-  {
-    "id": "CHEM_ELEC_460",
-    "topic": "Electrochemistry",
-    "subtopic": "Faraday's Laws",
-    "difficulty": "hard",
-    "question": "A current of $1.57~\\text{A}$ is passed through a solution containing $\\text{Cu}^{2+}$ ions for $28~\\text{minutes}$. Calculate the mass of $\\text{Cu}$ deposited at the cathode. ($M_\\text{Cu} = 63.5~\\text{g/mol}$, $F = 96485~\\text{C/mol}$)",
-    "correct_answer": "0.87~\\text{g}",
-    "wrong_answers_pool": [
-      "0.43~\\text{g}",
-      "1.74~\\text{g}",
-      "0.09~\\text{g}",
-      "-0.87~\\text{g}",
-      "1.52~\\text{g}",
-      "0.77~\\text{g}",
-      "1.28~\\text{g}",
-      "1.07~\\text{g}"
-    ],
-    "explanation": "$Q = It = 2640.69~\\text{C}$. $n_e = \\frac{Q}{F} = 0.0274~\\text{mol}$. The ion requires $2~\\text{mol}$ of electrons per mole of metal, so $n_{\\text{metal}} = \\frac{0.0274}{2} = 0.0137~\\text{mol}$. Mass = $n \\times M = (0.0137)(63.5) \\approx 0.87~\\text{g}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_9"
+    "explanation": "$K_c = \\frac{[\\text{C}]^2}{[\\text{A}][\\text{B}]} \\Rightarrow 71 = \\frac{[\\text{C}]^2}{(0.42)(0.35)}$. So $[\\text{C}] = \\sqrt{71 \\times 0.42 \\times 0.35} = 3.23~\\text{M}$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_3"
   },
   {
     "id": "CHEM_KIN_553",
@@ -196,799 +77,919 @@
       "7.67~\\text{M}"
     ],
     "explanation": "$K_c = \\frac{[\\text{C}]^2}{[\\text{A}][\\text{B}]} \\Rightarrow 44 = \\frac{[\\text{C}]^2}{(0.72)(0.47)}$. So $[\\text{C}] = \\sqrt{44 \\times 0.72 \\times 0.47} = 3.83~\\text{M}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_10"
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_4"
   },
   {
-    "id": "CHEM_KIN_273",
-    "topic": "Chemical Kinetics & Equilibrium",
-    "subtopic": "Equilibrium Constant (Kc)",
-    "difficulty": "medium",
-    "question": "For the reaction $\\text{N}_2(g) + 3\\text{H}_2(g) \\rightleftharpoons 2\\text{NH}_3(g)$, equilibrium concentrations are: $[\\text{N}_2] = 0.9~\\text{M}$, $[\\text{H}_2] = 0.49~\\text{M}$, $[\\text{NH}_3] = 1.27~\\text{M}$. Calculate $K_c$.",
-    "correct_answer": "15.45",
-    "wrong_answers_pool": [
-      "1.54",
-      "5.45",
-      "7.72",
-      "7.97",
-      "14.11",
-      "15.14",
-      "-15.45",
-      "21.64"
-    ],
-    "explanation": "$K_c = \\frac{[\\text{NH}_3]^2}{[\\text{N}_2][\\text{H}_2]^3} = \\frac{1.27^2}{(0.9)(0.49)^3} = 15.45$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_11"
-  },
-  {
-    "id": "PHYS_AN_601",
-    "topic": "Atomic & Nuclear Physics",
-    "subtopic": "Radioactivity",
-    "difficulty": "medium",
-    "question": "A sample of a radioactive substance initially contains $179~\\text{g}$. After $30~\\text{days}$, $44.75~\\text{g}$ remains. Calculate the half-life of the substance.",
-    "correct_answer": "15~\\text{days}",
-    "wrong_answers_pool": [
-      "5~\\text{days}",
-      "7~\\text{days}",
-      "9~\\text{days}",
-      "10~\\text{days}",
-      "11~\\text{days}",
-      "13~\\text{days}",
-      "14~\\text{days}",
-      "-15~\\text{days}"
-    ],
-    "explanation": "Using $N(t) = N_0 \\left(\\frac{1}{2}\\right)^{\\frac{t}{T_{1/2}}} \\Rightarrow 44.75 = 179 \\left(\\frac{1}{2}\\right)^{\\frac{30}{T_{1/2}}} \\Rightarrow \\left(\\frac{1}{2}\\right)^{\\frac{30}{T_{1/2}}} = 0.25 \\Rightarrow \\frac{30}{T_{1/2}} = 2.0 \\Rightarrow T_{1/2} = 15~\\text{days}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_12"
-  },
-  {
-    "id": "CHEM_AB_125",
-    "topic": "Acids, Bases & Salts",
-    "subtopic": "Titration",
-    "difficulty": "hard",
-    "question": "A $0.81~\\text{g}$ sample of impure solid $\\text{NaOH}$ ($M = 40.0~\\text{g/mol}$) is dissolved and completely neutralizes $20~\\text{cm}^3$ of $\\text{HCl}$ solution with unknown concentration. Assuming the impurity does not react, calculate the concentration of the $\\text{HCl}$ if the sample was 100% pure.",
-    "correct_answer": "1.01~\\text{mol/dm}^3",
-    "wrong_answers_pool": [
-      "0.51~\\text{mol/dm}^3",
-      "0.1~\\text{mol/dm}^3",
-      "2.03~\\text{mol/dm}^3",
-      "1.73~\\text{mol/dm}^3",
-      "0.65~\\text{mol/dm}^3",
-      "0.96~\\text{mol/dm}^3",
-      "1.42~\\text{mol/dm}^3",
-      "0.81~\\text{mol/dm}^3"
-    ],
-    "explanation": "Moles of $\\text{NaOH} = \\frac{0.81}{40.0} = 0.0203~\\text{mol}$. Moles of $\\text{HCl}$ = Moles of $\\text{NaOH} = 0.0203$. $C_{\\text{HCl}} = \\frac{n}{V} = \\frac{0.0203}{0.02} = 1.01~\\text{mol/dm}^3$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_13"
-  },
-  {
-    "id": "CHEM_KIN_277",
-    "topic": "Chemical Kinetics & Equilibrium",
-    "subtopic": "Equilibrium Constant (Kc)",
-    "difficulty": "hard",
-    "question": "For the reaction $\\text{A}(g) + \\text{B}(g) \\rightleftharpoons 2\\text{C}(g)$, the equilibrium constant is $K_c = 78$. If equilibrium concentrations of A and B are $0.51~\\text{M}$ and $0.33~\\text{M}$ respectively, calculate the equilibrium concentration of C.",
-    "correct_answer": "3.62~\\text{M}",
-    "wrong_answers_pool": [
-      "0.36~\\text{M}",
-      "1.81~\\text{M}",
-      "2.39~\\text{M}",
-      "3.83~\\text{M}",
-      "36.18~\\text{M}",
-      "5.81~\\text{M}",
-      "5.44~\\text{M}",
-      "7.24~\\text{M}"
-    ],
-    "explanation": "$K_c = \\frac{[\\text{C}]^2}{[\\text{A}][\\text{B}]} \\Rightarrow 78 = \\frac{[\\text{C}]^2}{(0.51)(0.33)}$. So $[\\text{C}] = \\sqrt{78 \\times 0.51 \\times 0.33} = 3.62~\\text{M}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_14"
-  },
-  {
-    "id": "CHEM_AB_232",
-    "topic": "Acids, Bases & Salts",
-    "subtopic": "Titration",
-    "difficulty": "medium",
-    "question": "In a titration, $25~\\text{cm}^3$ of $0.1~\\text{mol/dm}^3$ $\\text{H}_2\\text{SO}_4$ is exactly neutralized by $23.76~\\text{cm}^3$ of $\\text{NaOH}$ solution. Calculate the concentration of the $\\text{NaOH}$ solution.",
-    "correct_answer": "0.21~\\text{mol/dm}^3",
-    "wrong_answers_pool": [
-      "0.42~\\text{mol/dm}^3",
-      "0.11~\\text{mol/dm}^3",
-      "2.1~\\text{mol/dm}^3",
-      "0.02~\\text{mol/dm}^3",
-      "-0.21~\\text{mol/dm}^3",
-      "1.25~\\text{mol/dm}^3",
-      "0.54~\\text{mol/dm}^3",
-      "0.5~\\text{mol/dm}^3"
-    ],
-    "explanation": "Using $\\frac{c_a v_a}{n_a} = \\frac{c_b v_b}{n_b} \\Rightarrow \\frac{(0.1)(25)}{1} = \\frac{c_b(23.76)}{2} \\Rightarrow c_b = \\frac{2(0.1)(25)}{23.76} = 0.21~\\text{mol/dm}^3$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_15"
-  },
-  {
-    "id": "CHEM_STO_435",
-    "topic": "Stoichiometry & Chemical Calculations",
-    "subtopic": "Concentration",
-    "difficulty": "medium",
-    "question": "Calculate the concentration of a solution prepared by dissolving $20.12~\\text{g}$ of a solute ($M = 100~\\text{g/mol}$) in water to make a total volume of $1.31~\\text{dm}^3$.",
-    "correct_answer": "0.15~\\text{mol/dm}^3",
-    "wrong_answers_pool": [
-      "0.31~\\text{mol/dm^3}",
-      "1.53~\\text{mol/dm^3}",
-      "0.08~\\text{mol/dm^3}",
-      "-0.15~\\text{mol/dm^3}",
-      "1.12~\\text{mol/dm^3}",
-      "0.37~\\text{mol/dm^3}",
-      "0.46~\\text{mol/dm^3}",
-      "1.17~\\text{mol/dm^3}"
-    ],
-    "explanation": "Moles $n = \\frac{m}{M} = \\frac{20.12}{100} = 0.2~\\text{mol}$. Concentration $c = \\frac{n}{V} = \\frac{0.2}{1.31} = 0.15~\\text{mol/dm}^3$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_16"
-  },
-  {
-    "id": "CHEM_KIN_288",
-    "topic": "Chemical Kinetics & Equilibrium",
-    "subtopic": "Reaction Rates",
-    "difficulty": "medium",
-    "question": "In a reaction, $100~\\text{cm}^3$ of hydrogen gas is produced in $43~\\text{s}$. Calculate the rate of production of hydrogen gas.",
-    "correct_answer": "2.33~\\text{cm}^3/\\text{s}",
-    "wrong_answers_pool": [
-      "0.23~\\text{cm}^3/\\text{s}",
-      "1.16~\\text{cm}^3/\\text{s}",
-      "2.22~\\text{cm}^3/\\text{s}",
-      "1.88~\\text{cm}^3/\\text{s}",
-      "4.65~\\text{cm}^3/\\text{s}",
-      "4.39~\\text{cm}^3/\\text{s}",
-      "4.17~\\text{cm}^3/\\text{s}",
-      "3.33~\\text{cm}^3/\\text{s}"
-    ],
-    "explanation": "Rate = $\\frac{\\Delta V}{\\Delta t} = \\frac{100}{43} = 2.33~\\text{cm}^3/\\text{s}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_17"
-  },
-  {
-    "id": "CHEM_ELEC_823",
-    "topic": "Electrochemistry",
-    "subtopic": "Faraday's Laws",
-    "difficulty": "hard",
-    "question": "A current of $6.98~\\text{A}$ is passed through a solution containing $\\text{Al}^{3+}$ ions for $32~\\text{minutes}$. Calculate the mass of $\\text{Al}$ deposited at the cathode. ($M_\\text{Al} = 27.0~\\text{g/mol}$, $F = 96485~\\text{C/mol}$)",
-    "correct_answer": "1.25~\\text{g}",
-    "wrong_answers_pool": [
-      "0.63~\\text{g}",
-      "0.13~\\text{g}",
-      "2.5~\\text{g}",
-      "0.75~\\text{g}",
-      "0.97~\\text{g}",
-      "1.16~\\text{g}",
-      "2.16~\\text{g}"
-    ],
-    "explanation": "$Q = It = 13406.2~\\text{C}$. $n_e = \\frac{Q}{F} = 0.1389~\\text{mol}$. The ion requires $3~\\text{mol}$ of electrons per mole of metal, so $n_{\\text{metal}} = \\frac{0.1389}{3} = 0.0463~\\text{mol}$. Mass = $n \\times M = (0.0463)(27.0) \\approx 1.25~\\text{g}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_18"
-  },
-  {
-    "id": "CHEM_BND_473",
-    "topic": "Chemical Bonding & Structure",
-    "subtopic": "Electronegativity",
-    "difficulty": "hard",
-    "question": "The electronegativity difference between Atom P and Atom Q is $1.3$. If Atom P is the more electronegative atom with an electronegativity of $3.1$, what is the electronegativity of Atom Q?",
-    "correct_answer": "1.8",
-    "wrong_answers_pool": [
-      "0.9~\\text{}",
-      "0.2~\\text{}",
-      "1.4~\\text{}",
-      "3.6~\\text{}",
-      "1~\\text{}",
-      "1.9~\\text{}",
-      "1.5~\\text{}"
-    ],
-    "explanation": "$\\Delta EN = EN_P - EN_Q \\Rightarrow 1.3 = 3.1 - EN_Q \\Rightarrow EN_Q = 1.8$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_19"
-  },
-  {
-    "id": "CHEM_STO_795",
-    "topic": "Stoichiometry & Chemical Calculations",
-    "subtopic": "Limiting Reactant",
-    "difficulty": "hard",
-    "question": "For the reaction $2\\text{A} + 3\\text{B} \\rightarrow \\text{Products}$, you have $4.94~\\text{mol}$ of A and $4.33~\\text{mol}$ of B. Calculate the moles of the excess reactant remaining after the reaction goes to completion.",
-    "correct_answer": "2.06~\\text{mol}",
-    "wrong_answers_pool": [
-      "0.21~\\text{mol}",
-      "1.03~\\text{mol}",
-      "2.07~\\text{mol}",
-      "3.96~\\text{mol}",
-      "4.12~\\text{mol}",
-      "3.83~\\text{mol}",
-      "2.66~\\text{mol}",
-      "1.15~\\text{mol}"
-    ],
-    "explanation": "Limiting is B. Moles of A used = $\\frac{2}{3} \\times 4.33 = 2.88~\\text{mol}$. Remaining = $4.94 - 2.88 = 2.06~\\text{mol}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_20"
-  },
-  {
-    "id": "CHEM_STO_609",
-    "topic": "Stoichiometry & Chemical Calculations",
-    "subtopic": "Molar Mass",
-    "difficulty": "hard",
-    "question": "Calculate the number of molecules in $51.7~\\text{g}$ of $\\text{C}_{2}\\text{H}_{6}\\text{O}_{1}$. (Molar mass = $46.08~\\text{g/mol}$, $N_A = 6.022 \\times 10^{23}~\\text{mol}^{-1}$)",
-    "correct_answer": "6.76\\times 10^{+23}",
-    "wrong_answers_pool": [
-      "6.76\\times 10^{+24}",
-      "6.76\\times 10^{+22}",
-      "3.11\\times 10^{+25}",
-      "1.47\\times 10^{+22}",
-      "1.35\\times 10^{+24}",
-      "3.38\\times 10^{+23}",
-      "3.38\\times 10^{+24}"
-    ],
-    "explanation": "Moles $n = \\frac{m}{M} = \\frac{51.7}{46.08} = 1.122$. Molecules $= n N_A = (1.122)(6.022 \\times 10^{23}) = 6.76\\times 10^{+23}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_21"
-  },
-  {
-    "id": "CHEM_BND_006",
-    "topic": "Chemical Bonding & Structure",
-    "subtopic": "Electronegativity",
-    "difficulty": "hard",
-    "question": "The electronegativity difference between Atom P and Atom Q is $0.9$. If Atom P is the more electronegative atom with an electronegativity of $4.7$, what is the electronegativity of Atom Q?",
-    "correct_answer": "3.8",
-    "wrong_answers_pool": [
-      "0.4~\\text{}",
-      "1.9~\\text{}",
-      "3~\\text{}",
-      "3.5~\\text{}",
-      "4.1~\\text{}",
-      "3.1~\\text{}",
-      "38~\\text{}",
-      "7.6~\\text{}"
-    ],
-    "explanation": "$\\Delta EN = EN_P - EN_Q \\Rightarrow 0.9 = 4.7 - EN_Q \\Rightarrow EN_Q = 3.8$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_22"
-  },
-  {
-    "id": "CHEM_STO_139",
-    "topic": "Stoichiometry & Chemical Calculations",
-    "subtopic": "Limiting Reactant",
-    "difficulty": "hard",
-    "question": "For the reaction $1\\text{A} + 2\\text{B} \\rightarrow \\text{Products}$, you have $1.11~\\text{mol}$ of A and $1.76~\\text{mol}$ of B. Calculate the moles of the excess reactant remaining after the reaction goes to completion.",
-    "correct_answer": "0.23~\\text{mol}",
-    "wrong_answers_pool": [
-      "0.45~\\text{mol}",
-      "0.11~\\text{mol}",
-      "2.27~\\text{mol}",
-      "-0.23~\\text{mol}",
-      "1.19~\\text{mol}",
-      "0.92~\\text{mol}",
-      "0.55~\\text{mol}",
-      "1.31~\\text{mol}"
-    ],
-    "explanation": "Limiting is B. Moles of A used = $\\frac{1}{2} \\times 1.76 = 0.88~\\text{mol}$. Remaining = $1.11 - 0.88 = 0.23~\\text{mol}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_23"
-  },
-  {
-    "id": "CHEM_ELEC_698",
-    "topic": "Electrochemistry",
-    "subtopic": "Faraday's Laws",
-    "difficulty": "medium",
-    "question": "Calculate the number of moles of electrons transferred when a charge of $27864.02~\\text{C}$ passes through a cell. (Faraday's constant $F = 96485~\\text{C/mol}$)",
-    "correct_answer": "0.289~\\text{mol}",
-    "wrong_answers_pool": [
-      "0.578~\\text{mol}",
-      "0.144~\\text{mol}",
-      "2.888~\\text{mol}",
-      "-0.289~\\text{mol}",
-      "1.025~\\text{mol}",
-      "1.152~\\text{mol}",
-      "1.132~\\text{mol}",
-      "1.262~\\text{mol}"
-    ],
-    "explanation": "Using $n_e = \\frac{Q}{F} = \\frac{27864.02}{96485} \\approx 0.289~\\text{mol}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_24"
-  },
-  {
-    "id": "CHEM_STO_753",
-    "topic": "Stoichiometry & Chemical Calculations",
-    "subtopic": "Moles & Mass",
-    "difficulty": "medium",
-    "question": "Calculate the volume occupied by $148.58~\\text{g}$ of a gas at STP. Its molar mass is $105~\\text{g/mol}$ and the molar volume of a gas at STP is $22.4~\\text{dm}^3\\text{/mol}$.",
-    "correct_answer": "31.7~\\text{dm}^3",
-    "wrong_answers_pool": [
-      "-31.7~\\text{dm^3}",
-      "33.01~\\text{dm^3}",
-      "3.17~\\text{dm^3}",
-      "41.7~\\text{dm^3}",
-      "45.18~\\text{dm^3}",
-      "45.04~\\text{dm^3}",
-      "15.85~\\text{dm^3}",
-      "21.7~\\text{dm^3}"
-    ],
-    "explanation": "Moles $n = \\frac{148.58}{105} = 1.42$. Volume $V = n \\times V_m = (1.42)(22.4) = 31.7~\\text{dm}^3$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_25"
-  },
-  {
-    "id": "CHEM_KIN_909",
-    "topic": "Chemical Kinetics & Equilibrium",
-    "subtopic": "Reaction Rates",
-    "difficulty": "medium",
-    "question": "In a reaction, $21~\\text{cm}^3$ of hydrogen gas is produced in $46~\\text{s}$. Calculate the rate of production of hydrogen gas.",
-    "correct_answer": "0.46~\\text{cm}^3/\\text{s}",
-    "wrong_answers_pool": [
-      "0.91~\\text{cm}^3/\\text{s}",
-      "0.23~\\text{cm}^3/\\text{s}",
-      "0.05~\\text{cm}^3/\\text{s}",
-      "-0.46~\\text{cm}^3/\\text{s}",
-      "4.57~\\text{cm}^3/\\text{s}",
-      "1.5~\\text{cm}^3/\\text{s}",
-      "1.59~\\text{cm}^3/\\text{s}",
-      "1.1~\\text{cm}^3/\\text{s}"
-    ],
-    "explanation": "Rate = $\\frac{\\Delta V}{\\Delta t} = \\frac{21}{46} = 0.46~\\text{cm}^3/\\text{s}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_26"
-  },
-  {
-    "id": "CHEM_ELEC_027",
-    "topic": "Electrochemistry",
-    "subtopic": "Faraday's Laws",
-    "difficulty": "medium",
-    "question": "Calculate the number of moles of electrons transferred when a charge of $10287.42~\\text{C}$ passes through a cell. (Faraday's constant $F = 96485~\\text{C/mol}$)",
-    "correct_answer": "0.107~\\text{mol}",
-    "wrong_answers_pool": [
-      "0.213~\\text{mol}",
-      "1.066~\\text{mol}",
-      "0.053~\\text{mol}",
-      "-0.107~\\text{mol}",
-      "0.93~\\text{mol}",
-      "0.78~\\text{mol}",
-      "0.898~\\text{mol}",
-      "0.508~\\text{mol}"
-    ],
-    "explanation": "Using $n_e = \\frac{Q}{F} = \\frac{10287.42}{96485} \\approx 0.107~\\text{mol}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_27"
-  },
-  {
-    "id": "PHYS_AN_478",
-    "topic": "Atomic & Nuclear Physics",
-    "subtopic": "Photoelectric Effect",
-    "difficulty": "hard",
-    "question": "Light of frequency $1.04\\times 10^{+15}~\\text{Hz}$ shines on a metal with a work function of $3.92\\times 10^{-19}~\\text{J}$. Calculate the maximum kinetic energy of the emitted photoelectrons. ($h = 6.63 \\times 10^{-34}~\\text{J\\cdot s}$)",
-    "correct_answer": "3.00\\times 10^{-19}~\\text{J}",
-    "wrong_answers_pool": [
-      "3.00\\times 10^{-18}~\\text{J}",
-      "3.00\\times 10^{-20}~\\text{J}",
-      "6.00\\times 10^{-19}~\\text{J}",
-      "1.50\\times 10^{-19}~\\text{J}",
-      "1.08\\times 10^{-18}~\\text{J}",
-      "6.92\\times 10^{-19}~\\text{J}",
-      "3.92\\times 10^{-19}~\\text{J}"
-    ],
-    "explanation": "Using $E = W_0 + K_{\\max} \\Rightarrow K_{\\max} = hf - W_0 = (6.63 \\times 10^{-34})(1.04\\times 10^{+15}) - 3.92\\times 10^{-19} = 3.00\\times 10^{-19}~\\text{J}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_28"
-  },
-  {
-    "id": "PHYS_AN_270",
-    "topic": "Atomic & Nuclear Physics",
-    "subtopic": "Photoelectric Effect",
-    "difficulty": "hard",
-    "question": "Light of frequency $1.12\\times 10^{+15}~\\text{Hz}$ shines on a metal with a work function of $4.00\\times 10^{-19}~\\text{J}$. Calculate the maximum kinetic energy of the emitted photoelectrons. ($h = 6.63 \\times 10^{-34}~\\text{J\\cdot s}$)",
-    "correct_answer": "3.46\\times 10^{-19}~\\text{J}",
-    "wrong_answers_pool": [
-      "3.46\\times 10^{-18}~\\text{J}",
-      "3.46\\times 10^{-20}~\\text{J}",
-      "6.91\\times 10^{-19}~\\text{J}",
-      "1.73\\times 10^{-19}~\\text{J}",
-      "1.15\\times 10^{-18}~\\text{J}",
-      "7.45\\times 10^{-19}~\\text{J}",
-      "4.00\\times 10^{-19}~\\text{J}"
-    ],
-    "explanation": "Using $E = W_0 + K_{\\max} \\Rightarrow K_{\\max} = hf - W_0 = (6.63 \\times 10^{-34})(1.12\\times 10^{+15}) - 4.00\\times 10^{-19} = 3.46\\times 10^{-19}~\\text{J}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_29"
-  },
-  {
-    "id": "CHEM_AB_313",
-    "topic": "Acids, Bases & Salts",
-    "subtopic": "Strong/Weak Acids & Bases",
-    "difficulty": "hard",
-    "question": "A $0.1~\\text{mol/dm}^3$ solution of $\\text{CH3COOH}$ has a pH of $2.5$. Calculate the percentage ionization of the acid.",
-    "correct_answer": "3.16\\%",
-    "wrong_answers_pool": [
-      "0.32~\\%",
-      "1.58~\\%",
-      "2.03~\\%",
-      "3.2~\\%",
-      "1.97~\\%",
-      "5.69~\\%",
-      "6.32~\\%",
-      "5.11~\\%"
-    ],
-    "explanation": "$[\\text{H}^+] = 10^{-\\text{pH}} = 10^{-2.5} = 3.16e-03$. Percentage ionization = $\\frac{[\\text{H}^+]}{0.1} \\times 100 = \\frac{3.16e-03}{0.1} \\times 100 \\approx 3.16\\%$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_30"
-  },
-  {
-    "id": "CHEM_KIN_074",
-    "topic": "Chemical Kinetics & Equilibrium",
-    "subtopic": "Equilibrium Constant (Kc)",
-    "difficulty": "medium",
-    "question": "For the reaction $\\text{N}_2(g) + 3\\text{H}_2(g) \\rightleftharpoons 2\\text{NH}_3(g)$, equilibrium concentrations are: $[\\text{N}_2] = 0.9~\\text{M}$, $[\\text{H}_2] = 0.25~\\text{M}$, $[\\text{NH}_3] = 0.85~\\text{M}$. Calculate $K_c$.",
-    "correct_answer": "49.15",
-    "wrong_answers_pool": [
-      "64.59",
-      "98.29",
-      "34.57",
-      "4.91",
-      "37.74",
-      "70.02",
-      "39.15",
-      "491.46"
-    ],
-    "explanation": "$K_c = \\frac{[\\text{NH}_3]^2}{[\\text{N}_2][\\text{H}_2]^3} = \\frac{0.85^2}{(0.9)(0.25)^3} = 49.15$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_31"
-  },
-  {
-    "id": "CHEM_AB_210",
-    "topic": "Acids, Bases & Salts",
-    "subtopic": "Titration",
-    "difficulty": "medium",
-    "question": "In a titration, $25~\\text{cm}^3$ of $0.2~\\text{mol/dm}^3$ $\\text{H}_2\\text{SO}_4$ is exactly neutralized by $24.15~\\text{cm}^3$ of $\\text{NaOH}$ solution. Calculate the concentration of the $\\text{NaOH}$ solution.",
-    "correct_answer": "0.41~\\text{mol/dm}^3",
-    "wrong_answers_pool": [
-      "0.83~\\text{mol/dm}^3",
-      "0.21~\\text{mol/dm}^3",
-      "0.04~\\text{mol/dm}^3",
-      "-0.41~\\text{mol/dm}^3",
-      "4.14~\\text{mol/dm}^3",
-      "1.56~\\text{mol/dm}^3",
-      "1.15~\\text{mol/dm}^3",
-      "0.39~\\text{mol/dm}^3"
-    ],
-    "explanation": "Using $\\frac{c_a v_a}{n_a} = \\frac{c_b v_b}{n_b} \\Rightarrow \\frac{(0.2)(25)}{1} = \\frac{c_b(24.15)}{2} \\Rightarrow c_b = \\frac{2(0.2)(25)}{24.15} = 0.41~\\text{mol/dm}^3$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_32"
-  },
-  {
-    "id": "CHEM_ELEC_015",
-    "topic": "Electrochemistry",
-    "subtopic": "Faraday's Laws",
-    "difficulty": "medium",
-    "question": "Calculate the number of moles of electrons transferred when a charge of $9628.48~\\text{C}$ passes through a cell. (Faraday's constant $F = 96485~\\text{C/mol}$)",
-    "correct_answer": "0.1~\\text{mol}",
-    "wrong_answers_pool": [
-      "0.2~\\text{mol}",
-      "0.998~\\text{mol}",
-      "0.05~\\text{mol}",
-      "0.01~\\text{mol}",
-      "-0.1~\\text{mol}",
-      "1.137~\\text{mol}",
-      "1.049~\\text{mol}",
-      "0.955~\\text{mol}"
-    ],
-    "explanation": "Using $n_e = \\frac{Q}{F} = \\frac{9628.48}{96485} \\approx 0.1~\\text{mol}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_33"
-  },
-  {
-    "id": "PHYS_AN_643",
-    "topic": "Atomic & Nuclear Physics",
-    "subtopic": "Radioactivity",
-    "difficulty": "medium",
-    "question": "A sample of a radioactive substance initially contains $888~\\text{g}$. After $138~\\text{days}$, $111~\\text{g}$ remains. Calculate the half-life of the substance.",
-    "correct_answer": "46~\\text{days}",
-    "wrong_answers_pool": [
-      "36~\\text{days}",
-      "37~\\text{days}",
-      "45~\\text{days}",
-      "47~\\text{days}",
-      "48~\\text{days}",
-      "-46~\\text{days}",
-      "52~\\text{days}",
-      "53~\\text{days}"
-    ],
-    "explanation": "Using $N(t) = N_0 \\left(\\frac{1}{2}\\right)^{\\frac{t}{T_{1/2}}} \\Rightarrow 111 = 888 \\left(\\frac{1}{2}\\right)^{\\frac{138}{T_{1/2}}} \\Rightarrow \\left(\\frac{1}{2}\\right)^{\\frac{138}{T_{1/2}}} = 0.125 \\Rightarrow \\frac{138}{T_{1/2}} = 3.0 \\Rightarrow T_{1/2} = 46~\\text{days}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_34"
-  },
-  {
-    "id": "CHEM_ELEC_021",
-    "topic": "Electrochemistry",
-    "subtopic": "Faraday's Laws",
-    "difficulty": "medium",
-    "question": "Calculate the number of moles of electrons transferred when a charge of $16245.27~\\text{C}$ passes through a cell. (Faraday's constant $F = 96485~\\text{C/mol}$)",
-    "correct_answer": "0.168~\\text{mol}",
-    "wrong_answers_pool": [
-      "0.337~\\text{mol}",
-      "1.684~\\text{mol}",
-      "0.084~\\text{mol}",
-      "-0.168~\\text{mol}",
-      "0.671~\\text{mol}",
-      "0.369~\\text{mol}",
-      "0.129~\\text{mol}",
-      "0.682~\\text{mol}"
-    ],
-    "explanation": "Using $n_e = \\frac{Q}{F} = \\frac{16245.27}{96485} \\approx 0.168~\\text{mol}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_35"
-  },
-  {
-    "id": "CHEM_ELEC_276",
-    "topic": "Electrochemistry",
-    "subtopic": "Faraday's Laws",
-    "difficulty": "hard",
-    "question": "A current of $9.08~\\text{A}$ is passed through a solution containing $\\text{Cu}^{2+}$ ions for $36~\\text{minutes}$. Calculate the mass of $\\text{Cu}$ deposited at the cathode. ($M_\\text{Cu} = 63.5~\\text{g/mol}$, $F = 96485~\\text{C/mol}$)",
-    "correct_answer": "6.46~\\text{g}",
-    "wrong_answers_pool": [
-      "64.55~\\text{g}",
-      "0.65~\\text{g}",
-      "3.23~\\text{g}",
-      "5.23~\\text{g}",
-      "5.21~\\text{g}",
-      "7.92~\\text{g}",
-      "7.46~\\text{g}",
-      "9.19~\\text{g}"
-    ],
-    "explanation": "$Q = It = 19617.41~\\text{C}$. $n_e = \\frac{Q}{F} = 0.2033~\\text{mol}$. The ion requires $2~\\text{mol}$ of electrons per mole of metal, so $n_{\\text{metal}} = \\frac{0.2033}{2} = 0.1017~\\text{mol}$. Mass = $n \\times M = (0.1017)(63.5) \\approx 6.46~\\text{g}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_36"
-  },
-  {
-    "id": "CHEM_KIN_282",
-    "topic": "Chemical Kinetics & Equilibrium",
-    "subtopic": "Reaction Rates",
-    "difficulty": "medium",
-    "question": "In a reaction, $98~\\text{cm}^3$ of hydrogen gas is produced in $31~\\text{s}$. Calculate the rate of production of hydrogen gas.",
-    "correct_answer": "3.16~\\text{cm}^3/\\text{s}",
-    "wrong_answers_pool": [
-      "0.32~\\text{cm}^3/\\text{s}",
-      "1.58~\\text{cm}^3/\\text{s}",
-      "1.87~\\text{cm}^3/\\text{s}",
-      "3.49~\\text{cm}^3/\\text{s}",
-      "4.42~\\text{cm}^3/\\text{s}",
-      "2.9~\\text{cm}^3/\\text{s}",
-      "6.32~\\text{cm}^3/\\text{s}",
-      "2.95~\\text{cm}^3/\\text{s}"
-    ],
-    "explanation": "Rate = $\\frac{\\Delta V}{\\Delta t} = \\frac{98}{31} = 3.16~\\text{cm}^3/\\text{s}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_37"
-  },
-  {
-    "id": "PHYS_AN_994",
-    "topic": "Atomic & Nuclear Physics",
-    "subtopic": "Radioactivity",
-    "difficulty": "medium",
-    "question": "A sample of a radioactive substance initially contains $421~\\text{g}$. After $69~\\text{days}$, $52.62~\\text{g}$ remains. Calculate the half-life of the substance.",
-    "correct_answer": "23~\\text{days}",
-    "wrong_answers_pool": [
-      "33~\\text{days}",
-      "-23~\\text{days}",
-      "11~\\text{days}",
-      "13~\\text{days}",
-      "46~\\text{days}",
-      "18~\\text{days}",
-      "20~\\text{days}",
-      "21~\\text{days}"
-    ],
-    "explanation": "Using $N(t) = N_0 \\left(\\frac{1}{2}\\right)^{\\frac{t}{T_{1/2}}} \\Rightarrow 52.62 = 421 \\left(\\frac{1}{2}\\right)^{\\frac{69}{T_{1/2}}} \\Rightarrow \\left(\\frac{1}{2}\\right)^{\\frac{69}{T_{1/2}}} = 0.125 \\Rightarrow \\frac{69}{T_{1/2}} = 3.0 \\Rightarrow T_{1/2} = 23~\\text{days}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_38"
-  },
-  {
-    "id": "CHEM_KIN_968",
-    "topic": "Chemical Kinetics & Equilibrium",
-    "subtopic": "Reaction Rates",
-    "difficulty": "hard",
-    "question": "A reaction produces $\\text{CO}_2$ gas ($M = 44.0~\\text{g/mol}$). If $0.074~\\text{moles}$ of $\\text{CO}_2$ are produced in $48~\\text{s}$, calculate the rate of reaction in $\\text{g/s}$.",
-    "correct_answer": "0.0679~\\text{g/s}",
-    "wrong_answers_pool": [
-      "0.1358~\\text{g/s}",
-      "0.679~\\text{g/s}",
-      "-0.0679~\\text{g/s}",
-      "0.1223~\\text{g/s}",
-      "0.0565~\\text{g/s}",
-      "0.2533~\\text{g/s}",
-      "1.0086~\\text{g/s}",
-      "0.9905~\\text{g/s}"
-    ],
-    "explanation": "Mass of $\\text{CO}_2$ = $n \\times M = (0.074)(44.0) = 3.26~\\text{g}$. Rate = $\\frac{\\Delta m}{\\Delta t} = \\frac{3.26}{48} = 0.0679~\\text{g/s}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_39"
-  },
-  {
-    "id": "CHEM_KIN_728",
-    "topic": "Chemical Kinetics & Equilibrium",
-    "subtopic": "Equilibrium Constant (Kc)",
-    "difficulty": "hard",
-    "question": "For the reaction $\\text{A}(g) + \\text{B}(g) \\rightleftharpoons 2\\text{C}(g)$, the equilibrium constant is $K_c = 41$. If equilibrium concentrations of A and B are $0.86~\\text{M}$ and $0.19~\\text{M}$ respectively, calculate the equilibrium concentration of C.",
-    "correct_answer": "2.57~\\text{M}",
-    "wrong_answers_pool": [
-      "0.26~\\text{M}",
-      "1.29~\\text{M}",
-      "2.84~\\text{M}",
-      "3.28~\\text{M}",
-      "3.17~\\text{M}",
-      "5.14~\\text{M}",
-      "1.61~\\text{M}",
-      "1.79~\\text{M}"
-    ],
-    "explanation": "$K_c = \\frac{[\\text{C}]^2}{[\\text{A}][\\text{B}]} \\Rightarrow 41 = \\frac{[\\text{C}]^2}{(0.86)(0.19)}$. So $[\\text{C}] = \\sqrt{41 \\times 0.86 \\times 0.19} = 2.57~\\text{M}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_40"
-  },
-  {
-    "id": "PHYS_AN_159",
-    "topic": "Atomic & Nuclear Physics",
-    "subtopic": "Radioactivity",
-    "difficulty": "medium",
-    "question": "A sample of a radioactive substance initially contains $817~\\text{g}$. After $70~\\text{days}$, $25.53~\\text{g}$ remains. Calculate the half-life of the substance.",
-    "correct_answer": "14~\\text{days}",
-    "wrong_answers_pool": [
-      "4~\\text{days}",
-      "7~\\text{days}",
-      "8~\\text{days}",
-      "12~\\text{days}",
-      "13~\\text{days}",
-      "15~\\text{days}",
-      "17~\\text{days}",
-      "-14~\\text{days}"
-    ],
-    "explanation": "Using $N(t) = N_0 \\left(\\frac{1}{2}\\right)^{\\frac{t}{T_{1/2}}} \\Rightarrow 25.53 = 817 \\left(\\frac{1}{2}\\right)^{\\frac{70}{T_{1/2}}} \\Rightarrow \\left(\\frac{1}{2}\\right)^{\\frac{70}{T_{1/2}}} = 0.0312 \\Rightarrow \\frac{70}{T_{1/2}} = 5.0 \\Rightarrow T_{1/2} = 14~\\text{days}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_41"
-  },
-  {
-    "id": "CHEM_STO_391",
-    "topic": "Stoichiometry & Chemical Calculations",
-    "subtopic": "Limiting Reactant",
-    "difficulty": "medium",
-    "question": "For the reaction $3\\text{A} + 3\\text{B} \\rightarrow 1\\text{C}$, you have $2.36~\\text{mol}$ of A and $3.82~\\text{mol}$ of B. Calculate the maximum moles of product C that can be formed.",
-    "correct_answer": "0.79~\\text{mol}",
-    "wrong_answers_pool": [
-      "0.39~\\text{mol}",
-      "1.57~\\text{mol}",
-      "0.08~\\text{mol}",
-      "-0.79~\\text{mol}",
-      "1.47~\\text{mol}",
-      "0.45~\\text{mol}",
-      "1.49~\\text{mol}",
-      "7.86~\\text{mol}"
-    ],
-    "explanation": "The limiting reactant is A. Moles of C = $\\frac{1}{3} \\times 2.36 = 0.79~\\text{mol}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_42"
-  },
-  {
-    "id": "PHYS_AN_886",
-    "topic": "Atomic & Nuclear Physics",
-    "subtopic": "Photoelectric Effect",
-    "difficulty": "hard",
-    "question": "Light of frequency $1.39\\times 10^{+15}~\\text{Hz}$ shines on a metal with a work function of $3.62\\times 10^{-19}~\\text{J}$. Calculate the maximum kinetic energy of the emitted photoelectrons. ($h = 6.63 \\times 10^{-34}~\\text{J\\cdot s}$)",
-    "correct_answer": "5.61\\times 10^{-19}~\\text{J}",
-    "wrong_answers_pool": [
-      "5.61\\times 10^{-18}~\\text{J}",
-      "5.61\\times 10^{-20}~\\text{J}",
-      "1.12\\times 10^{-18}~\\text{J}",
-      "2.81\\times 10^{-19}~\\text{J}",
-      "1.29\\times 10^{-18}~\\text{J}",
-      "9.24\\times 10^{-19}~\\text{J}",
-      "3.62\\times 10^{-19}~\\text{J}"
-    ],
-    "explanation": "Using $E = W_0 + K_{\\max} \\Rightarrow K_{\\max} = hf - W_0 = (6.63 \\times 10^{-34})(1.39\\times 10^{+15}) - 3.62\\times 10^{-19} = 5.61\\times 10^{-19}~\\text{J}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_43"
-  },
-  {
-    "id": "CHEM_ELEC_794",
-    "topic": "Electrochemistry",
-    "subtopic": "Faraday's Laws",
-    "difficulty": "hard",
-    "question": "A current of $8.52~\\text{A}$ is passed through a solution containing $\\text{Zn}^{2+}$ ions for $48~\\text{minutes}$. Calculate the mass of $\\text{Zn}$ deposited at the cathode. ($M_\\text{Zn} = 65.4~\\text{g/mol}$, $F = 96485~\\text{C/mol}$)",
-    "correct_answer": "8.32~\\text{g}",
-    "wrong_answers_pool": [
-      "0.83~\\text{g}",
-      "4.16~\\text{g}",
-      "8.31~\\text{g}",
-      "9.31~\\text{g}",
-      "10.4~\\text{g}",
-      "11.28~\\text{g}",
-      "11.56~\\text{g}",
-      "13.18~\\text{g}"
-    ],
-    "explanation": "$Q = It = 24551.98~\\text{C}$. $n_e = \\frac{Q}{F} = 0.2545~\\text{mol}$. The ion requires $2~\\text{mol}$ of electrons per mole of metal, so $n_{\\text{metal}} = \\frac{0.2545}{2} = 0.1272~\\text{mol}$. Mass = $n \\times M = (0.1272)(65.4) \\approx 8.32~\\text{g}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_44"
-  },
-  {
-    "id": "CHEM_ELEC_927",
-    "topic": "Electrochemistry",
-    "subtopic": "Faraday's Laws",
-    "difficulty": "hard",
-    "question": "A current of $8.42~\\text{A}$ is passed through a solution containing $\\text{Ag}^{1+}$ ions for $58~\\text{minutes}$. Calculate the mass of $\\text{Ag}$ deposited at the cathode. ($M_\\text{Ag} = 107.9~\\text{g/mol}$, $F = 96485~\\text{C/mol}$)",
-    "correct_answer": "32.77~\\text{g}",
-    "wrong_answers_pool": [
-      "-32.77~\\text{g}",
-      "65.55~\\text{g}",
-      "33.04~\\text{g}",
-      "3.28~\\text{g}",
-      "327.75~\\text{g}",
-      "42.77~\\text{g}",
-      "43.54~\\text{g}",
-      "44.89~\\text{g}"
-    ],
-    "explanation": "$Q = It = 29307.37~\\text{C}$. $n_e = \\frac{Q}{F} = 0.3038~\\text{mol}$. The ion requires $1~\\text{mol}$ of electrons per mole of metal, so $n_{\\text{metal}} = \\frac{0.3038}{1} = 0.3038~\\text{mol}$. Mass = $n \\times M = (0.3038)(107.9) \\approx 32.77~\\text{g}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_45"
-  },
-  {
-    "id": "CHEM_ELEC_763",
-    "topic": "Electrochemistry",
-    "subtopic": "Faraday's Laws",
-    "difficulty": "hard",
-    "question": "A current of $9.53~\\text{A}$ is passed through a solution containing $\\text{Cu}^{2+}$ ions for $39~\\text{minutes}$. Calculate the mass of $\\text{Cu}$ deposited at the cathode. ($M_\\text{Cu} = 63.5~\\text{g/mol}$, $F = 96485~\\text{C/mol}$)",
-    "correct_answer": "7.34~\\text{g}",
-    "wrong_answers_pool": [
-      "0.73~\\text{g}",
-      "3.67~\\text{g}",
-      "3.99~\\text{g}",
-      "5.29~\\text{g}",
-      "6.09~\\text{g}",
-      "4.77~\\text{g}",
-      "8.79~\\text{g}",
-      "73.41~\\text{g}"
-    ],
-    "explanation": "$Q = It = 22307.64~\\text{C}$. $n_e = \\frac{Q}{F} = 0.2312~\\text{mol}$. The ion requires $2~\\text{mol}$ of electrons per mole of metal, so $n_{\\text{metal}} = \\frac{0.2312}{2} = 0.1156~\\text{mol}$. Mass = $n \\times M = (0.1156)(63.5) \\approx 7.34~\\text{g}$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_46"
-  },
-  {
-    "id": "CHEM_BND_554",
+    "id": "CHEM_BND_444",
     "topic": "Chemical Bonding & Structure",
     "subtopic": "Intermolecular Forces",
     "difficulty": "hard",
-    "question": "Substance A has an enthalpy of vaporization of $32~\\text{kJ/mol}$, while Substance B has an enthalpy of vaporization of $3~\\text{kJ/mol}$. Approximately how many times stronger are the intermolecular forces in A compared to B?",
-    "correct_answer": "10.7",
+    "question": "Substance A has an enthalpy of vaporization of $25~\\text{kJ/mol}$, while Substance B has an enthalpy of vaporization of $1~\\text{kJ/mol}$. Approximately how many times stronger are the intermolecular forces in A compared to B?",
+    "correct_answer": "25",
     "wrong_answers_pool": [
-      "0.7~\\text{}",
-      "1.1~\\text{}",
-      "5.3~\\text{}",
-      "8.6~\\text{}",
-      "106.7~\\text{}",
-      "10.8~\\text{}",
-      "13.3~\\text{}",
-      "13.4~\\text{}"
+      "2.5~\\text{}",
+      "35~\\text{}",
+      "-25~\\text{}",
+      "12.5~\\text{}",
+      "28.5~\\text{}",
+      "15~\\text{}",
+      "17.1~\\text{}",
+      "50~\\text{}"
     ],
-    "explanation": "Ratio $= \\frac{32}{3} = 10.7$. This reflects the relative strength of the intermolecular forces.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_47"
+    "explanation": "Ratio $= \\frac{25}{1} = 25$. This reflects the relative strength of the intermolecular forces.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_5"
   },
   {
-    "id": "CHEM_AB_444",
-    "topic": "Acids, Bases & Salts",
-    "subtopic": "Titration",
+    "id": "PHYS_AN_837",
+    "topic": "Atomic & Nuclear Physics",
+    "subtopic": "Radioactivity",
     "difficulty": "medium",
-    "question": "In a titration, $20~\\text{cm}^3$ of $0.2~\\text{mol/dm}^3$ $\\text{H}_2\\text{SO}_4$ is exactly neutralized by $25.26~\\text{cm}^3$ of $\\text{NaOH}$ solution. Calculate the concentration of the $\\text{NaOH}$ solution.",
-    "correct_answer": "0.32~\\text{mol/dm}^3",
+    "question": "A sample of a radioactive substance initially contains $708~\\text{g}$. After $65~\\text{days}$, $22.12~\\text{g}$ remains. Calculate the half-life of the substance.",
+    "correct_answer": "13~\\text{days}",
     "wrong_answers_pool": [
-      "0.63~\\text{mol/dm}^3",
-      "0.16~\\text{mol/dm}^3",
-      "-0.32~\\text{mol/dm}^3",
-      "3.17~\\text{mol/dm}^3",
-      "0.62~\\text{mol/dm}^3",
-      "0.26~\\text{mol/dm}^3",
-      "1.39~\\text{mol/dm}^3",
-      "0.96~\\text{mol/dm}^3"
+      "3~\\text{days}",
+      "5~\\text{days}",
+      "6~\\text{days}",
+      "8~\\text{days}",
+      "9~\\text{days}",
+      "10~\\text{days}",
+      "15~\\text{days}",
+      "18~\\text{days}"
     ],
-    "explanation": "Using $\\frac{c_a v_a}{n_a} = \\frac{c_b v_b}{n_b} \\Rightarrow \\frac{(0.2)(20)}{1} = \\frac{c_b(25.26)}{2} \\Rightarrow c_b = \\frac{2(0.2)(20)}{25.26} = 0.32~\\text{mol/dm}^3$.",
-    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_48"
+    "explanation": "Using $N(t) = N_0 \\left(\\frac{1}{2}\\right)^{\\frac{t}{T_{1/2}}} \\Rightarrow 22.12 = 708 \\left(\\frac{1}{2}\\right)^{\\frac{65}{T_{1/2}}} \\Rightarrow \\left(\\frac{1}{2}\\right)^{\\frac{65}{T_{1/2}}} = 0.0312 \\Rightarrow \\frac{65}{T_{1/2}} = 5.0 \\Rightarrow T_{1/2} = 13~\\text{days}$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_6"
   },
   {
-    "id": "CHEM_KIN_398",
+    "id": "CHEM_KIN_688",
     "topic": "Chemical Kinetics & Equilibrium",
     "subtopic": "Reaction Rates",
     "difficulty": "hard",
-    "question": "A reaction produces $\\text{CO}_2$ gas ($M = 44.0~\\text{g/mol}$). If $0.016~\\text{moles}$ of $\\text{CO}_2$ are produced in $13~\\text{s}$, calculate the rate of reaction in $\\text{g/s}$.",
-    "correct_answer": "0.0527~\\text{g/s}",
+    "question": "A reaction produces $\\text{CO}_2$ gas ($M = 44.0~\\text{g/mol}$). If $0.024~\\text{moles}$ of $\\text{CO}_2$ are produced in $37~\\text{s}$, calculate the rate of reaction in $\\text{g/s}$.",
+    "correct_answer": "0.029~\\text{g/s}",
     "wrong_answers_pool": [
-      "0.1053~\\text{g/s}",
-      "0.5267~\\text{g/s}",
-      "0.0263~\\text{g/s}",
-      "-0.0527~\\text{g/s}",
-      "0.701~\\text{g/s}",
-      "0.2562~\\text{g/s}",
-      "0.2258~\\text{g/s}",
-      "1.0452~\\text{g/s}"
+      "0.058~\\text{g/s}",
+      "0.2901~\\text{g/s}",
+      "0.4089~\\text{g/s}",
+      "0.8639~\\text{g/s}",
+      "0.2622~\\text{g/s}",
+      "0.0762~\\text{g/s}",
+      "0.5596~\\text{g/s}",
+      "0.1231~\\text{g/s}"
     ],
-    "explanation": "Mass of $\\text{CO}_2$ = $n \\times M = (0.016)(44.0) = 0.68~\\text{g}$. Rate = $\\frac{\\Delta m}{\\Delta t} = \\frac{0.68}{13} = 0.0527~\\text{g/s}$.",
+    "explanation": "Mass of $\\text{CO}_2$ = $n \\times M = (0.024)(44.0) = 1.07~\\text{g}$. Rate = $\\frac{\\Delta m}{\\Delta t} = \\frac{1.07}{37} = 0.029~\\text{g/s}$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_7"
+  },
+  {
+    "id": "CHEM_BND_443",
+    "topic": "Chemical Bonding & Structure",
+    "subtopic": "Intermolecular Forces",
+    "difficulty": "hard",
+    "question": "Substance A has an enthalpy of vaporization of $27~\\text{kJ/mol}$, while Substance B has an enthalpy of vaporization of $1~\\text{kJ/mol}$. Approximately how many times stronger are the intermolecular forces in A compared to B?",
+    "correct_answer": "27",
+    "wrong_answers_pool": [
+      "33.2~\\text{}",
+      "2.7~\\text{}",
+      "37~\\text{}",
+      "-27~\\text{}",
+      "13.5~\\text{}",
+      "270~\\text{}",
+      "14.4~\\text{}",
+      "17~\\text{}"
+    ],
+    "explanation": "Ratio $= \\frac{27}{1} = 27$. This reflects the relative strength of the intermolecular forces.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_8"
+  },
+  {
+    "id": "CHEM_ELEC_063",
+    "topic": "Electrochemistry",
+    "subtopic": "Faraday's Laws",
+    "difficulty": "medium",
+    "question": "Calculate the number of moles of electrons transferred when a charge of $2816.96~\\text{C}$ passes through a cell. (Faraday's constant $F = 96485~\\text{C/mol}$)",
+    "correct_answer": "0.029~\\text{mol}",
+    "wrong_answers_pool": [
+      "0.292~\\text{mol}",
+      "0.833~\\text{mol}",
+      "0.081~\\text{mol}",
+      "0.02~\\text{mol}",
+      "0.454~\\text{mol}",
+      "0.219~\\text{mol}",
+      "0.597~\\text{mol}",
+      "10.029~\\text{mol}"
+    ],
+    "explanation": "Using $n_e = \\frac{Q}{F} = \\frac{2816.96}{96485} \\approx 0.029~\\text{mol}$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_9"
+  },
+  {
+    "id": "CHEM_STO_105",
+    "topic": "Stoichiometry & Chemical Calculations",
+    "subtopic": "Molar Mass",
+    "difficulty": "medium",
+    "question": "Calculate the mass of $1.16~\\text{moles}$ of $\\text{C}_{4}\\text{H}_{10}$. (Molar mass = $58.14~\\text{g/mol}$)",
+    "correct_answer": "67.71~\\text{g}",
+    "wrong_answers_pool": [
+      "33.86~\\text{g}",
+      "65.98~\\text{g}",
+      "65.15~\\text{g}",
+      "677.11~\\text{g}",
+      "6.77~\\text{g}",
+      "135.42~\\text{g}",
+      "38.45~\\text{g}",
+      "44.14~\\text{g}"
+    ],
+    "explanation": "Using $m = nM = (1.16)(58.14) = 67.71~\\text{g}$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_10"
+  },
+  {
+    "id": "CHEM_ELEC_171",
+    "topic": "Electrochemistry",
+    "subtopic": "Faraday's Laws",
+    "difficulty": "medium",
+    "question": "Calculate the number of moles of electrons transferred when a charge of $12903.18~\\text{C}$ passes through a cell. (Faraday's constant $F = 96485~\\text{C/mol}$)",
+    "correct_answer": "0.134~\\text{mol}",
+    "wrong_answers_pool": [
+      "0.267~\\text{mol}",
+      "1.337~\\text{mol}",
+      "0.067~\\text{mol}",
+      "-0.134~\\text{mol}",
+      "0.386~\\text{mol}",
+      "0.389~\\text{mol}",
+      "1.09~\\text{mol}",
+      "0.573~\\text{mol}"
+    ],
+    "explanation": "Using $n_e = \\frac{Q}{F} = \\frac{12903.18}{96485} \\approx 0.134~\\text{mol}$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_11"
+  },
+  {
+    "id": "CHEM_AB_180",
+    "topic": "Acids, Bases & Salts",
+    "subtopic": "Titration",
+    "difficulty": "medium",
+    "question": "In a titration, $25~\\text{cm}^3$ of $0.1~\\text{mol/dm}^3$ $\\text{H}_2\\text{SO}_4$ is exactly neutralized by $15.6~\\text{cm}^3$ of $\\text{NaOH}$ solution. Calculate the concentration of the $\\text{NaOH}$ solution.",
+    "correct_answer": "0.32~\\text{mol/dm}^3",
+    "wrong_answers_pool": [
+      "0.64~\\text{mol/dm}^3",
+      "0.16~\\text{mol/dm}^3",
+      "0.03~\\text{mol/dm}^3",
+      "3.2~\\text{mol/dm}^3",
+      "-0.32~\\text{mol/dm}^3",
+      "1.25~\\text{mol/dm}^3",
+      "1.3~\\text{mol/dm}^3",
+      "0.54~\\text{mol/dm}^3"
+    ],
+    "explanation": "Using $\\frac{c_a v_a}{n_a} = \\frac{c_b v_b}{n_b} \\Rightarrow \\frac{(0.1)(25)}{1} = \\frac{c_b(15.6)}{2} \\Rightarrow c_b = \\frac{2(0.1)(25)}{15.6} = 0.32~\\text{mol/dm}^3$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_12"
+  },
+  {
+    "id": "PHYS_AN_494",
+    "topic": "Atomic & Nuclear Physics",
+    "subtopic": "Radioactivity",
+    "difficulty": "hard",
+    "question": "The decay constant of a radioactive isotope is $0.0462~\\text{days}^{-1}$. Calculate its half-life.",
+    "correct_answer": "15~\\text{days}",
+    "wrong_answers_pool": [
+      "1.5~\\text{days}",
+      "5~\\text{days}",
+      "7.5~\\text{days}",
+      "14.14~\\text{days}",
+      "15.57~\\text{days}",
+      "16.31~\\text{days}",
+      "-15~\\text{days}",
+      "17.48~\\text{days}"
+    ],
+    "explanation": "Using $\\lambda = \\frac{\\ln(2)}{T_{1/2}} \\Rightarrow T_{1/2} = \\frac{\\ln(2)}{\\lambda} = \\frac{0.693}{0.0462} \\approx 15~\\text{days}$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_13"
+  },
+  {
+    "id": "CHEM_STO_859",
+    "topic": "Stoichiometry & Chemical Calculations",
+    "subtopic": "Molar Mass",
+    "difficulty": "hard",
+    "question": "Calculate the number of molecules in $76.55~\\text{g}$ of $\\text{C}_{2}\\text{H}_{6}\\text{O}_{2}$. (Molar mass = $62.08~\\text{g/mol}$, $N_A = 6.022 \\times 10^{23}~\\text{mol}^{-1}$)",
+    "correct_answer": "7.43\\times 10^{+23}",
+    "wrong_answers_pool": [
+      "7.43\\times 10^{+24}",
+      "7.43\\times 10^{+22}",
+      "4.61\\times 10^{+25}",
+      "1.20\\times 10^{+22}",
+      "1.49\\times 10^{+24}",
+      "3.71\\times 10^{+23}",
+      "3.71\\times 10^{+24}"
+    ],
+    "explanation": "Moles $n = \\frac{m}{M} = \\frac{76.55}{62.08} = 1.233$. Molecules $= n N_A = (1.233)(6.022 \\times 10^{23}) = 7.43\\times 10^{+23}$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_14"
+  },
+  {
+    "id": "CHEM_STO_755",
+    "topic": "Stoichiometry & Chemical Calculations",
+    "subtopic": "Moles & Mass",
+    "difficulty": "medium",
+    "question": "Calculate the volume occupied by $281.9~\\text{g}$ of a gas at STP. Its molar mass is $96~\\text{g/mol}$ and the molar volume of a gas at STP is $22.4~\\text{dm}^3\\text{/mol}$.",
+    "correct_answer": "65.78~\\text{dm}^3",
+    "wrong_answers_pool": [
+      "32.89~\\text{dm^3}",
+      "131.55~\\text{dm^3}",
+      "58.33~\\text{dm^3}",
+      "67.92~\\text{dm^3}",
+      "6.58~\\text{dm^3}",
+      "75.78~\\text{dm^3}",
+      "657.76~\\text{dm^3}",
+      "81.2~\\text{dm^3}"
+    ],
+    "explanation": "Moles $n = \\frac{281.9}{96} = 2.94$. Volume $V = n \\times V_m = (2.94)(22.4) = 65.78~\\text{dm}^3$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_15"
+  },
+  {
+    "id": "CHEM_ELEC_213",
+    "topic": "Electrochemistry",
+    "subtopic": "Faraday's Laws",
+    "difficulty": "medium",
+    "question": "Calculate the number of moles of electrons transferred when a charge of $3231.28~\\text{C}$ passes through a cell. (Faraday's constant $F = 96485~\\text{C/mol}$)",
+    "correct_answer": "0.033~\\text{mol}",
+    "wrong_answers_pool": [
+      "0.067~\\text{mol}",
+      "0.335~\\text{mol}",
+      "0.017~\\text{mol}",
+      "-0.033~\\text{mol}",
+      "0.759~\\text{mol}",
+      "0.193~\\text{mol}",
+      "0.003~\\text{mol}",
+      "0.285~\\text{mol}"
+    ],
+    "explanation": "Using $n_e = \\frac{Q}{F} = \\frac{3231.28}{96485} \\approx 0.033~\\text{mol}$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_16"
+  },
+  {
+    "id": "CHEM_AB_669",
+    "topic": "Acids, Bases & Salts",
+    "subtopic": "Titration",
+    "difficulty": "hard",
+    "question": "A $1.76~\\text{g}$ sample of impure solid $\\text{NaOH}$ ($M = 40.0~\\text{g/mol}$) is dissolved and completely neutralizes $10~\\text{cm}^3$ of $\\text{HCl}$ solution with unknown concentration. Assuming the impurity does not react, calculate the concentration of the $\\text{HCl}$ if the sample was 100% pure.",
+    "correct_answer": "4.41~\\text{mol/dm}^3",
+    "wrong_answers_pool": [
+      "0.44~\\text{mol/dm}^3",
+      "2.2~\\text{mol/dm}^3",
+      "3.28~\\text{mol/dm}^3",
+      "2.48~\\text{mol/dm}^3",
+      "5.84~\\text{mol/dm}^3",
+      "2.45~\\text{mol/dm}^3",
+      "7.28~\\text{mol/dm}^3",
+      "8.82~\\text{mol/dm}^3"
+    ],
+    "explanation": "Moles of $\\text{NaOH} = \\frac{1.76}{40.0} = 0.0441~\\text{mol}$. Moles of $\\text{HCl}$ = Moles of $\\text{NaOH} = 0.0441$. $C_{\\text{HCl}} = \\frac{n}{V} = \\frac{0.0441}{0.01} = 4.41~\\text{mol/dm}^3$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_17"
+  },
+  {
+    "id": "CHEM_KIN_959",
+    "topic": "Chemical Kinetics & Equilibrium",
+    "subtopic": "Reaction Rates",
+    "difficulty": "hard",
+    "question": "A reaction produces $\\text{CO}_2$ gas ($M = 44.0~\\text{g/mol}$). If $0.096~\\text{moles}$ of $\\text{CO}_2$ are produced in $34~\\text{s}$, calculate the rate of reaction in $\\text{g/s}$.",
+    "correct_answer": "0.1241~\\text{g/s}",
+    "wrong_answers_pool": [
+      "0.2482~\\text{g/s}",
+      "1.2411~\\text{g/s}",
+      "0.0621~\\text{g/s}",
+      "-0.1241~\\text{g/s}",
+      "0.5663~\\text{g/s}",
+      "0.45~\\text{g/s}",
+      "0.3605~\\text{g/s}",
+      "0.6706~\\text{g/s}"
+    ],
+    "explanation": "Mass of $\\text{CO}_2$ = $n \\times M = (0.096)(44.0) = 4.22~\\text{g}$. Rate = $\\frac{\\Delta m}{\\Delta t} = \\frac{4.22}{34} = 0.1241~\\text{g/s}$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_18"
+  },
+  {
+    "id": "CHEM_BND_416",
+    "topic": "Chemical Bonding & Structure",
+    "subtopic": "Electronegativity",
+    "difficulty": "hard",
+    "question": "The electronegativity difference between Atom P and Atom Q is $1.5$. If Atom P is the more electronegative atom with an electronegativity of $2.5$, what is the electronegativity of Atom Q?",
+    "correct_answer": "1",
+    "wrong_answers_pool": [
+      "0.5~\\text{}",
+      "0.1~\\text{}",
+      "2~\\text{}",
+      "2.5~\\text{}",
+      "0.9~\\text{}",
+      "2.3~\\text{}",
+      "1.8~\\text{}"
+    ],
+    "explanation": "$\\Delta EN = EN_P - EN_Q \\Rightarrow 1.5 = 2.5 - EN_Q \\Rightarrow EN_Q = 1$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_19"
+  },
+  {
+    "id": "CHEM_BND_860",
+    "topic": "Chemical Bonding & Structure",
+    "subtopic": "Bond Energy",
+    "difficulty": "medium",
+    "question": "In a chemical reaction, the sum of bond energies for bonds broken is $217~\\text{kJ/mol}$ and for bonds formed is $354~\\text{kJ/mol}$. Calculate the enthalpy change ($\\Delta H$) for the reaction.",
+    "correct_answer": "-137~\\text{kJ/mol}",
+    "wrong_answers_pool": [
+      "-127~\\text{kJ/mol}",
+      "-132~\\text{kJ/mol}",
+      "137~\\text{kJ/mol}",
+      "-147~\\text{kJ/mol}",
+      "-274~\\text{kJ/mol}",
+      "-146~\\text{kJ/mol}",
+      "-145~\\text{kJ/mol}",
+      "-143~\\text{kJ/mol}"
+    ],
+    "explanation": "$\\Delta H = \\Sigma E_{\\text{broken}} - \\Sigma E_{\\text{formed}} = 217 - 354 = -137~\\text{kJ/mol}$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_20"
+  },
+  {
+    "id": "CHEM_BND_947",
+    "topic": "Chemical Bonding & Structure",
+    "subtopic": "Bond Energy",
+    "difficulty": "medium",
+    "question": "In a chemical reaction, the sum of bond energies for bonds broken is $243~\\text{kJ/mol}$ and for bonds formed is $504~\\text{kJ/mol}$. Calculate the enthalpy change ($\\Delta H$) for the reaction.",
+    "correct_answer": "-261~\\text{kJ/mol}",
+    "wrong_answers_pool": [
+      "-256~\\text{kJ/mol}",
+      "-255~\\text{kJ/mol}",
+      "-253~\\text{kJ/mol}",
+      "261~\\text{kJ/mol}",
+      "-251~\\text{kJ/mol}",
+      "-265~\\text{kJ/mol}",
+      "-271~\\text{kJ/mol}",
+      "-267~\\text{kJ/mol}"
+    ],
+    "explanation": "$\\Delta H = \\Sigma E_{\\text{broken}} - \\Sigma E_{\\text{formed}} = 243 - 504 = -261~\\text{kJ/mol}$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_21"
+  },
+  {
+    "id": "CHEM_AB_434",
+    "topic": "Acids, Bases & Salts",
+    "subtopic": "Titration",
+    "difficulty": "medium",
+    "question": "In a titration, $20~\\text{cm}^3$ of $0.05~\\text{mol/dm}^3$ $\\text{H}_2\\text{SO}_4$ is exactly neutralized by $19.02~\\text{cm}^3$ of $\\text{NaOH}$ solution. Calculate the concentration of the $\\text{NaOH}$ solution.",
+    "correct_answer": "0.11~\\text{mol/dm}^3",
+    "wrong_answers_pool": [
+      "0.21~\\text{mol/dm}^3",
+      "0.05~\\text{mol/dm}^3",
+      "1.05~\\text{mol/dm}^3",
+      "-0.11~\\text{mol/dm}^3",
+      "0.96~\\text{mol/dm}^3",
+      "0.36~\\text{mol/dm}^3",
+      "0.13~\\text{mol/dm}^3",
+      "1.11~\\text{mol/dm}^3"
+    ],
+    "explanation": "Using $\\frac{c_a v_a}{n_a} = \\frac{c_b v_b}{n_b} \\Rightarrow \\frac{(0.05)(20)}{1} = \\frac{c_b(19.02)}{2} \\Rightarrow c_b = \\frac{2(0.05)(20)}{19.02} = 0.11~\\text{mol/dm}^3$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_22"
+  },
+  {
+    "id": "CHEM_STO_434",
+    "topic": "Stoichiometry & Chemical Calculations",
+    "subtopic": "Limiting Reactant",
+    "difficulty": "medium",
+    "question": "For the reaction $3\\text{A} + 3\\text{B} \\rightarrow 1\\text{C}$, you have $1.61~\\text{mol}$ of A and $1.78~\\text{mol}$ of B. Calculate the maximum moles of product C that can be formed.",
+    "correct_answer": "0.54~\\text{mol}",
+    "wrong_answers_pool": [
+      "0.27~\\text{mol}",
+      "1.07~\\text{mol}",
+      "0.05~\\text{mol}",
+      "-0.54~\\text{mol}",
+      "0.44~\\text{mol}",
+      "5.35~\\text{mol}",
+      "1.55~\\text{mol}",
+      "1.08~\\text{mol}"
+    ],
+    "explanation": "The limiting reactant is A. Moles of C = $\\frac{1}{3} \\times 1.61 = 0.54~\\text{mol}$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_23"
+  },
+  {
+    "id": "CHEM_KIN_799",
+    "topic": "Chemical Kinetics & Equilibrium",
+    "subtopic": "Reaction Rates",
+    "difficulty": "medium",
+    "question": "In a reaction, $25~\\text{cm}^3$ of hydrogen gas is produced in $28~\\text{s}$. Calculate the rate of production of hydrogen gas.",
+    "correct_answer": "0.89~\\text{cm}^3/\\text{s}",
+    "wrong_answers_pool": [
+      "0.45~\\text{cm}^3/\\text{s}",
+      "1.79~\\text{cm}^3/\\text{s}",
+      "0.09~\\text{cm}^3/\\text{s}",
+      "-0.89~\\text{cm}^3/\\text{s}",
+      "1.32~\\text{cm}^3/\\text{s}",
+      "1.51~\\text{cm}^3/\\text{s}",
+      "1.89~\\text{cm}^3/\\text{s}",
+      "2.25~\\text{cm}^3/\\text{s}"
+    ],
+    "explanation": "Rate = $\\frac{\\Delta V}{\\Delta t} = \\frac{25}{28} = 0.89~\\text{cm}^3/\\text{s}$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_24"
+  },
+  {
+    "id": "CHEM_BND_724",
+    "topic": "Chemical Bonding & Structure",
+    "subtopic": "Bond Energy",
+    "difficulty": "medium",
+    "question": "In a chemical reaction, the sum of bond energies for bonds broken is $420~\\text{kJ/mol}$ and for bonds formed is $333~\\text{kJ/mol}$. Calculate the enthalpy change ($\\Delta H$) for the reaction.",
+    "correct_answer": "87~\\text{kJ/mol}",
+    "wrong_answers_pool": [
+      "96~\\text{kJ/mol}",
+      "97~\\text{kJ/mol}",
+      "-87~\\text{kJ/mol}",
+      "43~\\text{kJ/mol}",
+      "77~\\text{kJ/mol}",
+      "174~\\text{kJ/mol}",
+      "78~\\text{kJ/mol}",
+      "80~\\text{kJ/mol}"
+    ],
+    "explanation": "$\\Delta H = \\Sigma E_{\\text{broken}} - \\Sigma E_{\\text{formed}} = 420 - 333 = 87~\\text{kJ/mol}$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_25"
+  },
+  {
+    "id": "CHEM_AB_020",
+    "topic": "Acids, Bases & Salts",
+    "subtopic": "pH Calculations",
+    "difficulty": "medium",
+    "question": "A solution has a pH of $11.1$. Calculate the hydrogen ion concentration, $[\\text{H}^+]$.",
+    "correct_answer": "7.94\\times 10^{-12}~\\text{mol/dm}^3",
+    "wrong_answers_pool": [
+      "7.94\\times 10^{-11}~\\text{mol/dm}^3",
+      "7.94\\times 10^{-13}~\\text{mol/dm}^3",
+      "1.59\\times 10^{-11}~\\text{mol/dm}^3",
+      "3.97\\times 10^{-12}~\\text{mol/dm}^3",
+      "7.94\\times 10^{-10}~\\text{mol/dm}^3",
+      "7.94\\times 10^{-14}~\\text{mol/dm}^3"
+    ],
+    "explanation": "Using $[\\text{H}^+] = 10^{-\\text{pH}} = 10^{-11.1} = 7.94\\times 10^{-12}~\\text{mol/dm}^3$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_26"
+  },
+  {
+    "id": "PHYS_AN_218",
+    "topic": "Atomic & Nuclear Physics",
+    "subtopic": "Photoelectric Effect",
+    "difficulty": "hard",
+    "question": "Light of frequency $8.08\\times 10^{+14}~\\text{Hz}$ shines on a metal with a work function of $2.45\\times 10^{-19}~\\text{J}$. Calculate the maximum kinetic energy of the emitted photoelectrons. ($h = 6.63 \\times 10^{-34}~\\text{J\\cdot s}$)",
+    "correct_answer": "2.91\\times 10^{-19}~\\text{J}",
+    "wrong_answers_pool": [
+      "2.91\\times 10^{-18}~\\text{J}",
+      "2.91\\times 10^{-20}~\\text{J}",
+      "5.81\\times 10^{-19}~\\text{J}",
+      "1.45\\times 10^{-19}~\\text{J}",
+      "7.81\\times 10^{-19}~\\text{J}",
+      "5.36\\times 10^{-19}~\\text{J}",
+      "2.45\\times 10^{-19}~\\text{J}"
+    ],
+    "explanation": "Using $E = W_0 + K_{\\max} \\Rightarrow K_{\\max} = hf - W_0 = (6.63 \\times 10^{-34})(8.08\\times 10^{+14}) - 2.45\\times 10^{-19} = 2.91\\times 10^{-19}~\\text{J}$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_27"
+  },
+  {
+    "id": "CHEM_BND_803",
+    "topic": "Chemical Bonding & Structure",
+    "subtopic": "Bond Energy",
+    "difficulty": "medium",
+    "question": "In a chemical reaction, the sum of bond energies for bonds broken is $267~\\text{kJ/mol}$ and for bonds formed is $493~\\text{kJ/mol}$. Calculate the enthalpy change ($\\Delta H$) for the reaction.",
+    "correct_answer": "-226~\\text{kJ/mol}",
+    "wrong_answers_pool": [
+      "226~\\text{kJ/mol}",
+      "-222~\\text{kJ/mol}",
+      "-220~\\text{kJ/mol}",
+      "-219~\\text{kJ/mol}",
+      "-217~\\text{kJ/mol}",
+      "-216~\\text{kJ/mol}",
+      "-113~\\text{kJ/mol}",
+      "-236~\\text{kJ/mol}"
+    ],
+    "explanation": "$\\Delta H = \\Sigma E_{\\text{broken}} - \\Sigma E_{\\text{formed}} = 267 - 493 = -226~\\text{kJ/mol}$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_28"
+  },
+  {
+    "id": "CHEM_STO_605",
+    "topic": "Stoichiometry & Chemical Calculations",
+    "subtopic": "Moles & Mass",
+    "difficulty": "hard",
+    "question": "A reaction consumes $165.17~\\text{g}$ of reactant A ($M = 67~\\text{g/mol}$) to produce product B ($M = 70~\\text{g/mol}$) in a $1:1$ molar ratio. Calculate the theoretical yield of product B in grams.",
+    "correct_answer": "172.56~\\text{g}",
+    "wrong_answers_pool": [
+      "162.56~\\text{g}",
+      "195.18~\\text{g}",
+      "166.34~\\text{g}",
+      "141.93~\\text{g}",
+      "240.21~\\text{g}",
+      "17.26~\\text{g}",
+      "-172.56~\\text{g}",
+      "180.6~\\text{g}"
+    ],
+    "explanation": "Moles of A $n = \\frac{165.17}{67} = 2.47~\\text{mol}$. Since ratio is $1:1$, moles of B $= 2.47$. Mass of B $m = n \\times M_B = (2.47)(70) = 172.56~\\text{g}$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_29"
+  },
+  {
+    "id": "CHEM_ELEC_934",
+    "topic": "Electrochemistry",
+    "subtopic": "Faraday's Laws",
+    "difficulty": "medium",
+    "question": "Calculate the number of moles of electrons transferred when a charge of $9020.61~\\text{C}$ passes through a cell. (Faraday's constant $F = 96485~\\text{C/mol}$)",
+    "correct_answer": "0.093~\\text{mol}",
+    "wrong_answers_pool": [
+      "0.187~\\text{mol}",
+      "0.935~\\text{mol}",
+      "0.047~\\text{mol}",
+      "-0.093~\\text{mol}",
+      "0.218~\\text{mol}",
+      "0.455~\\text{mol}",
+      "0.792~\\text{mol}",
+      "1.02~\\text{mol}"
+    ],
+    "explanation": "Using $n_e = \\frac{Q}{F} = \\frac{9020.61}{96485} \\approx 0.093~\\text{mol}$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_30"
+  },
+  {
+    "id": "CHEM_AB_203",
+    "topic": "Acids, Bases & Salts",
+    "subtopic": "Strong/Weak Acids & Bases",
+    "difficulty": "hard",
+    "question": "A $0.1~\\text{mol/dm}^3$ solution of $\\text{CH3COOH}$ has a pH of $3.1$. Calculate the percentage ionization of the acid.",
+    "correct_answer": "0.79\\%",
+    "wrong_answers_pool": [
+      "0.4~\\%",
+      "1.59~\\%",
+      "0.08~\\%",
+      "-0.79~\\%",
+      "1.5~\\%",
+      "1.28~\\%",
+      "2.07~\\%",
+      "7.94~\\%"
+    ],
+    "explanation": "$[\\text{H}^+] = 10^{-\\text{pH}} = 10^{-3.1} = 7.94e-04$. Percentage ionization = $\\frac{[\\text{H}^+]}{0.1} \\times 100 = \\frac{7.94e-04}{0.1} \\times 100 \\approx 0.79\\%$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_31"
+  },
+  {
+    "id": "CHEM_AB_760",
+    "topic": "Acids, Bases & Salts",
+    "subtopic": "Titration",
+    "difficulty": "hard",
+    "question": "A $0.87~\\text{g}$ sample of impure solid $\\text{NaOH}$ ($M = 40.0~\\text{g/mol}$) is dissolved and completely neutralizes $10~\\text{cm}^3$ of $\\text{HCl}$ solution with unknown concentration. Assuming the impurity does not react, calculate the concentration of the $\\text{HCl}$ if the sample was 100% pure.",
+    "correct_answer": "2.17~\\text{mol/dm}^3",
+    "wrong_answers_pool": [
+      "0.22~\\text{mol/dm}^3",
+      "1.09~\\text{mol/dm}^3",
+      "1.31~\\text{mol/dm}^3",
+      "3.19~\\text{mol/dm}^3",
+      "4.35~\\text{mol/dm}^3",
+      "3.11~\\text{mol/dm}^3",
+      "1.71~\\text{mol/dm}^3",
+      "2.65~\\text{mol/dm}^3"
+    ],
+    "explanation": "Moles of $\\text{NaOH} = \\frac{0.87}{40.0} = 0.0217~\\text{mol}$. Moles of $\\text{HCl}$ = Moles of $\\text{NaOH} = 0.0217$. $C_{\\text{HCl}} = \\frac{n}{V} = \\frac{0.0217}{0.01} = 2.17~\\text{mol/dm}^3$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_32"
+  },
+  {
+    "id": "CHEM_STO_580",
+    "topic": "Stoichiometry & Chemical Calculations",
+    "subtopic": "Concentration",
+    "difficulty": "medium",
+    "question": "Calculate the concentration of a solution prepared by dissolving $13.65~\\text{g}$ of a solute ($M = 83~\\text{g/mol}$) in water to make a total volume of $0.73~\\text{dm}^3$.",
+    "correct_answer": "0.23~\\text{mol/dm}^3",
+    "wrong_answers_pool": [
+      "0.45~\\text{mol/dm^3}",
+      "0.11~\\text{mol/dm^3}",
+      "2.26~\\text{mol/dm^3}",
+      "-0.23~\\text{mol/dm^3}",
+      "0.18~\\text{mol/dm^3}",
+      "1.32~\\text{mol/dm^3}",
+      "1.15~\\text{mol/dm^3}",
+      "0.83~\\text{mol/dm^3}"
+    ],
+    "explanation": "Moles $n = \\frac{m}{M} = \\frac{13.65}{83} = 0.16~\\text{mol}$. Concentration $c = \\frac{n}{V} = \\frac{0.16}{0.73} = 0.23~\\text{mol/dm}^3$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_33"
+  },
+  {
+    "id": "CHEM_ELEC_379",
+    "topic": "Electrochemistry",
+    "subtopic": "Faraday's Laws",
+    "difficulty": "hard",
+    "question": "A current of $8.32~\\text{A}$ is passed through a solution containing $\\text{Ag}^{1+}$ ions for $26~\\text{minutes}$. Calculate the mass of $\\text{Ag}$ deposited at the cathode. ($M_\\text{Ag} = 107.9~\\text{g/mol}$, $F = 96485~\\text{C/mol}$)",
+    "correct_answer": "14.51~\\text{g}",
+    "wrong_answers_pool": [
+      "1.45~\\text{g}",
+      "4.51~\\text{g}",
+      "7.26~\\text{g}",
+      "13.45~\\text{g}",
+      "13.51~\\text{g}",
+      "16.7~\\text{g}",
+      "145.12~\\text{g}",
+      "-14.51~\\text{g}"
+    ],
+    "explanation": "$Q = It = 12977.02~\\text{C}$. $n_e = \\frac{Q}{F} = 0.1345~\\text{mol}$. The ion requires $1~\\text{mol}$ of electrons per mole of metal, so $n_{\\text{metal}} = \\frac{0.1345}{1} = 0.1345~\\text{mol}$. Mass = $n \\times M = (0.1345)(107.9) \\approx 14.51~\\text{g}$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_34"
+  },
+  {
+    "id": "CHEM_AB_825",
+    "topic": "Acids, Bases & Salts",
+    "subtopic": "Titration",
+    "difficulty": "medium",
+    "question": "In a titration, $20~\\text{cm}^3$ of $0.05~\\text{mol/dm}^3$ $\\text{H}_2\\text{SO}_4$ is exactly neutralized by $25.31~\\text{cm}^3$ of $\\text{NaOH}$ solution. Calculate the concentration of the $\\text{NaOH}$ solution.",
+    "correct_answer": "0.08~\\text{mol/dm}^3",
+    "wrong_answers_pool": [
+      "0.16~\\text{mol/dm}^3",
+      "0.79~\\text{mol/dm}^3",
+      "-0.08~\\text{mol/dm}^3",
+      "0.2~\\text{mol/dm}^3",
+      "1.05~\\text{mol/dm}^3",
+      "1.01~\\text{mol/dm}^3",
+      "0.44~\\text{mol/dm}^3",
+      "0.72~\\text{mol/dm}^3"
+    ],
+    "explanation": "Using $\\frac{c_a v_a}{n_a} = \\frac{c_b v_b}{n_b} \\Rightarrow \\frac{(0.05)(20)}{1} = \\frac{c_b(25.31)}{2} \\Rightarrow c_b = \\frac{2(0.05)(20)}{25.31} = 0.08~\\text{mol/dm}^3$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_35"
+  },
+  {
+    "id": "CHEM_STO_302",
+    "topic": "Stoichiometry & Chemical Calculations",
+    "subtopic": "Moles & Mass",
+    "difficulty": "medium",
+    "question": "Calculate the volume occupied by $184.86~\\text{g}$ of a gas at STP. Its molar mass is $108~\\text{g/mol}$ and the molar volume of a gas at STP is $22.4~\\text{dm}^3\\text{/mol}$.",
+    "correct_answer": "38.34~\\text{dm}^3",
+    "wrong_answers_pool": [
+      "3.83~\\text{dm^3}",
+      "35.91~\\text{dm^3}",
+      "76.68~\\text{dm^3}",
+      "46.48~\\text{dm^3}",
+      "47.03~\\text{dm^3}",
+      "48.34~\\text{dm^3}",
+      "19.17~\\text{dm^3}",
+      "22.55~\\text{dm^3}"
+    ],
+    "explanation": "Moles $n = \\frac{184.86}{108} = 1.71$. Volume $V = n \\times V_m = (1.71)(22.4) = 38.34~\\text{dm}^3$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_36"
+  },
+  {
+    "id": "CHEM_KIN_068",
+    "topic": "Chemical Kinetics & Equilibrium",
+    "subtopic": "Reaction Rates",
+    "difficulty": "hard",
+    "question": "A reaction produces $\\text{CO}_2$ gas ($M = 44.0~\\text{g/mol}$). If $0.072~\\text{moles}$ of $\\text{CO}_2$ are produced in $30~\\text{s}$, calculate the rate of reaction in $\\text{g/s}$.",
+    "correct_answer": "0.1052~\\text{g/s}",
+    "wrong_answers_pool": [
+      "0.2104~\\text{g/s}",
+      "1.0518~\\text{g/s}",
+      "0.0526~\\text{g/s}",
+      "-0.1052~\\text{g/s}",
+      "0.7632~\\text{g/s}",
+      "0.1869~\\text{g/s}",
+      "0.991~\\text{g/s}",
+      "1.1411~\\text{g/s}"
+    ],
+    "explanation": "Mass of $\\text{CO}_2$ = $n \\times M = (0.072)(44.0) = 3.16~\\text{g}$. Rate = $\\frac{\\Delta m}{\\Delta t} = \\frac{3.16}{30} = 0.1052~\\text{g/s}$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_37"
+  },
+  {
+    "id": "CHEM_STO_808",
+    "topic": "Stoichiometry & Chemical Calculations",
+    "subtopic": "Limiting Reactant",
+    "difficulty": "medium",
+    "question": "For the reaction $1\\text{A} + 1\\text{B} \\rightarrow 1\\text{C}$, you have $2.68~\\text{mol}$ of A and $2.39~\\text{mol}$ of B. Calculate the maximum moles of product C that can be formed.",
+    "correct_answer": "2.39~\\text{mol}",
+    "wrong_answers_pool": [
+      "0.24~\\text{mol}",
+      "1.2~\\text{mol}",
+      "1.33~\\text{mol}",
+      "3~\\text{mol}",
+      "4.79~\\text{mol}",
+      "4.07~\\text{mol}",
+      "3.16~\\text{mol}",
+      "3.7~\\text{mol}"
+    ],
+    "explanation": "The limiting reactant is B. Moles of C = $\\frac{1}{1} \\times 2.39 = 2.39~\\text{mol}$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_38"
+  },
+  {
+    "id": "CHEM_ELEC_100",
+    "topic": "Electrochemistry",
+    "subtopic": "Faraday's Laws",
+    "difficulty": "hard",
+    "question": "A current of $4.89~\\text{A}$ is passed through a solution containing $\\text{Cu}^{2+}$ ions for $28~\\text{minutes}$. Calculate the mass of $\\text{Cu}$ deposited at the cathode. ($M_\\text{Cu} = 63.5~\\text{g/mol}$, $F = 96485~\\text{C/mol}$)",
+    "correct_answer": "2.7~\\text{g}",
+    "wrong_answers_pool": [
+      "0.27~\\text{g}",
+      "1.35~\\text{g}",
+      "1.86~\\text{g}",
+      "2.18~\\text{g}",
+      "4.68~\\text{g}",
+      "5.41~\\text{g}",
+      "2.2~\\text{g}",
+      "2.33~\\text{g}"
+    ],
+    "explanation": "$Q = It = 8218.95~\\text{C}$. $n_e = \\frac{Q}{F} = 0.0852~\\text{mol}$. The ion requires $2~\\text{mol}$ of electrons per mole of metal, so $n_{\\text{metal}} = \\frac{0.0852}{2} = 0.0426~\\text{mol}$. Mass = $n \\times M = (0.0426)(63.5) \\approx 2.7~\\text{g}$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_39"
+  },
+  {
+    "id": "CHEM_STO_301",
+    "topic": "Stoichiometry & Chemical Calculations",
+    "subtopic": "Limiting Reactant",
+    "difficulty": "medium",
+    "question": "For the reaction $3\\text{A} + 2\\text{B} \\rightarrow 1\\text{C}$, you have $1.02~\\text{mol}$ of A and $2.95~\\text{mol}$ of B. Calculate the maximum moles of product C that can be formed.",
+    "correct_answer": "0.34~\\text{mol}",
+    "wrong_answers_pool": [
+      "0.68~\\text{mol}",
+      "0.17~\\text{mol}",
+      "-0.34~\\text{mol}",
+      "3.41~\\text{mol}",
+      "0.61~\\text{mol}",
+      "0.7~\\text{mol}",
+      "1.09~\\text{mol}",
+      "0.82~\\text{mol}"
+    ],
+    "explanation": "The limiting reactant is A. Moles of C = $\\frac{1}{3} \\times 1.02 = 0.34~\\text{mol}$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_40"
+  },
+  {
+    "id": "CHEM_KIN_885",
+    "topic": "Chemical Kinetics & Equilibrium",
+    "subtopic": "Equilibrium Constant (Kc)",
+    "difficulty": "medium",
+    "question": "For the reaction $\\text{N}_2(g) + 3\\text{H}_2(g) \\rightleftharpoons 2\\text{NH}_3(g)$, equilibrium concentrations are: $[\\text{N}_2] = 0.75~\\text{M}$, $[\\text{H}_2] = 1~\\text{M}$, $[\\text{NH}_3] = 0.62~\\text{M}$. Calculate $K_c$.",
+    "correct_answer": "0.51",
+    "wrong_answers_pool": [
+      "0.25",
+      "1.02",
+      "-0.51",
+      "0.42",
+      "1.56",
+      "5.1",
+      "1.51",
+      "0.76"
+    ],
+    "explanation": "$K_c = \\frac{[\\text{NH}_3]^2}{[\\text{N}_2][\\text{H}_2]^3} = \\frac{0.62^2}{(0.75)(1)^3} = 0.51$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_41"
+  },
+  {
+    "id": "CHEM_KIN_401",
+    "topic": "Chemical Kinetics & Equilibrium",
+    "subtopic": "Equilibrium Constant (Kc)",
+    "difficulty": "hard",
+    "question": "For the reaction $\\text{A}(g) + \\text{B}(g) \\rightleftharpoons 2\\text{C}(g)$, the equilibrium constant is $K_c = 39$. If equilibrium concentrations of A and B are $0.91~\\text{M}$ and $0.86~\\text{M}$ respectively, calculate the equilibrium concentration of C.",
+    "correct_answer": "5.53~\\text{M}",
+    "wrong_answers_pool": [
+      "0.55~\\text{M}",
+      "2.76~\\text{M}",
+      "3.88~\\text{M}",
+      "4.74~\\text{M}",
+      "5.24~\\text{M}",
+      "4.37~\\text{M}",
+      "7.37~\\text{M}",
+      "3.84~\\text{M}"
+    ],
+    "explanation": "$K_c = \\frac{[\\text{C}]^2}{[\\text{A}][\\text{B}]} \\Rightarrow 39 = \\frac{[\\text{C}]^2}{(0.91)(0.86)}$. So $[\\text{C}] = \\sqrt{39 \\times 0.91 \\times 0.86} = 5.53~\\text{M}$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_42"
+  },
+  {
+    "id": "CHEM_BND_263",
+    "topic": "Chemical Bonding & Structure",
+    "subtopic": "Molecular Geometry",
+    "difficulty": "hard",
+    "question": "A central atom in a molecule has $6$ bonding pairs and $1$ lone pair(s). What is its steric number?",
+    "correct_answer": "7",
+    "wrong_answers_pool": [
+      "0~\\text{}",
+      "3~\\text{}",
+      "6~\\text{}",
+      "8~\\text{}",
+      "9~\\text{}",
+      "10~\\text{}",
+      "12~\\text{}",
+      "14~\\text{}"
+    ],
+    "explanation": "Steric number = bonding pairs + lone pairs = $6 + 1 = 7$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_43"
+  },
+  {
+    "id": "CHEM_ELEC_262",
+    "topic": "Electrochemistry",
+    "subtopic": "Faraday's Laws",
+    "difficulty": "medium",
+    "question": "Calculate the number of moles of electrons transferred when a charge of $2752.9~\\text{C}$ passes through a cell. (Faraday's constant $F = 96485~\\text{C/mol}$)",
+    "correct_answer": "0.029~\\text{mol}",
+    "wrong_answers_pool": [
+      "0.057~\\text{mol}",
+      "0.285~\\text{mol}",
+      "0.997~\\text{mol}",
+      "0.042~\\text{mol}",
+      "0.234~\\text{mol}",
+      "0.003~\\text{mol}",
+      "0.636~\\text{mol}",
+      "0.838~\\text{mol}"
+    ],
+    "explanation": "Using $n_e = \\frac{Q}{F} = \\frac{2752.9}{96485} \\approx 0.029~\\text{mol}$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_44"
+  },
+  {
+    "id": "PHYS_AN_537",
+    "topic": "Atomic & Nuclear Physics",
+    "subtopic": "Radioactivity",
+    "difficulty": "medium",
+    "question": "A sample of a radioactive substance initially contains $930~\\text{g}$. After $40~\\text{days}$, $232.5~\\text{g}$ remains. Calculate the half-life of the substance.",
+    "correct_answer": "20~\\text{days}",
+    "wrong_answers_pool": [
+      "40~\\text{days}",
+      "10~\\text{days}",
+      "11~\\text{days}",
+      "-20~\\text{days}",
+      "14~\\text{days}",
+      "15~\\text{days}",
+      "17~\\text{days}",
+      "19~\\text{days}"
+    ],
+    "explanation": "Using $N(t) = N_0 \\left(\\frac{1}{2}\\right)^{\\frac{t}{T_{1/2}}} \\Rightarrow 232.5 = 930 \\left(\\frac{1}{2}\\right)^{\\frac{40}{T_{1/2}}} \\Rightarrow \\left(\\frac{1}{2}\\right)^{\\frac{40}{T_{1/2}}} = 0.25 \\Rightarrow \\frac{40}{T_{1/2}} = 2.0 \\Rightarrow T_{1/2} = 20~\\text{days}$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_45"
+  },
+  {
+    "id": "CHEM_BND_476",
+    "topic": "Chemical Bonding & Structure",
+    "subtopic": "Electronegativity",
+    "difficulty": "hard",
+    "question": "The electronegativity difference between Atom P and Atom Q is $1.6$. If Atom P is the more electronegative atom with an electronegativity of $2.9$, what is the electronegativity of Atom Q?",
+    "correct_answer": "1.3",
+    "wrong_answers_pool": [
+      "0.7~\\text{}",
+      "0.1~\\text{}",
+      "2.6~\\text{}",
+      "1.8~\\text{}",
+      "2.9~\\text{}",
+      "1.1~\\text{}",
+      "2.1~\\text{}",
+      "2.4~\\text{}"
+    ],
+    "explanation": "$\\Delta EN = EN_P - EN_Q \\Rightarrow 1.6 = 2.9 - EN_Q \\Rightarrow EN_Q = 1.3$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_46"
+  },
+  {
+    "id": "CHEM_AB_431",
+    "topic": "Acids, Bases & Salts",
+    "subtopic": "Titration",
+    "difficulty": "hard",
+    "question": "A $1.32~\\text{g}$ sample of impure solid $\\text{NaOH}$ ($M = 40.0~\\text{g/mol}$) is dissolved and completely neutralizes $20~\\text{cm}^3$ of $\\text{HCl}$ solution with unknown concentration. Assuming the impurity does not react, calculate the concentration of the $\\text{HCl}$ if the sample was 100% pure.",
+    "correct_answer": "1.65~\\text{mol/dm}^3",
+    "wrong_answers_pool": [
+      "0.83~\\text{mol/dm}^3",
+      "0.17~\\text{mol/dm}^3",
+      "1.24~\\text{mol/dm}^3",
+      "3.3~\\text{mol/dm}^3",
+      "3.09~\\text{mol/dm}^3",
+      "1.54~\\text{mol/dm}^3",
+      "2.43~\\text{mol/dm}^3",
+      "1.72~\\text{mol/dm}^3"
+    ],
+    "explanation": "Moles of $\\text{NaOH} = \\frac{1.32}{40.0} = 0.033~\\text{mol}$. Moles of $\\text{HCl}$ = Moles of $\\text{NaOH} = 0.033$. $C_{\\text{HCl}} = \\frac{n}{V} = \\frac{0.033}{0.02} = 1.65~\\text{mol/dm}^3$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_47"
+  },
+  {
+    "id": "PHYS_AN_706",
+    "topic": "Atomic & Nuclear Physics",
+    "subtopic": "Photoelectric Effect",
+    "difficulty": "hard",
+    "question": "Light of frequency $1.47\\times 10^{+15}~\\text{Hz}$ shines on a metal with a work function of $2.42\\times 10^{-19}~\\text{J}$. Calculate the maximum kinetic energy of the emitted photoelectrons. ($h = 6.63 \\times 10^{-34}~\\text{J\\cdot s}$)",
+    "correct_answer": "7.30\\times 10^{-19}~\\text{J}",
+    "wrong_answers_pool": [
+      "7.30\\times 10^{-18}~\\text{J}",
+      "7.30\\times 10^{-20}~\\text{J}",
+      "1.46\\times 10^{-18}~\\text{J}",
+      "3.65\\times 10^{-19}~\\text{J}",
+      "1.21\\times 10^{-18}~\\text{J}",
+      "9.71\\times 10^{-19}~\\text{J}",
+      "2.42\\times 10^{-19}~\\text{J}"
+    ],
+    "explanation": "Using $E = W_0 + K_{\\max} \\Rightarrow K_{\\max} = hf - W_0 = (6.63 \\times 10^{-34})(1.47\\times 10^{+15}) - 2.42\\times 10^{-19} = 7.30\\times 10^{-19}~\\text{J}$.",
+    "exam_id": "EXAM_2026-W21_grade12_physics_paper2_48"
+  },
+  {
+    "id": "CHEM_STO_784",
+    "topic": "Stoichiometry & Chemical Calculations",
+    "subtopic": "Molar Mass",
+    "difficulty": "hard",
+    "question": "Calculate the number of molecules in $84.43~\\text{g}$ of $\\text{C}_{5}\\text{H}_{12}\\text{O}_{2}$. (Molar mass = $104.17~\\text{g/mol}$, $N_A = 6.022 \\times 10^{23}~\\text{mol}^{-1}$)",
+    "correct_answer": "4.88\\times 10^{+23}",
+    "wrong_answers_pool": [
+      "4.88\\times 10^{+24}",
+      "4.88\\times 10^{+22}",
+      "5.08\\times 10^{+25}",
+      "4.69\\times 10^{+21}",
+      "9.76\\times 10^{+23}",
+      "2.44\\times 10^{+23}",
+      "2.44\\times 10^{+24}"
+    ],
+    "explanation": "Moles $n = \\frac{m}{M} = \\frac{84.43}{104.17} = 0.81$. Molecules $= n N_A = (0.81)(6.022 \\times 10^{23}) = 4.88\\times 10^{+23}$.",
     "exam_id": "EXAM_2026-W21_grade12_physics_paper2_49"
   },
   {
-    "id": "PHYS_AN_201",
-    "topic": "Atomic & Nuclear Physics",
-    "subtopic": "Photoelectric Effect",
-    "difficulty": "medium",
-    "question": "A metal has a work function of $3.33\\times 10^{-19}~\\text{J}$. Calculate its threshold frequency. ($h = 6.63 \\times 10^{-34}~\\text{J\\cdot s}$)",
-    "correct_answer": "5.03\\times 10^{+14}~\\text{Hz}",
+    "id": "CHEM_STO_508",
+    "topic": "Stoichiometry & Chemical Calculations",
+    "subtopic": "Concentration",
+    "difficulty": "hard",
+    "question": "A $1.95~\\text{dm}^3$ solution with a concentration of $0.25~\\text{mol/dm}^3$ is diluted to a final volume of $4.77~\\text{dm}^3$. Calculate the new concentration.",
+    "correct_answer": "0.1~\\text{mol/dm}^3",
     "wrong_answers_pool": [
-      "5.03\\times 10^{+15}~\\text{Hz}",
-      "5.03\\times 10^{+13}~\\text{Hz}",
-      "1.01\\times 10^{+15}~\\text{Hz}",
-      "2.51\\times 10^{+14}~\\text{Hz}",
-      "2.01\\times 10^{+15}~\\text{Hz}",
-      "1.26\\times 10^{+14}~\\text{Hz}",
-      "5.03\\times 10^{+16}~\\text{Hz}"
+      "0.2~\\text{mol/dm^3}",
+      "1.01~\\text{mol/dm^3}",
+      "0.05~\\text{mol/dm^3}",
+      "0.01~\\text{mol/dm^3}",
+      "-0.1~\\text{mol/dm^3}",
+      "0.97~\\text{mol/dm^3}",
+      "0.48~\\text{mol/dm^3}",
+      "0.62~\\text{mol/dm^3}"
     ],
-    "explanation": "Using $W_0 = hf_0 \\Rightarrow f_0 = \\frac{W_0}{h} = \\frac{3.33\\times 10^{-19}}{6.63 \\times 10^{-34}} \\approx 5.03\\times 10^{+14}~\\text{Hz}$.",
+    "explanation": "Using $C_1 V_1 = C_2 V_2 \\Rightarrow (0.25)(1.95) = C_2(4.77) \\Rightarrow C_2 = \\frac{0.48}{4.77} = 0.1~\\text{mol/dm}^3$.",
     "exam_id": "EXAM_2026-W21_grade12_physics_paper2_50"
   }
 ]
