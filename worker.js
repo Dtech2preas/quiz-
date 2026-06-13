@@ -217,6 +217,12 @@ async function handleSignup(request, env) {
   await env.RANK_KV.put(`user:${userId}`, JSON.stringify(newUser));
   await env.RANK_KV.put(`user_by_name:${username}`, userId); // Map username to user_id
 
+  // Instantly place user on the leaderboards with 0 XP
+  // Note: For handleSignup, we don't need ctx.waitUntil since this block is awaited or we can just await updateLeaderboards
+  const currentWeek = getCurrentWeek();
+  await updateLeaderboards(env, newUser, currentWeek, 0, "batch");
+  await updateLeaderboardUser(env, userId, newUser);
+
   return jsonResponse({ message: "Signup successful", user_id: userId });
 }
 
@@ -739,6 +745,7 @@ async function handleSubmitWeeklyExam(request, env, ctx) {
 
 async function updateLeaderboards(env, user, currentWeek, publicXpEarned, subject) {
   const updateBoard = async (key, sortByField, isDynamicSubject = false) => {
+    if (isDynamicSubject && (subject === "batch" || !subject)) return;
     let boardStr = await env.RANK_KV.get(key) || "[]";
     let board = JSON.parse(boardStr);
 
@@ -886,10 +893,12 @@ async function handleMasterSync(request, env, ctx) {
     // Save back to KV
     await env.RANK_KV.put(`user:${userId}`, JSON.stringify(userData));
 
-    // Async Leaderboard update
-    if (xpGained) {
-        ctx.waitUntil(updateLeaderboardUser(env, userId, userData));
-    }
+    // Async Leaderboard update - unconditionally to catch accuracy changes
+    const currentWeek = getCurrentWeek();
+    ctx.waitUntil((async () => {
+        await updateLeaderboards(env, userData, currentWeek, delta.total_xp || 0, "batch");
+        await updateLeaderboardUser(env, userId, userData);
+    })());
   }
 
   return jsonResponse({ message: "Master sync successful" }, 200);
@@ -1081,10 +1090,12 @@ async function handleBatchSync(request, env, ctx) {
 
   await env.RANK_KV.put(`user:${user_id}`, JSON.stringify(userData));
 
-  if (xpGained) {
-    const currentWeek = Math.floor(new Date().getTime() / (1000 * 60 * 60 * 24 * 7));
-    ctx.waitUntil(updateLeaderboards(env, userData, currentWeek, totalXpEarned, "batch"));
-  }
+  // Always update async so accuracy metrics sync even if no XP was explicitly earned
+  const currentWeek = getCurrentWeek();
+  ctx.waitUntil((async () => {
+    await updateLeaderboards(env, userData, currentWeek, totalXpEarned || 0, "batch");
+    await updateLeaderboardUser(env, user_id, userData);
+  })());
 
   return jsonResponse({
     success: true,
