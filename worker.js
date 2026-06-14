@@ -166,7 +166,8 @@ function getCurrentWeek() {
 
 async function handleSignup(request, env) {
   const body = await request.json();
-  const { username, password, name, surname, grade, school } = body;
+  const { password, name, surname, grade, school } = body;
+  const username = body.username ? body.username.trim() : "";
 
   if (!username || !password) {
     return jsonResponse({ error: "Username and password are required" }, 400);
@@ -354,7 +355,8 @@ async function handleUpdateProfile(request, env, path) {
   const userId = match[1];
 
   const body = await request.json();
-  const { name, surname, username, password, grade, school } = body;
+  const { name, surname, password, grade, school } = body;
+  const username = body.username ? body.username.trim() : undefined;
 
   const userDataString = await env.RANK_KV.get(`user:${userId}`);
   if (!userDataString) return jsonResponse({ error: "User not found" }, 404);
@@ -427,11 +429,21 @@ async function updateLeaderboardUser(env, userId, userData) {
     let updated = false;
     for (let i = 0; i < board.length; i++) {
       if (board[i].user_id === userId) {
-        board[i].username = userData.username;
-        board[i].name = userData.name;
-        board[i].surname = userData.surname;
-        board[i].avatar_url = userData.avatar_url;
-        updated = true;
+        // Only update if there's an actual change in the profile fields
+        if (
+          board[i].username !== userData.username ||
+          board[i].name !== userData.name ||
+          board[i].surname !== userData.surname ||
+          board[i].avatar_url !== userData.avatar_url ||
+          JSON.stringify(board[i].equipped_cosmetics || {}) !== JSON.stringify(userData.equipped_cosmetics || {})
+        ) {
+          board[i].username = userData.username;
+          board[i].name = userData.name;
+          board[i].surname = userData.surname;
+          board[i].avatar_url = userData.avatar_url;
+          board[i].equipped_cosmetics = userData.equipped_cosmetics || {};
+          updated = true;
+        }
         break;
       }
     }
@@ -444,7 +456,7 @@ async function updateLeaderboardUser(env, userId, userData) {
 
 async function handleGetPublicUser(request, env, path) {
   const url = new URL(request.url);
-  const username = decodeURIComponent(path.split("/").pop());
+  const username = decodeURIComponent(path.split("/").pop()).trim();
   if (!username) return jsonResponse({ error: "Username required" }, 400);
 
   const requestedSubjectsStr = url.searchParams.get("subjects");
@@ -749,11 +761,28 @@ async function updateLeaderboards(env, user, currentWeek, publicXpEarned, subjec
     let boardStr = await env.RANK_KV.get(key) || "[]";
     let board = JSON.parse(boardStr);
 
+    let xpVal = isDynamicSubject ? user.subjects_xp[subject] : user[sortByField];
+    if (xpVal === undefined) xpVal = 0;
+
+    const existingIndex = board.findIndex(u => u.user_id === user.user_id);
+    const wasInBoard = existingIndex !== -1;
+    const existingEntry = wasInBoard ? board[existingIndex] : null;
+
+    // Fast return if the user isn't in the top 1000 and their new XP wouldn't put them there
+    if (!wasInBoard && board.length >= 1000 && xpVal <= board[board.length - 1].xp) {
+      return;
+    }
+
+    // Fast return if the user is in the board but nothing changed (no XP gained, no cosmetic changes relevant here)
+    if (wasInBoard && existingEntry.xp === xpVal) {
+      // updateLeaderboards is mainly for XP sorting. If XP hasn't changed, updateLeaderboardUser handles profile updates.
+      return;
+    }
+
     // Remove existing entry
     board = board.filter(u => u.user_id !== user.user_id);
 
     // Add new entry
-    let xpVal = isDynamicSubject ? user.subjects_xp[subject] : user[sortByField];
     board.push({
       user_id: user.user_id,
       username: user.username,
@@ -893,10 +922,11 @@ async function handleMasterSync(request, env, ctx) {
     // Save back to KV
     await env.RANK_KV.put(`user:${userId}`, JSON.stringify(userData));
 
-    // Async Leaderboard update - unconditionally to catch accuracy changes
     const currentWeek = getCurrentWeek();
     ctx.waitUntil((async () => {
-        await updateLeaderboards(env, userData, currentWeek, delta.total_xp || 0, "batch");
+        if (xpGained || delta.correct_answers !== undefined) {
+            await updateLeaderboards(env, userData, currentWeek, delta.total_xp || 0, "batch");
+        }
         await updateLeaderboardUser(env, userId, userData);
     })());
   }
@@ -1090,10 +1120,12 @@ async function handleBatchSync(request, env, ctx) {
 
   await env.RANK_KV.put(`user:${user_id}`, JSON.stringify(userData));
 
-  // Always update async so accuracy metrics sync even if no XP was explicitly earned
   const currentWeek = getCurrentWeek();
   ctx.waitUntil((async () => {
-    await updateLeaderboards(env, userData, currentWeek, totalXpEarned || 0, "batch");
+    // Only update leaderboards if XP was actually gained, to reduce KV writes
+    if (xpGained) {
+      await updateLeaderboards(env, userData, currentWeek, totalXpEarned || 0, "batch");
+    }
     await updateLeaderboardUser(env, user_id, userData);
   })());
 
