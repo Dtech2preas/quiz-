@@ -745,6 +745,7 @@ async function handleSubmitWeeklyExam(request, env, ctx) {
 
 async function updateLeaderboards(env, user, currentWeek, publicXpEarned, subject) {
   const updateBoard = async (key, sortByField, isDynamicSubject = false) => {
+    // DO NOT try to push dynamic subject update if it's a batch/overall sync
     if (isDynamicSubject && (subject === "batch" || !subject)) return;
     let boardStr = await env.RANK_KV.get(key) || "[]";
     let board = JSON.parse(boardStr);
