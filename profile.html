@@ -483,6 +483,22 @@ footer a:hover{ text-decoration:underline; }
         <input type="text" id="name" placeholder="First Name">
         <input type="text" id="surname" placeholder="Surname">
 
+        <select id="grade" style="width: 100%; padding: 12px; background: var(--input-bg); border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-main); font-size: 1rem; margin-bottom: 1.5rem;">
+            <option value="grade12">Grade 12</option>
+            <option value="grade11">Grade 11</option>
+            <option value="grade10">Grade 10</option>
+            <option value="grade9">Grade 9</option>
+            <option value="grade8">Grade 8</option>
+            <option value="grade7">Grade 7</option>
+            <option value="grade6">Grade 6</option>
+            <option value="grade5">Grade 5</option>
+            <option value="grade4">Grade 4</option>
+            <option value="grade3">Grade 3</option>
+            <option value="grade2">Grade 2</option>
+            <option value="grade1">Grade 1</option>
+        </select>
+
+
         <div class="autocomplete-wrapper">
             <input type="text" id="school" placeholder="School Name (e.g. Pretoria Boys High School)" autocomplete="off">
             <div id="school-autocomplete-list" class="autocomplete-items"></div>
@@ -532,6 +548,7 @@ async function loadProfile() {
         document.getElementById("username").value = data.username || "";
         document.getElementById("name").value = data.name || "";
         document.getElementById("surname").value = data.surname || "";
+        if (data.grade) document.getElementById("grade").value = data.grade;
         document.getElementById("school").value = data.school || "";
 
         updateAvatarDisplay(data);
@@ -880,6 +897,7 @@ document.getElementById("profileForm").addEventListener("submit", async (e) => {
         username: document.getElementById("username").value.trim(),
         name: document.getElementById("name").value.trim(),
         surname: document.getElementById("surname").value.trim(),
+        grade: document.getElementById("grade").value,
         school: document.getElementById("school").value.trim()
     };
 
@@ -898,6 +916,7 @@ document.getElementById("profileForm").addEventListener("submit", async (e) => {
 
         if (res.ok) {
             showMessage("Profile updated successfully");
+            localStorage.setItem("user_grade", payload.grade);
             document.getElementById("password").value = "";
         } else {
             showMessage(data.error || "Update failed", true);

@@ -1,30 +1,510 @@
 [
   {
-    "id": "G8_MATH_GEO_310",
+    "id": "G8_MATH_GEO_029",
     "topic": "Space and Shape (Geometry)",
-    "subtopic": "Angles",
-    "difficulty": "medium",
-    "question": "What is the supplement of a $147^\\circ$ angle?",
-    "correct_answer": "33^\\circ",
+    "subtopic": "Properties of 2D shapes",
+    "difficulty": "hard",
+    "question": "What is the size of each interior angle of a regular polygon with 12 sides?",
+    "correct_answer": "150^\\circ",
     "wrong_answers_pool": [
-      "32^\\circ",
-      "34^\\circ",
-      "66^\\circ",
-      "35^\\circ",
-      "99^\\circ",
-      "38^\\circ",
-      "37^\\circ",
-      "14^\\circ"
+      "450^\\circ",
+      "132^\\circ",
+      "166^\\circ",
+      "-150^\\circ",
+      "75^\\circ",
+      "300^\\circ",
+      "140^\\circ",
+      "141^\\circ"
     ],
-    "explanation": "Supplementary angles add up to $180^\\circ$. $180^\\circ - 147^\\circ = 33^\\circ$.",
+    "explanation": "Sum $= (n - 2) \\times 180^\\circ = 1800^\\circ$. Each angle $= 1800^\\circ \\div 12 = 150^\\circ$.",
     "exam_id": "EXAM_2026-W24_grade8_mathematics_1"
   },
   {
-    "id": "G8_MATH_PROB_727",
+    "id": "G8_MATH_DATA_010",
+    "topic": "Data Handling",
+    "subtopic": "Median",
+    "difficulty": "hard",
+    "question": "Determine the median: $50, 46, 25, 41, 35, 38, 28, 39$",
+    "correct_answer": "38.5",
+    "wrong_answers_pool": [
+      "0.0",
+      "34.6",
+      "58.3",
+      "37.5",
+      "39.5",
+      "39.6",
+      "77.0",
+      "48.9"
+    ],
+    "explanation": "Order the data: 25, 28, 35, 38, 39, 41, 46, 50. The median is the average of the 4th and 5th values: $\\frac{38 + 39}{2} = 38.5$.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_2"
+  },
+  {
+    "id": "G8_MATH_NUM_212",
+    "topic": "Numbers, Operations and Relationships",
+    "subtopic": "Order of operations",
+    "difficulty": "medium",
+    "question": "Calculate: $18 - 5 \\times 4$",
+    "correct_answer": "-2",
+    "wrong_answers_pool": [
+      "0",
+      "2",
+      "9",
+      "-20",
+      "13",
+      "14",
+      "-17",
+      "17"
+    ],
+    "explanation": "Multiply first: $5 \\times 4 = 20$. Then subtract: $18 - 20 = -2$.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_3"
+  },
+  {
+    "id": "G8_MATH_PROB_379",
+    "topic": "Probability",
+    "subtopic": "Experimental probability",
+    "difficulty": "hard",
+    "question": "A biased coin is flipped 400 times and lands on tails 236 times. What is the experimental probability of getting heads as a percentage?",
+    "correct_answer": "41%",
+    "wrong_answers_pool": [
+      "59%",
+      "46%",
+      "36%",
+      "164%",
+      "236%",
+      "43%"
+    ],
+    "explanation": "Heads occurred $400 - 236 = 164$ times. $\\frac{164}{400} = 0.41$. As a percentage: 41%.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_4"
+  },
+  {
+    "id": "G8_MATH_ALG_607",
+    "topic": "Patterns, Functions and Algebra",
+    "subtopic": "Simplifying expressions",
+    "difficulty": "medium",
+    "question": "Simplify: $11x + 4y - 5x$",
+    "correct_answer": "6x + 4y",
+    "wrong_answers_pool": [
+      "16x + 4y",
+      "6x - 4y",
+      "10xy",
+      "-6x + 4y",
+      "6x",
+      "4y - 16x"
+    ],
+    "explanation": "Combine like terms for $x$: $(11 - 5)x = 6x$. The $y$ term stays the same.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_5"
+  },
+  {
+    "id": "G8_MATH_PROB_929",
+    "topic": "Probability",
+    "subtopic": "Experimental probability",
+    "difficulty": "medium",
+    "question": "A spinner was spun 100 times and landed on 'Red' 23 times. What is the experimental probability of getting 'Red' as a decimal?",
+    "correct_answer": "0.23",
+    "wrong_answers_pool": [
+      "-0.23",
+      "1.23",
+      "0.35",
+      "0.12",
+      "-0.77",
+      "0.46",
+      "4.35",
+      "1.31"
+    ],
+    "explanation": "$\\frac{23}{100} = 0.23$.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_6"
+  },
+  {
+    "id": "G8_MATH_NUM_672",
+    "topic": "Numbers, Operations and Relationships",
+    "subtopic": "Integers",
+    "difficulty": "medium",
+    "question": "Calculate: $-7 - (-8)$",
+    "correct_answer": "1",
+    "wrong_answers_pool": [
+      "0",
+      "2",
+      "3",
+      "6",
+      "7",
+      "10",
+      "-19",
+      "-14"
+    ],
+    "explanation": "Subtracting a negative is the same as adding a positive: $-7 + 8 = 1$.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_7"
+  },
+  {
+    "id": "G8_MATH_NUM_108",
+    "topic": "Numbers, Operations and Relationships",
+    "subtopic": "Common fractions",
+    "difficulty": "hard",
+    "question": "Multiply the fractions: $\\frac{1}{4} \\times \\frac{3}{7}$",
+    "correct_answer": "3/28",
+    "wrong_answers_pool": [
+      "4/28",
+      "3/11",
+      "7/12",
+      "2/28",
+      "5/28",
+      "1/28"
+    ],
+    "explanation": "Multiply numerators and denominators: $\\frac{1 \\times 3}{4 \\times 7} = \\frac{3}{28}$.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_8"
+  },
+  {
+    "id": "G8_MATH_PROB_695",
+    "topic": "Probability",
+    "subtopic": "Comparing probabilities",
+    "difficulty": "medium",
+    "question": "Order these probabilities from least to greatest: $51%, 0.17, 7/10$",
+    "correct_answer": "0.17, 51%, 7/10",
+    "wrong_answers_pool": [
+      "7/10, 51%, 0.17",
+      "51%, 0.17, 7/10",
+      "0.17, 7/10, 51%",
+      "7/10, 0.17, 51%",
+      "51%, 7/10, 0.17",
+      "They are all equal"
+    ],
+    "explanation": "Convert all to decimals: 0.17, 0.51, 0.79. So the order is 0.17, 51%, 7/10.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_9"
+  },
+  {
+    "id": "G8_MATH_MEAS_431",
+    "topic": "Measurement",
+    "subtopic": "Mass",
+    "difficulty": "medium",
+    "question": "Convert 12913 g to kilograms (kg).",
+    "correct_answer": "12.913 kg",
+    "wrong_answers_pool": [
+      "0.077 kg",
+      "5.696 kg",
+      "6.457 kg",
+      "11.913 kg",
+      "13.913 kg",
+      "13.647 kg",
+      "16.959 kg",
+      "19.370 kg"
+    ],
+    "explanation": "1000 g = 1 kg. $12913 \\div 1000 = 12.913$ kg.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_10"
+  },
+  {
+    "id": "G8_MATH_DATA_795",
+    "topic": "Data Handling",
+    "subtopic": "Median",
+    "difficulty": "medium",
+    "question": "Find the median of the data: $7, 12, 15, 10, 9, 3$",
+    "correct_answer": "9.5",
+    "wrong_answers_pool": [
+      "0.1",
+      "-0.8",
+      "0.8",
+      "4.8",
+      "6.9",
+      "8.5",
+      "10.5",
+      "10.1"
+    ],
+    "explanation": "Order the data: 3, 7, 9, 10, 12, 15. The median is the average of the two middle values: $\\frac{9 + 10}{2} = 9.5$.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_11"
+  },
+  {
+    "id": "G8_MATH_ALG_628",
+    "topic": "Patterns, Functions and Algebra",
+    "subtopic": "Algebraic expressions",
+    "difficulty": "medium",
+    "question": "Translate to an algebraic expression: 'Three times a number $x$ decreased by 7'",
+    "correct_answer": "3x - 7",
+    "wrong_answers_pool": [
+      "7x - 3",
+      "3(x - 7)",
+      "x/3 - 7",
+      "3x + 7",
+      "7 - 3x",
+      "x^3 - 7"
+    ],
+    "explanation": "'Three times a number' is $3x$. 'Decreased by 7' means subtract 7. So, $3x - 7$.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_12"
+  },
+  {
+    "id": "G8_MATH_PROB_692",
+    "topic": "Probability",
+    "subtopic": "Comparing probabilities",
+    "difficulty": "medium",
+    "question": "Order these probabilities from least to greatest: $41%, 0.24, 8/10$",
+    "correct_answer": "0.24, 41%, 8/10",
+    "wrong_answers_pool": [
+      "8/10, 41%, 0.24",
+      "41%, 0.24, 8/10",
+      "0.24, 8/10, 41%",
+      "8/10, 0.24, 41%",
+      "41%, 8/10, 0.24",
+      "They are all equal"
+    ],
+    "explanation": "Convert all to decimals: 0.24, 0.41, 0.87. So the order is 0.24, 41%, 8/10.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_13"
+  },
+  {
+    "id": "G8_MATH_PROB_641",
+    "topic": "Probability",
+    "subtopic": "Comparing probabilities",
+    "difficulty": "medium",
+    "question": "Order these probabilities from least to greatest: $41%, 0.11, 8/10$",
+    "correct_answer": "0.11, 41%, 8/10",
+    "wrong_answers_pool": [
+      "8/10, 41%, 0.11",
+      "41%, 0.11, 8/10",
+      "0.11, 8/10, 41%",
+      "8/10, 0.11, 41%",
+      "41%, 8/10, 0.11",
+      "They are all equal"
+    ],
+    "explanation": "Convert all to decimals: 0.11, 0.41, 0.81. So the order is 0.11, 41%, 8/10.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_14"
+  },
+  {
+    "id": "G8_MATH_GEO_220",
+    "topic": "Space and Shape (Geometry)",
+    "subtopic": "Triangles",
+    "difficulty": "medium",
+    "question": "In an isosceles triangle, the vertex angle is $96^\\circ$. What is the size of each base angle?",
+    "correct_answer": "42^\\circ",
+    "wrong_answers_pool": [
+      "34^\\circ",
+      "35^\\circ",
+      "40^\\circ",
+      "41^\\circ",
+      "43^\\circ",
+      "44^\\circ",
+      "84^\\circ",
+      "21^\\circ"
+    ],
+    "explanation": "Base angles are $(180^\\circ - 96^\\circ) \\div 2 = 42^\\circ$.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_15"
+  },
+  {
+    "id": "G8_MATH_ALG_537",
+    "topic": "Patterns, Functions and Algebra",
+    "subtopic": "Algebraic expressions",
+    "difficulty": "hard",
+    "question": "Translate to an algebraic expression: 'The sum of a number $x$ and 7, divided by 3'",
+    "correct_answer": "(x + 7)/3",
+    "wrong_answers_pool": [
+      "x/3 + 7",
+      "x + 7/3",
+      "3/(x + 7)",
+      "3x + 7",
+      "x - 7/3",
+      "x/3 - 7"
+    ],
+    "explanation": "First add $x$ and 7: $(x + 7)$. Then divide the whole sum by 3: $\\frac{x + 7}{3}$.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_16"
+  },
+  {
+    "id": "G8_MATH_PROB_286",
+    "topic": "Probability",
+    "subtopic": "Experimental probability",
+    "difficulty": "hard",
+    "question": "A biased coin is flipped 500 times and lands on tails 438 times. What is the experimental probability of getting heads as a percentage?",
+    "correct_answer": "12%",
+    "wrong_answers_pool": [
+      "87%",
+      "17%",
+      "7%",
+      "62%",
+      "438%",
+      "14%"
+    ],
+    "explanation": "Heads occurred $500 - 438 = 62$ times. $\\frac{62}{500} = 0.124$. As a percentage: 12%.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_17"
+  },
+  {
+    "id": "G8_MATH_GEO_907",
+    "topic": "Space and Shape (Geometry)",
+    "subtopic": "Transformations",
+    "difficulty": "medium",
+    "question": "Point B(10; 2) is reflected across the x-axis. What are the new coordinates?",
+    "correct_answer": "(10; -2)",
+    "wrong_answers_pool": [
+      "(-10; 2)",
+      "(-10; -2)",
+      "(2; 10)",
+      "(-2; -10)",
+      "(10; 2)",
+      "(10; 3)"
+    ],
+    "explanation": "Reflecting across the x-axis changes the sign of the y-coordinate.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_18"
+  },
+  {
+    "id": "G8_MATH_ALG_165",
+    "topic": "Patterns, Functions and Algebra",
+    "subtopic": "Solving simple equations",
+    "difficulty": "hard",
+    "question": "Solve for $x$: $7x - 1x + 3 = 39$",
+    "correct_answer": "6",
+    "wrong_answers_pool": [
+      "3",
+      "4",
+      "5",
+      "7",
+      "8",
+      "9",
+      "10",
+      "12"
+    ],
+    "explanation": "Combine like terms: $(7 - 1)x = 6x$. Equation is $6x + 3 = 39$. Isolate $x$: $x = 6$.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_19"
+  },
+  {
+    "id": "G8_MATH_MEAS_472",
+    "topic": "Measurement",
+    "subtopic": "Time",
+    "difficulty": "medium",
+    "question": "Convert 454 minutes to hours.",
+    "correct_answer": "7.566666666666666 hours",
+    "wrong_answers_pool": [
+      "0.1 hours",
+      "3.8 hours",
+      "6.6 hours",
+      "8.6 hours",
+      "8.2 hours",
+      "11.3 hours",
+      "13.2 hours",
+      "13.3 hours"
+    ],
+    "explanation": "$454 \\div 60 = 7.566666666666666$ hours.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_20"
+  },
+  {
+    "id": "G8_MATH_MEAS_579",
+    "topic": "Measurement",
+    "subtopic": "Perimeter",
+    "difficulty": "medium",
+    "question": "Find the perimeter of a rectangle with length 15 cm and width 17 cm.",
+    "correct_answer": "64 cm",
+    "wrong_answers_pool": [
+      "-64 cm",
+      "65 cm",
+      "32 cm",
+      "128 cm",
+      "66 cm",
+      "192 cm",
+      "73 cm",
+      "74 cm"
+    ],
+    "explanation": "Perimeter $= 2(l + w) = 2(15 + 17) = 2(32) = 64$ cm.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_21"
+  },
+  {
+    "id": "G8_MATH_GEO_976",
+    "topic": "Space and Shape (Geometry)",
+    "subtopic": "Angles",
+    "difficulty": "medium",
+    "question": "What is the supplement of a $5^\\circ$ angle?",
+    "correct_answer": "175^\\circ",
+    "wrong_answers_pool": [
+      "160^\\circ",
+      "164^\\circ",
+      "169^\\circ",
+      "172^\\circ",
+      "173^\\circ",
+      "174^\\circ",
+      "525^\\circ",
+      "176^\\circ"
+    ],
+    "explanation": "Supplementary angles add up to $180^\\circ$. $180^\\circ - 5^\\circ = 175^\\circ$.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_22"
+  },
+  {
+    "id": "G8_MATH_MEAS_511",
+    "topic": "Measurement",
+    "subtopic": "Perimeter",
+    "difficulty": "hard",
+    "question": "What is the approximate circumference of a circle with radius 3 m? (Use $\\pi \\approx 3.14$)",
+    "correct_answer": "18.84 m",
+    "wrong_answers_pool": [
+      "0.05 m",
+      "1.94 m",
+      "33.61 m",
+      "37.68 m",
+      "5.84 m",
+      "9.42 m",
+      "12.07 m",
+      "-18.84 m"
+    ],
+    "explanation": "Circumference $= 2\\pi r \\approx 2 \\times 3.14 \\times 3 = 18.84$ m.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_23"
+  },
+  {
+    "id": "G8_MATH_MEAS_642",
+    "topic": "Measurement",
+    "subtopic": "Volume",
+    "difficulty": "hard",
+    "question": "Calculate the approximate volume of a cylinder with radius 7 cm and height 12 cm. (Use $\\pi \\approx 3.14$)",
+    "correct_answer": "1846.32 cm^3",
+    "wrong_answers_pool": [
+      "0.00 cm^3",
+      "1856.18 cm^3",
+      "1858.68 cm^3",
+      "1858.43 cm^3",
+      "-1846.32 cm^3",
+      "3692.64 cm^3",
+      "2769.48 cm^3",
+      "1845.32 cm^3"
+    ],
+    "explanation": "Volume $= \\pi r^2 h \\approx 3.14 \\times 7^2 \\times 12 = 1846.32 \\text{ cm}^3$.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_24"
+  },
+  {
+    "id": "G8_MATH_DATA_184",
+    "topic": "Data Handling",
+    "subtopic": "Median",
+    "difficulty": "hard",
+    "question": "Determine the median: $40, 22, 48, 50, 31, 28, 20, 26$",
+    "correct_answer": "29.5",
+    "wrong_answers_pool": [
+      "0.0",
+      "32.4",
+      "-29.5",
+      "27.5",
+      "41.3",
+      "44.2",
+      "14.8",
+      "47.1"
+    ],
+    "explanation": "Order the data: 20, 22, 26, 28, 31, 40, 48, 50. The median is the average of the 4th and 5th values: $\\frac{28 + 31}{2} = 29.5$.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_25"
+  },
+  {
+    "id": "G8_MATH_DATA_100",
+    "topic": "Data Handling",
+    "subtopic": "Mean",
+    "difficulty": "medium",
+    "question": "Calculate the mean of: $16, 10, 14, 16, 11$",
+    "correct_answer": "13.4",
+    "wrong_answers_pool": [
+      "0.1",
+      "32.7",
+      "32.5",
+      "3.4",
+      "4.6",
+      "6.7",
+      "6.3",
+      "12.4"
+    ],
+    "explanation": "Mean $= \\frac{67}{5} = 13.4$.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_26"
+  },
+  {
+    "id": "G8_MATH_PROB_470",
     "topic": "Probability",
     "subtopic": "Comparing probabilities",
     "difficulty": "hard",
-    "question": "Event A has a probability of $\\frac{30}{100}$. Event B has a probability of $0.56$. Event C has a probability of $76\\%$. Which event is most likely to happen?",
+    "question": "Event A has a probability of $\\frac{29}{100}$. Event B has a probability of $0.50$. Event C has a probability of $66\\%$. Which event is most likely to happen?",
     "correct_answer": "Event C",
     "wrong_answers_pool": [
       "Event A",
@@ -34,631 +514,127 @@
       "Events A and C",
       "They are all equally likely"
     ],
-    "explanation": "Convert to percentages: $A = 30\\%$, $B = 56\\%$, $C = 76\\%$. Event C has the highest probability.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_2"
-  },
-  {
-    "id": "G8_MATH_DATA_888",
-    "topic": "Data Handling",
-    "subtopic": "Mode",
-    "difficulty": "medium",
-    "question": "What is the mode of: $2, 9, 2, 9, 12$?",
-    "correct_answer": "2 and 9",
-    "wrong_answers_pool": [
-      "2",
-      "9",
-      "No mode",
-      "5.5",
-      "11",
-      "2 and 10"
-    ],
-    "explanation": "Both 2 and 9 appear twice. The data is bimodal.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_3"
-  },
-  {
-    "id": "G8_MATH_ALG_414",
-    "topic": "Patterns, Functions and Algebra",
-    "subtopic": "Input-output relationships",
-    "difficulty": "hard",
-    "question": "Given the rule $y = 3x - 11$. If the output $y = 57$, what is the input $x$?",
-    "correct_answer": "68/3",
-    "wrong_answers_pool": [
-      "69/3",
-      "46/3",
-      "57/3",
-      "68/4",
-      "67/3",
-      "70/3"
-    ],
-    "explanation": "Set $y = 57$: $57 = 3x - 11$. Solve for $x$: $x = \\frac{68}{3}$.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_4"
-  },
-  {
-    "id": "G8_MATH_GEO_887",
-    "topic": "Space and Shape (Geometry)",
-    "subtopic": "Angles",
-    "difficulty": "medium",
-    "question": "What is the supplement of a $140^\\circ$ angle?",
-    "correct_answer": "40^\\circ",
-    "wrong_answers_pool": [
-      "38^\\circ",
-      "39^\\circ",
-      "41^\\circ",
-      "42^\\circ",
-      "45^\\circ",
-      "80^\\circ",
-      "20^\\circ",
-      "54^\\circ"
-    ],
-    "explanation": "Supplementary angles add up to $180^\\circ$. $180^\\circ - 140^\\circ = 40^\\circ$.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_5"
-  },
-  {
-    "id": "G8_MATH_DATA_861",
-    "topic": "Data Handling",
-    "subtopic": "Median",
-    "difficulty": "medium",
-    "question": "Find the median of the data: $19, 8, 17, 13, 6, 4$",
-    "correct_answer": "10.5",
-    "wrong_answers_pool": [
-      "0.1",
-      "3.5",
-      "5.2",
-      "6.4",
-      "9.5",
-      "11.5",
-      "15.8",
-      "16.8"
-    ],
-    "explanation": "Order the data: 4, 6, 8, 13, 17, 19. The median is the average of the two middle values: $\\frac{8 + 13}{2} = 10.5$.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_6"
-  },
-  {
-    "id": "G8_MATH_NUM_010",
-    "topic": "Numbers, Operations and Relationships",
-    "subtopic": "Integers",
-    "difficulty": "hard",
-    "question": "Calculate: $(-2 \\times -4) - -3$",
-    "correct_answer": "11",
-    "wrong_answers_pool": [
-      "33",
-      "5",
-      "9",
-      "10",
-      "12",
-      "13",
-      "18",
-      "19"
-    ],
-    "explanation": "First multiply: $-2 \\times -4 = 8$. Then subtract: $8 - -3 = 11$.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_7"
-  },
-  {
-    "id": "G8_MATH_MEAS_621",
-    "topic": "Measurement",
-    "subtopic": "Time",
-    "difficulty": "hard",
-    "question": "How many seconds are in 1 hour(s) and 21 minutes?",
-    "correct_answer": "4860 s",
-    "wrong_answers_pool": [
-      "4865 s",
-      "-4860 s",
-      "4842 s",
-      "4844 s",
-      "4862 s",
-      "4849 s",
-      "14580 s",
-      "4852 s"
-    ],
-    "explanation": "1 hr = 3600 s. 21 min = 1260 s. Total = 4860 s.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_8"
-  },
-  {
-    "id": "G8_MATH_ALG_257",
-    "topic": "Patterns, Functions and Algebra",
-    "subtopic": "Simplifying expressions",
-    "difficulty": "hard",
-    "question": "Expand and simplify: $4(y + 3) - 6y$",
-    "correct_answer": "-2y + 12",
-    "wrong_answers_pool": [
-      "-1y + 12",
-      "10y + 12",
-      "-2y - 12",
-      "2y + 12",
-      "-3y + 12",
-      "0y + 12"
-    ],
-    "explanation": "Expand: $4y + 12$. Subtract $6y$: $(4 - 6)y + 12 = -2y + 12$.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_9"
-  },
-  {
-    "id": "G8_MATH_MEAS_368",
-    "topic": "Measurement",
-    "subtopic": "Mass",
-    "difficulty": "medium",
-    "question": "Convert 11803 g to kilograms (kg).",
-    "correct_answer": "11.803 kg",
-    "wrong_answers_pool": [
-      "0.085 kg",
-      "5.902 kg",
-      "8.248 kg",
-      "10.803 kg",
-      "10.313 kg",
-      "12.803 kg",
-      "17.705 kg",
-      "23.370 kg"
-    ],
-    "explanation": "1000 g = 1 kg. $11803 \\div 1000 = 11.803$ kg.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_10"
-  },
-  {
-    "id": "G8_MATH_ALG_091",
-    "topic": "Patterns, Functions and Algebra",
-    "subtopic": "Numeric patterns",
-    "difficulty": "hard",
-    "question": "Determine the $n^{\\text{th}}$ term for the sequence: $-16, -13, -10, -7, \\dots$",
-    "correct_answer": "3n - 19",
-    "wrong_answers_pool": [
-      "4n + -19",
-      "3n - -19",
-      "-19n + 3",
-      "3n + -18",
-      "5n + -20",
-      "2n + -19"
-    ],
-    "explanation": "The constant difference is $3$. The zero term is $-19$. So, $T_n = 3n - 19$.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_11"
-  },
-  {
-    "id": "G8_MATH_MEAS_848",
-    "topic": "Measurement",
-    "subtopic": "Surface area",
-    "difficulty": "hard",
-    "question": "An open rectangular box (no top) has length 6 cm, width 5 cm, and height 6 cm. What is its external surface area?",
-    "correct_answer": "162 cm^2",
-    "wrong_answers_pool": [
-      "160 cm^2",
-      "161 cm^2",
-      "163 cm^2",
-      "324 cm^2",
-      "164 cm^2",
-      "486 cm^2",
-      "165 cm^2",
-      "144 cm^2"
-    ],
-    "explanation": "Surface Area (no top) $= lw + 2lh + 2wh = (6 \\times 5) + 2(6 \\times 6) + 2(5 \\times 6) = 162 \\text{ cm}^2$.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_12"
-  },
-  {
-    "id": "G8_MATH_NUM_263",
-    "topic": "Numbers, Operations and Relationships",
-    "subtopic": "Number patterns",
-    "difficulty": "hard",
-    "question": "Find the next number in the geometric pattern: $2, 4, 8, 16, \\dots$",
-    "correct_answer": "32",
-    "wrong_answers_pool": [
-      "-32",
-      "33",
-      "64",
-      "34",
-      "96",
-      "44",
-      "16",
-      "49"
-    ],
-    "explanation": "The pattern multiplies by $2$ each time. $16 \\times 2 = 32$.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_13"
-  },
-  {
-    "id": "G8_MATH_MEAS_165",
-    "topic": "Measurement",
-    "subtopic": "Unit conversions",
-    "difficulty": "hard",
-    "question": "Convert 5 $m^3$ to $cm^3$.",
-    "correct_answer": "5000000 cm^3",
-    "wrong_answers_pool": [
-      "-5000000 cm^3",
-      "5000001 cm^3",
-      "10000000 cm^3",
-      "2500000 cm^3",
-      "5000002 cm^3",
-      "15000000 cm^3",
-      "5000010 cm^3",
-      "5000012 cm^3"
-    ],
-    "explanation": "Since $1 \\text{ m} = 100 \\text{ cm}$, $1 \\text{ m}^3 = 100 \\times 100 \\times 100 = 1,000,000 \\text{ cm}^3$. $5 \\times 1000000 = 5000000 \\text{ cm}^3$.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_14"
-  },
-  {
-    "id": "G8_MATH_ALG_143",
-    "topic": "Patterns, Functions and Algebra",
-    "subtopic": "Simplifying expressions",
-    "difficulty": "medium",
-    "question": "Simplify: $12a + 12y - 10a$",
-    "correct_answer": "2a + 12y",
-    "wrong_answers_pool": [
-      "22a + 12y",
-      "2a - 12y",
-      "14ay",
-      "-2a + 12y",
-      "2a",
-      "12y - 22a"
-    ],
-    "explanation": "Combine like terms for $a$: $(12 - 10)a = 2a$. The $y$ term stays the same.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_15"
-  },
-  {
-    "id": "G8_MATH_MEAS_699",
-    "topic": "Measurement",
-    "subtopic": "Time",
-    "difficulty": "medium",
-    "question": "Convert 359 minutes to hours.",
-    "correct_answer": "5.983333333333333 hours",
-    "wrong_answers_pool": [
-      "0.2 hours",
-      "-0.6 hours",
-      "3.0 hours",
-      "3.9 hours",
-      "5.0 hours",
-      "4.5 hours",
-      "7.0 hours",
-      "9.0 hours"
-    ],
-    "explanation": "$359 \\div 60 = 5.983333333333333$ hours.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_16"
-  },
-  {
-    "id": "G8_MATH_MEAS_427",
-    "topic": "Measurement",
-    "subtopic": "Area",
-    "difficulty": "medium",
-    "question": "Calculate the area of a triangle with base 21 m and height 14 m.",
-    "correct_answer": "147 m^2",
-    "wrong_answers_pool": [
-      "294 m^2",
-      "73 m^2",
-      "-147 m^2",
-      "142 m^2",
-      "144 m^2",
-      "145 m^2",
-      "146 m^2",
-      "148 m^2"
-    ],
-    "explanation": "Area $= \\frac{1}{2} \\times b \\times h = 0.5 \\times 21 \\times 14 = 147 \\text{ m}^2$.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_17"
-  },
-  {
-    "id": "G8_MATH_MEAS_476",
-    "topic": "Measurement",
-    "subtopic": "Time",
-    "difficulty": "hard",
-    "question": "How many seconds are in 2 hour(s) and 28 minutes?",
-    "correct_answer": "8880 s",
-    "wrong_answers_pool": [
-      "17760 s",
-      "8875 s",
-      "8878 s",
-      "8879 s",
-      "-8880 s",
-      "8881 s",
-      "8882 s",
-      "26640 s"
-    ],
-    "explanation": "2 hr = 7200 s. 28 min = 1680 s. Total = 8880 s.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_18"
-  },
-  {
-    "id": "G8_MATH_MEAS_731",
-    "topic": "Measurement",
-    "subtopic": "Volume",
-    "difficulty": "hard",
-    "question": "Calculate the approximate volume of a cylinder with radius 10 cm and height 9 cm. (Use $\\pi \\approx 3.14$)",
-    "correct_answer": "2826.0 cm^3",
-    "wrong_answers_pool": [
-      "0.00 cm^3",
-      "1413.00 cm^3",
-      "2825.00 cm^3",
-      "2827.00 cm^3",
-      "2830.05 cm^3",
-      "4239.00 cm^3",
-      "2833.30 cm^3",
-      "2835.81 cm^3"
-    ],
-    "explanation": "Volume $= \\pi r^2 h \\approx 3.14 \\times 10^2 \\times 9 = 2826.0 \\text{ cm}^3$.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_19"
-  },
-  {
-    "id": "G8_MATH_PROB_821",
-    "topic": "Probability",
-    "subtopic": "Comparing probabilities",
-    "difficulty": "medium",
-    "question": "Order these probabilities from least to greatest: $0.15, 8/10, 50%$",
-    "correct_answer": "0.15, 50%, 8/10",
-    "wrong_answers_pool": [
-      "8/10, 50%, 0.15",
-      "50%, 0.15, 8/10",
-      "0.15, 8/10, 50%",
-      "8/10, 0.15, 50%",
-      "50%, 8/10, 0.15",
-      "They are all equal"
-    ],
-    "explanation": "Convert all to decimals: 0.15, 0.5, 0.8. So the order is 0.15, 50%, 8/10.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_20"
-  },
-  {
-    "id": "G8_MATH_PROB_872",
-    "topic": "Probability",
-    "subtopic": "Comparing probabilities",
-    "difficulty": "medium",
-    "question": "Order these probabilities from least to greatest: $0.25, 8/10, 56%$",
-    "correct_answer": "0.25, 56%, 8/10",
-    "wrong_answers_pool": [
-      "8/10, 56%, 0.25",
-      "56%, 0.25, 8/10",
-      "0.25, 8/10, 56%",
-      "8/10, 0.25, 56%",
-      "56%, 8/10, 0.25",
-      "They are all equal"
-    ],
-    "explanation": "Convert all to decimals: 0.25, 0.57, 0.84. So the order is 0.25, 56%, 8/10.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_21"
-  },
-  {
-    "id": "G8_MATH_NUM_235",
-    "topic": "Numbers, Operations and Relationships",
-    "subtopic": "Order of operations",
-    "difficulty": "hard",
-    "question": "Calculate: $2 \\times (4 + 4) - 5^2$",
-    "correct_answer": "-9",
-    "wrong_answers_pool": [
-      "0",
-      "-27",
-      "9",
-      "11",
-      "-18",
-      "-17",
-      "-14",
-      "-11"
-    ],
-    "explanation": "Brackets: $4 + 4 = 8$. Exponents: $5^2 = 25$. Multiply: $2 \\times 8 = 16$. Subtract: $16 - 25 = -9$.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_22"
-  },
-  {
-    "id": "G8_MATH_PROB_101",
-    "topic": "Probability",
-    "subtopic": "Experimental probability",
-    "difficulty": "medium",
-    "question": "A spinner was spun 100 times and landed on 'Red' 42 times. What is the experimental probability of getting 'Red' as a decimal?",
-    "correct_answer": "0.42",
-    "wrong_answers_pool": [
-      "-0.42",
-      "1.42",
-      "-0.58",
-      "0.63",
-      "0.21",
-      "0.84",
-      "2.38",
-      "3.54"
-    ],
-    "explanation": "$\\frac{42}{100} = 0.42$.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_23"
-  },
-  {
-    "id": "G8_MATH_PROB_445",
-    "topic": "Probability",
-    "subtopic": "Comparing probabilities",
-    "difficulty": "medium",
-    "question": "Order these probabilities from least to greatest: $0.13, 8/10, 41%$",
-    "correct_answer": "0.13, 41%, 8/10",
-    "wrong_answers_pool": [
-      "8/10, 41%, 0.13",
-      "41%, 0.13, 8/10",
-      "0.13, 8/10, 41%",
-      "8/10, 0.13, 41%",
-      "41%, 8/10, 0.13",
-      "They are all equal"
-    ],
-    "explanation": "Convert all to decimals: 0.13, 0.41, 0.87. So the order is 0.13, 41%, 8/10.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_24"
-  },
-  {
-    "id": "G8_MATH_PROB_004",
-    "topic": "Probability",
-    "subtopic": "Chance and likelihood",
-    "difficulty": "hard",
-    "question": "If an event has a probability of $0.5$, how would you describe its chance of occurring?",
-    "correct_answer": "Roughly an even chance",
-    "wrong_answers_pool": [
-      "Certain",
-      "Impossible",
-      "Highly unlikely",
-      "Highly likely",
-      "Guaranteed",
-      "Zero chance"
-    ],
-    "explanation": "A probability around 0.5 indicates roughly an even chance (50/50).",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_25"
-  },
-  {
-    "id": "G8_MATH_MEAS_757",
-    "topic": "Measurement",
-    "subtopic": "Surface area",
-    "difficulty": "medium",
-    "question": "Find the surface area of a rectangular prism with length 6 m, width 2 m, and height 5 m.",
-    "correct_answer": "104 m^2",
-    "wrong_answers_pool": [
-      "312 m^2",
-      "98 m^2",
-      "102 m^2",
-      "103 m^2",
-      "105 m^2",
-      "106 m^2",
-      "107 m^2",
-      "108 m^2"
-    ],
-    "explanation": "Surface Area $= 2(lw + lh + wh) = 2(12 + 30 + 10) = 104 \\text{ m}^2$.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_26"
-  },
-  {
-    "id": "G8_MATH_DATA_993",
-    "topic": "Data Handling",
-    "subtopic": "Median",
-    "difficulty": "hard",
-    "question": "Determine the median: $39, 25, 24, 27, 25, 25, 34, 45$",
-    "correct_answer": "26.0",
-    "wrong_answers_pool": [
-      "0.0",
-      "32.7",
-      "-26.0",
-      "39.0",
-      "42.6",
-      "11.4",
-      "13.0",
-      "52.0"
-    ],
-    "explanation": "Order the data: 24, 25, 25, 25, 27, 34, 39, 45. The median is the average of the 4th and 5th values: $\\frac{25 + 27}{2} = 26.0$.",
+    "explanation": "Convert to percentages: $A = 29\\%$, $B = 50\\%$, $C = 66\\%$. Event C has the highest probability.",
     "exam_id": "EXAM_2026-W24_grade8_mathematics_27"
   },
   {
-    "id": "G8_MATH_PROB_503",
+    "id": "G8_MATH_PROB_694",
     "topic": "Probability",
-    "subtopic": "Simple probability calculations",
+    "subtopic": "Comparing probabilities",
     "difficulty": "hard",
-    "question": "A bag contains 8 red marbles, 7 blue marbles, and 6 green marbles. What is the probability of NOT picking a red marble?",
-    "correct_answer": "13/21",
+    "question": "Event A has a probability of $\\frac{33}{100}$. Event B has a probability of $0.56$. Event C has a probability of $66\\%$. Which event is most likely to happen?",
+    "correct_answer": "Event C",
     "wrong_answers_pool": [
-      "8/21",
-      "7/21",
-      "6/21",
-      "13/22",
-      "13/20",
-      "1/21"
+      "Event A",
+      "Event B",
+      "Events A and B",
+      "Events B and C",
+      "Events A and C",
+      "They are all equally likely"
     ],
-    "explanation": "Not red means blue or green. Favorable $= 7 + 6 = 13$. Probability $= \\frac{13}{21}$.",
+    "explanation": "Convert to percentages: $A = 33\\%$, $B = 56\\%$, $C = 66\\%$. Event C has the highest probability.",
     "exam_id": "EXAM_2026-W24_grade8_mathematics_28"
   },
   {
-    "id": "G8_MATH_ALG_801",
+    "id": "G8_MATH_ALG_741",
     "topic": "Patterns, Functions and Algebra",
-    "subtopic": "Simplifying expressions",
-    "difficulty": "medium",
-    "question": "Simplify: $4a + 9y - 10a$",
-    "correct_answer": "-6a + 9y",
+    "subtopic": "Algebraic expressions",
+    "difficulty": "hard",
+    "question": "Translate to an algebraic expression: 'The sum of a number $b$ and 7, divided by 5'",
+    "correct_answer": "(b + 7)/5",
     "wrong_answers_pool": [
-      "14a + 9y",
-      "-6a - 9y",
-      "3ay",
-      "6a + 9y",
-      "-6a",
-      "9y - 14a"
+      "b/5 + 7",
+      "b + 7/5",
+      "5/(b + 7)",
+      "5b + 7",
+      "b - 7/5",
+      "b/5 - 7"
     ],
-    "explanation": "Combine like terms for $a$: $(4 - 10)a = -6a$. The $y$ term stays the same.",
+    "explanation": "First add $b$ and 7: $(b + 7)$. Then divide the whole sum by 5: $\\frac{b + 7}{5}$.",
     "exam_id": "EXAM_2026-W24_grade8_mathematics_29"
   },
   {
-    "id": "G8_MATH_DATA_025",
-    "topic": "Data Handling",
-    "subtopic": "Mean",
+    "id": "G8_MATH_ALG_505",
+    "topic": "Patterns, Functions and Algebra",
+    "subtopic": "Algebraic expressions",
     "difficulty": "medium",
-    "question": "Calculate the mean of: $13, 20, 11, 18, 13$",
-    "correct_answer": "15.0",
+    "question": "Translate to an algebraic expression: 'Three times a number $n$ decreased by 8'",
+    "correct_answer": "3n - 8",
     "wrong_answers_pool": [
-      "0.1",
-      "4.8",
-      "7.5",
-      "14.0",
-      "16.0",
-      "-15.0",
-      "20.0",
-      "22.5"
+      "8n - 3",
+      "3(n - 8)",
+      "n/3 - 8",
+      "3n + 8",
+      "8 - 3n",
+      "n^3 - 8"
     ],
-    "explanation": "Mean $= \\frac{75}{5} = 15.0$.",
+    "explanation": "'Three times a number' is $3n$. 'Decreased by 8' means subtract 8. So, $3n - 8$.",
     "exam_id": "EXAM_2026-W24_grade8_mathematics_30"
   },
   {
-    "id": "G8_MATH_NUM_959",
+    "id": "G8_MATH_NUM_767",
     "topic": "Numbers, Operations and Relationships",
-    "subtopic": "Decimal fractions",
-    "difficulty": "medium",
-    "question": "Subtract: $13.36 - 1.69$",
-    "correct_answer": "11.67",
+    "subtopic": "Order of operations",
+    "difficulty": "hard",
+    "question": "Calculate: $3 \\times (8 + 3) - 3^2$",
+    "correct_answer": "24",
     "wrong_answers_pool": [
-      "0.09",
-      "2.77",
-      "5.83",
-      "7.21",
-      "8.00",
-      "10.67",
-      "12.67",
-      "17.50"
+      "6",
+      "7",
+      "-24",
+      "72",
+      "38",
+      "43",
+      "12",
+      "48"
     ],
-    "explanation": "Align the decimal points and subtract: $13.36 - 1.69 = 11.67$.",
+    "explanation": "Brackets: $8 + 3 = 11$. Exponents: $3^2 = 9$. Multiply: $3 \\times 11 = 33$. Subtract: $33 - 9 = 24$.",
     "exam_id": "EXAM_2026-W24_grade8_mathematics_31"
   },
   {
-    "id": "G8_MATH_ALG_258",
-    "topic": "Patterns, Functions and Algebra",
-    "subtopic": "Simplifying expressions",
-    "difficulty": "hard",
-    "question": "Expand and simplify: $2(y + 7) - 3y$",
-    "correct_answer": "-y + 14",
+    "id": "G8_MATH_NUM_102",
+    "topic": "Numbers, Operations and Relationships",
+    "subtopic": "Decimal fractions",
+    "difficulty": "medium",
+    "question": "Subtract: $12.41 - 3.71$",
+    "correct_answer": "8.70",
     "wrong_answers_pool": [
-      "y + 14",
-      "-2y + 14",
-      "-5y + 14",
-      "-y - 14",
-      "-3y + 14",
-      "-4y + 14"
+      "0.11",
+      "1.59",
+      "-0.71",
+      "4.35",
+      "4.10",
+      "7.70",
+      "9.70",
+      "13.05"
     ],
-    "explanation": "Expand: $2y + 14$. Subtract $3y$: $(2 - 3)y + 14 = -1y + 14$.",
+    "explanation": "Align the decimal points and subtract: $12.41 - 3.71 = 8.70$.",
     "exam_id": "EXAM_2026-W24_grade8_mathematics_32"
   },
   {
-    "id": "G8_MATH_NUM_612",
-    "topic": "Numbers, Operations and Relationships",
-    "subtopic": "Number patterns",
+    "id": "G8_MATH_PROB_652",
+    "topic": "Probability",
+    "subtopic": "Comparing probabilities",
     "difficulty": "medium",
-    "question": "Find the next number in the pattern: $61, 55, 49, 43, \\dots$",
-    "correct_answer": "37",
+    "question": "Order these probabilities from least to greatest: $55%, 8/10, 0.16$",
+    "correct_answer": "0.16, 55%, 8/10",
     "wrong_answers_pool": [
-      "35",
-      "36",
-      "38",
-      "39",
-      "27",
-      "74",
-      "45",
-      "111"
+      "8/10, 55%, 0.16",
+      "55%, 0.16, 8/10",
+      "0.16, 8/10, 55%",
+      "8/10, 0.16, 55%",
+      "55%, 8/10, 0.16",
+      "They are all equal"
     ],
-    "explanation": "The pattern subtracts $6$ each time. $43 - 6 = 37$.",
+    "explanation": "Convert all to decimals: 0.16, 0.55, 0.82. So the order is 0.16, 55%, 8/10.",
     "exam_id": "EXAM_2026-W24_grade8_mathematics_33"
   },
   {
-    "id": "G8_MATH_NUM_1000",
-    "topic": "Numbers, Operations and Relationships",
-    "subtopic": "Whole numbers",
-    "difficulty": "medium",
-    "question": "Calculate the product: $32 \\times 17$",
-    "correct_answer": "544",
-    "wrong_answers_pool": [
-      "-544",
-      "545",
-      "1088",
-      "546",
-      "1632",
-      "554",
-      "555",
-      "557"
-    ],
-    "explanation": "Multiplying $32$ by $17$ gives $544$.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_34"
-  },
-  {
-    "id": "G8_MATH_DATA_974",
+    "id": "G8_MATH_DATA_535",
     "topic": "Data Handling",
     "subtopic": "Mode",
     "difficulty": "hard",
-    "question": "Find the mode: $4, 2, 3, 5, 1$",
+    "question": "Find the mode: $3, 1, 2, 4, 5$",
     "correct_answer": "No mode",
     "wrong_answers_pool": [
       "3",
@@ -669,150 +645,88 @@
       "Median"
     ],
     "explanation": "Since every number appears exactly once, there is no mode.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_35"
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_34"
   },
   {
-    "id": "G8_MATH_GEO_747",
-    "topic": "Space and Shape (Geometry)",
-    "subtopic": "Triangles",
-    "difficulty": "hard",
-    "question": "In an isosceles triangle, one base angle is $55^\\circ$. What is the size of the vertex angle?",
-    "correct_answer": "70^\\circ",
-    "wrong_answers_pool": [
-      "64^\\circ",
-      "35^\\circ",
-      "68^\\circ",
-      "69^\\circ",
-      "58^\\circ",
-      "71^\\circ",
-      "72^\\circ",
-      "140^\\circ"
-    ],
-    "explanation": "Base angles are equal: $2 \\times 55^\\circ = 110^\\circ$. Vertex angle $= 180^\\circ - 110^\\circ = 70^\\circ$.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_36"
-  },
-  {
-    "id": "G8_MATH_MEAS_754",
-    "topic": "Measurement",
-    "subtopic": "Capacity",
-    "difficulty": "medium",
-    "question": "Convert 8452 mL to liters (L).",
-    "correct_answer": "8.452 L",
-    "wrong_answers_pool": [
-      "0.118 L",
-      "2.146 L",
-      "4.226 L",
-      "7.452 L",
-      "9.452 L",
-      "12.678 L",
-      "13.845 L",
-      "16.904 L"
-    ],
-    "explanation": "1000 mL = 1 L. $8452 \\div 1000 = 8.452$ L.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_37"
-  },
-  {
-    "id": "G8_MATH_DATA_970",
+    "id": "G8_MATH_DATA_969",
     "topic": "Data Handling",
     "subtopic": "Median",
     "difficulty": "hard",
-    "question": "Determine the median: $25, 27, 21, 45, 44, 33, 29, 29$",
-    "correct_answer": "29.0",
+    "question": "Determine the median: $46, 31, 26, 31, 34, 36, 50, 30$",
+    "correct_answer": "32.5",
     "wrong_answers_pool": [
+      "-32.5",
+      "33.5",
+      "65.0",
       "0.0",
-      "-29.0",
-      "26.3",
-      "43.5",
-      "44.0",
-      "44.3",
-      "14.5",
-      "47.1"
+      "37.9",
+      "43.0",
+      "12.9",
+      "46.9"
     ],
-    "explanation": "Order the data: 21, 25, 27, 29, 29, 33, 44, 45. The median is the average of the 4th and 5th values: $\\frac{29 + 29}{2} = 29.0$.",
+    "explanation": "Order the data: 26, 30, 31, 31, 34, 36, 46, 50. The median is the average of the 4th and 5th values: $\\frac{31 + 34}{2} = 32.5$.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_35"
+  },
+  {
+    "id": "G8_MATH_NUM_059",
+    "topic": "Numbers, Operations and Relationships",
+    "subtopic": "Common fractions",
+    "difficulty": "hard",
+    "question": "Multiply the fractions: $\\frac{5}{2} \\times \\frac{1}{5}$",
+    "correct_answer": "5/10",
+    "wrong_answers_pool": [
+      "6/10",
+      "5/7",
+      "25/2",
+      "4/10",
+      "7/10",
+      "3/10"
+    ],
+    "explanation": "Multiply numerators and denominators: $\\frac{5 \\times 1}{2 \\times 5} = \\frac{5}{10}$.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_36"
+  },
+  {
+    "id": "G8_MATH_ALG_420",
+    "topic": "Patterns, Functions and Algebra",
+    "subtopic": "Numeric patterns",
+    "difficulty": "hard",
+    "question": "Determine the $n^{\\text{th}}$ term for the sequence: $-14, -8, -2, 4, \\dots$",
+    "correct_answer": "6n - 20",
+    "wrong_answers_pool": [
+      "7n + -20",
+      "6n - -20",
+      "-20n + 6",
+      "6n + -19",
+      "8n + -21",
+      "5n + -20"
+    ],
+    "explanation": "The constant difference is $6$. The zero term is $-20$. So, $T_n = 6n - 20$.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_37"
+  },
+  {
+    "id": "G8_MATH_GEO_407",
+    "topic": "Space and Shape (Geometry)",
+    "subtopic": "Transformations",
+    "difficulty": "hard",
+    "question": "Point C(-4; 6) is rotated $180^\\circ$ around the origin. What are the new coordinates?",
+    "correct_answer": "(4; -6)",
+    "wrong_answers_pool": [
+      "(6; 4)",
+      "(-6; -4)",
+      "(-4; -6)",
+      "(4; 6)",
+      "(6; -4)",
+      "(-6; 4)"
+    ],
+    "explanation": "A $180^\\circ$ rotation maps $(x; y)$ to $(-x; -y)$.",
     "exam_id": "EXAM_2026-W24_grade8_mathematics_38"
   },
   {
-    "id": "G8_MATH_ALG_214",
-    "topic": "Patterns, Functions and Algebra",
-    "subtopic": "Input-output relationships",
-    "difficulty": "medium",
-    "question": "Given the flow diagram rule $y = 10x + 6$. Find the output when the input is $3$.",
-    "correct_answer": "36",
-    "wrong_answers_pool": [
-      "34",
-      "35",
-      "37",
-      "38",
-      "72",
-      "108",
-      "47",
-      "17"
-    ],
-    "explanation": "Substitute $x = 3$: $y = 10(3) + 6 = 30 + 6 = 36$.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_39"
-  },
-  {
-    "id": "G8_MATH_MEAS_134",
-    "topic": "Measurement",
-    "subtopic": "Time",
-    "difficulty": "medium",
-    "question": "Convert 145 minutes to hours.",
-    "correct_answer": "2.4166666666666665 hours",
-    "wrong_answers_pool": [
-      "0.4 hours",
-      "1.4 hours",
-      "1.2 hours",
-      "3.6 hours",
-      "3.4 hours",
-      "4.8 hours",
-      "5.5 hours",
-      "7.8 hours"
-    ],
-    "explanation": "$145 \\div 60 = 2.4166666666666665$ hours.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_40"
-  },
-  {
-    "id": "G8_MATH_ALG_407",
-    "topic": "Patterns, Functions and Algebra",
-    "subtopic": "Simplifying expressions",
-    "difficulty": "medium",
-    "question": "Simplify: $11x + 12y - 3x$",
-    "correct_answer": "8x + 12y",
-    "wrong_answers_pool": [
-      "14x + 12y",
-      "8x - 12y",
-      "20xy",
-      "-8x + 12y",
-      "8x",
-      "12y - 14x"
-    ],
-    "explanation": "Combine like terms for $x$: $(11 - 3)x = 8x$. The $y$ term stays the same.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_41"
-  },
-  {
-    "id": "G8_MATH_ALG_218",
-    "topic": "Patterns, Functions and Algebra",
-    "subtopic": "Geometric patterns",
-    "difficulty": "hard",
-    "question": "What is the general formula for the sequence: $3, 15, 75, \\dots$?",
-    "correct_answer": "3 \\times 5^(n-1)",
-    "wrong_answers_pool": [
-      "3 \\times 5^n",
-      "5 \\times 3^(n-1)",
-      "3 \\times 5^(n+1)",
-      "4 \\times 5^(n-1)",
-      "5n + 3",
-      "3n + 5"
-    ],
-    "explanation": "The first term $a = 3$, ratio $r = 5$. Formula is $a \\times r^{n-1} = 3 \\times 5^{n-1}$.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_42"
-  },
-  {
-    "id": "G8_MATH_PROB_303",
+    "id": "G8_MATH_PROB_569",
     "topic": "Probability",
     "subtopic": "Comparing probabilities",
     "difficulty": "hard",
-    "question": "Event A has a probability of $\\frac{27}{100}$. Event B has a probability of $0.45$. Event C has a probability of $82\\%$. Which event is most likely to happen?",
+    "question": "Event A has a probability of $\\frac{37}{100}$. Event B has a probability of $0.50$. Event C has a probability of $70\\%$. Which event is most likely to happen?",
     "correct_answer": "Event C",
     "wrong_answers_pool": [
       "Event A",
@@ -822,141 +736,213 @@
       "Events A and C",
       "They are all equally likely"
     ],
-    "explanation": "Convert to percentages: $A = 27\\%$, $B = 45\\%$, $C = 82\\%$. Event C has the highest probability.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_43"
+    "explanation": "Convert to percentages: $A = 37\\%$, $B = 50\\%$, $C = 70\\%$. Event C has the highest probability.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_39"
   },
   {
-    "id": "G8_MATH_GEO_828",
-    "topic": "Space and Shape (Geometry)",
-    "subtopic": "Transformations",
-    "difficulty": "hard",
-    "question": "Point C(6; -5) is rotated $180^\\circ$ around the origin. What are the new coordinates?",
-    "correct_answer": "(-6; 5)",
-    "wrong_answers_pool": [
-      "(-5; -6)",
-      "(5; 6)",
-      "(6; 5)",
-      "(-6; -5)",
-      "(-5; 6)",
-      "(5; -6)"
-    ],
-    "explanation": "A $180^\\circ$ rotation maps $(x; y)$ to $(-x; -y)$.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_44"
-  },
-  {
-    "id": "G8_MATH_PROB_079",
-    "topic": "Probability",
-    "subtopic": "Possible outcomes",
-    "difficulty": "hard",
-    "question": "If you flip 2 coin(s) and roll 2 6-sided die(dice), how many total possible outcomes are there?",
-    "correct_answer": "144",
-    "wrong_answers_pool": [
-      "288",
-      "130",
-      "131",
-      "72",
-      "142",
-      "143",
-      "-144",
-      "145"
-    ],
-    "explanation": "$2^{2} \\times 6^{2} = 144$ total outcomes.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_45"
-  },
-  {
-    "id": "G8_MATH_PROB_566",
-    "topic": "Probability",
-    "subtopic": "Experimental probability",
-    "difficulty": "medium",
-    "question": "A spinner was spun 500 times and landed on 'Red' 109 times. What is the experimental probability of getting 'Red' as a decimal?",
-    "correct_answer": "0.22",
-    "wrong_answers_pool": [
-      "-0.22",
-      "1.22",
-      "0.11",
-      "0.33",
-      "-0.78",
-      "0.44",
-      "4.59",
-      "4.98"
-    ],
-    "explanation": "$\\frac{109}{500} = 0.22$.",
-    "exam_id": "EXAM_2026-W24_grade8_mathematics_46"
-  },
-  {
-    "id": "G8_MATH_PROB_918",
+    "id": "G8_MATH_PROB_705",
     "topic": "Probability",
     "subtopic": "Comparing probabilities",
     "difficulty": "medium",
-    "question": "Order these probabilities from least to greatest: $0.13, 8/10, 50%$",
-    "correct_answer": "0.13, 50%, 8/10",
+    "question": "Order these probabilities from least to greatest: $8/10, 42%, 0.19$",
+    "correct_answer": "0.19, 42%, 8/10",
     "wrong_answers_pool": [
-      "8/10, 50%, 0.13",
-      "50%, 0.13, 8/10",
-      "0.13, 8/10, 50%",
-      "8/10, 0.13, 50%",
-      "50%, 8/10, 0.13",
+      "8/10, 42%, 0.19",
+      "42%, 0.19, 8/10",
+      "0.19, 8/10, 42%",
+      "8/10, 0.19, 42%",
+      "42%, 8/10, 0.19",
       "They are all equal"
     ],
-    "explanation": "Convert all to decimals: 0.13, 0.5, 0.89. So the order is 0.13, 50%, 8/10.",
+    "explanation": "Convert all to decimals: 0.19, 0.42, 0.85. So the order is 0.19, 42%, 8/10.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_40"
+  },
+  {
+    "id": "G8_MATH_DATA_977",
+    "topic": "Data Handling",
+    "subtopic": "Mode",
+    "difficulty": "hard",
+    "question": "Find the mode: $2, 3, 4, 1, 5$",
+    "correct_answer": "No mode",
+    "wrong_answers_pool": [
+      "3",
+      "1",
+      "5",
+      "15",
+      "Mean",
+      "Median"
+    ],
+    "explanation": "Since every number appears exactly once, there is no mode.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_41"
+  },
+  {
+    "id": "G8_MATH_DATA_320",
+    "topic": "Data Handling",
+    "subtopic": "Median",
+    "difficulty": "hard",
+    "question": "Determine the median: $44, 31, 35, 32, 48, 48, 41, 42$",
+    "correct_answer": "41.5",
+    "wrong_answers_pool": [
+      "0.0",
+      "34.1",
+      "40.5",
+      "42.5",
+      "45.5",
+      "83.0",
+      "20.8",
+      "23.8"
+    ],
+    "explanation": "Order the data: 31, 32, 35, 41, 42, 44, 48, 48. The median is the average of the 4th and 5th values: $\\frac{41 + 42}{2} = 41.5$.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_42"
+  },
+  {
+    "id": "G8_MATH_ALG_040",
+    "topic": "Patterns, Functions and Algebra",
+    "subtopic": "Simplifying expressions",
+    "difficulty": "medium",
+    "question": "Simplify: $9a + 10y - 10a$",
+    "correct_answer": "-1a + 10y",
+    "wrong_answers_pool": [
+      "19a + 10y",
+      "-1a - 10y",
+      "9ay",
+      "1a + 10y",
+      "-1a",
+      "10y - 19a"
+    ],
+    "explanation": "Combine like terms for $a$: $(9 - 10)a = -1a$. The $y$ term stays the same.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_43"
+  },
+  {
+    "id": "G8_MATH_PROB_147",
+    "topic": "Probability",
+    "subtopic": "Simple probability calculations",
+    "difficulty": "hard",
+    "question": "A bag contains 6 red marbles, 9 blue marbles, and 5 green marbles. What is the probability of NOT picking a red marble?",
+    "correct_answer": "14/20",
+    "wrong_answers_pool": [
+      "6/20",
+      "9/20",
+      "5/20",
+      "14/21",
+      "14/19",
+      "1/20"
+    ],
+    "explanation": "Not red means blue or green. Favorable $= 9 + 5 = 14$. Probability $= \\frac{14}{20}$.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_44"
+  },
+  {
+    "id": "G8_MATH_GEO_564",
+    "topic": "Space and Shape (Geometry)",
+    "subtopic": "Transformations",
+    "difficulty": "medium",
+    "question": "Point B(-10; 9) is reflected across the x-axis. What are the new coordinates?",
+    "correct_answer": "(-10; -9)",
+    "wrong_answers_pool": [
+      "(10; 9)",
+      "(10; -9)",
+      "(9; -10)",
+      "(-9; 10)",
+      "(-10; 9)",
+      "(-10; 10)"
+    ],
+    "explanation": "Reflecting across the x-axis changes the sign of the y-coordinate.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_45"
+  },
+  {
+    "id": "G8_MATH_DATA_917",
+    "topic": "Data Handling",
+    "subtopic": "Mode",
+    "difficulty": "medium",
+    "question": "What is the mode of: $11, 5, 7, 7, 5$?",
+    "correct_answer": "5 and 7",
+    "wrong_answers_pool": [
+      "5",
+      "7",
+      "No mode",
+      "6.0",
+      "12",
+      "5 and 12"
+    ],
+    "explanation": "Both 5 and 7 appear twice. The data is bimodal.",
+    "exam_id": "EXAM_2026-W24_grade8_mathematics_46"
+  },
+  {
+    "id": "G8_MATH_NUM_419",
+    "topic": "Numbers, Operations and Relationships",
+    "subtopic": "Number patterns",
+    "difficulty": "medium",
+    "question": "Find the next number in the pattern: $91, 84, 77, 70, \\dots$",
+    "correct_answer": "63",
+    "wrong_answers_pool": [
+      "64",
+      "-63",
+      "65",
+      "56",
+      "75",
+      "78",
+      "80",
+      "189"
+    ],
+    "explanation": "The pattern subtracts $7$ each time. $70 - 7 = 63$.",
     "exam_id": "EXAM_2026-W24_grade8_mathematics_47"
   },
   {
-    "id": "G8_MATH_ALG_893",
+    "id": "G8_MATH_ALG_899",
     "topic": "Patterns, Functions and Algebra",
-    "subtopic": "Algebraic expressions",
+    "subtopic": "Solving simple equations",
     "difficulty": "hard",
-    "question": "Translate to an algebraic expression: 'The sum of a number $y$ and 3, divided by 2'",
-    "correct_answer": "(y + 3)/2",
+    "question": "Solve for $x$: $7x - 4x - 3 = -27$",
+    "correct_answer": "-8",
     "wrong_answers_pool": [
-      "y/2 + 3",
-      "y + 3/2",
-      "2/(y + 3)",
-      "2y + 3",
-      "y - 3/2",
-      "y/2 - 3"
+      "6",
+      "8",
+      "-24",
+      "-22",
+      "11",
+      "-20",
+      "-16",
+      "-15"
     ],
-    "explanation": "First add $y$ and 3: $(y + 3)$. Then divide the whole sum by 2: $\\frac{y + 3}{2}$.",
+    "explanation": "Combine like terms: $(7 - 4)x = 3x$. Equation is $3x - 3 = -27$. Isolate $x$: $x = -8$.",
     "exam_id": "EXAM_2026-W24_grade8_mathematics_48"
   },
   {
-    "id": "G8_MATH_MEAS_880",
-    "topic": "Measurement",
-    "subtopic": "Surface area",
+    "id": "G8_MATH_DATA_981",
+    "topic": "Data Handling",
+    "subtopic": "Median",
     "difficulty": "hard",
-    "question": "An open rectangular box (no top) has length 8 cm, width 6 cm, and height 8 cm. What is its external surface area?",
-    "correct_answer": "272 cm^2",
+    "question": "Determine the median: $34, 21, 46, 28, 32, 23, 24, 39$",
+    "correct_answer": "30.0",
     "wrong_answers_pool": [
-      "544 cm^2",
-      "289 cm^2",
-      "290 cm^2",
-      "262 cm^2",
-      "263 cm^2",
-      "136 cm^2",
-      "270 cm^2",
-      "271 cm^2"
+      "0.0",
+      "32.5",
+      "-30.0",
+      "36.4",
+      "43.4",
+      "43.8",
+      "45.0",
+      "15.0"
     ],
-    "explanation": "Surface Area (no top) $= lw + 2lh + 2wh = (8 \\times 6) + 2(8 \\times 8) + 2(6 \\times 8) = 272 \\text{ cm}^2$.",
+    "explanation": "Order the data: 21, 23, 24, 28, 32, 34, 39, 46. The median is the average of the 4th and 5th values: $\\frac{28 + 32}{2} = 30.0$.",
     "exam_id": "EXAM_2026-W24_grade8_mathematics_49"
   },
   {
-    "id": "G8_MATH_PROB_910",
-    "topic": "Probability",
-    "subtopic": "Experimental probability",
+    "id": "G8_MATH_GEO_467",
+    "topic": "Space and Shape (Geometry)",
+    "subtopic": "Transformations",
     "difficulty": "medium",
-    "question": "A spinner was spun 400 times and landed on 'Red' 170 times. What is the experimental probability of getting 'Red' as a decimal?",
-    "correct_answer": "0.42",
+    "question": "Point B(10; 4) is reflected across the x-axis. What are the new coordinates?",
+    "correct_answer": "(10; -4)",
     "wrong_answers_pool": [
-      "-0.42",
-      "1.43",
-      "0.21",
-      "0.64",
-      "-0.57",
-      "0.85",
-      "2.35",
-      "6.39"
+      "(-10; 4)",
+      "(-10; -4)",
+      "(4; 10)",
+      "(-4; -10)",
+      "(10; 4)",
+      "(10; 5)"
     ],
-    "explanation": "$\\frac{170}{400} = 0.42$.",
+    "explanation": "Reflecting across the x-axis changes the sign of the y-coordinate.",
     "exam_id": "EXAM_2026-W24_grade8_mathematics_50"
   }
 ]
