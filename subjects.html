@@ -178,6 +178,7 @@
         "physical_sciences": "physics", // Uses same class as physics
         "life_sciences": "life-sciences",
         "natural_sciences": "natural-sciences",
+        "natural_sciences_and_technology": "natural-sciences-tech",
         "mathematical_literacy": "math-lit",
         "agricultural_sciences": "agri-sciences"
     };
@@ -188,6 +189,7 @@
         "physical_sciences": "Physical Sciences",
         "life_sciences": "Life Sciences",
         "natural_sciences": "Natural Sciences",
+        "natural_sciences_and_technology": "Natural Sciences and Technology",
         "mathematical_literacy": "Mathematical Literacy",
         "agricultural_sciences": "Agricultural Sciences"
     };
@@ -225,6 +227,9 @@
                 extraClass = "";
             } else if (subjectKey === "natural_sciences") {
                 extraStyle = 'style="background-color: #22c55e;"';
+                extraClass = "";
+            } else if (subjectKey === "natural_sciences_and_technology") {
+                extraStyle = 'style="background-color: #0d9488;"';
                 extraClass = "";
             } else if (subjectKey === "agricultural_sciences") {
                 extraStyle = 'style="background-color: #84cc16;"'; // lime color for agriculture

@@ -63,4 +63,12 @@ GRADE_MAP["grade8"]["mathematics"] = [
     { "file": "grade8_math_probability.json", "label": "Probability" }
 ];
 
+
+GRADE_MAP["grade6"]["natural_sciences_and_technology"] = [
+    { "file": "grade6_nst_life_living_processing.json", "label": "Life and Living & Processing" },
+    { "file": "grade6_nst_matter_materials_processing.json", "label": "Matter and Materials & Processing" },
+    { "file": "grade6_nst_energy_change_systems_control.json", "label": "Energy and Change & Systems and Control" },
+    { "file": "grade6_nst_planet_earth_beyond_systems_control.json", "label": "Planet Earth and Beyond & Systems and Control" }
+];
+
 fs.writeFileSync('map.json', JSON.stringify(GRADE_MAP, null, 2));
