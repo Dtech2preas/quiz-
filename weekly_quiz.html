@@ -772,14 +772,21 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
             document.getElementById("offline-sync-notice").style.display = "none";
 
             const normalizedSubject = subject === "mathematics" ? "math" : subject;
-            let examXpEarned = score * 8;
+            let examXpEarned = 0;
             let bonusXp = 0;
-            if (percentage > 80) {
-                if (percentage >= 95) bonusXp = 150;
-                else if (percentage >= 90) bonusXp = 100;
-                else bonusXp = 50;
+            let totalXpEarned = 0;
+            let pointsEarned = 0;
+
+            if (percentage >= 40) {
+                examXpEarned = score * 8;
+                if (percentage > 80) {
+                    if (percentage >= 95) bonusXp = 150;
+                    else if (percentage >= 90) bonusXp = 100;
+                    else bonusXp = 50;
+                }
+                totalXpEarned = examXpEarned + bonusXp;
+                pointsEarned = totalXpEarned * 2;
             }
-            const totalXpEarned = examXpEarned + bonusXp;
 
             if (window.queueFirebaseAction) {
                 window.queueFirebaseAction({
@@ -788,20 +795,27 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
                     subject: normalizedSubject,
                     examKey: `${currentExamWeek}_${subject}`,
                     totalXp: totalXpEarned,
+                    points: pointsEarned,
                     score: score,
                     totalQs: totalQuestions
                 });
             }
 
-            let xpMsg = `+${totalXpEarned} XP Earned!`;
-            publicXpMsg.style.color = "var(--accent-green)";
+            if (percentage >= 40) {
+                let xpMsg = `+${totalXpEarned} XP & +${pointsEarned} Points Earned!`;
+                publicXpMsg.style.color = "var(--accent-green)";
 
-            if (bonusXp > 0) {
-                personalXpMsg.textContent = `Includes ${bonusXp} Bonus XP for scoring ≥ 80%!`;
+                if (bonusXp > 0) {
+                    personalXpMsg.textContent = `Includes ${bonusXp} Bonus XP for scoring ≥ 80%!`;
+                } else {
+                    personalXpMsg.textContent = "Great job completing the weekly exam.";
+                }
+                publicXpMsg.textContent = xpMsg;
             } else {
-                personalXpMsg.textContent = "Great job completing the weekly exam.";
+                publicXpMsg.textContent = "Failed Exam";
+                publicXpMsg.style.color = "var(--accent-red)";
+                personalXpMsg.textContent = "You need at least 40% to earn XP and Points.";
             }
-            publicXpMsg.textContent = xpMsg;
 
         } catch (error) {
             console.error(error);

@@ -678,39 +678,49 @@ async function handleSubmitWeeklyExam(request, env, ctx) {
 
   const scorePercentage = total_questions > 0 ? (correct_answers / total_questions) * 100 : 0;
 
-  // Weekly exam gives 8 XP per correct answer
-  let examXpEarned = correct_answers * 8;
-
-  // Plus a bonus of 50 to 150 if score > 80%
+  let examXpEarned = 0;
   let bonusXp = 0;
-  if (scorePercentage > 80) {
-    bonusXp = Math.floor(Math.random() * (150 - 50 + 1)) + 50;
-    examXpEarned += bonusXp;
+  let pointsEarned = 0;
+
+  if (scorePercentage >= 40) {
+    let base_xp = correct_answers * 8;
+    if (scorePercentage > 80) {
+        if (scorePercentage >= 95) bonusXp = 150;
+        else if (scorePercentage >= 90) bonusXp = 100;
+        else bonusXp = 50;
+    }
+    examXpEarned = base_xp + bonusXp;
+    pointsEarned = examXpEarned * 2;
   }
 
   const currentWeek = getCurrentWeek();
 
   // Note: Weekly exam points bypass the daily cap!
 
-  // Update Personal XP
-  userData.personal_total_xp += examXpEarned;
-  if (!userData.personal_subjects_xp[normalizedSubject]) userData.personal_subjects_xp[normalizedSubject] = 0;
-  userData.personal_subjects_xp[normalizedSubject] += examXpEarned;
+  if (examXpEarned > 0) {
+      // Update Personal XP
+      userData.personal_total_xp += examXpEarned;
+      if (!userData.personal_subjects_xp[normalizedSubject]) userData.personal_subjects_xp[normalizedSubject] = 0;
+      userData.personal_subjects_xp[normalizedSubject] += examXpEarned;
 
-  // Update Public XP
-  userData.total_xp += examXpEarned;
-  if (!userData.subjects_xp[normalizedSubject]) userData.subjects_xp[normalizedSubject] = 0;
-  userData.subjects_xp[normalizedSubject] += examXpEarned;
+      // Update Public XP
+      userData.total_xp += examXpEarned;
+      if (!userData.subjects_xp[normalizedSubject]) userData.subjects_xp[normalizedSubject] = 0;
+      userData.subjects_xp[normalizedSubject] += examXpEarned;
 
-  // Legacy fields mapping
-  if (normalizedSubject === "math") {
-    userData.math_xp += examXpEarned;
-    if (userData.personal_math_xp === undefined) userData.personal_math_xp = userData.math_xp || 0;
-    userData.personal_math_xp += examXpEarned;
-  } else if (normalizedSubject === "physics") {
-    userData.physics_xp += examXpEarned;
-    if (userData.personal_physics_xp === undefined) userData.personal_physics_xp = userData.physics_xp || 0;
-    userData.personal_physics_xp += examXpEarned;
+      // Legacy fields mapping
+      if (normalizedSubject === "math") {
+        userData.math_xp += examXpEarned;
+        if (userData.personal_math_xp === undefined) userData.personal_math_xp = userData.math_xp || 0;
+        userData.personal_math_xp += examXpEarned;
+      } else if (normalizedSubject === "physics") {
+        userData.physics_xp += examXpEarned;
+        if (userData.personal_physics_xp === undefined) userData.personal_physics_xp = userData.physics_xp || 0;
+        userData.personal_physics_xp += examXpEarned;
+      }
+
+      if (userData.dtech_points === undefined) userData.dtech_points = 0;
+      userData.dtech_points += pointsEarned;
   }
 
   // Update weekly XP
@@ -996,14 +1006,21 @@ async function handleBatchSync(request, env, ctx) {
       };
 
       const percentage = (correct_answers / total_questions) * 100;
-      const passed = percentage >= 50;
+      const passed = percentage >= 40;
 
       let xpEarned = 0;
       let pointsEarned = 0;
 
       if (passed) {
-        xpEarned = 100;
-        pointsEarned = 20;
+        let base_xp = correct_answers * 8;
+        let bonusXp = 0;
+        if (percentage > 80) {
+            if (percentage >= 95) bonusXp = 150;
+            else if (percentage >= 90) bonusXp = 100;
+            else bonusXp = 50;
+        }
+        xpEarned = base_xp + bonusXp;
+        pointsEarned = xpEarned * 2;
 
         // Ensure fields
         if (userData.personal_total_xp === undefined) userData.personal_total_xp = userData.total_xp || 0;
