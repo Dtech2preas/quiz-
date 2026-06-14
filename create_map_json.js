@@ -53,4 +53,14 @@ for (let i = 1; i <= 11; i++) {
     };
 }
 
+
+GRADE_MAP["grade8"]["mathematics"] = [
+    { "file": "grade8_math_numbers_operations_relationships.json", "label": "Numbers, Operations and Relationships" },
+    { "file": "grade8_math_patterns_algebra.json", "label": "Patterns, Functions and Algebra" },
+    { "file": "grade8_math_geometry.json", "label": "Space and Shape (Geometry)" },
+    { "file": "grade8_math_measurement.json", "label": "Measurement" },
+    { "file": "grade8_math_data_handling.json", "label": "Data Handling" },
+    { "file": "grade8_math_probability.json", "label": "Probability" }
+];
+
 fs.writeFileSync('map.json', JSON.stringify(GRADE_MAP, null, 2));

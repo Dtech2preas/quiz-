@@ -1,505 +1,68 @@
 [
   {
-    "id": "PS11_P2_QUA_952",
-    "topic": "Quantitative Aspects of Chemical Change",
-    "subtopic": "Concentration of solutions",
+    "id": "PS11_P2_MAT_801",
+    "topic": "Matter and Materials",
+    "subtopic": "Atomic combinations",
     "paper": "paper2",
-    "difficulty": "medium",
-    "question": "What mass of solute (molar mass = 52 g/mol) is required to prepare 789 cm\u00b3 of a 0.56 mol/dm\u00b3 solution?",
-    "correct_answer": "22.83",
+    "difficulty": "hard",
+    "question": "Atom A has an electronegativity of 3.24 and Atom B has an electronegativity of 2.42. Predict the type of bond formed between them.",
+    "correct_answer": "Polar covalent",
     "wrong_answers_pool": [
-      "2.28",
-      "12.83",
-      "11.41",
-      "45.66",
-      "228.30",
-      "32.83"
+      "Ionic",
+      "Non-polar covalent",
+      "Metallic",
+      "Hydrogen bond",
+      "Coordinate covalent",
+      "London force"
     ],
-    "explanation": "V = 789/1000 = 0.789 dm\u00b3. n = C * V = 0.56 * 0.789 = 0.439 mol. m = n * M = 0.439 * 52 = 22.83 g.",
+    "explanation": "\u0394EN = |3.24 - 2.42| = 0.81. \u0394EN > 2.0 implies Ionic, 0.4 < \u0394EN < 2.0 implies Polar covalent, \u0394EN <= 0.4 implies Non-polar covalent. Thus it is Polar covalent.",
     "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_1"
   },
   {
-    "id": "PS11_P2_IDE_648",
-    "topic": "Ideal Gases",
-    "subtopic": "Charles's Law",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "A gas occupies 30 dm\u00b3 at 35\u00b0C. Calculate its volume at 30\u00b0C, assuming constant pressure.",
-    "correct_answer": "29.51",
-    "wrong_answers_pool": [
-      "19.51",
-      "295.10",
-      "14.76",
-      "2.95",
-      "39.51",
-      "59.02"
-    ],
-    "explanation": "T1 = 35 + 273 = 308 K. T2 = 30 + 273 = 303 K. V1/T1 = V2/T2 => V2 = (V1 * T2) / T1 = (30 * 303) / 308 = 29.51 dm\u00b3.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_2"
-  },
-  {
-    "id": "PS11_P2_QUA_670",
-    "topic": "Quantitative Aspects of Chemical Change",
-    "subtopic": "Limiting reagents",
-    "paper": "paper2",
-    "difficulty": "hard",
-    "question": "In the reaction 5A + 5B -> Products, 64 g of A (M=72 g/mol) reacts with 93 g of B (M=70 g/mol). Which reactant is the limiting reagent?",
-    "correct_answer": "Reactant A",
-    "wrong_answers_pool": [
-      "Reactant B",
-      "Products",
-      "Both A and B",
-      "Cannot be determined",
-      "Neither",
-      "Depends on temperature"
-    ],
-    "explanation": "Moles A = 64/72 = 0.889. Moles B = 93/70 = 1.329. Ratio A = 0.889/5 = 0.178. Ratio B = 1.329/5 = 0.266. Smaller ratio is limiting.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_3"
-  },
-  {
-    "id": "PS11_P2_ENE_649",
-    "topic": "Energy and Chemical Change",
-    "subtopic": "Activation energy",
-    "paper": "paper2",
-    "difficulty": "hard",
-    "question": "For a certain reaction, the energy of the reactants is 227 kJ/mol and the energy of the activated complex is 635 kJ/mol. Calculate the activation energy for the forward reaction.",
-    "correct_answer": "408 kJ/mol",
-    "wrong_answers_pool": [
-      "418",
-      "398",
-      "407",
-      "4080",
-      "409",
-      "816"
-    ],
-    "explanation": "Ea = E_activated_complex - E_reactants = 635 - 227 = 408 kJ/mol.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_4"
-  },
-  {
-    "id": "PS11_P2_IDE_884",
-    "topic": "Ideal Gases",
-    "subtopic": "Ideal Gas Law",
-    "paper": "paper2",
-    "difficulty": "hard",
-    "question": "Calculate the number of moles of an ideal gas that occupies 39 dm\u00b3 at a pressure of 316 kPa and a temperature of 45\u00b0C. (R = 8.31 J/(mol\u00b7K))",
-    "correct_answer": "4.664",
-    "wrong_answers_pool": [
-      "9.33",
-      "46.64",
-      "21.75",
-      "14.66",
-      "2.33",
-      "0.47"
-    ],
-    "explanation": "P = 316000 Pa, V = 0.039 m\u00b3, T = 318 K. PV = nRT => n = PV / RT = (316000 * 0.039) / (8.31 * 318) = 4.664 mol.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_5"
-  },
-  {
-    "id": "PS11_P2_QUA_034",
-    "topic": "Quantitative Aspects of Chemical Change",
-    "subtopic": "Concentration of solutions",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "What mass of solute (molar mass = 287 g/mol) is required to prepare 1006 cm\u00b3 of a 4.89 mol/dm\u00b3 solution?",
-    "correct_answer": "1412.55",
-    "wrong_answers_pool": [
-      "14125.50",
-      "706.27",
-      "1422.55",
-      "2825.10",
-      "141.25",
-      "1402.55"
-    ],
-    "explanation": "V = 1006/1000 = 1.006 dm\u00b3. n = C * V = 4.89 * 1.006 = 4.922 mol. m = n * M = 4.922 * 287 = 1412.55 g.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_6"
-  },
-  {
-    "id": "PS11_P2_QUA_477",
-    "topic": "Quantitative Aspects of Chemical Change",
-    "subtopic": "Limiting reagents",
-    "paper": "paper2",
-    "difficulty": "hard",
-    "question": "In the reaction 4A + 1B -> Products, 84 g of A (M=98 g/mol) reacts with 74 g of B (M=89 g/mol). Which reactant is the limiting reagent?",
-    "correct_answer": "Reactant A",
-    "wrong_answers_pool": [
-      "Reactant B",
-      "Products",
-      "Both A and B",
-      "Cannot be determined",
-      "Neither",
-      "Depends on temperature"
-    ],
-    "explanation": "Moles A = 84/98 = 0.857. Moles B = 74/89 = 0.831. Ratio A = 0.857/4 = 0.214. Ratio B = 0.831/1 = 0.831. Smaller ratio is limiting.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_7"
-  },
-  {
-    "id": "PS11_P2_MAT_453",
-    "topic": "Matter and Materials",
-    "subtopic": "Intermolecular forces",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "In a sample containing multiple NaCl(aq) molecules (Sample 2645), what is the primary intermolecular force present between them?",
-    "correct_answer": "Ion-dipole forces",
-    "wrong_answers_pool": [
-      "Hydrogen bonding",
-      "London dispersion forces",
-      "Dipole-dipole forces",
-      "Covalent bonding",
-      "Ionic bonding",
-      "Metallic bonding"
-    ],
-    "explanation": "NaCl(aq) primarily exhibits Ion-dipole forces between its molecules.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_8"
-  },
-  {
-    "id": "PS11_P2_IDE_245",
-    "topic": "Ideal Gases",
-    "subtopic": "Ideal Gas Law",
-    "paper": "paper2",
-    "difficulty": "hard",
-    "question": "Calculate the number of moles of an ideal gas that occupies 7 dm\u00b3 at a pressure of 383 kPa and a temperature of 175\u00b0C. (R = 8.31 J/(mol\u00b7K))",
-    "correct_answer": "0.720",
-    "wrong_answers_pool": [
-      "1.44",
-      "10.72",
-      "7.20",
-      "0.07",
-      "0.52",
-      "0.36"
-    ],
-    "explanation": "P = 383000 Pa, V = 0.007 m\u00b3, T = 448 K. PV = nRT => n = PV / RT = (383000 * 0.007) / (8.31 * 448) = 0.720 mol.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_9"
-  },
-  {
-    "id": "PS11_P2_ACI_705",
-    "topic": "Acids, Bases and Salts",
-    "subtopic": "Strong and weak acids/bases",
-    "paper": "paper2",
-    "difficulty": "hard",
-    "question": "Is H3PO4 classified as a strong or weak acid in aqueous solution 9895?",
-    "correct_answer": "weak",
-    "wrong_answers_pool": [
-      "strong",
-      "neutral",
-      "base",
-      "amphiprotic",
-      "salt",
-      "precipitate"
-    ],
-    "explanation": "Strong acids ionize completely in water. Weak acids ionize only partially. H3PO4 is a weak acid.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_10"
-  },
-  {
-    "id": "PS11_P2_QUA_116",
-    "topic": "Quantitative Aspects of Chemical Change",
-    "subtopic": "Concentration of solutions",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "What mass of solute (molar mass = 297 g/mol) is required to prepare 1188 cm\u00b3 of a 4.08 mol/dm\u00b3 solution?",
-    "correct_answer": "1439.46",
-    "wrong_answers_pool": [
-      "1429.46",
-      "14394.60",
-      "143.95",
-      "1449.46",
-      "719.73",
-      "2878.92"
-    ],
-    "explanation": "V = 1188/1000 = 1.188 dm\u00b3. n = C * V = 4.08 * 1.188 = 4.847 mol. m = n * M = 4.847 * 297 = 1439.46 g.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_11"
-  },
-  {
-    "id": "PS11_P2_MAT_741",
-    "topic": "Matter and Materials",
-    "subtopic": "Intermolecular forces",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "In a sample containing multiple HCl molecules (Sample 1340), what is the primary intermolecular force present between them?",
-    "correct_answer": "Dipole-dipole forces",
-    "wrong_answers_pool": [
-      "Hydrogen bonding",
-      "London dispersion forces",
-      "Ion-dipole forces",
-      "Covalent bonding",
-      "Ionic bonding",
-      "Metallic bonding"
-    ],
-    "explanation": "HCl primarily exhibits Dipole-dipole forces between its molecules.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_12"
-  },
-  {
-    "id": "PS11_P2_IDE_492",
-    "topic": "Ideal Gases",
-    "subtopic": "Ideal Gas Law",
-    "paper": "paper2",
-    "difficulty": "hard",
-    "question": "Calculate the number of moles of an ideal gas that occupies 35 dm\u00b3 at a pressure of 439 kPa and a temperature of 168\u00b0C. (R = 8.31 J/(mol\u00b7K))",
-    "correct_answer": "4.193",
-    "wrong_answers_pool": [
-      "17.58",
-      "2.10",
-      "0.42",
-      "41.93",
-      "14.19",
-      "8.39"
-    ],
-    "explanation": "P = 439000 Pa, V = 0.035 m\u00b3, T = 441 K. PV = nRT => n = PV / RT = (439000 * 0.035) / (8.31 * 441) = 4.193 mol.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_13"
-  },
-  {
-    "id": "PS11_P2_IDE_534",
-    "topic": "Ideal Gases",
-    "subtopic": "Charles's Law",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "A gas occupies 41 dm\u00b3 at 43\u00b0C. Calculate its volume at 183\u00b0C, assuming constant pressure.",
-    "correct_answer": "59.16",
-    "wrong_answers_pool": [
-      "69.16",
-      "49.16",
-      "118.32",
-      "591.60",
-      "29.58",
-      "5.92"
-    ],
-    "explanation": "T1 = 43 + 273 = 316 K. T2 = 183 + 273 = 456 K. V1/T1 = V2/T2 => V2 = (V1 * T2) / T1 = (41 * 456) / 316 = 59.16 dm\u00b3.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_14"
-  },
-  {
-    "id": "PS11_P2_QUA_916",
-    "topic": "Quantitative Aspects of Chemical Change",
-    "subtopic": "Concentration of solutions",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "What mass of solute (molar mass = 104 g/mol) is required to prepare 786 cm\u00b3 of a 0.78 mol/dm\u00b3 solution?",
-    "correct_answer": "64.04",
-    "wrong_answers_pool": [
-      "640.40",
-      "54.04",
-      "32.02",
-      "128.08",
-      "6.40",
-      "74.04"
-    ],
-    "explanation": "V = 786/1000 = 0.786 dm\u00b3. n = C * V = 0.78 * 0.786 = 0.616 mol. m = n * M = 0.616 * 104 = 64.04 g.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_15"
-  },
-  {
-    "id": "PS11_P2_QUA_326",
-    "topic": "Quantitative Aspects of Chemical Change",
-    "subtopic": "Concentration of solutions",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "What mass of solute (molar mass = 188 g/mol) is required to prepare 1880 cm\u00b3 of a 0.25 mol/dm\u00b3 solution?",
-    "correct_answer": "89.58",
-    "wrong_answers_pool": [
-      "8.96",
-      "99.58",
-      "44.79",
-      "895.80",
-      "179.16",
-      "79.58"
-    ],
-    "explanation": "V = 1880/1000 = 1.88 dm\u00b3. n = C * V = 0.25 * 1.88 = 0.477 mol. m = n * M = 0.477 * 188 = 89.58 g.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_16"
-  },
-  {
-    "id": "PS11_P2_ENE_807",
-    "topic": "Energy and Chemical Change",
-    "subtopic": "Activation energy",
-    "paper": "paper2",
-    "difficulty": "hard",
-    "question": "For a certain reaction, the energy of the reactants is 290 kJ/mol and the energy of the activated complex is 647 kJ/mol. Calculate the activation energy for the forward reaction.",
-    "correct_answer": "357 kJ/mol",
-    "wrong_answers_pool": [
-      "356",
-      "714",
-      "358",
-      "347",
-      "3570",
-      "367"
-    ],
-    "explanation": "Ea = E_activated_complex - E_reactants = 647 - 290 = 357 kJ/mol.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_17"
-  },
-  {
-    "id": "PS11_P2_QUA_054",
-    "topic": "Quantitative Aspects of Chemical Change",
-    "subtopic": "Concentration of solutions",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "What mass of solute (molar mass = 149 g/mol) is required to prepare 608 cm\u00b3 of a 3.52 mol/dm\u00b3 solution?",
-    "correct_answer": "319.05",
-    "wrong_answers_pool": [
-      "638.10",
-      "329.05",
-      "159.53",
-      "3190.50",
-      "309.05",
-      "31.91"
-    ],
-    "explanation": "V = 608/1000 = 0.608 dm\u00b3. n = C * V = 3.52 * 0.608 = 2.141 mol. m = n * M = 2.141 * 149 = 319.05 g.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_18"
-  },
-  {
-    "id": "PS11_P2_ENE_900",
-    "topic": "Energy and Chemical Change",
-    "subtopic": "Activation energy",
-    "paper": "paper2",
-    "difficulty": "hard",
-    "question": "For a certain reaction, the energy of the reactants is 238 kJ/mol and the energy of the activated complex is 500 kJ/mol. Calculate the activation energy for the forward reaction.",
-    "correct_answer": "262 kJ/mol",
-    "wrong_answers_pool": [
-      "2620",
-      "524",
-      "272",
-      "252",
-      "263",
-      "261"
-    ],
-    "explanation": "Ea = E_activated_complex - E_reactants = 500 - 238 = 262 kJ/mol.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_19"
-  },
-  {
-    "id": "PS11_P2_IDE_426",
-    "topic": "Ideal Gases",
-    "subtopic": "Charles's Law",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "A gas occupies 23 dm\u00b3 at 194\u00b0C. Calculate its volume at 123\u00b0C, assuming constant pressure.",
-    "correct_answer": "19.50",
-    "wrong_answers_pool": [
-      "29.50",
-      "1.95",
-      "9.75",
-      "39.00",
-      "9.50",
-      "195.00"
-    ],
-    "explanation": "T1 = 194 + 273 = 467 K. T2 = 123 + 273 = 396 K. V1/T1 = V2/T2 => V2 = (V1 * T2) / T1 = (23 * 396) / 467 = 19.50 dm\u00b3.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_20"
-  },
-  {
-    "id": "PS11_P2_QUA_852",
-    "topic": "Quantitative Aspects of Chemical Change",
-    "subtopic": "Concentration of solutions",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "What mass of solute (molar mass = 185 g/mol) is required to prepare 360 cm\u00b3 of a 4.90 mol/dm\u00b3 solution?",
-    "correct_answer": "326.14",
-    "wrong_answers_pool": [
-      "336.14",
-      "3261.40",
-      "163.07",
-      "32.61",
-      "316.14",
-      "652.28"
-    ],
-    "explanation": "V = 360/1000 = 0.36 dm\u00b3. n = C * V = 4.90 * 0.36 = 1.763 mol. m = n * M = 1.763 * 185 = 326.14 g.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_21"
-  },
-  {
-    "id": "PS11_P2_IDE_811",
-    "topic": "Ideal Gases",
-    "subtopic": "Ideal Gas Law",
-    "paper": "paper2",
-    "difficulty": "hard",
-    "question": "Calculate the number of moles of an ideal gas that occupies 25 dm\u00b3 at a pressure of 333 kPa and a temperature of 60\u00b0C. (R = 8.31 J/(mol\u00b7K))",
-    "correct_answer": "3.008",
-    "wrong_answers_pool": [
-      "1.50",
-      "30.08",
-      "6.02",
-      "9.05",
-      "0.30",
-      "13.01"
-    ],
-    "explanation": "P = 333000 Pa, V = 0.025 m\u00b3, T = 333 K. PV = nRT => n = PV / RT = (333000 * 0.025) / (8.31 * 333) = 3.008 mol.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_22"
-  },
-  {
-    "id": "PS11_P2_ACI_408",
-    "topic": "Acids, Bases and Salts",
-    "subtopic": "Strong and weak acids/bases",
-    "paper": "paper2",
-    "difficulty": "hard",
-    "question": "Is HNO3 classified as a strong or weak acid in aqueous solution 5792?",
-    "correct_answer": "strong",
-    "wrong_answers_pool": [
-      "weak",
-      "neutral",
-      "base",
-      "amphiprotic",
-      "salt",
-      "precipitate"
-    ],
-    "explanation": "Strong acids ionize completely in water. Weak acids ionize only partially. HNO3 is a strong acid.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_23"
-  },
-  {
-    "id": "PS11_P2_IDE_402",
-    "topic": "Ideal Gases",
-    "subtopic": "Ideal Gas Law",
-    "paper": "paper2",
-    "difficulty": "hard",
-    "question": "Calculate the number of moles of an ideal gas that occupies 6 dm\u00b3 at a pressure of 316 kPa and a temperature of 109\u00b0C. (R = 8.31 J/(mol\u00b7K))",
-    "correct_answer": "0.597",
-    "wrong_answers_pool": [
-      "5.97",
-      "0.30",
-      "0.36",
-      "10.60",
-      "1.19",
-      "0.06"
-    ],
-    "explanation": "P = 316000 Pa, V = 0.006 m\u00b3, T = 382 K. PV = nRT => n = PV / RT = (316000 * 0.006) / (8.31 * 382) = 0.597 mol.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_24"
-  },
-  {
-    "id": "PS11_P2_ENE_415",
+    "id": "PS11_P2_ENE_504",
     "topic": "Energy and Chemical Change",
     "subtopic": "Heat of reaction (\u0394H)",
     "paper": "paper2",
     "difficulty": "medium",
-    "question": "In a potential energy diagram, the energy of the reactants is 353 kJ/mol and the energy of the products is 468 kJ/mol. Calculate the heat of reaction (\u0394H).",
-    "correct_answer": "115 kJ/mol",
+    "question": "In a potential energy diagram, the energy of the reactants is 493 kJ/mol and the energy of the products is 342 kJ/mol. Calculate the heat of reaction (\u0394H).",
+    "correct_answer": "-151 kJ/mol",
     "wrong_answers_pool": [
-      "125",
-      "116",
-      "230",
-      "105",
-      "114",
-      "1150"
+      "-161",
+      "-152",
+      "-141",
+      "-302",
+      "-1510",
+      "-150"
     ],
-    "explanation": "\u0394H = E_products - E_reactants = 468 - 353 = 115 kJ/mol.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_25"
+    "explanation": "\u0394H = E_products - E_reactants = 342 - 493 = -151 kJ/mol.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_2"
   },
   {
-    "id": "PS11_P2_IDE_526",
+    "id": "PS11_P2_IDE_619",
     "topic": "Ideal Gases",
     "subtopic": "Charles's Law",
     "paper": "paper2",
     "difficulty": "medium",
-    "question": "A gas occupies 2 dm\u00b3 at 36\u00b0C. Calculate its volume at 73\u00b0C, assuming constant pressure.",
-    "correct_answer": "2.24",
+    "question": "A gas occupies 8 dm\u00b3 at 82\u00b0C. Calculate its volume at 138\u00b0C, assuming constant pressure.",
+    "correct_answer": "9.26",
     "wrong_answers_pool": [
-      "0.22",
-      "4.48",
-      "22.40",
-      "5.02",
-      "1.12",
-      "12.24"
+      "92.60",
+      "18.52",
+      "85.75",
+      "0.93",
+      "4.63",
+      "19.26"
     ],
-    "explanation": "T1 = 36 + 273 = 309 K. T2 = 73 + 273 = 346 K. V1/T1 = V2/T2 => V2 = (V1 * T2) / T1 = (2 * 346) / 309 = 2.24 dm\u00b3.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_26"
+    "explanation": "T1 = 82 + 273 = 355 K. T2 = 138 + 273 = 411 K. V1/T1 = V2/T2 => V2 = (V1 * T2) / T1 = (8 * 411) / 355 = 9.26 dm\u00b3.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_3"
   },
   {
-    "id": "PS11_P2_ACI_269",
+    "id": "PS11_P2_ACI_447",
     "topic": "Acids, Bases and Salts",
     "subtopic": "Strong and weak acids/bases",
     "paper": "paper2",
     "difficulty": "hard",
-    "question": "Is HCl classified as a strong or weak acid in aqueous solution 8635?",
+    "question": "Is HCl classified as a strong or weak acid in aqueous solution 2933?",
     "correct_answer": "strong",
     "wrong_answers_pool": [
       "weak",
@@ -510,15 +73,243 @@
       "precipitate"
     ],
     "explanation": "Strong acids ionize completely in water. Weak acids ionize only partially. HCl is a strong acid.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_27"
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_4"
   },
   {
-    "id": "PS11_P2_ACI_796",
+    "id": "PS11_P2_QUA_212",
+    "topic": "Quantitative Aspects of Chemical Change",
+    "subtopic": "Concentration of solutions",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "What mass of solute (molar mass = 126 g/mol) is required to prepare 1808 cm\u00b3 of a 1.16 mol/dm\u00b3 solution?",
+    "correct_answer": "264.03",
+    "wrong_answers_pool": [
+      "274.03",
+      "132.01",
+      "26.40",
+      "528.06",
+      "254.03",
+      "2640.30"
+    ],
+    "explanation": "V = 1808/1000 = 1.808 dm\u00b3. n = C * V = 1.16 * 1.808 = 2.096 mol. m = n * M = 2.096 * 126 = 264.03 g.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_5"
+  },
+  {
+    "id": "PS11_P2_ENE_234",
+    "topic": "Energy and Chemical Change",
+    "subtopic": "Heat of reaction (\u0394H)",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "In a potential energy diagram, the energy of the reactants is 109 kJ/mol and the energy of the products is 85 kJ/mol. Calculate the heat of reaction (\u0394H).",
+    "correct_answer": "-24 kJ/mol",
+    "wrong_answers_pool": [
+      "-25",
+      "-240",
+      "-23",
+      "-34",
+      "-14",
+      "-48"
+    ],
+    "explanation": "\u0394H = E_products - E_reactants = 85 - 109 = -24 kJ/mol.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_6"
+  },
+  {
+    "id": "PS11_P2_IDE_561",
+    "topic": "Ideal Gases",
+    "subtopic": "Ideal Gas Law",
+    "paper": "paper2",
+    "difficulty": "hard",
+    "question": "Calculate the number of moles of an ideal gas that occupies 46 dm\u00b3 at a pressure of 113 kPa and a temperature of 117\u00b0C. (R = 8.31 J/(mol\u00b7K))",
+    "correct_answer": "1.604",
+    "wrong_answers_pool": [
+      "2.57",
+      "0.80",
+      "16.04",
+      "11.60",
+      "3.21",
+      "0.16"
+    ],
+    "explanation": "P = 113000 Pa, V = 0.046 m\u00b3, T = 390 K. PV = nRT => n = PV / RT = (113000 * 0.046) / (8.31 * 390) = 1.604 mol.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_7"
+  },
+  {
+    "id": "PS11_P2_QUA_128",
+    "topic": "Quantitative Aspects of Chemical Change",
+    "subtopic": "Limiting reagents",
+    "paper": "paper2",
+    "difficulty": "hard",
+    "question": "In the reaction 5A + 3B -> Products, 36 g of A (M=84 g/mol) reacts with 10 g of B (M=95 g/mol). Which reactant is the limiting reagent?",
+    "correct_answer": "Reactant B",
+    "wrong_answers_pool": [
+      "Reactant A",
+      "Products",
+      "Both A and B",
+      "Cannot be determined",
+      "Neither",
+      "Depends on temperature"
+    ],
+    "explanation": "Moles A = 36/84 = 0.429. Moles B = 10/95 = 0.105. Ratio A = 0.429/5 = 0.086. Ratio B = 0.105/3 = 0.035. Smaller ratio is limiting.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_8"
+  },
+  {
+    "id": "PS11_P2_QUA_348",
+    "topic": "Quantitative Aspects of Chemical Change",
+    "subtopic": "Limiting reagents",
+    "paper": "paper2",
+    "difficulty": "hard",
+    "question": "In the reaction 2A + 3B -> Products, 80 g of A (M=93 g/mol) reacts with 24 g of B (M=40 g/mol). Which reactant is the limiting reagent?",
+    "correct_answer": "Reactant B",
+    "wrong_answers_pool": [
+      "Reactant A",
+      "Products",
+      "Both A and B",
+      "Cannot be determined",
+      "Neither",
+      "Depends on temperature"
+    ],
+    "explanation": "Moles A = 80/93 = 0.860. Moles B = 24/40 = 0.600. Ratio A = 0.860/2 = 0.430. Ratio B = 0.600/3 = 0.200. Smaller ratio is limiting.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_9"
+  },
+  {
+    "id": "PS11_P2_ENE_944",
+    "topic": "Energy and Chemical Change",
+    "subtopic": "Activation energy",
+    "paper": "paper2",
+    "difficulty": "hard",
+    "question": "For a certain reaction, the energy of the reactants is 277 kJ/mol and the energy of the activated complex is 483 kJ/mol. Calculate the activation energy for the forward reaction.",
+    "correct_answer": "206 kJ/mol",
+    "wrong_answers_pool": [
+      "196",
+      "207",
+      "412",
+      "2060",
+      "205",
+      "216"
+    ],
+    "explanation": "Ea = E_activated_complex - E_reactants = 483 - 277 = 206 kJ/mol.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_10"
+  },
+  {
+    "id": "PS11_P2_QUA_023",
+    "topic": "Quantitative Aspects of Chemical Change",
+    "subtopic": "Limiting reagents",
+    "paper": "paper2",
+    "difficulty": "hard",
+    "question": "In the reaction 1A + 2B -> Products, 67 g of A (M=62 g/mol) reacts with 13 g of B (M=63 g/mol). Which reactant is the limiting reagent?",
+    "correct_answer": "Reactant B",
+    "wrong_answers_pool": [
+      "Reactant A",
+      "Products",
+      "Both A and B",
+      "Cannot be determined",
+      "Neither",
+      "Depends on temperature"
+    ],
+    "explanation": "Moles A = 67/62 = 1.081. Moles B = 13/63 = 0.206. Ratio A = 1.081/1 = 1.081. Ratio B = 0.206/2 = 0.103. Smaller ratio is limiting.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_11"
+  },
+  {
+    "id": "PS11_P2_MAT_156",
+    "topic": "Matter and Materials",
+    "subtopic": "Intermolecular forces",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "In a sample containing multiple NH3 molecules (Sample 4464), what is the primary intermolecular force present between them?",
+    "correct_answer": "Hydrogen bonding",
+    "wrong_answers_pool": [
+      "London dispersion forces",
+      "Dipole-dipole forces",
+      "Ion-dipole forces",
+      "Covalent bonding",
+      "Ionic bonding",
+      "Metallic bonding"
+    ],
+    "explanation": "NH3 primarily exhibits Hydrogen bonding between its molecules.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_12"
+  },
+  {
+    "id": "PS11_P2_ACI_735",
+    "topic": "Acids, Bases and Salts",
+    "subtopic": "Conjugate acid-base pairs",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "What is the conjugate base of the acid H2SO4 in reaction 4067?",
+    "correct_answer": "HSO4-",
+    "wrong_answers_pool": [
+      "CH3COO-",
+      "H2O",
+      "Cl-",
+      "H+",
+      "NH3",
+      "OH-"
+    ],
+    "explanation": "A conjugate base is formed by removing a proton (H+) from an acid. Removing H+ from H2SO4 gives HSO4-.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_13"
+  },
+  {
+    "id": "PS11_P2_QUA_839",
+    "topic": "Quantitative Aspects of Chemical Change",
+    "subtopic": "Concentration of solutions",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "What mass of solute (molar mass = 265 g/mol) is required to prepare 676 cm\u00b3 of a 3.33 mol/dm\u00b3 solution?",
+    "correct_answer": "596.00",
+    "wrong_answers_pool": [
+      "59.60",
+      "1192.00",
+      "586.00",
+      "606.00",
+      "5960.00",
+      "298.00"
+    ],
+    "explanation": "V = 676/1000 = 0.676 dm\u00b3. n = C * V = 3.33 * 0.676 = 2.249 mol. m = n * M = 2.249 * 265 = 596.00 g.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_14"
+  },
+  {
+    "id": "PS11_P2_ACI_547",
+    "topic": "Acids, Bases and Salts",
+    "subtopic": "Conjugate acid-base pairs",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "What is the conjugate base of the acid NH4+ in reaction 8221?",
+    "correct_answer": "NH3",
+    "wrong_answers_pool": [
+      "CH3COO-",
+      "H2O",
+      "Cl-",
+      "H+",
+      "OH-",
+      "HSO4-"
+    ],
+    "explanation": "A conjugate base is formed by removing a proton (H+) from an acid. Removing H+ from NH4+ gives NH3.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_15"
+  },
+  {
+    "id": "PS11_P2_MAT_145",
+    "topic": "Matter and Materials",
+    "subtopic": "Atomic combinations",
+    "paper": "paper2",
+    "difficulty": "hard",
+    "question": "Atom A has an electronegativity of 3.76 and Atom B has an electronegativity of 2.63. Predict the type of bond formed between them.",
+    "correct_answer": "Polar covalent",
+    "wrong_answers_pool": [
+      "Ionic",
+      "Non-polar covalent",
+      "Metallic",
+      "Hydrogen bond",
+      "Coordinate covalent",
+      "London force"
+    ],
+    "explanation": "\u0394EN = |3.76 - 2.63| = 1.14. \u0394EN > 2.0 implies Ionic, 0.4 < \u0394EN < 2.0 implies Polar covalent, \u0394EN <= 0.4 implies Non-polar covalent. Thus it is Polar covalent.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_16"
+  },
+  {
+    "id": "PS11_P2_ACI_666",
     "topic": "Acids, Bases and Salts",
     "subtopic": "Strong and weak acids/bases",
     "paper": "paper2",
     "difficulty": "hard",
-    "question": "Is H2CO3 classified as a strong or weak acid in aqueous solution 1147?",
+    "question": "Is H3PO4 classified as a strong or weak acid in aqueous solution 4582?",
     "correct_answer": "weak",
     "wrong_answers_pool": [
       "strong",
@@ -528,92 +319,358 @@
       "salt",
       "precipitate"
     ],
-    "explanation": "Strong acids ionize completely in water. Weak acids ionize only partially. H2CO3 is a weak acid.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_28"
+    "explanation": "Strong acids ionize completely in water. Weak acids ionize only partially. H3PO4 is a weak acid.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_17"
   },
   {
-    "id": "PS11_P2_ENE_550",
-    "topic": "Energy and Chemical Change",
-    "subtopic": "Activation energy",
+    "id": "PS11_P2_MAT_006",
+    "topic": "Matter and Materials",
+    "subtopic": "Intermolecular forces",
     "paper": "paper2",
-    "difficulty": "hard",
-    "question": "For a certain reaction, the energy of the reactants is 244 kJ/mol and the energy of the activated complex is 719 kJ/mol. Calculate the activation energy for the forward reaction.",
-    "correct_answer": "475 kJ/mol",
+    "difficulty": "medium",
+    "question": "In a sample containing multiple NH3 molecules (Sample 6293), what is the primary intermolecular force present between them?",
+    "correct_answer": "Hydrogen bonding",
     "wrong_answers_pool": [
-      "476",
-      "485",
-      "950",
-      "474",
-      "4750",
-      "465"
+      "London dispersion forces",
+      "Dipole-dipole forces",
+      "Ion-dipole forces",
+      "Covalent bonding",
+      "Ionic bonding",
+      "Metallic bonding"
     ],
-    "explanation": "Ea = E_activated_complex - E_reactants = 719 - 244 = 475 kJ/mol.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_29"
+    "explanation": "NH3 primarily exhibits Hydrogen bonding between its molecules.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_18"
   },
   {
-    "id": "PS11_P2_ACI_582",
+    "id": "PS11_P2_ACI_170",
     "topic": "Acids, Bases and Salts",
     "subtopic": "Conjugate acid-base pairs",
     "paper": "paper2",
     "difficulty": "medium",
-    "question": "What is the conjugate base of the acid NH4+ in reaction 1104?",
-    "correct_answer": "NH3",
+    "question": "What is the conjugate base of the acid H2SO4 in reaction 5634?",
+    "correct_answer": "HSO4-",
     "wrong_answers_pool": [
       "CH3COO-",
       "H2O",
       "Cl-",
       "H+",
-      "OH-",
-      "HSO4-"
+      "NH3",
+      "OH-"
     ],
-    "explanation": "A conjugate base is formed by removing a proton (H+) from an acid. Removing H+ from NH4+ gives NH3.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_30"
+    "explanation": "A conjugate base is formed by removing a proton (H+) from an acid. Removing H+ from H2SO4 gives HSO4-.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_19"
   },
   {
-    "id": "PS11_P2_QUA_774",
+    "id": "PS11_P2_MAT_840",
+    "topic": "Matter and Materials",
+    "subtopic": "Atomic combinations",
+    "paper": "paper2",
+    "difficulty": "hard",
+    "question": "Atom A has an electronegativity of 3.53 and Atom B has an electronegativity of 1.23. Predict the type of bond formed between them.",
+    "correct_answer": "Ionic",
+    "wrong_answers_pool": [
+      "Polar covalent",
+      "Non-polar covalent",
+      "Metallic",
+      "Hydrogen bond",
+      "Coordinate covalent",
+      "London force"
+    ],
+    "explanation": "\u0394EN = |3.53 - 1.23| = 2.30. \u0394EN > 2.0 implies Ionic, 0.4 < \u0394EN < 2.0 implies Polar covalent, \u0394EN <= 0.4 implies Non-polar covalent. Thus it is Ionic.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_20"
+  },
+  {
+    "id": "PS11_P2_ENE_909",
+    "topic": "Energy and Chemical Change",
+    "subtopic": "Activation energy",
+    "paper": "paper2",
+    "difficulty": "hard",
+    "question": "For a certain reaction, the energy of the reactants is 125 kJ/mol and the energy of the activated complex is 614 kJ/mol. Calculate the activation energy for the forward reaction.",
+    "correct_answer": "489 kJ/mol",
+    "wrong_answers_pool": [
+      "4890",
+      "490",
+      "978",
+      "488",
+      "479",
+      "499"
+    ],
+    "explanation": "Ea = E_activated_complex - E_reactants = 614 - 125 = 489 kJ/mol.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_21"
+  },
+  {
+    "id": "PS11_P2_ACI_696",
+    "topic": "Acids, Bases and Salts",
+    "subtopic": "Conjugate acid-base pairs",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "What is the conjugate base of the acid H2SO4 in reaction 5710?",
+    "correct_answer": "HSO4-",
+    "wrong_answers_pool": [
+      "CH3COO-",
+      "H2O",
+      "Cl-",
+      "H+",
+      "NH3",
+      "OH-"
+    ],
+    "explanation": "A conjugate base is formed by removing a proton (H+) from an acid. Removing H+ from H2SO4 gives HSO4-.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_22"
+  },
+  {
+    "id": "PS11_P2_IDE_302",
+    "topic": "Ideal Gases",
+    "subtopic": "Charles's Law",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "A gas occupies 17 dm\u00b3 at 98\u00b0C. Calculate its volume at 153\u00b0C, assuming constant pressure.",
+    "correct_answer": "19.52",
+    "wrong_answers_pool": [
+      "195.20",
+      "9.52",
+      "1.95",
+      "9.76",
+      "29.52",
+      "39.04"
+    ],
+    "explanation": "T1 = 98 + 273 = 371 K. T2 = 153 + 273 = 426 K. V1/T1 = V2/T2 => V2 = (V1 * T2) / T1 = (17 * 426) / 371 = 19.52 dm\u00b3.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_23"
+  },
+  {
+    "id": "PS11_P2_QUA_096",
     "topic": "Quantitative Aspects of Chemical Change",
     "subtopic": "Limiting reagents",
     "paper": "paper2",
     "difficulty": "hard",
-    "question": "In the reaction 2A + 5B -> Products, 41 g of A (M=39 g/mol) reacts with 13 g of B (M=24 g/mol). Which reactant is the limiting reagent?",
-    "correct_answer": "Reactant B",
+    "question": "In the reaction 4A + 3B -> Products, 11 g of A (M=92 g/mol) reacts with 15 g of B (M=33 g/mol). Which reactant is the limiting reagent?",
+    "correct_answer": "Reactant A",
     "wrong_answers_pool": [
-      "Reactant A",
+      "Reactant B",
       "Products",
       "Both A and B",
       "Cannot be determined",
       "Neither",
       "Depends on temperature"
     ],
-    "explanation": "Moles A = 41/39 = 1.051. Moles B = 13/24 = 0.542. Ratio A = 1.051/2 = 0.526. Ratio B = 0.542/5 = 0.108. Smaller ratio is limiting.",
+    "explanation": "Moles A = 11/92 = 0.120. Moles B = 15/33 = 0.455. Ratio A = 0.120/4 = 0.030. Ratio B = 0.455/3 = 0.152. Smaller ratio is limiting.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_24"
+  },
+  {
+    "id": "PS11_P2_ACI_937",
+    "topic": "Acids, Bases and Salts",
+    "subtopic": "Conjugate acid-base pairs",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "What is the conjugate base of the acid H2SO4 in reaction 6749?",
+    "correct_answer": "HSO4-",
+    "wrong_answers_pool": [
+      "CH3COO-",
+      "H2O",
+      "Cl-",
+      "H+",
+      "NH3",
+      "OH-"
+    ],
+    "explanation": "A conjugate base is formed by removing a proton (H+) from an acid. Removing H+ from H2SO4 gives HSO4-.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_25"
+  },
+  {
+    "id": "PS11_P2_QUA_507",
+    "topic": "Quantitative Aspects of Chemical Change",
+    "subtopic": "Concentration of solutions",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "What mass of solute (molar mass = 88 g/mol) is required to prepare 445 cm\u00b3 of a 0.71 mol/dm\u00b3 solution?",
+    "correct_answer": "27.76",
+    "wrong_answers_pool": [
+      "37.76",
+      "17.76",
+      "13.88",
+      "2.78",
+      "277.60",
+      "55.52"
+    ],
+    "explanation": "V = 445/1000 = 0.445 dm\u00b3. n = C * V = 0.71 * 0.445 = 0.315 mol. m = n * M = 0.315 * 88 = 27.76 g.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_26"
+  },
+  {
+    "id": "PS11_P2_MAT_593",
+    "topic": "Matter and Materials",
+    "subtopic": "Atomic combinations",
+    "paper": "paper2",
+    "difficulty": "hard",
+    "question": "Atom A has an electronegativity of 3.86 and Atom B has an electronegativity of 1.27. Predict the type of bond formed between them.",
+    "correct_answer": "Ionic",
+    "wrong_answers_pool": [
+      "Polar covalent",
+      "Non-polar covalent",
+      "Metallic",
+      "Hydrogen bond",
+      "Coordinate covalent",
+      "London force"
+    ],
+    "explanation": "\u0394EN = |3.86 - 1.27| = 2.59. \u0394EN > 2.0 implies Ionic, 0.4 < \u0394EN < 2.0 implies Polar covalent, \u0394EN <= 0.4 implies Non-polar covalent. Thus it is Ionic.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_27"
+  },
+  {
+    "id": "PS11_P2_QUA_193",
+    "topic": "Quantitative Aspects of Chemical Change",
+    "subtopic": "Concentration of solutions",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "What mass of solute (molar mass = 160 g/mol) is required to prepare 1022 cm\u00b3 of a 1.50 mol/dm\u00b3 solution?",
+    "correct_answer": "244.80",
+    "wrong_answers_pool": [
+      "122.40",
+      "254.80",
+      "234.80",
+      "24.48",
+      "2448.00",
+      "489.60"
+    ],
+    "explanation": "V = 1022/1000 = 1.022 dm\u00b3. n = C * V = 1.50 * 1.022 = 1.530 mol. m = n * M = 1.530 * 160 = 244.80 g.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_28"
+  },
+  {
+    "id": "PS11_P2_ENE_540",
+    "topic": "Energy and Chemical Change",
+    "subtopic": "Heat of reaction (\u0394H)",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "In a potential energy diagram, the energy of the reactants is 480 kJ/mol and the energy of the products is 177 kJ/mol. Calculate the heat of reaction (\u0394H).",
+    "correct_answer": "-303 kJ/mol",
+    "wrong_answers_pool": [
+      "-304",
+      "-313",
+      "-3030",
+      "-302",
+      "-606",
+      "-293"
+    ],
+    "explanation": "\u0394H = E_products - E_reactants = 177 - 480 = -303 kJ/mol.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_29"
+  },
+  {
+    "id": "PS11_P2_MAT_663",
+    "topic": "Matter and Materials",
+    "subtopic": "Atomic combinations",
+    "paper": "paper2",
+    "difficulty": "hard",
+    "question": "Atom A has an electronegativity of 2.28 and Atom B has an electronegativity of 2.78. Predict the type of bond formed between them.",
+    "correct_answer": "Polar covalent",
+    "wrong_answers_pool": [
+      "Ionic",
+      "Non-polar covalent",
+      "Metallic",
+      "Hydrogen bond",
+      "Coordinate covalent",
+      "London force"
+    ],
+    "explanation": "\u0394EN = |2.28 - 2.78| = 0.51. \u0394EN > 2.0 implies Ionic, 0.4 < \u0394EN < 2.0 implies Polar covalent, \u0394EN <= 0.4 implies Non-polar covalent. Thus it is Polar covalent.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_30"
+  },
+  {
+    "id": "PS11_P2_MAT_109",
+    "topic": "Matter and Materials",
+    "subtopic": "Atomic combinations",
+    "paper": "paper2",
+    "difficulty": "hard",
+    "question": "Atom A has an electronegativity of 3.93 and Atom B has an electronegativity of 1.22. Predict the type of bond formed between them.",
+    "correct_answer": "Ionic",
+    "wrong_answers_pool": [
+      "Polar covalent",
+      "Non-polar covalent",
+      "Metallic",
+      "Hydrogen bond",
+      "Coordinate covalent",
+      "London force"
+    ],
+    "explanation": "\u0394EN = |3.93 - 1.22| = 2.70. \u0394EN > 2.0 implies Ionic, 0.4 < \u0394EN < 2.0 implies Polar covalent, \u0394EN <= 0.4 implies Non-polar covalent. Thus it is Ionic.",
     "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_31"
   },
   {
-    "id": "PS11_P2_MAT_525",
+    "id": "PS11_P2_MAT_748",
     "topic": "Matter and Materials",
     "subtopic": "Intermolecular forces",
     "paper": "paper2",
     "difficulty": "medium",
-    "question": "In a sample containing multiple CH4 molecules (Sample 4816), what is the primary intermolecular force present between them?",
-    "correct_answer": "London dispersion forces",
+    "question": "In a sample containing multiple NH3 molecules (Sample 8647), what is the primary intermolecular force present between them?",
+    "correct_answer": "Hydrogen bonding",
     "wrong_answers_pool": [
-      "Hydrogen bonding",
+      "London dispersion forces",
       "Dipole-dipole forces",
       "Ion-dipole forces",
       "Covalent bonding",
       "Ionic bonding",
       "Metallic bonding"
     ],
-    "explanation": "CH4 primarily exhibits London dispersion forces between its molecules.",
+    "explanation": "NH3 primarily exhibits Hydrogen bonding between its molecules.",
     "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_32"
   },
   {
-    "id": "PS11_P2_ACI_828",
+    "id": "PS11_P2_QUA_526",
+    "topic": "Quantitative Aspects of Chemical Change",
+    "subtopic": "Concentration of solutions",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "What mass of solute (molar mass = 258 g/mol) is required to prepare 1840 cm\u00b3 of a 4.28 mol/dm\u00b3 solution?",
+    "correct_answer": "2030.75",
+    "wrong_answers_pool": [
+      "2040.75",
+      "4061.50",
+      "2020.75",
+      "20307.50",
+      "203.07",
+      "1015.38"
+    ],
+    "explanation": "V = 1840/1000 = 1.84 dm\u00b3. n = C * V = 4.28 * 1.84 = 7.871 mol. m = n * M = 7.871 * 258 = 2030.75 g.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_33"
+  },
+  {
+    "id": "PS11_P2_MAT_457",
+    "topic": "Matter and Materials",
+    "subtopic": "Atomic combinations",
+    "paper": "paper2",
+    "difficulty": "hard",
+    "question": "Atom A has an electronegativity of 3.94 and Atom B has an electronegativity of 1.64. Predict the type of bond formed between them.",
+    "correct_answer": "Ionic",
+    "wrong_answers_pool": [
+      "Polar covalent",
+      "Non-polar covalent",
+      "Metallic",
+      "Hydrogen bond",
+      "Coordinate covalent",
+      "London force"
+    ],
+    "explanation": "\u0394EN = |3.94 - 1.64| = 2.30. \u0394EN > 2.0 implies Ionic, 0.4 < \u0394EN < 2.0 implies Polar covalent, \u0394EN <= 0.4 implies Non-polar covalent. Thus it is Ionic.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_34"
+  },
+  {
+    "id": "PS11_P2_MAT_328",
+    "topic": "Matter and Materials",
+    "subtopic": "Intermolecular forces",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "In a sample containing multiple NH3 molecules (Sample 9720), what is the primary intermolecular force present between them?",
+    "correct_answer": "Hydrogen bonding",
+    "wrong_answers_pool": [
+      "London dispersion forces",
+      "Dipole-dipole forces",
+      "Ion-dipole forces",
+      "Covalent bonding",
+      "Ionic bonding",
+      "Metallic bonding"
+    ],
+    "explanation": "NH3 primarily exhibits Hydrogen bonding between its molecules.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_35"
+  },
+  {
+    "id": "PS11_P2_ACI_716",
     "topic": "Acids, Bases and Salts",
     "subtopic": "Conjugate acid-base pairs",
     "paper": "paper2",
     "difficulty": "medium",
-    "question": "What is the conjugate base of the acid NH4+ in reaction 4362?",
+    "question": "What is the conjugate base of the acid NH4+ in reaction 180?",
     "correct_answer": "NH3",
     "wrong_answers_pool": [
       "CH3COO-",
@@ -624,148 +681,148 @@
       "HSO4-"
     ],
     "explanation": "A conjugate base is formed by removing a proton (H+) from an acid. Removing H+ from NH4+ gives NH3.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_33"
-  },
-  {
-    "id": "PS11_P2_MAT_658",
-    "topic": "Matter and Materials",
-    "subtopic": "Intermolecular forces",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "In a sample containing multiple CO2 molecules (Sample 3100), what is the primary intermolecular force present between them?",
-    "correct_answer": "London dispersion forces",
-    "wrong_answers_pool": [
-      "Hydrogen bonding",
-      "Dipole-dipole forces",
-      "Ion-dipole forces",
-      "Covalent bonding",
-      "Ionic bonding",
-      "Metallic bonding"
-    ],
-    "explanation": "CO2 primarily exhibits London dispersion forces between its molecules.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_34"
-  },
-  {
-    "id": "PS11_P2_ENE_756",
-    "topic": "Energy and Chemical Change",
-    "subtopic": "Activation energy",
-    "paper": "paper2",
-    "difficulty": "hard",
-    "question": "For a certain reaction, the energy of the reactants is 129 kJ/mol and the energy of the activated complex is 629 kJ/mol. Calculate the activation energy for the forward reaction.",
-    "correct_answer": "500 kJ/mol",
-    "wrong_answers_pool": [
-      "1000",
-      "5000",
-      "501",
-      "490",
-      "510",
-      "499"
-    ],
-    "explanation": "Ea = E_activated_complex - E_reactants = 629 - 129 = 500 kJ/mol.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_35"
-  },
-  {
-    "id": "PS11_P2_ENE_022",
-    "topic": "Energy and Chemical Change",
-    "subtopic": "Activation energy",
-    "paper": "paper2",
-    "difficulty": "hard",
-    "question": "For a certain reaction, the energy of the reactants is 203 kJ/mol and the energy of the activated complex is 648 kJ/mol. Calculate the activation energy for the forward reaction.",
-    "correct_answer": "445 kJ/mol",
-    "wrong_answers_pool": [
-      "890",
-      "444",
-      "4450",
-      "446",
-      "455",
-      "435"
-    ],
-    "explanation": "Ea = E_activated_complex - E_reactants = 648 - 203 = 445 kJ/mol.",
     "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_36"
   },
   {
-    "id": "PS11_P2_ENE_558",
-    "topic": "Energy and Chemical Change",
-    "subtopic": "Activation energy",
-    "paper": "paper2",
-    "difficulty": "hard",
-    "question": "For a certain reaction, the energy of the reactants is 187 kJ/mol and the energy of the activated complex is 659 kJ/mol. Calculate the activation energy for the forward reaction.",
-    "correct_answer": "472 kJ/mol",
-    "wrong_answers_pool": [
-      "471",
-      "944",
-      "473",
-      "462",
-      "482",
-      "4720"
-    ],
-    "explanation": "Ea = E_activated_complex - E_reactants = 659 - 187 = 472 kJ/mol.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_37"
-  },
-  {
-    "id": "PS11_P2_ACI_319",
+    "id": "PS11_P2_ACI_899",
     "topic": "Acids, Bases and Salts",
     "subtopic": "Conjugate acid-base pairs",
     "paper": "paper2",
     "difficulty": "medium",
-    "question": "What is the conjugate base of the acid CH3COOH in reaction 6753?",
-    "correct_answer": "CH3COO-",
+    "question": "What is the conjugate base of the acid H2SO4 in reaction 8199?",
+    "correct_answer": "HSO4-",
     "wrong_answers_pool": [
+      "CH3COO-",
       "H2O",
       "Cl-",
       "H+",
       "NH3",
-      "OH-",
-      "HSO4-"
+      "OH-"
     ],
-    "explanation": "A conjugate base is formed by removing a proton (H+) from an acid. Removing H+ from CH3COOH gives CH3COO-.",
+    "explanation": "A conjugate base is formed by removing a proton (H+) from an acid. Removing H+ from H2SO4 gives HSO4-.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_37"
+  },
+  {
+    "id": "PS11_P2_ACI_432",
+    "topic": "Acids, Bases and Salts",
+    "subtopic": "Strong and weak acids/bases",
+    "paper": "paper2",
+    "difficulty": "hard",
+    "question": "Is CH3COOH classified as a strong or weak acid in aqueous solution 5080?",
+    "correct_answer": "weak",
+    "wrong_answers_pool": [
+      "strong",
+      "neutral",
+      "base",
+      "amphiprotic",
+      "salt",
+      "precipitate"
+    ],
+    "explanation": "Strong acids ionize completely in water. Weak acids ionize only partially. CH3COOH is a weak acid.",
     "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_38"
   },
   {
-    "id": "PS11_P2_MAT_099",
-    "topic": "Matter and Materials",
-    "subtopic": "Intermolecular forces",
+    "id": "PS11_P2_ENE_841",
+    "topic": "Energy and Chemical Change",
+    "subtopic": "Activation energy",
     "paper": "paper2",
-    "difficulty": "medium",
-    "question": "In a sample containing multiple NaCl(aq) molecules (Sample 2549), what is the primary intermolecular force present between them?",
-    "correct_answer": "Ion-dipole forces",
+    "difficulty": "hard",
+    "question": "For a certain reaction, the energy of the reactants is 239 kJ/mol and the energy of the activated complex is 692 kJ/mol. Calculate the activation energy for the forward reaction.",
+    "correct_answer": "453 kJ/mol",
     "wrong_answers_pool": [
-      "Hydrogen bonding",
-      "London dispersion forces",
-      "Dipole-dipole forces",
-      "Covalent bonding",
-      "Ionic bonding",
-      "Metallic bonding"
+      "4530",
+      "452",
+      "463",
+      "443",
+      "906",
+      "454"
     ],
-    "explanation": "NaCl(aq) primarily exhibits Ion-dipole forces between its molecules.",
+    "explanation": "Ea = E_activated_complex - E_reactants = 692 - 239 = 453 kJ/mol.",
     "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_39"
   },
   {
-    "id": "PS11_P2_ENE_595",
+    "id": "PS11_P2_QUA_278",
+    "topic": "Quantitative Aspects of Chemical Change",
+    "subtopic": "Concentration of solutions",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "What mass of solute (molar mass = 138 g/mol) is required to prepare 1309 cm\u00b3 of a 2.69 mol/dm\u00b3 solution?",
+    "correct_answer": "485.32",
+    "wrong_answers_pool": [
+      "475.32",
+      "4853.20",
+      "48.53",
+      "495.32",
+      "242.66",
+      "970.64"
+    ],
+    "explanation": "V = 1309/1000 = 1.309 dm\u00b3. n = C * V = 2.69 * 1.309 = 3.517 mol. m = n * M = 3.517 * 138 = 485.32 g.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_40"
+  },
+  {
+    "id": "PS11_P2_ENE_180",
     "topic": "Energy and Chemical Change",
     "subtopic": "Heat of reaction (\u0394H)",
     "paper": "paper2",
     "difficulty": "medium",
-    "question": "In a potential energy diagram, the energy of the reactants is 67 kJ/mol and the energy of the products is 485 kJ/mol. Calculate the heat of reaction (\u0394H).",
-    "correct_answer": "418 kJ/mol",
+    "question": "In a potential energy diagram, the energy of the reactants is 128 kJ/mol and the energy of the products is 94 kJ/mol. Calculate the heat of reaction (\u0394H).",
+    "correct_answer": "-34 kJ/mol",
     "wrong_answers_pool": [
-      "428",
-      "408",
-      "4180",
-      "417",
-      "836",
-      "419"
+      "-44",
+      "-68",
+      "-33",
+      "-340",
+      "-24",
+      "-35"
     ],
-    "explanation": "\u0394H = E_products - E_reactants = 485 - 67 = 418 kJ/mol.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_40"
+    "explanation": "\u0394H = E_products - E_reactants = 94 - 128 = -34 kJ/mol.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_41"
   },
   {
-    "id": "PS11_P2_MAT_477",
+    "id": "PS11_P2_ACI_587",
+    "topic": "Acids, Bases and Salts",
+    "subtopic": "Strong and weak acids/bases",
+    "paper": "paper2",
+    "difficulty": "hard",
+    "question": "Is HCl classified as a strong or weak acid in aqueous solution 5978?",
+    "correct_answer": "strong",
+    "wrong_answers_pool": [
+      "weak",
+      "neutral",
+      "base",
+      "amphiprotic",
+      "salt",
+      "precipitate"
+    ],
+    "explanation": "Strong acids ionize completely in water. Weak acids ionize only partially. HCl is a strong acid.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_42"
+  },
+  {
+    "id": "PS11_P2_QUA_629",
+    "topic": "Quantitative Aspects of Chemical Change",
+    "subtopic": "Limiting reagents",
+    "paper": "paper2",
+    "difficulty": "hard",
+    "question": "In the reaction 4A + 1B -> Products, 63 g of A (M=83 g/mol) reacts with 36 g of B (M=72 g/mol). Which reactant is the limiting reagent?",
+    "correct_answer": "Reactant A",
+    "wrong_answers_pool": [
+      "Reactant B",
+      "Products",
+      "Both A and B",
+      "Cannot be determined",
+      "Neither",
+      "Depends on temperature"
+    ],
+    "explanation": "Moles A = 63/83 = 0.759. Moles B = 36/72 = 0.500. Ratio A = 0.759/4 = 0.190. Ratio B = 0.500/1 = 0.500. Smaller ratio is limiting.",
+    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_43"
+  },
+  {
+    "id": "PS11_P2_MAT_642",
     "topic": "Matter and Materials",
     "subtopic": "Atomic combinations",
     "paper": "paper2",
     "difficulty": "hard",
-    "question": "Atom A has an electronegativity of 2.32 and Atom B has an electronegativity of 2.57. Predict the type of bond formed between them.",
+    "question": "Atom A has an electronegativity of 2.38 and Atom B has an electronegativity of 2.54. Predict the type of bond formed between them.",
     "correct_answer": "Non-polar covalent",
     "wrong_answers_pool": [
       "Ionic",
@@ -775,178 +832,121 @@
       "Coordinate covalent",
       "London force"
     ],
-    "explanation": "\u0394EN = |2.32 - 2.57| = 0.25. \u0394EN > 2.0 implies Ionic, 0.4 < \u0394EN < 2.0 implies Polar covalent, \u0394EN <= 0.4 implies Non-polar covalent. Thus it is Non-polar covalent.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_41"
-  },
-  {
-    "id": "PS11_P2_QUA_661",
-    "topic": "Quantitative Aspects of Chemical Change",
-    "subtopic": "Limiting reagents",
-    "paper": "paper2",
-    "difficulty": "hard",
-    "question": "In the reaction 1A + 1B -> Products, 63 g of A (M=84 g/mol) reacts with 14 g of B (M=61 g/mol). Which reactant is the limiting reagent?",
-    "correct_answer": "Reactant B",
-    "wrong_answers_pool": [
-      "Reactant A",
-      "Products",
-      "Both A and B",
-      "Cannot be determined",
-      "Neither",
-      "Depends on temperature"
-    ],
-    "explanation": "Moles A = 63/84 = 0.750. Moles B = 14/61 = 0.230. Ratio A = 0.750/1 = 0.750. Ratio B = 0.230/1 = 0.230. Smaller ratio is limiting.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_42"
-  },
-  {
-    "id": "PS11_P2_ACI_501",
-    "topic": "Acids, Bases and Salts",
-    "subtopic": "Conjugate acid-base pairs",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "What is the conjugate base of the acid NH4+ in reaction 9331?",
-    "correct_answer": "NH3",
-    "wrong_answers_pool": [
-      "CH3COO-",
-      "H2O",
-      "Cl-",
-      "H+",
-      "OH-",
-      "HSO4-"
-    ],
-    "explanation": "A conjugate base is formed by removing a proton (H+) from an acid. Removing H+ from NH4+ gives NH3.",
-    "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_43"
-  },
-  {
-    "id": "PS11_P2_ACI_784",
-    "topic": "Acids, Bases and Salts",
-    "subtopic": "Conjugate acid-base pairs",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "What is the conjugate base of the acid NH4+ in reaction 5055?",
-    "correct_answer": "NH3",
-    "wrong_answers_pool": [
-      "CH3COO-",
-      "H2O",
-      "Cl-",
-      "H+",
-      "OH-",
-      "HSO4-"
-    ],
-    "explanation": "A conjugate base is formed by removing a proton (H+) from an acid. Removing H+ from NH4+ gives NH3.",
+    "explanation": "\u0394EN = |2.38 - 2.54| = 0.16. \u0394EN > 2.0 implies Ionic, 0.4 < \u0394EN < 2.0 implies Polar covalent, \u0394EN <= 0.4 implies Non-polar covalent. Thus it is Non-polar covalent.",
     "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_44"
   },
   {
-    "id": "PS11_P2_ENE_642",
+    "id": "PS11_P2_ENE_207",
     "topic": "Energy and Chemical Change",
     "subtopic": "Activation energy",
     "paper": "paper2",
     "difficulty": "hard",
-    "question": "For a certain reaction, the energy of the reactants is 143 kJ/mol and the energy of the activated complex is 574 kJ/mol. Calculate the activation energy for the forward reaction.",
-    "correct_answer": "431 kJ/mol",
+    "question": "For a certain reaction, the energy of the reactants is 108 kJ/mol and the energy of the activated complex is 529 kJ/mol. Calculate the activation energy for the forward reaction.",
+    "correct_answer": "421 kJ/mol",
     "wrong_answers_pool": [
-      "432",
-      "421",
-      "862",
-      "441",
-      "4310",
-      "430"
+      "411",
+      "422",
+      "842",
+      "4210",
+      "431",
+      "420"
     ],
-    "explanation": "Ea = E_activated_complex - E_reactants = 574 - 143 = 431 kJ/mol.",
+    "explanation": "Ea = E_activated_complex - E_reactants = 529 - 108 = 421 kJ/mol.",
     "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_45"
   },
   {
-    "id": "PS11_P2_QUA_912",
-    "topic": "Quantitative Aspects of Chemical Change",
-    "subtopic": "Concentration of solutions",
+    "id": "PS11_P2_ACI_109",
+    "topic": "Acids, Bases and Salts",
+    "subtopic": "Strong and weak acids/bases",
     "paper": "paper2",
-    "difficulty": "medium",
-    "question": "What mass of solute (molar mass = 285 g/mol) is required to prepare 411 cm\u00b3 of a 2.85 mol/dm\u00b3 solution?",
-    "correct_answer": "334.41",
+    "difficulty": "hard",
+    "question": "Is H2SO4 classified as a strong or weak acid in aqueous solution 6611?",
+    "correct_answer": "strong",
     "wrong_answers_pool": [
-      "668.82",
-      "33.44",
-      "344.41",
-      "167.21",
-      "3344.10",
-      "324.41"
+      "weak",
+      "neutral",
+      "base",
+      "amphiprotic",
+      "salt",
+      "precipitate"
     ],
-    "explanation": "V = 411/1000 = 0.411 dm\u00b3. n = C * V = 2.85 * 0.411 = 1.173 mol. m = n * M = 1.173 * 285 = 334.41 g.",
+    "explanation": "Strong acids ionize completely in water. Weak acids ionize only partially. H2SO4 is a strong acid.",
     "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_46"
   },
   {
-    "id": "PS11_P2_QUA_187",
-    "topic": "Quantitative Aspects of Chemical Change",
-    "subtopic": "Limiting reagents",
+    "id": "PS11_P2_ENE_369",
+    "topic": "Energy and Chemical Change",
+    "subtopic": "Heat of reaction (\u0394H)",
     "paper": "paper2",
-    "difficulty": "hard",
-    "question": "In the reaction 2A + 5B -> Products, 42 g of A (M=22 g/mol) reacts with 41 g of B (M=70 g/mol). Which reactant is the limiting reagent?",
-    "correct_answer": "Reactant B",
+    "difficulty": "medium",
+    "question": "In a potential energy diagram, the energy of the reactants is 147 kJ/mol and the energy of the products is 312 kJ/mol. Calculate the heat of reaction (\u0394H).",
+    "correct_answer": "165 kJ/mol",
     "wrong_answers_pool": [
-      "Reactant A",
-      "Products",
-      "Both A and B",
-      "Cannot be determined",
-      "Neither",
-      "Depends on temperature"
+      "175",
+      "166",
+      "1650",
+      "164",
+      "155",
+      "330"
     ],
-    "explanation": "Moles A = 42/22 = 1.909. Moles B = 41/70 = 0.586. Ratio A = 1.909/2 = 0.955. Ratio B = 0.586/5 = 0.117. Smaller ratio is limiting.",
+    "explanation": "\u0394H = E_products - E_reactants = 312 - 147 = 165 kJ/mol.",
     "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_47"
   },
   {
-    "id": "PS11_P2_MAT_625",
+    "id": "PS11_P2_MAT_433",
     "topic": "Matter and Materials",
-    "subtopic": "Intermolecular forces",
+    "subtopic": "Atomic combinations",
     "paper": "paper2",
-    "difficulty": "medium",
-    "question": "In a sample containing multiple NaCl(aq) molecules (Sample 2442), what is the primary intermolecular force present between them?",
-    "correct_answer": "Ion-dipole forces",
+    "difficulty": "hard",
+    "question": "Atom A has an electronegativity of 3.63 and Atom B has an electronegativity of 1.10. Predict the type of bond formed between them.",
+    "correct_answer": "Ionic",
     "wrong_answers_pool": [
-      "Hydrogen bonding",
-      "London dispersion forces",
-      "Dipole-dipole forces",
-      "Covalent bonding",
-      "Ionic bonding",
-      "Metallic bonding"
+      "Polar covalent",
+      "Non-polar covalent",
+      "Metallic",
+      "Hydrogen bond",
+      "Coordinate covalent",
+      "London force"
     ],
-    "explanation": "NaCl(aq) primarily exhibits Ion-dipole forces between its molecules.",
+    "explanation": "\u0394EN = |3.63 - 1.10| = 2.53. \u0394EN > 2.0 implies Ionic, 0.4 < \u0394EN < 2.0 implies Polar covalent, \u0394EN <= 0.4 implies Non-polar covalent. Thus it is Ionic.",
     "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_48"
   },
   {
-    "id": "PS11_P2_IDE_942",
+    "id": "PS11_P2_IDE_287",
     "topic": "Ideal Gases",
     "subtopic": "Ideal Gas Law",
     "paper": "paper2",
     "difficulty": "hard",
-    "question": "Calculate the number of moles of an ideal gas that occupies 16 dm\u00b3 at a pressure of 229 kPa and a temperature of 122\u00b0C. (R = 8.31 J/(mol\u00b7K))",
-    "correct_answer": "1.116",
+    "question": "Calculate the number of moles of an ideal gas that occupies 42 dm\u00b3 at a pressure of 275 kPa and a temperature of 181\u00b0C. (R = 8.31 J/(mol\u00b7K))",
+    "correct_answer": "3.061",
     "wrong_answers_pool": [
-      "11.12",
-      "1.25",
-      "0.11",
-      "0.56",
-      "11.16",
-      "2.23"
+      "30.61",
+      "1.53",
+      "9.37",
+      "6.12",
+      "0.31",
+      "13.06"
     ],
-    "explanation": "P = 229000 Pa, V = 0.016 m\u00b3, T = 395 K. PV = nRT => n = PV / RT = (229000 * 0.016) / (8.31 * 395) = 1.116 mol.",
+    "explanation": "P = 275000 Pa, V = 0.042 m\u00b3, T = 454 K. PV = nRT => n = PV / RT = (275000 * 0.042) / (8.31 * 454) = 3.061 mol.",
     "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_49"
   },
   {
-    "id": "PS11_P2_ENE_931",
-    "topic": "Energy and Chemical Change",
-    "subtopic": "Activation energy",
+    "id": "PS11_P2_IDE_324",
+    "topic": "Ideal Gases",
+    "subtopic": "Charles's Law",
     "paper": "paper2",
-    "difficulty": "hard",
-    "question": "For a certain reaction, the energy of the reactants is 297 kJ/mol and the energy of the activated complex is 519 kJ/mol. Calculate the activation energy for the forward reaction.",
-    "correct_answer": "222 kJ/mol",
+    "difficulty": "medium",
+    "question": "A gas occupies 33 dm\u00b3 at 127\u00b0C. Calculate its volume at 15\u00b0C, assuming constant pressure.",
+    "correct_answer": "23.76",
     "wrong_answers_pool": [
-      "223",
-      "232",
-      "2220",
-      "444",
-      "221",
-      "212"
+      "2.38",
+      "237.60",
+      "33.76",
+      "13.76",
+      "11.88",
+      "47.52"
     ],
-    "explanation": "Ea = E_activated_complex - E_reactants = 519 - 297 = 222 kJ/mol.",
+    "explanation": "T1 = 127 + 273 = 400 K. T2 = 15 + 273 = 288 K. V1/T1 = V2/T2 => V2 = (V1 * T2) / T1 = (33 * 288) / 400 = 23.76 dm\u00b3.",
     "exam_id": "EXAM_2026-W24_grade11_physical_sciences_paper2_50"
   }
 ]
