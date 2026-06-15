@@ -376,7 +376,7 @@
 
             let data = null;
             if (window.getCombinedUserData) {
-                data = await window.getCombinedUserData(userId);
+                data = await window.getCombinedUserData(userId, queryParams);
             } else {
                 const response = await fetch(`${API_URL}/api/user/${userId}${queryParams}`);
                 if (response.ok) {

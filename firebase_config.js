@@ -62,6 +62,15 @@ async function processQueue() {
                     userData.correct_answers = (userData.correct_answers || 0) + item.correct;
                     userData.quizzes_completed = (userData.quizzes_completed || 0) + 1;
 
+                    if (item.topic && item.totalQs) {
+                        if (!userData.topic_accuracy) userData.topic_accuracy = {};
+                        if (!userData.topic_accuracy[item.topic]) {
+                            userData.topic_accuracy[item.topic] = { correct: 0, total: 0 };
+                        }
+                        userData.topic_accuracy[item.topic].correct += item.correct;
+                        userData.topic_accuracy[item.topic].total += item.totalQs;
+                    }
+
                     if (!userData.quiz_history) userData.quiz_history = {};
                     const mappedSubject = item.subject === "mathematics" ? "math" : item.subject;
                     const historyKey = `${mappedSubject}_${item.topic}`;
@@ -121,14 +130,16 @@ window.triggerFinalSync = async function(closeApp = true, isExplicitExit = false
     }
 };
 
-window.getCombinedUserData = async function(userId) {
+window.getCombinedUserData = async function(userId, queryParams = "", isPublic = false) {
     try {
-        const response = await fetch(`${API_URL}/api/user/${userId}`);
+        const endpoint = isPublic ? `/api/public-user/${userId}` : `/api/user/${userId}`;
+        const response = await fetch(`${API_URL}${endpoint}${queryParams}`);
         if (!response.ok) return null;
         const kvData = await response.json();
 
         // Fetch delta from Firebase
-        const deltaSnapshot = await window.firebaseGet(window.firebaseRef(window.firebaseDatabase, `users_delta/${userId}`));
+        const fetchId = isPublic && kvData.user_id ? kvData.user_id : userId;
+        const deltaSnapshot = await window.firebaseGet(window.firebaseRef(window.firebaseDatabase, `users_delta/${fetchId}`));
         const delta = deltaSnapshot.val();
 
         if (delta) {
@@ -177,6 +188,17 @@ window.getCombinedUserData = async function(userId) {
                 if (!kvData.quiz_history) kvData.quiz_history = {};
                 for (const historyKey in delta.quiz_history) {
                     kvData.quiz_history[historyKey] = (kvData.quiz_history[historyKey] || 0) + delta.quiz_history[historyKey];
+                }
+            }
+
+            if (delta.topic_accuracy) {
+                if (!kvData.topic_accuracy) kvData.topic_accuracy = {};
+                for (const topic in delta.topic_accuracy) {
+                    if (!kvData.topic_accuracy[topic]) {
+                        kvData.topic_accuracy[topic] = { correct: 0, total: 0 };
+                    }
+                    kvData.topic_accuracy[topic].correct += delta.topic_accuracy[topic].correct;
+                    kvData.topic_accuracy[topic].total += delta.topic_accuracy[topic].total;
                 }
             }
         }

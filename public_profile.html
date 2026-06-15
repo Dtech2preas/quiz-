@@ -648,17 +648,26 @@
 
     async function loadPublicProfile(username) {
         try {
-            const response = await fetch(`${API_URL}/api/public-user/${username}`);
+            let data = null;
+            if (window.getCombinedUserData) {
+                data = await window.getCombinedUserData(username, "", true);
+            } else {
+                const response = await fetch(`${API_URL}/api/public-user/${username}`);
+                if (response.status === 404) {
+                    document.getElementById("loading").style.display = "none";
+                    document.getElementById("error-message").style.display = "block";
+                    return;
+                }
+                if (response.ok) {
+                    data = await response.json();
+                }
+            }
 
-            if (response.status === 404) {
+            if (!data) {
                 document.getElementById("loading").style.display = "none";
                 document.getElementById("error-message").style.display = "block";
                 return;
             }
-
-            if (!response.ok) throw new Error("Failed to load profile");
-
-            const data = await response.json();
 
             document.getElementById("profile-username").textContent = data.username;
 
