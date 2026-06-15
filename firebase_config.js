@@ -67,6 +67,11 @@ async function processQueue() {
                     const historyKey = `${mappedSubject}_${item.topic}`;
                     userData.quiz_history[historyKey] = (userData.quiz_history[historyKey] || 0) + 1;
 
+                    if (!userData.topic_accuracy) userData.topic_accuracy = {};
+                    if (!userData.topic_accuracy[item.topic]) userData.topic_accuracy[item.topic] = { correct: 0, total: 0 };
+                    userData.topic_accuracy[item.topic].correct += item.correct;
+                    userData.topic_accuracy[item.topic].total += item.totalQs;
+
                 } else if (item.action === "weekly") {
                     if (!userData.completed_weekly_exams) userData.completed_weekly_exams = {};
                     if (!userData.completed_weekly_exams[item.examKey]) {
@@ -177,6 +182,14 @@ window.getCombinedUserData = async function(userId) {
                 if (!kvData.quiz_history) kvData.quiz_history = {};
                 for (const historyKey in delta.quiz_history) {
                     kvData.quiz_history[historyKey] = (kvData.quiz_history[historyKey] || 0) + delta.quiz_history[historyKey];
+                }
+            }
+            if (delta.topic_accuracy) {
+                if (!kvData.topic_accuracy) kvData.topic_accuracy = {};
+                for (const topicKey in delta.topic_accuracy) {
+                    if (!kvData.topic_accuracy[topicKey]) kvData.topic_accuracy[topicKey] = { correct: 0, total: 0 };
+                    kvData.topic_accuracy[topicKey].correct += delta.topic_accuracy[topicKey].correct || 0;
+                    kvData.topic_accuracy[topicKey].total += delta.topic_accuracy[topicKey].total || 0;
                 }
             }
         }

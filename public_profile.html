@@ -658,7 +658,42 @@
 
             if (!response.ok) throw new Error("Failed to load profile");
 
-            const data = await response.json();
+            let data = await response.json();
+
+            // Try to merge Firebase delta data if available
+            try {
+                if (data.user_id && window.firebaseDatabase && window.firebaseRef && window.firebaseGet) {
+                    const deltaSnapshot = await window.firebaseGet(window.firebaseRef(window.firebaseDatabase, `users_delta/${data.user_id}`));
+                    const delta = deltaSnapshot.val();
+                    if (delta) {
+                        if (delta.personal_total_xp) data.personal_total_xp = (data.personal_total_xp || 0) + delta.personal_total_xp;
+                        if (delta.total_xp) data.total_xp = (data.total_xp || 0) + delta.total_xp;
+
+                        if (delta.questions_answered) data.questions_answered = (data.questions_answered || 0) + delta.questions_answered;
+                        if (delta.correct_answers) data.correct_answers = (data.correct_answers || 0) + delta.correct_answers;
+
+                        if (data.questions_answered > 0) {
+                            data.accuracy_percentage = Math.round((data.correct_answers / data.questions_answered) * 100);
+                        }
+
+                        if (delta.completed_weekly_exams) {
+                            for (const examKey in delta.completed_weekly_exams) {
+                                data.completed_weekly_exams[examKey] = delta.completed_weekly_exams[examKey];
+                            }
+                        }
+
+                        if (delta.topic_accuracy) {
+                            for (const topicKey in delta.topic_accuracy) {
+                                if (!data.topic_accuracy[topicKey]) data.topic_accuracy[topicKey] = { correct: 0, total: 0 };
+                                data.topic_accuracy[topicKey].correct += delta.topic_accuracy[topicKey].correct || 0;
+                                data.topic_accuracy[topicKey].total += delta.topic_accuracy[topicKey].total || 0;
+                            }
+                        }
+                    }
+                }
+            } catch (e) {
+                console.warn("Could not fetch realtime delta for public profile", e);
+            }
 
             document.getElementById("profile-username").textContent = data.username;
 
