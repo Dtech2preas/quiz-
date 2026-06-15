@@ -145,9 +145,16 @@ function getLocalVirtualStats() {
             }
         } else if (item.url.includes('/api/submit-weekly-exam')) {
             const percentage = (item.data.correct_answers / item.data.total_questions) * 100;
-            if (percentage >= 50) {
-                localXp += 100;
-                localPoints += 20;
+            if (percentage >= 40) {
+                let base_xp = item.data.correct_answers * 8;
+                let bonusXp = 0;
+                if (percentage > 80) {
+                    if (percentage >= 95) bonusXp = 150;
+                    else if (percentage >= 90) bonusXp = 100;
+                    else bonusXp = 50;
+                }
+                localXp += (base_xp + bonusXp);
+                localPoints += (base_xp + bonusXp) * 2;
             }
         } else if (item.url.includes('/api/store/sync-points')) {
             if (item.data.added_points) localPoints += item.data.added_points;
@@ -220,12 +227,18 @@ window.fetch = async function(...args) {
                 }
             } else if (url.includes('/api/submit-weekly-exam')) {
                 const percentage = (data.correct_answers / data.total_questions) * 100;
-                passedThreshold = percentage >= 50;
-                xpEarned = data.correct_answers * 8; // Assuming offline weekly exam mock matches worker.js
-                if (percentage > 80) {
-                    xpEarned += 100; // Mock bonus
+                passedThreshold = percentage >= 40;
+                if (passedThreshold) {
+                    let base_xp = data.correct_answers * 8;
+                    let bonusXp = 0;
+                    if (percentage > 80) {
+                        if (percentage >= 95) bonusXp = 150;
+                        else if (percentage >= 90) bonusXp = 100;
+                        else bonusXp = 50;
+                    }
+                    xpEarned = base_xp + bonusXp;
+                    pointsEarned = xpEarned * 2;
                 }
-                pointsEarned = 20; // Generic offline mock fallback for points
             } else if (url.includes('/api/store/sync-points')) {
                 if (data.added_points) pointsEarned += data.added_points;
                 if (data.push_claim) pointsEarned += 100;
