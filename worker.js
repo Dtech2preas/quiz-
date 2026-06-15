@@ -472,6 +472,7 @@ async function handleGetPublicUser(request, env, path) {
 
   // Exclude sensitive info
   const publicData = {
+    user_id: userId,
     username: userData.username,
     name: userData.name,
     surname: userData.surname,
@@ -771,7 +772,7 @@ async function updateLeaderboards(env, user, currentWeek, publicXpEarned, subjec
     let boardStr = await env.RANK_KV.get(key) || "[]";
     let board = JSON.parse(boardStr);
 
-    let xpVal = isDynamicSubject ? user.subjects_xp[subject] : user[sortByField];
+    let xpVal = isDynamicSubject ? (user.subjects_xp ? user.subjects_xp[subject] : 0) : user[sortByField];
     if (xpVal === undefined) xpVal = 0;
 
     const existingIndex = board.findIndex(u => u.user_id === user.user_id);
@@ -783,6 +784,7 @@ async function updateLeaderboards(env, user, currentWeek, publicXpEarned, subjec
       return;
     }
 
+    // Always update if the user is not in the board yet, even if XP is 0 and board length < 1000
     // Fast return if the user is in the board but nothing changed (no XP gained, no cosmetic changes relevant here)
     if (wasInBoard && existingEntry.xp === xpVal) {
       // updateLeaderboards is mainly for XP sorting. If XP hasn't changed, updateLeaderboardUser handles profile updates.
@@ -930,6 +932,15 @@ async function handleMasterSync(request, env, ctx) {
         }
     }
 
+    if (delta.topic_accuracy) {
+        if (!userData.topic_accuracy) userData.topic_accuracy = {};
+        for (const topicKey in delta.topic_accuracy) {
+            if (!userData.topic_accuracy[topicKey]) userData.topic_accuracy[topicKey] = { correct: 0, total: 0 };
+            userData.topic_accuracy[topicKey].correct += delta.topic_accuracy[topicKey].correct || 0;
+            userData.topic_accuracy[topicKey].total += delta.topic_accuracy[topicKey].total || 0;
+        }
+    }
+
     // Save back to KV
     await env.RANK_KV.put(`user:${userId}`, JSON.stringify(userData));
 
@@ -1020,6 +1031,13 @@ async function handleBatchSync(request, env, ctx) {
       }
 
       userData.quiz_history[historyKey] = attempts + 1;
+
+      if (userData.topic_accuracy === undefined) userData.topic_accuracy = {};
+      if (!userData.topic_accuracy[topic]) {
+          userData.topic_accuracy[topic] = { correct: 0, total: 0 };
+      }
+      userData.topic_accuracy[topic].correct += correct_answers;
+      userData.topic_accuracy[topic].total += total_questions;
 
     } else if (item.url.includes('/api/submit-weekly-exam')) {
       const { subject, exam_week, total_questions, correct_answers } = item.data;
