@@ -472,6 +472,7 @@ async function handleGetPublicUser(request, env, path) {
 
   // Exclude sensitive info
   const publicData = {
+    user_id: userId,
     username: userData.username,
     name: userData.name,
     surname: userData.surname,

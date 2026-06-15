@@ -880,7 +880,43 @@
 
             const allGradesResult = results.find(r => r.gradeId === 'all');
             let schoolsOverallList = allGradesResult && allGradesResult.data.schools_overall ? allGradesResult.data.schools_overall : [];
-            // We do not apply user deltas to school leaderboards directly here since school mapping is complex
+
+            if (deltas && schoolsOverallList.length > 0) {
+                let schoolDeltas = {};
+                for (const userId in deltas) {
+                    const d = deltas[userId];
+                    if (d.total_xp && d.total_xp > 0) {
+                        // find the user in overall leaderboard to get their school
+                        let userSchool = null;
+                        if (allGradesResult && allGradesResult.data.overall) {
+                            const user = allGradesResult.data.overall.find(u => u.user_id === userId);
+                            if (user && user.school) {
+                                userSchool = user.school;
+                            }
+                        }
+                        if (userSchool) {
+                            schoolDeltas[userSchool] = (schoolDeltas[userSchool] || 0) + d.total_xp;
+                        }
+                    }
+                }
+                if (Object.keys(schoolDeltas).length > 0) {
+                    schoolsOverallList = schoolsOverallList.map(school => {
+                        if (schoolDeltas[school.school_name]) {
+                            return { ...school, xp: school.xp + schoolDeltas[school.school_name] };
+                        }
+                        return school;
+                    });
+
+                    // add new schools that might only exist in deltas
+                    for (const schoolName in schoolDeltas) {
+                        if (!schoolsOverallList.find(s => s.school_name === schoolName)) {
+                            schoolsOverallList.push({ school_name: schoolName, xp: schoolDeltas[schoolName] });
+                        }
+                    }
+                    schoolsOverallList.sort((a, b) => b.xp - a.xp);
+                }
+            }
+
             renderSchoolsLeaderboard(schoolsOverallList);
 
             const gradeResults = results.filter(r => r.gradeId !== 'all');
