@@ -60,6 +60,7 @@ async function processQueue() {
                     }
                     userData.questions_answered = (userData.questions_answered || 0) + item.totalQs;
                     userData.correct_answers = (userData.correct_answers || 0) + item.correct;
+                    userData.quizzes_completed = (userData.quizzes_completed || 0) + 1;
 
                     if (!userData.quiz_history) userData.quiz_history = {};
                     const mappedSubject = item.subject === "mathematics" ? "math" : item.subject;
@@ -82,6 +83,9 @@ async function processQueue() {
                         if (!userData.subjects_xp) userData.subjects_xp = {};
                         userData.subjects_xp[item.subject] = (userData.subjects_xp[item.subject] || 0) + item.totalXp;
                     }
+                    userData.questions_answered = (userData.questions_answered || 0) + item.totalQs;
+                    userData.correct_answers = (userData.correct_answers || 0) + item.score;
+                    userData.quizzes_completed = (userData.quizzes_completed || 0) + 1;
                 } else if (item.action === "points") {
                     userData.dtech_points = (userData.dtech_points || 0) + item.points;
                 }
@@ -97,6 +101,10 @@ async function processQueue() {
 }
 
 window.queueFirebaseAction = function(item) {
+    if (!item.userId || item.userId === "undefined" || item.userId === "null") {
+        console.error("queueFirebaseAction aborted: Invalid userId", item);
+        return;
+    }
     let queue = JSON.parse(localStorage.getItem("firebase_offline_queue") || "[]");
     queue.push(item);
     localStorage.setItem("firebase_offline_queue", JSON.stringify(queue));
@@ -255,6 +263,7 @@ async function executeMasterSync(lockRef) {
 
                     if (deltaToSubtract.questions_answered) userData.questions_answered = (userData.questions_answered || 0) - deltaToSubtract.questions_answered;
                     if (deltaToSubtract.correct_answers) userData.correct_answers = (userData.correct_answers || 0) - deltaToSubtract.correct_answers;
+                    if (deltaToSubtract.quizzes_completed) userData.quizzes_completed = (userData.quizzes_completed || 0) - deltaToSubtract.quizzes_completed;
 
                     // Remove non-numerical tracking variables that have been synced
                     if (deltaToSubtract.last_quiz_date === userData.last_quiz_date) {
