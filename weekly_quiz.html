@@ -755,11 +755,11 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
 
                 progress.push({
                     date: todayStr,
-                    subject: subject,
-                    subjectLabel: localStorage.getItem('current_subject_label') || subject,
+                    subject: currentSubject,
+                    subjectLabel: localStorage.getItem('current_subject_label') || currentSubject,
                     topic: 'Weekly Exam',
-                    correct: score,
-                    total: totalQuestions
+                    correct: correct,
+                    total: total
                 });
                 localStorage.setItem('daily_progress', JSON.stringify(progress));
             } catch (e) {
@@ -771,14 +771,14 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
             document.getElementById("xp-message-container").style.display = "block";
             document.getElementById("offline-sync-notice").style.display = "none";
 
-            const normalizedSubject = subject === "mathematics" ? "math" : subject;
+            const normalizedSubject = currentSubject === "mathematics" ? "math" : currentSubject;
             let examXpEarned = 0;
             let bonusXp = 0;
             let totalXpEarned = 0;
             let pointsEarned = 0;
 
             if (percentage >= 40) {
-                examXpEarned = score * 8;
+                examXpEarned = correct * 8;
                 if (percentage > 80) {
                     if (percentage >= 95) bonusXp = 150;
                     else if (percentage >= 90) bonusXp = 100;
@@ -793,11 +793,11 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
                     action: "weekly",
                     userId: userId,
                     subject: normalizedSubject,
-                    examKey: `${currentExamWeek}_${subject}`,
+                    examKey: `${currentExamWeek}_${currentSubject}`,
                     totalXp: totalXpEarned,
                     points: pointsEarned,
-                    score: score,
-                    totalQs: totalQuestions
+                    score: correct,
+                    totalQs: total
                 });
             }
 

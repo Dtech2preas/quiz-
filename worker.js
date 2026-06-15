@@ -641,9 +641,9 @@ async function handleSubmitQuiz(request, env, ctx) {
 
   await env.RANK_KV.put(`user:${user_id}`, JSON.stringify(userData));
 
-  // Update leaderboards async
+  // Update leaderboards sequentially to prevent race conditions during high load
   if (publicXpEarned > 0) {
-    ctx.waitUntil(updateLeaderboards(env, userData, currentWeek, publicXpEarned, normalizedSubject));
+    await updateLeaderboards(env, userData, currentWeek, publicXpEarned, normalizedSubject);
   }
 
   return jsonResponse({
@@ -754,7 +754,7 @@ async function handleSubmitWeeklyExam(request, env, ctx) {
   await env.RANK_KV.put(`user:${user_id}`, JSON.stringify(userData));
 
   if (examXpEarned > 0) {
-    ctx.waitUntil(updateLeaderboards(env, userData, currentWeek, examXpEarned, normalizedSubject));
+    await updateLeaderboards(env, userData, currentWeek, examXpEarned, normalizedSubject);
   }
 
   return jsonResponse({
@@ -905,6 +905,7 @@ async function handleMasterSync(request, env, ctx) {
 
     if (delta.questions_answered) userData.questions_answered = (userData.questions_answered || 0) + delta.questions_answered;
     if (delta.correct_answers) userData.correct_answers = (userData.correct_answers || 0) + delta.correct_answers;
+    if (delta.quizzes_completed) userData.quizzes_completed = (userData.quizzes_completed || 0) + delta.quizzes_completed;
 
     if (userData.questions_answered > 0) {
         userData.accuracy_percentage = Math.round((userData.correct_answers / userData.questions_answered) * 100);
@@ -933,12 +934,12 @@ async function handleMasterSync(request, env, ctx) {
     await env.RANK_KV.put(`user:${userId}`, JSON.stringify(userData));
 
     const currentWeek = getCurrentWeek();
-    ctx.waitUntil((async () => {
-        if (xpGained || delta.correct_answers !== undefined) {
-            await updateLeaderboards(env, userData, currentWeek, delta.total_xp || 0, "batch");
-        }
-        await updateLeaderboardUser(env, userId, userData);
-    })());
+
+    // Process sequentially to prevent leaderboard race conditions
+    if (xpGained || delta.correct_answers !== undefined) {
+        await updateLeaderboards(env, userData, currentWeek, delta.total_xp || 0, "batch");
+    }
+    await updateLeaderboardUser(env, userId, userData);
   }
 
   return jsonResponse({ message: "Master sync successful" }, 200);
@@ -1138,13 +1139,11 @@ async function handleBatchSync(request, env, ctx) {
   await env.RANK_KV.put(`user:${user_id}`, JSON.stringify(userData));
 
   const currentWeek = getCurrentWeek();
-  ctx.waitUntil((async () => {
-    // Only update leaderboards if XP was actually gained, to reduce KV writes
-    if (xpGained) {
-      await updateLeaderboards(env, userData, currentWeek, totalXpEarned || 0, "batch");
-    }
-    await updateLeaderboardUser(env, user_id, userData);
-  })());
+  // Only update leaderboards if XP was actually gained, to reduce KV writes
+  if (xpGained) {
+    await updateLeaderboards(env, userData, currentWeek, totalXpEarned || 0, "batch");
+  }
+  await updateLeaderboardUser(env, user_id, userData);
 
   return jsonResponse({
     success: true,
