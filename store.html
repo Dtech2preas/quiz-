@@ -725,7 +725,8 @@
                 if (response.ok) data = await response.json();
             }
             if (data) {
-                userPoints = data.dtech_points || 0;
+                // Read available_balance provided by the new worker endpoint which already handles the sum
+                userPoints = data.available_balance !== undefined ? data.available_balance : (data.dtech_points || 0);
                 unlockedItems = data.unlocked_cosmetics || [];
                 equippedItems = data.equipped_cosmetics || {};
 
@@ -854,7 +855,7 @@
             const data = await response.json();
 
             if (response.ok) {
-                userPoints = data.dtech_points;
+                userPoints = data.available_balance !== undefined ? data.available_balance : (data.dtech_points || data.new_balance || 0);
                 unlockedItems = data.unlocked_cosmetics;
                 document.getElementById('dtech-points-display').textContent = `💎 ${userPoints}`;
                 showToast("Ultimate Bundle purchased successfully! You can now choose how to equip it.");
@@ -1051,7 +1052,7 @@
             const data = await response.json();
 
             if (response.ok) {
-                userPoints = data.new_balance;
+                userPoints = data.available_balance !== undefined ? data.available_balance : (data.dtech_points || data.new_balance || 0);
                 unlockedItems = data.unlocked_cosmetics;
                 document.getElementById('dtech-points-display').textContent = `💎 ${userPoints}`;
                 showToast("Purchase successful!");
