@@ -790,41 +790,6 @@
         }
     }
 
-    function applyDeltasAndSort(leaderboardList, deltas, sortField) {
-        if (!leaderboardList || !Array.isArray(leaderboardList)) return [];
-
-        let mergedList = [...leaderboardList];
-
-        if (deltas) {
-            for (let i = 0; i < mergedList.length; i++) {
-                const user = mergedList[i];
-                if (deltas[user.user_id]) {
-                    const d = deltas[user.user_id];
-                    let addedXp = 0;
-
-                    if (sortField === "total_xp" && d.total_xp) {
-                        addedXp = d.total_xp;
-                    } else if (sortField === "weekly_xp" && d.total_xp) {
-                        addedXp = d.total_xp;
-                    } else if (sortField === "math" && d.math_xp) {
-                        addedXp = d.math_xp;
-                    } else if (sortField === "physics" && d.physics_xp) {
-                        addedXp = d.physics_xp;
-                    } else if (d.subjects_xp && d.subjects_xp[sortField]) {
-                        addedXp = d.subjects_xp[sortField];
-                    }
-
-                    if (addedXp > 0) {
-                        user.xp = (user.xp || 0) + addedXp;
-                    }
-                }
-            }
-        }
-
-        mergedList.sort((a, b) => b.xp - a.xp);
-        return mergedList;
-    }
-
     async function fetchAllGradesLeaderboards() {
         document.getElementById("loading").style.display = "block";
         document.getElementById("grades-list-view").style.display = "none";
@@ -865,57 +830,10 @@
                     .catch(err => ({ gradeId: 'all', title: 'All Grades', data: { schools_overall: [] }, error: err }))
             );
 
-            // Fetch live deltas from Firebase RTDB
-            let deltas = null;
-            if (window.firebaseDatabase && window.firebaseRef && window.firebaseGet) {
-                try {
-                    const deltaSnapshot = await window.firebaseGet(window.firebaseRef(window.firebaseDatabase, `users_delta`));
-                    deltas = deltaSnapshot.val();
-                } catch (e) {
-                    console.error("Failed to fetch live deltas", e);
-                }
-            }
-
             const results = await Promise.all(fetchPromises);
 
             const allGradesResult = results.find(r => r.gradeId === 'all');
             let schoolsOverallList = allGradesResult && allGradesResult.data.schools_overall ? allGradesResult.data.schools_overall : [];
-
-            if (deltas && schoolsOverallList.length > 0) {
-                let schoolDeltas = {};
-                for (const userId in deltas) {
-                    const d = deltas[userId];
-                    if (d.total_xp && d.total_xp > 0) {
-                        // find the user in overall leaderboard to get their school
-                        let userSchool = null;
-                        if (allGradesResult && allGradesResult.data.overall) {
-                            const user = allGradesResult.data.overall.find(u => u.user_id === userId);
-                            if (user && user.school) {
-                                userSchool = user.school;
-                            }
-                        }
-                        if (userSchool) {
-                            schoolDeltas[userSchool] = (schoolDeltas[userSchool] || 0) + d.total_xp;
-                        }
-                    }
-                }
-                if (Object.keys(schoolDeltas).length > 0) {
-                    schoolsOverallList = schoolsOverallList.map(school => {
-                        if (schoolDeltas[school.school_name]) {
-                            return { ...school, xp: school.xp + schoolDeltas[school.school_name] };
-                        }
-                        return school;
-                    });
-
-                    // add new schools that might only exist in deltas
-                    for (const schoolName in schoolDeltas) {
-                        if (!schoolsOverallList.find(s => s.school_name === schoolName)) {
-                            schoolsOverallList.push({ school_name: schoolName, xp: schoolDeltas[schoolName] });
-                        }
-                    }
-                    schoolsOverallList.sort((a, b) => b.xp - a.xp);
-                }
-            }
 
             renderSchoolsLeaderboard(schoolsOverallList);
 
@@ -928,26 +846,8 @@
             });
 
             gradeResults.forEach(result => {
-                // Apply deltas to overall list
-                const mergedOverall = applyDeltasAndSort(result.data.overall, deltas, "total_xp");
-                result.data.overall = mergedOverall;
-
-                // Apply deltas to weekly list
-                if (result.data.weekly) {
-                    result.data.weekly = applyDeltasAndSort(result.data.weekly, deltas, "weekly_xp");
-                }
-
-                // Apply deltas to subject lists
-                if (result.subjects) {
-                    result.subjects.forEach(sub => {
-                        if (result.data[sub]) {
-                            result.data[sub] = applyDeltasAndSort(result.data[sub], deltas, sub);
-                        }
-                    });
-                }
-
                 gradeDataCache[result.gradeId] = { data: result.data, subjects: result.subjects };
-                renderGradeCard(result.gradeId, result.title, mergedOverall);
+                renderGradeCard(result.gradeId, result.title, result.data.overall || []);
             });
 
             document.getElementById("loading").style.display = "none";
