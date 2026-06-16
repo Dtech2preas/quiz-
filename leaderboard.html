@@ -622,49 +622,6 @@
         return gradeSubjects;
     }
 
-    function applyDeltasAndSort(leaderboardList, deltas, sortField) {
-        if (!leaderboardList || !Array.isArray(leaderboardList)) return [];
-
-        let mergedList = [...leaderboardList];
-
-        if (deltas) {
-            for (let i = 0; i < mergedList.length; i++) {
-                const user = mergedList[i];
-                if (deltas[user.user_id]) {
-                    const d = deltas[user.user_id];
-                    let addedXp = 0;
-
-                    if (sortField === "total_xp" && d.total_xp) {
-                        addedXp = d.total_xp;
-                    } else if (sortField === "weekly_xp" && d.total_xp) {
-                        // Assuming total_xp delta is closely mirroring weekly_xp delta in real-time
-                        addedXp = d.total_xp;
-                    } else if (sortField === "math" && d.math_xp) {
-                        addedXp = d.math_xp;
-                    } else if (sortField === "physics" && d.physics_xp) {
-                        addedXp = d.physics_xp;
-                    } else if (d.subjects_xp && d.subjects_xp[sortField]) {
-                        addedXp = d.subjects_xp[sortField];
-                    }
-
-                    if (addedXp > 0) {
-                        user.xp = (user.xp || 0) + addedXp;
-                    }
-                }
-            }
-        }
-
-        // Add offline queue locally generated virtual stats if available for the current user
-        const userId = localStorage.getItem("user_id");
-        if (userId && window.IS_ANDROID_APP === false && !navigator.onLine) {
-            // Already handled by offline mode intercept, but if online and queue exists:
-            // Just sorting based on deltas is enough for now.
-        }
-
-        mergedList.sort((a, b) => b.xp - a.xp);
-        return mergedList;
-    }
-
     async function fetchLeaderboards() {
         try {
             const subjectsToFetch = await setupDynamicLeaderboards();
@@ -674,28 +631,13 @@
             const response = await fetch(`${API_URL}/api/leaderboard?grade=${currentGrade}${queryParams}`);
             const data = await response.json();
 
-            // Fetch live deltas from Firebase RTDB
-            let deltas = null;
-            if (window.firebaseDatabase && window.firebaseRef && window.firebaseGet) {
-                try {
-                    const deltaSnapshot = await window.firebaseGet(window.firebaseRef(window.firebaseDatabase, `users_delta`));
-                    deltas = deltaSnapshot.val();
-                } catch (e) {
-                    console.error("Failed to fetch live deltas", e);
-                }
-            }
-
             document.getElementById("loading").style.display = "none";
 
-            const overallMerged = applyDeltasAndSort(data.overall, deltas, "total_xp");
-            renderLeaderboard("leaderboard-overall", overallMerged);
-
-            const weeklyMerged = applyDeltasAndSort(data.weekly, deltas, "weekly_xp");
-            renderLeaderboard("leaderboard-weekly", weeklyMerged);
+            renderLeaderboard("leaderboard-overall", data.overall);
+            renderLeaderboard("leaderboard-weekly", data.weekly);
 
             subjectsToFetch.forEach(sub => {
-                const subMerged = applyDeltasAndSort(data[sub], deltas, sub);
-                renderLeaderboard(`leaderboard-${sub}`, subMerged);
+                renderLeaderboard(`leaderboard-${sub}`, data[sub]);
             });
 
         } catch (error) {

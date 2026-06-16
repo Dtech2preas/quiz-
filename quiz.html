@@ -504,21 +504,7 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
         document.getElementById("loading").textContent = "Saving your results...";
         document.getElementById("loading").style.display = "block";
 
-        const payload = {
-            user_id: userId,
-            subject: subject,
-            topic: currentTopic,
-            total_questions: quizQuestions.length,
-            correct_answers: correctAnswersCount
-        };
-
-        if (!navigator.onLine) {
-            handleOfflineResult();
-            return;
-        }
-
         try {
-
             // Save to daily_progress in localStorage
             try {
                 // Use robust date string comparison instead of toLocaleDateString()

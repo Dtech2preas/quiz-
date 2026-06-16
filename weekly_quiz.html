@@ -723,26 +723,7 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
     }
 
     async function submitExamResults(total, correct, percentage) {
-        const payload = {
-            user_id: userId,
-            subject: currentSubject,
-            exam_week: currentExamWeek,
-            total_questions: total,
-            correct_answers: correct
-        };
-
-        if (!navigator.onLine) {
-            document.getElementById("offline-sync-notice").style.display = "block";
-            document.getElementById("xp-message-container").style.display = "none";
-            let queue = JSON.parse(localStorage.getItem("offlineExamQueue") || "[]");
-            queue.push(payload);
-            localStorage.setItem("offlineExamQueue", JSON.stringify(queue));
-            displayResultsUi(percentage);
-            return;
-        }
-
         try {
-
             // Save to daily_progress in localStorage
             try {
                 const todayStr = new Date().toISOString().split('T')[0];

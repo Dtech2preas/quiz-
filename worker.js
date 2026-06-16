@@ -6,6 +6,8 @@ const CORS_HEADERS = {
   "Access-Control-Allow-Headers": "Content-Type",
 };
 
+const FIREBASE_DB_URL = "https://quiz-b03ce-default-rtdb.firebaseio.com";
+
 async function handleGenerateToken(request, env) {
   const body = await request.json();
   const { user_id } = body;
@@ -47,6 +49,10 @@ async function handleConsumeToken(request, env) {
 }
 
 export default {
+  async scheduled(event, env, ctx) {
+    ctx.waitUntil(handleScheduledSync(env));
+  },
+
   async fetch(request, env, ctx) {
     const origin = request.headers.get("Origin");
 
@@ -110,9 +116,6 @@ export default {
       }
       if (request.method === "POST" && path === "/api/batch-sync") {
         return await handleBatchSync(request, env, ctx);
-      }
-      if (request.method === "POST" && path === "/api/master-sync") {
-        return await handleMasterSync(request, env, ctx);
       }
       if (request.method === "GET" && path === "/api/leaderboard") {
         return await handleGetLeaderboards(request, env);
@@ -855,95 +858,149 @@ async function updateLeaderboards(env, user, currentWeek, publicXpEarned, subjec
   await Promise.all(promises);
 }
 
-async function handleMasterSync(request, env, ctx) {
-  const body = await request.json();
-  const { users_delta } = body;
+async function handleScheduledSync(env) {
+  try {
+    const fbResponse = await fetch(`${FIREBASE_DB_URL}/user_commands.json`);
+    if (!fbResponse.ok) return;
 
-  if (!users_delta || typeof users_delta !== 'object') {
-    return jsonResponse({ error: "Missing or invalid users_delta" }, 400);
-  }
+    const allUsersCommands = await fbResponse.json();
+    if (!allUsersCommands) return;
 
-  const today = new Date().toISOString().split("T")[0];
-
-  for (const userId in users_delta) {
-    const delta = users_delta[userId];
-    if (!delta) continue;
-
-    const userDataString = await env.RANK_KV.get(`user:${userId}`);
-    if (!userDataString) continue;
-
-    let userData = JSON.parse(userDataString);
-    let xpGained = false;
-
-    // Apply delta
-    if (delta.personal_total_xp) userData.personal_total_xp = (userData.personal_total_xp || 0) + delta.personal_total_xp;
-    if (delta.personal_math_xp) userData.personal_math_xp = (userData.personal_math_xp || 0) + delta.personal_math_xp;
-    if (delta.personal_physics_xp) userData.personal_physics_xp = (userData.personal_physics_xp || 0) + delta.personal_physics_xp;
-
-    if (delta.personal_subjects_xp) {
-        if (!userData.personal_subjects_xp) userData.personal_subjects_xp = {};
-        for (const subj in delta.personal_subjects_xp) {
-            userData.personal_subjects_xp[subj] = (userData.personal_subjects_xp[subj] || 0) + delta.personal_subjects_xp[subj];
-        }
-    }
-
-    if (delta.total_xp) {
-        userData.total_xp = (userData.total_xp || 0) + delta.total_xp;
-        xpGained = true;
-    }
-    if (delta.math_xp) userData.math_xp = (userData.math_xp || 0) + delta.math_xp;
-    if (delta.physics_xp) userData.physics_xp = (userData.physics_xp || 0) + delta.physics_xp;
-    if (delta.daily_xp) userData.daily_xp = (userData.daily_xp || 0) + delta.daily_xp;
-
-    if (delta.subjects_xp) {
-        if (!userData.subjects_xp) userData.subjects_xp = {};
-        for (const subj in delta.subjects_xp) {
-            userData.subjects_xp[subj] = (userData.subjects_xp[subj] || 0) + delta.subjects_xp[subj];
-        }
-    }
-
-    if (delta.dtech_points) userData.dtech_points = (userData.dtech_points || 0) + delta.dtech_points;
-
-    if (delta.questions_answered) userData.questions_answered = (userData.questions_answered || 0) + delta.questions_answered;
-    if (delta.correct_answers) userData.correct_answers = (userData.correct_answers || 0) + delta.correct_answers;
-    if (delta.quizzes_completed) userData.quizzes_completed = (userData.quizzes_completed || 0) + delta.quizzes_completed;
-
-    if (userData.questions_answered > 0) {
-        userData.accuracy_percentage = Math.round((userData.correct_answers / userData.questions_answered) * 100);
-    } else {
-        userData.accuracy_percentage = 0;
-    }
-
-    if (delta.last_quiz_date) userData.last_quiz_date = delta.last_quiz_date;
-    if (delta.last_active_date) userData.last_active_date = delta.last_active_date;
-
-    if (delta.completed_weekly_exams) {
-        if (!userData.completed_weekly_exams) userData.completed_weekly_exams = {};
-        for (const examKey in delta.completed_weekly_exams) {
-            userData.completed_weekly_exams[examKey] = delta.completed_weekly_exams[examKey];
-        }
-    }
-
-    if (delta.quiz_history) {
-        if (!userData.quiz_history) userData.quiz_history = {};
-        for (const historyKey in delta.quiz_history) {
-            userData.quiz_history[historyKey] = (userData.quiz_history[historyKey] || 0) + delta.quiz_history[historyKey];
-        }
-    }
-
-    // Save back to KV
-    await env.RANK_KV.put(`user:${userId}`, JSON.stringify(userData));
-
+    const today = new Date().toISOString().split("T")[0];
     const currentWeek = getCurrentWeek();
 
-    // Process sequentially to prevent leaderboard race conditions
-    if (xpGained || delta.correct_answers !== undefined) {
-        await updateLeaderboards(env, userData, currentWeek, delta.total_xp || 0, "batch");
-    }
-    await updateLeaderboardUser(env, userId, userData);
-  }
+    for (const userId in allUsersCommands) {
+      const commandsObj = allUsersCommands[userId];
+      if (!commandsObj) continue;
 
-  return jsonResponse({ message: "Master sync successful" }, 200);
+      const userDataString = await env.RANK_KV.get(`user:${userId}`);
+      if (!userDataString) continue;
+
+      let userData = JSON.parse(userDataString);
+      let xpGained = false;
+      let totalXpEarned = 0;
+
+      // Convert object to array and sort by timestamp
+      const commands = Object.values(commandsObj);
+      commands.sort((a, b) => a.timestamp - b.timestamp);
+
+      // Track processed IDs to avoid duplicates
+      if (!userData.processed_commands) userData.processed_commands = [];
+      const MAX_PROCESSED_HISTORY = 100;
+
+      for (const cmd of commands) {
+          if (userData.processed_commands.includes(cmd.unique_id)) continue;
+
+          if (cmd.action === "quiz") {
+              userData.personal_total_xp = (userData.personal_total_xp || 0) + (cmd.personalXp || 0);
+
+              const mappedSubject = cmd.subject === "mathematics" ? "math" : cmd.subject;
+
+              if (mappedSubject === "math") userData.personal_math_xp = (userData.personal_math_xp || 0) + (cmd.personalXp || 0);
+              else if (mappedSubject === "physics") userData.personal_physics_xp = (userData.personal_physics_xp || 0) + (cmd.personalXp || 0);
+
+              if (!userData.personal_subjects_xp) userData.personal_subjects_xp = {};
+              userData.personal_subjects_xp[mappedSubject] = (userData.personal_subjects_xp[mappedSubject] || 0) + (cmd.personalXp || 0);
+
+              if (cmd.passed) {
+                  userData.last_quiz_date = cmd.date;
+                  userData.last_active_date = cmd.date;
+
+                  userData.daily_xp = (userData.daily_xp || 0) + (cmd.publicXp || 0);
+                  if (mappedSubject === "math") userData.math_xp = (userData.math_xp || 0) + (cmd.publicXp || 0);
+                  else if (mappedSubject === "physics") userData.physics_xp = (userData.physics_xp || 0) + (cmd.publicXp || 0);
+
+                  if (!userData.subjects_xp) userData.subjects_xp = {};
+                  userData.subjects_xp[mappedSubject] = (userData.subjects_xp[mappedSubject] || 0) + (cmd.publicXp || 0);
+                  userData.total_xp = (userData.total_xp || 0) + (cmd.publicXp || 0);
+
+                  xpGained = true;
+                  totalXpEarned += (cmd.publicXp || 0);
+              }
+
+              userData.questions_answered = (userData.questions_answered || 0) + (cmd.totalQs || 0);
+              userData.correct_answers = (userData.correct_answers || 0) + (cmd.correct || 0);
+              userData.quizzes_completed = (userData.quizzes_completed || 0) + 1;
+
+              if (cmd.topic && cmd.totalQs) {
+                  if (!userData.topic_accuracy) userData.topic_accuracy = {};
+                  if (!userData.topic_accuracy[cmd.topic]) {
+                      userData.topic_accuracy[cmd.topic] = { correct: 0, total: 0 };
+                  }
+                  userData.topic_accuracy[cmd.topic].correct += cmd.correct;
+                  userData.topic_accuracy[cmd.topic].total += cmd.totalQs;
+              }
+
+              if (!userData.quiz_history) userData.quiz_history = {};
+              const historyKey = `${mappedSubject}_${cmd.topic}`;
+              userData.quiz_history[historyKey] = (userData.quiz_history[historyKey] || 0) + 1;
+
+          } else if (cmd.action === "weekly") {
+              if (!userData.completed_weekly_exams) userData.completed_weekly_exams = {};
+              if (!userData.completed_weekly_exams[cmd.examKey]) {
+                  userData.completed_weekly_exams[cmd.examKey] = {
+                      date: new Date().toISOString(),
+                      score: cmd.score,
+                      total: cmd.totalQs
+                  };
+                  userData.personal_total_xp = (userData.personal_total_xp || 0) + (cmd.totalXp || 0);
+                  if (!userData.personal_subjects_xp) userData.personal_subjects_xp = {};
+                  userData.personal_subjects_xp[cmd.subject] = (userData.personal_subjects_xp[cmd.subject] || 0) + (cmd.totalXp || 0);
+
+                  userData.total_xp = (userData.total_xp || 0) + (cmd.totalXp || 0);
+                  if (!userData.subjects_xp) userData.subjects_xp = {};
+                  userData.subjects_xp[cmd.subject] = (userData.subjects_xp[cmd.subject] || 0) + (cmd.totalXp || 0);
+
+                  xpGained = true;
+                  totalXpEarned += (cmd.totalXp || 0);
+              }
+              userData.questions_answered = (userData.questions_answered || 0) + (cmd.totalQs || 0);
+              userData.correct_answers = (userData.correct_answers || 0) + (cmd.score || 0);
+              userData.quizzes_completed = (userData.quizzes_completed || 0) + 1;
+
+          } else if (cmd.action === "points") {
+              userData.dtech_points = (userData.dtech_points || 0) + (cmd.points || 0);
+          }
+
+          userData.processed_commands.push(cmd.unique_id);
+          // Keep processed commands list manageable
+          if (userData.processed_commands.length > MAX_PROCESSED_HISTORY) {
+              userData.processed_commands.shift();
+          }
+      }
+
+      if (userData.questions_answered > 0) {
+          userData.accuracy_percentage = Math.round((userData.correct_answers / userData.questions_answered) * 100);
+      } else {
+          userData.accuracy_percentage = 0;
+      }
+
+      const oldLevel = userData.level || 1;
+      userData.level = Math.floor((userData.personal_total_xp || userData.total_xp || 0) / 100) + 1;
+
+      // Save back to KV
+      await env.RANK_KV.put(`user:${userId}`, JSON.stringify(userData));
+
+      // Process sequentially to prevent leaderboard race conditions
+      if (xpGained || totalXpEarned > 0) {
+          await updateLeaderboards(env, userData, currentWeek, totalXpEarned, "batch");
+      }
+      await updateLeaderboardUser(env, userId, userData);
+
+      // Safe Delete from Firebase
+      // Delete only the successfully processed commands to avoid race condition with new incoming commands
+      const patchObj = {};
+      for (const cmd of commands) {
+          patchObj[cmd.unique_id] = null;
+      }
+      await fetch(`${FIREBASE_DB_URL}/user_commands/${userId}.json`, {
+          method: 'PATCH',
+          body: JSON.stringify(patchObj)
+      });
+    }
+  } catch (e) {
+    console.error("Scheduled Sync Failed:", e);
+  }
 }
 
 async function handleBatchSync(request, env, ctx) {

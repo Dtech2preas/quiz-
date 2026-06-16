@@ -1005,12 +1005,9 @@
                 });
 
                 // Get updated points
-                const snapshot = await window.firebaseGet(userRef);
-                if (snapshot.exists()) {
-                    userPoints = snapshot.val().dtech_points || 0;
-                } else {
-                    userPoints += 100; // fallback
-                }
+                // We add the points to the user immediately on frontend for visual feedback
+                // and wait for the worker master sync to sync this back eventually
+                userPoints += 100;
 
                 document.getElementById('dtech-points-display').textContent = `💎 ${userPoints}`;
                 localStorage.setItem('dtech_push_claimed_today', today);
