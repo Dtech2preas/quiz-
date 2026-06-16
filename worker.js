@@ -286,6 +286,27 @@ async function handleGetUser(request, env, path) {
 
   // Initialize new cosmetic fields if missing
   if (userData.dtech_points === undefined) userData.dtech_points = 0;
+
+  // Calculate True Available Balance without mutating userData
+  let pending_points = 0;
+  try {
+    const fbResponse = await fetch(`${FIREBASE_DB_URL}/user_commands/${userId}.json`);
+    if (fbResponse.ok) {
+      const commands = await fbResponse.json();
+      if (commands) {
+        for (const key in commands) {
+          const cmd = commands[key];
+          if (cmd && cmd.action === "points" && typeof cmd.points === "number") {
+            pending_points += cmd.points;
+          }
+        }
+      }
+    }
+  } catch (err) {
+    console.error("Error fetching pending commands:", err);
+  }
+  userData.available_balance = userData.dtech_points + pending_points;
+
   if (userData.ad_clicks_today === undefined) userData.ad_clicks_today = 0;
   if (!userData.last_ad_click_date) userData.last_ad_click_date = "";
   if (!userData.last_push_claim_date) userData.last_push_claim_date = "";
@@ -1623,7 +1644,34 @@ async function handleStorePurchase(request, env) {
   if (userData.dtech_points === undefined) userData.dtech_points = 0;
   if (!userData.unlocked_cosmetics) userData.unlocked_cosmetics = [];
 
-  if (userData.dtech_points < price) {
+  // 1. Fetch pending commands from Firebase
+  let pending_points = 0;
+  let commandsToDelete = [];
+  try {
+    const fbResponse = await fetch(`${FIREBASE_DB_URL}/user_commands/${user_id}.json`);
+    if (fbResponse.ok) {
+      const commands = await fbResponse.json();
+      if (commands) {
+        for (const key in commands) {
+          const cmd = commands[key];
+          if (cmd && cmd.action === "points" && typeof cmd.points === "number") {
+            pending_points += cmd.points;
+            commandsToDelete.push(key);
+          }
+        }
+      }
+    }
+  } catch (err) {
+    console.error("Error fetching pending commands:", err);
+  }
+
+  // Mini-Sync: Apply pending points to Master KV balance
+  userData.dtech_points += pending_points;
+
+  // 2. Calculate Available Balance
+  const available_balance = userData.dtech_points;
+
+  if (available_balance < price) {
     return jsonResponse({ error: "Not enough D-TECH POINTS" }, 400);
   }
 
@@ -1631,14 +1679,27 @@ async function handleStorePurchase(request, env) {
     return jsonResponse({ error: "Item already unlocked" }, 400);
   }
 
+  // 3. Proceed with purchase logic, deduct from master KV
   userData.dtech_points -= price;
   userData.unlocked_cosmetics.push(item_id);
 
   await env.RANK_KV.put(`user:${user_id}`, JSON.stringify(userData));
 
+  // 4. Clear pending commands from Firebase since they are now synced
+  try {
+    for (const key of commandsToDelete) {
+      await fetch(`${FIREBASE_DB_URL}/user_commands/${user_id}/${key}.json`, {
+        method: 'DELETE'
+      });
+    }
+  } catch (err) {
+    console.error("Error deleting pending commands:", err);
+  }
+
   return jsonResponse({
     success: true,
     new_balance: userData.dtech_points,
+    available_balance: userData.dtech_points, // since it was just synced, available_balance is the same
     unlocked_cosmetics: userData.unlocked_cosmetics
   });
 }
