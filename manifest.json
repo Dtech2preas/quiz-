@@ -1,22 +1,53 @@
 {
+  "data_pools": {
+    "learner_names": "pools/learner_names.json",
+    "numbers": "pools/numbers.json",
+    "science_terms": "pools/science_terms.json",
+    "life_skills_terms": "pools/life_skills_terms.json",
+    "common_distractors": "pools/common_distractors.json"
+  },
   "topics": [
     {
       "topic": "Mathematics",
       "output_file": "dataset/grade4/mathematics/paper1_mixed.json",
       "target_count": 50,
-      "custom_logic": "generate_grade4_math:generate"
+      "templates": [
+        {
+          "subtopic": "Numbers",
+          "question": "{learner_names} has {numbers} apples. How many apples does {learner_names} have?",
+          "correct_answer": "{numbers}",
+          "explanation": "{learner_names} has exactly {numbers} apples.",
+          "distractor_pool": "common_distractors"
+        }
+      ]
     },
     {
       "topic": "Natural Sciences and Technology",
       "output_file": "dataset/grade4/natural_sciences_and_technology/paper1_mixed.json",
       "target_count": 50,
-      "custom_logic": "generate_grade4_nst:generate"
+      "templates": [
+        {
+          "subtopic": "Living Things",
+          "question": "Which of the following is a characteristic of {science_terms}?",
+          "correct_answer": "It is a living organism.",
+          "explanation": "Living organisms carry out life processes.",
+          "distractor_pool": "common_distractors"
+        }
+      ]
     },
     {
       "topic": "Life Skills",
       "output_file": "dataset/grade4/life_skills/paper1_mixed.json",
       "target_count": 50,
-      "custom_logic": "generate_grade4_life_skills:generate"
+      "templates": [
+        {
+          "subtopic": "Personal Development",
+          "question": "Why is {life_skills_terms} important?",
+          "correct_answer": "It helps people make good decisions.",
+          "explanation": "Good life skills support healthy choices.",
+          "distractor_pool": "common_distractors"
+        }
+      ]
     }
   ]
 }
