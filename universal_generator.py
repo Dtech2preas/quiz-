@@ -6,6 +6,7 @@ import random
 import importlib
 import sys
 import re
+from svg_engine import SVGEngine
 from typing import Dict, Any, List, Set, Callable
 
 # Setup Logging
@@ -184,6 +185,7 @@ class MapUpdater:
                 logger.error(f"Failed to save map file {map_file}: {e}")
 
 class DatasetManager:
+    stats = {"questions_generated": 0, "files_updated": 0, "svg_count": 0, "duplicates_avoided": 0, "difficulty_distribution": {"easy": 0, "medium": 0, "hard": 0}}
     @staticmethod
     def verify_dataset(dataset: List[Dict[str, Any]], expected_topic: str) -> bool:
         if not dataset:
@@ -207,6 +209,7 @@ class DatasetManager:
 
             q_text = item["question"]
             if q_text in seen_questions:
+                        DatasetManager.stats["duplicates_avoided"] += 1
                 logger.error(f"Duplicate question found: '{q_text}'")
                 return False
             seen_questions.add(q_text)
@@ -247,6 +250,8 @@ class DatasetManager:
         custom_logic = topic_config.get("custom_logic")
         templates = topic_config.get("templates", [])
         target_count = topic_config.get("target_count", 1000)
+        if hasattr(args, "target_count") and args.target_count is not None:
+            target_count = args.target_count
 
         logger.info(f"--- Processing Topic: {topic_name} ---")
 
@@ -296,6 +301,9 @@ class DatasetManager:
                             res = func()
                             if isinstance(res, list):
                                 new_items.extend(res[:needed])
+                                for item in new_items:
+                                    if "svg" in item and item["svg"].get("content"):
+                                        DatasetManager.stats["svg_count"] += 1
                             else:
                                 logger.info(f"Custom logic {custom_logic} executed (no dataset returned, assuming self-saving).")
                                 # We can't verify or save what we don't have, so we exit this topic
@@ -322,6 +330,7 @@ class DatasetManager:
 
                     q_text = engine.resolve_template(template.get("question", ""))
                     if q_text in seen_questions:
+                        DatasetManager.stats["duplicates_avoided"] += 1
                         continue
 
                     correct = engine.resolve_template(template.get("correct_answer", ""))
@@ -336,6 +345,27 @@ class DatasetManager:
 
                     diff = random.choices(difficulties, weights=weights, k=1)[0]
 
+
+                    svg_metadata = None
+                    svg_config = template.get("svg")
+                    if svg_config and svg_config.get("enabled", False):
+                        svg_type = svg_config.get("type")
+                        svg_params = {}
+
+                        raw_params = svg_config.get("params", {})
+                        for k, v in raw_params.items():
+                            if isinstance(v, str):
+                                svg_params[k] = engine.resolve_template(v)
+                            else:
+                                svg_params[k] = v
+
+                        svg_content = SVGEngine.generate_svg(svg_type, svg_params)
+                        if svg_content:
+                            svg_metadata = {
+                                "type": "inline",
+                                "content": svg_content
+                            }
+                            DatasetManager.stats["svg_count"] += 1
                     q_id = f"{topic_name.replace(' ', '_').upper()}_{current_count + len(new_items) + 1:04d}"
 
                     item = {
@@ -348,6 +378,8 @@ class DatasetManager:
                         "wrong_answers_pool": wrong_answers,
                         "explanation": explanation
                     }
+                    if svg_metadata:
+                        item["svg"] = svg_metadata
 
                     new_items.append(item)
                     seen_questions.add(q_text)
@@ -371,6 +403,8 @@ class DatasetManager:
                         with open(output_file, 'w', encoding='utf-8') as f:
                             json.dump(final_dataset, f, indent=2, ensure_ascii=False)
                         logger.info(f"Successfully saved {len(final_dataset)} items to {output_file}")
+                        DatasetManager.stats["files_updated"] += 1
+                        DatasetManager.stats["questions_generated"] += len(new_items)
                     except Exception as e:
                         logger.error(f"Failed to write to {output_file}: {e}")
                 else:
@@ -391,11 +425,30 @@ class DatasetManager:
             # We can log this requirement or attempt to execute it.
             logger.info("To fully register in weekly exams, build_weekly_exams.py should be executed later.")
 
+    @staticmethod
+    def generate_summary_report():
+        report_content = "# Curriculum Generation Summary\n\n"
+        report_content += f"- **Questions Generated:** {DatasetManager.stats['questions_generated']}\n"
+        report_content += f"- **Files Created/Updated:** {DatasetManager.stats['files_updated']}\n"
+        report_content += f"- **SVGs Generated:** {DatasetManager.stats['svg_count']}\n"
+        report_content += f"- **Duplicates Avoided:** {DatasetManager.stats['duplicates_avoided']}\n\n"
+
+        report_content += "### Difficulty Distribution\n"
+        for diff, count in DatasetManager.stats["difficulty_distribution"].items():
+            report_content += f"- **{diff.capitalize()}:** {count}\n"
+
+        try:
+            with open("summary_report.md", "w") as f:
+                f.write(report_content)
+            logger.info("Summary report generated: summary_report.md")
+        except Exception as e:
+            logger.error(f"Failed to generate summary report: {e}")
 def main():
     parser = argparse.ArgumentParser(description="Universal Quiz Dataset Generation Engine")
     parser.add_argument("--manifest", required=True, help="Path to the manifest JSON file")
     parser.add_argument("--dry-run", action="store_true", help="Print plan of action without saving files")
     parser.add_argument("--append", action="store_true", help="Append to existing dataset files instead of overwriting")
+    parser.add_argument("--target-count", type=int, help="Override target count for all topics")
 
     args = parser.parse_args()
 
@@ -431,6 +484,9 @@ def main():
 
     for topic_config in topics:
         DatasetManager.process_topic(engine, topic_config, args)
+
+    # Generate Summary Report
+    DatasetManager.generate_summary_report()
 
 if __name__ == "__main__":
     main()
