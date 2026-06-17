@@ -1,10 +1,24 @@
 {
   "data_pools": {
-    "learner_names": "pools/learner_names.json",
-    "numbers": "pools/numbers.json",
-    "science_terms": "pools/science_terms.json",
-    "life_skills_terms": "pools/life_skills_terms.json",
-    "common_distractors": "pools/common_distractors.json"
+    "learner_names": [
+      "Alice", "Bob", "Charlie", "David", "Eve", "Frank", "Grace", "Hannah", "Ian", "Jane",
+      "Kevin", "Liam", "Mia", "Noah", "Olivia", "Paul", "Quinn", "Rachel", "Sam", "Tina"
+    ],
+    "numbers": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 20, 25, 30, 40, 50],
+    "science_terms": [
+      "a plant", "an animal", "bacteria", "fungi", "a mammal", "a reptile", "an insect", "a bird"
+    ],
+    "life_skills_terms": [
+      "teamwork", "communication", "time management", "problem solving", "critical thinking",
+      "empathy", "respect", "honesty"
+    ],
+    "common_distractors": [
+      "100", "0", "None of the above", "All of the above", "It depends", "Unknown",
+      "Not enough information", "20", "50", "42", "Maybe", "Sometimes", "Never"
+    ],
+    "geometry_shapes": ["rectangle", "triangle", "circle"],
+    "colors": ["#d32f2f", "#1976d2", "#388e3c", "#fbc02d", "#8e24aa"],
+    "math_operations": ["addition", "subtraction", "multiplication", "division"]
   },
   "topics": [
     {
@@ -13,11 +27,26 @@
       "target_count": 50,
       "templates": [
         {
-          "subtopic": "Numbers",
-          "question": "{learner_names} has {numbers} apples. How many apples does {learner_names} have?",
-          "correct_answer": "{numbers}",
-          "explanation": "{learner_names} has exactly {numbers} apples.",
+          "subtopic": "Numbers (Calculation)",
+          "question": "{learner_names} has {numbers} apples and gets {numbers} more. How many apples does {learner_names} have in total?",
+          "correct_answer": "Sum of the two numbers",
+          "explanation": "You must add the two quantities together.",
           "distractor_pool": "common_distractors"
+        },
+        {
+          "subtopic": "Geometry (SVG Example)",
+          "question": "What shape is shown below?",
+          "correct_answer": "{geometry_shapes}",
+          "explanation": "The shape matches the properties of a {geometry_shapes}.",
+          "distractor_pool": "geometry_shapes",
+          "svg": {
+            "enabled": true,
+            "type": "geometry_shape",
+            "params": {
+              "shape": "{geometry_shapes}",
+              "color": "{colors}"
+            }
+          }
         }
       ]
     },
@@ -27,10 +56,10 @@
       "target_count": 50,
       "templates": [
         {
-          "subtopic": "Living Things",
-          "question": "Which of the following is a characteristic of {science_terms}?",
+          "subtopic": "Living Things (Theory)",
+          "question": "Which of the following describes {science_terms}?",
           "correct_answer": "It is a living organism.",
-          "explanation": "Living organisms carry out life processes.",
+          "explanation": "Living organisms exhibit characteristics like growth, reproduction, and response to stimuli.",
           "distractor_pool": "common_distractors"
         }
       ]
@@ -41,10 +70,10 @@
       "target_count": 50,
       "templates": [
         {
-          "subtopic": "Personal Development",
-          "question": "Why is {life_skills_terms} important?",
-          "correct_answer": "It helps people make good decisions.",
-          "explanation": "Good life skills support healthy choices.",
+          "subtopic": "Personal Development (Theory)",
+          "question": "Why is {life_skills_terms} considered a crucial life skill?",
+          "correct_answer": "It improves personal and social interactions.",
+          "explanation": "{life_skills_terms} plays a significant role in fostering better relationships and personal growth.",
           "distractor_pool": "common_distractors"
         }
       ]

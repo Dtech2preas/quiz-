@@ -35,14 +35,19 @@ def setup_logger(log_file="build.log"):
 logger = setup_logger()
 
 class TemplateEngine:
-    def __init__(self, data_pools_config: Dict[str, str]):
+    def __init__(self, data_pools_config: Dict[str, Any]):
         self.pools = {}
         self.load_pools(data_pools_config)
 
-    def load_pools(self, config: Dict[str, str]):
-        for placeholder, filepath in config.items():
-            if not os.path.exists(filepath):
-                logger.warning(f"Data pool file not found: {filepath} for placeholder {{{placeholder}}}")
+    def load_pools(self, config: Dict[str, Any]):
+        for placeholder, value in config.items():
+            if isinstance(value, list):
+                self.pools[placeholder] = value
+                continue
+
+            filepath = value
+            if not isinstance(filepath, str) or not os.path.exists(filepath):
+                logger.warning(f"Data pool file not found or invalid: {filepath} for placeholder {{{placeholder}}}")
                 self.pools[placeholder] = [f"{{MISSING_POOL_{placeholder}}}"]
                 continue
 
