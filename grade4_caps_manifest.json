@@ -1,0 +1,87 @@
+{
+  "data_pools": {
+    "math_numbers": "math_numbers.json",
+    "math_distractors": "math_distractors.json",
+    "nst_pool": "nst_pool.json",
+    "nst_distractors": "nst_distractors.json",
+    "life_skills_emotions": "life_skills_emotions.json",
+    "life_skills_distractors": "life_skills_distractors.json"
+  },
+  "topics": [
+    {
+      "topic": "Mathematics",
+      "output_file": "dataset/grade4/mathematics/paper1_mixed.json",
+      "target_count": 50,
+      "templates": [
+        {
+          "question": "Which of these numbers is a multiple of 10? ({math_numbers})",
+          "correct_answer": "{math_numbers}",
+          "explanation": "{math_numbers} ends in a zero, so it is a multiple of 10.",
+          "distractor_pool": "math_distractors"
+        },
+        {
+          "question": "Find the multiple of 10 from the given numbers. ({math_numbers})",
+          "correct_answer": "{math_numbers}",
+          "explanation": "{math_numbers} ends in a zero, so it is a multiple of 10.",
+          "distractor_pool": "math_distractors"
+        },
+        {
+          "question": "Identify the number that is a multiple of 10. ({math_numbers})",
+          "correct_answer": "{math_numbers}",
+          "explanation": "{math_numbers} ends in a zero, so it is a multiple of 10.",
+          "distractor_pool": "math_distractors"
+        }
+      ]
+    },
+    {
+      "topic": "Natural Sciences and Technology",
+      "output_file": "dataset/grade4/natural_sciences_and_technology/paper1_mixed.json",
+      "target_count": 50,
+      "templates": [
+        {
+          "question": "Which of these is very important for life on Earth? ({nst_pool})",
+          "correct_answer": "{nst_pool}",
+          "explanation": "This is a fundamental element for life.",
+          "distractor_pool": "nst_distractors"
+        },
+        {
+          "question": "Identify the element that is crucial for life. ({nst_pool})",
+          "correct_answer": "{nst_pool}",
+          "explanation": "This is a fundamental element for life.",
+          "distractor_pool": "nst_distractors"
+        },
+        {
+          "question": "What is one of the most important things for life on Earth? ({nst_pool})",
+          "correct_answer": "{nst_pool}",
+          "explanation": "This is a fundamental element for life.",
+          "distractor_pool": "nst_distractors"
+        }
+      ]
+    },
+    {
+      "topic": "Life Skills",
+      "output_file": "dataset/grade4/life_skills/paper1_mixed.json",
+      "target_count": 50,
+      "templates": [
+        {
+          "question": "Which of these is an emotion you might feel? ({life_skills_emotions})",
+          "correct_answer": "{life_skills_emotions}",
+          "explanation": "{life_skills_emotions} is a common human emotion.",
+          "distractor_pool": "life_skills_distractors"
+        },
+        {
+          "question": "Identify the emotion from the following list. ({life_skills_emotions})",
+          "correct_answer": "{life_skills_emotions}",
+          "explanation": "{life_skills_emotions} is a common human emotion.",
+          "distractor_pool": "life_skills_distractors"
+        },
+        {
+          "question": "What is a common human emotion? ({life_skills_emotions})",
+          "correct_answer": "{life_skills_emotions}",
+          "explanation": "{life_skills_emotions} is a common human emotion.",
+          "distractor_pool": "life_skills_distractors"
+        }
+      ]
+    }
+  ]
+}
