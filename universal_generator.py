@@ -209,7 +209,7 @@ class DatasetManager:
 
             q_text = item["question"]
             if q_text in seen_questions:
-                        DatasetManager.stats["duplicates_avoided"] += 1
+                DatasetManager.stats["duplicates_avoided"] += 1
                 logger.error(f"Duplicate question found: '{q_text}'")
                 return False
             seen_questions.add(q_text)
