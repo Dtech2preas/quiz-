@@ -6,6 +6,7 @@ import random
 import math
 import sympy as sp
 from generators_common import TopicGenerator, get_wrong_ints, get_wrong_floats, get_wrong_exprs
+from svg_engine import SVGEngine
 
 def generate_functions():
     gen = TopicGenerator("Functions and Graphs", "FUN", ["quadratic functions", "cubic functions", "transformations", "intercepts and turning points"])
@@ -30,7 +31,8 @@ def generate_functions():
                 exp = f"Completing the square or using $x = -b/(2a)$: $f(x) = {a}(x - {p})^2 + {q}$. Turning point is $({p}; {q})$."
                 correct = f"({p}; {q})"
                 wrongs = [f"({-p}; {q})", f"({p}; {-q})", f"({-p}; {-q})", f"({q}; {p})", f"({-q}; {p})", f"({q}; {-p})", f"({-q}; {-p})", f"({p}; 0)"]
-                gen.add_question(subtopic, difficulty, question, correct, wrongs, exp)
+                svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'function_graph', 'func_type': 'parabola', 'a': a, 'h': p, 'k': q, 'tp_x': p, 'tp_y': q, 'labels': {'tp': 'TP'}})
+                gen.add_question(subtopic, difficulty, question, correct, wrongs, exp, svg=svg)
 
             elif difficulty == "medium":
                 r1 = random.randint(-5, 5)
@@ -42,7 +44,11 @@ def generate_functions():
                 exp = f"$f(x) = 0 \\implies {a}(x - {r1})(x - {r2}) = 0$. The x-intercepts are $x = {r1}$ and $x = {r2}$."
                 correct = f"{min(r1, r2)} and {max(r1, r2)}"
                 wrongs = [f"{-r1} and {-r2}", f"{r1} and {-r2}", f"{-r1} and {r2}", f"{min(r1-1, r2-1)} and {max(r1-1, r2-1)}", f"{min(r1+1, r2+1)} and {max(r1+1, r2+1)}", f"{r1*2} and {r2*2}", f"0 and {r1+r2}"]
-                gen.add_question(subtopic, difficulty, question, correct, wrongs, exp)
+
+                h = (r1 + r2) / 2
+                k = a * (h - r1) * (h - r2)
+                svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'function_graph', 'func_type': 'parabola', 'a': a, 'h': h, 'k': k})
+                gen.add_question(subtopic, difficulty, question, correct, wrongs, exp, svg=svg)
 
             elif difficulty == "hard":
                 # Find equation from points
@@ -58,7 +64,11 @@ def generate_functions():
                 correct = f"y = {sp.latex(expanded)}"
                 wrongs = get_wrong_exprs(expanded, count=8)
                 wrongs = [f"y = {w}" for w in wrongs]
-                gen.add_question(subtopic, difficulty, question, correct, wrongs, exp)
+
+                h = (r1 + r2) / 2
+                k = a * (h - r1) * (h - r2)
+                svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'function_graph', 'func_type': 'parabola', 'a': a, 'h': h, 'k': k})
+                gen.add_question(subtopic, difficulty, question, correct, wrongs, exp, svg=svg)
 
         elif subtopic == "cubic functions":
             x = sp.Symbol('x')
@@ -120,7 +130,9 @@ def generate_functions():
                 correct = f"g(x) = (x - {h})^2"
                 wrongs = [f"g(x) = (x + {h})^2", f"g(x) = x^2 - {h}", f"g(x) = x^2 + {h}", f"g(x) = {h}x^2", f"g(x) = (x - {h*2})^2", f"g(x) = (x + {h*2})^2", f"g(x) = x^2 - {h**2}"]
                 exp = f"A translation ${h}$ units right means replacing $x$ with $(x - {h})$. Thus, $g(x) = (x - {h})^2$."
-                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
+
+                svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'function_graph', 'func_type': 'parabola', 'a': 1, 'h': h, 'k': 0})
+                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp, svg=svg)
 
             elif difficulty == "medium":
                 p = random.randint(1, 4)
@@ -129,7 +141,9 @@ def generate_functions():
                 correct = f"y = \\frac{{1}}{{x + {p}}} - {q_val}"
                 wrongs = [f"y = \\frac{{1}}{{x - {p}}} - {q_val}", f"y = \\frac{{1}}{{x + {p}}} + {q_val}", f"y = \\frac{{1}}{{x - {p}}} + {q_val}", f"y = \\frac{{1}}{{x}} - {p}", f"y = \\frac{{1}}{{x + {q_val}}} - {p}", f"y = \\frac{{1}}{{x - {q_val}}} + {p}", f"y = \\frac{{{p}}}{{x}} - {q_val}"]
                 exp = f"Left by ${p}$ means $x \\mapsto x + {p}$. Down by ${q_val}$ means subtracting ${q_val}$. Equation: $y = \\frac{{1}}{{x + {p}}} - {q_val}$."
-                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
+
+                svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'function_graph', 'func_type': 'hyperbola', 'a': 1, 'p': -p, 'q': -q_val})
+                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp, svg=svg)
 
             elif difficulty == "hard":
                 a = random.choice([2, 3])
@@ -149,7 +163,9 @@ def generate_functions():
                     f"Reflected and translated {abs(p)} units {dir_x}"
                 ]
                 exp = f"$x \\mapsto x - {p}$ is a shift of {abs(p)} units {dir_x}. Adding ${q_val}$ is a shift of {abs(q_val)} units {dir_y}."
-                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
+
+                svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'function_graph', 'func_type': 'exponential', 'a': 1, 'b': a, 'p': p, 'q': q_val})
+                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp, svg=svg)
 
         elif subtopic == "intercepts and turning points":
             x = sp.Symbol('x')

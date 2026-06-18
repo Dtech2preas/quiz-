@@ -5,6 +5,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../h
 import random
 import math
 from generators_common import TopicGenerator, get_wrong_ints, get_wrong_floats
+from svg_engine import SVGEngine
 
 def generate_sequences():
     gen = TopicGenerator("Patterns and Sequences", "SEQ", ["arithmetic sequences", "geometric sequences", "sigma notation", "series sums"])
@@ -31,7 +32,13 @@ def generate_sequences():
                 exp = f"$T_n = a + (n-1)d \\implies T_{{{n}}} = {a} + ({n}-1)({d}) = {term_n}$"
 
                 wrong_answers = get_wrong_ints(term_n)
-                gen.add_question(subtopic, difficulty, q, str(term_n), wrong_answers, exp)
+
+                # Small chance to show a dot pattern if a > 0 and d > 0 and a+2d is small
+                if random.random() < 0.3 and a > 0 and d > 0 and (a + 2*d) < 20:
+                    svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'pattern_diagram', 'pattern_type': 'dots', 'terms': 3})
+                    gen.add_question(subtopic, difficulty, q, str(term_n), wrong_answers, exp, svg=svg)
+                else:
+                    gen.add_question(subtopic, difficulty, q, str(term_n), wrong_answers, exp)
 
             elif difficulty == "medium":
                 a = random.randint(-200, 200)

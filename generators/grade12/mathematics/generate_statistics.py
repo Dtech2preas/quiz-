@@ -6,6 +6,7 @@ import random
 import statistics
 import math
 from generators_common import TopicGenerator, get_wrong_ints, get_wrong_floats
+from svg_engine import SVGEngine
 
 def generate_statistics():
     gen = TopicGenerator("Statistics and Regression", "STAT", ["mean, median, mode", "standard deviation", "scatter plots", "linear regression"])
@@ -32,7 +33,15 @@ def generate_statistics():
                 correct = f"{mean_val:.2f}" if not mean_val.is_integer() else str(int(mean_val))
                 wrongs = get_wrong_floats(mean_val) if not mean_val.is_integer() else get_wrong_ints(int(mean_val))
                 exp = f"$\\text{{Mean}} = \\frac{{\\sum x}}{{n}} = \\frac{{{sum(data)}}}{{{n}}} = {correct}$."
-                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
+
+                try:
+                    q1 = statistics.quantiles(data, n=4)[0]
+                    q3 = statistics.quantiles(data, n=4)[2]
+                except:
+                    q1 = data[len(data)//4]
+                    q3 = data[len(data)*3//4]
+                svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'box_whisker', 'min': data[0], 'q1': int(q1), 'q2': int(statistics.median(data)), 'q3': int(q3), 'max': data[-1]})
+                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp, svg=svg)
 
             elif difficulty == "medium":
                 # Find median of even/odd data
@@ -46,7 +55,15 @@ def generate_statistics():
                     w_str = f"{w:.1f}" if not float(w).is_integer() else str(int(w))
                     if w_str != correct: wrongs.add(w_str)
                 exp = f"First, sort the data: {data}. The median is the middle value: ${correct}$."
-                gen.add_question(subtopic, difficulty, q, correct, list(wrongs), exp)
+
+                try:
+                    q1 = statistics.quantiles(data, n=4)[0]
+                    q3 = statistics.quantiles(data, n=4)[2]
+                except:
+                    q1 = data[len(data)//4]
+                    q3 = data[len(data)*3//4]
+                svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'box_whisker', 'min': data[0], 'q1': int(q1), 'q2': '?', 'q3': int(q3), 'max': data[-1]})
+                gen.add_question(subtopic, difficulty, q, correct, list(wrongs), exp, svg=svg)
 
             elif difficulty == "hard":
                 # find unknown given mean
