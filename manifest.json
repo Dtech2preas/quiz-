@@ -1,148 +1,400 @@
 {
   "data_pools": {
-    "learner_names": [
-      "Sipho", "Thabo", "Lerato", "Zanele", "Kagiso", "Nomsa", "Mpho", "Lindiwe", "Tshepo", "Bontle"
+    "dna_components": [
+      "adenine",
+      "thymine",
+      "cytosine",
+      "guanine",
+      "deoxyribose sugar",
+      "phosphate group"
     ],
-    "numbers_small": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-    "numbers_med": [15, 20, 25, 30, 35, 40, 45, 50, 60, 75],
-    "objects": ["apples", "books", "sweets", "pencils", "marbles"],
-    "common_distractors": [
-      "{eval(num1 + num2 + 1)}", "{eval(num1 + num2 - 1)}", "{eval(num1 + num2 + 10)}",
-      "{eval(num1 + num2 - 5)}", "{eval(num1 + num2 + 5)}", "{eval(num1 * num2)}",
-      "{eval(num1 + num2 + 2)}"
+    "rna_bases": [
+      "adenine",
+      "uracil",
+      "cytosine",
+      "guanine"
     ],
-    "sub_distractors": [
-      "{eval(num1 - num2 + 1)}", "{eval(num1 - num2 - 1)}", "{eval(num1 - num2 + 5)}",
-      "{eval(num1 - num2 - 5)}", "{eval(num1 - num2 + 10)}", "{eval(num1 + num2)}"
+    "nucleic_acids": [
+      "DNA",
+      "mRNA",
+      "tRNA",
+      "mitochondrial DNA",
+      "nuclear DNA"
     ],
-    "mult_distractors": [
-      "{eval(num1 * num2 + 1)}", "{eval(num1 * num2 - 1)}", "{eval(num1 * num2 + num1)}",
-      "{eval(num1 * num2 - num2)}", "{eval(num1 * num2 + 10)}", "{eval(num1 + num2)}"
+    "meiosis_phases": [
+      "Prophase I",
+      "Metaphase I",
+      "Anaphase I",
+      "Telophase I",
+      "Prophase II",
+      "Metaphase II",
+      "Anaphase II",
+      "Telophase II"
     ],
-    "div_distractors": [
-      "{eval(num1 / num2 + 1)}", "{eval(num1 / num2 - 1)}", "{eval(num1 / num2 + 2)}",
-      "{eval(num1 / num2 * 2)}", "{eval(num1 - num2)}"
+    "reproductive_strategies": [
+      "external fertilisation",
+      "internal fertilisation",
+      "ovipary",
+      "ovovivipary",
+      "vivipary",
+      "amniotic egg",
+      "precocial development",
+      "altricial development",
+      "parental care"
     ],
-    "science_terms": [
-      "a plant", "an animal", "bacteria", "fungi"
+    "male_repro_parts": [
+      "testis",
+      "epididymis",
+      "vas deferens",
+      "seminal vesicle",
+      "prostate gland",
+      "Cowper's gland",
+      "penis",
+      "urethra"
     ],
-    "living_characteristics": [
-      "growth", "reproduction", "response to stimuli", "nutrition", "excretion", "respiration", "movement"
+    "female_repro_parts": [
+      "ovary",
+      "Fallopian tubes",
+      "uterus",
+      "endometrium",
+      "cervix",
+      "vagina",
+      "vulva"
     ],
-    "living_distractors": [
-      "They are made of plastic.", "They never change.", "They do not need water.",
-      "They are found only in space.", "They cannot move or grow.", "They are powered by electricity."
+    "menstrual_hormones": [
+      "FSH",
+      "LH",
+      "oestrogen",
+      "progesterone"
     ],
-    "life_skills_terms": [
-      "teamwork", "communication", "time management", "problem solving"
+    "genetic_terms": [
+      "dominant allele",
+      "recessive allele",
+      "homozygous",
+      "heterozygous",
+      "phenotype",
+      "genotype",
+      "complete dominance",
+      "incomplete dominance",
+      "co-dominance"
     ],
-    "life_skills_distractors": [
-      "It helps you win arguments always.", "It means you never have to work hard.",
-      "It allows you to ignore others.", "It makes you physically stronger.",
-      "It means you don't need friends.", "It only matters when playing sports."
+    "genetic_disorders": [
+      "Haemophilia",
+      "Colour-blindness",
+      "Down syndrome"
     ],
-    "geometry_shapes": ["rectangle", "triangle", "circle", "square"],
-    "shape_distractors": ["hexagon", "pentagon", "octagon", "oval", "rhombus", "star"],
-    "colors": ["#d32f2f", "#1976d2", "#388e3c", "#fbc02d", "#8e24aa"]
+    "brain_parts": [
+      "Cerebrum",
+      "Cerebellum",
+      "Corpus callosum",
+      "Medulla oblongata",
+      "Hypothalamus"
+    ],
+    "eye_defects": [
+      "Short-sightedness",
+      "Long-sightedness",
+      "Astigmatism",
+      "Cataracts"
+    ],
+    "ear_defects": [
+      "Middle ear infection",
+      "Deafness"
+    ],
+    "endocrine_glands": [
+      "Hypothalamus",
+      "Pituitary gland",
+      "Thyroid gland",
+      "Islets of Langerhans",
+      "Adrenal glands",
+      "Ovary",
+      "Testis"
+    ],
+    "hormones": [
+      "ADH",
+      "GH",
+      "TSH",
+      "FSH",
+      "LH",
+      "prolactin",
+      "thyroxin",
+      "insulin",
+      "glucagon",
+      "adrenalin",
+      "aldosterone",
+      "oestrogen",
+      "progesterone",
+      "testosterone"
+    ],
+    "homeostasis_factors": [
+      "carbon dioxide",
+      "glucose",
+      "salt",
+      "water concentration",
+      "temperature",
+      "pH"
+    ],
+    "plant_hormones": [
+      "Auxins",
+      "Gibberellins",
+      "Abscisic acid"
+    ],
+    "evolution_theories": [
+      "Lamarckism",
+      "Darwinism",
+      "Punctuated Equilibrium"
+    ],
+    "hominid_fossils": [
+      "Ardipithecus",
+      "Australopithecus",
+      "Homo habilis",
+      "Homo erectus",
+      "Homo sapiens"
+    ],
+    "hominid_features": [
+      "Bipedalism",
+      "Brain size",
+      "Teeth",
+      "Prognathism",
+      "Palate shape",
+      "Cranial ridges",
+      "Brow ridges"
+    ],
+    "generic_false_statements": [
+      "It occurs only in plants.",
+      "It is controlled by the skeletal system.",
+      "It prevents reproduction.",
+      "It is a random mutation.",
+      "It requires a high temperature.",
+      "It is found only in the bloodstream."
+    ],
+    "random_organelles": [
+      "ribosome",
+      "mitochondria",
+      "chloroplast",
+      "Golgi body",
+      "endoplasmic reticulum",
+      "vacuole"
+    ],
+    "random_hormones": [
+      "oxytocin",
+      "cortisol",
+      "melatonin",
+      "calcitonin",
+      "parathyroid hormone",
+      "thymosin"
+    ]
   },
   "topics": [
     {
-      "topic": "Mathematics",
-      "output_file": "dataset/grade4/mathematics/paper1_mixed.json",
+      "topic": "DNA: The Code of Life",
+      "output_file": "dataset/grade12/life_sciences/dna_the_code_of_life.json",
       "target_count": 50,
       "templates": [
         {
-          "subtopic": "Addition (Calculation)",
+          "subtopic": "DNA Structure and Functions",
           "variables": {
-            "num1": "{numbers_med}",
-            "num2": "{numbers_small}",
-            "name": "{learner_names}",
-            "item": "{objects}"
+            "component": "{dna_components}"
           },
-          "question": "{name} has {num1} {item} and gets {num2} more. How many {item} does {name} have in total?",
-          "correct_answer": "{eval(num1 + num2)}",
-          "explanation": "To find the total, you add {num1} and {num2}: {num1} + {num2} = {eval(num1 + num2)}.",
-          "distractor_pool": "common_distractors"
+          "question": "Which of the following is a component of a DNA nucleotide?",
+          "correct_answer": "{component}",
+          "explanation": "A DNA nucleotide consists of a deoxyribose sugar, a phosphate group, and a nitrogenous base (adenine, thymine, cytosine, or guanine).",
+          "distractor_pool": "random_organelles"
         },
         {
-          "subtopic": "Subtraction (Calculation)",
+          "subtopic": "RNA Structure",
           "variables": {
-            "num1": "{numbers_med}",
-            "num2": "{numbers_small}",
-            "name": "{learner_names}",
-            "item": "{objects}"
+            "base": "{rna_bases}"
           },
-          "question": "{name} has {num1} {item} and gives away {num2} to a friend. How many {item} are left?",
-          "correct_answer": "{eval(num1 - num2)}",
-          "explanation": "To find the remainder, you subtract {num2} from {num1}: {num1} - {num2} = {eval(num1 - num2)}.",
-          "distractor_pool": "sub_distractors"
-        },
-        {
-          "subtopic": "Multiplication (Calculation)",
-          "variables": {
-            "num1": "{numbers_small}",
-            "num2": "{numbers_small}",
-            "name": "{learner_names}",
-            "item": "{objects}"
-          },
-          "question": "{name} buys {num1} boxes of {item}. If each box contains {num2} {item}, how many {item} does {name} have altogether?",
-          "correct_answer": "{eval(num1 * num2)}",
-          "explanation": "To find the total, you multiply {num1} by {num2}: {num1} * {num2} = {eval(num1 * num2)}.",
-          "distractor_pool": "mult_distractors"
-        },
-        {
-          "subtopic": "Geometry (SVG Diagram)",
-          "variables": {
-            "shape_val": "{geometry_shapes}",
-            "color_val": "{colors}"
-          },
-          "question": "What shape is shown below?",
-          "correct_answer": "{shape_val}",
-          "explanation": "The shape matches the properties of a {shape_val}.",
-          "distractor_pool": "shape_distractors",
-          "svg": {
-            "enabled": true,
-            "type": "geometry_shape",
-            "params": {
-              "shape": "{shape_val}",
-              "color": "{color_val}"
-            }
-          }
+          "question": "Which nitrogenous base is found in RNA but NOT in DNA (if applicable), or is a standard RNA base?",
+          "correct_answer": "{base}",
+          "explanation": "RNA contains adenine, uracil, cytosine, and guanine.",
+          "distractor_pool": "dna_components"
         }
       ]
     },
     {
-      "topic": "Natural Sciences and Technology",
-      "output_file": "dataset/grade4/natural_sciences_and_technology/paper1_mixed.json",
-      "target_count": 20,
+      "topic": "Meiosis",
+      "output_file": "dataset/grade12/life_sciences/meiosis.json",
+      "target_count": 50,
       "templates": [
         {
-          "subtopic": "Living Things (Theory)",
+          "subtopic": "Phases of Meiosis",
           "variables": {
-            "term": "{science_terms}",
-            "charac": "{living_characteristics}"
+            "phase": "{meiosis_phases}"
           },
-          "question": "Which of the following is a characteristic of {term} as a living organism?",
-          "correct_answer": "It exhibits {charac}.",
-          "explanation": "Living organisms exhibit characteristics like {charac}, reproduction, and response to stimuli.",
-          "distractor_pool": "living_distractors"
+          "question": "Which phase of meiosis is characterized by specific chromosomal movements and alignments?",
+          "correct_answer": "{phase}",
+          "explanation": "Meiosis consists of multiple phases including {phase}, each vital for halving the chromosome number.",
+          "distractor_pool": "genetic_terms"
         }
       ]
     },
     {
-      "topic": "Life Skills",
-      "output_file": "dataset/grade4/life_skills/paper1_mixed.json",
-      "target_count": 20,
+      "topic": "Reproduction in Vertebrates",
+      "output_file": "dataset/grade12/life_sciences/reproduction_in_vertebrates.json",
+      "target_count": 50,
       "templates": [
         {
-          "subtopic": "Personal Development (Theory)",
+          "subtopic": "Reproductive Strategies",
           "variables": {
-            "skill": "{life_skills_terms}"
+            "strategy": "{reproductive_strategies}"
           },
-          "question": "Why is {skill} considered a crucial life skill?",
-          "correct_answer": "It improves personal and social interactions.",
-          "explanation": "{skill} plays a significant role in fostering better relationships and personal growth.",
-          "distractor_pool": "life_skills_distractors"
+          "question": "Which of the following is a reproductive strategy used by vertebrates to maximize reproductive success?",
+          "correct_answer": "{strategy}",
+          "explanation": "{strategy} is an important reproductive adaptation in vertebrates.",
+          "distractor_pool": "generic_false_statements"
+        }
+      ]
+    },
+    {
+      "topic": "Human Reproduction",
+      "output_file": "dataset/grade12/life_sciences/human_reproduction.json",
+      "target_count": 50,
+      "templates": [
+        {
+          "subtopic": "Male Reproductive System",
+          "variables": {
+            "part": "{male_repro_parts}"
+          },
+          "question": "Which of the following is a structural component of the male reproductive system?",
+          "correct_answer": "{part}",
+          "explanation": "The {part} plays a specific role in male gametogenesis or fluid transport.",
+          "distractor_pool": "female_repro_parts"
+        },
+        {
+          "subtopic": "Menstrual Cycle Hormones",
+          "variables": {
+            "hormone": "{menstrual_hormones}"
+          },
+          "question": "Which hormone is directly involved in the control of the human menstrual cycle?",
+          "correct_answer": "{hormone}",
+          "explanation": "{hormone} regulates specific events in the ovarian and uterine cycles.",
+          "distractor_pool": "random_hormones"
+        }
+      ]
+    },
+    {
+      "topic": "Genetics and Inheritance",
+      "output_file": "dataset/grade12/life_sciences/genetics_and_inheritance.json",
+      "target_count": 50,
+      "templates": [
+        {
+          "subtopic": "Genetic Disorders",
+          "variables": {
+            "disorder": "{genetic_disorders}"
+          },
+          "question": "Which of the following is a known genetic disorder in humans caused by a gene or chromosomal mutation?",
+          "correct_answer": "{disorder}",
+          "explanation": "{disorder} occurs due to an anomaly in the genetic sequence or chromosome number.",
+          "distractor_pool": "eye_defects"
+        },
+        {
+          "subtopic": "Concepts in Inheritance",
+          "variables": {
+            "term": "{genetic_terms}"
+          },
+          "question": "In the study of inheritance, what term is used to describe specific genetic principles?",
+          "correct_answer": "{term}",
+          "explanation": "Mendelian genetics defines {term} as a key concept in predicting offspring traits.",
+          "distractor_pool": "generic_false_statements"
+        }
+      ]
+    },
+    {
+      "topic": "Responding to the Environment (Humans)",
+      "output_file": "dataset/grade12/life_sciences/responding_to_the_environment_humans.json",
+      "target_count": 50,
+      "templates": [
+        {
+          "subtopic": "Brain Structure",
+          "variables": {
+            "part": "{brain_parts}"
+          },
+          "question": "Which part of the human brain is responsible for specific neurological functions?",
+          "correct_answer": "{part}",
+          "explanation": "The {part} is a major region of the central nervous system.",
+          "distractor_pool": "male_repro_parts"
+        },
+        {
+          "subtopic": "Visual Defects",
+          "variables": {
+            "defect": "{eye_defects}"
+          },
+          "question": "Which of the following is a recognized visual defect in humans?",
+          "correct_answer": "{defect}",
+          "explanation": "{defect} affects the accommodation or clarity of vision.",
+          "distractor_pool": "ear_defects"
+        }
+      ]
+    },
+    {
+      "topic": "Endocrine System and Homeostasis",
+      "output_file": "dataset/grade12/life_sciences/endocrine_system_and_homeostasis.json",
+      "target_count": 50,
+      "templates": [
+        {
+          "subtopic": "Endocrine Glands",
+          "variables": {
+            "gland": "{endocrine_glands}"
+          },
+          "question": "Which of the following is an endocrine gland in the human body?",
+          "correct_answer": "{gland}",
+          "explanation": "The {gland} secretes hormones directly into the bloodstream.",
+          "distractor_pool": "brain_parts"
+        },
+        {
+          "subtopic": "Homeostatic Factors",
+          "variables": {
+            "factor": "{homeostasis_factors}"
+          },
+          "question": "Which factor must be kept constant in the internal environment through homeostasis?",
+          "correct_answer": "{factor}",
+          "explanation": "The levels of {factor} are regulated by negative feedback mechanisms.",
+          "distractor_pool": "generic_false_statements"
+        }
+      ]
+    },
+    {
+      "topic": "Responding to the Environment (Plants)",
+      "output_file": "dataset/grade12/life_sciences/responding_to_the_environment_plants.json",
+      "target_count": 50,
+      "templates": [
+        {
+          "subtopic": "Plant Hormones",
+          "variables": {
+            "hormone": "{plant_hormones}"
+          },
+          "question": "Which of the following is a plant hormone involved in geotropism or growth regulation?",
+          "correct_answer": "{hormone}",
+          "explanation": "{hormone} affects cell elongation and plant responses to the environment.",
+          "distractor_pool": "hormones"
+        }
+      ]
+    },
+    {
+      "topic": "Evolution",
+      "output_file": "dataset/grade12/life_sciences/evolution.json",
+      "target_count": 50,
+      "templates": [
+        {
+          "subtopic": "Evolution Theories",
+          "variables": {
+            "theory": "{evolution_theories}"
+          },
+          "question": "Which of the following is a historical or modern theory of evolution?",
+          "correct_answer": "{theory}",
+          "explanation": "{theory} proposes mechanisms by which species change over time.",
+          "distractor_pool": "generic_false_statements"
+        },
+        {
+          "subtopic": "Hominid Evolution",
+          "variables": {
+            "fossil": "{hominid_fossils}"
+          },
+          "question": "Which fossil genus or species provides evidence for hominid evolution?",
+          "correct_answer": "{fossil}",
+          "explanation": "Fossils of {fossil} support the Out-of-Africa hypothesis.",
+          "distractor_pool": "brain_parts"
         }
       ]
     }
