@@ -19,7 +19,7 @@ def parse_args():
     parser.add_argument('--subject', required=True, help="Target subject (e.g., 'mathematics')")
     parser.add_argument('--topic', required=True, help="Specific topic (e.g., 'Calculus')")
     parser.add_argument('--count', type=int, default=50, help="Total number of questions to generate")
-    parser.add_argument('--batch-size', type=int, default=10, help="Questions per API request")
+    parser.add_argument('--batch-size', type=int, default=50, help="Questions per API request")
     parser.add_argument('--api-key', help="Gemini API Key (can also use GEMINI_API_KEY env var)")
     parser.add_argument('--output-file', help="Optional custom output filename (e.g., paper1_calculus.json)")
     return parser.parse_args()
@@ -122,6 +122,16 @@ Generate {batch_size} questions now:
             return []
 
     except Exception as e:
+        error_msg = str(e)
+        if '429' in error_msg or 'RESOURCE_EXHAUSTED' in error_msg:
+            print(f"Rate limit hit: {error_msg}")
+            # Try to extract "retry in X.Xs"
+            match = re.search(r'retry in ([\d\.]+)s', error_msg)
+            if match:
+                wait_time = float(match.group(1))
+                return {"error": "rate_limit", "wait_time": wait_time}
+            else:
+                return {"error": "rate_limit", "wait_time": 60.0}
         print(f"Error during API call: {e}")
         return []
 
@@ -176,6 +186,12 @@ def main():
         print(f"Requesting {current_batch_size} questions...")
 
         batch_questions = generate_questions(args.grade, args.subject, args.topic, current_batch_size, client)
+
+        if isinstance(batch_questions, dict) and batch_questions.get("error") == "rate_limit":
+            wait_time = batch_questions.get("wait_time", 60.0) + 1.0 # Add 1s buffer
+            print(f"Rate limited. Waiting for {wait_time:.1f} seconds before retrying...")
+            time.sleep(wait_time)
+            continue
 
         if not batch_questions:
             print("Retrying in 5 seconds...")
