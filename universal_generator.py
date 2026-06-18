@@ -63,43 +63,102 @@ class TemplateEngine:
                 logger.error(f"Failed to load data pool {filepath}: {e}")
                 self.pools[placeholder] = [f"{{ERROR_POOL_{placeholder}}}"]
 
-    def resolve_template(self, template_str: str) -> str:
+    def generate_context(self, variables: Dict[str, str]) -> Dict[str, Any]:
+        context = {}
+        for var_name, var_expr in variables.items():
+            context[var_name] = self.resolve_template(var_expr, context)
+        return context
+
+    def resolve_template(self, template_str: str, context: Dict[str, Any] = None) -> str:
         if not isinstance(template_str, str):
             return template_str
+
+        if context is None:
+            context = {}
 
         placeholders = re.findall(r'\{([a-zA-Z0-9_]+)\}', template_str)
         result_str = template_str
 
-        mapping = {}
+        mapping = context.copy()
         for ph in placeholders:
-            if ph in self.pools:
-                if ph not in mapping:
+            if ph not in mapping:
+                if ph in self.pools:
                     mapping[ph] = random.choice(self.pools[ph])
-            else:
-                mapping[ph] = f"{{UNKNOWN_{ph}}}"
-
+                else:
+                    mapping[ph] = f"{{UNKNOWN_{ph}}}"
         try:
-            return result_str.format(**mapping)
+            # Update the original context with generated values so they persist
+            for k,v in mapping.items():
+                if k not in context:
+                    context[k] = v
+
+            # We don't want format to crash on {eval(num1+num2)}, so we temporarily escape {eval(...) by changing it to {{eval(...)}}
+            # Use string replace instead of regex sub for simplicity
+            temp_result = result_str.replace('{eval(', '{{eval(').replace(')}', ')}}')
+
+            # Now we can safely run format on the rest of the placeholders (like {num1}, {num2})
+            result_str = temp_result.format(**mapping)
+
+            # Now we must restore the {{eval(...)}} back to {eval(...)} for the subsequent eval block to process
+            result_str = result_str.replace('{{eval(', '{eval(').replace(')}}', ')}')
+
         except KeyError as e:
-            logger.warning(f"Template formatting failed due to missing key: {e}. Template: {template_str}")
-            return result_str
+            if not str(e).startswith("'eval("):
+                logger.warning(f"Template formatting failed due to missing key: {e}. Template: {template_str}")
         except Exception as e:
             logger.warning(f"Unexpected error formatting template: {e}. Template: {template_str}")
-            return result_str
 
-    def generate_distractors(self, pool_name: str, count: int = 6, exclude: Set[str] = None) -> List[str]:
+
+
+        # Evaluate math expressions like {eval(num1 + num2)}
+        eval_matches = re.findall(r'\{eval\((.*?)\)\}', result_str)
+        for expr in eval_matches:
+            try:
+                # Prepare a safe environment for eval
+                safe_env = {"__builtins__": None, "round": round, "abs": abs, "min": min, "max": max}
+                # Cast string numbers to int/float if possible to allow eval
+                eval_context = {}
+                for k, v in mapping.items():
+                    try:
+                        if isinstance(v, str) and '.' in v:
+                            eval_context[k] = float(v)
+                        else:
+                            eval_context[k] = int(v)
+                    except (ValueError, TypeError):
+                        eval_context[k] = v
+
+                val = eval(expr, safe_env, eval_context)
+
+                # Format to avoid trailing .0 for integers
+                if isinstance(val, float) and val.is_integer():
+                    val_str = str(int(val))
+                else:
+                    val_str = str(val)
+
+                result_str = result_str.replace("{eval(" + expr + ")}", val_str)
+            except Exception as e:
+                logger.warning(f"Failed to evaluate expression '{expr}': {e}")
+                result_str = result_str.replace("{eval(" + expr + ")}", f"{{ERROR_EVAL_{expr}}}")
+
+        return result_str
+
+    def generate_distractors(self, pool_name: str, count: int = 6, exclude: Set[str] = None, context: Dict[str, Any] = None) -> List[str]:
         if exclude is None:
             exclude = set()
 
         if pool_name not in self.pools:
+            # If it's a dynamic distractor strategy like an expression pool
             logger.warning(f"Distractor pool '{pool_name}' not found. Using placeholders.")
             return [f"Distractor_{i}" for i in range(1, count + 1)]
 
         pool = self.pools[pool_name]
-        available = [item for item in pool if item not in exclude]
+        available = []
+        for item in pool:
+            resolved_item = self.resolve_template(str(item), context)
+            if resolved_item not in exclude:
+                available.append(resolved_item)
 
         if len(available) < count:
-            logger.warning(f"Not enough items in distractor pool '{pool_name}' to generate {count} distractors. Available: {len(available)}")
             selected = available.copy()
             while len(selected) < count:
                 selected.append(f"Fallback_Distractor_{len(selected)+1}")
@@ -128,6 +187,19 @@ class LogicDelegator:
             sys.exit(1)
 
 class MapUpdater:
+    @staticmethod
+    def derive_map_config(output_file: str, topic_name: str) -> Dict[str, str]:
+        # Ex: "dataset/grade4/mathematics/paper1_mixed.json"
+        parts = output_file.split('/')
+        if len(parts) >= 4 and parts[0] == 'dataset':
+            return {
+                "grade": parts[1],
+                "subject": parts[2],
+                "file": parts[-1],
+                "label": topic_name
+            }
+        return {}
+
     @staticmethod
     def update_map(map_file: str, map_config: Dict[str, Any], args: argparse.Namespace):
         """
@@ -190,6 +262,9 @@ class MapUpdater:
                 logger.error(f"Failed to save map file {map_file}: {e}")
 
 class DatasetManager:
+
+
+
     stats = {"questions_generated": 0, "files_updated": 0, "svg_count": 0, "duplicates_avoided": 0, "difficulty_distribution": {"easy": 0, "medium": 0, "hard": 0}}
     @staticmethod
     def verify_dataset(dataset: List[Dict[str, Any]], expected_topic: str) -> bool:
@@ -333,20 +408,43 @@ class DatasetManager:
                     attempts += 1
                     template = random.choice(templates)
 
-                    q_text = engine.resolve_template(template.get("question", ""))
+                    context = {}
+                    if "variables" in template:
+                        context = engine.generate_context(template["variables"])
+
+                    q_text = engine.resolve_template(template.get("question", ""), context)
                     if q_text in seen_questions:
                         DatasetManager.stats["duplicates_avoided"] += 1
                         continue
 
-                    correct = engine.resolve_template(template.get("correct_answer", ""))
-                    explanation = engine.resolve_template(template.get("explanation", ""))
+                    correct = engine.resolve_template(template.get("correct_answer", ""), context)
+                    explanation = engine.resolve_template(template.get("explanation", ""), context)
 
                     distractor_pool_name = template.get("distractor_pool")
                     wrong_answers = []
                     if distractor_pool_name:
-                        wrong_answers = engine.generate_distractors(distractor_pool_name, count=6, exclude={correct})
+                        wrong_answers = engine.generate_distractors(distractor_pool_name, count=6, exclude={correct}, context=context)
                     else:
                         wrong_answers = [f"Incorrect_{i}" for i in range(1, 7)]
+
+                    # Also support direct distractor array in template for dynamic eval
+                    if "distractors" in template and isinstance(template["distractors"], list):
+                        for d in template["distractors"]:
+                            resolved_d = engine.resolve_template(str(d), context)
+                            if resolved_d != correct and resolved_d not in wrong_answers:
+                                wrong_answers.append(resolved_d)
+                        # We need at least 6 distractors, if we provided fewer, we need to fall back or pad
+                        if len(wrong_answers) < 6 and distractor_pool_name:
+                             # Generate more if possible
+                             more_distractors = engine.generate_distractors(distractor_pool_name, count=6-len(wrong_answers), exclude=set([correct] + wrong_answers), context=context)
+                             wrong_answers.extend(more_distractors)
+
+                    # Fallback padding
+                    while len(wrong_answers) < 6:
+                         wrong_answers.append(f"Fallback_{len(wrong_answers)}")
+
+                    # Ensure exactly 6 distractors, or trim if more
+                    wrong_answers = wrong_answers[:6]
 
                     diff = random.choices(difficulties, weights=weights, k=1)[0]
 
@@ -360,7 +458,7 @@ class DatasetManager:
                         raw_params = svg_config.get("params", {})
                         for k, v in raw_params.items():
                             if isinstance(v, str):
-                                svg_params[k] = engine.resolve_template(v)
+                                svg_params[k] = engine.resolve_template(v, context)
                             else:
                                 svg_params[k] = v
 
@@ -417,8 +515,11 @@ class DatasetManager:
         else:
             logger.info(f"Topic {topic_name} already meets target count.")
 
-        # Update Map JSONs if configured
+        # Update Map JSONs if configured or automatically derived
         map_config = topic_config.get("map_registration")
+        if not map_config and output_file:
+             map_config = MapUpdater.derive_map_config(output_file, topic_name)
+
         if map_config:
             MapUpdater.update_map("map.json", map_config, args)
             weekly_map_path = "dataset/weekly_quiz/weekly_map.json"
