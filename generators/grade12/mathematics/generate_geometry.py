@@ -5,6 +5,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../h
 import random
 import math
 from generators_common import TopicGenerator, get_wrong_ints, get_wrong_floats
+from svg_engine import SVGEngine
 
 def generate_geometry():
     gen = TopicGenerator("Euclidean Geometry", "GEOM", ["angle relationships", "triangle theorems", "cyclic quadrilaterals"])
@@ -26,7 +27,8 @@ def generate_geometry():
                 correct = f"{ans}^\\circ"
                 wrongs = [f"{w}^\\circ" for w in get_wrong_ints(ans)]
                 exp = f"Supplementary angles add up to $180^\\circ$. $180^\\circ - {a}^\\circ = {ans}^\\circ$."
-                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
+                svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'intersecting_lines', 'labels': {'top': f'{a}°', 'right': '?'}})
+                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp, svg=svg)
 
             elif difficulty == "medium":
                 # vertically opposite + algebra
@@ -42,7 +44,8 @@ def generate_geometry():
                 correct = str(x)
                 wrongs = get_wrong_ints(x)
                 exp = f"Vertically opposite angles are equal: ${a}x + {b} = {c}x {'+' if d>=0 else ''}{d} \\implies {(a-c)}x = {d-b} \\implies x = {x}$."
-                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
+                svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'intersecting_lines', 'labels': {'top': f'({a}x+{b})°', 'bottom': f'({c}x{"+" if d>=0 else ""}{d})°'}})
+                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp, svg=svg)
 
             elif difficulty == "hard":
                 # co-interior angles + algebra
@@ -66,7 +69,8 @@ def generate_geometry():
                         correct = f"{ans}^\\circ"
                         wrongs = [f"{w}^\\circ" for w in get_wrong_ints(ans)]
                         exp = f"Co-interior angles between parallel lines are supplementary. ${a}x + {b} + {c}x + {d} = 180 \\implies {total_x}x = {rem} \\implies x = {x}$. The angles are ${angle1}^\\circ$ and ${angle2}^\\circ$, so the larger is ${ans}^\\circ$."
-                        gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
+                        svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'intersecting_lines', 'parallel': True, 'labels': {'left': f'({a}x+{b})°', 'right': f'({c}x+{d})°'}})
+                        gen.add_question(subtopic, difficulty, q, correct, wrongs, exp, svg=svg)
 
         elif subtopic == "triangle theorems":
             if difficulty == "easy":
@@ -77,7 +81,8 @@ def generate_geometry():
                 correct = f"{ans}^\\circ"
                 wrongs = [f"{w}^\\circ" for w in get_wrong_ints(ans)]
                 exp = f"Sum of angles in a triangle is $180^\\circ$. $180^\\circ - ({a}^\\circ + {b}^\\circ) = {ans}^\\circ$."
-                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
+                svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'triangle', 'labels': {'left': f'{a}°', 'right': f'{b}°', 'base': '?'}})
+                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp, svg=svg)
 
             elif difficulty == "medium":
                 # Exterior angle theorem
@@ -89,7 +94,8 @@ def generate_geometry():
                 correct = f"{ans}^\\circ"
                 wrongs = [f"{w}^\\circ" for w in get_wrong_ints(ans)]
                 exp = f"Exterior angle = sum of opposite interior angles. ${ext}^\\circ = {a}^\\circ + x \\implies x = {ans}^\\circ$."
-                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
+                svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'triangle', 'labels': {'left': f'{a}°', 'right': '?', 'base': f'{ext}°'}})
+                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp, svg=svg)
 
             elif difficulty == "hard":
                 # Isosceles + algebra
@@ -107,7 +113,8 @@ def generate_geometry():
                     correct = str(x)
                     wrongs = get_wrong_ints(x)
                     exp = f"Sum of angles is $180^\\circ$. $2({a}x + {b}) + ({c}x + {d}) = 180 \\implies {2*a+c}x + {2*b+d} = 180 \\implies {2*a+c}x = {180-2*b-d} \\implies x = {x}$."
-                    gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
+                    svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'triangle', 'labels': {'left': f'({a}x+{b})°', 'right': f'({a}x+{b})°', 'base': f'({c}x{"+" if d>=0 else ""}{d})°'}})
+                    gen.add_question(subtopic, difficulty, q, correct, wrongs, exp, svg=svg)
 
         elif subtopic == "cyclic quadrilaterals":
             if difficulty == "easy":
@@ -117,7 +124,8 @@ def generate_geometry():
                 correct = f"{ans}^\\circ"
                 wrongs = [f"{w}^\\circ" for w in get_wrong_ints(ans)]
                 exp = f"Opposite angles of a cyclic quadrilateral are supplementary. $180^\\circ - {a}^\\circ = {ans}^\\circ$."
-                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
+                svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'cyclic_quad', 'labels': {'A': f'{a}°', 'C': '?'}})
+                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp, svg=svg)
 
             elif difficulty == "medium":
                 ext = random.randint(70, 110)
@@ -126,7 +134,8 @@ def generate_geometry():
                 correct = f"{ans}^\\circ"
                 wrongs = [f"{w}^\\circ" for w in get_wrong_ints(ans)]
                 exp = f"The exterior angle of a cyclic quadrilateral is equal to the interior opposite angle, so it is ${ans}^\\circ$."
-                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
+                svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'cyclic_quad', 'exterior_angle': True, 'labels': {'D': f'{ext}° (ext)', 'A': '?'}})
+                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp, svg=svg)
 
             elif difficulty == "hard":
                 # Angles subtended by same arc + cyclic quad
@@ -143,7 +152,8 @@ def generate_geometry():
                     correct = f"{ang}^\\circ"
                     wrongs = [f"{w}^\\circ" for w in get_wrong_ints(ang)]
                     exp = f"Angles in the same segment are equal. ${a}x + {b} = {c}x + {d} \\implies {(a-c)}x = {d-b} \\implies x = {x}$. The angle is ${a}({x}) + {b} = {ang}^\\circ$."
-                    gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
+                    svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'cyclic_quad', 'labels': {'A': f'({a}x+{b})°', 'B': f'({c}x+{d})°'}})
+                    gen.add_question(subtopic, difficulty, q, correct, wrongs, exp, svg=svg)
 
     return gen
 

@@ -5,6 +5,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../h
 import random
 import math
 from generators_common import TopicGenerator, get_wrong_ints, get_wrong_floats
+from svg_engine import SVGEngine
 
 def generate_analytical():
     gen = TopicGenerator("Analytical Geometry", "ANAGEO", ["distance formula", "midpoint formula", "gradient of a line", "equation of a line"])
@@ -33,7 +34,8 @@ def generate_analytical():
                 correct = str(d_sq)
                 wrongs = get_wrong_ints(d_sq)
                 exp = f"AB$^2 = (x_2 - x_1)^2 + (y_2 - y_1)^2 = ({x2} - {x1})^2 + ({y2} - {y1})^2 = {d_sq}$."
-                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
+                svg = SVGEngine.generate_svg('coordinate_grid', {'points': [{'x': x1, 'y': y1, 'label': 'A'}, {'x': x2, 'y': y2, 'label': 'B'}]})
+                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp, svg=svg)
 
             elif difficulty == "medium":
                 d_val = math.sqrt(d_sq)
@@ -46,7 +48,8 @@ def generate_analytical():
                     w_str = f"{w:.2f}"
                     if w > 0 and w_str != correct: wrongs.add(w_str)
                 exp = f"$d = \\sqrt{{({x2} - {x1})^2 + ({y2} - {y1})^2}} = \\sqrt{{{d_sq}}} \\approx {d_round:.2f}$."
-                gen.add_question(subtopic, difficulty, q, correct, list(wrongs), exp)
+                svg = SVGEngine.generate_svg('coordinate_grid', {'points': [{'x': x1, 'y': y1, 'label': 'A'}, {'x': x2, 'y': y2, 'label': 'B'}]})
+                gen.add_question(subtopic, difficulty, q, correct, list(wrongs), exp, svg=svg)
 
             elif difficulty == "hard":
                 # find unknown coordinate
@@ -65,7 +68,8 @@ def generate_analytical():
                     w_str = ", ".join(map(str, w_roots))
                     if w_str != correct: wrongs.add(w_str)
                 exp = f"$\\sqrt{{(x - {x1})^2 + ({y2} - {y1})^2}} = \\sqrt{{{d_sq}}} \\implies (x - {x1})^2 + {dy**2} = {d_sq} \\implies (x - {x1})^2 = {dx**2} \\implies x - {x1} = \\pm {abs(dx)} \\implies x = {ans1}$ or $x = {ans2}$."
-                gen.add_question(subtopic, difficulty, q, correct, list(wrongs), exp)
+                svg = SVGEngine.generate_svg('coordinate_grid', {'points': [{'x': x1, 'y': y1, 'label': 'A'}]})
+                gen.add_question(subtopic, difficulty, q, correct, list(wrongs), exp, svg=svg)
 
         elif subtopic == "midpoint formula":
             if difficulty == "easy":
@@ -84,7 +88,8 @@ def generate_analytical():
                     w_str = f"({wx_str}; {wy_str})"
                     if w_str != correct: wrongs.add(w_str)
                 exp = f"$M\\left(\\frac{{{x1}+{x2}}}{{2}}; \\frac{{{y1}+{y2}}}{{2}}\\right) = ({mx_str}; {my_str})$."
-                gen.add_question(subtopic, difficulty, q, correct, list(wrongs), exp)
+                svg = SVGEngine.generate_svg('coordinate_grid', {'points': [{'x': x1, 'y': y1, 'label': 'A'}, {'x': x2, 'y': y2, 'label': 'B'}]})
+                gen.add_question(subtopic, difficulty, q, correct, list(wrongs), exp, svg=svg)
 
             elif difficulty == "medium":
                 mx = (x1 + x2) / 2
@@ -100,7 +105,8 @@ def generate_analytical():
                     w_str = f"({wx}; {wy})"
                     if w_str != correct: wrongs.add(w_str)
                 exp = f"$\\frac{{{x1} + x_2}}{{2}} = {mx_str} \\implies x_2 = {x2}$. $\\frac{{{y1} + y_2}}{{2}} = {my_str} \\implies y_2 = {y2}$."
-                gen.add_question(subtopic, difficulty, q, correct, list(wrongs), exp)
+                svg = SVGEngine.generate_svg('coordinate_grid', {'points': [{'x': x1, 'y': y1, 'label': 'A'}, {'x': mx, 'y': my, 'label': 'M'}]})
+                gen.add_question(subtopic, difficulty, q, correct, list(wrongs), exp, svg=svg)
 
             elif difficulty == "hard":
                 # find coordinates forming a parallelogram
@@ -119,7 +125,8 @@ def generate_analytical():
                     w_str = f"({wx}; {wy})"
                     if w_str != correct: wrongs.add(w_str)
                 exp = f"Diagonals bisect each other. Midpoint AC = Midpoint BD. $\\frac{{{x1}+{x3}}}{{2}} = \\frac{{{x2}+x}}{{2}} \\implies x = {x4}$. $\\frac{{{y1}+{y3}}}{{2}} = \\frac{{{y2}+y}}{{2}} \\implies y = {y4}$."
-                gen.add_question(subtopic, difficulty, q, correct, list(wrongs), exp)
+                svg = SVGEngine.generate_svg('coordinate_grid', {'points': [{'x': x1, 'y': y1, 'label': 'A'}, {'x': x2, 'y': y2, 'label': 'B'}, {'x': x3, 'y': y3, 'label': 'C'}]})
+                gen.add_question(subtopic, difficulty, q, correct, list(wrongs), exp, svg=svg)
 
         elif subtopic == "gradient of a line":
             if x1 == x2: continue
@@ -133,7 +140,8 @@ def generate_analytical():
                 correct = str(int(m))
                 wrongs = get_wrong_ints(int(m))
                 exp = f"$m = \\frac{{{y2} - {y1}}}{{{x2} - {x1}}} = {int(m)}$."
-                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
+                svg = SVGEngine.generate_svg('coordinate_grid', {'points': [{'x': x1, 'y': y1, 'label': 'A'}, {'x': x2, 'y': y2, 'label': 'B'}]})
+                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp, svg=svg)
 
             elif difficulty == "medium":
                 # find collinear coordinate
@@ -145,7 +153,8 @@ def generate_analytical():
                 correct = str(y3)
                 wrongs = get_wrong_ints(y3)
                 exp = f"Gradients are equal: $m_{{AB}} = \\frac{{{y2} - {y1}}}{{{x2} - {x1}}} = {m}$. Thus, $\\frac{{y - {y2}}}{{{x3} - {x2}}} = {m} \\implies y - {y2} = {m * (x3 - x2)} \\implies y = {y3}$."
-                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
+                svg = SVGEngine.generate_svg('coordinate_grid', {'points': [{'x': x1, 'y': y1, 'label': 'A'}, {'x': x2, 'y': y2, 'label': 'B'}]})
+                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp, svg=svg)
 
             elif difficulty == "hard":
                 # perpendicular lines
@@ -161,7 +170,8 @@ def generate_analytical():
                 correct = str(y4)
                 wrongs = get_wrong_ints(y4)
                 exp = f"$m_{{AB}} = \\frac{{{y2} - {y1}}}{{{x2} - {x1}}} = {m}$. For perpendicular lines, $m_{{CD}} = -\\frac{{1}}{{m_{{AB}}}} = {m_perp}$. $\\frac{{y - {y3}}}{{{x4} - {x3}}} = {m_perp} \\implies y = {y4}$."
-                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
+                svg = SVGEngine.generate_svg('coordinate_grid', {'points': [{'x': x1, 'y': y1, 'label': 'A'}, {'x': x2, 'y': y2, 'label': 'B'}, {'x': x3, 'y': y3, 'label': 'C'}]})
+                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp, svg=svg)
 
         elif subtopic == "equation of a line":
             if x1 == x2: continue
@@ -180,7 +190,8 @@ def generate_analytical():
                     w_str = f"y = {wm}x {'+' if wc>=0 else '-'} {abs(wc)}"
                     if w_str != correct: wrongs.add(w_str)
                 exp = f"Gradient $m = {m}$. Using $y - y_1 = m(x - x_1) \\implies y - {y1} = {m}(x - {x1}) \\implies {correct}$."
-                gen.add_question(subtopic, difficulty, q, correct, list(wrongs), exp)
+                svg = SVGEngine.generate_svg('coordinate_grid', {'points': [{'x': x1, 'y': y1, 'label': 'A'}, {'x': x2, 'y': y2, 'label': 'B'}]})
+                gen.add_question(subtopic, difficulty, q, correct, list(wrongs), exp, svg=svg)
 
             elif difficulty == "medium":
                 # parallel to line
@@ -195,7 +206,8 @@ def generate_analytical():
                     w_str = f"y = {wm}x {'+' if wc>=0 else '-'} {abs(wc)}"
                     if w_str != correct: wrongs.add(w_str)
                 exp = f"Parallel lines have the same gradient $m = {m}$. Equation is $y - {y3} = {m}(x - {x3}) \\implies {correct}$."
-                gen.add_question(subtopic, difficulty, q, correct, list(wrongs), exp)
+                svg = SVGEngine.generate_svg('coordinate_grid', {'points': [{'x': x3, 'y': y3, 'label': 'Point'}]})
+                gen.add_question(subtopic, difficulty, q, correct, list(wrongs), exp, svg=svg)
 
             elif difficulty == "hard":
                 if m == 0: continue
@@ -215,7 +227,8 @@ def generate_analytical():
                     w_str = f"y = {wm}x {'+' if wc>=0 else '-'} {abs(wc)}"
                     if w_str != correct: wrongs.add(w_str)
                 exp = f"Midpoint is $({mx}; {my})$. Gradient of AB is ${m}$, so perpendicular gradient is ${m_perp}$. Using point $({mx}; {my})$ gives ${correct}$."
-                gen.add_question(subtopic, difficulty, q, correct, list(wrongs), exp)
+                svg = SVGEngine.generate_svg('coordinate_grid', {'points': [{'x': x1, 'y': y1, 'label': 'A'}, {'x': x2, 'y': y2, 'label': 'B'}]})
+                gen.add_question(subtopic, difficulty, q, correct, list(wrongs), exp, svg=svg)
 
     return gen
 

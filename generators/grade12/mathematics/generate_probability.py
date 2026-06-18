@@ -6,6 +6,7 @@ import random
 import math
 from fractions import Fraction
 from generators_common import TopicGenerator
+from svg_engine import SVGEngine
 
 def generate_probability():
     gen = TopicGenerator("Probability", "PROB", ["basic probability", "independent events", "dependent events", "tree diagrams"])
@@ -51,7 +52,9 @@ def generate_probability():
                     w_str = f"{w:.2f}"
                     if w_str != correct: wrongs.add(w_str)
                 exp = f"$P(A \\cup B) = P(A) + P(B) - P(A \\cap B) \\implies {p_A_or_B} = {p_A} + {p_B} - P(A \\cap B) \\implies P(A \\cap B) = {ans:.2f}$."
-                gen.add_question(subtopic, difficulty, q, correct, list(wrongs), exp)
+
+                svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'venn_diagram', 'labels': {'A': f'P(A)={p_A}', 'B': f'P(B)={p_B}', 'intersect': '?', 'outer': ''}})
+                gen.add_question(subtopic, difficulty, q, correct, list(wrongs), exp, svg=svg)
 
             elif difficulty == "hard":
                 # mutually exclusive
@@ -66,7 +69,9 @@ def generate_probability():
                     w_str = f"{w:.2f}"
                     if w_str != correct: wrongs.add(w_str)
                 exp = f"Since mutually exclusive, $P(A \\cup B) = {p_A} + {p_B} = {p_A + p_B}$. $P(A' \\cap B') = 1 - P(A \\cup B) = 1 - {p_A + p_B} = {ans:.2f}$."
-                gen.add_question(subtopic, difficulty, q, correct, list(wrongs), exp)
+
+                svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'venn_diagram', 'labels': {'A': f'{p_A}', 'B': f'{p_B}', 'intersect': '0', 'outer': '?'}})
+                gen.add_question(subtopic, difficulty, q, correct, list(wrongs), exp, svg=svg)
 
         elif subtopic == "independent events":
             if difficulty == "easy":
@@ -81,7 +86,9 @@ def generate_probability():
                     w_str = f"{w:.4f}"
                     if w_str != correct: wrongs.add(w_str)
                 exp = f"For independent events, $P(A \\cap B) = P(A) \\cdot P(B) = {p_A} \\times {p_B} = {correct}$."
-                gen.add_question(subtopic, difficulty, q, correct, list(wrongs), exp)
+
+                svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'venn_diagram', 'labels': {'A': 'A', 'B': 'B', 'intersect': '?', 'outer': ''}})
+                gen.add_question(subtopic, difficulty, q, correct, list(wrongs), exp, svg=svg)
 
             elif difficulty == "medium":
                 p_A = round(random.uniform(0.2, 0.6), 2)
@@ -96,7 +103,9 @@ def generate_probability():
                     w_str = f"{w:.4f}"
                     if w_str != correct: wrongs.add(w_str)
                 exp = f"Independent means $P(A \\cap B) = {p_A} \\times {p_B} = {p_A*p_B:.4f}$. $P(A \\cup B) = P(A) + P(B) - P(A \\cap B) = {p_A} + {p_B} - {p_A*p_B:.4f} = {correct}$."
-                gen.add_question(subtopic, difficulty, q, correct, list(wrongs), exp)
+
+                svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'venn_diagram', 'labels': {'A': 'A', 'B': 'B'}})
+                gen.add_question(subtopic, difficulty, q, correct, list(wrongs), exp, svg=svg)
 
             elif difficulty == "hard":
                 # find P(B) given P(A) and P(A U B) for independent events
@@ -111,7 +120,9 @@ def generate_probability():
                     w_str = f"{w:.2f}"
                     if w_str != correct: wrongs.add(w_str)
                 exp = f"$P(A \\cup B) = P(A) + P(B) - P(A)P(B) \\implies {p_A_or_B} = {p_A} + P(B)(1 - {p_A}) \\implies P(B) = \\frac{{{p_A_or_B} - {p_A}}}{{{round(1-p_A, 2)}}} = {correct}$."
-                gen.add_question(subtopic, difficulty, q, correct, list(wrongs), exp)
+
+                svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'venn_diagram', 'labels': {'A': 'A', 'B': 'B'}})
+                gen.add_question(subtopic, difficulty, q, correct, list(wrongs), exp, svg=svg)
 
         elif subtopic == "dependent events" or subtopic == "tree diagrams":
             if difficulty == "easy":

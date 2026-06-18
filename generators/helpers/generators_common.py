@@ -23,7 +23,7 @@ class TopicGenerator:
             "hard": 0
         }
 
-    def add_question(self, subtopic: str, difficulty: str, question: str, correct_answer: str, wrong_answers: List[str], explanation: str):
+    def add_question(self, subtopic: str, difficulty: str, question: str, correct_answer: str, wrong_answers: List[str], explanation: str, svg: str = None):
         if self.difficulty_counts[difficulty] >= self.difficulty_targets[difficulty]:
             return False
 
@@ -57,6 +57,9 @@ class TopicGenerator:
             "wrong_answers_pool": unique_wrong_answers[:8],
             "explanation": explanation
         }
+        if svg:
+            q_dict["svg"] = {"content": svg}
+
         self.questions.append(q_dict)
         self.difficulty_counts[difficulty] += 1
         return True

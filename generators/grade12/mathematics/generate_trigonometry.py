@@ -6,6 +6,7 @@ import random
 import math
 import sympy as sp
 from generators_common import TopicGenerator, get_wrong_ints, get_wrong_floats
+from svg_engine import SVGEngine
 
 def generate_trigonometry():
     gen = TopicGenerator("Trigonometry", "TRIG", ["trig identities", "solving trig equations", "sine rule", "cosine rule"])
@@ -127,7 +128,9 @@ def generate_trigonometry():
                 correct = f"{b_round:.1f}"
                 wrongs = get_wrong_floats(b_round, decimals=1)
                 exp = f"$\\frac{{b}}{{\\sin B}} = \\frac{{a}}{{\\sin A}} \\implies b = \\frac{{{a} \\cdot \\sin {B}^\\circ}}{{\\sin {A}^\\circ}} \\approx {b_round:.1f}$."
-                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
+
+                svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'triangle', 'labels': {'base': f'a={a}', 'left': f'B={B}°', 'right': f'A={A}°'}})
+                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp, svg=svg)
 
             elif difficulty == "medium":
                 # Find angle
@@ -142,7 +145,9 @@ def generate_trigonometry():
                 correct = f"{B_round:.1f}^\\circ"
                 wrongs = [f"{w}^\\circ" for w in get_wrong_floats(B_round, decimals=1)]
                 exp = f"$\\frac{{\\sin B}}{{b}} = \\frac{{\\sin A}}{{a}} \\implies \\sin B = \\frac{{{b} \\cdot \\sin {A}^\\circ}}{{{a}}} \\approx {sinB:.4f} \\implies B \\approx {B_round:.1f}^\\circ$."
-                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
+
+                svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'triangle', 'labels': {'base': f'a={a}', 'left': 'B=?', 'right': f'A={A}°'}})
+                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp, svg=svg)
 
             elif difficulty == "hard":
                 # Area rule
@@ -155,7 +160,9 @@ def generate_trigonometry():
                 correct = f"{area_round:.2f}"
                 wrongs = get_wrong_floats(area_round, decimals=2)
                 exp = f"$\\text{{Area}} = \\frac{{1}}{{2}}ab\\sin C = 0.5({a})({b})\\sin({C}^\\circ) \\approx {area_round:.2f}$."
-                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
+
+                svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'triangle', 'labels': {'base': f'a={a}', 'left': f'b={b}'}})
+                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp, svg=svg)
 
         elif subtopic == "cosine rule":
             if difficulty == "easy":
@@ -170,7 +177,9 @@ def generate_trigonometry():
                 correct = f"{c_round:.1f}"
                 wrongs = get_wrong_floats(c_round, decimals=1)
                 exp = f"$c^2 = a^2 + b^2 - 2ab\\cos C = {a}^2 + {b}^2 - 2({a})({b})\\cos {C}^\\circ \\approx {c_sq:.2f} \\implies c \\approx {c_round:.1f}$."
-                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
+
+                svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'triangle', 'labels': {'base': f'c=?', 'left': f'a={a}', 'right': f'b={b}'}})
+                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp, svg=svg)
 
             elif difficulty == "medium":
                 # Find angle
@@ -184,7 +193,9 @@ def generate_trigonometry():
                 correct = f"{C_round:.1f}^\\circ"
                 wrongs = [f"{w}^\\circ" for w in get_wrong_floats(C_round, decimals=1)]
                 exp = f"$\\cos C = \\frac{{a^2 + b^2 - c^2}}{{2ab}} = \\frac{{{a}^2 + {b}^2 - {c}^2}}{{2({a})({b})}} = {cosC:.4f} \\implies C \\approx {C_round:.1f}^\\circ$."
-                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
+
+                svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'triangle', 'labels': {'base': f'c={c}', 'left': f'a={a}', 'right': f'b={b}'}})
+                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp, svg=svg)
 
             elif difficulty == "hard":
                 # Combine rules
@@ -201,7 +212,9 @@ def generate_trigonometry():
                 correct = f"{area_round:.1f}"
                 wrongs = get_wrong_floats(area_round, decimals=1)
                 exp = f"$\\angle A = 180^\\circ - ({B}^\\circ + {C}^\\circ) = {A}^\\circ$. By Sine Rule, $c = \\frac{{{a}\\sin {C}^\\circ}}{{\\sin {A}^\\circ}} \\approx {c:.2f}$. Area = $\\frac{{1}}{{2}}ac\\sin B \\approx {area_round:.1f}$."
-                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
+
+                svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'triangle', 'labels': {'base': f'a={a}', 'left': f'B={B}°', 'right': f'C={C}°'}})
+                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp, svg=svg)
 
     return gen
 

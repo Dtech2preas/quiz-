@@ -6,6 +6,7 @@ import random
 import math
 import sympy as sp
 from generators_common import TopicGenerator, get_wrong_ints, get_wrong_floats, get_wrong_exprs
+from svg_engine import SVGEngine
 
 def generate_algebra():
     gen = TopicGenerator("Algebra, Equations and Inequalities", "ALG", ["linear equations", "quadratic equations", "inequalities", "logarithmic equations"])
@@ -170,7 +171,13 @@ def generate_algebra():
                     f"x \\leq {r1}"
                 ]
                 exp = f"Critical values are $x = {r1}$ and $x = {r2}$. Since the parabola opens upwards, it is $\\leq 0$ between the roots: ${correct}$."
-                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
+
+                # Small chance to show a number line
+                if random.random() < 0.1:
+                    svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'number_line', 'roots': [r1, r2], 'region': 'between'})
+                    gen.add_question(subtopic, difficulty, q, correct, wrongs, exp, svg=svg)
+                else:
+                    gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
 
             elif difficulty == "hard":
                 r1 = random.randint(-3, -1)
@@ -189,7 +196,12 @@ def generate_algebra():
                     f"x \\leq {r1} \\text{{ or }} x \\geq {r2}"
                 ]
                 exp = f"Critical values are ${r1}, {r2}, {r3}$. Checking regions with a sign table gives ${correct}$. Note $x \\neq {r3}$."
-                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
+
+                if random.random() < 0.1:
+                    svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'number_line', 'roots': [r1, r2, r3]}) # Just roots without region since it's compound
+                    gen.add_question(subtopic, difficulty, q, correct, wrongs, exp, svg=svg)
+                else:
+                    gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
 
         elif subtopic == "logarithmic equations":
             if difficulty == "easy":

@@ -6,6 +6,7 @@ import random
 import math
 import sympy as sp
 from generators_common import TopicGenerator, get_wrong_ints, get_wrong_floats, get_wrong_exprs
+from svg_engine import SVGEngine
 
 def generate_calculus():
     gen = TopicGenerator("Differential Calculus", "CALC", ["derivative rules", "gradients of curves", "turning points", "optimization problems"])
@@ -75,7 +76,11 @@ def generate_calculus():
                 correct = str(grad)
                 wrongs = get_wrong_ints(grad)
                 exp = f"$f'(x) = {sp.latex(deriv)}$. Substitute $x = {x_val}$: $f'({x_val}) = {grad}$."
-                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
+
+                h_val = -b / (2 * a)
+                k_val = a * h_val**2 + b * h_val
+                svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'function_graph', 'func_type': 'parabola', 'a': a, 'h': h_val, 'k': k_val, 'tp_x': x_val, 'tp_y': a*x_val**2 + b*x_val, 'labels': {'tp': f'x={x_val}'}})
+                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp, svg=svg)
 
             elif difficulty == "medium":
                 a = random.choice([-1, 1, 2])
@@ -137,7 +142,9 @@ def generate_calculus():
                 correct = f"({r1}; {r2})"
                 wrongs = [f"({-r1}; {r2})", f"({r1}; {-r2})", f"({-r1}; {-r2})", f"({r2}; {r1})", f"({-r2}; {r1})", f"({r2}; {-r1})", f"({-r2}; {-r1})", f"({r1}; 0)"]
                 exp = f"$f'(x) = {sp.latex(sp.diff(expanded, x))} = 0 \\implies x = {r1}$. Substitute into $f(x)$ to get $y = {r2}$."
-                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
+
+                svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'function_graph', 'func_type': 'parabola', 'a': a, 'h': r1, 'k': r2, 'tp_x': r1, 'tp_y': r2, 'labels': {'tp': 'TP'}})
+                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp, svg=svg)
 
             elif difficulty == "medium":
                 # Cubic with nice integer turning points
@@ -193,7 +200,9 @@ def generate_calculus():
                 correct = str(int(max_A))
                 wrongs = get_wrong_ints(int(max_A))
                 exp = f"Let length be $x$, width be $y$. $2x+2y={P} \\implies y={P/2}-x$. Area $A = x({P/2}-x) = {P/2}x - x^2$. $A' = {P/2} - 2x = 0 \\implies x = {P/4}$. Max area is $({P/4})^2 = {int(max_A)}$."
-                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
+
+                svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'rectangle', 'labels': {'top': 'x', 'left': 'y'}})
+                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp, svg=svg)
 
             elif difficulty == "medium":
                 # Box with square base, given volume, minimize surface area
@@ -203,7 +212,9 @@ def generate_calculus():
                 correct = str(side)
                 wrongs = get_wrong_ints(side)
                 exp = f"Let base side be $x$ and height $h$. $x^2 h = {V} \\implies h = {V}/x^2$. Surface Area $S = 2x^2 + 4xh = 2x^2 + 4x({V}/x^2) = 2x^2 + {4*V}/x$. $S' = 4x - {4*V}/x^2 = 0 \\implies 4x^3 = {4*V} \\implies x = {side}$."
-                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp)
+
+                svg = SVGEngine.generate_svg('geometry_shape', {'shape': 'rectangle', 'labels': {'top': 'x', 'bottom': 'x', 'left': 'h'}})
+                gen.add_question(subtopic, difficulty, q, correct, wrongs, exp, svg=svg)
 
             elif difficulty == "hard":
                 # Maximize profit
