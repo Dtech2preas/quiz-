@@ -1,0 +1,5 @@
+1. We need to implement `applyDeltasAndSort` globally (likely in `firebase_config.js`) so that when the leaderboard fetches static data from `API_URL`, it immediately merges any pending XP commands located in Firebase RTDB (`user_commands`).
+2. We need to update `window.getCombinedUserData` to also fetch `user_commands/${userId}.json` from Firebase and add the pending XP/Points before returning it to the dashboard.
+3. We need to update `leaderboard.html` and `global_leaderboard.html` to map `applyDeltasAndSort` over the data fetched from the API before rendering the UI.
+4. Execute `pre_commit_instructions` tool to run checks.
+5. Commit and submit changes.
