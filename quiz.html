@@ -246,7 +246,6 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
 
         <div class="question-text" id="question-text"></div>
-        <div id="question-svg-container" style="margin-bottom: 1.5rem; display: none;"></div>
         <div class="options" id="options-container"></div>
 
         <div class="quiz-footer">
@@ -402,15 +401,6 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
         const qText = document.getElementById("question-text");
         qText.innerHTML = formatLatexOption(q.question);
 
-        const svgContainer = document.getElementById("question-svg-container");
-        if (q.svg && q.svg.content) {
-            svgContainer.innerHTML = q.svg.content;
-            svgContainer.style.display = "block";
-        } else {
-            svgContainer.innerHTML = "";
-            svgContainer.style.display = "none";
-        }
-
         // Reset animations
         qText.classList.remove('fade-in');
         void qText.offsetWidth; // trigger reflow
@@ -480,7 +470,6 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
         // Store result for review later
         userAnswers.push({
             question: formatLatexOption(q.question),
-            svgContent: (q.svg && q.svg.content) ? q.svg.content : null,
             correctAnswer: formatLatexOption(q.correct_answer),
             selectedAnswer: selectedText, // This was already formatted when created
             isCorrect: isCorrect,
@@ -612,14 +601,8 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
                 `;
             }
 
-            let svgHtml = "";
-            if (ans.svgContent) {
-                svgHtml = `<div style="margin: 1rem 0;">${ans.svgContent}</div>`;
-            }
-
             item.innerHTML = `
                 <div class="review-q-text">${idx + 1}. ${ans.question}</div>
-                ${svgHtml}
                 <div class="review-options">
                     <div class="review-opt ${ans.isCorrect ? 'r-correct' : 'r-wrong'}">
                         Your Answer: ${ans.selectedAnswer}

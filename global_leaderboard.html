@@ -819,16 +819,7 @@
                 fetchPromises.push(
                     fetch(`${API_URL}/api/leaderboard?grade=${gradeId}${queryParams}`)
                         .then(res => res.json())
-                        .then(async data => {
-                            if (window.applyDeltasAndSort) {
-                                for (const key of Object.keys(data)) {
-                                    if (Array.isArray(data[key])) {
-                                        data[key] = await window.applyDeltasAndSort(data[key]);
-                                    }
-                                }
-                            }
-                            return { gradeId, title: `Grade ${i}`, data, subjects: gradeSubjects };
-                        })
+                        .then(data => ({ gradeId, title: `Grade ${i}`, data, subjects: gradeSubjects }))
                         .catch(err => ({ gradeId, title: `Grade ${i}`, data: { overall: [] }, error: err, subjects: [] }))
                 );
             }
@@ -836,16 +827,7 @@
             fetchPromises.push(
                 fetch(`${API_URL}/api/leaderboard?grade=all`)
                     .then(res => res.json())
-                    .then(async data => {
-                        if (window.applyDeltasAndSort) {
-                            for (const key of Object.keys(data)) {
-                                if (Array.isArray(data[key])) {
-                                    data[key] = await window.applyDeltasAndSort(data[key]);
-                                }
-                            }
-                        }
-                        return { gradeId: 'all', title: 'All Grades', data };
-                    })
+                    .then(data => ({ gradeId: 'all', title: 'All Grades', data }))
                     .catch(err => ({ gradeId: 'all', title: 'All Grades', data: { schools_overall: [] }, error: err }))
             );
 

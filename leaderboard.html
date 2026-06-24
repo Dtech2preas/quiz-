@@ -632,14 +632,6 @@
             const response = await fetch(`${API_URL}/api/leaderboard?grade=${currentGrade}${queryParams}`);
             const data = await response.json();
 
-            if (window.applyDeltasAndSort) {
-                for (const key of Object.keys(data)) {
-                    if (Array.isArray(data[key])) {
-                        data[key] = await window.applyDeltasAndSort(data[key]);
-                    }
-                }
-            }
-
             document.getElementById("loading").style.display = "none";
 
             renderLeaderboard("leaderboard-overall", data.overall);
