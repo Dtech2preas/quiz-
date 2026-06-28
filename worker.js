@@ -7,6 +7,29 @@ const CORS_HEADERS = {
 };
 
 const FIREBASE_DB_URL = "https://quiz-b03ce-default-rtdb.firebaseio.com";
+const FIREBASE_API_KEY = "AIzaSyBQ4-OjJxoO7x5Gm5OV-yZarDp93W19UwQ";
+
+async function getFirebaseAuthToken(env) {
+    if (!env.FIREBASE_WORKER_EMAIL || !env.FIREBASE_WORKER_PASSWORD) return null;
+    try {
+        const response = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${FIREBASE_API_KEY}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                email: env.FIREBASE_WORKER_EMAIL,
+                password: env.FIREBASE_WORKER_PASSWORD,
+                returnSecureToken: true
+            })
+        });
+        if (response.ok) {
+            const data = await response.json();
+            return data.idToken;
+        }
+    } catch (e) {
+        console.error("Auth Error:", e);
+    }
+    return null;
+}
 
 async function handleGenerateToken(request, env) {
   const body = await request.json();
@@ -290,7 +313,14 @@ async function handleGetUser(request, env, path) {
   // Calculate True Available Balance without mutating userData
   let pending_points = 0;
   try {
-    const fbResponse = await fetch(`${FIREBASE_DB_URL}/user_commands/${userId}.json`);
+    let authQuery = "";
+    if (env.FIREBASE_WORKER_EMAIL && env.FIREBASE_WORKER_PASSWORD) {
+        const token = await getFirebaseAuthToken(env);
+        if (token) authQuery = `?auth=${token}`;
+    } else if (env.FIREBASE_SECRET) {
+        authQuery = `?auth=${env.FIREBASE_SECRET}`;
+    }
+    const fbResponse = await fetch(`${FIREBASE_DB_URL}/user_commands/${userId}.json${authQuery}`);
     if (fbResponse.ok) {
       const commands = await fbResponse.json();
       if (commands) {
@@ -881,7 +911,14 @@ async function updateLeaderboards(env, user, currentWeek, publicXpEarned, subjec
 
 async function handleScheduledSync(env) {
   try {
-    const fbResponse = await fetch(`${FIREBASE_DB_URL}/user_commands.json`);
+    let authQuery = "";
+    if (env.FIREBASE_WORKER_EMAIL && env.FIREBASE_WORKER_PASSWORD) {
+        const token = await getFirebaseAuthToken(env);
+        if (token) authQuery = `?auth=${token}`;
+    } else if (env.FIREBASE_SECRET) {
+        authQuery = `?auth=${env.FIREBASE_SECRET}`;
+    }
+    const fbResponse = await fetch(`${FIREBASE_DB_URL}/user_commands.json${authQuery}`);
     if (!fbResponse.ok) return;
 
     const allUsersCommands = await fbResponse.json();
@@ -1014,7 +1051,7 @@ async function handleScheduledSync(env) {
       for (const cmd of commands) {
           patchObj[cmd.unique_id] = null;
       }
-      await fetch(`${FIREBASE_DB_URL}/user_commands/${userId}.json`, {
+      await fetch(`${FIREBASE_DB_URL}/user_commands/${userId}.json${authQuery}`, {
           method: 'PATCH',
           body: JSON.stringify(patchObj)
       });
@@ -1648,7 +1685,14 @@ async function handleStorePurchase(request, env) {
   let pending_points = 0;
   let commandsToDelete = [];
   try {
-    const fbResponse = await fetch(`${FIREBASE_DB_URL}/user_commands/${user_id}.json`);
+    let authQuery = "";
+    if (env.FIREBASE_WORKER_EMAIL && env.FIREBASE_WORKER_PASSWORD) {
+        const token = await getFirebaseAuthToken(env);
+        if (token) authQuery = `?auth=${token}`;
+    } else if (env.FIREBASE_SECRET) {
+        authQuery = `?auth=${env.FIREBASE_SECRET}`;
+    }
+    const fbResponse = await fetch(`${FIREBASE_DB_URL}/user_commands/${user_id}.json${authQuery}`);
     if (fbResponse.ok) {
       const commands = await fbResponse.json();
       if (commands) {
@@ -1687,8 +1731,15 @@ async function handleStorePurchase(request, env) {
 
   // 4. Clear pending commands from Firebase since they are now synced
   try {
+    let authQuery = "";
+    if (env.FIREBASE_WORKER_EMAIL && env.FIREBASE_WORKER_PASSWORD) {
+        const token = await getFirebaseAuthToken(env);
+        if (token) authQuery = `?auth=${token}`;
+    } else if (env.FIREBASE_SECRET) {
+        authQuery = `?auth=${env.FIREBASE_SECRET}`;
+    }
     for (const key of commandsToDelete) {
-      await fetch(`${FIREBASE_DB_URL}/user_commands/${user_id}/${key}.json`, {
+      await fetch(`${FIREBASE_DB_URL}/user_commands/${user_id}/${key}.json${authQuery}`, {
         method: 'DELETE'
       });
     }

@@ -1,5 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
 import { getDatabase, ref, get, set, update, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-database.js";
+import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBQ4-OjJxoO7x5Gm5OV-yZarDp93W19UwQ",
@@ -14,6 +15,11 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
+const auth = getAuth(app);
+
+signInAnonymously(auth).catch((error) => {
+    console.error("Firebase Anonymous Auth Error:", error.code, error.message);
+});
 
 window.firebaseDatabase = database;
 window.firebaseRef = ref;
