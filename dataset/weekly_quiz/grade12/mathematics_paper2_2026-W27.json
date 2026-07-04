@@ -1,0 +1,1002 @@
+[
+  {
+    "id": "TRIG_772",
+    "topic": "Trigonometry",
+    "subtopic": "cosine rule",
+    "difficulty": "medium",
+    "question": "In $\\Delta ABC$, $a = 10$, $b = 9$, and $c = 3$. Find the size of $\\angle C$ (to 1 decimal place).",
+    "correct_answer": "17.1^\\circ",
+    "wrong_answers_pool": [
+      "0.1^\\circ",
+      "34.2^\\circ",
+      "5.9^\\circ",
+      "8.6^\\circ",
+      "8.4^\\circ",
+      "13.6^\\circ",
+      "-17.1^\\circ",
+      "16.1^\\circ"
+    ],
+    "explanation": "$\\cos C = \\frac{a^2 + b^2 - c^2}{2ab} = \\frac{10^2 + 9^2 - 3^2}{2(10)(9)} = 0.9556 \\implies C \\approx 17.1^\\circ$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_1"
+  },
+  {
+    "id": "STAT_050",
+    "topic": "Statistics and Regression",
+    "subtopic": "standard deviation",
+    "difficulty": "hard",
+    "question": "A dataset has a standard deviation of $5$. If every value in the dataset is multiplied by $3$ and then $12$ is added, what is the new standard deviation?",
+    "correct_answer": "15",
+    "wrong_answers_pool": [
+      "17",
+      "27",
+      "5",
+      "8",
+      "60",
+      "225",
+      "180",
+      "20"
+    ],
+    "explanation": "Adding a constant does not change the standard deviation. Multiplying by a constant $k$ multiplies the standard deviation by $|k|$. New std dev = $5 \\times 3 = 15$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_2"
+  },
+  {
+    "id": "ANAGEO_510",
+    "topic": "Analytical Geometry",
+    "subtopic": "midpoint formula",
+    "difficulty": "hard",
+    "question": "A$(-8; -3)$, B$(-1; 4)$, C$(2; 5)$, and D$(x; y)$ are the vertices of a parallelogram ABCD. Determine the coordinates of D.",
+    "correct_answer": "(-5; -2)",
+    "wrong_answers_pool": [
+      "(-2; -1)",
+      "(-7; 3)",
+      "(-8; -2)",
+      "(0; -4)",
+      "(-7; 0)",
+      "(-1; -5)",
+      "(-2; -2)",
+      "(-6; -6)"
+    ],
+    "explanation": "Diagonals bisect each other. Midpoint AC = Midpoint BD. $\\frac{-8+2}{2} = \\frac{-1+x}{2} \\implies x = -5$. $\\frac{-3+5}{2} = \\frac{4+y}{2} \\implies y = -2$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_3"
+  },
+  {
+    "id": "ANAGEO_517",
+    "topic": "Analytical Geometry",
+    "subtopic": "midpoint formula",
+    "difficulty": "medium",
+    "question": "The midpoint of line segment AB is M$(3; -3)$. If A is $(-2; -6)$, find the coordinates of B.",
+    "correct_answer": "(8; 0)",
+    "wrong_answers_pool": [
+      "(4; -1)",
+      "(6; 4)",
+      "(8; -4)",
+      "(13; -3)",
+      "(5; 4)",
+      "(12; -5)",
+      "(4; -3)",
+      "(10; 4)"
+    ],
+    "explanation": "$\\frac{-2 + x_2}{2} = 3 \\implies x_2 = 8$. $\\frac{-6 + y_2}{2} = -3 \\implies y_2 = 0$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_4"
+  },
+  {
+    "id": "GEOM_627",
+    "topic": "Euclidean Geometry",
+    "subtopic": "triangle theorems",
+    "difficulty": "hard",
+    "question": "In an isosceles triangle, the two equal base angles each measure $(1x + 14)^\\circ$. The vertex angle measures $(3x + 7)^\\circ$. Find the value of $x$.",
+    "correct_answer": "29",
+    "wrong_answers_pool": [
+      "32",
+      "-29",
+      "26",
+      "41",
+      "14",
+      "48",
+      "20",
+      "87"
+    ],
+    "explanation": "Sum of angles is $180^\\circ$. $2(1x + 14) + (3x + 7) = 180 \\implies 5x + 35 = 180 \\implies 5x = 145 \\implies x = 29$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_5"
+  },
+  {
+    "id": "STAT_412",
+    "topic": "Statistics and Regression",
+    "subtopic": "standard deviation",
+    "difficulty": "medium",
+    "question": "For the dataset [12, 26, 10, 18, 21, 25, 12, 10, 28, 10], how many data points lie within one standard deviation of the mean?",
+    "correct_answer": "4",
+    "wrong_answers_pool": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "explanation": "Mean = $17.20$, Std Dev = $6.93$. The interval is $(10.27; 24.13)$. There are $4$ values in this interval.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_6"
+  },
+  {
+    "id": "STAT_522",
+    "topic": "Statistics and Regression",
+    "subtopic": "scatter plots",
+    "difficulty": "hard",
+    "question": "The equation of the least squares regression line for a dataset is $\\hat{y} = 7.44 -2.00x$. Predict the value of $y$ when $x = 10$ (correct to 2 decimal places).",
+    "correct_answer": "-12.56",
+    "wrong_answers_pool": [
+      "-0.08",
+      "-30.52",
+      "-28.71",
+      "-25.12",
+      "7.02",
+      "12.56",
+      "-20.16",
+      "-18.84"
+    ],
+    "explanation": "Substitute $x = 10$ into the equation: $\\hat{y} = 7.44 -2.00(10) \\approx -12.56$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_7"
+  },
+  {
+    "id": "STAT_564",
+    "topic": "Statistics and Regression",
+    "subtopic": "scatter plots",
+    "difficulty": "hard",
+    "question": "The equation of the least squares regression line for a dataset is $\\hat{y} = -8.91 +1.62x$. Predict the value of $y$ when $x = 12$ (correct to 2 decimal places).",
+    "correct_answer": "10.54",
+    "wrong_answers_pool": [
+      "0.09",
+      "3.57",
+      "4.28",
+      "5.27",
+      "7.54",
+      "9.54",
+      "11.54",
+      "13.28"
+    ],
+    "explanation": "Substitute $x = 12$ into the equation: $\\hat{y} = -8.91 +1.62(12) \\approx 10.54$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_8"
+  },
+  {
+    "id": "GEOM_980",
+    "topic": "Euclidean Geometry",
+    "subtopic": "angle relationships",
+    "difficulty": "medium",
+    "question": "Two vertically opposite angles measure $(5x + 32)^\\circ$ and $(2x +101)^\\circ$. Find the value of $x$.",
+    "correct_answer": "23",
+    "wrong_answers_pool": [
+      "69",
+      "6",
+      "-23",
+      "11",
+      "13",
+      "46",
+      "16",
+      "19"
+    ],
+    "explanation": "Vertically opposite angles are equal: $5x + 32 = 2x +101 \\implies 3x = 69 \\implies x = 23$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_9"
+  },
+  {
+    "id": "TRIG_859",
+    "topic": "Trigonometry",
+    "subtopic": "cosine rule",
+    "difficulty": "medium",
+    "question": "In $\\Delta ABC$, $a = 11$, $b = 15$, and $c = 9$. Find the size of $\\angle C$ (to 1 decimal place).",
+    "correct_answer": "36.6^\\circ",
+    "wrong_answers_pool": [
+      "0.0^\\circ",
+      "35.6^\\circ",
+      "35.9^\\circ",
+      "37.6^\\circ",
+      "35.4^\\circ",
+      "36.1^\\circ",
+      "73.2^\\circ",
+      "18.3^\\circ"
+    ],
+    "explanation": "$\\cos C = \\frac{a^2 + b^2 - c^2}{2ab} = \\frac{11^2 + 15^2 - 9^2}{2(11)(15)} = 0.8030 \\implies C \\approx 36.6^\\circ$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_10"
+  },
+  {
+    "id": "STAT_980",
+    "topic": "Statistics and Regression",
+    "subtopic": "scatter plots",
+    "difficulty": "medium",
+    "question": "Given the bivariate data: x = [1, 2, 3, 4, 5, 6, 7, 8], y = [2.0, 0.7, -2.8, -2.4, -3.5, -5.7, -8.7, -10.8]. Calculate the gradient ($b$) of the least squares regression line $\\hat{y} = a + bx$ (correct to 2 decimal places).",
+    "correct_answer": "-1.74",
+    "wrong_answers_pool": [
+      "-0.74",
+      "1.74",
+      "-0.87",
+      "-0.57",
+      "7.70",
+      "8.29",
+      "14.22",
+      "14.61"
+    ],
+    "explanation": "Using a calculator (STAT mode), enter the data points. The gradient $b \\approx -1.74$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_11"
+  },
+  {
+    "id": "STAT_070",
+    "topic": "Statistics and Regression",
+    "subtopic": "mean, median, mode",
+    "difficulty": "hard",
+    "question": "The mean of the dataset [10, 24, 32, 35, 36, 39, 43, 47, 'x'] is $33$. Find the value of $x$.",
+    "correct_answer": "31",
+    "wrong_answers_pool": [
+      "32",
+      "-31",
+      "33",
+      "39",
+      "45",
+      "15",
+      "47",
+      "49"
+    ],
+    "explanation": "$\\frac{266 + x}{9} = 33 \\implies 266 + x = 297 \\implies x = 31$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_12"
+  },
+  {
+    "id": "GEOM_216",
+    "topic": "Euclidean Geometry",
+    "subtopic": "triangle theorems",
+    "difficulty": "medium",
+    "question": "The exterior angle of a triangle is $89^\\circ$. If one of the opposite interior angles is $38^\\circ$, find the other opposite interior angle.",
+    "correct_answer": "51^\\circ",
+    "wrong_answers_pool": [
+      "153^\\circ",
+      "66^\\circ",
+      "69^\\circ",
+      "102^\\circ",
+      "40^\\circ",
+      "-51^\\circ",
+      "48^\\circ",
+      "49^\\circ"
+    ],
+    "explanation": "Exterior angle = sum of opposite interior angles. $89^\\circ = 38^\\circ + x \\implies x = 51^\\circ$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_13"
+  },
+  {
+    "id": "ANAGEO_085",
+    "topic": "Analytical Geometry",
+    "subtopic": "gradient of a line",
+    "difficulty": "hard",
+    "question": "Line AB passes through A$(8; 7)$ and B$(6; -9)$. Line CD passes through C$(-1; 0)$ and D$(-17; y)$. If AB $\\perp$ CD, find $y$.",
+    "correct_answer": "2",
+    "wrong_answers_pool": [
+      "0",
+      "1",
+      "3",
+      "4",
+      "6",
+      "16",
+      "17",
+      "18"
+    ],
+    "explanation": "$m_{AB} = \\frac{-9 - 7}{6 - 8} = 8.0$. For perpendicular lines, $m_{CD} = -\\frac{1}{m_{AB}} = -0.125$. $\\frac{y - 0}{-17 - -1} = -0.125 \\implies y = 2$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_14"
+  },
+  {
+    "id": "GEOM_991",
+    "topic": "Euclidean Geometry",
+    "subtopic": "angle relationships",
+    "difficulty": "medium",
+    "question": "Two vertically opposite angles measure $(5x + 20)^\\circ$ and $(2x +110)^\\circ$. Find the value of $x$.",
+    "correct_answer": "30",
+    "wrong_answers_pool": [
+      "32",
+      "-30",
+      "11",
+      "12",
+      "28",
+      "45",
+      "15",
+      "18"
+    ],
+    "explanation": "Vertically opposite angles are equal: $5x + 20 = 2x +110 \\implies 3x = 90 \\implies x = 30$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_15"
+  },
+  {
+    "id": "STAT_120",
+    "topic": "Statistics and Regression",
+    "subtopic": "mean, median, mode",
+    "difficulty": "medium",
+    "question": "Determine the median of the following dataset: [22, 14, 27, 25, 40, 46, 40, 44, 24, 34, 31, 24].",
+    "correct_answer": "29",
+    "wrong_answers_pool": [
+      "39",
+      "41",
+      "28",
+      "22",
+      "25",
+      "23",
+      "27.5",
+      "43"
+    ],
+    "explanation": "First, sort the data: [14, 22, 24, 24, 25, 27, 31, 34, 40, 40, 44, 46]. The median is the middle value: $29$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_16"
+  },
+  {
+    "id": "GEOM_716",
+    "topic": "Euclidean Geometry",
+    "subtopic": "triangle theorems",
+    "difficulty": "hard",
+    "question": "In an isosceles triangle, the two equal base angles each measure $(3x + 9)^\\circ$. The vertex angle measures $(1x + 64)^\\circ$. Find the value of $x$.",
+    "correct_answer": "14",
+    "wrong_answers_pool": [
+      "33",
+      "7",
+      "42",
+      "12",
+      "13",
+      "15",
+      "16",
+      "17"
+    ],
+    "explanation": "Sum of angles is $180^\\circ$. $2(3x + 9) + (1x + 64) = 180 \\implies 7x + 82 = 180 \\implies 7x = 98 \\implies x = 14$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_17"
+  },
+  {
+    "id": "TRIG_968",
+    "topic": "Trigonometry",
+    "subtopic": "cosine rule",
+    "difficulty": "medium",
+    "question": "In $\\Delta ABC$, $a = 12$, $b = 10$, and $c = 18$. Find the size of $\\angle C$ (to 1 decimal place).",
+    "correct_answer": "109.5^\\circ",
+    "wrong_answers_pool": [
+      "0.0^\\circ",
+      "99.1^\\circ",
+      "164.2^\\circ",
+      "104.1^\\circ",
+      "105.1^\\circ",
+      "108.5^\\circ",
+      "110.5^\\circ",
+      "113.7^\\circ"
+    ],
+    "explanation": "$\\cos C = \\frac{a^2 + b^2 - c^2}{2ab} = \\frac{12^2 + 10^2 - 18^2}{2(12)(10)} = -0.3333 \\implies C \\approx 109.5^\\circ$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_18"
+  },
+  {
+    "id": "GEOM_948",
+    "topic": "Euclidean Geometry",
+    "subtopic": "angle relationships",
+    "difficulty": "medium",
+    "question": "Two vertically opposite angles measure $(5x + 39)^\\circ$ and $(4x +58)^\\circ$. Find the value of $x$.",
+    "correct_answer": "19",
+    "wrong_answers_pool": [
+      "34",
+      "37",
+      "38",
+      "39",
+      "9",
+      "-19",
+      "15",
+      "17"
+    ],
+    "explanation": "Vertically opposite angles are equal: $5x + 39 = 4x +58 \\implies 1x = 19 \\implies x = 19$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_19"
+  },
+  {
+    "id": "TRIG_367",
+    "topic": "Trigonometry",
+    "subtopic": "sine rule",
+    "difficulty": "medium",
+    "question": "In $\\Delta ABC$, $a = 19$, $b = 6$, and $\\angle A = 100^\\circ$. Find the size of acute $\\angle B$ (to 1 decimal place).",
+    "correct_answer": "18.1^\\circ",
+    "wrong_answers_pool": [
+      "0.1^\\circ",
+      "33.0^\\circ",
+      "36.2^\\circ",
+      "7.6^\\circ",
+      "27.8^\\circ",
+      "9.1^\\circ",
+      "9.9^\\circ",
+      "-18.1^\\circ"
+    ],
+    "explanation": "$\\frac{\\sin B}{b} = \\frac{\\sin A}{a} \\implies \\sin B = \\frac{6 \\cdot \\sin 100^\\circ}{19} \\approx 0.3110 \\implies B \\approx 18.1^\\circ$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_20"
+  },
+  {
+    "id": "ANAGEO_789",
+    "topic": "Analytical Geometry",
+    "subtopic": "distance formula",
+    "difficulty": "medium",
+    "question": "Find the distance between points A$(8; -4)$ and B$(-9; -1)$ correct to two decimal places.",
+    "correct_answer": "17.26",
+    "wrong_answers_pool": [
+      "20.34",
+      "17.79",
+      "15.59",
+      "19.41",
+      "18.68",
+      "20.90",
+      "18.17",
+      "18.34"
+    ],
+    "explanation": "$d = \\sqrt{(-9 - 8)^2 + (-1 - -4)^2} = \\sqrt{298} \\approx 17.26$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_21"
+  },
+  {
+    "id": "TRIG_303",
+    "topic": "Trigonometry",
+    "subtopic": "sine rule",
+    "difficulty": "hard",
+    "question": "In $\\Delta ABC$, $a = 7$, $b = 12$, and $\\angle C = 118^\\circ$. Calculate the area of the triangle (to 2 decimal places).",
+    "correct_answer": "37.08",
+    "wrong_answers_pool": [
+      "0.03",
+      "34.15",
+      "36.08",
+      "38.08",
+      "74.16",
+      "43.38",
+      "18.54",
+      "23.51"
+    ],
+    "explanation": "$\\text{Area} = \\frac{1}{2}ab\\sin C = 0.5(7)(12)\\sin(118^\\circ) \\approx 37.08$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_22"
+  },
+  {
+    "id": "ANAGEO_018",
+    "topic": "Analytical Geometry",
+    "subtopic": "distance formula",
+    "difficulty": "hard",
+    "question": "The distance between A$(1; -10)$ and B$(x; 0)$ is $\\sqrt{104}$. Find the possible value(s) of $x$.",
+    "correct_answer": "-1, 3",
+    "wrong_answers_pool": [
+      "-12, -3",
+      "3, 13",
+      "2, 13",
+      "-13, 14",
+      "-5, -1",
+      "1, 3",
+      "3, 8",
+      "9, 10"
+    ],
+    "explanation": "$\\sqrt{(x - 1)^2 + (0 - -10)^2} = \\sqrt{104} \\implies (x - 1)^2 + 100 = 104 \\implies (x - 1)^2 = 4 \\implies x - 1 = \\pm 2 \\implies x = 3$ or $x = -1$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_23"
+  },
+  {
+    "id": "TRIG_484",
+    "topic": "Trigonometry",
+    "subtopic": "cosine rule",
+    "difficulty": "hard",
+    "question": "In $\\Delta ABC$, $a = 13$, $\\angle B = 50^\\circ$, and $\\angle C = 37^\\circ$. Calculate the area of the triangle (to 1 decimal place).",
+    "correct_answer": "39.0",
+    "wrong_answers_pool": [
+      "0.0",
+      "26.1",
+      "58.6",
+      "37.3",
+      "38.0",
+      "39.4",
+      "40.0",
+      "35.4"
+    ],
+    "explanation": "$\\angle A = 180^\\circ - (50^\\circ + 37^\\circ) = 93^\\circ$. By Sine Rule, $c = \\frac{13\\sin 37^\\circ}{\\sin 93^\\circ} \\approx 7.83$. Area = $\\frac{1}{2}ac\\sin B \\approx 39.0$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_24"
+  },
+  {
+    "id": "GEOM_378",
+    "topic": "Euclidean Geometry",
+    "subtopic": "cyclic quadrilaterals",
+    "difficulty": "medium",
+    "question": "An exterior angle of a cyclic quadrilateral measures $80^\\circ$. Find the measure of the interior opposite angle.",
+    "correct_answer": "80^\\circ",
+    "wrong_answers_pool": [
+      "160^\\circ",
+      "40^\\circ",
+      "73^\\circ",
+      "75^\\circ",
+      "78^\\circ",
+      "79^\\circ",
+      "-80^\\circ",
+      "81^\\circ"
+    ],
+    "explanation": "The exterior angle of a cyclic quadrilateral is equal to the interior opposite angle, so it is $80^\\circ$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_25"
+  },
+  {
+    "id": "STAT_966",
+    "topic": "Statistics and Regression",
+    "subtopic": "scatter plots",
+    "difficulty": "medium",
+    "question": "Given the bivariate data: x = [1, 2, 3, 4, 5], y = [4.1, 5.5, 7.2, 10.0, 15.1]. Calculate the gradient ($b$) of the least squares regression line $\\hat{y} = a + bx$ (correct to 2 decimal places).",
+    "correct_answer": "2.65",
+    "wrong_answers_pool": [
+      "0.38",
+      "1.65",
+      "1.32",
+      "3.97",
+      "3.65",
+      "5.30",
+      "3.99",
+      "9.32"
+    ],
+    "explanation": "Using a calculator (STAT mode), enter the data points. The gradient $b \\approx 2.65$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_26"
+  },
+  {
+    "id": "TRIG_787",
+    "topic": "Trigonometry",
+    "subtopic": "sine rule",
+    "difficulty": "medium",
+    "question": "In $\\Delta ABC$, $a = 14$, $b = 12$, and $\\angle A = 91^\\circ$. Find the size of acute $\\angle B$ (to 1 decimal place).",
+    "correct_answer": "59.0^\\circ",
+    "wrong_answers_pool": [
+      "0.0^\\circ",
+      "67.5^\\circ",
+      "56.8^\\circ",
+      "-59.0^\\circ",
+      "42.7^\\circ",
+      "44.3^\\circ",
+      "44.1^\\circ",
+      "118.0^\\circ"
+    ],
+    "explanation": "$\\frac{\\sin B}{b} = \\frac{\\sin A}{a} \\implies \\sin B = \\frac{12 \\cdot \\sin 91^\\circ}{14} \\approx 0.8570 \\implies B \\approx 59.0^\\circ$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_27"
+  },
+  {
+    "id": "STAT_013",
+    "topic": "Statistics and Regression",
+    "subtopic": "scatter plots",
+    "difficulty": "hard",
+    "question": "The equation of the least squares regression line for a dataset is $\\hat{y} = -6.73 +1.16x$. Predict the value of $y$ when $x = 11$ (correct to 2 decimal places).",
+    "correct_answer": "6.03",
+    "wrong_answers_pool": [
+      "0.17",
+      "3.02",
+      "3.63",
+      "5.03",
+      "7.03",
+      "9.05",
+      "12.07",
+      "13.85"
+    ],
+    "explanation": "Substitute $x = 11$ into the equation: $\\hat{y} = -6.73 +1.16(11) \\approx 6.03$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_28"
+  },
+  {
+    "id": "ANAGEO_110",
+    "topic": "Analytical Geometry",
+    "subtopic": "equation of a line",
+    "difficulty": "medium",
+    "question": "Find the equation of the line passing through $(5; 2)$ and parallel to the line $y = 5x - 50$.",
+    "correct_answer": "y = 5x - 23",
+    "wrong_answers_pool": [
+      "y = 7x - 20",
+      "y = 5x - 18",
+      "y = 3x - 20",
+      "y = 4x - 28",
+      "y = 4x - 20",
+      "y = 6x - 22",
+      "y = 3x - 22",
+      "y = 4x - 18"
+    ],
+    "explanation": "Parallel lines have the same gradient $m = 5$. Equation is $y - 2 = 5(x - 5) \\implies y = 5x - 23$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_29"
+  },
+  {
+    "id": "STAT_064",
+    "topic": "Statistics and Regression",
+    "subtopic": "linear regression",
+    "difficulty": "hard",
+    "question": "The equation of the least squares regression line for a dataset is $\\hat{y} = 2.47 -2.03x$. Predict the value of $y$ when $x = 13$ (correct to 2 decimal places).",
+    "correct_answer": "-23.87",
+    "wrong_answers_pool": [
+      "-27.09",
+      "-24.87",
+      "-22.87",
+      "-20.27",
+      "-0.04",
+      "-47.75",
+      "-11.94",
+      "23.87"
+    ],
+    "explanation": "Substitute $x = 13$ into the equation: $\\hat{y} = 2.47 -2.03(13) \\approx -23.87$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_30"
+  },
+  {
+    "id": "STAT_901",
+    "topic": "Statistics and Regression",
+    "subtopic": "mean, median, mode",
+    "difficulty": "medium",
+    "question": "Determine the median of the following dataset: [50, 46, 44, 26, 14, 10, 34, 11, 31].",
+    "correct_answer": "31",
+    "wrong_answers_pool": [
+      "10",
+      "25",
+      "46.5",
+      "34.5",
+      "31.5",
+      "14",
+      "43",
+      "26"
+    ],
+    "explanation": "First, sort the data: [10, 11, 14, 26, 31, 34, 44, 46, 50]. The median is the middle value: $31$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_31"
+  },
+  {
+    "id": "GEOM_645",
+    "topic": "Euclidean Geometry",
+    "subtopic": "angle relationships",
+    "difficulty": "medium",
+    "question": "Two vertically opposite angles measure $(5x + 37)^\\circ$ and $(4x +58)^\\circ$. Find the value of $x$.",
+    "correct_answer": "21",
+    "wrong_answers_pool": [
+      "33",
+      "2",
+      "3",
+      "6",
+      "7",
+      "10",
+      "42",
+      "-21"
+    ],
+    "explanation": "Vertically opposite angles are equal: $5x + 37 = 4x +58 \\implies 1x = 21 \\implies x = 21$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_32"
+  },
+  {
+    "id": "STAT_146",
+    "topic": "Statistics and Regression",
+    "subtopic": "scatter plots",
+    "difficulty": "hard",
+    "question": "The equation of the least squares regression line for a dataset is $\\hat{y} = 7.13 +1.81x$. Predict the value of $y$ when $x = 9$ (correct to 2 decimal places).",
+    "correct_answer": "23.43",
+    "wrong_answers_pool": [
+      "35.14",
+      "35.72",
+      "39.26",
+      "-23.43",
+      "11.71",
+      "12.72",
+      "12.37",
+      "46.85"
+    ],
+    "explanation": "Substitute $x = 9$ into the equation: $\\hat{y} = 7.13 +1.81(9) \\approx 23.43$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_33"
+  },
+  {
+    "id": "GEOM_537",
+    "topic": "Euclidean Geometry",
+    "subtopic": "triangle theorems",
+    "difficulty": "hard",
+    "question": "In an isosceles triangle, the two equal base angles each measure $(1x + 10)^\\circ$. The vertex angle measures $(1x + 130)^\\circ$. Find the value of $x$.",
+    "correct_answer": "10",
+    "wrong_answers_pool": [
+      "1",
+      "5",
+      "8",
+      "9",
+      "11",
+      "12",
+      "16",
+      "17"
+    ],
+    "explanation": "Sum of angles is $180^\\circ$. $2(1x + 10) + (1x + 130) = 180 \\implies 3x + 150 = 180 \\implies 3x = 30 \\implies x = 10$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_34"
+  },
+  {
+    "id": "GEOM_300",
+    "topic": "Euclidean Geometry",
+    "subtopic": "triangle theorems",
+    "difficulty": "hard",
+    "question": "In an isosceles triangle, the two equal base angles each measure $(2x + 12)^\\circ$. The vertex angle measures $(2x + 18)^\\circ$. Find the value of $x$.",
+    "correct_answer": "23",
+    "wrong_answers_pool": [
+      "69",
+      "-23",
+      "42",
+      "11",
+      "46",
+      "18",
+      "21",
+      "22"
+    ],
+    "explanation": "Sum of angles is $180^\\circ$. $2(2x + 12) + (2x + 18) = 180 \\implies 6x + 42 = 180 \\implies 6x = 138 \\implies x = 23$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_35"
+  },
+  {
+    "id": "STAT_518",
+    "topic": "Statistics and Regression",
+    "subtopic": "linear regression",
+    "difficulty": "hard",
+    "question": "The equation of the least squares regression line for a dataset is $\\hat{y} = 3.23 +2.69x$. Predict the value of $y$ when $x = 12$ (correct to 2 decimal places).",
+    "correct_answer": "35.54",
+    "wrong_answers_pool": [
+      "0.03",
+      "34.54",
+      "36.54",
+      "71.09",
+      "39.50",
+      "48.90",
+      "17.77",
+      "18.03"
+    ],
+    "explanation": "Substitute $x = 12$ into the equation: $\\hat{y} = 3.23 +2.69(12) \\approx 35.54$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_36"
+  },
+  {
+    "id": "ANAGEO_223",
+    "topic": "Analytical Geometry",
+    "subtopic": "gradient of a line",
+    "difficulty": "hard",
+    "question": "Line AB passes through A$(-3; 0)$ and B$(1; 5)$. Line CD passes through C$(1; -4)$ and D$(6; y)$. If AB $\\perp$ CD, find $y$.",
+    "correct_answer": "-8",
+    "wrong_answers_pool": [
+      "-28",
+      "4",
+      "8",
+      "-24",
+      "-22",
+      "-19",
+      "-16",
+      "-11"
+    ],
+    "explanation": "$m_{AB} = \\frac{5 - 0}{1 - -3} = 1.25$. For perpendicular lines, $m_{CD} = -\\frac{1}{m_{AB}} = -0.8$. $\\frac{y - -4}{6 - 1} = -0.8 \\implies y = -8$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_37"
+  },
+  {
+    "id": "STAT_460",
+    "topic": "Statistics and Regression",
+    "subtopic": "linear regression",
+    "difficulty": "hard",
+    "question": "The equation of the least squares regression line for a dataset is $\\hat{y} = -10.93 -0.25x$. Predict the value of $y$ when $x = 7$ (correct to 2 decimal places).",
+    "correct_answer": "-12.68",
+    "wrong_answers_pool": [
+      "-0.08",
+      "-29.36",
+      "5.91",
+      "-26.57",
+      "-25.36",
+      "12.68",
+      "-19.02",
+      "-14.36"
+    ],
+    "explanation": "Substitute $x = 7$ into the equation: $\\hat{y} = -10.93 -0.25(7) \\approx -12.68$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_38"
+  },
+  {
+    "id": "ANAGEO_577",
+    "topic": "Analytical Geometry",
+    "subtopic": "distance formula",
+    "difficulty": "hard",
+    "question": "The distance between A$(8; -5)$ and B$(x; 9)$ is $\\sqrt{200}$. Find the possible value(s) of $x$.",
+    "correct_answer": "6, 10",
+    "wrong_answers_pool": [
+      "-4, 5",
+      "-12, 5",
+      "12",
+      "3",
+      "0, 2",
+      "-7, 3",
+      "-7, 2",
+      "-7, -6"
+    ],
+    "explanation": "$\\sqrt{(x - 8)^2 + (9 - -5)^2} = \\sqrt{200} \\implies (x - 8)^2 + 196 = 200 \\implies (x - 8)^2 = 4 \\implies x - 8 = \\pm 2 \\implies x = 10$ or $x = 6$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_39"
+  },
+  {
+    "id": "STAT_372",
+    "topic": "Statistics and Regression",
+    "subtopic": "scatter plots",
+    "difficulty": "hard",
+    "question": "The equation of the least squares regression line for a dataset is $\\hat{y} = 3.00 -2.54x$. Predict the value of $y$ when $x = 10$ (correct to 2 decimal places).",
+    "correct_answer": "-22.40",
+    "wrong_answers_pool": [
+      "-30.72",
+      "-29.09",
+      "-27.87",
+      "-27.28",
+      "-23.40",
+      "-21.40",
+      "-0.04",
+      "-44.80"
+    ],
+    "explanation": "Substitute $x = 10$ into the equation: $\\hat{y} = 3.00 -2.54(10) \\approx -22.40$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_40"
+  },
+  {
+    "id": "GEOM_856",
+    "topic": "Euclidean Geometry",
+    "subtopic": "angle relationships",
+    "difficulty": "medium",
+    "question": "Two vertically opposite angles measure $(5x + 33)^\\circ$ and $(2x +81)^\\circ$. Find the value of $x$.",
+    "correct_answer": "16",
+    "wrong_answers_pool": [
+      "32",
+      "4",
+      "8",
+      "13",
+      "14",
+      "15",
+      "-16",
+      "17"
+    ],
+    "explanation": "Vertically opposite angles are equal: $5x + 33 = 2x +81 \\implies 3x = 48 \\implies x = 16$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_41"
+  },
+  {
+    "id": "ANAGEO_714",
+    "topic": "Analytical Geometry",
+    "subtopic": "distance formula",
+    "difficulty": "medium",
+    "question": "Find the distance between points A$(-8; -7)$ and B$(-1; 8)$ correct to two decimal places.",
+    "correct_answer": "16.55",
+    "wrong_answers_pool": [
+      "15.66",
+      "16.11",
+      "17.73",
+      "14.21",
+      "12.99",
+      "11.67",
+      "18.28",
+      "18.41"
+    ],
+    "explanation": "$d = \\sqrt{(-1 - -8)^2 + (8 - -7)^2} = \\sqrt{274} \\approx 16.55$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_42"
+  },
+  {
+    "id": "ANAGEO_544",
+    "topic": "Analytical Geometry",
+    "subtopic": "distance formula",
+    "difficulty": "medium",
+    "question": "Find the distance between points A$(-4; 2)$ and B$(-3; 8)$ correct to two decimal places.",
+    "correct_answer": "6.08",
+    "wrong_answers_pool": [
+      "8.76",
+      "9.89",
+      "7.16",
+      "3.09",
+      "7.62",
+      "10.55",
+      "5.04",
+      "9.27"
+    ],
+    "explanation": "$d = \\sqrt{(-3 - -4)^2 + (8 - 2)^2} = \\sqrt{37} \\approx 6.08$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_43"
+  },
+  {
+    "id": "STAT_370",
+    "topic": "Statistics and Regression",
+    "subtopic": "scatter plots",
+    "difficulty": "hard",
+    "question": "The equation of the least squares regression line for a dataset is $\\hat{y} = 2.68 -2.40x$. Predict the value of $y$ when $x = 13$ (correct to 2 decimal places).",
+    "correct_answer": "-28.53",
+    "wrong_answers_pool": [
+      "-29.53",
+      "-28.47",
+      "-27.53",
+      "-57.05",
+      "-24.19",
+      "-0.04",
+      "-14.26",
+      "-14.96"
+    ],
+    "explanation": "Substitute $x = 13$ into the equation: $\\hat{y} = 2.68 -2.40(13) \\approx -28.53$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_44"
+  },
+  {
+    "id": "STAT_207",
+    "topic": "Statistics and Regression",
+    "subtopic": "linear regression",
+    "difficulty": "medium",
+    "question": "Given the bivariate data: x = [1, 2, 3, 4, 5, 6, 7], y = [-0.1, -0.1, 0.1, 1.3, 2.4, 2.4, 4.2]. Calculate the gradient ($b$) of the least squares regression line $\\hat{y} = a + bx$ (correct to 2 decimal places).",
+    "correct_answer": "0.72",
+    "wrong_answers_pool": [
+      "-0.72",
+      "1.72",
+      "0.36",
+      "1.08",
+      "-0.28",
+      "1.44",
+      "1.39",
+      "6.54"
+    ],
+    "explanation": "Using a calculator (STAT mode), enter the data points. The gradient $b \\approx 0.72$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_45"
+  },
+  {
+    "id": "TRIG_725",
+    "topic": "Trigonometry",
+    "subtopic": "cosine rule",
+    "difficulty": "medium",
+    "question": "In $\\Delta ABC$, $a = 13$, $b = 11$, and $c = 16$. Find the size of $\\angle C$ (to 1 decimal place).",
+    "correct_answer": "83.2^\\circ",
+    "wrong_answers_pool": [
+      "0.0^\\circ",
+      "166.4^\\circ",
+      "70.0^\\circ",
+      "41.6^\\circ",
+      "74.4^\\circ",
+      "76.7^\\circ",
+      "-83.2^\\circ",
+      "82.2^\\circ"
+    ],
+    "explanation": "$\\cos C = \\frac{a^2 + b^2 - c^2}{2ab} = \\frac{13^2 + 11^2 - 16^2}{2(13)(11)} = 0.1189 \\implies C \\approx 83.2^\\circ$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_46"
+  },
+  {
+    "id": "GEOM_617",
+    "topic": "Euclidean Geometry",
+    "subtopic": "triangle theorems",
+    "difficulty": "hard",
+    "question": "In an isosceles triangle, the two equal base angles each measure $(1x + 11)^\\circ$. The vertex angle measures $(1x + 101)^\\circ$. Find the value of $x$.",
+    "correct_answer": "19",
+    "wrong_answers_pool": [
+      "3",
+      "5",
+      "38",
+      "9",
+      "12",
+      "-19",
+      "17",
+      "18"
+    ],
+    "explanation": "Sum of angles is $180^\\circ$. $2(1x + 11) + (1x + 101) = 180 \\implies 3x + 123 = 180 \\implies 3x = 57 \\implies x = 19$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_47"
+  },
+  {
+    "id": "TRIG_097",
+    "topic": "Trigonometry",
+    "subtopic": "sine rule",
+    "difficulty": "hard",
+    "question": "In $\\Delta ABC$, $a = 12$, $b = 10$, and $\\angle C = 59^\\circ$. Calculate the area of the triangle (to 2 decimal places).",
+    "correct_answer": "51.43",
+    "wrong_answers_pool": [
+      "68.77",
+      "102.86",
+      "39.76",
+      "42.91",
+      "77.14",
+      "-51.43",
+      "49.38",
+      "50.43"
+    ],
+    "explanation": "$\\text{Area} = \\frac{1}{2}ab\\sin C = 0.5(12)(10)\\sin(59^\\circ) \\approx 51.43$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_48"
+  },
+  {
+    "id": "STAT_290",
+    "topic": "Statistics and Regression",
+    "subtopic": "scatter plots",
+    "difficulty": "hard",
+    "question": "The equation of the least squares regression line for a dataset is $\\hat{y} = -7.38 +2.08x$. Predict the value of $y$ when $x = 10$ (correct to 2 decimal places).",
+    "correct_answer": "13.42",
+    "wrong_answers_pool": [
+      "0.07",
+      "2.27",
+      "26.96",
+      "5.30",
+      "6.71",
+      "6.35",
+      "11.99",
+      "12.42"
+    ],
+    "explanation": "Substitute $x = 10$ into the equation: $\\hat{y} = -7.38 +2.08(10) \\approx 13.42$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_49"
+  },
+  {
+    "id": "TRIG_868",
+    "topic": "Trigonometry",
+    "subtopic": "sine rule",
+    "difficulty": "medium",
+    "question": "In $\\Delta ABC$, $a = 13$, $b = 5$, and $\\angle A = 64^\\circ$. Find the size of acute $\\angle B$ (to 1 decimal place).",
+    "correct_answer": "20.2^\\circ",
+    "wrong_answers_pool": [
+      "0.0^\\circ",
+      "1.3^\\circ",
+      "3.7^\\circ",
+      "40.4^\\circ",
+      "8.5^\\circ",
+      "10.1^\\circ",
+      "-20.2^\\circ",
+      "12.3^\\circ"
+    ],
+    "explanation": "$\\frac{\\sin B}{b} = \\frac{\\sin A}{a} \\implies \\sin B = \\frac{5 \\cdot \\sin 64^\\circ}{13} \\approx 0.3457 \\implies B \\approx 20.2^\\circ$.",
+    "exam_id": "EXAM_2026-W27_grade12_mathematics_paper2_50"
+  }
+]
