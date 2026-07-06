@@ -459,7 +459,7 @@ class AndroidCacher(private val context: Context, private val activity: MainActi
                         activity.downloadProgressBar.progress = 100
 
                         // Tell JS it was successful so it won't trigger again
-                        activity.webView.evaluateJavascript("localStorage.setItem('dtech_datasets_cached_$grade', 'true');", null)
+                        activity.webView.evaluateJavascript("localStorage.setItem('dtech_datasets_cached_$grade', 'true'); localStorage.removeItem('dtech_caching_in_progress');", null)
 
                         android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
                             activity.downloadBanner.visibility = android.view.View.GONE
@@ -468,6 +468,7 @@ class AndroidCacher(private val context: Context, private val activity: MainActi
                 } else {
                     uiHandler.post {
                         activity.downloadText.text = "Download failed."
+                        activity.webView.evaluateJavascript("localStorage.removeItem('dtech_caching_in_progress');", null)
                         android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
                             activity.downloadBanner.visibility = android.view.View.GONE
                         }, 3000)
@@ -478,6 +479,7 @@ class AndroidCacher(private val context: Context, private val activity: MainActi
                 e.printStackTrace()
                 uiHandler.post {
                     activity.downloadText.text = "Download failed."
+                    activity.webView.evaluateJavascript("localStorage.removeItem('dtech_caching_in_progress');", null)
                     android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
                         activity.downloadBanner.visibility = android.view.View.GONE
                     }, 3000)

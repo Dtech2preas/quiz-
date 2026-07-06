@@ -174,9 +174,22 @@ function attemptCacheDatasets() {
     // Only trigger dataset caching if it's the Android app and user is logged in
     if (window.IS_ANDROID_APP && userGrade) {
         const cacheKey = `dtech_datasets_cached_${userGrade}`;
+
+        // Prevent re-triggering across page loads if already downloading
+        const isDownloading = localStorage.getItem('dtech_caching_in_progress');
+        const now = Date.now();
+        if (isDownloading) {
+            const downloadStartTime = parseInt(isDownloading, 10);
+            // Allow retry if downloading was started more than 10 minutes ago and stuck
+            if (now - downloadStartTime < 10 * 60 * 1000) {
+                return; // Still downloading
+            }
+        }
+
         if (!localStorage.getItem(cacheKey)) {
             if (window.AndroidCacher) {
                 isCachingInitiated = true;
+                localStorage.setItem('dtech_caching_in_progress', now.toString());
                 window.AndroidCacher.cacheGradeDatasets(userGrade);
             }
         }
@@ -276,12 +289,14 @@ window.fetch = async function(...args) {
             // Fallback if truly offline
             if (!navigator.onLine) {
                 const virtualStats = getLocalVirtualStats();
+                const storedGrade = localStorage.getItem('user_grade');
                 return new Response(JSON.stringify({
                     xp: virtualStats.xp,
                     dtech_points: virtualStats.points,
                     rank: "Offline",
                     level: Math.floor(virtualStats.xp / 100) + 1,
                     username: "Offline User",
+                    grade: storedGrade,
                     offline: true
                 }), { status: 200, headers: { 'Content-Type': 'application/json' } });
             }
@@ -290,12 +305,14 @@ window.fetch = async function(...args) {
 
     if (!navigator.onLine && url.includes('/api/user/')) {
          const virtualStats = getLocalVirtualStats();
+         const storedGrade = localStorage.getItem('user_grade');
          return new Response(JSON.stringify({
             xp: virtualStats.xp,
             dtech_points: virtualStats.points,
             rank: "Offline",
             level: Math.floor(virtualStats.xp / 100) + 1,
             username: "Offline User",
+            grade: storedGrade,
             offline: true
         }), { status: 200, headers: { 'Content-Type': 'application/json' } });
     }
