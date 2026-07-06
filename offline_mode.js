@@ -286,24 +286,22 @@ window.fetch = async function(...args) {
                 return new Response(JSON.stringify(data), { status: 200, headers: { 'Content-Type': 'application/json' } });
             }
         } catch (e) {
-            // Fallback if truly offline
-            if (!navigator.onLine) {
-                const virtualStats = getLocalVirtualStats();
-                const storedGrade = localStorage.getItem('user_grade');
-                return new Response(JSON.stringify({
-                    xp: virtualStats.xp,
-                    dtech_points: virtualStats.points,
-                    rank: "Offline",
-                    level: Math.floor(virtualStats.xp / 100) + 1,
-                    username: "Offline User",
-                    grade: storedGrade,
-                    offline: true
-                }), { status: 200, headers: { 'Content-Type': 'application/json' } });
-            }
+            // Fallback if fetch fails (due to being offline, even if navigator.onLine hasn't updated yet)
+            const virtualStats = getLocalVirtualStats();
+            const storedGrade = localStorage.getItem('user_grade');
+            return new Response(JSON.stringify({
+                xp: virtualStats.xp,
+                dtech_points: virtualStats.points,
+                rank: "Offline",
+                level: Math.floor(virtualStats.xp / 100) + 1,
+                username: "Offline User",
+                grade: storedGrade,
+                offline: true
+            }), { status: 200, headers: { 'Content-Type': 'application/json' } });
         }
     }
 
-    if (!navigator.onLine && url.includes('/api/user/')) {
+    if (url.includes('/api/user/') && (!navigator.onLine || window.IS_ANDROID_APP)) {
          const virtualStats = getLocalVirtualStats();
          const storedGrade = localStorage.getItem('user_grade');
          return new Response(JSON.stringify({
