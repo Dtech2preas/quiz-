@@ -70,6 +70,7 @@ class MainActivity : AppCompatActivity() {
         // Add Javascript interface for opening URLs in external browser
         webView.addJavascriptInterface(AndroidExternalBrowser(this), "AndroidExternalBrowser")
         webView.addJavascriptInterface(AndroidExit(this), "AndroidExit")
+        webView.addJavascriptInterface(AppUpdater(this), "AppUpdater")
 
 
         webView.webViewClient = object : WebViewClient() {
