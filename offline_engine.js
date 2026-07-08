@@ -14,7 +14,12 @@ window.startOfflineDownload = async function(grade) {
     document.body.insertAdjacentHTML('beforeend', bannerHtml);
 
     try {
-        const result = await OfflineAPI.syncManifestAndDatasets(grade);
+        const result = await OfflineAPI.syncManifestAndDatasets(grade, (current, total) => {
+            const progressText = document.getElementById('caching-progress-text');
+            if (progressText) {
+                progressText.innerText = `Downloading offline datasets... (${current}/${total})`;
+            }
+        });
         const banner = document.getElementById('caching-progress-banner');
         if (result.success) {
             banner.innerHTML = `<div style="text-align:center; color: #10b981; font-weight: bold;">Download Complete! You can now use the app offline.</div>`;
@@ -303,7 +308,7 @@ class OfflineEngineClass {
     }
 
     // Dataset Downloader Logic
-    async syncManifestAndDatasets(grade) {
+    async syncManifestAndDatasets(grade, progressCallback) {
         if (!navigator.onLine) {
             return { success: false, message: "Offline. Cannot download datasets." };
         }
@@ -319,6 +324,11 @@ class OfflineEngineClass {
 
             let downloadedCount = 0;
             const tempStore = [];
+            const totalDatasets = datasetsToDownload.length;
+
+            if (progressCallback) {
+                progressCallback(0, totalDatasets);
+            }
 
             for (const ds of datasetsToDownload) {
                 // Fetch the file
@@ -352,6 +362,9 @@ class OfflineEngineClass {
                 });
 
                 downloadedCount++;
+                if (progressCallback) {
+                    progressCallback(downloadedCount, totalDatasets);
+                }
             }
 
             // Atomic Commit
