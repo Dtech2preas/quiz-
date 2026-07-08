@@ -1,0 +1,26 @@
+# Offline Caching Logic in the Android App Wrapper
+
+This document explains how the offline dataset caching works, from the moment it is triggered by the user in the web UI, to how the Android app stores it, and finally how those files are served when the device loses its internet connection.
+
+## 1. Triggering the Cache (Web UI -> Native App)
+The offline caching process is initiated from the frontend web application (specifically handled in `offline_mode.js`).
+- When a user logs in or their grade is detected, the web app checks if the datasets for their specific grade have been cached locally. This is tracked using `localStorage` flags like `dtech_datasets_cached_{grade}`.
+- If the files are not cached (and caching is not currently in progress via `dtech_caching_in_progress`), the frontend triggers the caching process by calling a native Android JavascriptInterface: `window.AndroidCacher.cacheGradeDatasets(userGrade)`.
+
+## 2. Downloading and Storing Files (Native Android App)
+The `AndroidCacher` class in `MainActivity.kt` receives the trigger and handles the heavy lifting in a background thread.
+- **Parsing the Map**: It first downloads a core file, `map.json`, from the production server. This file acts as a directory map, outlining which dataset files belong to which subjects and grades.
+- **Queueing Files**: It creates a list of files to download. This includes core HTML/JS/CSS files (like `index.html`, `dashboard.html`, `offline_mode.js`) and parses the `map.json` to append all the specific `.json` dataset files for the requested grade.
+- **Downloading**: It sequentially downloads each file using standard Java networking (`HttpURLConnection`).
+- **Storing**: The files are saved directly into the app's secure internal storage directory (`context.filesDir`). The directory structure mirrors the URL path (e.g., `/dataset/grade12/mathematics/algebra.json`).
+- **UI Feedback**: While downloading, the `AndroidCacher` posts updates back to the UI thread, making a native Android `downloadBanner` (a linear layout with a progress bar in `activity_main.xml`) visible and updating its progress.
+- **Completion**: Once finished, it hides the native banner and injects Javascript back into the WebView to set the `dtech_datasets_cached_{grade}` flag in `localStorage`, letting the web app know the process was successful.
+
+## 3. Loading and Serving Files (Offline Interception)
+The web application itself does not use Service Workers (`sw.js`). Instead, the offline serving is handled entirely by the native Android WebView intercepting network requests.
+- **Interception**: In `MainActivity.kt`, the `WebViewClient` overrides the `shouldInterceptRequest` method. Every time the WebView tries to load a resource (HTML, JS, image, or an API call that we treat as a file), this method is triggered.
+- **Network Check**: The interceptor first checks the device's connectivity using `ConnectivityManager`. It only intercepts requests if the device is offline AND the URL belongs to the main domain (`https://quiz.dtech-services.co.za`).
+- **Serving Local Files**: If offline, it looks at the URL path requested by the WebView (e.g., `/dashboard.html`). It checks if a file with that exact path exists in the app's internal storage (`filesDir`).
+- **Returning the Response**: If the file exists, the app creates a `FileInputStream`, determines the correct MIME type (e.g., `text/html` or `application/json`), and returns a `WebResourceResponse` containing the local file data. The WebView receives this data and renders it exactly as if it had successfully downloaded it from the internet.
+
+By combining the web app's awareness (`offline_mode.js`), the native downloader (`AndroidCacher`), and the native network interceptor (`shouldInterceptRequest`), the app provides a seamless offline experience without relying on complex browser-based caching mechanisms.

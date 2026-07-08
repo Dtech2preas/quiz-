@@ -7,12 +7,19 @@ android {
     namespace 'com.dtech.quizzes'
     compileSdk 34
 
+    buildFeatures {
+        buildConfig true
+    }
+
     defaultConfig {
         applicationId "com.dtech.quizzes"
         minSdk 21
         targetSdk 34
         versionCode 1
         versionName "1.0"
+
+        def gitTag = System.getenv("APP_VERSION_TAG") ?: "dev-build"
+        buildConfigField "String", "GIT_TAG", "\"${gitTag}\""
     }
 
     buildTypes {
@@ -36,4 +43,5 @@ dependencies {
     implementation 'com.google.android.material:material:1.11.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.webkit:webkit:1.10.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
 }

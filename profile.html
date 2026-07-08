@@ -508,6 +508,13 @@ footer a:hover{ text-decoration:underline; }
         <button type="submit" id="saveBtn">Save Changes</button>
     </form>
 
+    <div id="appUpdateSection" style="display: none; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); text-align: center;">
+        <h3>App Updates</h3>
+        <p style="color: var(--text-muted); margin-bottom: 1rem;">Current Version: <span id="appVersionDisplay">Unknown</span></p>
+        <button type="button" id="checkUpdateBtn" onclick="checkAppUpdate()" style="background: var(--bg-card); border: 1px solid var(--accent-blue); color: var(--accent-blue); width: auto; padding: 8px 16px;">Check for Updates</button>
+        <div id="updateStatusMsg" style="margin-top: 1rem; font-size: 0.9rem;"></div>
+    </div>
+
     <div id="statusMessage" class="message"></div>
 </div>
 
@@ -969,5 +976,59 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('footer-year').textContent = `2020–${currentYear}`;
 </script>
 
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    if (window.IS_ANDROID_APP) {
+        const updateSection = document.getElementById("appUpdateSection");
+        if (updateSection) updateSection.style.display = "block";
+
+        if (window.AppUpdater) {
+            const version = window.AppUpdater.getAppVersion();
+            document.getElementById("appVersionDisplay").innerText = version;
+        }
+    }
+});
+
+function checkAppUpdate() {
+    if (window.AppUpdater) {
+        const btn = document.getElementById("checkUpdateBtn");
+        const msg = document.getElementById("updateStatusMsg");
+
+        btn.disabled = true;
+        btn.innerText = "Checking...";
+        msg.innerText = "";
+
+        window.onUpdateCheckResult = function(status, message) {
+            btn.disabled = false;
+            btn.innerText = "Check for Updates";
+
+            if (status === 'error') {
+                msg.style.color = "#f87171";
+            } else if (status === 'no_update') {
+                msg.style.color = "var(--text-muted)";
+            } else {
+                msg.style.color = "#34d399";
+            }
+            msg.innerText = message;
+        };
+
+        window.AppUpdater.checkForUpdates("onUpdateCheckResult");
+    }
+}
+
+// Intercept standard window.IS_ANDROID_APP inject as well just in case
+window.onAndroidAppDetected = function() {
+    const updateSection = document.getElementById("appUpdateSection");
+    if (updateSection) updateSection.style.display = "block";
+
+    if (window.AppUpdater) {
+        const version = window.AppUpdater.getAppVersion();
+        const display = document.getElementById("appVersionDisplay");
+        if (display) display.innerText = version;
+    }
+}
+</script>
 </body>
 </html>
