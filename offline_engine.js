@@ -1,4 +1,4 @@
-const API_URL = 'https://billowing-hall-4748.nakiaklocko57.workers.dev';
+var API_URL = 'https://billowing-hall-4748.nakiaklocko57.workers.dev';
 // Utility snippet to trigger dataset caching manually (e.g. from dashboard)
 window.startOfflineDownload = async function(grade) {
     if (!grade) grade = localStorage.getItem('user_grade') || 'grade12';
