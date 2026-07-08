@@ -689,7 +689,8 @@
     </style>
 <script src="dtech_cosmetics.js"></script>
     <script type="module" src="firebase_config.js"></script>
-<script src="offline_mode.js"></script>
+<script src="offline_engine.js"></script>
+<script src="register_sw.js"></script>
 <script src="update_timer.js"></script>
 </head>
 <body>
@@ -781,9 +782,8 @@
     async function fetchGradeMap() {
         if (Object.keys(globalGradeMapCache).length > 0) return globalGradeMapCache;
         try {
-            const response = await fetch('map.json');
-            if (!response.ok) return null;
-            const data = await response.json();
+            const data = await OfflineAPI.getDataset('/map.json');
+            if (!data) return null;
             Object.assign(globalGradeMapCache, data);
             return data;
         } catch (error) {
@@ -817,16 +817,14 @@
                 const queryParams = gradeSubjects.length > 0 ? `&subjects=${gradeSubjects.join(',')}` : '';
 
                 fetchPromises.push(
-                    fetch(`${API_URL}/api/leaderboard?grade=${gradeId}${queryParams}`)
-                        .then(res => res.json())
+                    OfflineAPI.getLeaderboard(gradeId, queryParams)
                         .then(data => ({ gradeId, title: `Grade ${i}`, data, subjects: gradeSubjects }))
                         .catch(err => ({ gradeId, title: `Grade ${i}`, data: { overall: [] }, error: err, subjects: [] }))
                 );
             }
 
             fetchPromises.push(
-                fetch(`${API_URL}/api/leaderboard?grade=all`)
-                    .then(res => res.json())
+                OfflineAPI.getLeaderboard('all')
                     .then(data => ({ gradeId: 'all', title: 'All Grades', data }))
                     .catch(err => ({ gradeId: 'all', title: 'All Grades', data: { schools_overall: [] }, error: err }))
             );

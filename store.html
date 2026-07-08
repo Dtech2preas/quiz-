@@ -291,7 +291,8 @@
     </style>
 <script src="dtech_cosmetics.js"></script>
     <script type="module" src="firebase_config.js"></script>
-<script src="offline_mode.js"></script>
+<script src="offline_engine.js"></script>
+<script src="register_sw.js"></script>
 </head>
 <body>
 
@@ -717,13 +718,7 @@
 
     async function loadUserData() {
         try {
-            let data = null;
-            if (window.getCombinedUserData) {
-                data = await window.getCombinedUserData(userId);
-            } else {
-                const response = await fetch(`${API_URL}/api/user/${userId}`);
-                if (response.ok) data = await response.json();
-            }
+            let data = await OfflineAPI.getProfile(userId);
             if (data) {
                 // Read available_balance provided by the new worker endpoint which already handles the sum
                 userPoints = data.available_balance !== undefined ? data.available_balance : (data.dtech_points || 0);
@@ -998,7 +993,18 @@
 
     async function syncPushClaim(today) {
         try {
-            if (window.queueFirebaseAction) {
+            if (window.OfflineAPI) {
+                window.OfflineAPI.enqueueSync('/api/store/sync-points', {
+                    action: "points",
+                    userId: userId,
+                    push_claim: true
+                });
+                userPoints += 100;
+                document.getElementById('dtech-points-display').textContent = `💎 ${userPoints}`;
+                localStorage.setItem('dtech_push_claimed_today', today);
+                showToast("100 D-TECH POINTS claimed successfully!");
+                updateButtons();
+            } else if (window.queueFirebaseAction) {
                 window.queueFirebaseAction({
                     action: "points",
                     userId: userId,

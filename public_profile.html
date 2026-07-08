@@ -537,7 +537,8 @@
     </style>
 <script src="dtech_cosmetics.js"></script>
     <script type="module" src="firebase_config.js"></script>
-<script src="offline_mode.js"></script>
+<script src="offline_engine.js"></script>
+<script src="register_sw.js"></script>
 </head>
 <body>
 
@@ -648,23 +649,17 @@
 
     async function loadPublicProfile(username) {
         try {
-            let data = null;
-            if (window.getCombinedUserData) {
-                data = await window.getCombinedUserData(username, "", true);
-            } else {
-                const response = await fetch(`${API_URL}/api/public-user/${username}`);
-                if (response.status === 404) {
-                    document.getElementById("loading").style.display = "none";
-                    document.getElementById("error-message").style.display = "block";
-                    return;
-                }
-                if (response.ok) {
-                    data = await response.json();
-                }
+            let data = await OfflineAPI.getPublicProfile(username);
+
+            if (data === null) {
+                document.getElementById("loading").style.display = "none";
+                document.getElementById("error-message").style.display = "block";
+                return;
             }
 
-            if (!data) {
+            if (!data || data.offline) {
                 document.getElementById("loading").style.display = "none";
+                document.getElementById("error-message").textContent = "Public profiles are unavailable offline.";
                 document.getElementById("error-message").style.display = "block";
                 return;
             }

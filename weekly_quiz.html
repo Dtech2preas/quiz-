@@ -222,7 +222,8 @@ document.addEventListener('DOMContentLoaded', () => {
 <script src="dtech_cosmetics.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script type="module" src="firebase_config.js"></script>
-<script src="offline_mode.js"></script>
+<script src="offline_engine.js"></script>
+<script src="register_sw.js"></script>
 </head>
 <body>
 
@@ -357,13 +358,7 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
 
     async function fetchUserData() {
         try {
-            let data = null;
-            if (window.getCombinedUserData) {
-                data = await window.getCombinedUserData(userId);
-            } else {
-                const res = await fetch(`${API_URL}/api/user/${userId}`);
-                if (res.ok) data = await res.json();
-            }
+            let data = await OfflineAPI.getProfile(userId);
             if (data && data.completed_weekly_exams) {
                 completedExams = data.completed_weekly_exams;
             }
@@ -382,9 +377,7 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
         await fetchUserData();
 
         try {
-            const response = await fetch('dataset/weekly_quiz/weekly_map.json');
-            if (!response.ok) throw new Error("Could not load weekly map");
-            const mapData = await response.json();
+            const mapData = await OfflineAPI.getDataset('/dataset/weekly_quiz/weekly_map.json');
 
             container.innerHTML = "";
 
@@ -534,9 +527,7 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
         document.getElementById("loading").style.display = "block";
 
         try {
-            const response = await fetch(`dataset/weekly_quiz/${filepath}`);
-            if (!response.ok) throw new Error("Exam dataset not found");
-            currentExamData = await response.json();
+            currentExamData = await OfflineAPI.getDataset(`/dataset/weekly_quiz/${filepath}`);
 
             const subjectFormatted = subject.replace('_', ' ').replace(/\b\w/g, c => c.toUpperCase());
             document.getElementById("quiz-title").textContent = `Weekly Exam - ${subjectFormatted}`;
@@ -769,7 +760,20 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
                 pointsEarned = totalXpEarned * 2;
             }
 
-            if (window.queueFirebaseAction) {
+            if (window.OfflineAPI) {
+                window.OfflineAPI.enqueueSync('/api/submit-weekly-exam', {
+                    action: "weekly",
+                    userId: userId,
+                    subject: normalizedSubject,
+                    examKey: `${currentExamWeek}_${currentSubject}`,
+                    totalXp: totalXpEarned,
+                    points: pointsEarned,
+                    score: correct,
+                    totalQs: total,
+                    correct_answers: correct,
+                    total_questions: total
+                });
+            } else if (window.queueFirebaseAction) {
                 window.queueFirebaseAction({
                     action: "weekly",
                     userId: userId,
@@ -879,13 +883,7 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
             try {
                 const userId = localStorage.getItem('user_id');
                 if (userId) {
-                    let userData = null;
-                    if (window.getCombinedUserData) {
-                        userData = await window.getCombinedUserData(userId);
-                    } else {
-                        const req = await fetch(`${API_URL}/api/user/${userId}`);
-                        if (req.ok) userData = await req.json();
-                    }
+                    let userData = await OfflineAPI.getProfile(userId);
                     if (userData) {
                         userName = `${userData.name || ''} ${userData.surname || ''}`.trim() || userData.username || 'Student';
                     }

@@ -120,7 +120,8 @@
 
     </style>
     <script type="module" src="firebase_config.js"></script>
-<script src="offline_mode.js"></script>
+<script src="offline_engine.js"></script>
+<script src="register_sw.js"></script>
 </head>
 <body>
 
@@ -363,7 +364,13 @@
         localPoints += totalPoints;
         localClicksToday += 1;
 
-        if (window.queueFirebaseAction) {
+        if (window.OfflineAPI) {
+            window.OfflineAPI.enqueueSync('/api/store/sync-points', {
+                action: "points",
+                userId: userId,
+                added_points: totalPoints
+            });
+        } else if (window.queueFirebaseAction) {
             window.queueFirebaseAction({
                 action: "points",
                 userId: userId,
