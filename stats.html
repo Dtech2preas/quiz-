@@ -262,7 +262,8 @@ document.addEventListener('DOMContentLoaded', () => {
     </style>
 <script src="dtech_cosmetics.js"></script>
     <script type="module" src="firebase_config.js"></script>
-<script src="offline_mode.js"></script>
+<script src="offline_engine.js"></script>
+<script src="register_sw.js"></script>
 </head>
 <body>
 
@@ -357,13 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function loadStats() {
         try {
-            let data = null;
-            if (window.getCombinedUserData) {
-                data = await window.getCombinedUserData(userId);
-            } else {
-                const response = await fetch(`${API_URL}/api/user/${userId}`);
-                if (response.ok) data = await response.json();
-            }
+            let data = await OfflineAPI.getProfile(userId);
 
             if (!data) {
                 localStorage.removeItem("user_id");

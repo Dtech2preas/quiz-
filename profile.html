@@ -435,7 +435,8 @@ footer a:hover{ text-decoration:underline; }
     </style>
 <script src="dtech_cosmetics.js"></script>
     <script type="module" src="firebase_config.js"></script>
-<script src="offline_mode.js"></script>
+<script src="offline_engine.js"></script>
+<script src="register_sw.js"></script>
 </head>
 
 <body>
@@ -537,13 +538,7 @@ function showMessage(msg, isError = false) {
 
 async function loadProfile() {
     try {
-        let data = null;
-        if (window.getCombinedUserData) {
-            data = await window.getCombinedUserData(userId);
-        } else {
-            const res = await fetch(`${API_URL}/api/user/${userId}`);
-            if (res.ok) data = await res.json();
-        }
+        let data = await OfflineAPI.getProfile(userId);
         if (!data) throw new Error("Failed to load profile");
 
         if (data.grade) {
@@ -872,13 +867,7 @@ document.getElementById("avatarInput").addEventListener("change", async (e) => {
         msg.style.color = "#f87171";
 
         try {
-            let userData = null;
-            if (window.getCombinedUserData) {
-                userData = await window.getCombinedUserData(userId);
-            } else {
-                const userRes = await fetch(`${API_URL}/api/user/${userId}`);
-                if (userRes.ok) userData = await userRes.json();
-            }
+            let userData = await OfflineAPI.getProfile(userId);
             if (userData) {
                 updateAvatarDisplay(userData);
             } else {

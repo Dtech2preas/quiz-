@@ -194,7 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
 <script src="dtech_cosmetics.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script type="module" src="firebase_config.js"></script>
-<script src="offline_mode.js"></script>
+<script src="offline_engine.js"></script>
+<script src="register_sw.js"></script>
 </head>
 <body>
 
@@ -350,11 +351,9 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
         document.getElementById("loading").style.display = "block";
 
         try {
-            // Fetch the dataset from the specific grade folder
-            let fetchUrl = `dataset/${userGrade}/${subject}/${filename}`;
-            const response = await fetch(fetchUrl);
-            if (!response.ok) throw new Error("Dataset not found");
-            const data = await response.json();
+            // Fetch the dataset from the specific grade folder via OfflineAPI
+            let fetchUrl = `/dataset/${userGrade}/${subject}/${filename}`;
+            const data = await OfflineAPI.getDataset(fetchUrl);
 
             // The JSON files contain an array of objects
             fullDataset = data;
@@ -537,7 +536,20 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
             const normalizedSubject = subject === "mathematics" ? "math" : subject;
             let publicXpEarned = passedThreshold ? (correctAnswersCount * 5) : 0;
 
-            if (window.queueFirebaseAction) {
+            if (window.OfflineAPI) {
+                window.OfflineAPI.enqueueSync('/api/submit-quiz', {
+                    action: "quiz",
+                    userId: userId,
+                    subject: normalizedSubject,
+                    topic: currentTopic,
+                    personalXp: personalXpEarned,
+                    publicXp: publicXpEarned,
+                    passed: passedThreshold,
+                    date: new Date().toISOString().split('T')[0],
+                    totalQs: quizQuestions.length,
+                    correct: correctAnswersCount
+                });
+            } else if (window.queueFirebaseAction) {
                 window.queueFirebaseAction({
                     action: "quiz",
                     userId: userId,
@@ -694,13 +706,7 @@ const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
             try {
                 const userId = localStorage.getItem('user_id');
                 if (userId) {
-                    let userData = null;
-                    if (window.getCombinedUserData) {
-                        userData = await window.getCombinedUserData(userId);
-                    } else {
-                        const req = await fetch(`${API_URL}/api/user/${userId}`);
-                        if (req.ok) userData = await req.json();
-                    }
+                    let userData = await OfflineAPI.getProfile(userId);
                     if (userData) {
                         userName = `${userData.name || ''} ${userData.surname || ''}`.trim() || userData.username || 'Student';
                     }

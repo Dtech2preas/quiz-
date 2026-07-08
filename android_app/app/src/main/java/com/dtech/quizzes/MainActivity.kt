@@ -21,9 +21,6 @@ import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.FrameLayout
-import android.widget.LinearLayout
-import android.widget.ProgressBar
-import android.widget.TextView
 import android.widget.Toast
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -34,9 +31,6 @@ import java.io.OutputStream
 class MainActivity : AppCompatActivity() {
 
     lateinit var webView: WebView
-    lateinit var downloadBanner: LinearLayout
-    lateinit var downloadText: TextView
-    lateinit var downloadProgressBar: ProgressBar
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,10 +41,6 @@ class MainActivity : AppCompatActivity() {
         val webViewContainer = findViewById<FrameLayout>(R.id.webViewContainer)
         webView = WebView(this)
         webViewContainer.addView(webView)
-
-        downloadBanner = findViewById(R.id.downloadBanner)
-        downloadText = findViewById(R.id.downloadText)
-        downloadProgressBar = findViewById(R.id.downloadProgressBar)
 
         val webSettings: WebSettings = webView.settings
         webSettings.javaScriptEnabled = true
@@ -65,8 +55,6 @@ class MainActivity : AppCompatActivity() {
 
         // Add Javascript interface for base64 downloads
         webView.addJavascriptInterface(AndroidDownloader(this), "AndroidDownloader")
-        // Add Javascript interface for dataset caching
-        webView.addJavascriptInterface(AndroidCacher(this, this), "AndroidCacher")
         // Add Javascript interface for opening URLs in external browser
         webView.addJavascriptInterface(AndroidExternalBrowser(this), "AndroidExternalBrowser")
         webView.addJavascriptInterface(AndroidExit(this), "AndroidExit")
@@ -123,49 +111,6 @@ class MainActivity : AppCompatActivity() {
                 super.onPageFinished(view, url)
                 // Inject a flag into the window object to notify the web app it's running in Android
                 view?.evaluateJavascript("window.IS_ANDROID_APP = true; if(window.onAndroidAppDetected) { window.onAndroidAppDetected(); }", null)
-            }
-
-            override fun shouldInterceptRequest(
-                view: WebView?,
-                request: WebResourceRequest?
-            ): android.webkit.WebResourceResponse? {
-                val urlString = request?.url?.toString() ?: return null
-
-                // Check if device is offline
-                val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as android.net.ConnectivityManager
-                val networkInfo = cm.activeNetworkInfo
-                val isOffline = networkInfo == null || !networkInfo.isConnected
-
-                // Only intercept our domain and only if offline
-                if (isOffline && urlString.startsWith("https://quiz.dtech-services.co.za")) {
-                    try {
-                        val path = request.url.path ?: "/"
-                        val cleanPath = if (path == "" || path == "/") "/index.html" else path
-
-                        // Check if file exists in internal storage
-                        val localFile = java.io.File(filesDir, cleanPath)
-                        if (localFile.exists()) {
-                            // Determine mime type
-                            val mimeType = when {
-                                cleanPath.endsWith(".html") -> "text/html"
-                                cleanPath.endsWith(".js") -> "application/javascript"
-                                cleanPath.endsWith(".css") -> "text/css"
-                                cleanPath.endsWith(".json") -> "application/json"
-                                cleanPath.endsWith(".png") -> "image/png"
-                                cleanPath.endsWith(".jpg") || cleanPath.endsWith(".jpeg") -> "image/jpeg"
-                                cleanPath.endsWith(".ico") -> "image/x-icon"
-                                else -> "text/plain"
-                            }
-
-                            val inputStream = java.io.FileInputStream(localFile)
-                            return android.webkit.WebResourceResponse(mimeType, "UTF-8", inputStream)
-                        }
-                    } catch (e: Exception) {
-                        e.printStackTrace()
-                    }
-                }
-
-                return super.shouldInterceptRequest(view, request)
             }
         }
 
@@ -290,7 +235,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
-        webView.evaluateJavascript("if(window.triggerFinalSync) { window.triggerFinalSync(false, false); }", null)
+        webView.evaluateJavascript("if(window.OfflineAPI) { window.OfflineAPI.attemptSync(); }", null)
     }
 
     override fun onBackPressed() {
@@ -313,7 +258,7 @@ class MainActivity : AppCompatActivity() {
         if (webView.canGoBack()) {
             webView.goBack()
         } else {
-            webView.evaluateJavascript("if(window.triggerFinalSync) { window.triggerFinalSync(false, true); } else { window.AndroidExit.closeApp(); }", null)
+            webView.evaluateJavascript("if(window.OfflineAPI) { window.OfflineAPI.attemptSync(); } window.AndroidExit.closeApp();", null)
         }
     }
 }
@@ -383,158 +328,6 @@ class AndroidDownloader(private val context: Context) {
 }
 
 
-class AndroidCacher(private val context: Context, private val activity: MainActivity) {
-    @JavascriptInterface
-    fun cacheGradeDatasets(grade: String) {
-        val uiHandler = android.os.Handler(android.os.Looper.getMainLooper())
-
-        // Show banner immediately
-        uiHandler.post {
-            activity.downloadBanner.visibility = android.view.View.VISIBLE
-            activity.downloadText.text = "Starting offline cache for $grade..."
-            activity.downloadProgressBar.progress = 0
-        }
-
-        Thread {
-            try {
-                // Core files to download
-                val coreFiles = listOf(
-                    "/", "/index.html", "/login.html", "/signup.html", "/dashboard.html",
-                    "/quiz.html", "/weekly_quiz.html", "/test.html", "/test_run_grades.html",
-                    "/test_run_subjects.html", "/test_run_quiz.html", "/leaderboard.html",
-                    "/global_leaderboard.html", "/profile.html", "/public_profile.html",
-                    "/store.html", "/earn_points.html", "/stats.html", "/admin.html",
-                    "/map.json", "/dataset/weekly_quiz/weekly_map.json", "/dtech_cosmetics.js", "/offline_mode.js"
-                )
-
-                val baseUrl = "https://quiz.dtech-services.co.za"
-                val allFilesToDownload = mutableListOf<String>()
-                allFilesToDownload.addAll(coreFiles)
-
-                // First download map.json to parse it
-                val mapJsonFile = downloadFile(baseUrl, "/map.json")
-                if (mapJsonFile != null && mapJsonFile.exists()) {
-                    val mapJsonStr = mapJsonFile.readText()
-                    try {
-                        val jsonObject = org.json.JSONObject(mapJsonStr)
-                        if (jsonObject.has(grade)) {
-                            val gradeObj = jsonObject.getJSONObject(grade)
-                            val subjects = gradeObj.keys()
-                            while (subjects.hasNext()) {
-                                val subject = subjects.next()
-                                val filesArray = gradeObj.getJSONArray(subject)
-                                for (i in 0 until filesArray.length()) {
-                                    val fileObj = filesArray.getJSONObject(i)
-                                    val fileName = fileObj.getString("file")
-                                    allFilesToDownload.add("/dataset/$grade/$subject/$fileName")
-                                }
-                            }
-                        }
-                    } catch (e: Exception) {
-                        e.printStackTrace()
-                    }
-                }
-
-                // Download everything sequentially
-                val total = allFilesToDownload.size
-                var count = 0
-                var hasFailures = false
-                for (path in allFilesToDownload) {
-                    val downloadedFile = downloadFile(baseUrl, path)
-                    if (downloadedFile == null) {
-                        hasFailures = true
-                        break // Stop downloading if one fails
-                    }
-                    count++
-                    val percentage = ((count.toFloat() / total) * 100).toInt()
-                    uiHandler.post {
-                        activity.downloadText.text = "Downloading offline datasets... $percentage% ($count/$total)"
-                        activity.downloadProgressBar.progress = percentage
-                    }
-                }
-
-                if (!hasFailures) {
-                    // Finished successfully
-                    uiHandler.post {
-                        activity.downloadText.text = "Download complete!"
-                        activity.downloadProgressBar.progress = 100
-
-                        // Tell JS it was successful so it won't trigger again
-                        activity.webView.evaluateJavascript("localStorage.setItem('dtech_datasets_cached_$grade', 'true'); localStorage.removeItem('dtech_caching_in_progress');", null)
-
-                        android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
-                            activity.downloadBanner.visibility = android.view.View.GONE
-                        }, 2000)
-                    }
-                } else {
-                    uiHandler.post {
-                        activity.downloadText.text = "Download failed."
-                        activity.webView.evaluateJavascript("localStorage.removeItem('dtech_caching_in_progress');", null)
-                        android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
-                            activity.downloadBanner.visibility = android.view.View.GONE
-                        }, 3000)
-                    }
-                }
-
-            } catch (e: Exception) {
-                e.printStackTrace()
-                uiHandler.post {
-                    activity.downloadText.text = "Download failed."
-                    activity.webView.evaluateJavascript("localStorage.removeItem('dtech_caching_in_progress');", null)
-                    android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
-                        activity.downloadBanner.visibility = android.view.View.GONE
-                    }, 3000)
-                }
-            }
-        }.start()
-    }
-
-    private fun downloadFile(baseUrl: String, path: String): File? {
-        val cleanPath = if (path == "/") "/index.html" else path
-        val targetFile = File(context.filesDir, cleanPath)
-
-        // Ensure directory exists
-        targetFile.parentFile?.mkdirs()
-
-        try {
-            val url = java.net.URL(baseUrl + path)
-            val connection = url.openConnection() as java.net.HttpURLConnection
-            connection.requestMethod = "GET"
-            connection.connectTimeout = 10000
-            connection.readTimeout = 10000
-
-            if (connection.responseCode == java.net.HttpURLConnection.HTTP_OK) {
-                val inputStream = connection.inputStream
-                val outputStream = FileOutputStream(targetFile)
-                val buffer = ByteArray(4096)
-                var bytesRead: Int
-                var totalBytesRead = 0
-                while (inputStream.read(buffer).also { bytesRead = it } != -1) {
-                    outputStream.write(buffer, 0, bytesRead)
-                    totalBytesRead += bytesRead
-                }
-                outputStream.close()
-                inputStream.close()
-
-                if (totalBytesRead > 0) {
-                    return targetFile
-                } else {
-                    targetFile.delete()
-                    return null
-                }
-            } else {
-                targetFile.delete()
-                return null
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-            if (targetFile.exists()) {
-                targetFile.delete()
-            }
-        }
-        return null
-    }
-}
 
 
 class AndroidExternalBrowser(private val context: Context) {

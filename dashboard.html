@@ -182,7 +182,8 @@
 <script src="dtech_cosmetics.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script type="module" src="firebase_config.js"></script>
-<script src="offline_mode.js"></script>
+<script src="offline_engine.js"></script>
+<script src="register_sw.js"></script>
 <script src="update_timer.js"></script>
 </head>
 <body>
@@ -352,9 +353,8 @@
 
     async function fetchGradeMap() {
         try {
-            const response = await fetch('map.json');
-            if (!response.ok) throw new Error("Could not load map.json");
-            return await response.json();
+            const data = await OfflineAPI.getDataset('/map.json');
+            return data;
         } catch (error) {
             console.error(error);
             return {};
@@ -377,14 +377,11 @@
             const queryParams = subjectsToQuery.length > 0 ? `?subjects=${subjectsToQuery.join(',')}` : '';
 
             let data = null;
-            if (window.getCombinedUserData) {
-                data = await window.getCombinedUserData(userId, queryParams);
-            } else {
-                const response = await fetch(`${API_URL}/api/user/${userId}${queryParams}`);
-                if (response.ok) {
-                    data = await response.json();
-                }
-            }
+
+            // Stash query params for the ServiceWorker/OfflineAPI to use if it goes online
+            localStorage.setItem('last_query_params', queryParams);
+
+            data = await OfflineAPI.getProfile(userId);
 
             if (!data) {
                 localStorage.removeItem("user_id");
@@ -509,10 +506,8 @@
 
             // Check for weekly exams
             try {
-                const weeklyMapRes = await fetch('dataset/weekly_quiz/weekly_map.json');
-                if (weeklyMapRes.ok) {
-                    const weeklyMap = await weeklyMapRes.json();
-
+                const weeklyMap = await OfflineAPI.getDataset('/dataset/weekly_quiz/weekly_map.json');
+                if (weeklyMap) {
                     function getWeekNumber(d) {
                         d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
                         d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay()||7));
@@ -613,13 +608,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             let userData = null;
-            if (window.getCombinedUserData) {
-                userData = await window.getCombinedUserData(userId);
-            } else {
-                const req = await fetch(`${API_URL}/api/user/${userId}`);
-                if (!req.ok) throw new Error("Failed to fetch user data");
-                userData = await req.json();
-            }
+            userData = await OfflineAPI.getProfile(userId);
 
             if (!userData) throw new Error("Failed to fetch user data");
 
