@@ -588,9 +588,9 @@
 
     async function fetchGradeMap() {
         try {
-            const response = await fetch('map.json');
-            if (!response.ok) return null;
-            return await response.json();
+            const data = await OfflineAPI.getDataset('/map.json');
+            if (!data) return null;
+            return data;
         } catch (error) {
             return null;
         }

@@ -197,9 +197,9 @@
 
     async function fetchGradeMap() {
         try {
-            const response = await fetch('map.json');
-            if (!response.ok) throw new Error("Could not load map.json");
-            return await response.json();
+            const data = await OfflineAPI.getDataset('/map.json');
+            if (!data) throw new Error("Could not load map.json");
+            return data;
         } catch (error) {
             console.error(error);
             return {};
