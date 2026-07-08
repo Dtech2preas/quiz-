@@ -763,9 +763,9 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
             if (window.OfflineAPI) {
                 window.OfflineAPI.enqueueSync('/api/submit-weekly-exam', {
                     action: "weekly",
-                    userId: userId,
+                    user_id: userId,
                     subject: normalizedSubject,
-                    examKey: `${currentExamWeek}_${currentSubject}`,
+                    exam_week: currentExamWeek,
                     totalXp: totalXpEarned,
                     points: pointsEarned,
                     score: correct,
@@ -776,13 +776,15 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
             } else if (window.queueFirebaseAction) {
                 window.queueFirebaseAction({
                     action: "weekly",
-                    userId: userId,
+                    user_id: userId,
                     subject: normalizedSubject,
-                    examKey: `${currentExamWeek}_${currentSubject}`,
+                    exam_week: currentExamWeek,
                     totalXp: totalXpEarned,
                     points: pointsEarned,
                     score: correct,
-                    totalQs: total
+                    totalQs: total,
+                    correct_answers: correct,
+                    total_questions: total
                 });
             }
 

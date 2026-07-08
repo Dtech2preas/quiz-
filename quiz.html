@@ -539,28 +539,28 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
             if (window.OfflineAPI) {
                 window.OfflineAPI.enqueueSync('/api/submit-quiz', {
                     action: "quiz",
-                    userId: userId,
+                    user_id: userId,
                     subject: normalizedSubject,
                     topic: currentTopic,
                     personalXp: personalXpEarned,
                     publicXp: publicXpEarned,
                     passed: passedThreshold,
                     date: new Date().toISOString().split('T')[0],
-                    totalQs: quizQuestions.length,
-                    correct: correctAnswersCount
+                    total_questions: quizQuestions.length,
+                    correct_answers: correctAnswersCount
                 });
             } else if (window.queueFirebaseAction) {
                 window.queueFirebaseAction({
                     action: "quiz",
-                    userId: userId,
+                    user_id: userId,
                     subject: normalizedSubject,
                     topic: currentTopic,
                     personalXp: personalXpEarned,
                     publicXp: publicXpEarned,
                     passed: passedThreshold,
                     date: new Date().toISOString().split('T')[0],
-                    totalQs: quizQuestions.length,
-                    correct: correctAnswersCount
+                    total_questions: quizQuestions.length,
+                    correct_answers: correctAnswersCount
                 });
             }
 
