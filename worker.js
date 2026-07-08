@@ -255,7 +255,8 @@ async function handleSignup(request, env) {
 
 async function handleLogin(request, env) {
   const body = await request.json();
-  const { username, password } = body;
+  const { password } = body;
+  const username = body.username ? body.username.trim() : "";
 
   if (!username || !password) {
     return jsonResponse({ error: "Username and password are required" }, 400);

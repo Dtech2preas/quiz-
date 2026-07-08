@@ -29,7 +29,7 @@ window.firebaseUpdate = update;
 window.firebaseOnValue = onValue;
 window.firebaseRunTransaction = runTransaction;
 
-const API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
+var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
 
 // Lightweight durable queue for Firebase RTDB
 async function processQueue() {
