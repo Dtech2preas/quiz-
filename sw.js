@@ -16,6 +16,7 @@ const ASSETS_TO_CACHE = [
   '/leaderboard.html',
   '/global_leaderboard.html',
   '/dtech_cosmetics.js',
+  '/security.js',
   '/offline_engine.js',
   '/firebase_config.js',
   '/register_sw.js',
