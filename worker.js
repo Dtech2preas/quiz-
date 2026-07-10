@@ -609,7 +609,7 @@ async function handleSubmitQuiz(request, env, ctx) {
   const normalizedSubject = subject === "mathematics" ? "math" : subject;
 
   // Personal XP: +5 per correct answer (always added)
-  const personalXpEarned = correct_answers * 5;
+  const personalXpEarned = body.personalXp !== undefined ? body.personalXp : correct_answers * 5;
   userData.personal_total_xp += personalXpEarned;
   if (normalizedSubject === "math") {
     userData.personal_math_xp += personalXpEarned;
@@ -629,9 +629,10 @@ async function handleSubmitQuiz(request, env, ctx) {
   const today = new Date().toISOString().split('T')[0];
 
   if (passedThreshold) {
-    const rawPublicXpEarned = correct_answers * 5;
+    const rawPublicXpEarned = body.publicXp !== undefined ? body.publicXp : correct_answers * 5;
 
-    // Check daily cap (350 XP max)
+    // Daily cap logic is now handled strictly by the frontend before sending payload,
+    // but we still update the streak and last_active_date here.
     if (userData.last_quiz_date !== today) {
       userData.daily_xp = 0;
       userData.last_quiz_date = today;
@@ -649,11 +650,8 @@ async function handleSubmitQuiz(request, env, ctx) {
 
     userData.last_active_date = today;
 
-    if ((userData.daily_xp || 0) + rawPublicXpEarned > 350) {
-      publicXpEarned = Math.max(0, 350 - (userData.daily_xp || 0));
-    } else {
-      publicXpEarned = rawPublicXpEarned;
-    }
+    // We trust the frontend's calculation for publicXpEarned (with a hard sanity cap just in case)
+    publicXpEarned = Math.min(rawPublicXpEarned, correct_answers * 5); // Sanity max per quiz to prevent injection, but allows full legit XP
 
     userData.daily_xp = (userData.daily_xp || 0) + publicXpEarned;
 
@@ -685,6 +683,13 @@ async function handleSubmitQuiz(request, env, ctx) {
   // Always update global stats regardless of score
   userData.questions_answered += total_questions;
   userData.correct_answers += correct_answers;
+  if (body.rewarded_completions !== undefined) {
+      userData.rewarded_completions = { ...(userData.rewarded_completions || {}), ...body.rewarded_completions };
+  } else if (publicXpEarned > 0) {
+      if (!userData.rewarded_completions) userData.rewarded_completions = {};
+      const historyKey = `${normalizedSubject}_${topic}`;
+      userData.rewarded_completions[historyKey] = (userData.rewarded_completions[historyKey] || 0) + 1;
+  }
   userData.accuracy_percentage = userData.questions_answered > 0 ? Math.round((userData.correct_answers / userData.questions_answered) * 100) : 0;
   userData.quizzes_completed += 1;
 
@@ -746,12 +751,12 @@ async function handleSubmitWeeklyExam(request, env, ctx) {
 
   const scorePercentage = total_questions > 0 ? (correct_answers / total_questions) * 100 : 0;
 
-  let examXpEarned = 0;
-  let bonusXp = 0;
-  let pointsEarned = 0;
+  let examXpEarned = body.totalXp !== undefined ? body.totalXp : 0;
+  let pointsEarned = body.points !== undefined ? body.points : 0;
 
-  if (scorePercentage >= 40) {
+  if (body.totalXp === undefined && scorePercentage >= 40) {
     let base_xp = correct_answers * 8;
+    let bonusXp = 0;
     if (scorePercentage > 80) {
         if (scorePercentage >= 95) bonusXp = 150;
         else if (scorePercentage >= 90) bonusXp = 100;
@@ -801,6 +806,13 @@ async function handleSubmitWeeklyExam(request, env, ctx) {
   // Global stats
   userData.questions_answered += total_questions;
   userData.correct_answers += correct_answers;
+  if (body.rewarded_completions !== undefined) {
+      userData.rewarded_completions = { ...(userData.rewarded_completions || {}), ...body.rewarded_completions };
+  } else if (publicXpEarned > 0) {
+      if (!userData.rewarded_completions) userData.rewarded_completions = {};
+      const historyKey = `${normalizedSubject}_${topic}`;
+      userData.rewarded_completions[historyKey] = (userData.rewarded_completions[historyKey] || 0) + 1;
+  }
   userData.accuracy_percentage = userData.questions_answered > 0 ? Math.round((userData.correct_answers / userData.questions_answered) * 100) : 0;
   userData.quizzes_completed += 1;
 
@@ -1099,10 +1111,14 @@ async function handleBatchSync(request, env, ctx) {
       if (userData.quiz_history === undefined) userData.quiz_history = {};
       const attempts = userData.quiz_history[historyKey] || 0;
 
-      let xpEarned = 0;
-      let pointsEarned = 0;
 
-      if (passed && attempts < 3) {
+      let xpEarned = item.data.publicXp !== undefined ? item.data.publicXp : 0;
+      let personalXpEarned = item.data.personalXp !== undefined ? item.data.personalXp : (passed ? 50 : 0); // rough fallback
+      let pointsEarned = xpEarned > 0 ? Math.floor(xpEarned / 5) : 0; // Fallback heuristic if not provided
+      if (item.data.points !== undefined) pointsEarned = item.data.points;
+
+      // Fallback to legacy logic if frontend didn't send publicXp
+      if (item.data.publicXp === undefined && passed && attempts < 3) {
         if (attempts === 0) {
           xpEarned = 50;
           pointsEarned = 10;
@@ -1113,20 +1129,25 @@ async function handleBatchSync(request, env, ctx) {
           xpEarned = 10;
           pointsEarned = 2;
         }
+        personalXpEarned = xpEarned;
+      }
 
-        userData.personal_total_xp += xpEarned;
-        userData.total_xp = userData.personal_total_xp;
+      if (item.data.publicXp !== undefined || (passed && attempts < 3)) {
+
+        userData.personal_total_xp += personalXpEarned;
+        userData.total_xp += xpEarned; // Decouple total_xp from personal_total_xp
 
         if (mappedSubject === "math") {
-          userData.personal_math_xp += xpEarned;
-          userData.math_xp = userData.personal_math_xp;
+          userData.personal_math_xp += personalXpEarned;
+          userData.math_xp += xpEarned;
         } else if (mappedSubject === "physics") {
-          userData.personal_physics_xp += xpEarned;
-          userData.physics_xp = userData.personal_physics_xp;
+          userData.personal_physics_xp += personalXpEarned;
+          userData.physics_xp += xpEarned;
         } else {
-          userData.personal_subjects_xp[mappedSubject] = (userData.personal_subjects_xp[mappedSubject] || 0) + xpEarned;
-          userData.subjects_xp[mappedSubject] = userData.personal_subjects_xp[mappedSubject];
+          userData.personal_subjects_xp[mappedSubject] = (userData.personal_subjects_xp[mappedSubject] || 0) + personalXpEarned;
+          userData.subjects_xp[mappedSubject] = (userData.subjects_xp[mappedSubject] || 0) + xpEarned;
         }
+
 
         if (userData.dtech_points === undefined) userData.dtech_points = 0;
         userData.dtech_points += pointsEarned;
@@ -1137,6 +1158,12 @@ async function handleBatchSync(request, env, ctx) {
       }
 
       userData.quiz_history[historyKey] = attempts + 1;
+      if (item.data.rewarded_completions !== undefined) {
+          userData.rewarded_completions = { ...(userData.rewarded_completions || {}), ...item.data.rewarded_completions };
+      } else if (item.data.publicXp > 0) {
+          if (!userData.rewarded_completions) userData.rewarded_completions = {};
+          userData.rewarded_completions[historyKey] = (userData.rewarded_completions[historyKey] || 0) + 1;
+      }
 
     } else if (item.url.includes('/api/submit-weekly-exam')) {
       const { subject, exam_week, total_questions, correct_answers } = item.data;
@@ -1156,10 +1183,12 @@ async function handleBatchSync(request, env, ctx) {
       const percentage = (correct_answers / total_questions) * 100;
       const passed = percentage >= 40;
 
-      let xpEarned = 0;
-      let pointsEarned = 0;
 
-      if (passed) {
+      let xpEarned = item.data.totalXp !== undefined ? item.data.totalXp : 0;
+      let personalXpEarned = item.data.totalXp !== undefined ? item.data.totalXp : 0; // Same for weekly
+      let pointsEarned = item.data.points !== undefined ? item.data.points : 0;
+
+      if (item.data.totalXp === undefined && passed) {
         let base_xp = correct_answers * 8;
         let bonusXp = 0;
         if (percentage > 80) {
@@ -1168,7 +1197,10 @@ async function handleBatchSync(request, env, ctx) {
             else bonusXp = 50;
         }
         xpEarned = base_xp + bonusXp;
+        personalXpEarned = xpEarned;
         pointsEarned = xpEarned * 2;
+      }
+      if (xpEarned > 0 || pointsEarned > 0 || (item.data.totalXp === undefined && passed)) {
 
         // Ensure fields
         if (userData.personal_total_xp === undefined) userData.personal_total_xp = userData.total_xp || 0;
@@ -1177,21 +1209,22 @@ async function handleBatchSync(request, env, ctx) {
         if (userData.subjects_xp === undefined) userData.subjects_xp = {};
         if (userData.personal_subjects_xp === undefined) userData.personal_subjects_xp = {};
 
-        userData.personal_total_xp += xpEarned;
-        userData.total_xp = userData.personal_total_xp;
+        userData.personal_total_xp += personalXpEarned;
+        userData.total_xp += xpEarned;
 
         const mappedSubject = subject === "mathematics" ? "math" : subject;
 
         if (mappedSubject === "math") {
-          userData.personal_math_xp += xpEarned;
-          userData.math_xp = userData.personal_math_xp;
+          userData.personal_math_xp += personalXpEarned;
+          userData.math_xp += xpEarned;
         } else if (mappedSubject === "physics") {
-          userData.personal_physics_xp += xpEarned;
-          userData.physics_xp = userData.personal_physics_xp;
+          userData.personal_physics_xp += personalXpEarned;
+          userData.physics_xp += xpEarned;
         } else {
-          userData.personal_subjects_xp[mappedSubject] = (userData.personal_subjects_xp[mappedSubject] || 0) + xpEarned;
-          userData.subjects_xp[mappedSubject] = userData.personal_subjects_xp[mappedSubject];
+          userData.personal_subjects_xp[mappedSubject] = (userData.personal_subjects_xp[mappedSubject] || 0) + personalXpEarned;
+          userData.subjects_xp[mappedSubject] = (userData.subjects_xp[mappedSubject] || 0) + xpEarned;
         }
+
 
         if (userData.dtech_points === undefined) userData.dtech_points = 0;
         userData.dtech_points += pointsEarned;

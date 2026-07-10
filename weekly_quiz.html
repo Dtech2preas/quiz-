@@ -431,8 +431,24 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
                         const isCurrentWeek = week === currentWeekStr;
                         const { month, week: weekLabel } = getMonthAndWeek(week);
 
+
                         const examKey = `${week}_${subject}`;
                         const isCompleted = completedExams[examKey];
+
+                        let decayMessage = "";
+                        if (!isCurrentWeek && !isCompleted) {
+                            try {
+                                const [eYear, eWeekStr] = week.split('-W');
+                                const [cYear, cWeekStr] = currentWeekStr.split('-W');
+                                const ageInWeeks = ((parseInt(cYear) - parseInt(eYear)) * 52) + (parseInt(cWeekStr) - parseInt(eWeekStr));
+                                if (ageInWeeks > 0) {
+                                    const decayPercent = Math.min(ageInWeeks * 10, 70);
+                                    decayMessage = `<span style="display:inline-block; margin-top:5px; font-size:0.75rem; color:var(--accent-gold); border: 1px solid var(--accent-gold); padding:2px 6px; border-radius:12px;">${decayPercent}% less points</span>`;
+                                }
+                            } catch(e){}
+                        } else if (isCurrentWeek && !isCompleted) {
+                            decayMessage = `<span style="display:inline-block; margin-top:5px; font-size:0.75rem; color:var(--accent-green); border: 1px solid var(--accent-green); padding:2px 6px; border-radius:12px;">Full Points</span>`;
+                        }
 
                         let btnHtml = "";
                         if (isCompleted) {
@@ -447,10 +463,12 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
                                     <h4>${examInfo.label}</h4>
                                     <p style="color: var(--text-muted); margin-bottom: 0.2rem;">${month} - ${weekLabel}</p>
                                     <p>${examInfo.total_questions} Questions</p>
+                                    ${decayMessage}
                                 </div>
                                 ${btnHtml}
                             </div>
                         `;
+
 
                         if (isCurrentWeek) {
                             currentWeekHtml += examItemHtml;
@@ -743,11 +761,13 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
             document.getElementById("xp-message-container").style.display = "block";
             document.getElementById("offline-sync-notice").style.display = "none";
 
+
             const normalizedSubject = currentSubject === "mathematics" ? "math" : currentSubject;
             let examXpEarned = 0;
             let bonusXp = 0;
             let totalXpEarned = 0;
             let pointsEarned = 0;
+            let decayMessage = "";
 
             if (percentage >= 40) {
                 examXpEarned = correct * 8;
@@ -756,9 +776,43 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
                     else if (percentage >= 90) bonusXp = 100;
                     else bonusXp = 50;
                 }
-                totalXpEarned = examXpEarned + bonusXp;
+                let rawTotalXp = examXpEarned + bonusXp;
+
+                // NEW EXAM DECAY LOGIC
+                // currentExamWeek looks like "2023-W42" or similar
+                // We need the current week to compare
+                const getCurrentWeek = () => {
+                    const now = new Date();
+                    const start = new Date(now.getFullYear(), 0, 1);
+                    const diff = now - start;
+                    const oneWeek = 1000 * 60 * 60 * 24 * 7;
+                    const week = Math.floor(diff / oneWeek) + 1;
+                    return `${now.getFullYear()}-W${week.toString().padStart(2, '0')}`;
+                };
+
+                const realCurrentWeek = getCurrentWeek();
+
+                if (currentExamWeek && currentExamWeek !== realCurrentWeek) {
+                    // Calculate age in weeks (rough estimate)
+                    try {
+                        const [eYear, eWeekStr] = currentExamWeek.split('-W');
+                        const [cYear, cWeekStr] = realCurrentWeek.split('-W');
+                        const ageInWeeks = ((parseInt(cYear) - parseInt(eYear)) * 52) + (parseInt(cWeekStr) - parseInt(eWeekStr));
+
+                        if (ageInWeeks > 0) {
+                            const decayPercent = Math.min(ageInWeeks * 10, 70); // 10% per week, max 70%
+                            rawTotalXp = Math.floor(rawTotalXp * ((100 - decayPercent) / 100));
+                            decayMessage = `(${decayPercent}% less points for older exam)`;
+                        }
+                    } catch(e) {
+                        console.warn("Could not calculate exam decay", e);
+                    }
+                }
+
+                totalXpEarned = Math.max(0, rawTotalXp);
                 pointsEarned = totalXpEarned * 2;
             }
+
 
             if (window.OfflineAPI) {
                 window.OfflineAPI.enqueueSync('/api/submit-weekly-exam', {
@@ -788,21 +842,26 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
                 });
             }
 
+
             if (percentage >= 40) {
                 let xpMsg = `+${totalXpEarned} XP & +${pointsEarned} Points Earned!`;
+                if (decayMessage) {
+                    xpMsg += `<br><span style="font-size:0.8em; color:var(--accent-gold);">${decayMessage}</span>`;
+                }
                 publicXpMsg.style.color = "var(--accent-green)";
 
                 if (bonusXp > 0) {
-                    personalXpMsg.textContent = `Includes ${bonusXp} Bonus XP for scoring ≥ 80%!`;
+                    personalXpMsg.textContent = `Includes Base Bonus XP for scoring ≥ 80%!`;
                 } else {
                     personalXpMsg.textContent = "Great job completing the weekly exam.";
                 }
-                publicXpMsg.textContent = xpMsg;
+                publicXpMsg.innerHTML = xpMsg;
             } else {
                 publicXpMsg.textContent = "Failed Exam";
                 publicXpMsg.style.color = "var(--accent-red)";
                 personalXpMsg.textContent = "You need at least 40% to earn XP and Points.";
             }
+
 
         } catch (error) {
             console.error(error);
