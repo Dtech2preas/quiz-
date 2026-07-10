@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    tags:
-      - 'v*'
   workflow_dispatch:
 
 permissions:
@@ -51,11 +49,33 @@ jobs:
         env:
           BUILD_TOOLS_VERSION: "34.0.0"
 
-      - name: Create GitHub Release
-        if: github.ref_type == 'tag'
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: DTECH-Quiz-APK
+          path: ${{ steps.sign_app.outputs.signedReleaseFile }}
+
+      - name: Delete existing latest release
+        continue-on-error: true
+        uses: dev-drprasad/delete-tag-and-release@v1.1
+        with:
+          delete_release: true
+          tag_name: latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Latest Release
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: latest
+          name: DTECH Quiz - Latest Build
+          body: |
+            Automatic release
+
+            Commit: ${{ github.sha }}
+            Version: v1.0-${{ steps.vars.outputs.sha_short }}
+
           files: ${{ steps.sign_app.outputs.signedReleaseFile }}
-          generate_release_notes: true
+
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
