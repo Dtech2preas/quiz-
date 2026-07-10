@@ -32,7 +32,7 @@ class AppUpdater(private val activity: Activity) {
     @JavascriptInterface
     fun checkForUpdates(callbackName: String) {
         val request = Request.Builder()
-            .url("https://api.github.com/repos/Dtech2preas/viss/releases/latest")
+            .url("https://quiz.dtech-services.co.za/version.json")
             .build()
 
         client.newCall(request).enqueue(object : Callback {
@@ -49,12 +49,12 @@ class AppUpdater(private val activity: Activity) {
                 try {
                     val responseBody = response.body?.string()
                     if (responseBody == null) {
-                        notifyFrontend(callbackName, "error", "Empty response from GitHub")
+                        notifyFrontend(callbackName, "error", "Empty response from server")
                         return
                     }
 
                     val json = JSONObject(responseBody)
-                    val tagName = json.getString("tag_name")
+                    val newVersion = json.optString("version", "")
 
                     val currentVersion = BuildConfig.GIT_TAG
 
@@ -64,28 +64,28 @@ class AppUpdater(private val activity: Activity) {
                         return
                     }
 
-                    if (tagName == currentVersion) {
+                    if (newVersion == currentVersion || newVersion.isEmpty()) {
                         notifyFrontend(callbackName, "no_update", "App is up to date.")
                         return
                     }
 
-                    // Look for APK asset
-                    val assets = json.getJSONArray("assets")
-                    var downloadUrl: String? = null
-                    for (i in 0 until assets.length()) {
-                        val asset = assets.getJSONObject(i)
-                        val name = asset.getString("name")
-                        if (name.endsWith(".apk")) {
-                            downloadUrl = asset.getString("browser_download_url")
-                            break
+                    val downloadUrl = json.optString("apk", "")
+                    if (downloadUrl.isNotEmpty()) {
+                        // Display release notes if available
+                        val releaseNotesArray = json.optJSONArray("releaseNotes")
+                        var releaseNotes = "Downloading update..."
+                        if (releaseNotesArray != null && releaseNotesArray.length() > 0) {
+                            val notesList = mutableListOf<String>()
+                            for (i in 0 until releaseNotesArray.length()) {
+                                notesList.add(releaseNotesArray.getString(i))
+                            }
+                            releaseNotes = notesList.joinToString("\n")
                         }
-                    }
 
-                    if (downloadUrl != null) {
-                        notifyFrontend(callbackName, "update_available", "Downloading update...")
+                        notifyFrontend(callbackName, "update_available", releaseNotes)
                         downloadAndInstallApk(downloadUrl, callbackName)
                     } else {
-                        notifyFrontend(callbackName, "error", "No APK found in release.")
+                        notifyFrontend(callbackName, "error", "No APK URL found in release.")
                     }
                 } catch (e: Exception) {
                     e.printStackTrace()
