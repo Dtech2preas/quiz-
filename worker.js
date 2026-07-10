@@ -950,6 +950,7 @@ async function handleScheduledSync(env) {
       let userData = JSON.parse(userDataString);
       let xpGained = false;
       let totalXpEarned = 0;
+      let subjectsToUpdate = new Set();
 
       // Convert object to array and sort by timestamp
       const commands = Object.values(commandsObj);
@@ -987,6 +988,7 @@ async function handleScheduledSync(env) {
 
                   xpGained = true;
                   totalXpEarned += (cmd.publicXp || 0);
+                  subjectsToUpdate.add(mappedSubject);
               }
 
               userData.questions_answered = (userData.questions_answered || 0) + (cmd.totalQs || 0);
@@ -1024,6 +1026,7 @@ async function handleScheduledSync(env) {
 
                   xpGained = true;
                   totalXpEarned += (cmd.totalXp || 0);
+                  subjectsToUpdate.add(cmd.subject);
               }
               userData.questions_answered = (userData.questions_answered || 0) + (cmd.totalQs || 0);
               userData.correct_answers = (userData.correct_answers || 0) + (cmd.score || 0);
@@ -1055,6 +1058,9 @@ async function handleScheduledSync(env) {
       // Process sequentially to prevent leaderboard race conditions
       if (xpGained || totalXpEarned > 0) {
           await updateLeaderboards(env, userData, currentWeek, totalXpEarned, "batch");
+          for (const subj of subjectsToUpdate) {
+              await updateLeaderboards(env, userData, currentWeek, 0, subj);
+          }
       }
       await updateLeaderboardUser(env, userId, userData);
 
@@ -1090,6 +1096,7 @@ async function handleBatchSync(request, env, ctx) {
   let totalPointsEarned = 0;
   let xpGained = false; // To know if we should update leaderboard asynchronously
   let today = new Date().toISOString().split("T")[0];
+  let subjectsToUpdate = new Set();
 
   for (const item of queue) {
     if (item.url.includes('/api/submit-quiz')) {
@@ -1155,6 +1162,7 @@ async function handleBatchSync(request, env, ctx) {
         totalXpEarned += xpEarned;
         totalPointsEarned += pointsEarned;
         xpGained = true;
+        subjectsToUpdate.add(mappedSubject);
       }
 
       userData.quiz_history[historyKey] = attempts + 1;
@@ -1232,6 +1240,7 @@ async function handleBatchSync(request, env, ctx) {
         totalXpEarned += xpEarned;
         totalPointsEarned += pointsEarned;
         xpGained = true;
+        subjectsToUpdate.add(mappedSubject);
       }
     } else if (item.url.includes('/api/store/sync-points')) {
       const { added_points, ads_clicked, push_claim } = item.data;
@@ -1292,6 +1301,9 @@ async function handleBatchSync(request, env, ctx) {
   // Only update leaderboards if XP was actually gained, to reduce KV writes
   if (xpGained) {
     await updateLeaderboards(env, userData, currentWeek, totalXpEarned || 0, "batch");
+    for (const subj of subjectsToUpdate) {
+        await updateLeaderboards(env, userData, currentWeek, 0, subj);
+    }
   }
   await updateLeaderboardUser(env, user_id, userData);
 
