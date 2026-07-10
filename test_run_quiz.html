@@ -242,6 +242,30 @@
     async function startQuiz() {
         await loadDataset();
 
+        const autoSaveKey = `dtech_autosave_test_run_${subject}_${currentTopic}`;
+        const savedState = localStorage.getItem(autoSaveKey);
+
+        if (savedState) {
+            try {
+                const state = JSON.parse(savedState);
+                quizQuestions = state.quizQuestions;
+                currentQuestionIndex = state.currentQuestionIndex;
+                correctAnswersCount = state.correctAnswersCount;
+            } catch(e) {
+                console.error("Failed to parse autosave", e);
+                initNewTestQuiz();
+            }
+        } else {
+            initNewTestQuiz();
+        }
+
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("quiz-section").style.display = "block";
+
+        showQuestion();
+    }
+
+    function initNewTestQuiz() {
         let numQuestions = 10;
         if (numQuestions > fullDataset.length) {
             numQuestions = fullDataset.length;
@@ -252,11 +276,21 @@
 
         currentQuestionIndex = 0;
         correctAnswersCount = 0;
+        saveTestQuizState();
+    }
 
-        document.getElementById("loading").style.display = "none";
-        document.getElementById("quiz-section").style.display = "block";
+    function saveTestQuizState() {
+        const autoSaveKey = `dtech_autosave_test_run_${subject}_${currentTopic}`;
+        localStorage.setItem(autoSaveKey, JSON.stringify({
+            quizQuestions,
+            currentQuestionIndex,
+            correctAnswersCount
+        }));
+    }
 
-        showQuestion();
+    function clearTestQuizState() {
+        const autoSaveKey = `dtech_autosave_test_run_${subject}_${currentTopic}`;
+        localStorage.removeItem(autoSaveKey);
     }
 
     function showQuestion() {
@@ -335,13 +369,16 @@
 
         if (currentQuestionIndex < quizQuestions.length - 1) {
             currentQuestionIndex++;
+            saveTestQuizState();
             showQuestion();
         } else {
+            saveTestQuizState();
             finishQuiz();
         }
     }
 
     function finishQuiz() {
+        clearTestQuizState();
         document.getElementById("quiz-section").style.display = "none";
 
         // Display results directly without sending to backend or review container

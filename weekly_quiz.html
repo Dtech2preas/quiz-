@@ -551,9 +551,22 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
             document.getElementById("quiz-title").textContent = `Weekly Exam - ${subjectFormatted}`;
             currentExamData.isPractice = isPractice;
 
-            currentQuestionIndex = 0;
-            correctAnswersCount = 0;
-            userAnswers = [];
+            const autoSaveKey = `dtech_autosave_weekly_${currentSubject}_${currentExamWeek}`;
+            const savedState = localStorage.getItem(autoSaveKey);
+
+            if (savedState && !isPractice) {
+                try {
+                    const state = JSON.parse(savedState);
+                    currentQuestionIndex = state.currentQuestionIndex;
+                    correctAnswersCount = state.correctAnswersCount;
+                    userAnswers = state.userAnswers;
+                } catch(e) {
+                    console.error("Failed to parse autosave", e);
+                    initNewExam();
+                }
+            } else {
+                initNewExam();
+            }
 
             document.getElementById("loading").style.display = "none";
             document.getElementById("quiz-section").style.display = "block";
@@ -565,6 +578,28 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
             alert("Error loading exam data.");
             goBackToList();
         }
+    }
+
+    function initNewExam() {
+        currentQuestionIndex = 0;
+        correctAnswersCount = 0;
+        userAnswers = [];
+        saveExamState();
+    }
+
+    function saveExamState() {
+        if (currentExamData.isPractice) return;
+        const autoSaveKey = `dtech_autosave_weekly_${currentSubject}_${currentExamWeek}`;
+        localStorage.setItem(autoSaveKey, JSON.stringify({
+            currentQuestionIndex,
+            correctAnswersCount,
+            userAnswers
+        }));
+    }
+
+    function clearExamState() {
+        const autoSaveKey = `dtech_autosave_weekly_${currentSubject}_${currentExamWeek}`;
+        localStorage.removeItem(autoSaveKey);
     }
 
     function loadQuestion() {
@@ -659,8 +694,10 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
 
         if (currentQuestionIndex < currentExamData.length - 1) {
             currentQuestionIndex++;
+            saveExamState();
             loadQuestion();
         } else {
+            saveExamState();
             showResults();
         }
     }
@@ -675,6 +712,7 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
     }
 
     async function showResults() {
+        clearExamState();
         document.getElementById("quiz-section").style.display = "none";
         document.getElementById("loading").textContent = "Saving your results...";
         document.getElementById("loading").style.display = "block";

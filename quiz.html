@@ -368,28 +368,61 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
     async function startQuiz() {
         await loadDataset();
 
+        const autoSaveKey = `dtech_autosave_quiz_${subject}_${currentTopic}`;
+        const savedState = localStorage.getItem(autoSaveKey);
+
+        if (savedState) {
+            try {
+                const state = JSON.parse(savedState);
+                quizQuestions = state.quizQuestions;
+                currentQuestionIndex = state.currentQuestionIndex;
+                correctAnswersCount = state.correctAnswersCount;
+                userAnswers = state.userAnswers;
+            } catch(e) {
+                console.error("Failed to parse autosave", e);
+                initNewQuiz();
+            }
+        } else {
+            initNewQuiz();
+        }
+
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("quiz-section").style.display = "block";
+
+        showQuestion();
+    }
+
+    function initNewQuiz() {
         let numQuestions = document.getElementById("num-questions-select").value;
         if (numQuestions === "custom") {
             numQuestions = document.getElementById("custom-num").value;
         }
         numQuestions = parseInt(numQuestions) || 15;
 
-        // Ensure we don't ask for more questions than available
         if (numQuestions > fullDataset.length) {
             numQuestions = fullDataset.length;
         }
 
-        // Shuffle and select
         quizQuestions = [...fullDataset].sort(() => 0.5 - Math.random()).slice(0, numQuestions);
-
         currentQuestionIndex = 0;
         correctAnswersCount = 0;
         userAnswers = [];
+        saveQuizState();
+    }
 
-        document.getElementById("loading").style.display = "none";
-        document.getElementById("quiz-section").style.display = "block";
+    function saveQuizState() {
+        const autoSaveKey = `dtech_autosave_quiz_${subject}_${currentTopic}`;
+        localStorage.setItem(autoSaveKey, JSON.stringify({
+            quizQuestions,
+            currentQuestionIndex,
+            correctAnswersCount,
+            userAnswers
+        }));
+    }
 
-        showQuestion();
+    function clearQuizState() {
+        const autoSaveKey = `dtech_autosave_quiz_${subject}_${currentTopic}`;
+        localStorage.removeItem(autoSaveKey);
     }
 
     function showQuestion() {
@@ -483,8 +516,10 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
 
         if (currentQuestionIndex < quizQuestions.length - 1) {
             currentQuestionIndex++;
+            saveQuizState();
             showQuestion();
         } else {
+            saveQuizState();
             finishQuiz();
         }
     }
@@ -499,6 +534,7 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
     }
 
     async function finishQuiz() {
+        clearQuizState();
         document.getElementById("quiz-section").style.display = "none";
         document.getElementById("loading").textContent = "Saving your results...";
         document.getElementById("loading").style.display = "block";
@@ -542,10 +578,12 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
             let publicXpEarned = 0;
             let earnedPoints = 0;
             let capMessage = null;
+            let currentProfile = {};
 
             if (passedThreshold) {
                 try {
                     const profile = await window.OfflineAPI.getProfile(userId) || {};
+                    currentProfile = profile;
                     // Use a separate tracking object in profile to track REWARDED completions
                     if (!profile.rewarded_completions) profile.rewarded_completions = {};
 
@@ -664,7 +702,7 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
                     date: new Date().toISOString().split('T')[0],
                     total_questions: quizQuestions.length,
                     correct_answers: correctAnswersCount,
-                    rewarded_completions: profile.rewarded_completions
+                    rewarded_completions: currentProfile.rewarded_completions || {}
                 });
             } else if (window.queueFirebaseAction) {
                 window.queueFirebaseAction({
@@ -679,7 +717,7 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
                     date: new Date().toISOString().split('T')[0],
                     total_questions: quizQuestions.length,
                     correct_answers: correctAnswersCount,
-                    rewarded_completions: profile.rewarded_completions
+                    rewarded_completions: currentProfile.rewarded_completions || {}
                 });
             }
 
