@@ -23,7 +23,14 @@ import android.webkit.WebViewClient
 import android.widget.FrameLayout
 import android.widget.Toast
 import android.view.View
+
+import android.webkit.ValueCallback
+import androidx.activity.result.contract.ActivityResultContracts
+import android.view.Window
+import android.graphics.Color
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import android.view.WindowManager
+
 import androidx.appcompat.app.AppCompatActivity
 import java.io.File
 import java.io.FileOutputStream
@@ -32,6 +39,31 @@ import java.io.OutputStream
 class MainActivity : AppCompatActivity() {
 
     lateinit var webView: WebView
+    private lateinit var swipeRefreshLayout: SwipeRefreshLayout
+    private var fileChooserCallback: ValueCallback<Array<Uri>>? = null
+
+    private val fileChooserLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == RESULT_OK) {
+            val data = result.data
+            val results = if (data?.data != null) {
+                arrayOf(data.data!!)
+            } else if (data?.clipData != null) {
+                val clipData = data.clipData!!
+                val uris = mutableListOf<Uri>()
+                for (i in 0 until clipData.itemCount) {
+                    uris.add(clipData.getItemAt(i).uri)
+                }
+                uris.toTypedArray()
+            } else {
+                null
+            }
+            fileChooserCallback?.onReceiveValue(results)
+        } else {
+            fileChooserCallback?.onReceiveValue(null)
+        }
+        fileChooserCallback = null
+    }
+
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,9 +74,26 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) != android.content.pm.PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 101)
+            }
+        }
+
+        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout)
+        swipeRefreshLayout.setOnRefreshListener {
+            webView.reload()
+        }
+
         val webViewContainer = findViewById<FrameLayout>(R.id.webViewContainer)
         webView = WebView(this)
         webViewContainer.addView(webView)
+
+
+        webView.addJavascriptInterface(AndroidTheme(this), "AndroidTheme")
+        webView.addJavascriptInterface(AndroidReminders(this), "AndroidReminders")
+        NotificationHelper.scheduleWeeklyExamNotification(this)
 
         val webSettings: WebSettings = webView.settings
         webSettings.javaScriptEnabled = true
@@ -119,6 +168,24 @@ class MainActivity : AppCompatActivity() {
         }
 
         webView.webChromeClient = object : WebChromeClient() {
+            override fun onShowFileChooser(
+                webView: WebView?,
+                filePathCallback: ValueCallback<Array<Uri>>?,
+                fileChooserParams: FileChooserParams?
+            ): Boolean {
+                fileChooserCallback?.onReceiveValue(null)
+                fileChooserCallback = filePathCallback
+
+                val intent = fileChooserParams?.createIntent()
+                try {
+                    fileChooserLauncher.launch(intent)
+                } catch (e: Exception) {
+                    fileChooserCallback = null
+                    return false
+                }
+                return true
+            }
+
             @SuppressLint("SetJavaScriptEnabled")
             override fun onCreateWindow(
                 view: WebView?,
@@ -227,10 +294,16 @@ class MainActivity : AppCompatActivity() {
 
         val sharedPrefs = getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
         val isFirstLaunch = sharedPrefs.getBoolean("isFirstLaunch", true)
-
         if (isFirstLaunch) {
             sharedPrefs.edit().putBoolean("isFirstLaunch", false).apply()
-            webView.loadUrl("https://quiz.dtech-services.co.za/login.html")
+        }
+
+        val launchIntent = intent
+        val action = launchIntent?.action
+        val data = launchIntent?.data
+
+        if (Intent.ACTION_VIEW == action && data != null) {
+            webView.loadUrl(data.toString())
         } else {
             webView.loadUrl("https://quiz.dtech-services.co.za/login.html")
         }
@@ -354,5 +427,45 @@ class AndroidExit(private val activity: AppCompatActivity) {
         activity.runOnUiThread {
             activity.finish()
         }
+    }
+}
+
+class AndroidTheme(private val activity: AppCompatActivity) {
+    @JavascriptInterface
+    fun setColors(statusBarHex: String, navBarHex: String) {
+        activity.runOnUiThread {
+            try {
+                val window: Window = activity.window
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+                window.statusBarColor = Color.parseColor(statusBarHex)
+                window.navigationBarColor = Color.parseColor(navBarHex)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
+}
+
+class AndroidReminders(private val context: Context) {
+    @JavascriptInterface
+    fun enableReminder(hour: Int, minute: Int) {
+        val sharedPrefs = context.getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
+        sharedPrefs.edit()
+            .putBoolean("is_daily_reminder_enabled", true)
+            .putInt("reminder_hour", hour)
+            .putInt("reminder_minute", minute)
+            .apply()
+
+        NotificationHelper.scheduleDailyReminder(context, hour, minute)
+    }
+
+    @JavascriptInterface
+    fun disableReminder() {
+        val sharedPrefs = context.getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
+        sharedPrefs.edit()
+            .putBoolean("is_daily_reminder_enabled", false)
+            .apply()
+
+        NotificationHelper.cancelDailyReminder(context)
     }
 }
