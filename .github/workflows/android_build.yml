@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '17'
+          java-version: "17"
           cache: gradle
 
       - name: Grant execute permission for gradlew
@@ -49,34 +49,27 @@ jobs:
         env:
           BUILD_TOOLS_VERSION: "34.0.0"
 
+      - name: Rename APK
+        run: |
+          cp "${{ steps.sign_app.outputs.signedReleaseFile }}" "DTECH-Quiz-v1.0-${{ steps.vars.outputs.sha_short }}.apk"
+
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
           name: DTECH-Quiz-APK
-          path: ${{ steps.sign_app.outputs.signedReleaseFile }}
+          path: DTECH-Quiz-v1.0-${{ steps.vars.outputs.sha_short }}.apk
 
-      - name: Delete existing latest release
-        continue-on-error: true
-        uses: dev-drprasad/delete-tag-and-release@v1.1
-        with:
-          delete_release: true
-          tag_name: latest
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Create Latest Release
+      - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v1.0-${{ steps.vars.outputs.sha_short }}
-          name: DTECH Quiz - Release v1.0-${{ steps.vars.outputs.sha_short }}
+          name: DTECH Quiz v1.0-${{ steps.vars.outputs.sha_short }}
           body: |
             Automatic release
 
             Commit: ${{ github.sha }}
             Version: v1.0-${{ steps.vars.outputs.sha_short }}
-
-          files: ${{ steps.sign_app.outputs.signedReleaseFile }}
-
+          files: DTECH-Quiz-v1.0-${{ steps.vars.outputs.sha_short }}.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -85,7 +78,7 @@ jobs:
           cat <<EOF > version.json
           {
             "version": "v1.0-${{ steps.vars.outputs.sha_short }}",
-            "apk": "https://github.com/Dtech2preas/quiz-/releases/download/v1.0-${{ steps.vars.outputs.sha_short }}/app-release.apk",
+            "apk": "https://github.com/Dtech2preas/quiz-/releases/download/v1.0-${{ steps.vars.outputs.sha_short }}/DTECH-Quiz-v1.0-${{ steps.vars.outputs.sha_short }}.apk",
             "releaseDate": "$(date -u +'%Y-%m-%d')",
             "minimumVersion": "v1.0-${{ steps.vars.outputs.sha_short }}",
             "forceUpdate": false,
@@ -96,7 +89,7 @@ jobs:
           }
           EOF
 
-      - name: Commit and push version.json
+      - name: Commit and Push version.json
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
