@@ -272,8 +272,20 @@ class OfflineEngineClass {
 
         } catch (e) {
             console.error("Error merging offline stats", e);
-            return baseUser;
         }
+
+        // Merge local profile overrides for anti-farming logic
+        const localOverridesStr = localStorage.getItem(`local_profile_overrides_${userId}`);
+        if (localOverridesStr) {
+            const overrides = JSON.parse(localOverridesStr);
+            if (overrides.last_quiz_date === new Date().toISOString().split('T')[0]) {
+                baseUser.daily_xp = Math.max(baseUser.daily_xp || 0, overrides.daily_xp || 0);
+                baseUser.last_quiz_date = overrides.last_quiz_date;
+            }
+            baseUser.rewarded_completions = { ...(baseUser.rewarded_completions || {}), ...(overrides.rewarded_completions || {}) };
+        }
+
+        return baseUser;
     }
 
     async getPublicProfile(username) {

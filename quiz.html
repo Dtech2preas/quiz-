@@ -529,12 +529,127 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
                 console.error('Failed to save daily progress locally', e);
             }
 
+
+
             // Write directly to Firebase
             const personalXpEarned = correctAnswersCount * 5;
             const scorePercentage = quizQuestions.length > 0 ? (correctAnswersCount / quizQuestions.length) * 100 : 0;
             const passedThreshold = scorePercentage >= 50;
             const normalizedSubject = subject === "mathematics" ? "math" : subject;
-            let publicXpEarned = passedThreshold ? (correctAnswersCount * 5) : 0;
+
+
+            // --- NEW CLIENT-SIDE TOPIC ROTATION AND DAILY CAP LOGIC ---
+            let publicXpEarned = 0;
+            let earnedPoints = 0;
+            let capMessage = null;
+
+            if (passedThreshold) {
+                try {
+                    const profile = await window.OfflineAPI.getProfile(userId) || {};
+                    // Use a separate tracking object in profile to track REWARDED completions
+                    if (!profile.rewarded_completions) profile.rewarded_completions = {};
+
+                    const historyKey = `${normalizedSubject}_${currentTopic}`;
+                    const rewardedAttempts = profile.rewarded_completions[historyKey] || 0;
+
+                    const grade = profile.grade || localStorage.getItem('user_grade') || 'grade12';
+                    const mapData = await window.OfflineAPI.getDataset('/map.json');
+
+                    const unnormalizedSubject = normalizedSubject === "math" ? "mathematics" : subject;
+                    const subjectTopics = mapData[grade]?.[unnormalizedSubject] || [];
+                    const totalTopics = subjectTopics.length;
+
+                    let isEligibleForRewards = false;
+
+                    // The cycle we are currently on for this specific topic
+                    const currentTopicCycle = Math.floor(rewardedAttempts / 3);
+
+                    let topicsMeetingCycleRequirements = 0;
+                    for (const topicObj of subjectTopics) {
+                        const tName = topicObj.file.replace('.json', '');
+                        const tKey = `${normalizedSubject}_${tName}`;
+                        const tRewarded = profile.rewarded_completions[tKey] || 0;
+                        if (tRewarded >= currentTopicCycle * 3) {
+                            topicsMeetingCycleRequirements++;
+                        }
+                    }
+
+                    const completionRatio = totalTopics > 0 ? (topicsMeetingCycleRequirements / totalTopics) : 1;
+                    if (currentTopicCycle === 0 || completionRatio >= 0.5) {
+                        // Topic has less than 3 rewarded completions in its current cycle
+                        if (rewardedAttempts % 3 < 3 && rewardedAttempts < (currentTopicCycle * 3 + 3)) {
+                             isEligibleForRewards = true;
+                        }
+                    }
+
+                    const cycle = Math.floor(rewardedAttempts / 3);
+                    if (cycle === 0) {
+                        isEligibleForRewards = true;
+                    } else {
+                        let completedTopicsInPreviousCycle = 0;
+                        for (const topicObj of subjectTopics) {
+                            const tName = topicObj.file.replace('.json', '');
+                            const tKey = `${normalizedSubject}_${tName}`;
+                            const tRewarded = profile.rewarded_completions[tKey] || 0;
+                            if (tRewarded >= cycle * 3) {
+                                completedTopicsInPreviousCycle++;
+                            }
+                        }
+                        if (totalTopics === 0 || (completedTopicsInPreviousCycle / totalTopics) >= 0.5) {
+                            isEligibleForRewards = true;
+                        }
+                    }
+
+
+                    const todayStr = new Date().toISOString().split('T')[0];
+                    let dailyXp = (profile.last_quiz_date === todayStr) ? (profile.daily_xp || 0) : 0;
+
+                    if (isEligibleForRewards) {
+                        let basePublicXp = correctAnswersCount * 5;
+                        let pointsToAdd = Math.floor(basePublicXp / 5);
+
+                        // Apply daily cap of 1000 XP
+                        if (dailyXp + basePublicXp > 1000) {
+                            basePublicXp = Math.max(0, 1000 - dailyXp);
+                            pointsToAdd = Math.floor(basePublicXp / 5);
+                            if (basePublicXp < correctAnswersCount * 5) {
+                                capMessage = "Daily Leaderboard Cap (1000 XP) Reached!";
+                            }
+                        }
+
+                        publicXpEarned = basePublicXp;
+                        earnedPoints = pointsToAdd;
+
+                        // Update local tracking before sync to prevent rapid farming
+                        profile.daily_xp = dailyXp + publicXpEarned;
+                        profile.last_quiz_date = todayStr;
+                        if (basePublicXp > 0) {
+                            profile.rewarded_completions[historyKey] = rewardedAttempts + 1;
+                        }
+
+                        // We do not have a public .put method on window.OfflineAPI in quiz.html directly
+                        // We can enqueue a metadata update, but since the queue takes a while,
+                        // storing in localStorage is a safe fallback for client-side enforcement across reloads
+                        localStorage.setItem(`local_profile_overrides_${userId}`, JSON.stringify({
+                            daily_xp: profile.daily_xp,
+                            last_quiz_date: profile.last_quiz_date,
+                            rewarded_completions: profile.rewarded_completions
+                        }));
+
+                    } else {
+                        publicXpEarned = 0;
+                        earnedPoints = 0;
+                        capMessage = "Topic Max Rewards Reached (3/3). Complete 50% of other topics in this subject to reset rewards!";
+                    }
+
+                } catch(e) {
+                    console.error("Error calculating XP rules", e);
+                    publicXpEarned = passedThreshold ? (correctAnswersCount * 5) : 0;
+                }
+            }
+
+
+
 
             if (window.OfflineAPI) {
                 window.OfflineAPI.enqueueSync('/api/submit-quiz', {
@@ -544,10 +659,12 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
                     topic: currentTopic,
                     personalXp: personalXpEarned,
                     publicXp: publicXpEarned,
+                    points: earnedPoints,
                     passed: passedThreshold,
                     date: new Date().toISOString().split('T')[0],
                     total_questions: quizQuestions.length,
-                    correct_answers: correctAnswersCount
+                    correct_answers: correctAnswersCount,
+                    rewarded_completions: profile.rewarded_completions
                 });
             } else if (window.queueFirebaseAction) {
                 window.queueFirebaseAction({
@@ -557,25 +674,32 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
                     topic: currentTopic,
                     personalXp: personalXpEarned,
                     publicXp: publicXpEarned,
+                    points: earnedPoints,
                     passed: passedThreshold,
                     date: new Date().toISOString().split('T')[0],
                     total_questions: quizQuestions.length,
-                    correct_answers: correctAnswersCount
+                    correct_answers: correctAnswersCount,
+                    rewarded_completions: profile.rewarded_completions
                 });
             }
+
 
             const publicXpMsg = document.getElementById("public-xp-message");
             const personalXpMsg = document.getElementById("personal-xp-message");
 
             if (passedThreshold) {
                 publicXpMsg.textContent = `+${publicXpEarned} XP added to Public Records!`;
-                publicXpMsg.style.color = "var(--accent-green)";
+                if (capMessage) {
+                    publicXpMsg.innerHTML += `<br><span style="font-size:0.9em; color:var(--accent-gold);">${capMessage}</span>`;
+                }
+                publicXpMsg.style.color = publicXpEarned > 0 ? "var(--accent-green)" : "var(--text-color)";
                 personalXpMsg.textContent = `(+${personalXpEarned} XP added to Personal Record)`;
             } else {
                 publicXpMsg.textContent = `0 XP added to Public Records.`;
                 publicXpMsg.style.color = "var(--accent-red)";
                 personalXpMsg.innerHTML = `You scored less than 50% minimum threshold.<br>But don't worry, <strong>+${personalXpEarned} XP</strong> was still added to your Personal Record!`;
             }
+
 
             displayResultsUi();
 
