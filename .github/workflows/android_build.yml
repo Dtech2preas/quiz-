@@ -67,8 +67,8 @@ jobs:
       - name: Create Latest Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: latest
-          name: DTECH Quiz - Latest Build
+          tag_name: v1.0-${{ steps.vars.outputs.sha_short }}
+          name: DTECH Quiz - Release v1.0-${{ steps.vars.outputs.sha_short }}
           body: |
             Automatic release
 
@@ -79,3 +79,27 @@ jobs:
 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate version.json
+        run: |
+          cat <<EOF > version.json
+          {
+            "version": "v1.0-${{ steps.vars.outputs.sha_short }}",
+            "apk": "https://github.com/Dtech2preas/quiz-/releases/download/v1.0-${{ steps.vars.outputs.sha_short }}/app-release.apk",
+            "releaseDate": "$(date -u +'%Y-%m-%d')",
+            "minimumVersion": "v1.0-${{ steps.vars.outputs.sha_short }}",
+            "forceUpdate": false,
+            "maintenance": false,
+            "releaseNotes": [
+              "Latest stable release"
+            ]
+          }
+          EOF
+
+      - name: Commit and push version.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add version.json
+          git commit -m "Update version.json for release v1.0-${{ steps.vars.outputs.sha_short }} [skip ci]" || echo "No changes to commit"
+          git push
