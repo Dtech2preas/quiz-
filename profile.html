@@ -995,12 +995,23 @@ function checkAppUpdate() {
 
             if (status === 'error') {
                 msg.style.color = "#f87171";
+                msg.innerText = message;
             } else if (status === 'no_update') {
                 msg.style.color = "var(--text-muted)";
+                msg.innerText = message;
+            } else if (status === 'downloading') {
+                msg.style.color = "#60a5fa";
+                btn.disabled = true;
+                btn.innerText = "Downloading...";
+                if (msg.innerText !== "") {
+                    msg.innerHTML = msg.innerHTML + "<br/><br/>" + message;
+                } else {
+                    msg.innerText = message;
+                }
             } else {
                 msg.style.color = "#34d399";
+                msg.innerText = message;
             }
-            msg.innerText = message;
         };
 
         window.AppUpdater.checkForUpdates("onUpdateCheckResult");
