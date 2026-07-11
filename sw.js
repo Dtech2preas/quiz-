@@ -5,6 +5,7 @@ const ASSETS_TO_CACHE = [
   '/login.html',
   '/signup.html',
   '/dashboard.html',
+  '/offline.html',
   '/quiz.html',
   '/subjects.html',
   '/test_run_grades.html',
@@ -55,49 +56,62 @@ self.addEventListener('activate', (event) => {
 
 // Cache-first strategy for static assets
 self.addEventListener('fetch', (event) => {
-  // We only want to cache GET requests for our own origin that aren't API calls or datasets
   if (event.request.method !== 'GET') return;
   const url = new URL(event.request.url);
 
   if (url.origin !== location.origin) return;
-  if (url.pathname.startsWith('/api/')) return; // Let OfflineAPI handle APIs
-  if (url.pathname.startsWith('/dataset/')) return; // Let OfflineAPI handle datasets
+  if (url.pathname.startsWith('/api/')) return;
+  if (url.pathname.startsWith('/dataset/')) return;
 
   event.respondWith(
-    caches.match(event.request)
-      .then((response) => {
-        // Return cached version if found
-        if (response) {
-          // Stale-while-revalidate for HTML files to keep them fresh
-          if (event.request.destination === 'document' || url.pathname.endsWith('.html')) {
-             event.waitUntil(
-                 fetch(event.request).then(networkResponse => {
-                     caches.open(CACHE_NAME).then(cache => {
-                         cache.put(event.request, networkResponse);
-                     });
-                 }).catch(() => {}) // Ignore if offline
-             );
-          }
-          return response;
+    caches.match(event.request).then((cachedResponse) => {
+      if (cachedResponse) {
+        // Stale-while-revalidate for HTML files
+        if (event.request.destination === 'document' || url.pathname.endsWith('.html')) {
+          event.waitUntil(
+            fetch(event.request).then(networkResponse => {
+              if (networkResponse && networkResponse.ok) {
+                caches.open(CACHE_NAME).then(cache => {
+                  cache.put(event.request, networkResponse);
+                });
+              }
+            }).catch(() => {}) // Ignore if offline
+          );
         }
+        return cachedResponse;
+      }
 
-        // Otherwise fetch from network
-        return fetch(event.request).then((networkResponse) => {
-          // Cache the new asset dynamically
-          if (networkResponse && networkResponse.status === 200 && networkResponse.type === 'basic') {
-            const responseToCache = networkResponse.clone();
-            caches.open(CACHE_NAME)
-              .then((cache) => {
-                cache.put(event.request, responseToCache);
-              });
-          }
-          return networkResponse;
-        }).catch(() => {
-           // If network fails and it's an HTML page, maybe fallback to index/dashboard
-           if (event.request.destination === 'document' || url.pathname.endsWith('.html')) {
-               return caches.match('/dashboard.html');
-           }
-        });
-      })
+      return fetch(event.request).then((networkResponse) => {
+        if (networkResponse && networkResponse.status === 200 && networkResponse.type === 'basic') {
+          const responseToCache = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, responseToCache);
+          });
+        }
+        return networkResponse;
+      }).catch(async () => {
+        // Network failed and no direct cache hit.
+        if (event.request.destination === 'document' || url.pathname.endsWith('.html')) {
+          const cache = await caches.open(CACHE_NAME);
+
+          // Ultimate fallback to offline.html
+          const offlineCache = await cache.match('/offline.html');
+          if (offlineCache) return offlineCache;
+
+          // Try to fallback to dashboard if offline.html somehow fails
+          const dashboardCache = await cache.match('/dashboard.html');
+          if (dashboardCache) return dashboardCache;
+
+          // If all else fails, return a basic inline response to avoid Chrome errors
+          return new Response(
+            '<html><body><h2>Offline</h2><p>Please connect to the internet.</p><a href="/dashboard.html">Retry</a></body></html>',
+            { headers: { 'Content-Type': 'text/html' } }
+          );
+        }
+        // If it's not a document, return a generic error instead of failing outright if we don't want Chrome error
+        // But throwing is fine for images/scripts since the page will still load.
+        throw new Error('Network and cache failed');
+      });
+    })
   );
 });
