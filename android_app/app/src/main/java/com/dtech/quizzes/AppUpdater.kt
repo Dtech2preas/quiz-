@@ -83,6 +83,7 @@ class AppUpdater(private val activity: Activity) {
                         }
 
                         notifyFrontend(callbackName, "update_available", releaseNotes)
+                        notifyFrontend(callbackName, "downloading", "Downloading update...")
                         downloadAndInstallApk(downloadUrl, callbackName)
                     } else {
                         notifyFrontend(callbackName, "error", "No APK URL found in release.")
