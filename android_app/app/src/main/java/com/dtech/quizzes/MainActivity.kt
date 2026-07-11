@@ -22,6 +22,7 @@ import android.webkit.WebView
 import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
 import android.webkit.WebViewClient
+import java.net.URLEncoder
 import android.widget.FrameLayout
 import android.widget.Toast
 import android.view.View
@@ -164,8 +165,8 @@ class MainActivity : AppCompatActivity() {
                 super.onReceivedError(view, request, error)
                 if (request?.isForMainFrame == true) {
                     val errorCode = error?.errorCode
-                    if (errorCode == ERROR_HOST_LOOKUP || errorCode == ERROR_CONNECT || errorCode == ERROR_TIMEOUT || errorCode == ERROR_UNKNOWN) {
-                        view?.loadUrl("file:///android_asset/offline.html")
+                    if (errorCode == WebViewClient.ERROR_HOST_LOOKUP || errorCode == WebViewClient.ERROR_CONNECT || errorCode == WebViewClient.ERROR_TIMEOUT || errorCode == WebViewClient.ERROR_UNKNOWN) {
+                        view?.loadUrl("file:///android_asset/offline.html?url=" + URLEncoder.encode(request?.url.toString(), "UTF-8"))
                     }
                 }
             }
@@ -178,8 +179,8 @@ class MainActivity : AppCompatActivity() {
                 failingUrl: String?
             ) {
                 super.onReceivedError(view, errorCode, description, failingUrl)
-                if (errorCode == ERROR_HOST_LOOKUP || errorCode == ERROR_CONNECT || errorCode == ERROR_TIMEOUT || errorCode == ERROR_UNKNOWN) {
-                    view?.loadUrl("file:///android_asset/offline.html")
+                if (errorCode == WebViewClient.ERROR_HOST_LOOKUP || errorCode == WebViewClient.ERROR_CONNECT || errorCode == WebViewClient.ERROR_TIMEOUT || errorCode == WebViewClient.ERROR_UNKNOWN) {
+                    view?.loadUrl("file:///android_asset/offline.html?url=" + URLEncoder.encode(failingUrl ?: "", "UTF-8"))
                 }
             }
 
