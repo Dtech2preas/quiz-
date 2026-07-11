@@ -16,10 +16,13 @@ import android.util.Base64
 import android.view.ViewGroup
 import android.webkit.JavascriptInterface
 import android.webkit.WebChromeClient
-import android.webkit.WebResourceRequest
+
 import android.webkit.WebSettings
 import android.webkit.WebView
+import android.webkit.WebResourceError
+import android.webkit.WebResourceRequest
 import android.webkit.WebViewClient
+import java.net.URLEncoder
 import android.widget.FrameLayout
 import android.widget.Toast
 import android.view.View
@@ -28,7 +31,6 @@ import android.webkit.ValueCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import android.view.Window
 import android.graphics.Color
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import android.view.WindowManager
 
 import androidx.appcompat.app.AppCompatActivity
@@ -39,7 +41,6 @@ import java.io.OutputStream
 class MainActivity : AppCompatActivity() {
 
     lateinit var webView: WebView
-    private lateinit var swipeRefreshLayout: SwipeRefreshLayout
     private var fileChooserCallback: ValueCallback<Array<Uri>>? = null
 
     private val fileChooserLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -79,11 +80,6 @@ class MainActivity : AppCompatActivity() {
             if (checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) != android.content.pm.PackageManager.PERMISSION_GRANTED) {
                 requestPermissions(arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 101)
             }
-        }
-
-        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout)
-        swipeRefreshLayout.setOnRefreshListener {
-            webView.evaluateJavascript("window.location.reload();", null)
         }
 
         val webViewContainer = findViewById<FrameLayout>(R.id.webViewContainer)
@@ -160,10 +156,36 @@ class MainActivity : AppCompatActivity() {
                 return false
             }
 
+
+            override fun onReceivedError(
+                view: WebView?,
+                request: WebResourceRequest?,
+                error: WebResourceError?
+            ) {
+                super.onReceivedError(view, request, error)
+                if (request?.isForMainFrame == true) {
+                    val errorCode = error?.errorCode
+                    if (errorCode == WebViewClient.ERROR_HOST_LOOKUP || errorCode == WebViewClient.ERROR_CONNECT || errorCode == WebViewClient.ERROR_TIMEOUT || errorCode == WebViewClient.ERROR_UNKNOWN) {
+                        view?.loadUrl("file:///android_asset/offline.html?url=" + URLEncoder.encode(request?.url.toString(), "UTF-8"))
+                    }
+                }
+            }
+
+            @Deprecated("Deprecated in Java")
+            override fun onReceivedError(
+                view: WebView?,
+                errorCode: Int,
+                description: String?,
+                failingUrl: String?
+            ) {
+                super.onReceivedError(view, errorCode, description, failingUrl)
+                if (errorCode == WebViewClient.ERROR_HOST_LOOKUP || errorCode == WebViewClient.ERROR_CONNECT || errorCode == WebViewClient.ERROR_TIMEOUT || errorCode == WebViewClient.ERROR_UNKNOWN) {
+                    view?.loadUrl("file:///android_asset/offline.html?url=" + URLEncoder.encode(failingUrl ?: "", "UTF-8"))
+                }
+            }
+
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
-                // Stop the swipe refresh spinner if it's running
-                swipeRefreshLayout.isRefreshing = false
                 // Inject a flag into the window object to notify the web app it's running in Android
                 view?.evaluateJavascript("window.IS_ANDROID_APP = true; if(window.onAndroidAppDetected) { window.onAndroidAppDetected(); }", null)
             }

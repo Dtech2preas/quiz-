@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Offline - D-TECH</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0b0f19;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .container {
+            padding: 30px;
+            background: #151b2b;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+            border: 1px solid #1e2638;
+            max-width: 85%;
+            width: 300px;
+        }
+        h1 {
+            color: #ff3b30;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        p {
+            color: #a0aec0;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        button {
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        button:active {
+            transform: scale(0.98);
+        }
+        .primary {
+            background-color: #3182ce;
+            color: white;
+        }
+        .primary:active {
+            background-color: #2b6cb0;
+        }
+        .secondary {
+            background-color: #2d3748;
+            color: #e2e8f0;
+        }
+        .secondary:active {
+            background-color: #1a202c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>You are Offline</h1>
+        <p>The requested page is not cached on your device. Please check your internet connection.</p>
+        <button class="primary" onclick="retry()">Retry</button>
+        <button class="secondary" onclick="window.location.href='https://quiz.dtech-services.co.za/dashboard.html'">Dashboard</button>
+        <button class="secondary" onclick="window.history.back()">Go Back</button>
+    </div>
+    <script>
+        function retry() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const originalUrl = urlParams.get('url');
+            if (originalUrl) {
+                window.location.href = originalUrl;
+            } else {
+                window.location.reload();
+            }
+        }
+    </script>
+</body>
+</html>

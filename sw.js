@@ -5,6 +5,7 @@ const ASSETS_TO_CACHE = [
   '/login.html',
   '/signup.html',
   '/dashboard.html',
+  '/offline.html',
   '/quiz.html',
   '/subjects.html',
   '/test_run_grades.html',
@@ -55,49 +56,92 @@ self.addEventListener('activate', (event) => {
 
 // Cache-first strategy for static assets
 self.addEventListener('fetch', (event) => {
-  // We only want to cache GET requests for our own origin that aren't API calls or datasets
   if (event.request.method !== 'GET') return;
   const url = new URL(event.request.url);
 
+  // We only cache same-origin requests, except datasets/APIs
   if (url.origin !== location.origin) return;
-  if (url.pathname.startsWith('/api/')) return; // Let OfflineAPI handle APIs
-  if (url.pathname.startsWith('/dataset/')) return; // Let OfflineAPI handle datasets
+  if (url.pathname.startsWith('/api/')) return;
+  if (url.pathname.startsWith('/dataset/')) return;
 
   event.respondWith(
-    caches.match(event.request)
-      .then((response) => {
-        // Return cached version if found
-        if (response) {
-          // Stale-while-revalidate for HTML files to keep them fresh
-          if (event.request.destination === 'document' || url.pathname.endsWith('.html')) {
-             event.waitUntil(
-                 fetch(event.request).then(networkResponse => {
-                     caches.open(CACHE_NAME).then(cache => {
-                         cache.put(event.request, networkResponse);
-                     });
-                 }).catch(() => {}) // Ignore if offline
-             );
-          }
-          return response;
+    caches.match(event.request).then((cachedResponse) => {
+      // 1. & 4. If in cache, serve IMMEDIATELY (Offline navigation guard)
+      if (cachedResponse) {
+        // 2. Background cache update for ALL assets silently
+        event.waitUntil(
+          fetch(event.request).then(networkResponse => {
+            if (networkResponse && networkResponse.ok) {
+              caches.open(CACHE_NAME).then(cache => {
+                cache.put(event.request, networkResponse);
+              });
+            }
+          }).catch(() => {}) // Ignore if offline
+        );
+        return cachedResponse;
+      }
+
+      // If NOT in cache, attempt network
+      return fetch(event.request).then((networkResponse) => {
+        // 1. Cache immediately on success (Never lose a page)
+        if (networkResponse && networkResponse.status === 200 && networkResponse.type === 'basic') {
+          const responseToCache = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, responseToCache);
+          });
+        }
+        return networkResponse;
+      }).catch(async () => {
+        // 5. Smart Retry & Fallback (if network fails and it wasn't in cache)
+        if (event.request.destination === 'document' || url.pathname.endsWith('.html')) {
+          const cache = await caches.open(CACHE_NAME);
+
+          const offlineCache = await cache.match('/offline.html');
+          if (offlineCache) return offlineCache;
+
+          const dashboardCache = await cache.match('/dashboard.html');
+          if (dashboardCache) return dashboardCache;
+
+          return new Response(
+            '<html><body><h2>Offline</h2><p>Please connect to the internet.</p><button onclick="window.location.reload()">Retry</button></body></html>',
+            { headers: { 'Content-Type': 'text/html' } }
+          );
+        }
+        throw new Error('Network and cache failed');
+      });
+    })
+  );
+});
+
+// 3. & 6. Cache Verification & Self-healing
+self.addEventListener('message', (event) => {
+  if (event.data === 'VERIFY_CACHE') {
+    event.waitUntil(
+      caches.open(CACHE_NAME).then(async (cache) => {
+        const cachedRequests = await cache.keys();
+        const cachedUrls = cachedRequests.map(req => new URL(req.url).pathname);
+
+        // Find missing essential assets
+        const missingAssets = ASSETS_TO_CACHE.filter(asset => {
+          // Normalize paths for comparison
+          const normalizedAsset = asset === '/' ? '/' : asset;
+          return !cachedUrls.includes(normalizedAsset);
+        });
+
+        // Re-cache missing assets
+        if (missingAssets.length > 0) {
+          console.log('[SW] Self-healing missing assets:', missingAssets);
+          await cache.addAll(missingAssets).catch(e => console.warn('[SW] Self-healing partially failed offline', e));
         }
 
-        // Otherwise fetch from network
-        return fetch(event.request).then((networkResponse) => {
-          // Cache the new asset dynamically
-          if (networkResponse && networkResponse.status === 200 && networkResponse.type === 'basic') {
-            const responseToCache = networkResponse.clone();
-            caches.open(CACHE_NAME)
-              .then((cache) => {
-                cache.put(event.request, responseToCache);
-              });
-          }
-          return networkResponse;
-        }).catch(() => {
-           // If network fails and it's an HTML page, maybe fallback to index/dashboard
-           if (event.request.destination === 'document' || url.pathname.endsWith('.html')) {
-               return caches.match('/dashboard.html');
-           }
+        // Also update existing essential assets in background to keep them fresh
+        const existingAssets = ASSETS_TO_CACHE.filter(asset => !missingAssets.includes(asset));
+        existingAssets.forEach(asset => {
+          fetch(asset).then(response => {
+            if (response.ok) cache.put(asset, response);
+          }).catch(() => {});
         });
       })
-  );
+    );
+  }
 });
