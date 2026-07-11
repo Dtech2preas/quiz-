@@ -267,6 +267,7 @@ class OfflineEngineClass {
             liveUser.stats.quizzes_completed = (liveUser.stats.quizzes_completed || 0) + pendingQuizzes;
             liveUser.stats.exams_completed = (liveUser.stats.exams_completed || 0) + pendingExams;
             liveUser.stats.incorrect_answers = liveUser.stats.total_questions_answered - liveUser.stats.correct_answers;
+            liveUser.weekly_xp = (liveUser.weekly_xp || 0) + pendingXp;
 
             return liveUser;
 

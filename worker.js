@@ -751,12 +751,13 @@ async function handleSubmitWeeklyExam(request, env, ctx) {
 
   const scorePercentage = total_questions > 0 ? (correct_answers / total_questions) * 100 : 0;
 
+  let bonusXp = 0;
   let examXpEarned = body.totalXp !== undefined ? body.totalXp : 0;
   let pointsEarned = body.points !== undefined ? body.points : 0;
 
   if (body.totalXp === undefined && scorePercentage >= 40) {
     let base_xp = correct_answers * 8;
-    let bonusXp = 0;
+
     if (scorePercentage > 80) {
         if (scorePercentage >= 95) bonusXp = 150;
         else if (scorePercentage >= 90) bonusXp = 100;
@@ -808,9 +809,9 @@ async function handleSubmitWeeklyExam(request, env, ctx) {
   userData.correct_answers += correct_answers;
   if (body.rewarded_completions !== undefined) {
       userData.rewarded_completions = { ...(userData.rewarded_completions || {}), ...body.rewarded_completions };
-  } else if (publicXpEarned > 0) {
+  } else if (examXpEarned > 0) {
       if (!userData.rewarded_completions) userData.rewarded_completions = {};
-      const historyKey = `${normalizedSubject}_${topic}`;
+      const historyKey = `${normalizedSubject}_${typeof topic !== 'undefined' ? topic : 'weekly_exam'}`;
       userData.rewarded_completions[historyKey] = (userData.rewarded_completions[historyKey] || 0) + 1;
   }
   userData.accuracy_percentage = userData.questions_answered > 0 ? Math.round((userData.correct_answers / userData.questions_answered) * 100) : 0;
@@ -1192,13 +1193,13 @@ async function handleBatchSync(request, env, ctx) {
       const passed = percentage >= 40;
 
 
+      let bonusXp = 0;
       let xpEarned = item.data.totalXp !== undefined ? item.data.totalXp : 0;
       let personalXpEarned = item.data.totalXp !== undefined ? item.data.totalXp : 0; // Same for weekly
       let pointsEarned = item.data.points !== undefined ? item.data.points : 0;
 
       if (item.data.totalXp === undefined && passed) {
         let base_xp = correct_answers * 8;
-        let bonusXp = 0;
         if (percentage > 80) {
             if (percentage >= 95) bonusXp = 150;
             else if (percentage >= 90) bonusXp = 100;
