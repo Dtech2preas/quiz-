@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
 
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout)
         swipeRefreshLayout.setOnRefreshListener {
-            webView.reload()
+            webView.evaluateJavascript("window.location.reload();", null)
         }
 
         val webViewContainer = findViewById<FrameLayout>(R.id.webViewContainer)
@@ -162,6 +162,8 @@ class MainActivity : AppCompatActivity() {
 
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
+                // Stop the swipe refresh spinner if it's running
+                swipeRefreshLayout.isRefreshing = false
                 // Inject a flag into the window object to notify the web app it's running in Android
                 view?.evaluateJavascript("window.IS_ANDROID_APP = true; if(window.onAndroidAppDetected) { window.onAndroidAppDetected(); }", null)
             }
