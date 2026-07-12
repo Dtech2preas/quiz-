@@ -4,13 +4,13 @@ if ('serviceWorker' in navigator) {
       .then(registration => {
         console.log('ServiceWorker registration successful with scope: ', registration.scope);
 
-        // Trigger self-healing on startup if activated
+        // Trigger atomic update on startup if activated
         if (navigator.serviceWorker.controller) {
-          navigator.serviceWorker.controller.postMessage('VERIFY_CACHE');
+          navigator.serviceWorker.controller.postMessage('UPDATE_CACHE');
         } else {
           // If first install, wait for activation
           navigator.serviceWorker.addEventListener('controllerchange', () => {
-            navigator.serviceWorker.controller.postMessage('VERIFY_CACHE');
+            navigator.serviceWorker.controller.postMessage('UPDATE_CACHE');
           });
         }
       })
@@ -22,7 +22,7 @@ if ('serviceWorker' in navigator) {
   // Self-heal when coming back online
   window.addEventListener('online', () => {
     if (navigator.serviceWorker.controller) {
-      navigator.serviceWorker.controller.postMessage('VERIFY_CACHE');
+      navigator.serviceWorker.controller.postMessage('UPDATE_CACHE');
     }
   });
 }

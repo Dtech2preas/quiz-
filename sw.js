@@ -65,19 +65,9 @@ self.addEventListener('fetch', (event) => {
   if (url.pathname.startsWith('/dataset/')) return;
 
   event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
+    caches.match(event.request, { ignoreSearch: true }).then((cachedResponse) => {
       // 1. & 4. If in cache, serve IMMEDIATELY (Offline navigation guard)
       if (cachedResponse) {
-        // 2. Background cache update for ALL assets silently
-        event.waitUntil(
-          fetch(event.request).then(networkResponse => {
-            if (networkResponse && networkResponse.ok) {
-              caches.open(CACHE_NAME).then(cache => {
-                cache.put(event.request, networkResponse);
-              });
-            }
-          }).catch(() => {}) // Ignore if offline
-        );
         return cachedResponse;
       }
 
@@ -113,35 +103,63 @@ self.addEventListener('fetch', (event) => {
   );
 });
 
-// 3. & 6. Cache Verification & Self-healing
+// 3. & 6. Atomic Cache Update
 self.addEventListener('message', (event) => {
-  if (event.data === 'VERIFY_CACHE') {
+  if (event.data === 'UPDATE_CACHE') {
     event.waitUntil(
-      caches.open(CACHE_NAME).then(async (cache) => {
-        const cachedRequests = await cache.keys();
-        const cachedUrls = cachedRequests.map(req => new URL(req.url).pathname);
+      (async () => {
+        try {
+          const tempCacheName = 'dtech-app-shell-temp-' + Date.now();
+          const tempCache = await caches.open(tempCacheName);
 
-        // Find missing essential assets
-        const missingAssets = ASSETS_TO_CACHE.filter(asset => {
-          // Normalize paths for comparison
-          const normalizedAsset = asset === '/' ? '/' : asset;
-          return !cachedUrls.includes(normalizedAsset);
-        });
+          // Download all assets into a temporary cache
+          await Promise.all(ASSETS_TO_CACHE.map(async (asset) => {
+            const response = await fetch(asset);
+            if (!response.ok) throw new Error('Failed to fetch ' + asset);
 
-        // Re-cache missing assets
-        if (missingAssets.length > 0) {
-          console.log('[SW] Self-healing missing assets:', missingAssets);
-          await cache.addAll(missingAssets).catch(e => console.warn('[SW] Self-healing partially failed offline', e));
+            // Protect against captive portals serving HTML instead of JS/CSS
+            const contentType = response.headers.get('content-type');
+            if (!asset.endsWith('.html') && asset !== '/' && !asset.endsWith('.png')) {
+              if (contentType && contentType.includes('text/html')) {
+                throw new Error('Captive portal detected for ' + asset);
+              }
+            }
+            await tempCache.put(asset, response);
+          }));
+
+          // Verify everything was downloaded
+          const cachedRequests = await tempCache.keys();
+          const cachedUrls = cachedRequests.map(req => new URL(req.url).pathname);
+          const allDownloaded = ASSETS_TO_CACHE.every(asset => {
+             const normalizedAsset = asset === '/' ? '/' : asset;
+             return cachedUrls.includes(normalizedAsset);
+          });
+
+          if (!allDownloaded) throw new Error('Not all assets downloaded');
+
+          // Atomic promotion: delete old main cache completely to remove stale assets, then copy new ones
+          await caches.delete(CACHE_NAME);
+          const mainCache = await caches.open(CACHE_NAME);
+
+          for (const request of cachedRequests) {
+            const response = await tempCache.match(request);
+            await mainCache.put(request, response);
+          }
+
+          await caches.delete(tempCacheName);
+          console.log('[SW] Atomic update complete.');
+
+        } catch (error) {
+          console.error('[SW] Atomic update failed, retaining old cache:', error);
+          // Cleanup temp caches if any failed
+          const cacheNames = await caches.keys();
+          for (const name of cacheNames) {
+            if (name.startsWith('dtech-app-shell-temp-')) {
+              await caches.delete(name);
+            }
+          }
         }
-
-        // Also update existing essential assets in background to keep them fresh
-        const existingAssets = ASSETS_TO_CACHE.filter(asset => !missingAssets.includes(asset));
-        existingAssets.forEach(asset => {
-          fetch(asset).then(response => {
-            if (response.ok) cache.put(asset, response);
-          }).catch(() => {});
-        });
-      })
+      })()
     );
   }
 });
