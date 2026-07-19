@@ -21,6 +21,8 @@ const ASSETS_TO_CACHE = [
   '/admin.html',
   '/leaderboard.html',
   '/global_leaderboard.html',
+  '/privacy.html',
+  '/terms.html',
   '/dtech_cosmetics.js',
   '/security.js',
   '/offline_engine.js',
