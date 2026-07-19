@@ -40,19 +40,43 @@ window.startOfflineDownload = async function(grade) {
 
 // Check for Android App Flag slightly delayed to let WebView finish loading interface
 window.addEventListener('load', () => {
-    setTimeout(() => {
+    setTimeout(async () => {
         if (window.IS_ANDROID_APP) {
             const userGrade = localStorage.getItem('user_grade');
             if (userGrade) {
-                // Auto start caching on load for android app if needed
-                OfflineAPI.getDB().then(db => {
+                // Auto start caching on load for android app if needed or if there are updates (like weekly exams)
+                try {
+                    let remoteVersion = null;
+                    if (navigator.onLine) {
+                        try {
+                            const res = await fetch('/manifest.json', { cache: 'no-store' });
+                            if (res.ok) {
+                                const remoteManifest = await res.json();
+                                remoteVersion = remoteManifest.version;
+                            }
+                        } catch (fetchErr) {
+                            console.warn("Failed to fetch remote manifest for update check", fetchErr);
+                        }
+                    }
+
+                    const db = await OfflineAPI.getDB();
                     db.transaction('manifest').objectStore('manifest').get('latest').onsuccess = (e) => {
-                        const manifest = e.target.result;
-                        if (!manifest || manifest.downloadedGrade !== userGrade) {
-                             window.startOfflineDownload(userGrade);
+                        const localManifest = e.target.result;
+                        let needsDownload = false;
+
+                        if (!localManifest || localManifest.downloadedGrade !== userGrade) {
+                            needsDownload = true;
+                        } else if (remoteVersion && localManifest.version !== remoteVersion) {
+                            needsDownload = true;
+                        }
+
+                        if (needsDownload) {
+                            window.startOfflineDownload(userGrade);
                         }
                     };
-                });
+                } catch (err) {
+                    console.error("Error checking for offline updates", err);
+                }
             }
         }
     }, 1000);
@@ -419,7 +443,7 @@ class OfflineEngineClass {
 
         try {
             // Fetch remote manifest
-            const res = await fetch('/manifest.json');
+            const res = await fetch('/manifest.json', { cache: 'no-store' });
             if (!res.ok) throw new Error("Failed to fetch manifest");
             const remoteManifest = await res.json();
 
