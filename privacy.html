@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Privacy Policy - D-TECH Quizzes</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            color: var(--text-main);
+        }
+        h1, h2 {
+            color: var(--accent-blue);
+        }
+        h1 {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            margin-top: 30px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .back-button {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 15px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-main);
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .back-button:hover {
+            background: var(--border-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="javascript:history.back()" class="back-button">← Back</a>
+
+        <h1>Privacy Policy</h1>
+        <p><strong>Last Updated:</strong> <span id="current-date"></span></p>
+
+        <p>Welcome to D-TECH Quizzes! This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our Android mobile application. Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the application.</p>
+
+        <h2>1. Information We Collect</h2>
+        <p>We collect information that you voluntarily provide to us when you register on the application or participate in activities. The personal information that we collect depends on the context of your interactions with us and the application.</p>
+
+        <h3>Information you provide during registration:</h3>
+        <ul>
+            <li><strong>Required Information:</strong> Username, Password, and your Grade level.</li>
+            <li><strong>Optional Information:</strong> Real Name, Surname, and School Name.</li>
+        </ul>
+
+        <h3>Automatically Collected Information:</h3>
+        <ul>
+            <li><strong>Usage Data:</strong> We collect data regarding your quiz performance, scores, XP (Experience Points), D-TECH Points, and your rank on our leaderboards.</li>
+            <li><strong>Device Data:</strong> As a web and mobile application, we may collect basic technical information such as browser type, operating system, and network connection status to ensure the app functions correctly, especially in offline mode.</li>
+        </ul>
+
+        <h2>2. How We Use Your Information</h2>
+        <p>We use the information we collect or receive to:</p>
+        <ul>
+            <li><strong>Provide and Manage Your Account:</strong> To create and secure your account and track your progress across quizzes.</li>
+            <li><strong>Operate Leaderboards:</strong> Your username and scores are used to populate our public leaderboards, fostering a competitive educational environment.</li>
+            <li><strong>Deliver Offline Functionality:</strong> Your profile data and quiz progress are stored locally on your device (using IndexedDB and LocalStorage) to allow you to study and take quizzes without an internet connection.</li>
+            <li><strong>Administer Rewards:</strong> To track the D-TECH points you earn and spend in our virtual store.</li>
+        </ul>
+
+        <h2>3. Data Storage and Security</h2>
+        <p>We prioritize the security of your data:</p>
+        <ul>
+            <li><strong>Cloud Storage:</strong> Your account information and quiz statistics are securely transmitted to and stored on our backend servers (utilizing Cloudflare KV and Firebase).</li>
+            <li><strong>Local Storage:</strong> Because our application is designed to work offline, a copy of your profile data and downloaded educational datasets are stored locally on your device.</li>
+            <li><strong>Security Measures:</strong> We implement standard security measures to protect against unauthorized access, alteration, disclosure, or destruction of your personal information. However, no electronic transmission over the internet or information storage technology can be guaranteed to be 100% secure.</li>
+        </ul>
+
+        <h2>4. Third-Party Integrations and Ads</h2>
+        <p>Our application may contain third-party advertisements and links. We currently partner with <strong>Monetag</strong> to provide ads that allow users to earn D-TECH points.</p>
+        <ul>
+            <li>These third-party ad networks may use cookies, web beacons, and other tracking technologies to collect information about your use of the application and other websites.</li>
+            <li>We do not share your personal registration information (like your password or real name) with these ad networks.</li>
+        </ul>
+
+        <h2>5. Android App Permissions</h2>
+        <p>If you use our Android application, we request the following permissions to ensure proper functionality:</p>
+        <ul>
+            <li><strong>Internet & Network State:</strong> To synchronize your quiz scores, fetch new datasets, and load ads.</li>
+            <li><strong>Storage (on older devices):</strong> To save downloaded datasets for offline use.</li>
+            <li><strong>Request Install Packages:</strong> To facilitate in-app updates (OTA updates) when a new version of D-TECH Quizzes is released.</li>
+        </ul>
+
+        <h2>6. Your Rights and Choices</h2>
+        <p>You have the right to:</p>
+        <ul>
+            <li>Access and update your optional profile information (Name, Surname, School) within the app settings.</li>
+            <li>Request the deletion of your account and associated data by contacting us using the information provided below.</li>
+        </ul>
+
+        <h2>7. Contact Us</h2>
+        <p>If you have questions or comments about this Privacy Policy, please contact us at:</p>
+        <p><strong>Email:</strong> <a href="mailto:dtech2services@gmail.com" style="color: var(--accent-blue);">dtech2services@gmail.com</a></p>
+
+    </div>
+
+    <script>
+        // Set the current date automatically
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-US', options);
+    </script>
+</body>
+</html>
