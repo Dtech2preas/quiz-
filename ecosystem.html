@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D-TECH Ecosystem - Quiz Platform</title>
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-cyan: #06b6d4;
+            --border-color: #334155;
+            --header-bg: #0b1120;
+            --btn-whatsapp: #25D366;
+            --btn-uni: #3b82f6;
+            --btn-disabled: #475569;
+        }
+        body { overflow-x: hidden; display: flex; flex-direction: column; min-height: 100vh; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-dark); color: var(--text-main); }
+
+        /* Compact Header / Nav */
+        header { background: var(--header-bg); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
+        header h2 { margin: 0; font-size: 1.5rem; color: var(--text-main); }
+        nav { display: flex; gap: 1.5rem; align-items: center; }
+        nav a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        nav a:hover, nav a.active { color: var(--accent-blue); }
+
+        /* Responsive Nav */
+        @media (max-width: 768px) {
+            header { flex-direction: row; padding: 1rem; gap: 1rem; justify-content: space-between; }
+            nav { width: 100%; justify-content: center; flex-wrap: wrap; gap: 1rem; }
+        }
+
+        .container { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+
+        .page-header { text-align: center; margin-bottom: 2rem; }
+        .page-header h1 { margin: 0 0 0.5rem 0; font-size: 2rem; color: var(--text-main); }
+        .page-header p { margin: 0; color: var(--text-muted); font-size: 1.1rem; }
+
+        .ecosystem-grid { display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 3rem; }
+
+        .tool-card {
+            background: linear-gradient(145deg, var(--bg-card), #151e2e);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .tool-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+
+        .tool-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; }
+        .tool-icon { font-size: 2rem; background: rgba(255,255,255,0.05); width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 10px; border: 1px solid var(--border-color); }
+        .tool-title { font-size: 1.3rem; font-weight: 600; color: var(--text-main); margin: 0; }
+
+        .tool-body { margin-bottom: 1.5rem; flex-grow: 1; }
+        .tool-body p { margin: 0; color: var(--text-muted); line-height: 1.5; border-left: 3px solid var(--border-color); padding-left: 1rem; font-style: italic; }
+
+        .tool-btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        .tool-btn:active { transform: translateY(0); }
+
+        .btn-whatsapp { background-color: var(--btn-whatsapp); color: #000; }
+        .btn-whatsapp:hover { background-color: #1ea952; }
+
+        .btn-uni { background-color: var(--btn-uni); color: white; }
+        .btn-uni:hover { background-color: #2563eb; }
+
+        .btn-disabled { background-color: var(--btn-disabled); color: #94a3b8; cursor: not-allowed; }
+
+        .future-tools { margin-top: 2rem; border-top: 1px dashed var(--border-color); padding-top: 2rem; text-align: center; }
+        .future-tools h3 { color: var(--text-muted); margin-bottom: 1rem; }
+
+        /* Hamburger Menu Styles */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1001;
+        }
+        .hamburger div { width: 25px; height: 3px; background-color: var(--text-main); transition: all 0.3s ease; }
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            nav { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background-color: var(--bg-card); border-bottom: 1px solid var(--border-color); padding: 1rem 0; z-index: 1000; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+            nav.active { display: flex; }
+            nav a { margin: 0.5rem 1rem; padding: 0.5rem; border-radius: 4px; }
+            nav a:hover { background-color: rgba(255,255,255,0.05); }
+        }
+
+        /* Footer Styles */
+        footer { background-color: var(--header-bg); color: var(--text-muted); text-align: center; padding: 1.5rem 1rem; margin-top: auto; border-top: 1px solid var(--border-color); font-size: 0.9rem; }
+        footer p { margin: 0.3rem 0; }
+        footer a { color: var(--accent-blue); text-decoration: none; font-weight: 500; }
+        footer a:hover { text-decoration: underline; }
+    </style>
+    <script src="dtech_cosmetics.js"></script>
+    <script type="module" src="firebase_config.js"></script>
+    <script src="offline_engine.js"></script>
+    <script src="register_sw.js"></script>
+</head>
+<body>
+
+<header>
+    <div style="display: flex; align-items: center; gap: 1rem;">
+        <div class="hamburger" id="hamburger-menu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <img src="logo.png" alt="Dtech Logo" style="height: 30px; cursor: pointer; object-fit: contain;" onclick="window.location.href='dashboard.html'">
+        <h2 style="margin:0;">Ecosystem</h2>
+    </div>
+    <nav id="nav-menu">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="subjects.html">Take a Quiz</a>
+        <a href="weekly_quiz.html">Weekly Exam</a>
+        <a href="leaderboard.html">Grade Leaderboards</a>
+        <a href="global_leaderboard.html">Global Leaderboard</a>
+        <a href="stats.html">Detailed Stats</a>
+        <a href="profile.html">Profile</a>
+        <a href="ecosystem.html" class="active">🌐 D-TECH Ecosystem</a>
+        <a href="login.html" onclick="localStorage.clear()">Logout</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="page-header">
+        <h1>D-TECH Ecosystem</h1>
+        <p>Discover more free tools and communities from D-TECH Services.</p>
+    </div>
+
+    <div class="ecosystem-grid">
+        <!-- Community Card -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <div class="tool-icon">💬</div>
+                <h2 class="tool-title">Community</h2>
+            </div>
+            <div class="tool-body">
+                <p>Join thousands of learners to receive updates, announcements, study tips, and interact with other D-TECH learners.</p>
+            </div>
+            <a href="https://chat.whatsapp.com/JWLvsNjodqV031uONjWhYS?s=cl&p=a&mlu=0" target="_blank" class="tool-btn btn-whatsapp">
+                Join WhatsApp Community
+            </a>
+        </div>
+
+        <!-- University Eligibility Checker Card -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <div class="tool-icon">🎓</div>
+                <h2 class="tool-title">University Eligibility Checker</h2>
+            </div>
+            <div class="tool-body">
+                <p>Calculate your APS instantly and discover which universities and programmes you qualify for across South Africa.</p>
+            </div>
+            <a href="https://uni.dtech-services.co.za" target="_blank" class="tool-btn btn-uni">
+                Open Eligibility Checker
+            </a>
+        </div>
+
+        <!-- Past Exam Papers Card -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <div class="tool-icon">📚</div>
+                <h2 class="tool-title">Past Exam Papers</h2>
+            </div>
+            <div class="tool-body">
+                <p>Download official Grade 12 past examination papers and memorandums from 2008–2025.</p>
+            </div>
+            <button class="tool-btn btn-disabled" disabled>
+                Coming Soon
+            </button>
+        </div>
+
+    </div>
+
+    <div class="future-tools">
+        <h3>🚀 More tools coming soon!</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">We are constantly building new ways to support your learning journey.</p>
+    </div>
+</div>
+
+<script>
+    if (!localStorage.getItem("user_id")) {
+        window.location.href = "login.html";
+    }
+
+    // Hamburger Menu Logic
+    document.addEventListener('DOMContentLoaded', () => {
+        const hamburger = document.getElementById('hamburger-menu');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!hamburger.contains(e.target) && !navMenu.contains(e.target) && navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                }
+            });
+        }
+    });
+</script>
+
+<footer id="dynamic-footer">
+  <p>&copy; <span id="footer-year">2024</span> Dtech &bull; Preasx24</p>
+  <p>Empowering the youth through digital innovation</p>
+  <a href="terms.html">Terms of Service</a> | <a href="privacy.html">Privacy Policy</a>
+</footer>
+<script>
+    const currentYear = new Date().getFullYear();
+    document.getElementById('footer-year').textContent = `2024–${currentYear}`;
+</script>
+
+</body>
+</html>
