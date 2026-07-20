@@ -14,6 +14,7 @@ const ASSETS_TO_CACHE = [
   '/test_run_quiz.html',
   '/weekly_quiz.html',
   '/profile.html',
+  '/ecosystem.html',
   '/public_profile.html',
   '/store.html',
   '/earn_points.html',
