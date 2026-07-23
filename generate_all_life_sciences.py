@@ -28,12 +28,15 @@ class KnowledgeBase:
         return list(set(names))
 
 class QuestionEngine:
-    def __init__(self, topic_name: str, topic_prefix: str, file_name: str, knowledge_base: KnowledgeBase):
+    def __init__(self, topic_name: str, topic_prefix: str, file_name: str, knowledge_base: KnowledgeBase, global_question_texts: set):
         self.topic_name = topic_name
         self.topic_prefix = topic_prefix
         self.file_name = file_name
         self.kb = knowledge_base
         self.generated_signatures = set()
+        self.global_question_texts = global_question_texts
+        self.skipped_duplicates = 0
+        self.exact_duplicates_removed = 0
         self.questions = []
 
         # Increase targets slightly to get more volume if available,
@@ -49,18 +52,29 @@ class QuestionEngine:
             "hard": 0
         }
 
-    def generate_signature(self, subtopic, family, primary_entity, answer):
-        # Create a unique signature for the educational content
-        raw = f"{subtopic}|{family}|{primary_entity}|{answer}"
-        return hashlib.md5(raw.encode()).hexdigest()
+    def generate_signature(self, question_text):
+        # Normalize text: lower, trim, collapse spaces
+        import string
+        import re
+        normalized = re.sub(f'[{re.escape(string.punctuation)}]', '', question_text)
+        normalized = " ".join(normalized.lower().split())
+        return hashlib.md5(normalized.encode()).hexdigest()
 
     def add_question(self, subtopic: str, difficulty: str, family: str, primary_entity: str, question: str, correct_answer: str, wrong_answers: List[str], explanation: str):
         if self.difficulty_counts[difficulty] >= self.difficulty_targets[difficulty]:
             return False
 
-        signature = self.generate_signature(subtopic, family, primary_entity, correct_answer)
-        if signature in self.generated_signatures:
+        signature = self.generate_signature(question)
+        if signature in self.global_question_texts:
+            self.exact_duplicates_removed += 1
             return False
+
+        edu_sig = f"{subtopic}|{family}|{primary_entity}|{correct_answer}"
+        if edu_sig in self.generated_signatures:
+            self.skipped_duplicates += 1
+            return False
+        self.global_question_texts.add(signature)
+        self.generated_signatures.add(edu_sig)
 
         # Ensure correct_answer is not in wrong_answers
         wrong_answers = [str(w) for w in wrong_answers if str(w) != str(correct_answer)]
@@ -108,7 +122,8 @@ class QuestionEngine:
         os.makedirs(os.path.dirname(filepath), exist_ok=True)
         with open(filepath, 'w', encoding='utf-8') as f:
             json.dump(self.questions, f, indent=2, ensure_ascii=False)
-        print(f"Saved {filepath} with {len(self.questions)} questions.")
+        print(f"Saved {filepath} with {len(self.questions)} questions. (Exact text dups removed: {self.exact_duplicates_removed}, Edu signature dups skipped: {self.skipped_duplicates})")
+        return len(self.questions), self.exact_duplicates_removed, self.skipped_duplicates
 
 
 def generate_easy_recall(engine: QuestionEngine, subtopic: str, entity: dict):
@@ -148,7 +163,12 @@ def generate_medium_scenario(engine: QuestionEngine, subtopic: str, entity: dict
     return engine.add_question(subtopic, "medium", "scenario_observation", entity['name'], random.choice(scenarios), ans, wrongs, expl)
 
 def generate_medium_compare(engine: QuestionEngine, subtopic: str, e1: dict, e2: dict):
-    q_text = f"Unlike {e2['name']} (which involves {e2['desc']}), which term is specifically characterized by {e1['desc']}?"
+    templates = [
+        f"Unlike {e2['name']} (which involves {e2['desc']}), which term is specifically characterized by {e1['desc']}?",
+        f"While {e2['name']} is defined as {e2['desc']}, what biological term best describes {e1['desc']}?",
+        f"Distinguish between these concepts: {e2['name']} relates to {e2['desc']}, but which term refers to {e1['desc']}?"
+    ]
+    q_text = random.choice(templates)
     ans = e1['name']
     wrongs = [e2['name']]
     expl = f"{e1['name']} involves {e1['desc']}, whereas {e2['name']} involves {e2['desc']}."
@@ -202,9 +222,18 @@ def populate_knowledge_base():
 
 def build_datasets():
     kb, topics_data = populate_knowledge_base()
+    global_question_texts = set()
+    total_generated = 0
+    total_exact_dups = 0
+    total_skipped = 0
+    topic_counts = {}
+    total_generated = 0
+    total_exact_dups = 0
+    total_skipped = 0
+    topic_counts = {}
 
     for t in topics_data:
-        engine = QuestionEngine(t['topic'], t['prefix'], t['file'], kb)
+        engine = QuestionEngine(t['topic'], t['prefix'], t['file'], kb, global_question_texts)
 
         # We need to fill quotas using the families.
         # This loop tries to generate questions until the engine targets are met.
@@ -247,6 +276,22 @@ def build_datasets():
                     generate_hard_cause_effect(engine, subtopic, e1)
 
         engine.save_to_json()
+        total_generated += len(engine.questions)
+        total_exact_dups += engine.exact_duplicates_removed
+        total_skipped += engine.skipped_duplicates
+        topic_counts[t['topic']] = len(engine.questions)
+
+
+
+    print("\n--- GENERATION REPORT ---")
+    print(f"Total questions generated: {total_generated}")
+    print(f"Exact duplicate questions removed globally: {total_exact_dups}")
+    print(f"Questions skipped due to local signature duplication: {total_skipped}")
+    print("\nQuestions per topic:")
+    for topic, count in topic_counts.items():
+        print(f"  {topic}: {count}")
+        if count < 100:
+            print(f"  --> WARNING: {topic} generated significantly fewer questions than expected!")
 
 if __name__ == "__main__":
     build_datasets()
