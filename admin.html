@@ -189,6 +189,8 @@
   </style>
 <script src="dtech_cosmetics.js"></script>
     <script type="module" src="firebase_config.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="offline_engine.js"></script>
 <script src="register_sw.js"></script>
 </head>
@@ -255,10 +257,23 @@
       </div>
     </div>
 
-    <div class="top-sections">
+    <div class="top-sections" style="grid-template-columns: 1fr 1fr 1fr;">
       <div class="section-card">
         <h2>Top 5 Users (All Time XP)</h2>
         <div id="top-users-list">Loading...</div>
+      </div>
+      <div class="section-card" style="text-align: center;">
+        <h2><i class="fas fa-trophy" style="color: #d4af37;"></i> Automated Awards</h2>
+        <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;">Automatically generate premium certificates for the #1 Top Student based on XP.</p>
+        <div id="award-student-name" style="font-size: 22px; font-weight: bold; color: #fff; margin-bottom: 10px;">Loading...</div>
+        <div id="award-student-xp" style="font-size: 16px; color: var(--accent); margin-bottom: 25px;">- XP</div>
+
+        <button onclick="generateSOTW()" style="background: linear-gradient(135deg, #1a1a24, #0a0a0a); border: 1px solid #d4af37; color: #d4af37; padding: 12px 20px; border-radius: 8px; cursor: pointer; width: 100%; margin-bottom: 15px; font-weight: bold; font-family: 'Montserrat', sans-serif; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s;">
+          <i class="fas fa-download"></i> Generate SOTW
+        </button>
+        <button onclick="generateSOTM()" style="background: linear-gradient(135deg, #d4af37, #aa771c); border: none; color: #fff; padding: 12px 20px; border-radius: 8px; cursor: pointer; width: 100%; font-weight: bold; font-family: 'Montserrat', sans-serif; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);">
+          <i class="fas fa-crown"></i> Generate SOTM
+        </button>
       </div>
       <div class="section-card">
         <h2>System Info</h2>
@@ -267,6 +282,422 @@
       </div>
     </div>
 
+<!-- AWARD TEMPLATES START -->
+<style>
+/* Certificate Shared Base */
+.certificate-container {
+    position: absolute;
+    left: -9999px; /* Hide off-screen for html2canvas */
+    top: -9999px;
+    background: #fff;
+    width: 1200px;
+    height: 1600px;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    color: #111;
+    overflow: hidden;
+    z-index: -10;
+}
+
+/* -------------------------------------
+   STUDENT OF THE WEEK (Modern Premium)
+   ------------------------------------- */
+#sotw-template {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a24 100%);
+    color: #fff;
+    padding: 60px;
+    border: 15px solid #d4af37;
+    text-align: center;
+    position: relative;
+}
+
+/* Confetti / Light Effects */
+.sotw-effects {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at center, transparent 30%, rgba(212, 175, 55, 0.1) 100%);
+    pointer-events: none;
+    background-image:
+        radial-gradient(#d4af37 1px, transparent 1px),
+        radial-gradient(#ffffff 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+    opacity: 0.3;
+}
+
+.sotw-header {
+    margin-bottom: 40px;
+    z-index: 2;
+    position: relative;
+}
+.sotw-header img {
+    height: 100px;
+    margin-bottom: 20px;
+}
+.sotw-title {
+    font-family: 'Cinzel', serif;
+    font-size: 60px;
+    color: #d4af37;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+.sotw-subtitle {
+    font-size: 24px;
+    color: #c9d1d9;
+    margin-top: 10px;
+    letter-spacing: 2px;
+}
+
+.sotw-body {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    border-radius: 20px;
+    padding: 60px;
+    margin: 40px 0;
+    backdrop-filter: blur(10px);
+    z-index: 2;
+    position: relative;
+}
+.sotw-text {
+    font-size: 28px;
+    color: #e0e0e0;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+.sotw-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 80px;
+    color: #fff;
+    margin: 20px 0;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+}
+.sotw-message {
+    font-size: 22px;
+    color: #a0a0a0;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.sotw-stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 60px 0;
+    z-index: 2;
+    position: relative;
+}
+.sotw-stat-box {
+    text-align: center;
+}
+.sotw-stat-value {
+    font-size: 48px;
+    font-weight: 700;
+    color: #d4af37;
+    margin-bottom: 10px;
+}
+.sotw-stat-label {
+    font-size: 18px;
+    color: #8b949e;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.sotw-footer {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #8b949e;
+    font-size: 20px;
+    letter-spacing: 3px;
+    z-index: 2;
+}
+
+/* -------------------------------------
+   STUDENT OF THE MONTH (Extravagant)
+   ------------------------------------- */
+#sotm-template {
+    background: radial-gradient(circle at top, #2b1f0c 0%, #0a0a0a 100%);
+    color: #fff;
+    padding: 80px;
+    border: 30px solid transparent;
+    border-image: linear-gradient(45deg, #d4af37, #fff2cd, #d4af37, #8a6d3b, #d4af37) 1;
+    text-align: center;
+    position: relative;
+}
+
+/* Spotlight & Rich effects */
+.sotm-effects {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+        radial-gradient(circle at 50% 20%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+        linear-gradient(180deg, rgba(255,255,255,0.05) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Corner ornaments */
+.sotm-corner {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: 4px solid #d4af37;
+    z-index: 2;
+}
+.sotm-tl { top: 40px; left: 40px; border-right: none; border-bottom: none; }
+.sotm-tr { top: 40px; right: 40px; border-left: none; border-bottom: none; }
+.sotm-bl { bottom: 40px; left: 40px; border-right: none; border-top: none; }
+.sotm-br { bottom: 40px; right: 40px; border-left: none; border-top: none; }
+
+.sotm-header {
+    z-index: 2;
+    position: relative;
+    margin-bottom: 50px;
+}
+.sotm-crown {
+    font-size: 80px;
+    margin-bottom: -10px;
+    display: inline-block;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.8));
+}
+.sotm-title {
+    font-family: 'Cinzel', serif;
+    font-size: 72px;
+    color: transparent;
+    background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    padding-bottom: 10px;
+}
+.sotm-month {
+    font-size: 28px;
+    color: #e6c27a;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+.sotm-body {
+    z-index: 2;
+    position: relative;
+    background: url('data:image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M50 0L100 50L50 100L0 50Z" fill="none" stroke="rgba(212,175,55,0.1)" stroke-width="1"/></svg>');
+    padding: 50px;
+    border-radius: 10px;
+    margin: 30px 0;
+}
+
+.sotm-name-wrapper {
+    position: relative;
+    display: inline-block;
+    margin: 40px 0;
+}
+.sotm-laurel-l, .sotm-laurel-r {
+    font-size: 100px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(212, 175, 55, 0.4);
+}
+.sotm-laurel-l { left: -120px; }
+.sotm-laurel-r { right: -120px; transform: translateY(-50%) scaleX(-1); }
+
+.sotm-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 90px;
+    color: #fff;
+    margin: 0;
+    line-height: 1.1;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+.sotm-username {
+    font-size: 24px;
+    color: #d4af37;
+    margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.sotm-message {
+    font-size: 24px;
+    color: #d1d1d1;
+    max-width: 800px;
+    margin: 40px auto;
+    line-height: 1.8;
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+}
+
+.sotm-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin: 60px 50px;
+    z-index: 2;
+    position: relative;
+}
+.sotm-stat-box {
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.05);
+}
+.sotm-stat-value {
+    font-size: 42px;
+    font-weight: 700;
+    color: #fff2cd;
+    margin-bottom: 10px;
+}
+.sotm-stat-label {
+    font-size: 16px;
+    color: #a3a3a3;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.sotm-footer {
+    position: absolute;
+    bottom: 80px;
+    left: 80px;
+    right: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+}
+.sotm-footer-text {
+    text-align: left;
+}
+.sotm-footer-text div:first-child {
+    font-family: 'Cinzel', serif;
+    font-size: 24px;
+    color: #d4af37;
+    margin-bottom: 5px;
+}
+.sotm-footer-text div:last-child {
+    font-size: 16px;
+    color: #888;
+    letter-spacing: 2px;
+}
+#sotm-qr {
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+}
+</style>
+
+<!-- SOTW HTML -->
+<div id="sotw-template" class="certificate-container">
+    <div class="sotw-effects"></div>
+    <div class="sotw-header">
+        <!-- Optional logo: <img src="logo.png" alt="D-TECH"> -->
+        <div style="font-size: 40px; margin-bottom: 20px;">🏆</div>
+        <h1 class="sotw-title">Student of the Week</h1>
+        <div class="sotw-subtitle">Grade 12 Quiz Platform</div>
+    </div>
+
+    <div class="sotw-body">
+        <div class="sotw-text">This certificate proudly recognizes</div>
+        <div class="sotw-name" id="sotw-name-val">John Smith</div>
+        <div class="sotw-message">
+            for outstanding dedication, consistency, and academic excellence. Your commitment to mastering the curriculum sets a standard for all learners.
+        </div>
+    </div>
+
+    <div class="sotw-stats">
+        <div class="sotw-stat-box">
+            <div class="sotw-stat-value" id="sotw-grade-val">12</div>
+            <div class="sotw-stat-label">Grade</div>
+        </div>
+        <div class="sotw-stat-box">
+            <div class="sotw-stat-value" id="sotw-xp-val">5,430</div>
+            <div class="sotw-stat-label">Total XP</div>
+        </div>
+        <div class="sotw-stat-box">
+            <div class="sotw-stat-value" id="sotw-acc-val">92%</div>
+            <div class="sotw-stat-label">Accuracy</div>
+        </div>
+        <div class="sotw-stat-box">
+            <div class="sotw-stat-value" id="sotw-quiz-val">45</div>
+            <div class="sotw-stat-label">Quizzes</div>
+        </div>
+    </div>
+
+    <div class="sotw-footer">
+        D-TECH Services • Empowering South African Learners
+    </div>
+</div>
+
+<!-- SOTM HTML -->
+<div id="sotm-template" class="certificate-container">
+    <div class="sotm-effects"></div>
+    <div class="sotm-corner sotm-tl"></div>
+    <div class="sotm-corner sotm-tr"></div>
+    <div class="sotm-corner sotm-bl"></div>
+    <div class="sotm-corner sotm-br"></div>
+
+    <div class="sotm-header">
+        <div class="sotm-crown">👑</div>
+        <h1 class="sotm-title">Student of the Month</h1>
+        <div class="sotm-month" id="sotm-month-val">October 2024</div>
+    </div>
+
+    <div class="sotm-body">
+        <div class="sotm-name-wrapper">
+            <div class="sotm-laurel-l">🌿</div>
+            <div class="sotm-name" id="sotm-name-val">Jane Doe</div>
+            <div class="sotm-username" id="sotm-username-val">@janedoe99</div>
+            <div class="sotm-laurel-r">🌿</div>
+        </div>
+
+        <div class="sotm-message">
+            Awarded in recognition of exceptional academic performance, perseverance, consistency, and unparalleled commitment to learning.
+        </div>
+    </div>
+
+    <div class="sotm-stats-grid">
+        <div class="sotm-stat-box">
+            <div class="sotm-stat-value" id="sotm-xp-val">12,500</div>
+            <div class="sotm-stat-label">Total XP</div>
+        </div>
+        <div class="sotm-stat-box">
+            <div class="sotm-stat-value" id="sotm-acc-val">96%</div>
+            <div class="sotm-stat-label">Overall Accuracy</div>
+        </div>
+        <div class="sotm-stat-box">
+            <div class="sotm-stat-value" id="sotm-quiz-val">120</div>
+            <div class="sotm-stat-label">Quizzes Completed</div>
+        </div>
+        <div class="sotm-stat-box">
+            <div class="sotm-stat-value" id="sotm-rank-val">#1</div>
+            <div class="sotm-stat-label">Overall Rank</div>
+        </div>
+        <div class="sotm-stat-box">
+            <div class="sotm-stat-value" id="sotm-grade-val">12</div>
+            <div class="sotm-stat-label">Grade</div>
+        </div>
+        <div class="sotm-stat-box">
+            <div class="sotm-stat-value">⭐</div>
+            <div class="sotm-stat-label">Top Performer</div>
+        </div>
+    </div>
+
+    <div class="sotm-footer">
+        <div class="sotm-footer-text">
+            <div>D-TECH Services</div>
+            <div>Grade 12 Quiz Platform</div>
+        </div>
+        <div id="sotm-qr"></div>
+    </div>
+</div>
+<!-- AWARD TEMPLATES END -->
     <!-- Users Table -->
     <div class="section-card">
       <div class="table-controls">
@@ -390,6 +821,23 @@
         `;
       });
 
+      // Update Automated Awards panel with top student
+      if (data.top_users && data.top_users.length > 0) {
+         const topStudent = data.top_users[0];
+         // Search full user data for extra details
+         const topFull = globalUsersData.find(u => u.username === topStudent.username) || topStudent;
+
+         const fullName = (topFull.name ? topFull.name + " " + (topFull.surname || "") : topFull.username).trim();
+         document.getElementById('award-student-name').innerText = fullName;
+         document.getElementById('award-student-xp').innerText = `${topFull.total_xp.toLocaleString()} XP • Grade ${topFull.grade || 'N/A'}`;
+
+         // Store reference for generation
+         window.topStudentData = topFull;
+      } else {
+         document.getElementById('award-student-name').innerText = "No Users Found";
+         document.getElementById('award-student-xp').innerText = "- XP";
+      }
+
       renderTable(globalUsersData);
     }
 
@@ -470,6 +918,104 @@
       } catch (err) {
         showToast("Error deleting user: " + err.message, true);
       }
+    }
+
+    // --- Certificate Generation ---
+    async function generateSOTW() {
+        if (!window.topStudentData) {
+            showToast("No student data available", true);
+            return;
+        }
+        showToast("Generating Student of the Week poster...");
+
+        const u = window.topStudentData;
+        const fullName = (u.name ? u.name + " " + (u.surname || "") : u.username).trim();
+
+        document.getElementById('sotw-name-val').innerText = fullName;
+        document.getElementById('sotw-grade-val').innerText = u.grade || 'N/A';
+        document.getElementById('sotw-xp-val').innerText = u.total_xp ? u.total_xp.toLocaleString() : '0';
+        document.getElementById('sotw-acc-val').innerText = u.accuracy_percentage ? u.accuracy_percentage + '%' : '0%';
+        document.getElementById('sotw-quiz-val').innerText = u.quizzes_completed || '0';
+
+        const template = document.getElementById('sotw-template');
+
+        try {
+            const canvas = await html2canvas(template, {
+                scale: 2,
+                useCORS: true,
+                backgroundColor: '#161b22',
+                logging: false
+            });
+            const imgData = canvas.toDataURL('image/png');
+            const link = document.createElement('a');
+            link.download = `SOTW_${u.username}.png`;
+            link.href = imgData;
+            link.click();
+            showToast("Download started!");
+        } catch(err) {
+            console.error(err);
+            showToast("Error generating poster", true);
+        }
+    }
+
+    async function generateSOTM() {
+        if (!window.topStudentData) {
+            showToast("No student data available", true);
+            return;
+        }
+        showToast("Generating Student of the Month poster...");
+
+        const u = window.topStudentData;
+        const fullName = (u.name ? u.name + " " + (u.surname || "") : u.username).trim();
+
+        document.getElementById('sotm-name-val').innerText = fullName;
+        document.getElementById('sotm-username-val').innerText = "@" + u.username;
+        document.getElementById('sotm-grade-val').innerText = u.grade || 'N/A';
+        document.getElementById('sotm-xp-val').innerText = u.total_xp ? u.total_xp.toLocaleString() : '0';
+        document.getElementById('sotm-acc-val').innerText = u.accuracy_percentage ? u.accuracy_percentage + '%' : '0%';
+        document.getElementById('sotm-quiz-val').innerText = u.quizzes_completed || '0';
+
+        // Month formatting
+        const date = new Date();
+        const monthName = date.toLocaleString('default', { month: 'long' });
+        const year = date.getFullYear();
+        document.getElementById('sotm-month-val').innerText = `${monthName} ${year}`;
+
+        // QR Code
+        const qrContainer = document.getElementById('sotm-qr');
+        qrContainer.innerHTML = ""; // clear previous
+        const platformUrl = window.location.origin + window.location.pathname.replace('admin.html', 'index.html');
+        new QRCode(qrContainer, {
+            text: platformUrl,
+            width: 100,
+            height: 100,
+            colorDark : "#000000",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H
+        });
+
+        const template = document.getElementById('sotm-template');
+
+        // Wait a tiny bit for QR to render
+        await new Promise(r => setTimeout(r, 100));
+
+        try {
+            const canvas = await html2canvas(template, {
+                scale: 2,
+                useCORS: true,
+                backgroundColor: '#0a0a0a',
+                logging: false
+            });
+            const imgData = canvas.toDataURL('image/png');
+            const link = document.createElement('a');
+            link.download = `SOTM_${monthName}_${u.username}.png`;
+            link.href = imgData;
+            link.click();
+            showToast("Download started!");
+        } catch(err) {
+            console.error(err);
+            showToast("Error generating poster", true);
+        }
     }
   </script>
 </body>
