@@ -345,9 +345,19 @@
 }
 .sotw-subtitle {
     font-size: 24px;
-    color: #c9d1d9;
+    color: #4da6ff;
     margin-top: 10px;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(77, 166, 255, 0.3);
+}
+.dtech-blue-line {
+    height: 3px;
+    background: linear-gradient(to right, transparent, #4da6ff, transparent);
+    width: 60%;
+    margin: 15px auto;
+    border-radius: 50%;
+    opacity: 0.8;
 }
 
 .sotw-body {
@@ -468,14 +478,12 @@
 .sotm-title {
     font-family: 'Cinzel', serif;
     font-size: 72px;
-    color: transparent;
-    background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-    -webkit-background-clip: text;
-    background-clip: text;
+    color: #d4af37;
     margin: 0;
     text-transform: uppercase;
     letter-spacing: 6px;
     padding-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 }
 .sotm-month {
     font-size: 28px;
@@ -578,13 +586,10 @@
 .sotm-footer-text div:first-child {
     font-family: 'Cinzel', serif;
     font-size: 24px;
-    color: #d4af37;
+    color: #4da6ff;
     margin-bottom: 5px;
-}
-.sotm-footer-text div:last-child {
-    font-size: 16px;
-    color: #888;
     letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(77, 166, 255, 0.3);
 }
 #sotm-qr {
     background: #fff;
@@ -600,7 +605,8 @@
         <!-- Optional logo: <img src="logo.png" alt="D-TECH"> -->
         <div style="font-size: 40px; margin-bottom: 20px;">🏆</div>
         <h1 class="sotw-title">Student of the Week</h1>
-        <div class="sotw-subtitle">Grade 12 Quiz Platform</div>
+        <div class="dtech-blue-line" style="width: 80%;"></div>
+        <div class="sotw-subtitle">D-TECH SERVICES</div>
     </div>
 
     <div class="sotw-body">
@@ -646,6 +652,7 @@
     <div class="sotm-header">
         <div class="sotm-crown">👑</div>
         <h1 class="sotm-title">Student of the Month</h1>
+        <div class="dtech-blue-line"></div>
         <div class="sotm-month" id="sotm-month-val">October 2024</div>
     </div>
 
@@ -691,8 +698,7 @@
 
     <div class="sotm-footer">
         <div class="sotm-footer-text">
-            <div>D-TECH Services</div>
-            <div>Grade 12 Quiz Platform</div>
+            <div>D-TECH SERVICES</div>
         </div>
         <div id="sotm-qr"></div>
     </div>
