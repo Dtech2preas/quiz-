@@ -303,10 +303,13 @@
    STUDENT OF THE WEEK (Modern Premium)
    ------------------------------------- */
 #sotw-template {
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a24 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
     color: #fff;
     padding: 60px;
     border: 15px solid #d4af37;
+    outline: 2px solid #fcf6ba;
+    outline-offset: -25px;
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.8), 0 0 30px rgba(212, 175, 55, 0.3);
     text-align: center;
     position: relative;
 }
@@ -315,14 +318,14 @@
 .sotw-effects {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(circle at center, transparent 30%, rgba(212, 175, 55, 0.1) 100%);
+    background: radial-gradient(circle at center, transparent 30%, rgba(212, 175, 55, 0.15) 100%);
     pointer-events: none;
     background-image:
-        radial-gradient(#d4af37 1px, transparent 1px),
-        radial-gradient(#ffffff 1px, transparent 1px);
+        radial-gradient(rgba(212, 175, 55, 0.6) 1px, transparent 1px),
+        radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px);
     background-size: 50px 50px;
     background-position: 0 0, 25px 25px;
-    opacity: 0.3;
+    opacity: 0.4;
 }
 
 .sotw-header {
@@ -337,45 +340,52 @@
 .sotw-title {
     font-family: 'Cinzel', serif;
     font-size: 60px;
-    color: #d4af37;
+    color: transparent;
+    background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    -webkit-background-clip: text;
+    background-clip: text;
     margin: 0;
     text-transform: uppercase;
     letter-spacing: 4px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.8));
 }
 .sotw-subtitle {
     font-size: 24px;
-    color: #c9d1d9;
+    color: #e2e8f0;
     margin-top: 10px;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
 }
 
 .sotw-body {
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid rgba(212, 175, 55, 0.3);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     border-radius: 20px;
     padding: 60px;
     margin: 40px 0;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     z-index: 2;
     position: relative;
 }
 .sotw-text {
     font-size: 28px;
-    color: #e0e0e0;
+    color: #cbd5e1;
     margin-bottom: 30px;
     line-height: 1.5;
+    letter-spacing: 1px;
 }
 .sotw-name {
     font-family: 'Playfair Display', serif;
     font-size: 80px;
     color: #fff;
     margin: 20px 0;
-    text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+    text-shadow: 0 0 30px rgba(212, 175, 55, 0.6), 0 0 10px rgba(255, 255, 255, 0.3);
 }
 .sotw-message {
     font-size: 22px;
-    color: #a0a0a0;
+    color: #94a3b8;
     max-width: 800px;
     margin: 0 auto;
     line-height: 1.6;
@@ -391,18 +401,26 @@
 }
 .sotw-stat-box {
     text-align: center;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 25px 35px;
+    border-radius: 15px;
+    box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.05), 0 10px 20px rgba(0,0,0,0.4);
+    backdrop-filter: blur(8px);
 }
 .sotw-stat-value {
     font-size: 48px;
     font-weight: 700;
-    color: #d4af37;
+    color: #fcf6ba;
     margin-bottom: 10px;
+    text-shadow: 0 2px 10px rgba(212, 175, 55, 0.5);
 }
 .sotw-stat-label {
-    font-size: 18px;
-    color: #8b949e;
+    font-size: 16px;
+    color: #94a3b8;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    font-weight: bold;
 }
 
 .sotw-footer {
@@ -411,21 +429,23 @@
     left: 0;
     right: 0;
     text-align: center;
-    color: #8b949e;
+    color: #64748b;
     font-size: 20px;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     z-index: 2;
+    text-transform: uppercase;
 }
 
 /* -------------------------------------
    STUDENT OF THE MONTH (Extravagant)
    ------------------------------------- */
 #sotm-template {
-    background: radial-gradient(circle at top, #2b1f0c 0%, #0a0a0a 100%);
+    background: radial-gradient(circle at top, #2c1f07 0%, #050505 100%);
     color: #fff;
     padding: 80px;
     border: 30px solid transparent;
     border-image: linear-gradient(45deg, #d4af37, #fff2cd, #d4af37, #8a6d3b, #d4af37) 1;
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.9);
     text-align: center;
     position: relative;
 }
@@ -435,19 +455,28 @@
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     background:
-        radial-gradient(circle at 50% 20%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 50% 20%, rgba(212, 175, 55, 0.25) 0%, transparent 60%),
         linear-gradient(180deg, rgba(255,255,255,0.05) 0%, transparent 100%);
     pointer-events: none;
     z-index: 1;
+}
+.sotm-effects::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('data:image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M50 0L100 50L50 100L0 50Z" fill="none" stroke="rgba(212,175,55,0.05)" stroke-width="1"/></svg>');
+    opacity: 0.5;
 }
 
 /* Corner ornaments */
 .sotm-corner {
     position: absolute;
-    width: 150px;
-    height: 150px;
-    border: 4px solid #d4af37;
+    width: 160px;
+    height: 160px;
+    border: 6px solid transparent;
+    border-image: linear-gradient(45deg, #d4af37, #fff2cd, #8a6d3b) 1;
     z-index: 2;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
 }
 .sotm-tl { top: 40px; left: 40px; border-right: none; border-bottom: none; }
 .sotm-tr { top: 40px; right: 40px; border-left: none; border-bottom: none; }
@@ -463,7 +492,7 @@
     font-size: 80px;
     margin-bottom: -10px;
     display: inline-block;
-    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.8));
+    filter: drop-shadow(0 0 20px rgba(212, 175, 55, 1));
 }
 .sotm-title {
     font-family: 'Cinzel', serif;
@@ -476,6 +505,7 @@
     text-transform: uppercase;
     letter-spacing: 6px;
     padding-bottom: 10px;
+    filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.8));
 }
 .sotm-month {
     font-size: 28px;
@@ -483,15 +513,20 @@
     letter-spacing: 8px;
     text-transform: uppercase;
     margin-top: 10px;
+    font-weight: bold;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.8);
 }
 
 .sotm-body {
     z-index: 2;
     position: relative;
-    background: url('data:image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M50 0L100 50L50 100L0 50Z" fill="none" stroke="rgba(212,175,55,0.1)" stroke-width="1"/></svg>');
     padding: 50px;
-    border-radius: 10px;
+    border-radius: 20px;
     margin: 30px 0;
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    backdrop-filter: blur(5px);
 }
 
 .sotm-name-wrapper {
@@ -504,34 +539,41 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    color: rgba(212, 175, 55, 0.4);
+    color: transparent;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.8));
 }
-.sotm-laurel-l { left: -120px; }
-.sotm-laurel-r { right: -120px; transform: translateY(-50%) scaleX(-1); }
+.sotm-laurel-l { left: -140px; }
+.sotm-laurel-r { right: -140px; transform: translateY(-50%) scaleX(-1); }
 
 .sotm-name {
     font-family: 'Playfair Display', serif;
     font-size: 90px;
-    color: #fff;
+    color: transparent;
+    background: linear-gradient(to bottom, #ffffff, #fcf6ba, #d4af37);
+    -webkit-background-clip: text;
+    background-clip: text;
     margin: 0;
     line-height: 1.1;
-    text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.8));
 }
 .sotm-username {
     font-size: 24px;
-    color: #d4af37;
-    margin-top: 10px;
+    color: #fcf6ba;
+    margin-top: 15px;
     font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
 }
 
 .sotm-message {
-    font-size: 24px;
-    color: #d1d1d1;
+    font-size: 26px;
+    color: #e2e8f0;
     max-width: 800px;
     margin: 40px auto;
     line-height: 1.8;
     font-style: italic;
     font-family: 'Playfair Display', serif;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 .sotm-stats-grid {
@@ -543,23 +585,26 @@
     position: relative;
 }
 .sotm-stat-box {
-    background: rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%);
     border: 1px solid rgba(212, 175, 55, 0.4);
     padding: 30px 20px;
     border-radius: 15px;
-    box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.05);
+    box-shadow: inset 0 0 30px rgba(212, 175, 55, 0.1), 0 10px 30px rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
 }
 .sotm-stat-value {
     font-size: 42px;
     font-weight: 700;
     color: #fff2cd;
     margin-bottom: 10px;
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
 }
 .sotm-stat-label {
     font-size: 16px;
-    color: #a3a3a3;
+    color: #d1d1d1;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    font-weight: bold;
 }
 
 .sotm-footer {
@@ -580,16 +625,19 @@
     font-size: 24px;
     color: #d4af37;
     margin-bottom: 5px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
 }
 .sotm-footer-text div:last-child {
     font-size: 16px;
-    color: #888;
+    color: #a3a3a3;
     letter-spacing: 2px;
+    text-transform: uppercase;
 }
 #sotm-qr {
     background: #fff;
     padding: 10px;
     border-radius: 10px;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
 }
 </style>
 
