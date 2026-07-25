@@ -2,6 +2,18 @@ const fs = require('fs');
 
 const GRADE_MAP = {
     "grade12": {
+
+        "accounting": [
+            { "file": "paper1_acc_companies.json", "label": "Paper 1: Companies & Corporate Governance" },
+            { "file": "paper1_acc_financial_statements.json", "label": "Paper 1: Financial Statements" },
+            { "file": "paper1_acc_cash_flow.json", "label": "Paper 1: Cash Flow Statements" },
+            { "file": "paper1_acc_analysis.json", "label": "Paper 1: Analysis & Interpretation" },
+            { "file": "paper2_acc_manufacturing.json", "label": "Paper 2: Cost Accounting (Manufacturing)" },
+            { "file": "paper2_acc_budgeting.json", "label": "Paper 2: Budgeting" },
+            { "file": "paper2_acc_inventory.json", "label": "Paper 2: Inventory & Asset Control" },
+            { "file": "paper2_acc_reconciliations.json", "label": "Paper 2: Reconciliations & Internal Control" }
+        ],
+
         "mathematics": [
             { "file": "paper1_algebra.json", "label": "Paper 1: Algebra" },
             { "file": "paper1_calculus.json", "label": "Paper 1: Calculus" },

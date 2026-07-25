@@ -45,6 +45,8 @@
         .subject-btn.physics:hover { background-color: #0891b2; }
         .subject-btn.math-lit { background-color: #8b5cf6; } /* Purple color for Math Lit */
         .subject-btn.math-lit:hover { background-color: #7c3aed; }
+        .subject-btn.accounting { background-color: #ea580c; } /* Orange color for Accounting */
+        .subject-btn.accounting:hover { background-color: #c2410c; }
 
         .topic-list { display: none; background: var(--bg-card); padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-top: -0.5rem; margin-bottom: 2.5rem; border: 1px solid var(--border-color); }
 
@@ -182,7 +184,8 @@
         "natural_sciences": "natural-sciences",
         "natural_sciences_and_technology": "natural-sciences-tech",
         "mathematical_literacy": "math-lit",
-        "agricultural_sciences": "agri-sciences"
+        "agricultural_sciences": "agri-sciences",
+        "accounting": "accounting"
     };
 
     const SUBJECT_LABELS = {
@@ -193,7 +196,8 @@
         "natural_sciences": "Natural Sciences",
         "natural_sciences_and_technology": "Natural Sciences and Technology",
         "mathematical_literacy": "Mathematical Literacy",
-        "agricultural_sciences": "Agricultural Sciences"
+        "agricultural_sciences": "Agricultural Sciences",
+        "accounting": "Accounting"
     };
 
     async function fetchGradeMap() {
