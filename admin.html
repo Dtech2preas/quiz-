@@ -994,7 +994,7 @@
         // QR Code
         const qrContainer = document.getElementById('sotm-qr');
         qrContainer.innerHTML = ""; // clear previous
-        const platformUrl = window.location.origin + window.location.pathname.replace('admin.html', 'index.html');
+        const platformUrl = window.location.origin + window.location.pathname.replace('admin.html', 'public_profile.html?user=') + encodeURIComponent(u.username);
         new QRCode(qrContainer, {
             text: platformUrl,
             width: 100,
