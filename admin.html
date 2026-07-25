@@ -572,16 +572,17 @@
 
 .sotm-footer {
     position: absolute;
-    bottom: 80px;
+    bottom: 40px;
     left: 80px;
     right: 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     z-index: 2;
 }
 .sotm-footer-text {
-    text-align: left;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    text-align: center;
 }
 .sotm-footer-text div:first-child {
     font-family: 'Cinzel', serif;
@@ -592,6 +593,9 @@
     text-shadow: 0 0 10px rgba(77, 166, 255, 0.3);
 }
 #sotm-qr {
+    position: absolute;
+    right: 0;
+    bottom: 0;
     background: #fff;
     padding: 10px;
     border-radius: 10px;
