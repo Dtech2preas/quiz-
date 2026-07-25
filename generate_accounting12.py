@@ -31,8 +31,8 @@ class AccountingQuestionEngine:
         hash_input = f"{question_text}|{correct_answer}"
         return hashlib.sha256(hash_input.encode('utf-8')).hexdigest()
 
-    def add_question(self, question_text, options, correct_index, explanation, difficulty, subtopic_name, l_outcome="Financial Analysis"):
-        q_hash = self.generate_hash(question_text, options[correct_index])
+    def add_question(self, question_text, correct_answer, wrong_answers_pool, explanation, difficulty, subtopic_name, l_outcome="Financial Analysis"):
+        q_hash = self.generate_hash(question_text, correct_answer)
         if q_hash in self.generated_hashes:
             return False
 
@@ -43,8 +43,8 @@ class AccountingQuestionEngine:
         question = {
             "id": q_id,
             "question": question_text,
-            "options": options,
-            "correct_answer": correct_index,
+            "correct_answer": correct_answer,
+            "wrong_answers_pool": wrong_answers_pool,
             "explanation": explanation,
             "tags": {
                 "grade": "12",
@@ -72,11 +72,7 @@ class AccountingQuestionEngine:
             correct = fact['a']
             wrong = random.sample(fact['w'], min(3, len(fact['w'])))
 
-            options = [correct] + wrong
-            random.shuffle(options)
-            correct_idx = options.index(correct)
-
-            if self.add_question(q_text, options, correct_idx, f"The correct term is {correct}.", "easy", subtopic['name'], "Recall Principles"):
+            if self.add_question(q_text, correct, wrong, f"The correct term is {correct}.", "easy", subtopic['name'], "Recall Principles"):
                 added += 1
 
     def generate_procedural_questions(self, target_count=50):
@@ -121,19 +117,16 @@ class AccountingQuestionEngine:
             distractor3 = f"{(ratio - 0.2):.2f}:1"
             distractor4 = f"{ratio:.1f}:1" # rounding issue
 
-            options = list(set([correct_str, distractor1, distractor2, distractor3, distractor4]))
-            if len(options) < 4:
-                return 0
-
-            options = random.sample(options, 4)
-            if correct_str not in options:
-                options[0] = correct_str
-            random.shuffle(options)
+            pool = list(set([distractor1, distractor2, distractor3, distractor4]))
+            wrong_pool = []
+            for d in pool:
+                if d != correct_str:
+                    wrong_pool.append(d)
 
             q_text = f"A company has current assets of R{current_assets:,} and current liabilities of R{current_liabilities:,}. Calculate the current ratio."
             exp = f"Current Ratio = Current Assets / Current Liabilities = R{current_assets:,} / R{current_liabilities:,} = {ratio:.2f}:1"
 
-            if self.add_question(q_text, options, options.index(correct_str), exp, "medium", "Liquidity Indicators"):
+            if self.add_question(q_text, correct_str, wrong_pool, exp, "medium", "Liquidity Indicators"):
                 return 1
         else:
             # Gross Profit Margin
@@ -148,13 +141,12 @@ class AccountingQuestionEngine:
             distractor2 = f"{((cost_of_sales / sales) * 100):.1f}%" # Cost of sales percentage
             distractor3 = f"{(margin + 5):.1f}%"
 
-            options = [correct_str, distractor1, distractor2, distractor3]
-            random.shuffle(options)
+            wrong_pool = [distractor1, distractor2, distractor3]
 
             q_text = f"A business has sales of R{sales:,} and cost of sales of R{cost_of_sales:,}. Calculate the gross profit margin."
             exp = f"Gross Profit = Sales - Cost of Sales = R{sales:,} - R{cost_of_sales:,} = R{gross_profit:,}. Margin = (Gross Profit / Sales) * 100 = {margin:.1f}%"
 
-            if self.add_question(q_text, options, options.index(correct_str), exp, "medium", "Profitability Indicators"):
+            if self.add_question(q_text, correct_str, wrong_pool, exp, "medium", "Profitability Indicators"):
                 return 1
         return 0
 
@@ -171,13 +163,12 @@ class AccountingQuestionEngine:
         distractor2 = f"R{(direct_materials + factory_overhead):,}" # Missed labour
         distractor3 = f"R{(direct_labour + factory_overhead):,}" # Missed materials
 
-        options = [correct_str, distractor1, distractor2, distractor3]
-        random.shuffle(options)
+        wrong_pool = [distractor1, distractor2, distractor3]
 
         q_text = f"Calculate the Prime Cost given the following: Direct Materials R{direct_materials:,}, Direct Labour R{direct_labour:,}, and Factory Overheads R{factory_overhead:,}."
         exp = f"Prime Cost = Direct Materials + Direct Labour = R{direct_materials:,} + R{direct_labour:,} = R{prime_cost:,}. (Factory overheads are not included in prime cost)."
 
-        if self.add_question(q_text, options, options.index(correct_str), exp, "medium", "Manufacturing Concepts"):
+        if self.add_question(q_text, correct_str, wrong_pool, exp, "medium", "Manufacturing Concepts"):
             return 1
         return 0
 
@@ -201,13 +192,12 @@ class AccountingQuestionEngine:
         distractor2 = f"R{cost_purchased:.2f}" # Used latest price
         distractor3 = f"R{(total_cost / units_purchased):.2f}" # Divided by wrong units
 
-        options = [correct_str, distractor1, distractor2, distractor3]
-        random.shuffle(options)
+        wrong_pool = [distractor1, distractor2, distractor3]
 
         q_text = f"Opening stock is {units_opening} units at R{cost_opening} each. Purchases during the year are {units_purchased} units at R{cost_purchased} each. Calculate the weighted average cost per unit."
         exp = f"Total Cost = (R{total_opening}) + (R{total_purchased}) = R{total_cost}. Total Units = {total_units}. Weighted Average = R{total_cost} / {total_units} = R{weighted_avg:.2f}"
 
-        if self.add_question(q_text, options, options.index(correct_str), exp, "hard", "Valuation Methods"):
+        if self.add_question(q_text, correct_str, wrong_pool, exp, "hard", "Valuation Methods"):
             return 1
         return 0
 
@@ -225,14 +215,13 @@ class AccountingQuestionEngine:
         distractor2 = f"R{(opening_retained + net_profit_after_tax):,}" # Forgot all dividends
         distractor3 = f"R{(opening_retained + net_profit_after_tax + interim_dividend + final_dividend):,}" # Added dividends instead of subtracting
 
-        options = [correct_str, distractor1, distractor2, distractor3]
-        random.shuffle(options)
+        wrong_pool = [distractor1, distractor2, distractor3]
 
         q_text = f"A company has an opening retained income of R{opening_retained:,}. The net profit after tax is R{net_profit_after_tax:,}. Interim dividends paid were R{interim_dividend:,} and final dividends declared were R{final_dividend:,}. Calculate the closing balance of the Retained Income account."
         exp = f"Closing Retained Income = Opening Balance (R{opening_retained:,}) + Net Profit after Tax (R{net_profit_after_tax:,}) - Total Dividends (R{interim_dividend + final_dividend:,}) = R{closing_retained:,}"
 
         sub = "Statement of Financial Position" if "Financial" in self.topic else "Company Concepts"
-        if self.add_question(q_text, options, options.index(correct_str), exp, "medium", sub):
+        if self.add_question(q_text, correct_str, wrong_pool, exp, "medium", sub):
             return 1
         return 0
 
@@ -251,13 +240,12 @@ class AccountingQuestionEngine:
         distractor2 = f"R{(collected_gross + discount_amount):,.0f}" # Added discount
         distractor3 = f"R{(credit_sales * ((percentage_collected - discount)/100)):,.0f}" # Incorrect percentage logic
 
-        options = [correct_str, distractor1, distractor2, distractor3]
-        random.shuffle(options)
+        wrong_pool = [distractor1, distractor2, distractor3]
 
         q_text = f"Credit sales for May are R{credit_sales:,}. The business expects to collect {percentage_collected}% of these sales in June, subject to a {discount}% discount for prompt payment. How much cash will be collected in June from May sales?"
         exp = f"Expected collection gross = {percentage_collected}% of R{credit_sales:,} = R{collected_gross:,.0f}. Discount = {discount}% of R{collected_gross:,.0f} = R{discount_amount:,.0f}. Cash collected = R{collected_gross:,.0f} - R{discount_amount:,.0f} = R{actual_cash:,.0f}"
 
-        if self.add_question(q_text, options, options.index(correct_str), exp, "hard", "Debtors and Creditors Collection"):
+        if self.add_question(q_text, correct_str, wrong_pool, exp, "hard", "Debtors and Creditors Collection"):
             return 1
         return 0
 
@@ -281,13 +269,12 @@ class AccountingQuestionEngine:
         distractor2 = f"R{(expense + close_cr - open_cr):,}" # Reversed opening and closing
         distractor3 = f"R{(open_cr + close_cr + expense):,}" # Added everything
 
-        options = [correct_str, distractor1, distractor2, distractor3]
-        random.shuffle(options)
+        wrong_pool = [distractor1, distractor2, distractor3]
 
         q_text = f"The Income Tax expense for the year is R{expense:,}. The SARS (Income Tax) account had an opening credit balance of R{open_cr:,} and a closing credit balance of R{close_cr:,}. Calculate the actual Taxation Paid during the year."
         exp = f"Tax Paid = Opening Balance (R{open_cr:,}) + Tax Expense (R{expense:,}) - Closing Balance (R{close_cr:,}) = R{tax_paid:,}"
 
-        if self.add_question(q_text, options, options.index(correct_str), exp, "hard", "Operating Activities"):
+        if self.add_question(q_text, correct_str, wrong_pool, exp, "hard", "Operating Activities"):
             return 1
         return 0
 
@@ -304,13 +291,12 @@ class AccountingQuestionEngine:
         distractor2 = f"R{(bank_balance + outstanding_deposit + outstanding_cheque):,} favourable" # Added both
         distractor3 = f"R{recon_balance:,} overdrawn" # Wrong sign interpretation
 
-        options = [correct_str, distractor1, distractor2, distractor3]
-        random.shuffle(options)
+        wrong_pool = [distractor1, distractor2, distractor3]
 
         q_text = f"The Bank Statement shows a favourable (credit) balance of R{bank_balance:,}. Outstanding cheques amount to R{outstanding_cheque:,} and an outstanding deposit is R{outstanding_deposit:,}. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors)."
         exp = f"Balance per General Ledger = Bank Statement Balance (R{bank_balance:,}) + Outstanding Deposits (R{outstanding_deposit:,}) - Outstanding Cheques (R{outstanding_cheque:,}) = R{recon_balance:,} favourable (debit balance in GL)."
 
-        if self.add_question(q_text, options, options.index(correct_str), exp, "medium", "Bank Reconciliation"):
+        if self.add_question(q_text, correct_str, wrong_pool, exp, "medium", "Bank Reconciliation"):
             return 1
         return 0
 

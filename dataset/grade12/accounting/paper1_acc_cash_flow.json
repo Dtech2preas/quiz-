@@ -2,13 +2,12 @@
     {
         "id": "ACC_P1_CASHFLOW_0001",
         "question": "Which accounting term is defined as: cash outflow resulting from distributing a portion of profits to shareholders?",
-        "options": [
+        "correct_answer": "Dividends Paid",
+        "wrong_answers_pool": [
             "Taxation Paid",
-            "Interest Paid",
-            "Dividends Recommended",
-            "Dividends Paid"
+            "Retained Income",
+            "Interim Dividends Declared"
         ],
-        "correct_answer": 3,
         "explanation": "The correct term is Dividends Paid.",
         "tags": {
             "grade": "12",
@@ -22,20 +21,19 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0002",
-        "question": "Which accounting term is defined as: cash outflow for income tax, calculated by adjusting the income statement tax expense for opening and closing SARS (Income Tax) balances?",
-        "options": [
-            "Deferred Tax",
-            "Taxation Paid",
-            "Interest Paid",
-            "Provisional Tax"
+        "question": "Which accounting term is defined as: cash flows that result in changes in the size and composition of the contributed equity and borrowings of the entity?",
+        "correct_answer": "Financing Activities",
+        "wrong_answers_pool": [
+            "Operating Activities",
+            "Trading Activities",
+            "Working Capital Changes"
         ],
-        "correct_answer": 1,
-        "explanation": "The correct term is Taxation Paid.",
+        "explanation": "The correct term is Financing Activities.",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
             "topic": "Cash Flow Statements",
-            "subtopic": "Operating Activities",
+            "subtopic": "Investing & Financing Activities",
             "cognitive_level": "Knowledge",
             "difficulty": "easy",
             "learning_outcome": "Recall Principles"
@@ -44,13 +42,12 @@
     {
         "id": "ACC_P1_CASHFLOW_0003",
         "question": "Which accounting term is defined as: cash inflow resulting from selling new ordinary shares to shareholders?",
-        "options": [
-            "Proceeds from Sale of Assets",
-            "Cash Generated from Operations",
+        "correct_answer": "Proceeds from Issue of Shares",
+        "wrong_answers_pool": [
+            "Dividends Paid",
             "Repurchase of Shares",
-            "Proceeds from Issue of Shares"
+            "Cash Generated from Operations"
         ],
-        "correct_answer": 3,
         "explanation": "The correct term is Proceeds from Issue of Shares.",
         "tags": {
             "grade": "12",
@@ -64,15 +61,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0004",
-        "question": "Which accounting term is defined as: the cash flow derived from the primary revenue-producing activities of the business?",
-        "options": [
-            "Operating Profit",
-            "Cash Generated from Operations",
-            "Net Profit after Tax",
-            "Cash Flow from Financing Activities"
+        "question": "Which accounting term is defined as: cash outflow for income tax, calculated by adjusting the income statement tax expense for opening and closing SARS (Income Tax) balances?",
+        "correct_answer": "Taxation Paid",
+        "wrong_answers_pool": [
+            "Dividends Paid",
+            "Provisional Tax",
+            "Tax Expense"
         ],
-        "correct_answer": 1,
-        "explanation": "The correct term is Cash Generated from Operations.",
+        "explanation": "The correct term is Taxation Paid.",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -85,35 +81,13 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0005",
-        "question": "Which accounting term is defined as: cash flows that result in changes in the size and composition of the contributed equity and borrowings of the entity?",
-        "options": [
-            "Financing Activities",
-            "Operating Activities",
-            "Working Capital Changes",
-            "Trading Activities"
-        ],
-        "correct_answer": 0,
-        "explanation": "The correct term is Financing Activities.",
-        "tags": {
-            "grade": "12",
-            "subject": "Accounting",
-            "topic": "Cash Flow Statements",
-            "subtopic": "Investing & Financing Activities",
-            "cognitive_level": "Knowledge",
-            "difficulty": "easy",
-            "learning_outcome": "Recall Principles"
-        }
-    },
-    {
-        "id": "ACC_P1_CASHFLOW_0006",
         "question": "Which accounting term is defined as: cash flows resulting from the acquisition and disposal of long-term assets and other investments?",
-        "options": [
-            "Investing Activities",
+        "correct_answer": "Investing Activities",
+        "wrong_answers_pool": [
+            "Operating Activities",
             "Trading Activities",
-            "Non-current Liabilities",
             "Financing Activities"
         ],
-        "correct_answer": 0,
         "explanation": "The correct term is Investing Activities.",
         "tags": {
             "grade": "12",
@@ -126,16 +100,35 @@
         }
     },
     {
-        "id": "ACC_P1_CASHFLOW_0007",
-        "question": "The Income Tax expense for the year is R127,000. The SARS (Income Tax) account had an opening credit balance of R22,000 and a closing credit balance of R38,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R187,000",
-            "R143,000",
-            "R111,000",
-            "R127,000"
+        "id": "ACC_P1_CASHFLOW_0006",
+        "question": "Which accounting term is defined as: the cash flow derived from the primary revenue-producing activities of the business?",
+        "correct_answer": "Cash Generated from Operations",
+        "wrong_answers_pool": [
+            "Net Profit after Tax",
+            "Net Increase in Cash",
+            "Cash Flow from Financing Activities"
         ],
-        "correct_answer": 2,
-        "explanation": "Tax Paid = Opening Balance (R22,000) + Tax Expense (R127,000) - Closing Balance (R38,000) = R111,000",
+        "explanation": "The correct term is Cash Generated from Operations.",
+        "tags": {
+            "grade": "12",
+            "subject": "Accounting",
+            "topic": "Cash Flow Statements",
+            "subtopic": "Operating Activities",
+            "cognitive_level": "Knowledge",
+            "difficulty": "easy",
+            "learning_outcome": "Recall Principles"
+        }
+    },
+    {
+        "id": "ACC_P1_CASHFLOW_0007",
+        "question": "The Income Tax expense for the year is R227,000. The SARS (Income Tax) account had an opening credit balance of R27,000 and a closing credit balance of R39,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R215,000",
+        "wrong_answers_pool": [
+            "R227,000",
+            "R239,000",
+            "R293,000"
+        ],
+        "explanation": "Tax Paid = Opening Balance (R27,000) + Tax Expense (R227,000) - Closing Balance (R39,000) = R215,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -148,15 +141,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0008",
-        "question": "The Income Tax expense for the year is R115,000. The SARS (Income Tax) account had an opening credit balance of R24,000 and a closing credit balance of R34,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R115,000",
-            "R173,000",
-            "R105,000",
-            "R125,000"
+        "question": "The Income Tax expense for the year is R109,000. The SARS (Income Tax) account had an opening credit balance of R21,000 and a closing credit balance of R22,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R108,000",
+        "wrong_answers_pool": [
+            "R109,000",
+            "R110,000",
+            "R152,000"
         ],
-        "correct_answer": 2,
-        "explanation": "Tax Paid = Opening Balance (R24,000) + Tax Expense (R115,000) - Closing Balance (R34,000) = R105,000",
+        "explanation": "Tax Paid = Opening Balance (R21,000) + Tax Expense (R109,000) - Closing Balance (R22,000) = R108,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -169,15 +161,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0009",
-        "question": "The Income Tax expense for the year is R283,000. The SARS (Income Tax) account had an opening credit balance of R10,000 and a closing credit balance of R24,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R317,000",
-            "R297,000",
-            "R283,000",
-            "R269,000"
+        "question": "The Income Tax expense for the year is R108,000. The SARS (Income Tax) account had an opening credit balance of R9,000 and a closing credit balance of R32,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R85,000",
+        "wrong_answers_pool": [
+            "R108,000",
+            "R131,000",
+            "R149,000"
         ],
-        "correct_answer": 3,
-        "explanation": "Tax Paid = Opening Balance (R10,000) + Tax Expense (R283,000) - Closing Balance (R24,000) = R269,000",
+        "explanation": "Tax Paid = Opening Balance (R9,000) + Tax Expense (R108,000) - Closing Balance (R32,000) = R85,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -190,15 +181,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0010",
-        "question": "The Income Tax expense for the year is R282,000. The SARS (Income Tax) account had an opening credit balance of R12,000 and a closing credit balance of R34,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R328,000",
-            "R304,000",
-            "R260,000",
-            "R282,000"
+        "question": "The Income Tax expense for the year is R147,000. The SARS (Income Tax) account had an opening credit balance of R16,000 and a closing credit balance of R25,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R138,000",
+        "wrong_answers_pool": [
+            "R147,000",
+            "R156,000",
+            "R188,000"
         ],
-        "correct_answer": 2,
-        "explanation": "Tax Paid = Opening Balance (R12,000) + Tax Expense (R282,000) - Closing Balance (R34,000) = R260,000",
+        "explanation": "Tax Paid = Opening Balance (R16,000) + Tax Expense (R147,000) - Closing Balance (R25,000) = R138,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -211,15 +201,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0011",
-        "question": "The Income Tax expense for the year is R268,000. The SARS (Income Tax) account had an opening credit balance of R25,000 and a closing credit balance of R29,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R272,000",
-            "R264,000",
-            "R268,000",
-            "R322,000"
+        "question": "The Income Tax expense for the year is R124,000. The SARS (Income Tax) account had an opening credit balance of R18,000 and a closing credit balance of R18,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R124,000",
+        "wrong_answers_pool": [
+            "R124,000",
+            "R124,000",
+            "R160,000"
         ],
-        "correct_answer": 1,
-        "explanation": "Tax Paid = Opening Balance (R25,000) + Tax Expense (R268,000) - Closing Balance (R29,000) = R264,000",
+        "explanation": "Tax Paid = Opening Balance (R18,000) + Tax Expense (R124,000) - Closing Balance (R18,000) = R124,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -232,15 +221,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0012",
-        "question": "The Income Tax expense for the year is R267,000. The SARS (Income Tax) account had an opening credit balance of R12,000 and a closing credit balance of R38,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R267,000",
-            "R317,000",
-            "R241,000",
-            "R293,000"
+        "question": "The Income Tax expense for the year is R209,000. The SARS (Income Tax) account had an opening credit balance of R8,000 and a closing credit balance of R22,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R195,000",
+        "wrong_answers_pool": [
+            "R209,000",
+            "R223,000",
+            "R239,000"
         ],
-        "correct_answer": 2,
-        "explanation": "Tax Paid = Opening Balance (R12,000) + Tax Expense (R267,000) - Closing Balance (R38,000) = R241,000",
+        "explanation": "Tax Paid = Opening Balance (R8,000) + Tax Expense (R209,000) - Closing Balance (R22,000) = R195,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -253,15 +241,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0013",
-        "question": "The Income Tax expense for the year is R216,000. The SARS (Income Tax) account had an opening credit balance of R17,000 and a closing credit balance of R10,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R209,000",
-            "R243,000",
-            "R223,000",
-            "R216,000"
+        "question": "The Income Tax expense for the year is R199,000. The SARS (Income Tax) account had an opening credit balance of R11,000 and a closing credit balance of R12,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R198,000",
+        "wrong_answers_pool": [
+            "R199,000",
+            "R200,000",
+            "R222,000"
         ],
-        "correct_answer": 2,
-        "explanation": "Tax Paid = Opening Balance (R17,000) + Tax Expense (R216,000) - Closing Balance (R10,000) = R223,000",
+        "explanation": "Tax Paid = Opening Balance (R11,000) + Tax Expense (R199,000) - Closing Balance (R12,000) = R198,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -274,15 +261,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0014",
-        "question": "The Income Tax expense for the year is R104,000. The SARS (Income Tax) account had an opening credit balance of R10,000 and a closing credit balance of R25,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R119,000",
-            "R104,000",
-            "R139,000",
-            "R89,000"
+        "question": "The Income Tax expense for the year is R175,000. The SARS (Income Tax) account had an opening credit balance of R28,000 and a closing credit balance of R29,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R174,000",
+        "wrong_answers_pool": [
+            "R175,000",
+            "R176,000",
+            "R232,000"
         ],
-        "correct_answer": 3,
-        "explanation": "Tax Paid = Opening Balance (R10,000) + Tax Expense (R104,000) - Closing Balance (R25,000) = R89,000",
+        "explanation": "Tax Paid = Opening Balance (R28,000) + Tax Expense (R175,000) - Closing Balance (R29,000) = R174,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -295,15 +281,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0015",
-        "question": "The Income Tax expense for the year is R135,000. The SARS (Income Tax) account had an opening credit balance of R23,000 and a closing credit balance of R10,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R135,000",
-            "R168,000",
-            "R122,000",
-            "R148,000"
+        "question": "The Income Tax expense for the year is R151,000. The SARS (Income Tax) account had an opening credit balance of R7,000 and a closing credit balance of R34,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R124,000",
+        "wrong_answers_pool": [
+            "R151,000",
+            "R178,000",
+            "R192,000"
         ],
-        "correct_answer": 3,
-        "explanation": "Tax Paid = Opening Balance (R23,000) + Tax Expense (R135,000) - Closing Balance (R10,000) = R148,000",
+        "explanation": "Tax Paid = Opening Balance (R7,000) + Tax Expense (R151,000) - Closing Balance (R34,000) = R124,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -316,15 +301,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0016",
-        "question": "The Income Tax expense for the year is R207,000. The SARS (Income Tax) account had an opening credit balance of R10,000 and a closing credit balance of R26,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R223,000",
-            "R191,000",
-            "R243,000",
-            "R207,000"
+        "question": "The Income Tax expense for the year is R104,000. The SARS (Income Tax) account had an opening credit balance of R18,000 and a closing credit balance of R18,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R104,000",
+        "wrong_answers_pool": [
+            "R104,000",
+            "R104,000",
+            "R140,000"
         ],
-        "correct_answer": 1,
-        "explanation": "Tax Paid = Opening Balance (R10,000) + Tax Expense (R207,000) - Closing Balance (R26,000) = R191,000",
+        "explanation": "Tax Paid = Opening Balance (R18,000) + Tax Expense (R104,000) - Closing Balance (R18,000) = R104,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -337,15 +321,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0017",
-        "question": "The Income Tax expense for the year is R251,000. The SARS (Income Tax) account had an opening credit balance of R22,000 and a closing credit balance of R21,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R251,000",
-            "R294,000",
-            "R252,000",
-            "R250,000"
+        "question": "The Income Tax expense for the year is R203,000. The SARS (Income Tax) account had an opening credit balance of R25,000 and a closing credit balance of R34,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R194,000",
+        "wrong_answers_pool": [
+            "R203,000",
+            "R212,000",
+            "R262,000"
         ],
-        "correct_answer": 2,
-        "explanation": "Tax Paid = Opening Balance (R22,000) + Tax Expense (R251,000) - Closing Balance (R21,000) = R252,000",
+        "explanation": "Tax Paid = Opening Balance (R25,000) + Tax Expense (R203,000) - Closing Balance (R34,000) = R194,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -358,15 +341,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0018",
-        "question": "The Income Tax expense for the year is R278,000. The SARS (Income Tax) account had an opening credit balance of R15,000 and a closing credit balance of R24,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R287,000",
-            "R317,000",
-            "R269,000",
-            "R278,000"
+        "question": "The Income Tax expense for the year is R101,000. The SARS (Income Tax) account had an opening credit balance of R10,000 and a closing credit balance of R11,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R100,000",
+        "wrong_answers_pool": [
+            "R101,000",
+            "R102,000",
+            "R122,000"
         ],
-        "correct_answer": 2,
-        "explanation": "Tax Paid = Opening Balance (R15,000) + Tax Expense (R278,000) - Closing Balance (R24,000) = R269,000",
+        "explanation": "Tax Paid = Opening Balance (R10,000) + Tax Expense (R101,000) - Closing Balance (R11,000) = R100,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -379,15 +361,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0019",
-        "question": "The Income Tax expense for the year is R264,000. The SARS (Income Tax) account had an opening credit balance of R14,000 and a closing credit balance of R35,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R285,000",
-            "R313,000",
-            "R243,000",
-            "R264,000"
+        "question": "The Income Tax expense for the year is R119,000. The SARS (Income Tax) account had an opening credit balance of R29,000 and a closing credit balance of R28,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R120,000",
+        "wrong_answers_pool": [
+            "R119,000",
+            "R118,000",
+            "R176,000"
         ],
-        "correct_answer": 2,
-        "explanation": "Tax Paid = Opening Balance (R14,000) + Tax Expense (R264,000) - Closing Balance (R35,000) = R243,000",
+        "explanation": "Tax Paid = Opening Balance (R29,000) + Tax Expense (R119,000) - Closing Balance (R28,000) = R120,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -400,15 +381,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0020",
-        "question": "The Income Tax expense for the year is R121,000. The SARS (Income Tax) account had an opening credit balance of R8,000 and a closing credit balance of R29,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R121,000",
-            "R100,000",
-            "R158,000",
-            "R142,000"
+        "question": "The Income Tax expense for the year is R187,000. The SARS (Income Tax) account had an opening credit balance of R26,000 and a closing credit balance of R12,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R201,000",
+        "wrong_answers_pool": [
+            "R187,000",
+            "R173,000",
+            "R225,000"
         ],
-        "correct_answer": 1,
-        "explanation": "Tax Paid = Opening Balance (R8,000) + Tax Expense (R121,000) - Closing Balance (R29,000) = R100,000",
+        "explanation": "Tax Paid = Opening Balance (R26,000) + Tax Expense (R187,000) - Closing Balance (R12,000) = R201,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -421,15 +401,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0021",
-        "question": "The Income Tax expense for the year is R212,000. The SARS (Income Tax) account had an opening credit balance of R29,000 and a closing credit balance of R18,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R201,000",
-            "R223,000",
-            "R259,000",
-            "R212,000"
+        "question": "The Income Tax expense for the year is R281,000. The SARS (Income Tax) account had an opening credit balance of R17,000 and a closing credit balance of R16,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R282,000",
+        "wrong_answers_pool": [
+            "R281,000",
+            "R280,000",
+            "R314,000"
         ],
-        "correct_answer": 1,
-        "explanation": "Tax Paid = Opening Balance (R29,000) + Tax Expense (R212,000) - Closing Balance (R18,000) = R223,000",
+        "explanation": "Tax Paid = Opening Balance (R17,000) + Tax Expense (R281,000) - Closing Balance (R16,000) = R282,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -442,15 +421,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0022",
-        "question": "The Income Tax expense for the year is R229,000. The SARS (Income Tax) account had an opening credit balance of R24,000 and a closing credit balance of R26,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R231,000",
-            "R229,000",
-            "R227,000",
-            "R279,000"
+        "question": "The Income Tax expense for the year is R213,000. The SARS (Income Tax) account had an opening credit balance of R30,000 and a closing credit balance of R16,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R227,000",
+        "wrong_answers_pool": [
+            "R213,000",
+            "R199,000",
+            "R259,000"
         ],
-        "correct_answer": 2,
-        "explanation": "Tax Paid = Opening Balance (R24,000) + Tax Expense (R229,000) - Closing Balance (R26,000) = R227,000",
+        "explanation": "Tax Paid = Opening Balance (R30,000) + Tax Expense (R213,000) - Closing Balance (R16,000) = R227,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -463,15 +441,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0023",
-        "question": "The Income Tax expense for the year is R222,000. The SARS (Income Tax) account had an opening credit balance of R19,000 and a closing credit balance of R33,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R274,000",
-            "R236,000",
-            "R208,000",
-            "R222,000"
+        "question": "The Income Tax expense for the year is R117,000. The SARS (Income Tax) account had an opening credit balance of R28,000 and a closing credit balance of R16,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R129,000",
+        "wrong_answers_pool": [
+            "R117,000",
+            "R105,000",
+            "R161,000"
         ],
-        "correct_answer": 2,
-        "explanation": "Tax Paid = Opening Balance (R19,000) + Tax Expense (R222,000) - Closing Balance (R33,000) = R208,000",
+        "explanation": "Tax Paid = Opening Balance (R28,000) + Tax Expense (R117,000) - Closing Balance (R16,000) = R129,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -484,15 +461,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0024",
-        "question": "The Income Tax expense for the year is R103,000. The SARS (Income Tax) account had an opening credit balance of R21,000 and a closing credit balance of R37,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R103,000",
-            "R87,000",
-            "R119,000",
-            "R161,000"
+        "question": "The Income Tax expense for the year is R248,000. The SARS (Income Tax) account had an opening credit balance of R8,000 and a closing credit balance of R14,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R242,000",
+        "wrong_answers_pool": [
+            "R248,000",
+            "R254,000",
+            "R270,000"
         ],
-        "correct_answer": 1,
-        "explanation": "Tax Paid = Opening Balance (R21,000) + Tax Expense (R103,000) - Closing Balance (R37,000) = R87,000",
+        "explanation": "Tax Paid = Opening Balance (R8,000) + Tax Expense (R248,000) - Closing Balance (R14,000) = R242,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -505,15 +481,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0025",
-        "question": "The Income Tax expense for the year is R133,000. The SARS (Income Tax) account had an opening credit balance of R14,000 and a closing credit balance of R15,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R133,000",
-            "R134,000",
-            "R162,000",
-            "R132,000"
+        "question": "The Income Tax expense for the year is R228,000. The SARS (Income Tax) account had an opening credit balance of R14,000 and a closing credit balance of R25,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R217,000",
+        "wrong_answers_pool": [
+            "R228,000",
+            "R239,000",
+            "R267,000"
         ],
-        "correct_answer": 3,
-        "explanation": "Tax Paid = Opening Balance (R14,000) + Tax Expense (R133,000) - Closing Balance (R15,000) = R132,000",
+        "explanation": "Tax Paid = Opening Balance (R14,000) + Tax Expense (R228,000) - Closing Balance (R25,000) = R217,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -526,15 +501,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0026",
-        "question": "The Income Tax expense for the year is R158,000. The SARS (Income Tax) account had an opening credit balance of R22,000 and a closing credit balance of R34,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R146,000",
-            "R170,000",
-            "R158,000",
-            "R214,000"
+        "question": "The Income Tax expense for the year is R120,000. The SARS (Income Tax) account had an opening credit balance of R27,000 and a closing credit balance of R17,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R130,000",
+        "wrong_answers_pool": [
+            "R120,000",
+            "R110,000",
+            "R164,000"
         ],
-        "correct_answer": 0,
-        "explanation": "Tax Paid = Opening Balance (R22,000) + Tax Expense (R158,000) - Closing Balance (R34,000) = R146,000",
+        "explanation": "Tax Paid = Opening Balance (R27,000) + Tax Expense (R120,000) - Closing Balance (R17,000) = R130,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -547,15 +521,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0027",
-        "question": "The Income Tax expense for the year is R209,000. The SARS (Income Tax) account had an opening credit balance of R21,000 and a closing credit balance of R26,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R256,000",
-            "R214,000",
-            "R204,000",
-            "R209,000"
+        "question": "The Income Tax expense for the year is R206,000. The SARS (Income Tax) account had an opening credit balance of R18,000 and a closing credit balance of R37,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R187,000",
+        "wrong_answers_pool": [
+            "R206,000",
+            "R225,000",
+            "R261,000"
         ],
-        "correct_answer": 2,
-        "explanation": "Tax Paid = Opening Balance (R21,000) + Tax Expense (R209,000) - Closing Balance (R26,000) = R204,000",
+        "explanation": "Tax Paid = Opening Balance (R18,000) + Tax Expense (R206,000) - Closing Balance (R37,000) = R187,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -568,15 +541,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0028",
-        "question": "The Income Tax expense for the year is R263,000. The SARS (Income Tax) account had an opening credit balance of R10,000 and a closing credit balance of R13,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R266,000",
-            "R263,000",
-            "R286,000",
-            "R260,000"
+        "question": "The Income Tax expense for the year is R106,000. The SARS (Income Tax) account had an opening credit balance of R8,000 and a closing credit balance of R35,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R79,000",
+        "wrong_answers_pool": [
+            "R106,000",
+            "R133,000",
+            "R149,000"
         ],
-        "correct_answer": 3,
-        "explanation": "Tax Paid = Opening Balance (R10,000) + Tax Expense (R263,000) - Closing Balance (R13,000) = R260,000",
+        "explanation": "Tax Paid = Opening Balance (R8,000) + Tax Expense (R106,000) - Closing Balance (R35,000) = R79,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -589,15 +561,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0029",
-        "question": "The Income Tax expense for the year is R130,000. The SARS (Income Tax) account had an opening credit balance of R28,000 and a closing credit balance of R33,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R135,000",
-            "R191,000",
-            "R130,000",
-            "R125,000"
+        "question": "The Income Tax expense for the year is R207,000. The SARS (Income Tax) account had an opening credit balance of R27,000 and a closing credit balance of R40,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R194,000",
+        "wrong_answers_pool": [
+            "R207,000",
+            "R220,000",
+            "R274,000"
         ],
-        "correct_answer": 3,
-        "explanation": "Tax Paid = Opening Balance (R28,000) + Tax Expense (R130,000) - Closing Balance (R33,000) = R125,000",
+        "explanation": "Tax Paid = Opening Balance (R27,000) + Tax Expense (R207,000) - Closing Balance (R40,000) = R194,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -610,15 +581,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0030",
-        "question": "The Income Tax expense for the year is R244,000. The SARS (Income Tax) account had an opening credit balance of R11,000 and a closing credit balance of R16,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R249,000",
-            "R239,000",
-            "R244,000",
-            "R271,000"
+        "question": "The Income Tax expense for the year is R165,000. The SARS (Income Tax) account had an opening credit balance of R17,000 and a closing credit balance of R22,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R160,000",
+        "wrong_answers_pool": [
+            "R165,000",
+            "R170,000",
+            "R204,000"
         ],
-        "correct_answer": 1,
-        "explanation": "Tax Paid = Opening Balance (R11,000) + Tax Expense (R244,000) - Closing Balance (R16,000) = R239,000",
+        "explanation": "Tax Paid = Opening Balance (R17,000) + Tax Expense (R165,000) - Closing Balance (R22,000) = R160,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -631,15 +601,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0031",
-        "question": "The Income Tax expense for the year is R177,000. The SARS (Income Tax) account had an opening credit balance of R26,000 and a closing credit balance of R19,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R170,000",
-            "R184,000",
-            "R222,000",
-            "R177,000"
+        "question": "The Income Tax expense for the year is R173,000. The SARS (Income Tax) account had an opening credit balance of R27,000 and a closing credit balance of R20,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R180,000",
+        "wrong_answers_pool": [
+            "R173,000",
+            "R166,000",
+            "R220,000"
         ],
-        "correct_answer": 1,
-        "explanation": "Tax Paid = Opening Balance (R26,000) + Tax Expense (R177,000) - Closing Balance (R19,000) = R184,000",
+        "explanation": "Tax Paid = Opening Balance (R27,000) + Tax Expense (R173,000) - Closing Balance (R20,000) = R180,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -652,15 +621,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0032",
-        "question": "The Income Tax expense for the year is R181,000. The SARS (Income Tax) account had an opening credit balance of R20,000 and a closing credit balance of R12,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R181,000",
-            "R213,000",
-            "R189,000",
-            "R173,000"
+        "question": "The Income Tax expense for the year is R141,000. The SARS (Income Tax) account had an opening credit balance of R5,000 and a closing credit balance of R10,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R136,000",
+        "wrong_answers_pool": [
+            "R141,000",
+            "R146,000",
+            "R156,000"
         ],
-        "correct_answer": 2,
-        "explanation": "Tax Paid = Opening Balance (R20,000) + Tax Expense (R181,000) - Closing Balance (R12,000) = R189,000",
+        "explanation": "Tax Paid = Opening Balance (R5,000) + Tax Expense (R141,000) - Closing Balance (R10,000) = R136,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -673,15 +641,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0033",
-        "question": "The Income Tax expense for the year is R169,000. The SARS (Income Tax) account had an opening credit balance of R6,000 and a closing credit balance of R21,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R196,000",
-            "R184,000",
-            "R169,000",
-            "R154,000"
+        "question": "The Income Tax expense for the year is R282,000. The SARS (Income Tax) account had an opening credit balance of R28,000 and a closing credit balance of R17,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R293,000",
+        "wrong_answers_pool": [
+            "R282,000",
+            "R271,000",
+            "R327,000"
         ],
-        "correct_answer": 3,
-        "explanation": "Tax Paid = Opening Balance (R6,000) + Tax Expense (R169,000) - Closing Balance (R21,000) = R154,000",
+        "explanation": "Tax Paid = Opening Balance (R28,000) + Tax Expense (R282,000) - Closing Balance (R17,000) = R293,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -694,15 +661,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0034",
-        "question": "The Income Tax expense for the year is R156,000. The SARS (Income Tax) account had an opening credit balance of R20,000 and a closing credit balance of R31,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R145,000",
-            "R156,000",
-            "R167,000",
-            "R207,000"
+        "question": "The Income Tax expense for the year is R235,000. The SARS (Income Tax) account had an opening credit balance of R18,000 and a closing credit balance of R20,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R233,000",
+        "wrong_answers_pool": [
+            "R235,000",
+            "R237,000",
+            "R273,000"
         ],
-        "correct_answer": 0,
-        "explanation": "Tax Paid = Opening Balance (R20,000) + Tax Expense (R156,000) - Closing Balance (R31,000) = R145,000",
+        "explanation": "Tax Paid = Opening Balance (R18,000) + Tax Expense (R235,000) - Closing Balance (R20,000) = R233,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -715,15 +681,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0035",
-        "question": "The Income Tax expense for the year is R159,000. The SARS (Income Tax) account had an opening credit balance of R22,000 and a closing credit balance of R29,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R159,000",
-            "R210,000",
-            "R166,000",
-            "R152,000"
+        "question": "The Income Tax expense for the year is R211,000. The SARS (Income Tax) account had an opening credit balance of R17,000 and a closing credit balance of R31,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R197,000",
+        "wrong_answers_pool": [
+            "R211,000",
+            "R225,000",
+            "R259,000"
         ],
-        "correct_answer": 3,
-        "explanation": "Tax Paid = Opening Balance (R22,000) + Tax Expense (R159,000) - Closing Balance (R29,000) = R152,000",
+        "explanation": "Tax Paid = Opening Balance (R17,000) + Tax Expense (R211,000) - Closing Balance (R31,000) = R197,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -736,15 +701,14 @@
     },
     {
         "id": "ACC_P1_CASHFLOW_0036",
-        "question": "The Income Tax expense for the year is R268,000. The SARS (Income Tax) account had an opening credit balance of R15,000 and a closing credit balance of R31,000. Calculate the actual Taxation Paid during the year.",
-        "options": [
-            "R268,000",
-            "R314,000",
-            "R284,000",
-            "R252,000"
+        "question": "The Income Tax expense for the year is R125,000. The SARS (Income Tax) account had an opening credit balance of R29,000 and a closing credit balance of R16,000. Calculate the actual Taxation Paid during the year.",
+        "correct_answer": "R138,000",
+        "wrong_answers_pool": [
+            "R125,000",
+            "R112,000",
+            "R170,000"
         ],
-        "correct_answer": 3,
-        "explanation": "Tax Paid = Opening Balance (R15,000) + Tax Expense (R268,000) - Closing Balance (R31,000) = R252,000",
+        "explanation": "Tax Paid = Opening Balance (R29,000) + Tax Expense (R125,000) - Closing Balance (R16,000) = R138,000",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
