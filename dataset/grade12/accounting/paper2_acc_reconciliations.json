@@ -2,13 +2,12 @@
     {
         "id": "ACC_P2_RECON_0001",
         "question": "Which accounting term is defined as: the process of comparing a supplier's statement with the business's creditor ledger account to identify differences?",
-        "options": [
-            "Creditors Reconciliation",
+        "correct_answer": "Creditors Reconciliation",
+        "wrong_answers_pool": [
+            "Stock Reconciliation",
             "Debtors Reconciliation",
-            "Age Analysis",
-            "Trial Balance"
+            "Bank Reconciliation"
         ],
-        "correct_answer": 0,
         "explanation": "The correct term is Creditors Reconciliation.",
         "tags": {
             "grade": "12",
@@ -22,77 +21,13 @@
     },
     {
         "id": "ACC_P2_RECON_0002",
-        "question": "Which accounting term is defined as: a summary account in the General Ledger representing the total amount owed by all debtors?",
-        "options": [
-            "Debtors Control Account",
-            "Bad Debts Account",
-            "Trading Account",
-            "Sales Journal"
-        ],
-        "correct_answer": 0,
-        "explanation": "The correct term is Debtors Control Account.",
-        "tags": {
-            "grade": "12",
-            "subject": "Accounting",
-            "topic": "Reconciliations & Internal Control",
-            "subtopic": "Debtors & Creditors Reconciliations",
-            "cognitive_level": "Knowledge",
-            "difficulty": "easy",
-            "learning_outcome": "Recall Principles"
-        }
-    },
-    {
-        "id": "ACC_P2_RECON_0003",
-        "question": "Which accounting term is defined as: a cheque returned by the bank unpaid, usually due to insufficient funds in the drawer's account?",
-        "options": [
-            "Crossed Cheque",
-            "Post-dated Cheque",
-            "Stale Cheque",
-            "Dishonoured Cheque (RD)"
-        ],
-        "correct_answer": 3,
-        "explanation": "The correct term is Dishonoured Cheque (RD).",
-        "tags": {
-            "grade": "12",
-            "subject": "Accounting",
-            "topic": "Reconciliations & Internal Control",
-            "subtopic": "Bank Reconciliation",
-            "cognitive_level": "Knowledge",
-            "difficulty": "easy",
-            "learning_outcome": "Recall Principles"
-        }
-    },
-    {
-        "id": "ACC_P2_RECON_0004",
-        "question": "Which accounting term is defined as: a monthly document from the bank detailing all deposits, withdrawals, and bank charges for an account?",
-        "options": [
-            "Bank Reconciliation Statement",
-            "Bank Statement",
-            "Cash Payments Journal",
-            "Deposit Slip"
-        ],
-        "correct_answer": 1,
-        "explanation": "The correct term is Bank Statement.",
-        "tags": {
-            "grade": "12",
-            "subject": "Accounting",
-            "topic": "Reconciliations & Internal Control",
-            "subtopic": "Bank Reconciliation",
-            "cognitive_level": "Knowledge",
-            "difficulty": "easy",
-            "learning_outcome": "Recall Principles"
-        }
-    },
-    {
-        "id": "ACC_P2_RECON_0005",
         "question": "Which accounting term is defined as: cheques issued by the business but not yet presented to the bank for payment?",
-        "options": [
+        "correct_answer": "Outstanding Cheques",
+        "wrong_answers_pool": [
             "Dishonoured Cheques",
-            "Outstanding Cheques",
             "Outstanding Deposits",
-            "Stale Cheques"
+            "Bank Errors"
         ],
-        "correct_answer": 1,
         "explanation": "The correct term is Outstanding Cheques.",
         "tags": {
             "grade": "12",
@@ -105,16 +40,75 @@
         }
     },
     {
-        "id": "ACC_P2_RECON_0006",
-        "question": "The Bank Statement shows a favourable (credit) balance of R37,000. Outstanding cheques amount to R2,000 and an outstanding deposit is R4,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
-            "R39,000 overdrawn",
-            "R43,000 favourable",
-            "R39,000 favourable",
-            "R35,000 favourable"
+        "id": "ACC_P2_RECON_0003",
+        "question": "Which accounting term is defined as: a monthly document from the bank detailing all deposits, withdrawals, and bank charges for an account?",
+        "correct_answer": "Bank Statement",
+        "wrong_answers_pool": [
+            "Bank Ledger Account",
+            "Cash Receipts Journal",
+            "Bank Reconciliation Statement"
         ],
-        "correct_answer": 2,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R37,000) + Outstanding Deposits (R4,000) - Outstanding Cheques (R2,000) = R39,000 favourable (debit balance in GL).",
+        "explanation": "The correct term is Bank Statement.",
+        "tags": {
+            "grade": "12",
+            "subject": "Accounting",
+            "topic": "Reconciliations & Internal Control",
+            "subtopic": "Bank Reconciliation",
+            "cognitive_level": "Knowledge",
+            "difficulty": "easy",
+            "learning_outcome": "Recall Principles"
+        }
+    },
+    {
+        "id": "ACC_P2_RECON_0004",
+        "question": "Which accounting term is defined as: a summary account in the General Ledger representing the total amount owed by all debtors?",
+        "correct_answer": "Debtors Control Account",
+        "wrong_answers_pool": [
+            "Debtors Ledger",
+            "Bad Debts Account",
+            "Creditors Control Account"
+        ],
+        "explanation": "The correct term is Debtors Control Account.",
+        "tags": {
+            "grade": "12",
+            "subject": "Accounting",
+            "topic": "Reconciliations & Internal Control",
+            "subtopic": "Debtors & Creditors Reconciliations",
+            "cognitive_level": "Knowledge",
+            "difficulty": "easy",
+            "learning_outcome": "Recall Principles"
+        }
+    },
+    {
+        "id": "ACC_P2_RECON_0005",
+        "question": "Which accounting term is defined as: a cheque returned by the bank unpaid, usually due to insufficient funds in the drawer's account?",
+        "correct_answer": "Dishonoured Cheque (RD)",
+        "wrong_answers_pool": [
+            "Crossed Cheque",
+            "Stale Cheque",
+            "Certified Cheque"
+        ],
+        "explanation": "The correct term is Dishonoured Cheque (RD).",
+        "tags": {
+            "grade": "12",
+            "subject": "Accounting",
+            "topic": "Reconciliations & Internal Control",
+            "subtopic": "Bank Reconciliation",
+            "cognitive_level": "Knowledge",
+            "difficulty": "easy",
+            "learning_outcome": "Recall Principles"
+        }
+    },
+    {
+        "id": "ACC_P2_RECON_0006",
+        "question": "The Bank Statement shows a favourable (credit) balance of R46,000. Outstanding cheques amount to R2,000 and an outstanding deposit is R5,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R49,000 favourable",
+        "wrong_answers_pool": [
+            "R43,000 favourable",
+            "R53,000 favourable",
+            "R49,000 overdrawn"
+        ],
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R46,000) + Outstanding Deposits (R5,000) - Outstanding Cheques (R2,000) = R49,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -127,15 +121,14 @@
     },
     {
         "id": "ACC_P2_RECON_0007",
-        "question": "The Bank Statement shows a favourable (credit) balance of R38,000. Outstanding cheques amount to R3,000 and an outstanding deposit is R4,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
-            "R37,000 favourable",
-            "R39,000 overdrawn",
-            "R39,000 favourable",
-            "R45,000 favourable"
+        "question": "The Bank Statement shows a favourable (credit) balance of R41,000. Outstanding cheques amount to R1,000 and an outstanding deposit is R2,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R42,000 favourable",
+        "wrong_answers_pool": [
+            "R40,000 favourable",
+            "R44,000 favourable",
+            "R42,000 overdrawn"
         ],
-        "correct_answer": 2,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R38,000) + Outstanding Deposits (R4,000) - Outstanding Cheques (R3,000) = R39,000 favourable (debit balance in GL).",
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R41,000) + Outstanding Deposits (R2,000) - Outstanding Cheques (R1,000) = R42,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -148,15 +141,14 @@
     },
     {
         "id": "ACC_P2_RECON_0008",
-        "question": "The Bank Statement shows a favourable (credit) balance of R43,000. Outstanding cheques amount to R5,000 and an outstanding deposit is R4,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
+        "question": "The Bank Statement shows a favourable (credit) balance of R44,000. Outstanding cheques amount to R5,000 and an outstanding deposit is R7,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R46,000 favourable",
+        "wrong_answers_pool": [
             "R42,000 favourable",
-            "R42,000 overdrawn",
-            "R52,000 favourable",
-            "R44,000 favourable"
+            "R56,000 favourable",
+            "R46,000 overdrawn"
         ],
-        "correct_answer": 0,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R43,000) + Outstanding Deposits (R4,000) - Outstanding Cheques (R5,000) = R42,000 favourable (debit balance in GL).",
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R44,000) + Outstanding Deposits (R7,000) - Outstanding Cheques (R5,000) = R46,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -169,15 +161,14 @@
     },
     {
         "id": "ACC_P2_RECON_0009",
-        "question": "The Bank Statement shows a favourable (credit) balance of R12,000. Outstanding cheques amount to R3,000 and an outstanding deposit is R3,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
-            "R12,000 favourable",
-            "R18,000 favourable",
-            "R12,000 overdrawn",
-            "R12,000 favourable"
+        "question": "The Bank Statement shows a favourable (credit) balance of R37,000. Outstanding cheques amount to R1,000 and an outstanding deposit is R7,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R43,000 favourable",
+        "wrong_answers_pool": [
+            "R31,000 favourable",
+            "R45,000 favourable",
+            "R43,000 overdrawn"
         ],
-        "correct_answer": 0,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R12,000) + Outstanding Deposits (R3,000) - Outstanding Cheques (R3,000) = R12,000 favourable (debit balance in GL).",
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R37,000) + Outstanding Deposits (R7,000) - Outstanding Cheques (R1,000) = R43,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -190,15 +181,14 @@
     },
     {
         "id": "ACC_P2_RECON_0010",
-        "question": "The Bank Statement shows a favourable (credit) balance of R10,000. Outstanding cheques amount to R2,000 and an outstanding deposit is R6,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
-            "R14,000 favourable",
-            "R14,000 overdrawn",
-            "R6,000 favourable",
-            "R18,000 favourable"
+        "question": "The Bank Statement shows a favourable (credit) balance of R36,000. Outstanding cheques amount to R3,000 and an outstanding deposit is R8,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R41,000 favourable",
+        "wrong_answers_pool": [
+            "R31,000 favourable",
+            "R47,000 favourable",
+            "R41,000 overdrawn"
         ],
-        "correct_answer": 0,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R10,000) + Outstanding Deposits (R6,000) - Outstanding Cheques (R2,000) = R14,000 favourable (debit balance in GL).",
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R36,000) + Outstanding Deposits (R8,000) - Outstanding Cheques (R3,000) = R41,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -211,15 +201,14 @@
     },
     {
         "id": "ACC_P2_RECON_0011",
-        "question": "The Bank Statement shows a favourable (credit) balance of R29,000. Outstanding cheques amount to R4,000 and an outstanding deposit is R7,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
-            "R40,000 favourable",
-            "R26,000 favourable",
-            "R32,000 overdrawn",
-            "R32,000 favourable"
+        "question": "The Bank Statement shows a favourable (credit) balance of R18,000. Outstanding cheques amount to R4,000 and an outstanding deposit is R5,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R19,000 favourable",
+        "wrong_answers_pool": [
+            "R17,000 favourable",
+            "R27,000 favourable",
+            "R19,000 overdrawn"
         ],
-        "correct_answer": 3,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R29,000) + Outstanding Deposits (R7,000) - Outstanding Cheques (R4,000) = R32,000 favourable (debit balance in GL).",
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R18,000) + Outstanding Deposits (R5,000) - Outstanding Cheques (R4,000) = R19,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -232,15 +221,14 @@
     },
     {
         "id": "ACC_P2_RECON_0012",
-        "question": "The Bank Statement shows a favourable (credit) balance of R20,000. Outstanding cheques amount to R4,000 and an outstanding deposit is R4,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
-            "R20,000 overdrawn",
-            "R20,000 favourable",
-            "R20,000 favourable",
-            "R28,000 favourable"
+        "question": "The Bank Statement shows a favourable (credit) balance of R45,000. Outstanding cheques amount to R4,000 and an outstanding deposit is R7,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R48,000 favourable",
+        "wrong_answers_pool": [
+            "R42,000 favourable",
+            "R56,000 favourable",
+            "R48,000 overdrawn"
         ],
-        "correct_answer": 1,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R20,000) + Outstanding Deposits (R4,000) - Outstanding Cheques (R4,000) = R20,000 favourable (debit balance in GL).",
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R45,000) + Outstanding Deposits (R7,000) - Outstanding Cheques (R4,000) = R48,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -253,15 +241,14 @@
     },
     {
         "id": "ACC_P2_RECON_0013",
-        "question": "The Bank Statement shows a favourable (credit) balance of R37,000. Outstanding cheques amount to R5,000 and an outstanding deposit is R8,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
-            "R40,000 favourable",
-            "R34,000 favourable",
-            "R40,000 overdrawn",
-            "R50,000 favourable"
+        "question": "The Bank Statement shows a favourable (credit) balance of R14,000. Outstanding cheques amount to R3,000 and an outstanding deposit is R8,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R19,000 favourable",
+        "wrong_answers_pool": [
+            "R9,000 favourable",
+            "R25,000 favourable",
+            "R19,000 overdrawn"
         ],
-        "correct_answer": 0,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R37,000) + Outstanding Deposits (R8,000) - Outstanding Cheques (R5,000) = R40,000 favourable (debit balance in GL).",
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R14,000) + Outstanding Deposits (R8,000) - Outstanding Cheques (R3,000) = R19,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -274,15 +261,14 @@
     },
     {
         "id": "ACC_P2_RECON_0014",
-        "question": "The Bank Statement shows a favourable (credit) balance of R39,000. Outstanding cheques amount to R5,000 and an outstanding deposit is R3,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
-            "R41,000 favourable",
-            "R37,000 favourable",
-            "R37,000 overdrawn",
-            "R47,000 favourable"
+        "question": "The Bank Statement shows a favourable (credit) balance of R13,000. Outstanding cheques amount to R1,000 and an outstanding deposit is R5,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R17,000 favourable",
+        "wrong_answers_pool": [
+            "R9,000 favourable",
+            "R19,000 favourable",
+            "R17,000 overdrawn"
         ],
-        "correct_answer": 1,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R39,000) + Outstanding Deposits (R3,000) - Outstanding Cheques (R5,000) = R37,000 favourable (debit balance in GL).",
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R13,000) + Outstanding Deposits (R5,000) - Outstanding Cheques (R1,000) = R17,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -295,15 +281,14 @@
     },
     {
         "id": "ACC_P2_RECON_0015",
-        "question": "The Bank Statement shows a favourable (credit) balance of R41,000. Outstanding cheques amount to R1,000 and an outstanding deposit is R3,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
-            "R43,000 favourable",
-            "R45,000 favourable",
-            "R39,000 favourable",
-            "R43,000 overdrawn"
+        "question": "The Bank Statement shows a favourable (credit) balance of R38,000. Outstanding cheques amount to R4,000 and an outstanding deposit is R8,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R42,000 favourable",
+        "wrong_answers_pool": [
+            "R34,000 favourable",
+            "R50,000 favourable",
+            "R42,000 overdrawn"
         ],
-        "correct_answer": 0,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R41,000) + Outstanding Deposits (R3,000) - Outstanding Cheques (R1,000) = R43,000 favourable (debit balance in GL).",
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R38,000) + Outstanding Deposits (R8,000) - Outstanding Cheques (R4,000) = R42,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -316,15 +301,14 @@
     },
     {
         "id": "ACC_P2_RECON_0016",
-        "question": "The Bank Statement shows a favourable (credit) balance of R24,000. Outstanding cheques amount to R1,000 and an outstanding deposit is R8,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
-            "R17,000 favourable",
-            "R31,000 favourable",
-            "R33,000 favourable",
-            "R31,000 overdrawn"
+        "question": "The Bank Statement shows a favourable (credit) balance of R30,000. Outstanding cheques amount to R1,000 and an outstanding deposit is R8,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R37,000 favourable",
+        "wrong_answers_pool": [
+            "R23,000 favourable",
+            "R39,000 favourable",
+            "R37,000 overdrawn"
         ],
-        "correct_answer": 1,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R24,000) + Outstanding Deposits (R8,000) - Outstanding Cheques (R1,000) = R31,000 favourable (debit balance in GL).",
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R30,000) + Outstanding Deposits (R8,000) - Outstanding Cheques (R1,000) = R37,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -337,15 +321,14 @@
     },
     {
         "id": "ACC_P2_RECON_0017",
-        "question": "The Bank Statement shows a favourable (credit) balance of R34,000. Outstanding cheques amount to R3,000 and an outstanding deposit is R6,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
-            "R37,000 favourable",
-            "R37,000 overdrawn",
-            "R43,000 favourable",
-            "R31,000 favourable"
+        "question": "The Bank Statement shows a favourable (credit) balance of R12,000. Outstanding cheques amount to R3,000 and an outstanding deposit is R7,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R16,000 favourable",
+        "wrong_answers_pool": [
+            "R8,000 favourable",
+            "R22,000 favourable",
+            "R16,000 overdrawn"
         ],
-        "correct_answer": 0,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R34,000) + Outstanding Deposits (R6,000) - Outstanding Cheques (R3,000) = R37,000 favourable (debit balance in GL).",
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R12,000) + Outstanding Deposits (R7,000) - Outstanding Cheques (R3,000) = R16,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -358,15 +341,14 @@
     },
     {
         "id": "ACC_P2_RECON_0018",
-        "question": "The Bank Statement shows a favourable (credit) balance of R12,000. Outstanding cheques amount to R2,000 and an outstanding deposit is R4,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
-            "R14,000 favourable",
-            "R14,000 overdrawn",
-            "R18,000 favourable",
-            "R10,000 favourable"
+        "question": "The Bank Statement shows a favourable (credit) balance of R27,000. Outstanding cheques amount to R4,000 and an outstanding deposit is R3,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R26,000 favourable",
+        "wrong_answers_pool": [
+            "R28,000 favourable",
+            "R34,000 favourable",
+            "R26,000 overdrawn"
         ],
-        "correct_answer": 0,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R12,000) + Outstanding Deposits (R4,000) - Outstanding Cheques (R2,000) = R14,000 favourable (debit balance in GL).",
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R27,000) + Outstanding Deposits (R3,000) - Outstanding Cheques (R4,000) = R26,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -379,15 +361,14 @@
     },
     {
         "id": "ACC_P2_RECON_0019",
-        "question": "The Bank Statement shows a favourable (credit) balance of R21,000. Outstanding cheques amount to R3,000 and an outstanding deposit is R7,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
-            "R25,000 overdrawn",
-            "R31,000 favourable",
-            "R25,000 favourable",
-            "R17,000 favourable"
+        "question": "The Bank Statement shows a favourable (credit) balance of R11,000. Outstanding cheques amount to R4,000 and an outstanding deposit is R7,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R14,000 favourable",
+        "wrong_answers_pool": [
+            "R8,000 favourable",
+            "R22,000 favourable",
+            "R14,000 overdrawn"
         ],
-        "correct_answer": 2,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R21,000) + Outstanding Deposits (R7,000) - Outstanding Cheques (R3,000) = R25,000 favourable (debit balance in GL).",
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R11,000) + Outstanding Deposits (R7,000) - Outstanding Cheques (R4,000) = R14,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -400,15 +381,14 @@
     },
     {
         "id": "ACC_P2_RECON_0020",
-        "question": "The Bank Statement shows a favourable (credit) balance of R45,000. Outstanding cheques amount to R2,000 and an outstanding deposit is R7,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
-            "R40,000 favourable",
-            "R50,000 overdrawn",
-            "R50,000 favourable",
-            "R54,000 favourable"
+        "question": "The Bank Statement shows a favourable (credit) balance of R37,000. Outstanding cheques amount to R4,000 and an outstanding deposit is R6,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R39,000 favourable",
+        "wrong_answers_pool": [
+            "R35,000 favourable",
+            "R47,000 favourable",
+            "R39,000 overdrawn"
         ],
-        "correct_answer": 2,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R45,000) + Outstanding Deposits (R7,000) - Outstanding Cheques (R2,000) = R50,000 favourable (debit balance in GL).",
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R37,000) + Outstanding Deposits (R6,000) - Outstanding Cheques (R4,000) = R39,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -421,15 +401,14 @@
     },
     {
         "id": "ACC_P2_RECON_0021",
-        "question": "The Bank Statement shows a favourable (credit) balance of R42,000. Outstanding cheques amount to R1,000 and an outstanding deposit is R7,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
-            "R36,000 favourable",
-            "R50,000 favourable",
-            "R48,000 overdrawn",
-            "R48,000 favourable"
+        "question": "The Bank Statement shows a favourable (credit) balance of R35,000. Outstanding cheques amount to R3,000 and an outstanding deposit is R3,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R35,000 favourable",
+        "wrong_answers_pool": [
+            "R35,000 favourable",
+            "R41,000 favourable",
+            "R35,000 overdrawn"
         ],
-        "correct_answer": 3,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R42,000) + Outstanding Deposits (R7,000) - Outstanding Cheques (R1,000) = R48,000 favourable (debit balance in GL).",
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R35,000) + Outstanding Deposits (R3,000) - Outstanding Cheques (R3,000) = R35,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -442,15 +421,14 @@
     },
     {
         "id": "ACC_P2_RECON_0022",
-        "question": "The Bank Statement shows a favourable (credit) balance of R21,000. Outstanding cheques amount to R4,000 and an outstanding deposit is R2,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
-            "R27,000 favourable",
-            "R23,000 favourable",
-            "R19,000 overdrawn",
-            "R19,000 favourable"
+        "question": "The Bank Statement shows a favourable (credit) balance of R42,000. Outstanding cheques amount to R5,000 and an outstanding deposit is R6,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R43,000 favourable",
+        "wrong_answers_pool": [
+            "R41,000 favourable",
+            "R53,000 favourable",
+            "R43,000 overdrawn"
         ],
-        "correct_answer": 3,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R21,000) + Outstanding Deposits (R2,000) - Outstanding Cheques (R4,000) = R19,000 favourable (debit balance in GL).",
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R42,000) + Outstanding Deposits (R6,000) - Outstanding Cheques (R5,000) = R43,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -463,15 +441,14 @@
     },
     {
         "id": "ACC_P2_RECON_0023",
-        "question": "The Bank Statement shows a favourable (credit) balance of R50,000. Outstanding cheques amount to R5,000 and an outstanding deposit is R6,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
-            "R51,000 overdrawn",
-            "R51,000 favourable",
-            "R61,000 favourable",
-            "R49,000 favourable"
+        "question": "The Bank Statement shows a favourable (credit) balance of R14,000. Outstanding cheques amount to R4,000 and an outstanding deposit is R3,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R13,000 favourable",
+        "wrong_answers_pool": [
+            "R15,000 favourable",
+            "R21,000 favourable",
+            "R13,000 overdrawn"
         ],
-        "correct_answer": 1,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R50,000) + Outstanding Deposits (R6,000) - Outstanding Cheques (R5,000) = R51,000 favourable (debit balance in GL).",
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R14,000) + Outstanding Deposits (R3,000) - Outstanding Cheques (R4,000) = R13,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -484,15 +461,14 @@
     },
     {
         "id": "ACC_P2_RECON_0024",
-        "question": "The Bank Statement shows a favourable (credit) balance of R11,000. Outstanding cheques amount to R3,000 and an outstanding deposit is R6,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
-            "R14,000 favourable",
-            "R20,000 favourable",
-            "R8,000 favourable",
-            "R14,000 overdrawn"
+        "question": "The Bank Statement shows a favourable (credit) balance of R37,000. Outstanding cheques amount to R3,000 and an outstanding deposit is R8,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R42,000 favourable",
+        "wrong_answers_pool": [
+            "R32,000 favourable",
+            "R48,000 favourable",
+            "R42,000 overdrawn"
         ],
-        "correct_answer": 0,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R11,000) + Outstanding Deposits (R6,000) - Outstanding Cheques (R3,000) = R14,000 favourable (debit balance in GL).",
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R37,000) + Outstanding Deposits (R8,000) - Outstanding Cheques (R3,000) = R42,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -505,15 +481,14 @@
     },
     {
         "id": "ACC_P2_RECON_0025",
-        "question": "The Bank Statement shows a favourable (credit) balance of R22,000. Outstanding cheques amount to R5,000 and an outstanding deposit is R8,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
+        "question": "The Bank Statement shows a favourable (credit) balance of R12,000. Outstanding cheques amount to R1,000 and an outstanding deposit is R6,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R17,000 favourable",
+        "wrong_answers_pool": [
+            "R7,000 favourable",
             "R19,000 favourable",
-            "R25,000 overdrawn",
-            "R35,000 favourable",
-            "R25,000 favourable"
+            "R17,000 overdrawn"
         ],
-        "correct_answer": 3,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R22,000) + Outstanding Deposits (R8,000) - Outstanding Cheques (R5,000) = R25,000 favourable (debit balance in GL).",
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R12,000) + Outstanding Deposits (R6,000) - Outstanding Cheques (R1,000) = R17,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -526,15 +501,14 @@
     },
     {
         "id": "ACC_P2_RECON_0026",
-        "question": "The Bank Statement shows a favourable (credit) balance of R15,000. Outstanding cheques amount to R4,000 and an outstanding deposit is R7,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
-            "R26,000 favourable",
-            "R12,000 favourable",
-            "R18,000 overdrawn",
-            "R18,000 favourable"
+        "question": "The Bank Statement shows a favourable (credit) balance of R33,000. Outstanding cheques amount to R3,000 and an outstanding deposit is R8,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R38,000 favourable",
+        "wrong_answers_pool": [
+            "R28,000 favourable",
+            "R44,000 favourable",
+            "R38,000 overdrawn"
         ],
-        "correct_answer": 3,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R15,000) + Outstanding Deposits (R7,000) - Outstanding Cheques (R4,000) = R18,000 favourable (debit balance in GL).",
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R33,000) + Outstanding Deposits (R8,000) - Outstanding Cheques (R3,000) = R38,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -547,15 +521,14 @@
     },
     {
         "id": "ACC_P2_RECON_0027",
-        "question": "The Bank Statement shows a favourable (credit) balance of R46,000. Outstanding cheques amount to R4,000 and an outstanding deposit is R7,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
-            "R43,000 favourable",
-            "R49,000 overdrawn",
-            "R57,000 favourable",
-            "R49,000 favourable"
+        "question": "The Bank Statement shows a favourable (credit) balance of R14,000. Outstanding cheques amount to R5,000 and an outstanding deposit is R8,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R17,000 favourable",
+        "wrong_answers_pool": [
+            "R11,000 favourable",
+            "R27,000 favourable",
+            "R17,000 overdrawn"
         ],
-        "correct_answer": 3,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R46,000) + Outstanding Deposits (R7,000) - Outstanding Cheques (R4,000) = R49,000 favourable (debit balance in GL).",
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R14,000) + Outstanding Deposits (R8,000) - Outstanding Cheques (R5,000) = R17,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -568,15 +541,14 @@
     },
     {
         "id": "ACC_P2_RECON_0028",
-        "question": "The Bank Statement shows a favourable (credit) balance of R11,000. Outstanding cheques amount to R5,000 and an outstanding deposit is R2,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
-            "R18,000 favourable",
-            "R14,000 favourable",
-            "R8,000 favourable",
-            "R8,000 overdrawn"
+        "question": "The Bank Statement shows a favourable (credit) balance of R13,000. Outstanding cheques amount to R3,000 and an outstanding deposit is R4,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R14,000 favourable",
+        "wrong_answers_pool": [
+            "R12,000 favourable",
+            "R20,000 favourable",
+            "R14,000 overdrawn"
         ],
-        "correct_answer": 2,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R11,000) + Outstanding Deposits (R2,000) - Outstanding Cheques (R5,000) = R8,000 favourable (debit balance in GL).",
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R13,000) + Outstanding Deposits (R4,000) - Outstanding Cheques (R3,000) = R14,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -589,15 +561,14 @@
     },
     {
         "id": "ACC_P2_RECON_0029",
-        "question": "The Bank Statement shows a favourable (credit) balance of R49,000. Outstanding cheques amount to R3,000 and an outstanding deposit is R2,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
-            "R48,000 favourable",
-            "R50,000 favourable",
-            "R54,000 favourable",
-            "R48,000 overdrawn"
+        "question": "The Bank Statement shows a favourable (credit) balance of R14,000. Outstanding cheques amount to R2,000 and an outstanding deposit is R7,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R19,000 favourable",
+        "wrong_answers_pool": [
+            "R9,000 favourable",
+            "R23,000 favourable",
+            "R19,000 overdrawn"
         ],
-        "correct_answer": 0,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R49,000) + Outstanding Deposits (R2,000) - Outstanding Cheques (R3,000) = R48,000 favourable (debit balance in GL).",
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R14,000) + Outstanding Deposits (R7,000) - Outstanding Cheques (R2,000) = R19,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -610,15 +581,14 @@
     },
     {
         "id": "ACC_P2_RECON_0030",
-        "question": "The Bank Statement shows a favourable (credit) balance of R25,000. Outstanding cheques amount to R3,000 and an outstanding deposit is R8,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
-            "R30,000 favourable",
-            "R36,000 favourable",
-            "R30,000 overdrawn",
-            "R20,000 favourable"
+        "question": "The Bank Statement shows a favourable (credit) balance of R17,000. Outstanding cheques amount to R5,000 and an outstanding deposit is R3,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R15,000 favourable",
+        "wrong_answers_pool": [
+            "R19,000 favourable",
+            "R25,000 favourable",
+            "R15,000 overdrawn"
         ],
-        "correct_answer": 0,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R25,000) + Outstanding Deposits (R8,000) - Outstanding Cheques (R3,000) = R30,000 favourable (debit balance in GL).",
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R17,000) + Outstanding Deposits (R3,000) - Outstanding Cheques (R5,000) = R15,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -631,15 +601,14 @@
     },
     {
         "id": "ACC_P2_RECON_0031",
-        "question": "The Bank Statement shows a favourable (credit) balance of R48,000. Outstanding cheques amount to R2,000 and an outstanding deposit is R7,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
-            "R53,000 favourable",
-            "R57,000 favourable",
-            "R43,000 favourable",
-            "R53,000 overdrawn"
+        "question": "The Bank Statement shows a favourable (credit) balance of R16,000. Outstanding cheques amount to R2,000 and an outstanding deposit is R2,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R16,000 favourable",
+        "wrong_answers_pool": [
+            "R16,000 favourable",
+            "R20,000 favourable",
+            "R16,000 overdrawn"
         ],
-        "correct_answer": 0,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R48,000) + Outstanding Deposits (R7,000) - Outstanding Cheques (R2,000) = R53,000 favourable (debit balance in GL).",
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R16,000) + Outstanding Deposits (R2,000) - Outstanding Cheques (R2,000) = R16,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -652,15 +621,14 @@
     },
     {
         "id": "ACC_P2_RECON_0032",
-        "question": "The Bank Statement shows a favourable (credit) balance of R40,000. Outstanding cheques amount to R2,000 and an outstanding deposit is R8,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
-            "R46,000 favourable",
-            "R46,000 overdrawn",
-            "R50,000 favourable",
-            "R34,000 favourable"
+        "question": "The Bank Statement shows a favourable (credit) balance of R17,000. Outstanding cheques amount to R1,000 and an outstanding deposit is R8,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R24,000 favourable",
+        "wrong_answers_pool": [
+            "R10,000 favourable",
+            "R26,000 favourable",
+            "R24,000 overdrawn"
         ],
-        "correct_answer": 0,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R40,000) + Outstanding Deposits (R8,000) - Outstanding Cheques (R2,000) = R46,000 favourable (debit balance in GL).",
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R17,000) + Outstanding Deposits (R8,000) - Outstanding Cheques (R1,000) = R24,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -673,15 +641,14 @@
     },
     {
         "id": "ACC_P2_RECON_0033",
-        "question": "The Bank Statement shows a favourable (credit) balance of R21,000. Outstanding cheques amount to R1,000 and an outstanding deposit is R6,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
-            "R28,000 favourable",
-            "R16,000 favourable",
-            "R26,000 overdrawn",
-            "R26,000 favourable"
+        "question": "The Bank Statement shows a favourable (credit) balance of R48,000. Outstanding cheques amount to R1,000 and an outstanding deposit is R6,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R53,000 favourable",
+        "wrong_answers_pool": [
+            "R43,000 favourable",
+            "R55,000 favourable",
+            "R53,000 overdrawn"
         ],
-        "correct_answer": 3,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R21,000) + Outstanding Deposits (R6,000) - Outstanding Cheques (R1,000) = R26,000 favourable (debit balance in GL).",
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R48,000) + Outstanding Deposits (R6,000) - Outstanding Cheques (R1,000) = R53,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -694,15 +661,14 @@
     },
     {
         "id": "ACC_P2_RECON_0034",
-        "question": "The Bank Statement shows a favourable (credit) balance of R34,000. Outstanding cheques amount to R5,000 and an outstanding deposit is R4,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
-            "R33,000 favourable",
-            "R33,000 overdrawn",
-            "R43,000 favourable",
-            "R35,000 favourable"
+        "question": "The Bank Statement shows a favourable (credit) balance of R38,000. Outstanding cheques amount to R1,000 and an outstanding deposit is R8,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R45,000 favourable",
+        "wrong_answers_pool": [
+            "R31,000 favourable",
+            "R47,000 favourable",
+            "R45,000 overdrawn"
         ],
-        "correct_answer": 0,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R34,000) + Outstanding Deposits (R4,000) - Outstanding Cheques (R5,000) = R33,000 favourable (debit balance in GL).",
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R38,000) + Outstanding Deposits (R8,000) - Outstanding Cheques (R1,000) = R45,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
@@ -715,15 +681,14 @@
     },
     {
         "id": "ACC_P2_RECON_0035",
-        "question": "The Bank Statement shows a favourable (credit) balance of R45,000. Outstanding cheques amount to R5,000 and an outstanding deposit is R3,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
-        "options": [
-            "R47,000 favourable",
-            "R43,000 favourable",
-            "R43,000 overdrawn",
-            "R53,000 favourable"
+        "question": "The Bank Statement shows a favourable (credit) balance of R21,000. Outstanding cheques amount to R1,000 and an outstanding deposit is R8,000. Calculate the balance as per the Bank account in the General Ledger (assuming no other errors).",
+        "correct_answer": "R28,000 favourable",
+        "wrong_answers_pool": [
+            "R14,000 favourable",
+            "R30,000 favourable",
+            "R28,000 overdrawn"
         ],
-        "correct_answer": 1,
-        "explanation": "Balance per General Ledger = Bank Statement Balance (R45,000) + Outstanding Deposits (R3,000) - Outstanding Cheques (R5,000) = R43,000 favourable (debit balance in GL).",
+        "explanation": "Balance per General Ledger = Bank Statement Balance (R21,000) + Outstanding Deposits (R8,000) - Outstanding Cheques (R1,000) = R28,000 favourable (debit balance in GL).",
         "tags": {
             "grade": "12",
             "subject": "Accounting",
