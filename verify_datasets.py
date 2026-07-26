@@ -7,7 +7,15 @@ files = [
     "dataset/grade10/mathlit_maps_plans.json",
     "dataset/grade10/mathlit_data_handling.json",
     "dataset/grade10/mathlit_probability.json",
-    "dataset/grade10/mathlit_algebra.json"
+    "dataset/grade10/mathlit_algebra.json",
+    "dataset/grade12/accounting/paper1_acc_companies.json",
+    "dataset/grade12/accounting/paper1_acc_financial_statements.json",
+    "dataset/grade12/accounting/paper1_acc_cash_flow.json",
+    "dataset/grade12/accounting/paper1_acc_analysis.json",
+    "dataset/grade12/accounting/paper2_acc_manufacturing.json",
+    "dataset/grade12/accounting/paper2_acc_budgeting.json",
+    "dataset/grade12/accounting/paper2_acc_inventory.json",
+    "dataset/grade12/accounting/paper2_acc_reconciliations.json",
 ]
 
 all_questions = set()
@@ -26,7 +34,12 @@ for file in files:
 
     diffs = {"easy": 0, "medium": 0, "hard": 0}
     for item in data:
-        diffs[item['difficulty']] += 1
+        if 'difficulty' in item:
+            diffs[item['difficulty']] += 1
+        elif 'tags' in item and 'difficulty' in item['tags']:
+            diffs[item['tags']['difficulty']] += 1
+        else:
+            print(f"Error: No difficulty found for question {item.get('id')}")
 
         q_text = item['question']
         if q_text in all_questions:

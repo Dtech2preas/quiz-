@@ -2,11 +2,13 @@ import json
 import random
 import os
 import hashlib
+import math
 from typing import List, Dict
 
 # Helpers import
 import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), 'generators/helpers'))
+from generators_common import TopicGenerator, get_wrong_ints, get_wrong_floats
 
 class AccountingKnowledgeBase:
     def __init__(self, json_path="extracted_topics_accounting.json"):
@@ -16,591 +18,821 @@ class AccountingKnowledgeBase:
     def get_topics(self):
         return self.data
 
-class AccountingQuestionEngine:
+class AdvancedAccountingQuestionEngine:
     def __init__(self, topic_data):
         self.topic = topic_data['topic']
         self.prefix = topic_data['prefix']
         self.file = topic_data['file']
-        self.subtopics = topic_data['subtopics']
-        self.questions = []
-        self.generated_hashes = set()
 
-    def generate_hash(self, question_text, correct_answer):
-        hash_input = f"{question_text}|{correct_answer}"
-        return hashlib.sha256(hash_input.encode('utf-8')).hexdigest()
+        subtopics_list = [s['name'] for s in topic_data['subtopics']]
+        if not subtopics_list:
+            subtopics_list = [self.topic]
 
-    def add_question(self, question_text, correct_answer, wrong_answers_pool, explanation, difficulty, subtopic_name, l_outcome="Financial Analysis"):
-        q_hash = self.generate_hash(question_text, correct_answer)
-        if q_hash in self.generated_hashes:
-            return False
+        self.generator = TopicGenerator(self.topic, self.prefix, subtopics_list)
+        self.subtopic_data = topic_data['subtopics']
 
-        self.generated_hashes.add(q_hash)
+    def generate_theory_questions(self, target_count=300):
+        # We need to extract all descriptions across all topics for good distractors
+        all_descs = []
+        for s in self.subtopic_data:
+            for f in s.get('facts', []):
+                all_descs.append(f['desc'])
 
-        q_id = f"{self.prefix}_{len(self.questions) + 1:04d}"
+        all_terms = []
+        for s in self.subtopic_data:
+            for f in s.get('facts', []):
+                all_terms.append(f['a'])
 
-        question = {
-            "id": q_id,
-            "question": question_text,
-            "correct_answer": correct_answer,
-            "wrong_answers_pool": wrong_answers_pool,
-            "explanation": explanation,
-            "tags": {
-                "grade": "12",
-                "subject": "Accounting",
-                "topic": self.topic,
-                "subtopic": subtopic_name,
-                "cognitive_level": "Knowledge" if difficulty == "easy" else ("Application" if difficulty == "medium" else "Analysis"),
-                "difficulty": difficulty,
-                "learning_outcome": l_outcome
-            }
-        }
-        self.questions.append(question)
-        return True
-
-    def generate_theory_questions(self, target_count=500):
-        added = 0
         attempts = 0
-        while added < target_count and attempts < target_count * 5:
+        while not self.generator.is_done() and self.generator.difficulty_counts['easy'] < self.generator.difficulty_targets['easy'] and attempts < target_count * 50:
             attempts += 1
-            subtopic = random.choice(self.subtopics)
-            if not subtopic['facts']:
+
+            subtopic_obj = random.choice(self.subtopic_data)
+            if not subtopic_obj.get('facts'):
                 continue
-            fact = random.choice(subtopic['facts'])
+
+            fact = random.choice(subtopic_obj['facts'])
+            subtopic_name = subtopic_obj['name']
 
             q_type = random.choice([1, 2, 3])
 
             if q_type == 1:
                 # Type 1: Definition -> Term
-                q_text = f"Which accounting term is defined as: {fact['desc']}?"
+                q_text = f"Which accounting term is defined as: {fact['desc']}? ({self.topic})"
                 correct = fact['a']
-                wrong = random.sample(fact['w'], min(3, len(fact['w'])))
+                wrong = list(fact['w'])
+
+                # Ensure we have enough wrong answers (at least 6-8)
+                extra_wrongs = [t for t in all_terms if t != correct and t not in wrong]
+                random.shuffle(extra_wrongs)
+                wrong.extend(extra_wrongs[:8])
+
                 exp = f"The correct term is {correct}."
+
+                self.generator.add_question(subtopic_name, "easy", q_text, correct, wrong, exp)
+
             elif q_type == 2:
                 # Type 2: Term -> Definition
-                q_text = f"What is the correct definition or description for the term '{fact['a']}'?"
+                q_text = f"What is the correct definition or description for the term '{fact['a']}'? ({self.topic})"
                 correct = fact['desc']
 
-                # We need plausible distractors for definitions. Let's pull descriptions from other facts in the same subtopic if possible, or general.
-                other_facts = [f for f in subtopic['facts'] if f['a'] != fact['a']]
-                wrong_desc = []
-                for of in other_facts:
-                    wrong_desc.append(of['desc'])
+                wrong_desc = [d for d in all_descs if d != correct]
+                random.shuffle(wrong_desc)
 
-                # If we don't have enough, pull from whole KB or use generic ones
-                if len(wrong_desc) < 3:
-                    wrong_desc.extend([
-                        "a metric used solely for internal cost analysis",
-                        "a statutory requirement that applies only to close corporations",
-                        "the process of reconciling external audit reports with internal budgets",
-                        "a financial indicator showing the exact amount of cash on hand"
-                    ])
-                wrong = random.sample(wrong_desc, min(3, len(wrong_desc)))
+                # Add some generic fallbacks just in case
+                wrong_desc.extend([
+                    "a metric used solely for internal cost analysis to determine non-operational variances",
+                    "a statutory requirement that applies only to close corporations and not public companies",
+                    "the process of reconciling external audit reports with internal zero-based budgets",
+                    "a financial indicator showing the exact amount of cash on hand after adjusting for inflation",
+                    "the total amount of unauthorized expenditure incurred by the directors",
+                    "a method of calculating depreciation based on the prime cost of manufacturing",
+                    "an adjustment made at year-end to reflect unrealized profits on inventory",
+                    "the legal framework governing the taxation of sole traders"
+                ])
+
+                wrong = wrong_desc[:8]
                 exp = f"'{fact['a']}' means: {correct}."
+
+                self.generator.add_question(subtopic_name, "easy", q_text, correct, wrong, exp)
+
             else:
-                # Type 3: True/False style statement
-                is_true = random.choice([True, False])
-                if is_true:
-                    q_text = f"Which of the following statements about '{fact['a']}' is CORRECT?"
-                    correct = fact['desc']
-                    other_facts = [f for f in subtopic['facts'] if f['a'] != fact['a']]
-                    wrong_desc = [of['desc'] for of in other_facts]
-                    if len(wrong_desc) < 3:
-                         wrong_desc.extend(["It is only applicable to non-profit organizations.", "It represents a physical asset.", "It is recorded as an expense in the Statement of Comprehensive Income.", "It does not affect the financial statements."])
-                    wrong = random.sample(wrong_desc, min(3, len(wrong_desc)))
-                    exp = f"The correct statement is that it is {fact['desc']}."
-                else:
-                    q_text = f"Which of the following terms is INCORRECTLY matched with its description?"
-                    correct = f"{fact['a']}: {random.choice(fact['w'])} (Incorrect)" # This is a wrong description matched with the term
+                # Type 3: Identify the INCORRECT statement
+                correct_fact = fact
 
-                    # The right ones to use as distractors (because we are asking for the INCORRECT one, the distractors must be CORRECT matches)
-                    other_facts = [f for f in subtopic['facts'] if f['a'] != fact['a']]
-                    if len(other_facts) >= 3:
-                        sample_facts = random.sample(other_facts, 3)
-                        wrong = [f"{sf['a']}: {sf['desc']}" for sf in sample_facts]
-                    else:
-                         wrong = [f"{fact['a']}: {fact['desc']}", "Asset: A resource controlled by the entity", "Liability: A present obligation of the entity"]
+                # Find an incorrect fact (mix and match a term with a wrong desc)
+                if len(all_terms) > 1 and len(all_descs) > 1:
+                    wrong_term = random.choice([t for t in all_terms if t != fact['a']])
+                    wrong_desc_val = random.choice([d for d in all_descs if d != fact['desc']])
 
-                    exp = f"The incorrect match is {fact['a']}. Its actual description is: {fact['desc']}."
+                    incorrect_statement = f"{wrong_term}: {wrong_desc_val} (Incorrect)"
+                    correct = incorrect_statement
 
+                    # Generate other correct statements for the wrong pool (distractors)
+                    wrong_pool_statements = []
 
-            if self.add_question(q_text, correct, wrong, exp, "easy", subtopic['name'], "Recall Principles"):
-                added += 1
+                    other_facts = []
+                    for s in self.subtopic_data:
+                        other_facts.extend(s.get('facts', []))
 
-    def generate_procedural_questions(self, target_count=500):
-        added = 0
-        attempts = 0
+                    random.shuffle(other_facts)
 
-        while added < target_count and attempts < target_count * 10:
-            attempts += 1
+                    for of in other_facts:
+                        if of['a'] != wrong_term:
+                            wrong_pool_statements.append(f"{of['a']}: {of['desc']}")
 
-            # Procedural Generation Based on Topic
-            if "Analysis" in self.topic:
-                added += self._generate_analysis_questions()
-            elif "Manufacturing" in self.topic:
-                added += self._generate_manufacturing_questions()
-            elif "Inventory" in self.topic:
-                added += self._generate_inventory_questions()
-            elif "Companies" in self.topic or "Financial Statements" in self.topic:
-                added += self._generate_financial_statement_questions()
-            elif "Budgeting" in self.topic:
-                added += self._generate_budgeting_questions()
-            elif "Cash Flow" in self.topic:
-                added += self._generate_cashflow_questions()
-            elif "Reconciliations" in self.topic:
-                added += self._generate_reconciliation_questions()
-            else:
-                self.generate_theory_questions(1)
-                added += 1
+                    if len(wrong_pool_statements) >= 6:
+                        q_text = f"Which of the following terms is INCORRECTLY matched with its description? ({self.topic})"
+                        exp = f"The statement '{incorrect_statement}' is incorrect because {wrong_term} does not mean {wrong_desc_val}."
+                        self.generator.add_question(subtopic_name, "easy", q_text, correct, wrong_pool_statements[:8], exp)
+
 
     def _generate_analysis_questions(self):
-        q_type = random.choice(['current_ratio', 'acid_test', 'stock_turnover', 'debt_equity', 'rotce', 'eps', 'nav'])
+        # Generate varied ratio questions (profitability, liquidity, solvency, return)
+        subtopic_name = "Financial Indicators & Interpretation"
+        attempts = 0
+        added = 0
 
-        if q_type == 'current_ratio':
-            current_assets = random.randint(100, 900) * 1000
-            current_liabilities = random.randint(50, 400) * 1000
-            ratio = current_assets / current_liabilities
-            correct_str = f"{ratio:.2f}:1"
-            distractor1 = f"{(current_liabilities / current_assets):.2f}:1"
-            distractor2 = f"{(ratio + 0.5):.2f}:1"
-            distractor3 = f"{(ratio - 0.2):.2f}:1"
-            distractor4 = f"{ratio:.1f}:1"
-            wrong_pool = [d for d in [distractor1, distractor2, distractor3, distractor4] if d != correct_str]
-            q_text = f"A company has current assets of R{current_assets:,} and current liabilities of R{current_liabilities:,}. Calculate the current ratio."
-            exp = f"Current Ratio = Current Assets / Current Liabilities = R{current_assets:,} / R{current_liabilities:,} = {ratio:.2f}:1"
-            if self.add_question(q_text, correct_str, list(set(wrong_pool)), exp, "medium", "Liquidity Indicators"):
-                return 1
+        while attempts < 50000 and self.generator.difficulty_counts['medium'] + self.generator.difficulty_counts['hard'] < self.generator.difficulty_targets['medium'] + self.generator.difficulty_targets['hard']:
+            attempts += 1
 
-        elif q_type == 'acid_test':
-            current_assets = random.randint(200, 900) * 1000
-            inventory = random.randint(50, int(current_assets * 0.4))
-            current_liabilities = random.randint(100, 500) * 1000
-            ratio = (current_assets - inventory) / current_liabilities
-            correct_str = f"{ratio:.2f}:1"
-            distractor1 = f"{(current_assets / current_liabilities):.2f}:1" # Forgot inventory
-            distractor2 = f"{((current_assets + inventory) / current_liabilities):.2f}:1" # Added inventory
-            distractor3 = f"{(current_liabilities / (current_assets - inventory)):.2f}:1" # Flipped
-            wrong_pool = [distractor1, distractor2, distractor3]
-            q_text = f"Calculate the acid-test ratio if Current Assets are R{current_assets:,}, Inventory is R{inventory:,}, and Current Liabilities are R{current_liabilities:,}."
-            exp = f"Acid-test Ratio = (Current Assets - Inventory) / Current Liabilities = (R{current_assets:,} - R{inventory:,}) / R{current_liabilities:,} = {ratio:.2f}:1"
-            if self.add_question(q_text, correct_str, wrong_pool, exp, "medium", "Liquidity Indicators"):
-                return 1
+            q_type = random.choice(['gross_margin', 'operating_margin', 'current_ratio', 'acid_test', 'solvency', 'stock_turnover', 'debt_equity', 'nav', 'eps', 'dps', 'ret_equity'])
 
-        elif q_type == 'stock_turnover':
-            cost_of_sales = random.randint(500, 2000) * 1000
-            avg_stock = random.randint(50, 300) * 1000
-            rate = cost_of_sales / avg_stock
-            correct_str = f"{rate:.1f} times"
-            distractor1 = f"{(avg_stock / cost_of_sales * 365):.0f} days" # Did stock days instead
-            distractor2 = f"{(rate / 2):.1f} times"
-            distractor3 = f"{(rate * 12):.1f} times"
-            wrong_pool = [distractor1, distractor2, distractor3]
-            q_text = f"Calculate the stock turnover rate if Cost of Sales is R{cost_of_sales:,} and Average Trading Stock is R{avg_stock:,}."
-            exp = f"Stock turnover rate = Cost of Sales / Average Stock = R{cost_of_sales:,} / R{avg_stock:,} = {rate:.1f} times."
-            if self.add_question(q_text, correct_str, wrong_pool, exp, "medium", "Liquidity Indicators"):
-                return 1
+            difficulty = random.choice(["easy", "easy", "medium", "hard"])
 
-        elif q_type == 'debt_equity':
-            ncl = random.randint(500, 2000) * 1000
-            sh_equity = random.randint(800, 3000) * 1000
-            ratio = ncl / sh_equity
-            correct_str = f"{ratio:.2f}:1"
-            distractor1 = f"{(sh_equity / ncl):.2f}:1" # Flipped
-            distractor2 = f"{(ncl / (sh_equity + ncl)):.2f}:1"
-            distractor3 = f"{(ratio + 0.3):.2f}:1"
-            wrong_pool = [distractor1, distractor2, distractor3]
-            q_text = f"Calculate the debt-equity ratio if Non-Current Liabilities are R{ncl:,} and Shareholders' Equity is R{sh_equity:,}."
-            exp = f"Debt-equity Ratio = Non-Current Liabilities / Shareholders' Equity = R{ncl:,} / R{sh_equity:,} = {ratio:.2f}:1"
-            if self.add_question(q_text, correct_str, wrong_pool, exp, "medium", "Solvency & Risk Indicators"):
-                return 1
+            if q_type == 'gross_margin':
+                sales = random.randint(500, 5000) * 1000
+                cost_of_sales = int(sales * random.uniform(0.4, 0.8))
+                gross_profit = sales - cost_of_sales
 
-        elif q_type == 'rotce':
-            net_profit_before_tax = random.randint(200, 800) * 1000
-            interest = random.randint(20, 100) * 1000
-            avg_capital = random.randint(1500, 4000) * 1000
-            ebit = net_profit_before_tax + interest
-            rotce = (ebit / avg_capital) * 100
-            correct_str = f"{rotce:.1f}%"
-            distractor1 = f"{((net_profit_before_tax / avg_capital) * 100):.1f}%" # Forgot interest
-            distractor2 = f"{(((net_profit_before_tax - interest) / avg_capital) * 100):.1f}%" # Subtracted interest
-            distractor3 = f"{(rotce + 5):.1f}%"
-            wrong_pool = [distractor1, distractor2, distractor3]
-            q_text = f"Calculate the Return on Total Capital Employed (ROTCE) if Net Profit Before Tax is R{net_profit_before_tax:,}, Interest Expense is R{interest:,}, and Average Capital Employed is R{avg_capital:,}."
-            exp = f"ROTCE = (Net Profit Before Tax + Interest Expense) / Average Capital Employed * 100 = (R{net_profit_before_tax:,} + R{interest:,}) / R{avg_capital:,} * 100 = {rotce:.1f}%"
-            if self.add_question(q_text, correct_str, wrong_pool, exp, "hard", "Profitability Indicators"):
-                return 1
+                if difficulty == "medium":
+                    margin = (gross_profit / sales) * 100
+                    correct_str = f"{margin:.1f}%"
+                    wrong_pool = get_wrong_floats(margin, count=8, decimals=1)
+                    wrong_pool = [f"{w}%" for w in wrong_pool]
 
-        elif q_type == 'eps':
-            net_profit_after_tax = random.randint(300, 1200) * 1000
-            shares = random.randint(200, 1000) * 1000
-            eps = (net_profit_after_tax / shares) * 100
-            correct_str = f"{eps:.0f} cents"
-            distractor1 = f"{(eps / 100):.2f} cents"
-            distractor2 = f"{((net_profit_after_tax / (shares*2)) * 100):.0f} cents"
-            distractor3 = f"{(eps + 20):.0f} cents"
-            wrong_pool = [distractor1, distractor2, distractor3]
-            q_text = f"A company has a Net Profit After Tax of R{net_profit_after_tax:,} and {shares:,} issued ordinary shares. Calculate the Earnings Per Share (EPS)."
-            exp = f"EPS = (Net Profit After Tax / Number of Issued Shares) * 100 = (R{net_profit_after_tax:,} / {shares:,}) * 100 = {eps:.0f} cents."
-            if self.add_question(q_text, correct_str, wrong_pool, exp, "medium", "Shareholder Returns"):
-                return 1
+                    q_text = f"Calculate the Gross Profit Margin if Sales are R{sales:,} and Cost of Sales is R{cost_of_sales:,}."
+                    exp = f"Gross Profit = Sales (R{sales:,}) - COS (R{cost_of_sales:,}) = R{gross_profit:,}. Margin = (R{gross_profit:,} / R{sales:,}) * 100 = {margin:.1f}%."
 
-        elif q_type == 'nav':
-            sh_equity = random.randint(1500, 5000) * 1000
-            shares = random.randint(200, 800) * 1000
-            nav = (sh_equity / shares) * 100
-            correct_str = f"{nav:.0f} cents"
-            distractor1 = f"{(nav / 100):.2f} cents"
-            distractor2 = f"{(nav + 50):.0f} cents"
-            distractor3 = f"{(nav * 1.5):.0f} cents"
-            wrong_pool = [distractor1, distractor2, distractor3]
-            q_text = f"Calculate the Net Asset Value (NAV) per share if Shareholders' Equity is R{sh_equity:,} and there are {shares:,} issued shares."
-            exp = f"NAV = (Shareholders' Equity / Number of Issued Shares) * 100 = (R{sh_equity:,} / {shares:,}) * 100 = {nav:.0f} cents."
-            if self.add_question(q_text, correct_str, wrong_pool, exp, "medium", "Shareholder Returns"):
-                return 1
+                    if self.generator.add_question(subtopic_name, difficulty, q_text, correct_str, wrong_pool, exp): added += 1
+                else:
+                    # Hard: given margin and COS, find Sales
+                    margin = round(random.uniform(20.0, 60.0), 1)
+                    # sales = cos / (1 - margin)
+                    sales_calc = cost_of_sales / (1 - (margin / 100))
+                    sales_calc = round(sales_calc, 0)
+                    correct_str = f"R{sales_calc:,.0f}"
 
-        return 0
+                    wrong_pool_vals = [cost_of_sales * (1 + margin/100), cost_of_sales / (margin/100), cost_of_sales * (margin/100), sales_calc * 1.1, sales_calc * 0.9, cost_of_sales + margin*1000, cost_of_sales - margin*1000, sales_calc * 1.2]
+                    wrong_pool = [f"R{w:,.0f}" for w in wrong_pool_vals]
+
+                    q_text = f"A company has a Cost of Sales of R{cost_of_sales:,} and maintains a Gross Profit Margin of {margin}%. Calculate the total Sales."
+                    exp = f"Sales = Cost of Sales / (1 - Margin%) = R{cost_of_sales:,} / (1 - {margin/100}) = R{sales_calc:,.0f}."
+
+                    if self.generator.add_question(subtopic_name, difficulty, q_text, correct_str, wrong_pool, exp): added += 1
+
+            elif q_type == 'current_ratio':
+                ca = random.randint(100, 1000) * 1000
+                cl = random.randint(50, 800) * 1000
+
+                if difficulty == "medium":
+                    ratio = ca / cl
+                    correct_str = f"{ratio:.2f} : 1"
+
+                    wrong_pool_vals = [cl/ca if ca != 0 else 0, (ca+cl)/cl, ca/(cl*1.5), (ca*0.8)/cl, ratio*1.2, ratio*0.8, ratio+1, ratio-0.5]
+                    wrong_pool = [f"{abs(w):.2f} : 1" for w in wrong_pool_vals]
+
+                    q_text = f"Calculate the Current Ratio if Current Assets are R{ca:,} and Current Liabilities are R{cl:,}."
+                    exp = f"Current Ratio = Current Assets : Current Liabilities = R{ca:,} : R{cl:,} = {ratio:.2f} : 1."
+
+                    if self.generator.add_question(subtopic_name, difficulty, q_text, correct_str, wrong_pool, exp): added += 1
+                else:
+                    # Hard: include adjustments
+                    inv_adjustment = random.randint(5, 50) * 1000
+                    ca_adj = ca - inv_adjustment # e.g. inventory written off
+                    ratio = ca_adj / cl
+                    correct_str = f"{ratio:.2f} : 1"
+
+                    wrong_ratio_1 = ca / cl
+                    wrong_ratio_2 = (ca + inv_adjustment) / cl
+                    wrong_ratio_3 = ca_adj / (cl - inv_adjustment)
+                    wrong_pool_vals = [wrong_ratio_1, wrong_ratio_2, wrong_ratio_3, ratio*1.5, ratio*0.5, wrong_ratio_1*1.1, cl/ca_adj if ca_adj != 0 else 0, 1.0]
+                    wrong_pool = [f"{abs(w):.2f} : 1" for w in wrong_pool_vals]
+
+                    q_text = f"Current Assets are initially R{ca:,} and Current Liabilities are R{cl:,}. It was discovered that obsolete inventory worth R{inv_adjustment:,} must be written off. Calculate the accurate Current Ratio after this adjustment."
+                    exp = f"Adjusted Current Assets = R{ca:,} - R{inv_adjustment:,} = R{ca_adj:,}. Current Ratio = R{ca_adj:,} : R{cl:,} = {ratio:.2f} : 1."
+
+                    if self.generator.add_question(subtopic_name, difficulty, q_text, correct_str, wrong_pool, exp): added += 1
+
+            elif q_type == 'stock_turnover':
+                cost_of_sales = random.randint(400, 2000) * 1000
+                open_stock = random.randint(50, 300) * 1000
+                close_stock = random.randint(40, 350) * 1000
+                avg_stock = (open_stock + close_stock) / 2
+
+                rate = cost_of_sales / avg_stock
+                correct_str = f"{rate:.1f} times"
+
+                wrong_pool_vals = [cost_of_sales/open_stock, cost_of_sales/close_stock, avg_stock/cost_of_sales, rate*2, rate/2, cost_of_sales/(open_stock+close_stock), rate+2, rate-1.5]
+                wrong_pool = [f"{abs(w):.1f} times" for w in wrong_pool_vals]
+
+                q_text = f"Calculate the Stock Turnover Rate if Cost of Sales is R{cost_of_sales:,}, Opening Stock is R{open_stock:,}, and Closing Stock is R{close_stock:,}."
+                exp = f"Average Stock = (R{open_stock:,} + R{close_stock:,}) / 2 = R{avg_stock:,}. Stock Turnover Rate = Cost of Sales / Average Stock = R{cost_of_sales:,} / R{avg_stock:,} = {rate:.1f} times."
+
+                if self.generator.add_question(subtopic_name, difficulty, q_text, correct_str, wrong_pool, exp): added += 1
+
+            elif q_type == 'eps':
+                net_profit = random.randint(200, 2000) * 1000
+                shares_issued = random.randint(100, 1000) * 1000
+
+                if difficulty == "medium":
+                    eps = (net_profit / shares_issued) * 100
+                    correct_str = f"{eps:.0f} cents"
+
+                    wrong_pool_vals = get_wrong_floats(eps, count=8, decimals=0)
+                    wrong_pool = [f"{w} cents" for w in wrong_pool_vals]
+
+                    q_text = f"Calculate the Earnings Per Share (EPS) if the Net Profit after tax is R{net_profit:,} and the number of issued shares is {shares_issued:,}."
+                    exp = f"EPS = (Net Profit / Number of Shares) * 100 = (R{net_profit:,} / {shares_issued:,}) * 100 = {eps:.0f} cents."
+
+                    if self.generator.add_question(subtopic_name, difficulty, q_text, correct_str, wrong_pool, exp): added += 1
+                else:
+                    # Hard: Weighted average shares
+                    shares_start = random.randint(100, 500) * 1000
+                    new_shares = random.randint(50, 200) * 1000
+                    months_new = random.choice([3, 4, 6, 9])
+
+                    weighted_shares = shares_start + (new_shares * (months_new / 12))
+                    eps = (net_profit / weighted_shares) * 100
+                    correct_str = f"{eps:.1f} cents"
+
+                    wrong_eps1 = (net_profit / (shares_start + new_shares)) * 100
+                    wrong_eps2 = (net_profit / shares_start) * 100
+                    wrong_eps3 = (net_profit / (shares_start + new_shares * ((12-months_new)/12))) * 100
+
+                    wrong_pool_vals = [wrong_eps1, wrong_eps2, wrong_eps3, eps*1.2, eps*0.8, eps+15, eps-10, wrong_eps1*1.1]
+                    wrong_pool = [f"{w:.1f} cents" for w in wrong_pool_vals]
+
+                    q_text = f"A company started the year with {shares_start:,} issued shares. They issued an additional {new_shares:,} shares with {months_new} months remaining in the financial year. The Net Profit after tax is R{net_profit:,}. Calculate the Earnings Per Share (EPS)."
+                    exp = f"Weighted average shares = {shares_start:,} + ({new_shares:,} x {months_new}/12) = {weighted_shares:,.0f}. EPS = (R{net_profit:,} / {weighted_shares:,.0f}) * 100 = {eps:.1f} cents."
+
+                    if self.generator.add_question(subtopic_name, difficulty, q_text, correct_str, wrong_pool, exp): added += 1
+
+        return added
 
     def _generate_manufacturing_questions(self):
-        q_type = random.choice(['prime_cost', 'factory_overhead', 'total_cost', 'cost_of_production', 'breakeven', 'unit_cost'])
+        subtopic_name = "Cost Accounting & Manufacturing"
+        attempts = 0
+        added = 0
 
-        if q_type == 'prime_cost':
-            direct_materials = random.randint(100, 500) * 1000
-            direct_labour = random.randint(50, 300) * 1000
-            factory_overhead = random.randint(20, 150) * 1000
-            prime_cost = direct_materials + direct_labour
-            correct_str = f"R{prime_cost:,}"
-            wrong_pool = [f"R{(prime_cost + factory_overhead):,}", f"R{(direct_materials + factory_overhead):,}", f"R{(direct_labour + factory_overhead):,}"]
-            q_text = f"Calculate the Prime Cost: Direct Materials R{direct_materials:,}, Direct Labour R{direct_labour:,}, Factory Overheads R{factory_overhead:,}."
-            exp = f"Prime Cost = Direct Materials + Direct Labour = R{prime_cost:,}."
-            if self.add_question(q_text, correct_str, wrong_pool, exp, "easy", "Manufacturing Concepts"): return 1
+        while attempts < 50000 and self.generator.difficulty_counts['medium'] + self.generator.difficulty_counts['hard'] < self.generator.difficulty_targets['medium'] + self.generator.difficulty_targets['hard']:
+            attempts += 1
 
-        elif q_type == 'factory_overhead':
-            indirect_materials = random.randint(5, 30) * 1000
-            indirect_labour = random.randint(10, 50) * 1000
-            factory_rent = random.randint(20, 80) * 1000
-            direct_materials = random.randint(100, 300) * 1000
-            overhead = indirect_materials + indirect_labour + factory_rent
-            correct_str = f"R{overhead:,}"
-            wrong_pool = [f"R{(overhead + direct_materials):,}", f"R{(indirect_materials + indirect_labour):,}", f"R{(overhead - factory_rent):,}"]
-            q_text = f"Calculate Total Factory Overheads: Indirect Materials R{indirect_materials:,}, Indirect Labour R{indirect_labour:,}, Factory Rent R{factory_rent:,}, Direct Materials R{direct_materials:,}."
-            exp = f"Factory Overheads = Indirect Materials + Indirect Labour + Factory Rent = R{overhead:,}. Direct materials are a direct cost."
-            if self.add_question(q_text, correct_str, wrong_pool, exp, "medium", "Manufacturing Concepts"): return 1
+            q_type = random.choice(['direct_material', 'factory_overhead', 'cost_of_production', 'break_even'])
+            difficulty = random.choice(["easy", "easy", "medium", "hard"])
 
-        elif q_type == 'cost_of_production':
-            total_manufacturing_cost = random.randint(500, 1500) * 1000
-            wip_start = random.randint(20, 100) * 1000
-            wip_end = random.randint(30, 120) * 1000
-            cop = total_manufacturing_cost + wip_start - wip_end
-            correct_str = f"R{cop:,}"
-            wrong_pool = [f"R{(total_manufacturing_cost + wip_start + wip_end):,}", f"R{(total_manufacturing_cost - wip_start + wip_end):,}", f"R{total_manufacturing_cost:,}"]
-            q_text = f"Calculate the Cost of Production of Finished Goods if Total Manufacturing Cost is R{total_manufacturing_cost:,}, WIP at start is R{wip_start:,}, and WIP at end is R{wip_end:,}."
-            exp = f"Cost of Production = Total Manufacturing Cost (R{total_manufacturing_cost:,}) + WIP Start (R{wip_start:,}) - WIP End (R{wip_end:,}) = R{cop:,}."
-            if self.add_question(q_text, correct_str, wrong_pool, exp, "hard", "Manufacturing Concepts"): return 1
+            if q_type == 'direct_material':
+                open_rm = random.randint(50, 500) * 1000
+                purchases = random.randint(200, 2000) * 1000
+                carriage = random.randint(10, 40) * 1000
+                close_rm = random.randint(60, 180) * 1000
 
-        elif q_type == 'breakeven':
-            fixed_costs = random.randint(100, 500) * 1000
-            selling_price = random.randint(50, 200)
-            variable_cost = selling_price - random.randint(10, 40)
-            contribution = selling_price - variable_cost
-            bep = fixed_costs / contribution
-            correct_str = f"{bep:,.0f} units"
-            wrong_pool = [f"{(fixed_costs / selling_price):,.0f} units", f"{(fixed_costs / variable_cost):,.0f} units", f"{((fixed_costs + variable_cost) / selling_price):,.0f} units"]
-            q_text = f"Calculate the break-even point in units. Total Fixed Costs: R{fixed_costs:,}, Selling Price per unit: R{selling_price}, Variable Cost per unit: R{variable_cost}."
-            exp = f"Break-even Point = Fixed Costs / (Selling Price - Variable Cost) = R{fixed_costs:,} / (R{selling_price} - R{variable_cost}) = {bep:,.0f} units."
-            if self.add_question(q_text, correct_str, wrong_pool, exp, "medium", "Break-Even Analysis"): return 1
+                dmc = open_rm + purchases + carriage - close_rm
+                correct_str = f"R{dmc:,}"
 
-        elif q_type == 'unit_cost':
-            cop = random.randint(500, 2000) * 1000
-            units = random.randint(10, 50) * 1000
-            unit_cost = cop / units
-            correct_str = f"R{unit_cost:.2f}"
-            wrong_pool = [f"R{(unit_cost + 5):.2f}", f"R{(unit_cost * 1.5):.2f}", f"R{(unit_cost - 2):.2f}"]
-            q_text = f"If the Cost of Production is R{cop:,} and {units:,} units were produced, calculate the unit cost of production."
-            exp = f"Unit Cost = Cost of Production / Units Produced = R{cop:,} / {units:,} = R{unit_cost:.2f}."
-            if self.add_question(q_text, correct_str, wrong_pool, exp, "easy", "Manufacturing Concepts"): return 1
+                wrong_pool_vals = [
+                    open_rm + purchases - close_rm,
+                    purchases + carriage - close_rm,
+                    open_rm + purchases + carriage + close_rm,
+                    open_rm + purchases,
+                    dmc * 1.1, dmc * 0.9,
+                    dmc + carriage, dmc - carriage
+                ]
+                wrong_pool = [f"R{int(w):,}" for w in wrong_pool_vals]
 
-        return 0
+                q_text = f"Calculate the Direct Material Cost issued to the factory. Opening Raw Materials: R{open_rm:,}. Purchases of Raw Materials: R{purchases:,}. Carriage on Purchases: R{carriage:,}. Closing Raw Materials: R{close_rm:,}."
+                exp = f"Direct Material Cost = Opening Stock (R{open_rm:,}) + Purchases (R{purchases:,}) + Carriage (R{carriage:,}) - Closing Stock (R{close_rm:,}) = R{dmc:,}."
+
+                if self.generator.add_question(subtopic_name, difficulty, q_text, correct_str, wrong_pool, exp): added += 1
+
+            elif q_type == 'factory_overhead':
+                rent = random.randint(100, 1000) * 1000
+                rent_factory_portion = random.choice([0.6, 0.7, 0.75, 0.8])
+                factory_rent = rent * rent_factory_portion
+
+                indirect_mat = random.randint(20, 80) * 1000
+                depreciation = random.randint(50, 500) * 1000
+
+                fo = factory_rent + indirect_mat + depreciation
+                correct_str = f"R{fo:,.0f}"
+
+                wrong_pool_vals = [
+                    rent + indirect_mat + depreciation,
+                    factory_rent + depreciation,
+                    rent * (1 - rent_factory_portion) + indirect_mat + depreciation,
+                    fo * 1.1, fo * 0.9,
+                    fo + indirect_mat, fo - depreciation,
+                    factory_rent + indirect_mat
+                ]
+                wrong_pool = [f"R{int(w):,}" for w in wrong_pool_vals]
+
+                q_text = f"Calculate the Factory Overhead Cost. Total Rent paid is R{rent:,}, of which {rent_factory_portion*100:.0f}% is allocated to the factory. Indirect materials used amount to R{indirect_mat:,}. Depreciation on factory plant is R{depreciation:,}."
+                exp = f"Factory Rent = R{rent:,} x {rent_factory_portion*100:.0f}% = R{factory_rent:,.0f}. Factory Overheads = Factory Rent (R{factory_rent:,.0f}) + Indirect Materials (R{indirect_mat:,}) + Depreciation (R{depreciation:,}) = R{fo:,.0f}."
+
+                if self.generator.add_question(subtopic_name, difficulty, q_text, correct_str, wrong_pool, exp): added += 1
+
+            elif q_type == 'break_even':
+                fixed_costs = random.randint(200, 2000) * 1000
+                sp_per_unit = random.randint(150, 1500)
+                vc_per_unit = int(sp_per_unit * random.uniform(0.4, 0.7))
+
+                contribution = sp_per_unit - vc_per_unit
+                bep = math.ceil(fixed_costs / contribution)
+
+                correct_str = f"{bep:,} units"
+
+                wrong_pool_vals = [
+                    fixed_costs / sp_per_unit,
+                    fixed_costs / vc_per_unit,
+                    (fixed_costs + vc_per_unit) / sp_per_unit,
+                    bep * 1.1, bep * 0.9,
+                    bep + 500, bep - 500,
+                    bep * 1.5
+                ]
+                wrong_pool = [f"{int(w):,} units" for w in wrong_pool_vals]
+
+                q_text = f"Total Fixed Costs are R{fixed_costs:,}. The Selling Price per unit is R{sp_per_unit} and the Variable Cost per unit is R{vc_per_unit}. Calculate the Break-Even Point in units."
+                exp = f"Contribution per unit = Selling Price (R{sp_per_unit}) - Variable Cost (R{vc_per_unit}) = R{contribution}. Break-Even Point = Fixed Costs / Contribution = R{fixed_costs:,} / R{contribution} = {bep:,} units."
+
+                if self.generator.add_question(subtopic_name, difficulty, q_text, correct_str, wrong_pool, exp): added += 1
+
+        return added
 
     def _generate_inventory_questions(self):
-        q_type = random.choice(['fifo', 'weighted_avg', 'missing_stock', 'gross_profit'])
+        subtopic_name = "Inventory Valuation"
+        attempts = 0
+        added = 0
 
-        if q_type == 'weighted_avg':
-            units_opening = random.randint(50, 150)
-            cost_opening = random.randint(10, 50)
-            total_opening = units_opening * cost_opening
+        while attempts < 50000 and self.generator.difficulty_counts['medium'] + self.generator.difficulty_counts['hard'] < self.generator.difficulty_targets['medium'] + self.generator.difficulty_targets['hard']:
+            attempts += 1
 
-            units_purchased = random.randint(100, 300)
-            cost_purchased = cost_opening + random.randint(5, 20)
-            total_purchased = units_purchased * cost_purchased
+            q_type = random.choice(['fifo', 'weighted_average', 'stock_missing'])
+            difficulty = random.choice(["easy", "easy", "medium", "hard"])
 
-            total_units = units_opening + units_purchased
-            total_cost = total_opening + total_purchased
+            if q_type == 'fifo':
+                units_open = random.randint(100, 1000)
+                price_open = random.randint(50, 100)
 
-            weighted_avg = total_cost / total_units
-            correct_str = f"R{weighted_avg:.2f}"
-            wrong_pool = [f"R{((cost_opening + cost_purchased)/2):.2f}", f"R{cost_purchased:.2f}", f"R{(total_cost / units_purchased):.2f}"]
-            q_text = f"Opening stock is {units_opening} units at R{cost_opening} each. Purchases are {units_purchased} units at R{cost_purchased} each. Calculate the weighted average cost per unit."
-            exp = f"Total Cost = R{total_cost}. Total Units = {total_units}. Weighted Average = R{total_cost} / {total_units} = R{weighted_avg:.2f}"
-            if self.add_question(q_text, correct_str, wrong_pool, exp, "hard", "Valuation Methods"): return 1
+                units_p1 = random.randint(200, 500)
+                price_p1 = price_open + random.randint(5, 15)
 
-        elif q_type == 'fifo':
-            units_purchased_late = random.randint(100, 200)
-            price_late = random.randint(40, 60)
-            units_purchased_early = random.randint(150, 250)
-            price_early = random.randint(20, 35)
-            closing_units = random.randint(50, units_purchased_late - 10)
+                units_p2 = random.randint(300, 600)
+                price_p2 = price_p1 + random.randint(5, 15)
 
-            val = closing_units * price_late
-            correct_str = f"R{val:,}"
-            wrong_pool = [f"R{(closing_units * price_early):,}", f"R{(closing_units * ((price_late+price_early)/2)):,.0f}", f"R{(units_purchased_late * price_late):,}"]
-            q_text = f"Using FIFO, calculate the value of closing stock of {closing_units} units. The latest purchase was {units_purchased_late} units at R{price_late} each. The previous purchase was {units_purchased_early} units at R{price_early} each."
-            exp = f"Under FIFO, closing stock is valued at the latest prices. Closing Stock = {closing_units} units x R{price_late} = R{val:,}."
-            if self.add_question(q_text, correct_str, wrong_pool, exp, "medium", "Valuation Methods"): return 1
+                units_sold = random.randint(400, 800)
+                units_closing = (units_open + units_p1 + units_p2) - units_sold
 
-        elif q_type == 'missing_stock':
-            open_stock = random.randint(100, 300)
-            purchases = random.randint(500, 1000)
-            returns = random.randint(10, 50)
-            sales_units = random.randint(400, 800)
-            counted = (open_stock + purchases - returns - sales_units) - random.randint(5, 20)
+                if difficulty == "medium":
+                    # Simple closing stock value using FIFO
+                    # Assuming units_closing is less than units_p2 for simplicity, or splits
+                    if units_closing <= units_p2:
+                        val = units_closing * price_p2
+                        exp = f"Closing units = {units_closing}. Under FIFO, these come from the latest batch (Batch 2). Value = {units_closing} x R{price_p2} = R{val:,}."
+                    else:
+                        rem = units_closing - units_p2
+                        val = (units_p2 * price_p2) + (rem * price_p1)
+                        exp = f"Closing units = {units_closing}. Under FIFO, {units_p2} come from Batch 2 (R{price_p2}) and {rem} from Batch 1 (R{price_p1}). Value = (R{units_p2*price_p2:,}) + (R{rem*price_p1:,}) = R{val:,}."
 
-            missing = open_stock + purchases - returns - sales_units - counted
-            correct_str = f"{missing} units"
-            wrong_pool = [f"{(missing + 10)} units", f"{(open_stock + purchases - counted)} units", f"{(sales_units - counted)} units"]
-            q_text = f"Opening stock: {open_stock} units. Purchases: {purchases} units. Returns to suppliers: {returns} units. Sales: {sales_units} units. Stock counted at year end: {counted} units. Calculate the number of missing units."
-            exp = f"Expected stock = Opening ({open_stock}) + Purchases ({purchases}) - Returns ({returns}) - Sales ({sales_units}) = {open_stock + purchases - returns - sales_units}. Missing = Expected - Counted ({counted}) = {missing} units."
-            if self.add_question(q_text, correct_str, wrong_pool, exp, "hard", "Inventory Systems"): return 1
+                    correct_str = f"R{val:,}"
+                    wrong_pool_vals = [
+                        units_closing * price_open,
+                        units_closing * price_p1,
+                        units_closing * ((price_open + price_p1 + price_p2)/3),
+                        val * 1.1, val * 0.9,
+                        val + price_p2*10, val - price_p2*10,
+                        units_closing * (price_p2 + 5)
+                    ]
+                    wrong_pool = [f"R{int(w):,}" for w in wrong_pool_vals]
 
-        elif q_type == 'gross_profit':
-            sales = random.randint(500, 2000) * 1000
-            markup = random.choice([20, 25, 33, 50])
+                    q_text = f"Calculate the value of Closing Stock using the FIFO method. Opening Stock: {units_open} units @ R{price_open}. Batch 1 Purchases: {units_p1} units @ R{price_p1}. Batch 2 Purchases: {units_p2} units @ R{price_p2}. Total units sold: {units_sold}."
 
-            cost_of_sales = sales * (100 / (100 + markup))
-            gp = sales - cost_of_sales
-            correct_str = f"R{gp:,.0f}"
-            wrong_pool = [f"R{(sales * (markup/100)):,.0f}", f"R{cost_of_sales:,.0f}", f"R{(sales - (sales * (markup/100))):,.0f}"]
-            q_text = f"Sales are R{sales:,}. The business uses a mark-up of {markup}% on cost. Calculate the Gross Profit."
-            exp = f"Cost of Sales = Sales x 100 / (100 + {markup}) = R{cost_of_sales:,.0f}. Gross Profit = Sales - Cost of Sales = R{gp:,.0f}."
-            if self.add_question(q_text, correct_str, wrong_pool, exp, "medium", "Inventory Systems"): return 1
+                    if self.generator.add_question(subtopic_name, difficulty, q_text, correct_str, wrong_pool, exp): added += 1
+                else:
+                    # Hard: Carriage or returns included
+                    returns = random.randint(10, 30) # from Batch 2
+                    carriage_p1_total = random.randint(500, 2000)
 
-        return 0
+                    units_closing_adj = (units_open + units_p1 + (units_p2 - returns)) - units_sold
+
+                    price_p1_adj = price_p1 + (carriage_p1_total / units_p1)
+
+                    if units_closing_adj <= (units_p2 - returns):
+                        val = units_closing_adj * price_p2
+                        exp = f"Closing units = {units_open} + {units_p1} + ({units_p2} - {returns}) - {units_sold} = {units_closing_adj}. From latest batch (Batch 2): {units_closing_adj} x R{price_p2} = R{val:,.2f}."
+                    else:
+                        rem = units_closing_adj - (units_p2 - returns)
+                        val = ((units_p2 - returns) * price_p2) + (rem * price_p1_adj)
+                        exp = f"Closing units = {units_closing_adj}. Batch 1 adjusted price = R{price_p1} + (R{carriage_p1_total} / {units_p1}) = R{price_p1_adj:.2f}. Value = (({units_p2} - {returns}) x R{price_p2}) + ({rem} x R{price_p1_adj:.2f}) = R{val:,.2f}."
+
+                    correct_str = f"R{val:,.2f}"
+                    wrong_pool_vals = [
+                        units_closing_adj * price_p2,
+                        units_closing_adj * price_p1_adj,
+                        units_closing * price_p2, # ignoring returns
+                        val * 1.1, val * 0.9,
+                        val + 500, val - 500,
+                        units_closing_adj * price_open
+                    ]
+                    wrong_pool = [f"R{w:,.2f}" for w in wrong_pool_vals]
+
+                    q_text = f"Calculate Closing Stock value using FIFO. Opening: {units_open} units @ R{price_open}. Batch 1: {units_p1} units @ R{price_p1} (Total carriage for Batch 1: R{carriage_p1_total}). Batch 2: {units_p2} units @ R{price_p2}. Returns: {returns} units from Batch 2. Total sold: {units_sold}."
+
+                    if self.generator.add_question(subtopic_name, difficulty, q_text, correct_str, wrong_pool, exp): added += 1
+
+            elif q_type == 'weighted_average':
+                units_open = random.randint(100, 1000)
+                price_open = random.randint(50, 100)
+
+                units_p = random.randint(500, 1000)
+                price_p = price_open + random.randint(10, 20)
+                carriage = random.randint(1000, 5000)
+
+                total_val = (units_open * price_open) + (units_p * price_p) + carriage
+                total_units = units_open + units_p
+
+                wap = total_val / total_units
+
+                units_sold = random.randint(400, 800)
+                units_closing = total_units - units_sold
+
+                val = units_closing * wap
+
+                correct_str = f"R{val:,.2f}"
+                wrong_pool_vals = [
+                    units_closing * price_p,
+                    units_closing * price_open,
+                    units_closing * ((total_val - carriage) / total_units),
+                    val * 1.1, val * 0.9,
+                    val + 1000, val - 1000,
+                    units_closing * (price_p + price_open)/2
+                ]
+                wrong_pool = [f"R{w:,.2f}" for w in wrong_pool_vals]
+
+                q_text = f"Calculate Closing Stock value using the Weighted Average method. Opening Stock: {units_open} units @ R{price_open}. Purchases: {units_p} units @ R{price_p}. Carriage on purchases: R{carriage}. Total units sold: {units_sold}."
+                exp = f"Total Value = (R{units_open * price_open:,}) + (R{units_p * price_p:,}) + Carriage(R{carriage}) = R{total_val:,}. Total Units = {total_units}. WAP = R{total_val:,} / {total_units} = R{wap:.2f}. Closing Stock Value = {units_closing} units x R{wap:.2f} = R{val:,.2f}."
+
+                if self.generator.add_question(subtopic_name, difficulty, q_text, correct_str, wrong_pool, exp): added += 1
+
+        return added
 
     def _generate_financial_statement_questions(self):
-        q_type = random.choice(['retained_income', 'net_profit', 'ordinary_share_capital', 'depreciation', 'asset_disposal'])
+        subtopic_name = "Financial Statements"
+        attempts = 0
+        added = 0
 
-        if q_type == 'retained_income':
-            opening_retained = random.randint(100, 500) * 1000
-            net_profit_after_tax = random.randint(200, 800) * 1000
-            interim_dividend = random.randint(20, 100) * 1000
-            final_dividend = random.randint(30, 150) * 1000
+        while attempts < 50000 and self.generator.difficulty_counts['medium'] + self.generator.difficulty_counts['hard'] < self.generator.difficulty_targets['medium'] + self.generator.difficulty_targets['hard']:
+            attempts += 1
 
-            closing_retained = opening_retained + net_profit_after_tax - interim_dividend - final_dividend
-            correct_str = f"R{closing_retained:,}"
-            wrong_pool = [f"R{(opening_retained + net_profit_after_tax - interim_dividend):,}", f"R{(opening_retained + net_profit_after_tax):,}", f"R{(opening_retained + net_profit_after_tax + interim_dividend + final_dividend):,}"]
-            q_text = f"Opening retained income is R{opening_retained:,}. Net profit after tax is R{net_profit_after_tax:,}. Interim dividends paid: R{interim_dividend:,}. Final dividends declared: R{final_dividend:,}. Calculate the closing balance of Retained Income."
-            exp = f"Closing Retained Income = Opening Balance (R{opening_retained:,}) + Net Profit after Tax (R{net_profit_after_tax:,}) - Total Dividends (R{interim_dividend + final_dividend:,}) = R{closing_retained:,}"
-            sub = "Statement of Financial Position" if "Financial" in self.topic else "Company Concepts"
-            if self.add_question(q_text, correct_str, wrong_pool, exp, "medium", sub): return 1
+            q_type = random.choice(['retained_income', 'ordinary_share_capital', 'trade_other_receivables', 'audit_fees'])
+            difficulty = random.choice(["easy", "easy", "medium", "hard"])
 
-        elif q_type == 'net_profit':
-            gross_profit = random.randint(800, 2000) * 1000
-            operating_income = random.randint(50, 200) * 1000
-            operating_expenses = random.randint(300, 900) * 1000
-            operating_profit = gross_profit + operating_income - operating_expenses
-            correct_str = f"R{operating_profit:,}"
-            wrong_pool = [f"R{(gross_profit - operating_expenses):,}", f"R{(gross_profit + operating_income + operating_expenses):,}", f"R{(operating_expenses - operating_income):,}"]
-            q_text = f"Gross profit is R{gross_profit:,}. Operating income is R{operating_income:,}. Operating expenses are R{operating_expenses:,}. Calculate the Operating Profit."
-            exp = f"Operating Profit = Gross Profit + Operating Income - Operating Expenses = R{gross_profit:,} + R{operating_income:,} - R{operating_expenses:,} = R{operating_profit:,}."
-            sub = "Statement of Comprehensive Income" if "Financial" in self.topic else "Company Concepts"
-            if self.add_question(q_text, correct_str, wrong_pool, exp, "easy", sub): return 1
+            if q_type == 'retained_income':
+                open_bal = random.randint(100, 500) * 1000
+                net_profit = random.randint(400, 4000) * 1000
+                shares_repurchased = random.randint(20, 100) * 1000
+                repurchase_premium = random.randint(2, 10) # above average price
+                buyback_cost_ri = shares_repurchased * repurchase_premium
 
-        elif q_type == 'ordinary_share_capital':
-            shares_start = random.randint(500, 1000) * 1000
-            price_start = random.randint(2, 5)
-            shares_issued = random.randint(100, 300) * 1000
-            price_issued = price_start + random.randint(1, 3)
+                interim_div = random.randint(50, 500) * 1000
+                final_div = random.randint(80, 200) * 1000
 
-            total_capital = (shares_start * price_start) + (shares_issued * price_issued)
-            correct_str = f"R{total_capital:,}"
-            wrong_pool = [f"R{((shares_start + shares_issued) * price_start):,}", f"R{((shares_start + shares_issued) * price_issued):,}", f"R{(shares_start * price_start):,}"]
-            q_text = f"A company started with {shares_start:,} shares issued at R{price_start} each. During the year, they issued another {shares_issued:,} shares at R{price_issued} each. Calculate the total Ordinary Share Capital balance."
-            exp = f"Total Capital = (R{shares_start:,} x R{price_start}) + (R{shares_issued:,} x R{price_issued}) = R{shares_start * price_start:,} + R{shares_issued * price_issued:,} = R{total_capital:,}."
-            sub = "Statement of Financial Position" if "Financial" in self.topic else "Company Concepts"
-            if self.add_question(q_text, correct_str, wrong_pool, exp, "medium", sub): return 1
+                close_bal = open_bal + net_profit - buyback_cost_ri - interim_div - final_div
 
-        elif q_type == 'depreciation':
-            cost = random.randint(100, 500) * 1000
-            acc_dep = random.randint(20, int(cost*0.4))
-            rate = random.choice([10, 15, 20])
+                correct_str = f"R{close_bal:,}"
+                wrong_pool_vals = [
+                    open_bal + net_profit - interim_div - final_div,
+                    open_bal + net_profit - buyback_cost_ri - final_div,
+                    open_bal + net_profit,
+                    close_bal + buyback_cost_ri,
+                    close_bal - interim_div,
+                    close_bal * 1.1, close_bal * 0.9,
+                    close_bal + 50000
+                ]
+                wrong_pool = [f"R{int(w):,}" for w in wrong_pool_vals]
 
-            dep = (cost - acc_dep) * (rate / 100)
-            correct_str = f"R{dep:,.0f}"
-            wrong_pool = [f"R{(cost * (rate/100)):,.0f}", f"R{(acc_dep * (rate/100)):,.0f}", f"R{((cost - acc_dep)):,.0f}"]
-            q_text = f"Vehicles cost R{cost:,}. Accumulated depreciation is R{acc_dep:,}. Calculate depreciation for the year at {rate}% p.a. on the diminishing balance method."
-            exp = f"Depreciation = (Cost - Accumulated Depreciation) x Rate = (R{cost:,} - R{acc_dep:,}) x {rate}% = R{dep:,.0f}."
-            sub = "Notes to Financial Statements" if "Financial" in self.topic else "Company Concepts"
-            if self.add_question(q_text, correct_str, wrong_pool, exp, "medium", sub): return 1
+                q_text = f"Calculate the Retained Income balance at year-end. Opening balance: R{open_bal:,}. Net profit after tax: R{net_profit:,}. {shares_repurchased:,} shares were repurchased at R{repurchase_premium} above the average share price. Interim dividends paid: R{interim_div:,}. Final dividends declared: R{final_div:,}."
+                exp = f"Closing Balance = Opening (R{open_bal:,}) + Net Profit (R{net_profit:,}) - Buyback Premium (R{buyback_cost_ri:,}) - Interim Div (R{interim_div:,}) - Final Div (R{final_div:,}) = R{close_bal:,}."
 
-        elif q_type == 'asset_disposal':
-            cost = random.randint(50, 200) * 1000
-            acc_dep = random.randint(10, cost - 10000)
-            carrying_value = cost - acc_dep
-            sold_for = carrying_value + random.randint(-10000, 15000)
+                if self.generator.add_question(subtopic_name, difficulty, q_text, correct_str, wrong_pool, exp): added += 1
 
-            profit_loss = sold_for - carrying_value
-            status = "Profit" if profit_loss > 0 else "Loss"
-            correct_str = f"R{abs(profit_loss):,} {status}"
-            wrong_pool = [f"R{sold_for:,} {status}", f"R{abs(cost - sold_for):,} Loss", f"R{carrying_value:,} Profit"]
-            q_text = f"Equipment costing R{cost:,} with accumulated depreciation of R{acc_dep:,} was sold for R{sold_for:,}. Calculate the profit or loss on sale of the asset."
-            exp = f"Carrying Value = R{cost:,} - R{acc_dep:,} = R{carrying_value:,}. Profit/Loss = Sold For - Carrying Value = R{sold_for:,} - R{carrying_value:,} = R{abs(profit_loss):,} {status}."
-            sub = "Notes to Financial Statements" if "Financial" in self.topic else "Company Concepts"
-            if self.add_question(q_text, correct_str, wrong_pool, exp, "hard", sub): return 1
+            elif q_type == 'ordinary_share_capital':
+                auth_shares = random.randint(1000, 5000) * 1000
+                issued_start = int(auth_shares * random.uniform(0.4, 0.7))
+                avg_price_start = random.uniform(5.0, 15.0)
 
-        return 0
+                cap_start = issued_start * avg_price_start
+
+                new_shares = random.randint(50, 200) * 1000
+                new_price = avg_price_start + random.uniform(1.0, 5.0)
+
+                repurchased = random.randint(10, 200) * 1000
+
+                # The repurchased shares decrease OSC by the NEW average price (or old if before issue, assume after)
+                total_issued_before_buyback = issued_start + new_shares
+                total_cap_before_buyback = cap_start + (new_shares * new_price)
+                new_avg = total_cap_before_buyback / total_issued_before_buyback
+
+                cap_end = total_cap_before_buyback - (repurchased * new_avg)
+
+                correct_str = f"R{cap_end:,.0f}"
+
+                wrong_pool_vals = [
+                    total_cap_before_buyback,
+                    cap_start + (new_shares * new_price) - (repurchased * new_price), # wrong buyback deduction
+                    cap_start + (new_shares * new_price) - (repurchased * avg_price_start),
+                    cap_end * 1.1, cap_end * 0.9,
+                    cap_end + 100000, cap_end - 100000,
+                    cap_start + (new_shares * new_avg)
+                ]
+                wrong_pool = [f"R{int(w):,.0f}" for w in wrong_pool_vals]
+
+                q_text = f"Opening Share Capital: {issued_start:,} shares valued at R{cap_start:,.0f}. During the year, {new_shares:,} new shares were issued at R{new_price:.2f} each. Later, {repurchased:,} shares were repurchased. Calculate the Ordinary Share Capital balance at year-end."
+                exp = f"Value before buyback = R{cap_start:,.0f} + (R{new_price:.2f} x {new_shares:,}) = R{total_cap_before_buyback:,.0f}. New Average Price = R{total_cap_before_buyback:,.0f} / {total_issued_before_buyback:,} = R{new_avg:.2f}. Buyback deduction = {repurchased:,} x R{new_avg:.2f} = R{repurchased * new_avg:,.0f}. Final Capital = R{cap_end:,.0f}."
+
+                if self.generator.add_question(subtopic_name, difficulty, q_text, correct_str, wrong_pool, exp): added += 1
+
+            elif q_type == 'trade_other_receivables':
+                debtors_control = random.randint(150, 1500) * 1000
+                prov_bad_debts = random.randint(5, 15) * 1000
+                prepaid_exp = random.randint(2, 10) * 1000
+                accrued_inc = random.randint(3, 12) * 1000
+                sars_income_tax_dr = random.choice([0, random.randint(10, 30) * 1000])
+
+                total = debtors_control - prov_bad_debts + prepaid_exp + accrued_inc + sars_income_tax_dr
+
+                correct_str = f"R{total:,}"
+
+                wrong_pool_vals = [
+                    debtors_control + prov_bad_debts + prepaid_exp + accrued_inc + sars_income_tax_dr,
+                    debtors_control - prov_bad_debts - prepaid_exp + accrued_inc,
+                    debtors_control + prepaid_exp + accrued_inc,
+                    total - sars_income_tax_dr * 2,
+                    total * 1.1, total * 0.9,
+                    total + 5000, total - 5000
+                ]
+                wrong_pool = [f"R{int(w):,}" for w in wrong_pool_vals]
+
+                q_text = f"Calculate Trade and Other Receivables. Debtors Control: R{debtors_control:,}. Provision for Bad Debts: R{prov_bad_debts:,}. Prepaid Expenses: R{prepaid_exp:,}. Accrued Income: R{accrued_inc:,}. SARS (Income Tax) Debit balance: R{sars_income_tax_dr:,}."
+                exp = f"Trade & Other Receivables = Debtors (R{debtors_control:,}) - Provision (R{prov_bad_debts:,}) + Prepaid Exp (R{prepaid_exp:,}) + Accrued Inc (R{accrued_inc:,}) + SARS Debit (R{sars_income_tax_dr:,}) = R{total:,}."
+
+                if self.generator.add_question(subtopic_name, difficulty, q_text, correct_str, wrong_pool, exp): added += 1
+
+        return added
 
     def _generate_budgeting_questions(self):
-        q_type = random.choice(['debtors_collection', 'creditors_payment', 'cash_vs_income'])
+        subtopic_name = "Budgeting"
+        attempts = 0
+        added = 0
 
-        if q_type == 'debtors_collection':
-            credit_sales = random.randint(100, 300) * 1000
-            percentage_collected = random.choice([50, 60, 70])
-            discount = random.choice([2, 5])
-            collected_gross = credit_sales * (percentage_collected / 100)
-            discount_amount = collected_gross * (discount / 100)
-            actual_cash = collected_gross - discount_amount
-            correct_str = f"R{actual_cash:,.0f}"
-            wrong_pool = [f"R{collected_gross:,.0f}", f"R{(collected_gross + discount_amount):,.0f}", f"R{(credit_sales * ((percentage_collected - discount)/100)):,.0f}"]
-            q_text = f"Credit sales for May are R{credit_sales:,}. The business collects {percentage_collected}% of these sales in June, subject to a {discount}% discount. How much cash will be collected in June from May sales?"
-            exp = f"Expected collection gross = R{collected_gross:,.0f}. Discount = {discount}% of R{collected_gross:,.0f} = R{discount_amount:,.0f}. Cash collected = R{actual_cash:,.0f}."
-            if self.add_question(q_text, correct_str, wrong_pool, exp, "hard", "Debtors and Creditors Collection"): return 1
+        while attempts < 50000 and self.generator.difficulty_counts['medium'] + self.generator.difficulty_counts['hard'] < self.generator.difficulty_targets['medium'] + self.generator.difficulty_targets['hard']:
+            attempts += 1
 
-        elif q_type == 'creditors_payment':
-            purchases = random.randint(150, 400) * 1000
-            cash_perc = random.choice([20, 30, 40])
-            credit_purchases = purchases * ((100 - cash_perc) / 100)
-            pay_perc = random.choice([60, 75, 100])
-            paid = credit_purchases * (pay_perc / 100)
-            correct_str = f"R{paid:,.0f}"
-            wrong_pool = [f"R{credit_purchases:,.0f}", f"R{(purchases * (pay_perc/100)):,.0f}", f"R{(purchases * (cash_perc/100)):,.0f}"]
-            q_text = f"Total purchases for July are R{purchases:,}, of which {cash_perc}% is for cash. Creditors are paid {pay_perc}% of the credit purchases in the month following the purchase (August). Calculate the amount paid to creditors in August for July purchases."
-            exp = f"Credit Purchases = R{purchases:,} x {(100 - cash_perc)}% = R{credit_purchases:,.0f}. Amount Paid = R{credit_purchases:,.0f} x {pay_perc}% = R{paid:,.0f}."
-            if self.add_question(q_text, correct_str, wrong_pool, exp, "medium", "Debtors and Creditors Collection"): return 1
+            q_type = random.choice(['debtors_collection', 'creditors_payment', 'cash_vs_income'])
+            difficulty = random.choice(["easy", "easy", "medium", "hard"])
 
-        elif q_type == 'cash_vs_income':
-            depreciation = random.randint(20, 50) * 1000
-            bad_debts = random.randint(5, 15) * 1000
-            loan_repayment = random.randint(30, 100) * 1000
-            correct_str = f"Loan repayment (R{loan_repayment:,})"
-            wrong_pool = [f"Depreciation (R{depreciation:,})", f"Bad Debts (R{bad_debts:,})", "Cost of Sales"]
-            q_text = f"Which of the following items would appear in a Cash Budget but NOT in a Projected Income Statement?"
-            exp = f"A loan repayment involves a cash outflow (goes to Cash Budget) but is not an expense (does not go to Income Statement). Depreciation and Bad Debts are non-cash expenses."
-            if self.add_question(q_text, correct_str, wrong_pool, exp, "medium", "Budget Concepts"): return 1
+            if q_type == 'debtors_collection':
+                credit_sales_1 = random.randint(100, 1000) * 1000 # 2 months ago
+                credit_sales_2 = random.randint(150, 350) * 1000 # 1 month ago
+                credit_sales_3 = random.randint(200, 400) * 1000 # current month
 
-        return 0
+                col_curr = random.choice([20, 30])
+                col_1 = random.choice([40, 50])
+                col_2 = random.choice([15, 20])
+                discount = random.choice([0, 5])
+
+                curr_collected = credit_sales_3 * (col_curr/100)
+                if discount > 0:
+                    # Discount usually applied in month of sale
+                    curr_collected = curr_collected * (1 - (discount/100))
+
+                prev1_collected = credit_sales_2 * (col_1/100)
+                prev2_collected = credit_sales_1 * (col_2/100)
+
+                total = curr_collected + prev1_collected + prev2_collected
+
+                correct_str = f"R{total:,.0f}"
+
+                wrong_pool_vals = [
+                    (credit_sales_3 * (col_curr/100)) + prev1_collected + prev2_collected, # no discount
+                    credit_sales_3 * (col_1/100) + credit_sales_2 * (col_2/100), # shifted months
+                    total * 1.1, total * 0.9,
+                    total + 10000, total - 10000,
+                    total + 5000, total - 5000
+                ]
+                wrong_pool = [f"R{int(w):,.0f}" for w in wrong_pool_vals]
+
+                q_text = f"Credit sales: May R{credit_sales_1:,}, June R{credit_sales_2:,}, July R{credit_sales_3:,}. Collection pattern: {col_curr}% in month of sale (subject to {discount}% discount), {col_1}% in the 1st month after sale, {col_2}% in the 2nd month after. Calculate the cash collected from debtors in July."
+                exp = f"July sales collected = R{credit_sales_3:,} x {col_curr}% x {(100-discount)}% = R{curr_collected:,.0f}. June sales collected = R{credit_sales_2:,} x {col_1}% = R{prev1_collected:,.0f}. May sales collected = R{credit_sales_1:,} x {col_2}% = R{prev2_collected:,.0f}. Total = R{total:,.0f}."
+
+                if self.generator.add_question(subtopic_name, difficulty, q_text, correct_str, wrong_pool, exp): added += 1
+
+            elif q_type == 'creditors_payment':
+                purchases = random.randint(150, 1500) * 1000
+                cash_perc = random.choice([20, 30, 40])
+                credit_purchases = purchases * ((100 - cash_perc) / 100)
+
+                pay_perc = random.choice([60, 75, 100])
+                paid = credit_purchases * (pay_perc / 100)
+
+                correct_str = f"R{paid:,.0f}"
+
+                wrong_pool_vals = [
+                    credit_purchases,
+                    purchases * (pay_perc/100),
+                    purchases * (cash_perc/100),
+                    paid * 1.1, paid * 0.9,
+                    paid + 5000, paid - 5000,
+                    purchases * ((100 - cash_perc) / 100) * 1.5
+                ]
+                wrong_pool = [f"R{int(w):,.0f}" for w in wrong_pool_vals]
+
+                q_text = f"Total purchases for July are R{purchases:,}, of which {cash_perc}% is for cash. Creditors are paid {pay_perc}% of the credit purchases in the month following the purchase (August). Calculate the amount paid to creditors in August for July purchases."
+                exp = f"Credit Purchases = R{purchases:,} x {(100 - cash_perc)}% = R{credit_purchases:,.0f}. Amount Paid = R{credit_purchases:,.0f} x {pay_perc}% = R{paid:,.0f}."
+
+                if self.generator.add_question(subtopic_name, difficulty, q_text, correct_str, wrong_pool, exp): added += 1
+
+        return added
 
     def _generate_cashflow_questions(self):
-        q_type = random.choice(['tax_paid', 'dividends_paid', 'fixed_assets_purchased'])
+        subtopic_name = "Cash Flow Statements"
+        attempts = 0
+        added = 0
 
-        if q_type == 'tax_paid':
-            tax_expense = random.randint(50, 200) * 1000
-            open_cr = random.randint(5, 30) * 1000
-            expense = random.randint(100, 300) * 1000
-            close_cr = random.randint(10, 40) * 1000
-            tax_paid = open_cr + expense - close_cr
-            correct_str = f"R{tax_paid:,}"
-            wrong_pool = [f"R{expense:,}", f"R{(expense + close_cr - open_cr):,}", f"R{(open_cr + close_cr + expense):,}"]
-            q_text = f"Income Tax expense is R{expense:,}. SARS (Income Tax) had an opening credit balance of R{open_cr:,} and a closing credit balance of R{close_cr:,}. Calculate Taxation Paid."
-            exp = f"Tax Paid = Opening Balance (R{open_cr:,}) + Tax Expense (R{expense:,}) - Closing Balance (R{close_cr:,}) = R{tax_paid:,}."
-            if self.add_question(q_text, correct_str, wrong_pool, exp, "hard", "Operating Activities"): return 1
+        while attempts < 50000 and self.generator.difficulty_counts['medium'] + self.generator.difficulty_counts['hard'] < self.generator.difficulty_targets['medium'] + self.generator.difficulty_targets['hard']:
+            attempts += 1
 
-        elif q_type == 'dividends_paid':
-            final_prev = random.randint(30, 80) * 1000
-            interim_curr = random.randint(40, 90) * 1000
-            final_curr = random.randint(50, 100) * 1000
-            paid = final_prev + interim_curr
-            correct_str = f"R{paid:,}"
-            wrong_pool = [f"R{(interim_curr + final_curr):,}", f"R{(final_prev + final_curr):,}", f"R{(final_prev + interim_curr + final_curr):,}"]
-            q_text = f"Shareholders for dividends opening balance was R{final_prev:,} (final dividend from last year). During the current year, an interim dividend of R{interim_curr:,} was paid, and a final dividend of R{final_curr:,} was declared. Calculate Dividends Paid for the Cash Flow Statement."
-            exp = f"Dividends Paid = Final dividend from previous year (R{final_prev:,}) + Interim dividend paid this year (R{interim_curr:,}) = R{paid:,}. The current year's final dividend is only paid next year."
-            if self.add_question(q_text, correct_str, wrong_pool, exp, "medium", "Operating Activities"): return 1
+            q_type = random.choice(['tax_paid', 'dividends_paid', 'fixed_assets_purchased'])
+            difficulty = random.choice(["easy", "easy", "medium", "hard"])
 
-        elif q_type == 'fixed_assets_purchased':
-            carrying_value_start = random.randint(1000, 3000) * 1000
-            carrying_value_end = random.randint(1500, 3500) * 1000
-            depreciation = random.randint(100, 300) * 1000
-            disposals = random.randint(50, 200) * 1000 # carrying value of disposals
+            if q_type == 'tax_paid':
+                tax_expense = random.randint(50, 200) * 1000
+                open_cr = random.randint(5, 30) * 1000
+                expense = random.randint(100, 1000) * 1000
+                close_cr = random.randint(10, 40) * 1000
 
-            purchases = carrying_value_end - carrying_value_start + depreciation + disposals
-            correct_str = f"R{purchases:,}"
-            wrong_pool = [f"R{(carrying_value_end - carrying_value_start):,}", f"R{(carrying_value_end - carrying_value_start + depreciation):,}", f"R{(carrying_value_end - carrying_value_start - disposals):,}"]
-            q_text = f"Fixed assets carrying value at start: R{carrying_value_start:,}. At end: R{carrying_value_end:,}. Depreciation for the year: R{depreciation:,}. Carrying value of assets sold: R{disposals:,}. Calculate the amount paid to purchase fixed assets."
-            exp = f"Purchases = Closing CV (R{carrying_value_end:,}) - Opening CV (R{carrying_value_start:,}) + Depreciation (R{depreciation:,}) + Disposals (R{disposals:,}) = R{purchases:,}."
-            if self.add_question(q_text, correct_str, wrong_pool, exp, "hard", "Investing & Financing Activities"): return 1
+                tax_paid = open_cr + expense - close_cr
+                correct_str = f"R{tax_paid:,}"
 
-        return 0
+                wrong_pool_vals = [
+                    expense,
+                    expense + close_cr - open_cr,
+                    open_cr + close_cr + expense,
+                    tax_paid * 1.1, tax_paid * 0.9,
+                    tax_paid + 2000, tax_paid - 2000,
+                    close_cr + open_cr
+                ]
+                wrong_pool = [f"R{int(w):,}" for w in wrong_pool_vals]
+
+                q_text = f"Income Tax expense for the year is R{expense:,}. SARS (Income Tax) had an opening credit balance of R{open_cr:,} and a closing credit balance of R{close_cr:,}. Calculate Taxation Paid for the Cash Flow Statement."
+                exp = f"Tax Paid = Opening Balance (R{open_cr:,}) + Tax Expense (R{expense:,}) - Closing Balance (R{close_cr:,}) = R{tax_paid:,}."
+
+                if self.generator.add_question(subtopic_name, difficulty, q_text, correct_str, wrong_pool, exp): added += 1
+
+            elif q_type == 'dividends_paid':
+                final_prev = random.randint(30, 80) * 1000
+                interim_curr = random.randint(40, 90) * 1000
+                final_curr = random.randint(50, 100) * 1000
+
+                paid = final_prev + interim_curr
+                correct_str = f"R{paid:,}"
+
+                wrong_pool_vals = [
+                    interim_curr + final_curr,
+                    final_prev + final_curr,
+                    final_prev + interim_curr + final_curr,
+                    paid * 1.1, paid * 0.9,
+                    paid + 5000, paid - 5000,
+                    final_curr
+                ]
+                wrong_pool = [f"R{int(w):,}" for w in wrong_pool_vals]
+
+                q_text = f"Shareholders for dividends opening balance was R{final_prev:,} (final dividend from last year). During the current year, an interim dividend of R{interim_curr:,} was paid, and a final dividend of R{final_curr:,} was declared. Calculate Dividends Paid for the Cash Flow Statement."
+                exp = f"Dividends Paid = Final dividend from previous year (R{final_prev:,}) + Interim dividend paid this year (R{interim_curr:,}) = R{paid:,}. The current year's final dividend is only paid next year."
+
+                if self.generator.add_question(subtopic_name, difficulty, q_text, correct_str, wrong_pool, exp): added += 1
+
+            elif q_type == 'fixed_assets_purchased':
+                carrying_value_start = random.randint(1000, 10000) * 1000
+                carrying_value_end = random.randint(1500, 15000) * 1000
+                depreciation = random.randint(100, 1000) * 1000
+                disposals = random.randint(50, 200) * 1000
+
+                purchases = carrying_value_end - carrying_value_start + depreciation + disposals
+
+                correct_str = f"R{purchases:,}"
+
+                wrong_pool_vals = [
+                    carrying_value_end - carrying_value_start,
+                    carrying_value_end - carrying_value_start + depreciation,
+                    carrying_value_end - carrying_value_start - disposals,
+                    carrying_value_end - carrying_value_start - depreciation + disposals,
+                    purchases * 1.1, purchases * 0.9,
+                    purchases + 20000, purchases - 20000
+                ]
+                wrong_pool = [f"R{int(w):,}" for w in wrong_pool_vals]
+
+                q_text = f"Fixed assets carrying value at start: R{carrying_value_start:,}. At end: R{carrying_value_end:,}. Depreciation for the year: R{depreciation:,}. Carrying value of assets sold: R{disposals:,}. Calculate the amount paid to purchase fixed assets."
+                exp = f"Purchases = Closing CV (R{carrying_value_end:,}) - Opening CV (R{carrying_value_start:,}) + Depreciation (R{depreciation:,}) + Disposals (R{disposals:,}) = R{purchases:,}."
+
+                if self.generator.add_question(subtopic_name, difficulty, q_text, correct_str, wrong_pool, exp): added += 1
+
+        return added
 
     def _generate_reconciliation_questions(self):
-        q_type = random.choice(['bank_recon_balance', 'bank_recon_error', 'debtors_recon'])
+        subtopic_name = "Reconciliations"
+        attempts = 0
+        added = 0
 
-        if q_type == 'bank_recon_balance':
-            bank_balance = random.randint(10, 50) * 1000 # Debit balance
-            outstanding_cheque = random.randint(1, 5) * 1000
-            outstanding_deposit = random.randint(2, 8) * 1000
-            recon_balance = bank_balance + outstanding_deposit - outstanding_cheque
-            correct_str = f"R{recon_balance:,} favourable"
-            wrong_pool = [f"R{(bank_balance - outstanding_deposit + outstanding_cheque):,} favourable", f"R{(bank_balance + outstanding_deposit + outstanding_cheque):,} favourable", f"R{recon_balance:,} overdrawn"]
-            q_text = f"The Bank Statement shows a favourable balance of R{bank_balance:,}. Outstanding cheques: R{outstanding_cheque:,}. Outstanding deposit: R{outstanding_deposit:,}. Calculate the balance as per the Bank account in the General Ledger."
-            exp = f"GL Balance = Bank Statement Balance (R{bank_balance:,}) + Outstanding Deposits (R{outstanding_deposit:,}) - Outstanding Cheques (R{outstanding_cheque:,}) = R{recon_balance:,} favourable."
-            if self.add_question(q_text, correct_str, wrong_pool, exp, "medium", "Bank Reconciliation"): return 1
+        while attempts < 50000 and self.generator.difficulty_counts['medium'] + self.generator.difficulty_counts['hard'] < self.generator.difficulty_targets['medium'] + self.generator.difficulty_targets['hard']:
+            attempts += 1
 
-        elif q_type == 'bank_recon_error':
-            error_amt = random.randint(500, 2000)
-            correct_str = f"Debit Bank account with R{error_amt:,}"
-            wrong_pool = [f"Credit Bank account with R{error_amt:,}", f"Debit Bank account with R{(error_amt*2):,}", f"Credit Bank Statement with R{error_amt:,}"]
-            q_text = f"A deposit of R{error_amt:,} was recorded correctly on the Bank Statement but omitted from the Cash Receipts Journal. How must this be corrected?"
-            exp = f"If omitted from the CRJ, it must be added to the cash book by debiting the Bank account. It's already on the statement."
-            if self.add_question(q_text, correct_str, wrong_pool, exp, "easy", "Bank Reconciliation"): return 1
+            q_type = random.choice(['bank_recon_balance', 'bank_recon_error', 'debtors_recon'])
+            difficulty = random.choice(["easy", "easy", "medium", "hard"])
 
-        elif q_type == 'debtors_recon':
-            control_bal = random.randint(50, 150) * 1000
-            list_bal = control_bal + random.choice([-2000, 2000, -3000, 3000])
-            error_amt = abs(control_bal - list_bal)
-            correct_str = f"R{control_bal:,}" if control_bal > list_bal else f"R{list_bal:,}" # Depends on the scenario, let's craft a specific one
+            if q_type == 'bank_recon_balance':
+                bank_balance = random.randint(10, 200) * 1000
+                outstanding_cheque = random.randint(1, 30) * 1000
+                outstanding_deposit = random.randint(2, 40) * 1000
 
-            # Scenario: Invoice omitted from Debtors Journal
-            control_bal_start = random.randint(50, 150) * 1000
-            invoice_omitted = random.randint(1, 5) * 1000
-            corrected_control = control_bal_start + invoice_omitted
+                recon_balance = bank_balance + outstanding_deposit - outstanding_cheque
+                correct_str = f"R{recon_balance:,} favourable"
 
-            correct_str = f"R{corrected_control:,}"
-            wrong_pool = [f"R{control_bal_start:,}", f"R{(control_bal_start - invoice_omitted):,}", f"R{(control_bal_start + (invoice_omitted*2)):,}"]
-            q_text = f"The Debtors Control account balance is R{control_bal_start:,}. It was discovered that an invoice for R{invoice_omitted:,} was completely omitted from the Debtors Journal. Calculate the corrected Debtors Control balance."
-            exp = f"Omitted invoice means credit sales were undercast. We must add the invoice amount to the control account: R{control_bal_start:,} + R{invoice_omitted:,} = R{corrected_control:,}."
-            if self.add_question(q_text, correct_str, wrong_pool, exp, "medium", "Debtors & Creditors Reconciliations"): return 1
+                wrong_pool_vals = [
+                    f"R{bank_balance - outstanding_deposit + outstanding_cheque:,} favourable",
+                    f"R{bank_balance + outstanding_deposit + outstanding_cheque:,} favourable",
+                    f"R{recon_balance:,} overdrawn",
+                    f"R{bank_balance:,} favourable",
+                    f"R{bank_balance + outstanding_deposit:,} favourable",
+                    f"R{bank_balance - outstanding_cheque:,} favourable",
+                    f"R{recon_balance + 1000:,} favourable",
+                    f"R{abs(recon_balance - 1000):,} favourable"
+                ]
+                wrong_pool = list(wrong_pool_vals)
 
-        return 0
+                q_text = f"The Bank Statement shows a favourable balance of R{bank_balance:,}. Outstanding cheques: R{outstanding_cheque:,}. Outstanding deposit: R{outstanding_deposit:,}. Calculate the balance as per the Bank account in the General Ledger."
+                exp = f"GL Balance = Bank Statement Balance (R{bank_balance:,}) + Outstanding Deposits (R{outstanding_deposit:,}) - Outstanding Cheques (R{outstanding_cheque:,}) = R{recon_balance:,} favourable."
+
+                if self.generator.add_question(subtopic_name, difficulty, q_text, correct_str, wrong_pool, exp): added += 1
+
+            elif q_type == 'debtors_recon':
+                control_bal_start = random.randint(50, 500) * 1000
+                invoice_omitted = random.randint(1, 30) * 1000
+
+                corrected_control = control_bal_start + invoice_omitted
+                correct_str = f"R{corrected_control:,}"
+
+                wrong_pool_vals = [
+                    control_bal_start,
+                    control_bal_start - invoice_omitted,
+                    control_bal_start + (invoice_omitted*2),
+                    corrected_control * 1.1, corrected_control * 0.9,
+                    corrected_control + 500, corrected_control - 500,
+                    invoice_omitted
+                ]
+                wrong_pool = [f"R{int(w):,}" for w in wrong_pool_vals]
+
+                q_text = f"The Debtors Control account balance is R{control_bal_start:,}. It was discovered that an invoice for R{invoice_omitted:,} was completely omitted from the Debtors Journal. Calculate the corrected Debtors Control balance."
+                exp = f"Omitted invoice means credit sales were undercast. We must add the invoice amount to the control account: R{control_bal_start:,} + R{invoice_omitted:,} = R{corrected_control:,}."
+
+                if self.generator.add_question(subtopic_name, difficulty, q_text, correct_str, wrong_pool, exp): added += 1
+
+        return added
 
 
     def build(self, output_dir):
-        # Generate target: ~1000 questions per topic
-        # Split: 300 theory, 700 procedural calculation variations (to reflect depth of Grade 12 Accounting)
+        # We need 1000 questions in total: 300 easy, 500 medium, 200 hard
         self.generate_theory_questions(300)
-        self.generate_procedural_questions(700)
+
+        # Procedural questions for the remaining 700
+        if "Analysis" in self.topic:
+            self._generate_analysis_questions()
+        elif "Manufacturing" in self.topic:
+            self._generate_manufacturing_questions()
+        elif "Inventory" in self.topic:
+            self._generate_inventory_questions()
+        elif "Companies" in self.topic or "Financial Statements" in self.topic:
+            self._generate_financial_statement_questions()
+        elif "Budgeting" in self.topic:
+            self._generate_budgeting_questions()
+        elif "Cash Flow" in self.topic:
+            self._generate_cashflow_questions()
+        elif "Reconciliations" in self.topic:
+            self._generate_reconciliation_questions()
+
+        # Fallback to make up numbers if we somehow missed the targets
+        # We will loop through the available procedural methods and keep calling them until done
+        attempts = 0
+        while not self.generator.is_done() and attempts < 50000:
+            attempts += 1
+            if "Analysis" in self.topic: self._generate_analysis_questions()
+            elif "Manufacturing" in self.topic: self._generate_manufacturing_questions()
+            elif "Inventory" in self.topic: self._generate_inventory_questions()
+            elif "Companies" in self.topic or "Financial Statements" in self.topic: self._generate_financial_statement_questions()
+            elif "Budgeting" in self.topic: self._generate_budgeting_questions()
+            elif "Cash Flow" in self.topic: self._generate_cashflow_questions()
+            elif "Reconciliations" in self.topic: self._generate_reconciliation_questions()
 
         filepath = os.path.join(output_dir, self.file)
-
-        with open(filepath, 'w', encoding='utf-8') as f:
-            json.dump(self.questions, f, indent=4)
-
-        print(f"Generated {len(self.questions)} questions for {self.topic} -> {filepath}")
+        self.generator.save_to_json(filepath)
+        print(f"Generated {len(self.generator.questions)} questions for {self.topic} -> {filepath}")
 
 def main():
     kb = AccountingKnowledgeBase()
     output_dir = "dataset/grade12/accounting"
-
     os.makedirs(output_dir, exist_ok=True)
 
     for topic_data in kb.get_topics():
-        engine = AccountingQuestionEngine(topic_data)
+        engine = AdvancedAccountingQuestionEngine(topic_data)
         engine.build(output_dir)
 
 if __name__ == "__main__":
