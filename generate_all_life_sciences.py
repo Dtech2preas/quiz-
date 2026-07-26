@@ -1,3 +1,46 @@
+
+def categorize_and_inject_past_papers(topics_data):
+    try:
+        with open('dataset/life_sciences/life_science_past_papers.json', 'r') as f:
+            past_papers = json.load(f)
+    except FileNotFoundError:
+        return {}
+
+    categorized = {t['topic']: [] for t in topics_data}
+
+    for m in past_papers:
+        q_text = m['question'].lower()
+        topic = None
+
+        # Mapping logic
+        if "dna" in q_text or "base" in q_text or "rna" in q_text:
+            topic = "DNA: Code of Life"
+        elif "meiosis" in q_text or "chromosome" in q_text:
+            topic = "Meiosis"
+        elif "evolution" in q_text or "darwin" in q_text or "fossil" in q_text or "homologous" in q_text or "analogous" in q_text:
+            topic = "Evolution"
+        elif "reproduction" in q_text or "embryo" in q_text or "sperm" in q_text or "ovary" in q_text or "menstrual" in q_text:
+            topic = "Human Reproduction"
+        elif "hormone" in q_text or "gland" in q_text or "endocrine" in q_text or "thyroid" in q_text or "adrenaline" in q_text:
+            topic = "Human Endocrine System"
+        elif "reflex" in q_text or "neuron" in q_text or "eye" in q_text or "ear" in q_text or "brain" in q_text:
+            topic = "Responding to the Environment (Humans)"
+        elif "plant" in q_text or "auxin" in q_text or "tropism" in q_text or "geotropism" in q_text:
+            topic = "Responding to the Environment (Plants)"
+        elif "environment" in q_text or "pollution" in q_text or "global warming" in q_text or "carbon dioxide" in q_text:
+            topic = "Human Impact on Environment"
+        elif "genetics" in q_text or "allele" in q_text or "blood group" in q_text or "inherit" in q_text:
+            topic = "Genetics and Inheritance"
+        elif "homeostasis" in q_text or "temperature" in q_text or "thermoregulation" in q_text:
+            topic = "Homeostasis in Humans"
+        elif "vertebrate" in q_text or "amniotic" in q_text or "viviparous" in q_text or "oviparous" in q_text:
+            topic = "Reproduction in Vertebrates"
+
+        if topic and topic in categorized:
+            categorized[topic].append(m)
+
+    return categorized
+
 import json
 import random
 import os
@@ -137,30 +180,9 @@ def generate_easy_recall(engine: QuestionEngine, subtopic: str, entity: dict):
     expl = f"The correct answer is {ans} because it is defined as: {entity['desc']}."
     return engine.add_question(subtopic, "easy", "recall_definition", entity['name'], random.choice(q_texts), ans, wrongs, expl)
 
-def generate_easy_identification(engine: QuestionEngine, subtopic: str, entity: dict):
-    q_texts = [
-        f"The term '{entity['name']}' is best described by which of the following statements?",
-        f"Which statement accurately defines {entity['name']}?",
-        f"Select the correct description for {entity['name']}."
-    ]
-    ans = entity['desc']
-    all_ents = engine.kb.get_entities(engine.topic_name, subtopic)
-    wrongs = [e['desc'] for e in all_ents if e['name'] != entity['name']]
-    expl = f"{entity['name']} is specifically defined as {entity['desc']}."
-    return engine.add_question(subtopic, "easy", "recall_term", entity['name'], random.choice(q_texts), ans, wrongs, expl)
 
-def generate_medium_scenario(engine: QuestionEngine, subtopic: str, entity: dict):
-    scenarios = [
-        f"A biologist observes {entity['desc']} occurring in a specimen. What biological concept is being observed?",
-        f"During an experiment, it is noted that {entity['desc']}. Which term applies to this observation?",
-        f"A student is studying a process characterized by {entity['desc']}. What process are they studying?",
-        f"In a laboratory setting, a researcher documents {entity['desc']}. This describes:",
-        f"A medical case study highlights {entity['desc']}. What is the correct biological identification for this?"
-    ]
-    ans = entity['name']
-    wrongs = entity.get('w', [])
-    expl = f"The scenario describes {entity['desc']}, which is the definition of {ans}."
-    return engine.add_question(subtopic, "medium", "scenario_observation", entity['name'], random.choice(scenarios), ans, wrongs, expl)
+
+
 
 def generate_medium_compare(engine: QuestionEngine, subtopic: str, e1: dict, e2: dict):
     templates = [
@@ -206,6 +228,44 @@ def generate_hard_cause_effect(engine: QuestionEngine, subtopic: str, entity: di
     expl = f"The description '{entity['desc']}' defines {entity['name']}. An impairment here directly affects {entity['name']}."
     return engine.add_question(subtopic, "hard", "cause_effect", entity['name'], random.choice(scenarios), ans, wrongs, expl)
 
+
+def generate_easy_identification(engine: QuestionEngine, subtopic: str, entity: dict):
+    q_texts = [
+        f"The term '{entity['name']}' is best described by which of the following statements?",
+        f"Which statement accurately defines {entity['name']}?",
+        f"Select the correct description for {entity['name']}."
+    ]
+
+    # Use alternate descriptions if available to increase variety
+    ans = entity['desc']
+    if 'alternate_descriptions' in entity and entity['alternate_descriptions']:
+        if random.random() > 0.3: # 70% chance to use alternate description
+            ans = random.choice(entity['alternate_descriptions'])
+
+    all_ents = engine.kb.get_entities(engine.topic_name, subtopic)
+    wrongs = [e['desc'] for e in all_ents if e['name'] != entity['name']]
+    expl = f"{entity['name']} is specifically defined as {ans}."
+    return engine.add_question(subtopic, "easy", "recall_term", entity['name'], random.choice(q_texts), ans, wrongs, expl)
+
+def generate_medium_scenario(engine: QuestionEngine, subtopic: str, entity: dict):
+    # Use alternate description as a scenario input if available
+    desc = entity['desc']
+    if 'alternate_descriptions' in entity and entity['alternate_descriptions']:
+        desc = random.choice(entity['alternate_descriptions'])
+
+    scenarios = [
+        f"A biologist observes {desc} occurring in a specimen. What biological concept is being observed?",
+        f"During an experiment, it is noted that {desc}. Which term applies to this observation?",
+        f"A student is studying a process characterized by {desc}. What process are they studying?",
+        f"In a laboratory setting, a researcher documents {desc}. This describes:",
+        f"A medical case study highlights {desc}. What is the correct biological identification for this?"
+    ]
+    ans = entity['name']
+    wrongs = entity.get('w', [])
+    expl = f"The scenario describes {desc}, which refers to {ans}."
+    return engine.add_question(subtopic, "medium", "scenario_observation", entity['name'], random.choice(scenarios), ans, wrongs, expl)
+
+
 def populate_knowledge_base():
     kb = KnowledgeBase()
     with open('extracted_topics.json', 'r') as f:
@@ -221,6 +281,9 @@ def populate_knowledge_base():
     return kb, topics_data
 
 def build_datasets():
+    kb, topics_data = populate_knowledge_base()
+    past_papers_categorized = categorize_and_inject_past_papers(topics_data)
+
     kb, topics_data = populate_knowledge_base()
     global_question_texts = set()
     total_generated = 0
@@ -240,6 +303,22 @@ def build_datasets():
         attempts = 0
         max_attempts = 500000
 
+
+        # Inject past paper questions first
+        for ppq in past_papers_categorized.get(t['topic'], []):
+            if engine.difficulty_counts['medium'] < engine.difficulty_targets['medium']:
+                engine.add_question(
+                    subtopic="Past Paper Question",
+                    difficulty="medium",
+                    family="past_paper",
+                    primary_entity="real_mcq",
+                    question=ppq['question'] + f" (Past Paper {ppq['year']})",
+                    correct_answer=ppq['correct_answer'],
+                    wrong_answers=ppq['wrong_answers'],
+                    explanation="This is a direct question from the National Senior Certificate past papers."
+                )
+
+        # Then fill remaining targets procedurally
         while attempts < max_attempts and (engine.difficulty_counts['easy'] < engine.difficulty_targets['easy'] or
                                            engine.difficulty_counts['medium'] < engine.difficulty_targets['medium'] or
                                            engine.difficulty_counts['hard'] < engine.difficulty_targets['hard']):
