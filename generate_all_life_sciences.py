@@ -1,3 +1,46 @@
+
+def categorize_and_inject_past_papers(topics_data):
+    try:
+        with open('dataset/life_sciences/life_science_past_papers.json', 'r') as f:
+            past_papers = json.load(f)
+    except FileNotFoundError:
+        return {}
+
+    categorized = {t['topic']: [] for t in topics_data}
+
+    for m in past_papers:
+        q_text = m['question'].lower()
+        topic = None
+
+        # Mapping logic
+        if "dna" in q_text or "base" in q_text or "rna" in q_text:
+            topic = "DNA: Code of Life"
+        elif "meiosis" in q_text or "chromosome" in q_text:
+            topic = "Meiosis"
+        elif "evolution" in q_text or "darwin" in q_text or "fossil" in q_text or "homologous" in q_text or "analogous" in q_text:
+            topic = "Evolution"
+        elif "reproduction" in q_text or "embryo" in q_text or "sperm" in q_text or "ovary" in q_text or "menstrual" in q_text:
+            topic = "Human Reproduction"
+        elif "hormone" in q_text or "gland" in q_text or "endocrine" in q_text or "thyroid" in q_text or "adrenaline" in q_text:
+            topic = "Human Endocrine System"
+        elif "reflex" in q_text or "neuron" in q_text or "eye" in q_text or "ear" in q_text or "brain" in q_text:
+            topic = "Responding to the Environment (Humans)"
+        elif "plant" in q_text or "auxin" in q_text or "tropism" in q_text or "geotropism" in q_text:
+            topic = "Responding to the Environment (Plants)"
+        elif "environment" in q_text or "pollution" in q_text or "global warming" in q_text or "carbon dioxide" in q_text:
+            topic = "Human Impact on Environment"
+        elif "genetics" in q_text or "allele" in q_text or "blood group" in q_text or "inherit" in q_text:
+            topic = "Genetics and Inheritance"
+        elif "homeostasis" in q_text or "temperature" in q_text or "thermoregulation" in q_text:
+            topic = "Homeostasis in Humans"
+        elif "vertebrate" in q_text or "amniotic" in q_text or "viviparous" in q_text or "oviparous" in q_text:
+            topic = "Reproduction in Vertebrates"
+
+        if topic and topic in categorized:
+            categorized[topic].append(m)
+
+    return categorized
+
 import json
 import random
 import os
@@ -222,6 +265,9 @@ def populate_knowledge_base():
 
 def build_datasets():
     kb, topics_data = populate_knowledge_base()
+    past_papers_categorized = categorize_and_inject_past_papers(topics_data)
+
+    kb, topics_data = populate_knowledge_base()
     global_question_texts = set()
     total_generated = 0
     total_exact_dups = 0
@@ -240,6 +286,22 @@ def build_datasets():
         attempts = 0
         max_attempts = 500000
 
+
+        # Inject past paper questions first
+        for ppq in past_papers_categorized.get(t['topic'], []):
+            if engine.difficulty_counts['medium'] < engine.difficulty_targets['medium']:
+                engine.add_question(
+                    subtopic="Past Paper Question",
+                    difficulty="medium",
+                    family="past_paper",
+                    primary_entity="real_mcq",
+                    question=ppq['question'] + f" (Past Paper {ppq['year']})",
+                    correct_answer=ppq['correct_answer'],
+                    wrong_answers=ppq['wrong_answers'],
+                    explanation="This is a direct question from the National Senior Certificate past papers."
+                )
+
+        # Then fill remaining targets procedurally
         while attempts < max_attempts and (engine.difficulty_counts['easy'] < engine.difficulty_targets['easy'] or
                                            engine.difficulty_counts['medium'] < engine.difficulty_targets['medium'] or
                                            engine.difficulty_counts['hard'] < engine.difficulty_targets['hard']):
