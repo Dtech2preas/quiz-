@@ -5,8 +5,10 @@ import sympy as sp
 from typing import List
 
 class TopicGenerator:
-    def __init__(self, topic_name: str, topic_prefix: str, subtopics: List[str]):
+    def __init__(self, topic_name: str, topic_prefix: str, subtopics: List[str], grade: str = '12', subject: str = 'Accounting'):
         self.topic_name = topic_name
+        self.grade = grade
+        self.subject = subject
         self.topic_prefix = topic_prefix
         self.subtopics = subtopics
         self.generated_questions = set()
@@ -23,7 +25,7 @@ class TopicGenerator:
             "hard": 0
         }
 
-    def add_question(self, subtopic: str, difficulty: str, question: str, correct_answer: str, wrong_answers: List[str], explanation: str):
+    def add_question(self, subtopic: str, difficulty: str, question: str, correct_answer: str, wrong_answers: List[str], explanation: str, cognitive_level: str = 'Application', learning_outcome: str = 'Calculate'):
         if self.difficulty_counts[difficulty] >= self.difficulty_targets[difficulty]:
             return False
 
@@ -49,13 +51,19 @@ class TopicGenerator:
 
         q_dict = {
             "id": question_id,
-            "topic": self.topic_name,
-            "subtopic": subtopic,
-            "difficulty": difficulty,
             "question": question,
             "correct_answer": correct_str,
             "wrong_answers_pool": unique_wrong_answers[:8],
-            "explanation": explanation
+            "explanation": explanation,
+            "tags": {
+                "grade": self.grade,
+                "subject": self.subject,
+                "topic": self.topic_name,
+                "subtopic": subtopic,
+                "cognitive_level": "Knowledge" if difficulty == "easy" else ("Application" if difficulty == "medium" else "Analysis"),
+                "difficulty": difficulty,
+                "learning_outcome": learning_outcome
+            }
         }
         self.questions.append(q_dict)
         self.difficulty_counts[difficulty] += 1
