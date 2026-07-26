@@ -180,30 +180,9 @@ def generate_easy_recall(engine: QuestionEngine, subtopic: str, entity: dict):
     expl = f"The correct answer is {ans} because it is defined as: {entity['desc']}."
     return engine.add_question(subtopic, "easy", "recall_definition", entity['name'], random.choice(q_texts), ans, wrongs, expl)
 
-def generate_easy_identification(engine: QuestionEngine, subtopic: str, entity: dict):
-    q_texts = [
-        f"The term '{entity['name']}' is best described by which of the following statements?",
-        f"Which statement accurately defines {entity['name']}?",
-        f"Select the correct description for {entity['name']}."
-    ]
-    ans = entity['desc']
-    all_ents = engine.kb.get_entities(engine.topic_name, subtopic)
-    wrongs = [e['desc'] for e in all_ents if e['name'] != entity['name']]
-    expl = f"{entity['name']} is specifically defined as {entity['desc']}."
-    return engine.add_question(subtopic, "easy", "recall_term", entity['name'], random.choice(q_texts), ans, wrongs, expl)
 
-def generate_medium_scenario(engine: QuestionEngine, subtopic: str, entity: dict):
-    scenarios = [
-        f"A biologist observes {entity['desc']} occurring in a specimen. What biological concept is being observed?",
-        f"During an experiment, it is noted that {entity['desc']}. Which term applies to this observation?",
-        f"A student is studying a process characterized by {entity['desc']}. What process are they studying?",
-        f"In a laboratory setting, a researcher documents {entity['desc']}. This describes:",
-        f"A medical case study highlights {entity['desc']}. What is the correct biological identification for this?"
-    ]
-    ans = entity['name']
-    wrongs = entity.get('w', [])
-    expl = f"The scenario describes {entity['desc']}, which is the definition of {ans}."
-    return engine.add_question(subtopic, "medium", "scenario_observation", entity['name'], random.choice(scenarios), ans, wrongs, expl)
+
+
 
 def generate_medium_compare(engine: QuestionEngine, subtopic: str, e1: dict, e2: dict):
     templates = [
@@ -248,6 +227,44 @@ def generate_hard_cause_effect(engine: QuestionEngine, subtopic: str, entity: di
     wrongs = entity.get('w', [])
     expl = f"The description '{entity['desc']}' defines {entity['name']}. An impairment here directly affects {entity['name']}."
     return engine.add_question(subtopic, "hard", "cause_effect", entity['name'], random.choice(scenarios), ans, wrongs, expl)
+
+
+def generate_easy_identification(engine: QuestionEngine, subtopic: str, entity: dict):
+    q_texts = [
+        f"The term '{entity['name']}' is best described by which of the following statements?",
+        f"Which statement accurately defines {entity['name']}?",
+        f"Select the correct description for {entity['name']}."
+    ]
+
+    # Use alternate descriptions if available to increase variety
+    ans = entity['desc']
+    if 'alternate_descriptions' in entity and entity['alternate_descriptions']:
+        if random.random() > 0.3: # 70% chance to use alternate description
+            ans = random.choice(entity['alternate_descriptions'])
+
+    all_ents = engine.kb.get_entities(engine.topic_name, subtopic)
+    wrongs = [e['desc'] for e in all_ents if e['name'] != entity['name']]
+    expl = f"{entity['name']} is specifically defined as {ans}."
+    return engine.add_question(subtopic, "easy", "recall_term", entity['name'], random.choice(q_texts), ans, wrongs, expl)
+
+def generate_medium_scenario(engine: QuestionEngine, subtopic: str, entity: dict):
+    # Use alternate description as a scenario input if available
+    desc = entity['desc']
+    if 'alternate_descriptions' in entity and entity['alternate_descriptions']:
+        desc = random.choice(entity['alternate_descriptions'])
+
+    scenarios = [
+        f"A biologist observes {desc} occurring in a specimen. What biological concept is being observed?",
+        f"During an experiment, it is noted that {desc}. Which term applies to this observation?",
+        f"A student is studying a process characterized by {desc}. What process are they studying?",
+        f"In a laboratory setting, a researcher documents {desc}. This describes:",
+        f"A medical case study highlights {desc}. What is the correct biological identification for this?"
+    ]
+    ans = entity['name']
+    wrongs = entity.get('w', [])
+    expl = f"The scenario describes {desc}, which refers to {ans}."
+    return engine.add_question(subtopic, "medium", "scenario_observation", entity['name'], random.choice(scenarios), ans, wrongs, expl)
+
 
 def populate_knowledge_base():
     kb = KnowledgeBase()
