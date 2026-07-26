@@ -192,36 +192,37 @@ def gen_stoichiometry():
         difficulty = random.choices(["easy", "medium", "hard"], weights=[0.3, 0.5, 0.2])[0]
         subtopic = random.choice(subtopics)
 
+
         if subtopic == "Molar Mass":
             C_n = random.randint(1, 6)
             H_n = C_n * 2 + 2
             O_n = random.randint(0, 3)
             M = C_n * 12.01 + H_n * 1.01 + O_n * 16.00
-            formula = f"\\text{{C}}_{{{C_n}}}\\text{{H}}_{{{H_n}}}" + (f"\\text{{O}}_{{{O_n}}}" if O_n > 0 else "")
+            formula = f"\text{{C}}_{{{C_n}}}\text{{H}}_{{{H_n}}}" + (f"\text{{O}}_{{{O_n}}}" if O_n > 0 else "")
             if difficulty == "easy":
-                question = f"Calculate the molar mass of ${formula}$. (Atomic masses: C = $12.01$, H = $1.01$, O = $16.00~\\text{{g/mol}}$)"
-                correct = f"{format_float(M)}~\\text{{g/mol}}"
+                question = f"Calculate the molar mass of ${formula}$. (Atomic masses: C = $12.01$, H = $1.01$, O = $16.00~\text{{g/mol}}$)"
+                correct = f"{format_float(M)}~\text{{g/mol}}"
                 wrongs = get_wrong_floats(M, "g/mol")
-                explanation = f"Molar mass $= {C_n}(12.01) + {H_n}(1.01)" + (f" + {O_n}(16.00)" if O_n > 0 else "") + f" = {format_float(M)}~\\text{{g/mol}}$."
+                explanation = f"Molar mass $= {C_n}(12.01) + {H_n}(1.01)" + (f" + {O_n}(16.00)" if O_n > 0 else "") + f" = {format_float(M)}~\text{{g/mol}}$."
                 gen.add_question(subtopic, difficulty, question, correct, wrongs, explanation)
             elif difficulty == "medium":
                 moles = random.uniform(0.5, 5.0)
                 mass = moles * M
-                question = f"Calculate the mass of ${format_float(moles)}~\\text{{moles}}$ of ${formula}$. (Molar mass = ${format_float(M)}~\\text{{g/mol}}$)"
-                correct = f"{format_float(mass)}~\\text{{g}}"
+                question = f"Calculate the mass of ${format_float(moles)}~\text{{moles}}$ of ${formula}$. (Molar mass = ${format_float(M)}~\text{{g/mol}}$)"
+                correct = f"{format_float(mass)}~\text{{g}}"
                 wrongs = get_wrong_floats(mass, "g")
-                explanation = f"Using $m = nM = ({format_float(moles)})({format_float(M)}) = {format_float(mass)}~\\text{{g}}$."
+                explanation = f"Using $m = nM = ({format_float(moles)})({format_float(M)}) = {format_float(mass)}~\text{{g}}$."
                 gen.add_question(subtopic, difficulty, question, correct, wrongs, explanation)
             elif difficulty == "hard":
                 mass = random.uniform(10.0, 100.0)
                 moles = mass / M
                 N_A = 6.022e23
                 molecules = moles * N_A
-                mol_sci = f"{molecules:.2e}".replace("e", "\\times 10^{") + "}"
-                question = f"Calculate the number of molecules in ${format_float(mass)}~\\text{{g}}$ of ${formula}$. (Molar mass = ${format_float(M)}~\\text{{g/mol}}$, $N_A = 6.022 \\times 10^{{23}}~\\text{{mol}}^{{-1}}$)"
+                mol_sci = f"{molecules:.2e}".replace("e", "\times 10^{") + "}"
+                question = f"Calculate the number of molecules in ${format_float(mass)}~\text{{g}}$ of ${formula}$. (Molar mass = ${format_float(M)}~\text{{g/mol}}$, $N_A = 6.022 \times 10^{{23}}~\text{{mol}}^{{-1}}$)"
                 correct = f"{mol_sci}"
-                wrongs = [f"{w:.2e}".replace("e", "\\times 10^{") + "}" for w in [molecules*10, molecules/10, molecules*M, molecules/M, molecules*2, molecules/2, molecules*5]]
-                explanation = f"Moles $n = \\frac{{m}}{{M}} = \\frac{{{format_float(mass)}}}{{{format_float(M)}}} = {format_float(moles, 3)}$. Molecules $= n N_A = ({format_float(moles, 3)})(6.022 \\times 10^{{23}}) = {mol_sci}$."
+                wrongs = [f"{w:.2e}".replace("e", "\times 10^{") + "}" for w in [molecules*10, molecules/10, molecules*M, molecules/M, molecules*2, molecules/2, molecules*5]]
+                explanation = f"Moles $n = \frac{{m}}{{M}} = \frac{{{format_float(mass)}}}{{{format_float(M)}}} = {format_float(moles, 3)}$. Molecules $= n N_A = ({format_float(moles, 3)})(6.022 \times 10^{{23}}) = {mol_sci}$."
                 gen.add_question(subtopic, difficulty, question, correct, wrongs, explanation)
 
         elif subtopic == "Moles & Mass":
@@ -229,25 +230,35 @@ def gen_stoichiometry():
             M = random.randint(20, 150)
             mass = moles * M
             if difficulty == "easy":
-                question = f"How many moles are there in ${format_float(mass)}~\\text{{g}}$ of a substance with a molar mass of ${M}~\\text{{g/mol}}$?"
-                correct = f"{format_float(moles)}~\\text{{mol}}"
+                question = f"How many moles are there in ${format_float(mass)}~\text{{g}}$ of a substance with a molar mass of ${M}~\text{{g/mol}}$?"
+                correct = f"{format_float(moles)}~\text{{mol}}"
                 wrongs = get_wrong_floats(moles, "mol")
-                explanation = f"Using $n = \\frac{{m}}{{M}} = \\frac{{{format_float(mass)}}}{{{M}}} = {format_float(moles)}~\\text{{mol}}$."
+                explanation = f"Using $n = \frac{{m}}{{M}} = \frac{{{format_float(mass)}}}{{{M}}} = {format_float(moles)}~\text{{mol}}$."
                 gen.add_question(subtopic, difficulty, question, correct, wrongs, explanation)
             elif difficulty == "medium":
                 vol = moles * 22.4 # STP
-                question = f"Calculate the volume occupied by ${format_float(mass)}~\\text{{g}}$ of a gas at STP. Its molar mass is ${M}~\\text{{g/mol}}$ and the molar volume of a gas at STP is $22.4~\\text{{dm}}^3\\text{{/mol}}$."
-                correct = f"{format_float(vol)}~\\text{{dm}}^3"
+                question = f"Calculate the volume occupied by ${format_float(mass)}~\text{{g}}$ of a gas at STP. Its molar mass is ${M}~\text{{g/mol}}$ and the molar volume of a gas at STP is $22.4~\text{{dm}}^3\text{{/mol}}$."
+                correct = f"{format_float(vol)}~\text{{dm}}^3"
                 wrongs = get_wrong_floats(vol, "dm^3")
-                explanation = f"Moles $n = \\frac{{{format_float(mass)}}}{{{M}}} = {format_float(moles)}$. Volume $V = n \\times V_m = ({format_float(moles)})(22.4) = {format_float(vol)}~\\text{{dm}}^3$."
+                explanation = f"Moles $n = \frac{{{format_float(mass)}}}{{{M}}} = {format_float(moles)}$. Volume $V = n \times V_m = ({format_float(moles)})(22.4) = {format_float(vol)}~\text{{dm}}^3$."
                 gen.add_question(subtopic, difficulty, question, correct, wrongs, explanation)
             elif difficulty == "hard":
+                # Template: Theoretical Yield
                 M2 = random.randint(30, 200)
                 mass2 = moles * M2
-                question = f"A reaction consumes ${format_float(mass)}~\\text{{g}}$ of reactant A ($M = {M}~\\text{{g/mol}}$) to produce product B ($M = {M2}~\\text{{g/mol}}$) in a $1:1$ molar ratio. Calculate the theoretical yield of product B in grams."
-                correct = f"{format_float(mass2)}~\\text{{g}}"
+                question = f"A reaction consumes ${format_float(mass)}~\text{{g}}$ of reactant A ($M = {M}~\text{{g/mol}}$) to produce product B ($M = {M2}~\text{{g/mol}}$) in a $1:1$ molar ratio. Calculate the theoretical yield of product B in grams."
+                correct = f"{format_float(mass2)}~\text{{g}}"
                 wrongs = get_wrong_floats(mass2, "g")
-                explanation = f"Moles of A $n = \\frac{{{format_float(mass)}}}{{{M}}} = {format_float(moles)}~\\text{{mol}}$. Since ratio is $1:1$, moles of B $= {format_float(moles)}$. Mass of B $m = n \\times M_B = ({format_float(moles)})({M2}) = {format_float(mass2)}~\\text{{g}}$."
+                explanation = f"Moles of A $n = \frac{{{format_float(mass)}}}{{{M}}} = {format_float(moles)}~\text{{mol}}$. Since ratio is $1:1$, moles of B $= {format_float(moles)}$. Mass of B $m = n \times M_B = ({format_float(moles)})({M2}) = {format_float(mass2)}~\text{{g}}$."
+                gen.add_question(subtopic, difficulty, question, correct, wrongs, explanation)
+
+                # Template: Percentage Yield
+                actual_yield = mass2 * random.uniform(0.6, 0.9)
+                pct_yield = (actual_yield / mass2) * 100
+                question = f"In an experiment, the theoretical yield of a product is {format_float(mass2)} g, but only {format_float(actual_yield)} g is obtained. Calculate the percentage yield."
+                correct = f"{format_float(pct_yield)}~\%"
+                wrongs = get_wrong_floats(pct_yield, "\%")
+                explanation = f"$\text{{Percentage Yield}} = \frac{{\text{{Actual}}}}{{\text{{Theoretical}}}} \times 100 = \frac{{{format_float(actual_yield)}}}{{{format_float(mass2)}}} \times 100 = {format_float(pct_yield)}\%$."
                 gen.add_question(subtopic, difficulty, question, correct, wrongs, explanation)
 
         elif subtopic == "Concentration":

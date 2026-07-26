@@ -95,59 +95,189 @@ def gen_mechanics():
                 gen.add_question(subtopic, difficulty, question, correct, wrongs, explanation)
 
         elif subtopic == "Dynamics":
-            m = random.randint(10, 100)
-            a = random.randint(1, 10)
-            f = m * a
-
             if difficulty == "easy":
-                question = f"Calculate the net force required to accelerate a ${m}~\\text{{kg}}$ object at ${a}~\\text{{m/s}}^2$."
-                correct = f"{f}~\\text{{N}}"
-                wrongs = get_wrong_ints(f, "\\text{N}")
-                explanation = f"Using $F_{{net}} = ma = ({m})({a}) = {f}~\\text{{N}}$."
+                # Template 1: Basic Weight component
+                mass = random.uniform(2.0, 20.0)
+                angle = random.randint(10, 60)
+                fg_parallel = mass * 9.8 * math.sin(math.radians(angle))
+                question = f"A {format_val_unit(mass, 'kg')} block rests on a rough inclined plane making an angle of {angle}° with the horizontal. Calculate the magnitude of the component of the block's weight parallel to the incline."
+                correct = format_val_unit(fg_parallel, "N")
+                wrongs = get_wrong_floats(fg_parallel, "N")
+                explanation = f"$F_{{g||}} = mg \sin\theta = ({format_val_unit(mass, '')})(9.8)(\sin {angle}^\circ) = {format_val_unit(fg_parallel, 'N')}$."
                 gen.add_question(subtopic, difficulty, question, correct, wrongs, explanation)
+
+                # Template 2: Normal force on incline
+                fg_perp = mass * 9.8 * math.cos(math.radians(angle))
+                question = f"A {format_val_unit(mass, 'kg')} block rests on a rough inclined plane making an angle of {angle}° with the horizontal. Calculate the magnitude of the normal force acting on the block."
+                correct = format_val_unit(fg_perp, "N")
+                wrongs = get_wrong_floats(fg_perp, "N")
+                explanation = f"$N = F_{{g\perp}} = mg \cos\theta = ({format_val_unit(mass, '')})(9.8)(\cos {angle}^\circ) = {format_val_unit(fg_perp, 'N')}$."
+                gen.add_question(subtopic, difficulty, question, correct, wrongs, explanation)
+
             elif difficulty == "medium":
-                question = f"A net force of ${f}~\\text{{N}}$ is applied to a ${m}~\\text{{kg}}$ mass. Calculate its acceleration."
-                correct = f"{a}~\\text{{m/s}}^2"
-                wrongs = get_wrong_ints(a, "\\text{m/s}^2")
-                explanation = f"Using $a = \\frac{{F_{{net}}}}{{m}} = \\frac{{{f}}}{{{m}}} = {a}~\\text{{m/s}}^2$."
-                gen.add_question(subtopic, difficulty, question, correct, wrongs, explanation)
+                # Template 3: Pulley system (Two blocks, one hanging, one on rough horizontal)
+                m1 = random.uniform(2.0, 8.0)
+                m2 = random.uniform(1.0, 5.0)
+                mu_k = random.uniform(0.1, 0.4)
+
+                fk = mu_k * m1 * 9.8
+                fg2 = m2 * 9.8
+                fnet = fg2 - fk
+                mtot = m1 + m2
+                a = fnet / mtot
+
+                if a > 0:
+                    question = f"Block A ({format_val_unit(m1, 'kg')}) on a rough horizontal surface is connected by a light inextensible string passing over a frictionless pulley to Block B ({format_val_unit(m2, 'kg')}) hanging vertically. The coefficient of kinetic friction between Block A and the surface is {format_float(mu_k, 2)}. Calculate the magnitude of the acceleration of the system."
+                    correct = format_val_unit(a, "m\cdot s^{-2}")
+                    wrongs = get_wrong_floats(a, "m\cdot s^{-2}")
+                    explanation = f"For A: $T - f_k = m_A a$. For B: $m_B g - T = m_B a$. Adding gives $m_B g - \mu_k m_A g = (m_A + m_B)a$. $({format_val_unit(m2, '')})(9.8) - ({format_float(mu_k, 2)})({format_val_unit(m1, '')})(9.8) = ({format_val_unit(mtot, '')})a$. $a = {format_val_unit(a, 'm\\cdot s^{-2}')}$."
+                    gen.add_question(subtopic, difficulty, question, correct, wrongs, explanation)
+
+                    # Template 4: Tension in the string
+                    T = m2 * 9.8 - m2 * a
+                    question = f"Block A ({format_val_unit(m1, 'kg')}) on a rough horizontal surface is connected by a light inextensible string passing over a frictionless pulley to Block B ({format_val_unit(m2, 'kg')}) hanging vertically. The system accelerates at {format_val_unit(a, 'm\cdot s^{-2}')}. Calculate the magnitude of the tension in the string."
+                    correct = format_val_unit(T, "N")
+                    wrongs = get_wrong_floats(T, "N")
+                    explanation = f"For Block B: $F_{{net}} = m_B g - T = m_B a \Rightarrow T = m_B g - m_B a = ({format_val_unit(m2, '')})(9.8) - ({format_val_unit(m2, '')})({format_float(a, 2)}) = {format_val_unit(T, 'N')}$."
+                    gen.add_question(subtopic, difficulty, question, correct, wrongs, explanation)
+
+                # Template 5: Applied force at an angle (Horizontal surface)
+                mass = random.uniform(5.0, 15.0)
+                force = random.uniform(20.0, 100.0)
+                angle = random.randint(20, 50)
+                mu_k = random.uniform(0.1, 0.3)
+
+                fx = force * math.cos(math.radians(angle))
+                fy = force * math.sin(math.radians(angle))
+                N = mass * 9.8 - fy
+                fk = mu_k * N
+                a = (fx - fk) / mass
+
+                if a > 0:
+                    question = f"A block of mass {format_val_unit(mass, 'kg')} is pulled along a rough horizontal floor by a force of {format_val_unit(force, 'N')} acting at an angle of {angle}° above the horizontal. The coefficient of kinetic friction is {format_float(mu_k, 2)}. Calculate the normal force acting on the block."
+                    correct = format_val_unit(N, "N")
+                    wrongs = get_wrong_floats(N, "N")
+                    explanation = f"Vertical equilibrium: $N + F_y = mg \Rightarrow N = mg - F\sin\theta = ({format_val_unit(mass, '')})(9.8) - ({format_val_unit(force, '')})\sin({angle}^\circ) = {format_val_unit(N, 'N')}$."
+                    gen.add_question(subtopic, difficulty, question, correct, wrongs, explanation)
+
+                    question = f"A block of mass {format_val_unit(mass, 'kg')} is pulled along a rough horizontal floor by a force of {format_val_unit(force, 'N')} acting at an angle of {angle}° above the horizontal. The coefficient of kinetic friction is {format_float(mu_k, 2)}. Calculate the acceleration of the block."
+                    correct = format_val_unit(a, "m\cdot s^{-2}")
+                    wrongs = get_wrong_floats(a, "m\cdot s^{-2}")
+                    explanation = f"$N = mg - F\sin\theta = {format_float(N, 2)}$. $f_k = \mu_k N = ({format_float(mu_k, 2)})({format_float(N, 2)}) = {format_float(fk, 2)}$. $F_{{net}} = F_x - f_k = ma \Rightarrow {format_float(fx, 2)} - {format_float(fk, 2)} = ({format_val_unit(mass, '')})a \Rightarrow a = {format_val_unit(a, 'm\\cdot s^{-2}')}$."
+                    gen.add_question(subtopic, difficulty, question, correct, wrongs, explanation)
+
             elif difficulty == "hard":
-                f_fric = random.randint(5, 50)
-                f_app = f + f_fric
-                question = f"A constant applied force of ${f_app}~\\text{{N}}$ moves a ${m}~\\text{{kg}}$ block across a rough surface with an acceleration of ${a}~\\text{{m/s}}^2$. Calculate the frictional force."
-                correct = f"{f_fric}~\\text{{N}}"
-                wrongs = get_wrong_ints(f_fric, "\\text{N}")
-                explanation = f"Using $F_{{net}} = F_{{app}} - f_{{k}} = ma \\Rightarrow {f_app} - f_{{k}} = ({m})({a}) = {f} \\Rightarrow f_{{k}} = {f_fric}~\\text{{N}}$."
+                # Template 6: Block pushed UP a rough incline
+                mass = random.uniform(2.0, 10.0)
+                angle = random.randint(15, 45)
+                mu_k = random.uniform(0.1, 0.4)
+                force = random.uniform(80.0, 200.0)
+
+                fg_parallel = mass * 9.8 * math.sin(math.radians(angle))
+                fg_perp = mass * 9.8 * math.cos(math.radians(angle))
+                fk = mu_k * fg_perp
+                a = (force - fg_parallel - fk) / mass
+
+                if a > 0:
+                    question = f"A block of mass {format_val_unit(mass, 'kg')} is pushed UP a rough inclined plane by a constant force of {format_val_unit(force, 'N')} parallel to the incline. The incline is at {angle}° to the horizontal and the coefficient of kinetic friction is {format_float(mu_k, 2)}. Calculate the acceleration of the block."
+                    correct = format_val_unit(a, "m\cdot s^{-2}")
+                    wrongs = get_wrong_floats(a, "m\cdot s^{-2}")
+                    explanation = f"$F_{{net}} = F_{{applied}} - (F_{{g||}} + f_k) = ma$. $F_{{g||}} = mg\sin\theta = {format_float(fg_parallel, 2)}$. $f_k = \mu_k mg\cos\theta = {format_float(fk, 2)}$. ${format_val_unit(force, '')} - ({format_float(fg_parallel, 2)} + {format_float(fk, 2)}) = {format_val_unit(mass, '')}a \Rightarrow a = {format_val_unit(a, 'm\\cdot s^{-2}')}$."
+                    gen.add_question(subtopic, difficulty, question, correct, wrongs, explanation)
+
+                # Template 7: Elevators (Apparent weight)
+                mass = random.uniform(50.0, 90.0)
+                a = random.uniform(1.0, 3.0)
+                T_up = mass * (9.8 + a)
+                T_down = mass * (9.8 - a)
+
+                question = f"A person of mass {format_val_unit(mass, 'kg')} stands on a bathroom scale inside an elevator. Calculate the reading on the scale (in Newtons) if the elevator is accelerating UPWARDS at {format_val_unit(a, 'm\cdot s^{-2}')}."
+                correct = format_val_unit(T_up, "N")
+                wrongs = get_wrong_floats(T_up, "N")
+                explanation = f"$F_{{net}} = N - mg = ma \Rightarrow N = m(g + a) = ({format_val_unit(mass, '')})(9.8 + {format_float(a, 2)}) = {format_val_unit(T_up, 'N')}$."
                 gen.add_question(subtopic, difficulty, question, correct, wrongs, explanation)
+
+                question = f"A person of mass {format_val_unit(mass, 'kg')} stands on a bathroom scale inside an elevator. Calculate the reading on the scale (in Newtons) if the elevator is accelerating DOWNWARDS at {format_val_unit(a, 'm\cdot s^{-2}')}."
+                correct = format_val_unit(T_down, "N")
+                wrongs = get_wrong_floats(T_down, "N")
+                explanation = f"$F_{{net}} = mg - N = ma \Rightarrow N = m(g - a) = ({format_val_unit(mass, '')})(9.8 - {format_float(a, 2)}) = {format_val_unit(T_down, 'N')}$."
+                gen.add_question(subtopic, difficulty, question, correct, wrongs, explanation)
+
 
         elif subtopic == "Momentum":
-            m = random.randint(1, 20)
-            v = random.randint(5, 30)
-            p = m * v
-
             if difficulty == "easy":
-                question = f"Calculate the momentum of a ${m}~\\text{{kg}}$ object moving at ${v}~\\text{{m/s}}$."
-                correct = f"{p}~\\text{{kg}}\\cdot\\text{{m/s}}"
-                wrongs = get_wrong_ints(p, "\\text{kg}\\cdot\\text{m/s}")
-                explanation = f"Using $p = mv = ({m})({v}) = {p}~\\text{{kg}}\\cdot\\text{{m/s}}$."
+                # Template 8: Basic Momentum
+                m = random.uniform(800.0, 2000.0)
+                v = random.uniform(10.0, 30.0)
+                p = m * v
+                question = f"Calculate the magnitude of the momentum of a car of mass {format_val_unit(m, 'kg')} traveling at {format_val_unit(v, 'm\cdot s^{-1}')}."
+                correct = format_val_unit(p, "kg\cdot m\cdot s^{-1}")
+                wrongs = get_wrong_floats(p, "kg\cdot m\cdot s^{-1}")
+                explanation = f"$p = mv = ({format_val_unit(m, '')})({format_val_unit(v, '')}) = {format_val_unit(p, 'kg\cdot m\cdot s^{-1}')}$."
                 gen.add_question(subtopic, difficulty, question, correct, wrongs, explanation)
+
+                # Template 9: Impulse
+                f = random.uniform(200.0, 800.0)
+                t = random.uniform(0.1, 0.5)
+                impulse = f * t
+                question = f"A force of {format_val_unit(f, 'N')} acts on an object for {format_val_unit(t, 's')}. Calculate the magnitude of the impulse."
+                correct = format_val_unit(impulse, "N\cdot s")
+                wrongs = get_wrong_floats(impulse, "N\cdot s")
+                explanation = f"$\text{{Impulse}} = F_{{net}} \Delta t = ({format_val_unit(f, '')})({format_val_unit(t, '')}) = {format_val_unit(impulse, 'N\cdot s')}$."
+                gen.add_question(subtopic, difficulty, question, correct, wrongs, explanation)
+
             elif difficulty == "medium":
-                t = random.randint(2, 5)
-                f_net = p / t
-                question = f"A ${m}~\\text{{kg}}$ object initially at rest reaches a velocity of ${v}~\\text{{m/s}}$ after a constant force is applied for ${t}~\\text{{s}}$. Calculate the net force."
-                correct = f"{format_float(f_net)}~\\text{{N}}"
-                wrongs = get_wrong_floats(f_net, "\\text{N}")
-                explanation = f"Using $F_{{net}} = \\frac{{\\Delta p}}{{\\Delta t}} = \\frac{{{p} - 0}}{{{t}}} = {format_float(f_net)}~\\text{{N}}$."
+                # Template 10: 1D Elastic/Inelastic Collision (Finding v2f)
+                m1 = random.uniform(2.0, 5.0)
+                m2 = random.uniform(1.0, 4.0)
+                v1_initial = random.uniform(4.0, 10.0)
+                v2_initial = -random.uniform(2.0, 6.0) # opposite direction
+                v1_final = random.uniform(-2.0, 2.0)
+
+                v2_final = (m1*v1_initial + m2*v2_initial - m1*v1_final) / m2
+                dir2 = "to the right" if v2_final > 0 else "to the left"
+
+                question = f"Object A (mass {format_val_unit(m1, 'kg')}) moves to the right at {format_val_unit(v1_initial, 'm\cdot s^{-1}')} and collides with Object B (mass {format_val_unit(m2, 'kg')}) moving to the left at {format_val_unit(abs(v2_initial), 'm\cdot s^{-1}')}. After the collision, Object A moves at {format_val_unit(abs(v1_final), 'm\cdot s^{-1}')} {'to the right' if v1_final > 0 else 'to the left'}. Calculate the magnitude of the velocity of Object B after the collision."
+                correct = format_val_unit(abs(v2_final), "m\cdot s^{-1}")
+                wrongs = get_wrong_floats(abs(v2_final), "m\cdot s^{-1}")
+                explanation = f"$\Sigma p_i = \Sigma p_f \Rightarrow m_A v_{{Ai}} + m_B v_{{Bi}} = m_A v_{{Af}} + m_B v_{{Bf}}$. Let right be positive. $({format_val_unit(m1, '')})({format_val_unit(v1_initial, '')}) + ({format_val_unit(m2, '')})(-{format_val_unit(abs(v2_initial), '')}) = ({format_val_unit(m1, '')})({' ' if v1_final>0 else '-'}{format_val_unit(abs(v1_final), '')}) + ({format_val_unit(m2, '')})v_{{Bf}}$. $v_{{Bf}} = {format_float(v2_final, 2)}~\text{{m\cdot s}}^{{-1}}$, so magnitude is {format_val_unit(abs(v2_final), 'm\cdot s^{-1}')}."
                 gen.add_question(subtopic, difficulty, question, correct, wrongs, explanation)
+
+                # Template 11: Change in momentum (Bouncing ball)
+                m = random.uniform(0.1, 0.5)
+                v_initial = random.uniform(5.0, 12.0) # hits floor
+                v_final = -random.uniform(3.0, 8.0) # bounces up (take down as positive)
+                delta_p = m * (v_final - v_initial)
+                question = f"A {format_val_unit(m, 'kg')} ball is dropped and hits the ground at {format_val_unit(v_initial, 'm\cdot s^{-1}')}. It bounces vertically upwards at {format_val_unit(abs(v_final), 'm\cdot s^{-1}')}. Calculate the magnitude of the change in momentum of the ball."
+                correct = format_val_unit(abs(delta_p), "kg\cdot m\cdot s^{-1}")
+                wrongs = get_wrong_floats(abs(delta_p), "kg\cdot m\cdot s^{-1}")
+                explanation = f"Let downwards be positive. $v_i = +{format_val_unit(v_initial, '')}$, $v_f = -{format_val_unit(abs(v_final), '')}$. $\Delta p = m(v_f - v_i) = ({format_val_unit(m, '')})(-{format_float(abs(v_final), 2)} - {format_float(v_initial, 2)}) = {format_float(delta_p, 2)}~\text{{kg\cdot m\cdot s}}^{{-1}}$. Magnitude is {format_val_unit(abs(delta_p), 'kg\cdot m\cdot s^{-1}')}."
+                gen.add_question(subtopic, difficulty, question, correct, wrongs, explanation)
+
             elif difficulty == "hard":
-                m1 = random.randint(1, 10)
-                v1 = random.randint(5, 15)
-                m2 = random.randint(1, 10)
-                v_final = (m1 * v1) / (m1 + m2)
-                question = f"A ${m1}~\\text{{kg}}$ object moving at ${v1}~\\text{{m/s}}$ collides and sticks to a stationary ${m2}~\\text{{kg}}$ object. Calculate their common final velocity."
-                correct = f"{format_float(v_final)}~\\text{{m/s}}"
-                wrongs = get_wrong_floats(v_final, "\\text{m/s}")
-                explanation = f"Using conservation of momentum: $m_1 v_1 + m_2 v_2 = (m_1 + m_2)v_f \\Rightarrow ({m1})({v1}) + 0 = ({m1+m2})v_f \\Rightarrow v_f = {format_float(v_final)}~\\text{{m/s}}$."
+                # Template 12: Force exerted during bounce
+                m = random.uniform(0.2, 0.8)
+                v_initial = random.uniform(10.0, 20.0) # hits wall
+                v_final = -random.uniform(5.0, 15.0) # rebounds
+                t = random.uniform(0.01, 0.05)
+                fnet = m * (v_final - v_initial) / t
+
+                question = f"A {format_val_unit(m, 'kg')} ball strikes a wall horizontally at {format_val_unit(v_initial, 'm\cdot s^{-1}')} and rebounds in the opposite direction at {format_val_unit(abs(v_final), 'm\cdot s^{-1}')}. The contact time with the wall is {format_val_unit(t, 's')}. Calculate the magnitude of the average force exerted by the wall on the ball."
+                correct = format_val_unit(abs(fnet), "N")
+                wrongs = get_wrong_floats(abs(fnet), "N")
+                explanation = f"Let initial direction be positive. $\Delta p = m(v_f - v_i) = ({format_val_unit(m, '')})(-{format_float(abs(v_final), 2)} - {format_float(v_initial, 2)}) = {format_float(m*(v_final-v_initial), 2)}$. $F_{{net}} = \frac{{\Delta p}}{{\Delta t}} = \frac{{{format_float(m*(v_final-v_initial), 2)}}}{{{format_val_unit(t, '')}}} = {format_float(fnet, 2)}~\text{{N}}$. Magnitude is {format_val_unit(abs(fnet), 'N')}."
+                gen.add_question(subtopic, difficulty, question, correct, wrongs, explanation)
+
+                # Template 13: Explosion / Recoil
+                m_gun = random.uniform(2.0, 5.0)
+                m_bullet = random.uniform(0.01, 0.05)
+                v_bullet = random.uniform(300.0, 600.0)
+                v_gun = -(m_bullet * v_bullet) / m_gun
+
+                question = f"A stationary rifle of mass {format_val_unit(m_gun, 'kg')} fires a bullet of mass {format_float(m_bullet*1000, 1)} g at a velocity of {format_val_unit(v_bullet, 'm\cdot s^{-1}')} to the right. Calculate the recoil velocity of the rifle."
+                correct = format_val_unit(abs(v_gun), "m\cdot s^{-1}")
+                wrongs = get_wrong_floats(abs(v_gun), "m\cdot s^{-1}")
+                explanation = f"$\Sigma p_i = \Sigma p_f \Rightarrow 0 = m_{{rifle}} v_{{rifle}} + m_{{bullet}} v_{{bullet}}$. $0 = ({format_val_unit(m_gun, '')})v_{{rifle}} + ({format_val_unit(m_bullet, '')})({format_val_unit(v_bullet, '')})$. $v_{{rifle}} = {format_float(v_gun, 2)}~\text{{m\cdot s}}^{{-1}}$. Magnitude is {format_val_unit(abs(v_gun), 'm\cdot s^{-1}')}."
                 gen.add_question(subtopic, difficulty, question, correct, wrongs, explanation)
 
         elif subtopic == "Projectiles":
