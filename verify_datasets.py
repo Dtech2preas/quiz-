@@ -16,6 +16,18 @@ files = [
     "dataset/grade12/accounting/paper2_acc_budgeting.json",
     "dataset/grade12/accounting/paper2_acc_inventory.json",
     "dataset/grade12/accounting/paper2_acc_reconciliations.json",
+    "dataset/grade12/life_sciences/paper1_life_meiosis.json",
+    "dataset/grade12/life_sciences/paper1_life_reproduction_vertebrates.json",
+    "dataset/grade12/life_sciences/paper1_life_human_reproduction.json",
+    "dataset/grade12/life_sciences/paper1_life_environment_humans.json",
+    "dataset/grade12/life_sciences/paper1_life_endocrine_system.json",
+    "dataset/grade12/life_sciences/paper1_life_homeostasis.json",
+    "dataset/grade12/life_sciences/paper1_life_environment_plants.json",
+    "dataset/grade12/life_sciences/paper1_life_human_impact.json",
+    "dataset/grade12/life_sciences/paper2_life_dna_code.json",
+    "dataset/grade12/life_sciences/paper2_life_meiosis.json",
+    "dataset/grade12/life_sciences/paper2_life_genetics.json",
+    "dataset/grade12/life_sciences/paper2_life_evolution.json",
 ]
 
 all_questions = set()
