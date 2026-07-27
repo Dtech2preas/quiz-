@@ -257,6 +257,54 @@
       </div>
     </div>
 
+    <!-- Demographics & Extended Stats -->
+    <h2 style="font-size: 16px; margin-top: 20px; margin-bottom: 10px; color: var(--text-muted);">Demographics & Extended Stats</h2>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <h3>Grade 12</h3>
+        <div class="value" id="stat-grade12">-</div>
+      </div>
+      <div class="stat-card">
+        <h3>Grade 11</h3>
+        <div class="value" id="stat-grade11">-</div>
+      </div>
+      <div class="stat-card">
+        <h3>Grade 10</h3>
+        <div class="value" id="stat-grade10">-</div>
+      </div>
+      <div class="stat-card">
+        <h3>Avg XP / User</h3>
+        <div class="value" id="stat-avg-xp">-</div>
+      </div>
+      <div class="stat-card">
+        <h3>Inactive (30d+)</h3>
+        <div class="value" id="stat-inactive">-</div>
+      </div>
+    </div>
+
+    <div class="stats-grid" style="margin-top: 15px;">
+      <div class="stat-card">
+        <h3>Most Accurate User</h3>
+        <div class="value" style="font-size: 16px;" id="stat-most-accurate">-</div>
+      </div>
+      <div class="stat-card">
+        <h3>Most Quizzes Taken</h3>
+        <div class="value" style="font-size: 16px;" id="stat-most-quizzes">-</div>
+      </div>
+      <div class="stat-card">
+        <h3>Most Questions Done</h3>
+        <div class="value" style="font-size: 16px;" id="stat-most-questions">-</div>
+      </div>
+      <div class="stat-card">
+        <h3>Avg Quizzes/User</h3>
+        <div class="value" id="stat-avg-quizzes">-</div>
+      </div>
+      <div class="stat-card">
+        <h3>Avg Questions/User</h3>
+        <div class="value" id="stat-avg-questions-user">-</div>
+      </div>
+    </div>
+
     <div class="top-sections" style="grid-template-columns: 1fr 1fr 1fr;">
       <div class="section-card">
         <h2>Top 5 Users (All Time XP)</h2>
@@ -817,6 +865,97 @@
       }
 
       document.getElementById('last-updated').innerText = "Updated: " + new Date(stats.last_updated).toLocaleTimeString();
+
+      // Extended Stats Calculations
+      let grade12Count = 0;
+      let grade11Count = 0;
+      let grade10Count = 0;
+      let totalXp = 0;
+      let inactiveCount = 0;
+
+      let bestAccuracyUser = null;
+      let maxAccuracy = -1;
+      let mostQuizzesUser = null;
+      let maxQuizzes = -1;
+      let mostQuestionsUser = null;
+      let maxQuestions = -1;
+
+      const thirtyDaysAgo = new Date();
+      thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+      const thirtyDaysAgoStr = thirtyDaysAgo.toISOString().split('T')[0];
+
+      globalUsersData.forEach(u => {
+        // Demographics
+        if (u.grade === 'grade12') grade12Count++;
+        else if (u.grade === 'grade11') grade11Count++;
+        else if (u.grade === 'grade10') grade10Count++;
+
+        totalXp += (u.total_xp || 0);
+
+        // Inactive (Never or > 30 days)
+        if (!u.last_active_date || u.last_active_date === "Never" || u.last_active_date < thirtyDaysAgoStr) {
+          inactiveCount++;
+        }
+
+        // Most accurate (require at least 50 questions answered to be significant)
+        if ((u.questions_answered || 0) >= 50 && (u.accuracy_percentage || 0) > maxAccuracy) {
+          maxAccuracy = u.accuracy_percentage;
+          bestAccuracyUser = u;
+        }
+
+        if ((u.quizzes_completed || 0) > maxQuizzes) {
+          maxQuizzes = u.quizzes_completed || 0;
+          mostQuizzesUser = u;
+        }
+
+        if ((u.questions_answered || 0) > maxQuestions) {
+          maxQuestions = u.questions_answered || 0;
+          mostQuestionsUser = u;
+        }
+      });
+
+      const totalUsers = globalUsersData.length || 1; // avoid division by zero
+      const avgXp = Math.round(totalXp / totalUsers);
+      const avgQuizzes = (stats.total_quizzes / totalUsers).toFixed(1);
+      const avgQuestionsUser = Math.round(stats.total_questions / totalUsers);
+
+      // Render Extended Stats
+      document.getElementById('stat-grade12').innerText = grade12Count;
+      document.getElementById('stat-grade11').innerText = grade11Count;
+      document.getElementById('stat-grade10').innerText = grade10Count;
+      document.getElementById('stat-avg-xp').innerText = avgXp.toLocaleString();
+      document.getElementById('stat-inactive').innerText = inactiveCount;
+
+      document.getElementById('stat-avg-quizzes').innerText = avgQuizzes;
+      document.getElementById('stat-avg-questions-user').innerText = avgQuestionsUser.toLocaleString();
+
+      if (bestAccuracyUser) {
+        document.getElementById('stat-most-accurate').innerHTML = `
+          <span style="color: var(--accent);">${bestAccuracyUser.username}</span>
+          <span style="font-size:14px; color:var(--text-muted);">(${maxAccuracy}%)</span>
+        `;
+      } else {
+        document.getElementById('stat-most-accurate').innerText = "N/A";
+      }
+
+      if (mostQuizzesUser) {
+        document.getElementById('stat-most-quizzes').innerHTML = `
+          <span style="color: var(--accent);">${mostQuizzesUser.username}</span>
+          <span style="font-size:14px; color:var(--text-muted);">(${maxQuizzes})</span>
+        `;
+      } else {
+        document.getElementById('stat-most-quizzes').innerText = "N/A";
+      }
+
+      if (mostQuestionsUser) {
+        document.getElementById('stat-most-questions').innerHTML = `
+          <span style="color: var(--accent);">${mostQuestionsUser.username}</span>
+          <span style="font-size:14px; color:var(--text-muted);">(${maxQuestions})</span>
+        `;
+      } else {
+        document.getElementById('stat-most-questions').innerText = "N/A";
+      }
+
 
       // Top 5 Users
       const topList = document.getElementById('top-users-list');
