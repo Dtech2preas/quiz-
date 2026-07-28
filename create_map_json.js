@@ -3,7 +3,18 @@ const fs = require('fs');
 const GRADE_MAP = {
     "grade12": {
 
-        "accounting": [
+                "technical_mathematics": [
+            { "file": "paper1_tech_algebra.json", "label": "Paper 1: Algebra, Equations & Inequalities" },
+            { "file": "paper1_tech_functions.json", "label": "Paper 1: Functions & Graphs" },
+            { "file": "paper1_tech_finance.json", "label": "Paper 1: Financial Mathematics" },
+            { "file": "paper1_tech_calculus.json", "label": "Paper 1: Differential Calculus & Integration" },
+            { "file": "paper2_tech_analytical.json", "label": "Paper 2: Analytical Geometry" },
+            { "file": "paper2_tech_trig.json", "label": "Paper 2: Trigonometry" },
+            { "file": "paper2_tech_circle_angular.json", "label": "Paper 2: Circle Geometry & Angular Movement" },
+            { "file": "paper2_tech_mensuration.json", "label": "Paper 2: Mensuration" }
+        ],
+
+"accounting": [
             { "file": "paper1_acc_companies.json", "label": "Paper 1: Companies & Corporate Governance" },
             { "file": "paper1_acc_financial_statements.json", "label": "Paper 1: Financial Statements" },
             { "file": "paper1_acc_cash_flow.json", "label": "Paper 1: Cash Flow Statements" },
