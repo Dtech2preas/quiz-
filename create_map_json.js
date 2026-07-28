@@ -64,6 +64,19 @@ const GRADE_MAP = {
             { "file": "paper2_life_genetics.json", "label": "Paper 2: Genetics and Inheritance" },
             { "file": "paper2_life_evolution.json", "label": "Paper 2: Evolution" }
         ],
+
+        "technical_sciences": [
+            { "file": "paper1_newtons_laws.json", "label": "Paper 1: Newton's Laws" },
+            { "file": "paper1_momentum.json", "label": "Paper 1: Momentum" },
+            { "file": "paper1_work_energy_and_power.json", "label": "Paper 1: Work, Energy & Power" },
+            { "file": "paper1_elasticity_and_hydraulics.json", "label": "Paper 1: Elasticity & Hydraulics" },
+                        { "file": "paper1_waves_sound_and_light.json", "label": "Paper 1: Waves, Sound & Light" },
+            { "file": "paper1_electricity.json", "label": "Paper 1: Electricity" },
+            { "file": "paper1_electromagnetism.json", "label": "Paper 1: Electromagnetism" },
+            { "file": "paper2_organic_chemistry.json", "label": "Paper 2: Organic Chemistry" },
+            { "file": "paper2_electrochemistry.json", "label": "Paper 2: Electrochemistry" },
+            { "file": "paper2_materials.json", "label": "Paper 2: Matter & Materials" }
+        ],
         "mathematical_literacy": [
             { "file": "paper1_mathlit12_finance.json", "label": "Paper 1: Finance" },
             { "file": "paper1_mathlit12_data_handling.json", "label": "Paper 1: Data Handling" },
