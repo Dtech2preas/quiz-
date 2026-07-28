@@ -63,6 +63,14 @@ const GRADE_MAP = {
             { "file": "paper2_life_meiosis.json", "label": "Paper 2: Meiosis" },
             { "file": "paper2_life_genetics.json", "label": "Paper 2: Genetics and Inheritance" },
             { "file": "paper2_life_evolution.json", "label": "Paper 2: Evolution" }
+        ],
+        "mathematical_literacy": [
+            { "file": "paper1_mathlit12_finance.json", "label": "Paper 1: Finance" },
+            { "file": "paper1_mathlit12_data_handling.json", "label": "Paper 1: Data Handling" },
+            { "file": "paper1_mathlit12_probability.json", "label": "Paper 1: Probability" },
+            { "file": "paper2_mathlit12_measurement.json", "label": "Paper 2: Measurement" },
+            { "file": "paper2_mathlit12_maps_plans.json", "label": "Paper 2: Maps and Plans" },
+            { "file": "paper2_mathlit12_probability.json", "label": "Paper 2: Probability" }
         ]
     }
 };
