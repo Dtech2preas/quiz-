@@ -186,7 +186,8 @@
         "mathematical_literacy": "math-lit",
         "agricultural_sciences": "agri-sciences",
         "accounting": "accounting",
-        "technical_mathematics": "tech-math"
+        "technical_mathematics": "tech-math",
+        "technical_sciences": "tech-sci"
     };
 
     const SUBJECT_LABELS = {
@@ -199,7 +200,8 @@
         "mathematical_literacy": "Mathematical Literacy",
         "agricultural_sciences": "Agricultural Sciences",
         "accounting": "Accounting",
-        "technical_mathematics": "Technical Mathematics"
+        "technical_mathematics": "Technical Mathematics",
+        "technical_sciences": "Technical Sciences"
     };
 
     async function fetchGradeMap() {
@@ -241,6 +243,9 @@
                 extraClass = "";
                         } else if (subjectKey === "agricultural_sciences") {
                 extraStyle = 'style="background-color: #84cc16;"'; // lime color for agriculture
+                extraClass = "";
+            } else if (subjectKey === "technical_sciences") {
+                extraStyle = 'style="background-color: #64748b;"'; // slate color for Technical Sciences
                 extraClass = "";
             } else if (subjectKey === "technical_mathematics") {
                 extraStyle = 'style="background-color: #4b5563;"'; // slate gray for Technical Mathematics
