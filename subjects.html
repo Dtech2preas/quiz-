@@ -178,6 +178,7 @@
 
     const SUBJECT_COLORS = {
         "mathematics": "", // Uses default
+        "accounting": "accounting",
         "physics": "physics", // Uses specific class
         "physical_sciences": "physics", // Uses same class as physics
         "life_sciences": "life-sciences",
@@ -185,7 +186,6 @@
         "natural_sciences_and_technology": "natural-sciences-tech",
         "mathematical_literacy": "math-lit",
         "agricultural_sciences": "agri-sciences",
-        "accounting": "accounting",
         "technical_mathematics": "tech-math",
         "technical_sciences": "tech-sci"
     };
@@ -249,6 +249,12 @@
                 extraClass = "";
             } else if (subjectKey === "technical_mathematics") {
                 extraStyle = 'style="background-color: #4b5563;"'; // slate gray for Technical Mathematics
+                extraClass = "";
+            } else if (subjectKey === "accounting") {
+                extraStyle = 'style="background-color: #10b981;"'; // emerald
+                extraClass = "";
+            } else if (subjectKey === "physical_sciences") {
+                extraStyle = 'style="background-color: #3b82f6;"'; // blue
                 extraClass = "";
             }
 

@@ -2,12 +2,12 @@ import json
 import os
 
 files = [
-    "dataset/grade10/mathlit_finance.json",
-    "dataset/grade10/mathlit_measurement.json",
-    "dataset/grade10/mathlit_maps_plans.json",
-    "dataset/grade10/mathlit_data_handling.json",
-    "dataset/grade10/mathlit_probability.json",
-    "dataset/grade10/mathlit_algebra.json",
+    "dataset/grade10/mathematical_literacy/mathlit_finance.json",
+    "dataset/grade10/mathematical_literacy/mathlit_measurement.json",
+    "dataset/grade10/mathematical_literacy/mathlit_maps_plans.json",
+    "dataset/grade10/mathematical_literacy/mathlit_data_handling.json",
+    "dataset/grade10/mathematical_literacy/mathlit_probability.json",
+    "dataset/grade10/mathematical_literacy/mathlit_algebra.json",
     "dataset/grade12/accounting/paper1_acc_companies.json",
     "dataset/grade12/accounting/paper1_acc_financial_statements.json",
     "dataset/grade12/accounting/paper1_acc_cash_flow.json",
