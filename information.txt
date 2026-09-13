@@ -183,3 +183,64 @@ The Android app acts as a highly specialized WebView Wrapper targeting SDK 34 (A
 
 ---
 End of Document.
+
+
+## 5. Helper & Utility Scripts (Python & JS)
+
+### Python Helpers
+- `build_script.py`: A stub script for initializing generator configurations (e.g., base templates for math generation).
+- `copy_quiz_style.py`: Extracts styles and scripts from `quiz.html` to inject/merge into `weekly_quiz.html`.
+- `create_topics.py`: A massive data structure containing the raw topics, subtopics, facts, and distractor pools (knowledge base definitions) used to generate specific datasets.
+- `deep_check.py`: Validation script that checks dataset size, difficulty distribution, and question variety by analyzing generated JSONs in the `dataset/` directory.
+- `replace_dashboard.py` / `replace_leaderboards.py`: Simple DOM-manipulation scripts to inject update timers and adjust HTML structures programmatically without manual edits.
+- `start_server.py`: A simple local Python HTTP server (`http.server`) running on port 8000 for local testing.
+- `test_validate.py`: A placeholder test script for CI/CD environments ("No standard tests to run...").
+
+### JavaScript Helpers
+- `test.js` / `test_empty_source.js`: Scripts to check if specific DOM elements (like `#certificate-template` and `#report-card-template`) exist in frontend HTML files.
+- `test_upload_base64.js` / `test_upload_blob.js`: Test scripts for interacting with the ImgBB API (`api.imgbb.com`) to upload images (like generated certificates).
+- `create_map_json.js`: Dynamically generates the `map.json` structure from the `dataset/` directory contents, applying overrides for backwards compatibility.
+
+## 6. Configuration & Manifest Files
+- `manifest.json`: Pre-computes file hashes and sizes for every dataset file. Consumed by `offline_engine.js` to detect which dataset files require updating.
+- `map.json`: The core hierarchical JSON file mapping Grades -> Subjects -> Topic files. Used by `subjects.html` to build the curriculum UI.
+- `weekly_map.json`: Similar to `map.json`, but structured specifically for weekly exams/past papers consumed by `weekly_quiz.html`.
+- `version.json`: Used by `AppUpdater.kt` for Over-The-Air (OTA) version tracking and update prompts.
+- `CNAME`: Configures the custom domain routing for deployment (e.g., Cloudflare Pages/GitHub Pages).
+- `robots.txt` / `sitemap.xml`: SEO setup to guide web crawlers on indexable pages.
+
+## 7. Datasets & Raw Knowledge Bases (`/dataset/`)
+- **Structure:** The `dataset/` directory holds the generated JSON question files grouped by grade (e.g., `grade10`, `grade12`) and subject. It also holds `weekly_quiz/` data.
+- **Raw Sources:** Files like `accounting.txt` and `life_science.txt` act as raw text inputs/references that developers parse into JSON knowledge bases.
+- **Processed KBs:** `extracted_topics.json` and `extracted_topics_accounting.json` contain structured entities, descriptions, and distractors mapped to specific curriculum topics.
+
+## 8. CI/CD & GitHub Actions (`.github/workflows/`)
+Automated pipelines to streamline releases and updates:
+- `android.yml` / `android_build.yml`: Workflows likely handling the assembly of the Android APK (`./gradlew assembleDebug`).
+- `generate_weekly_exams.yml`: Automates the generation of new weekly exams.
+- `update_manifest.yml`: Automatically runs `build_manifest.py` whenever dataset contents change, ensuring hashes are updated and Service Workers trigger updates.
+
+## 9. Key System Capabilities & Functionalities
+
+### Database Schema (Firebase)
+- **Users Collection:** Stores standard profile details (name, grade, province, XP, D-TECH points).
+- **Results/Activity Collections:** Tracks individual quiz completion records, storing metadata like `topic_accuracy` (used for Topic Mastery stats).
+
+### Caching Strategy & Offline Support
+- **Service Worker (`sw.js`):** Intercepts browser requests, utilizing a Cache API strategy (`caches.match`). Bypasses caching for dynamic API calls but aggressively caches static HTML/JS/CSS.
+- **IndexedDB Sync Queue:** Maintains pending points, XP, and completed quizzes when disconnected.
+
+### Rate Limiting & Security
+- Cloudflare Worker limits abusive requests per IP via KV stores. `security.js` blocks client-side tampering (right-clicks, DevTools, copy/paste, screen-switching).
+
+### Push Notifications (Android)
+- Handled natively in the Android app using `NotificationHelper.kt` and `AlarmManager`. Uses inexact alarms (`setAndAllowWhileIdle`) for compatibility with Android 14+ permission policies.
+
+### Certificate Generation
+- Generates aesthetic certificates client-side via `html2canvas` in `admin.html` and `quiz.html`. Templates are styled via CSS and remain off-screen during rendering. Can upload via ImgBB APIs as seen in utility tests.
+
+### Analytics & Logging
+- Primarily reliant on Firebase Analytics and data aggregated through Cloudflare Worker endpoints. The Admin dashboard reads from the `/api/admin/data` payload to construct performance reports.
+
+### Error Handling & Fallbacks
+- Native Android app uses a local `file:///android_asset/offline.html` asset fallback to prevent standard Chrome offline dinosaurs. The web version relies on `sw.js` offline fallbacks.
