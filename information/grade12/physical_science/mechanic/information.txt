@@ -1,30 +1,15 @@
-================================================================================
-SOUTH AFRICAN CAPS CURRICULUM KNOWLEDGE BASE & SYSTEM DIRECTIVES
-SUBJECT: Physical Sciences
-GRADE: 12
-TOPIC: Mechanics (Momentum and Impulse, Vertical Projectile Motion, Work, Energy & Power)
-================================================================================
+[INSTRUCTION TO LLM: You are an expert physics educator generating multiple-choice questions (MCQs) for South African Grade 12 Physical Sciences. Generate a JSON array of questions strictly following the format and knowledge base below.]
 
-This document contains the strict system directives, JSON schema requirements, and educational knowledge base required to generate high-quality, biologically plausible, and curriculum-aligned multiple-choice questions for the D-TECH learning platform.
+OUTPUT FORMAT: The output must ONLY be a valid JSON array of objects. Do not include markdown formatting (like ```json).
 
-When generating questions in Google Colab, you must strictly adhere to the guidelines, templates, and facts provided below.
-
---------------------------------------------------------------------------------
-PART 1: SYSTEM DIRECTIVES & JSON SCHEMA
---------------------------------------------------------------------------------
-
-1. OUTPUT FORMAT: The output must ONLY be a valid JSON array of objects. Do not include markdown formatting (like ```json), conversational text, or any other output.
-
-2. JSON SCHEMA PER QUESTION:
+1. JSON SCHEMA FORMAT:
 [
   {
-    "id": "PHYS_MECH_001", // Must be unique per question
-    "topic": "Mechanics",
-    "subtopic": "Momentum and Impulse", // or "Vertical Projectile Motion", "Work, Energy and Power"
-    "difficulty": "medium", // MUST be exactly "easy", "medium", or "hard". NO OTHER VALUES.
-    "question": "A 2 kg trolley moving at 3 m.s⁻¹ east collides with a stationary 1 kg trolley. If they stick together after the collision, what is their combined velocity?",
-    "correct_answer": "2 m.s⁻¹ east", // Ensure units are properly formatted using superscripts (e.g., m.s⁻¹)
-    "wrong_answers_pool": [ // MUST BE EXACTLY 6 ITEMS. No more, no less.
+    "id": "momentum_1",
+    "question": "A 2 kg trolley moving at 3 m.s⁻¹ east collides with a stationary 1 kg trolley. They stick together. What is their velocity after the collision?",
+    "correct_answer": "2 m.s⁻¹ east",
+    "wrong_answers_pool": [
+      // MUST BE EXACTLY 6 ITEMS. No more, no less.
       "3 m.s⁻¹ east",
       "1.5 m.s⁻¹ east",
       "6 m.s⁻¹ east",
@@ -40,25 +25,48 @@ PART 1: SYSTEM DIRECTIVES & JSON SCHEMA
       "subtopic": "Momentum and Impulse",
       "cognitive_level": "Application", // "Knowledge", "Comprehension", "Application", "Analysis/Evaluation"
       "learning_outcome": "Apply the principle of conservation of linear momentum"
-    }
+    },
+    "difficulty": "Medium" // "Easy", "Medium", "Hard" - this must be at the root level as well
   }
 ]
 
-3. STRICT SYSTEM RULES:
+2. STRICT SYSTEM RULES:
 - EXACTLY 6 WRONG ANSWERS: The `wrong_answers_pool` MUST contain exactly 6 distinct, highly plausible distractors.
-- ANTI-LEAK VALIDATION: Do not use numbers or specific phrasing in the correct answer that make it an obvious guess (e.g., if the question mentions "conservation", don't make the correct answer the only one with the word "conserved").
-- DISTRACTOR QUALITY: Wrong answers should represent common student misconceptions (e.g., forgetting to square velocity in kinetic energy, using the wrong sign for acceleration due to gravity, confusing mass and weight).
-- NO MOCK STRINGS: Never use strings like "Placeholder A" or "None of the above" or "All of the above". Every distractor must be a real physics value or concept.
+- ANTI-LEAK VALIDATION: Do not use numbers or specific phrasing in the correct answer that make it an obvious guess.
+- DISTRACTOR QUALITY: Wrong answers should represent common student misconceptions (e.g., using the wrong sign for acceleration due to gravity, confusing mass and weight).
+- NO MOCK STRINGS: Never use strings like "Placeholder A" or "None of the above" or "All of the above".
 - DIFFICULTY LEVELS:
   - Easy: Recall of definitions, laws, and straightforward substitution into a single formula.
   - Medium: Requires rearranging formulas, two-step calculations, or interpreting a basic graph.
-  - Hard: Multi-step calculations, simultaneous equations, conceptual synthesis (e.g., combining Work-Energy theorem with Projectile Motion), and complex graphical analysis.
+  - Hard: Multi-step calculations, simultaneous equations, conceptual synthesis, and complex graphical analysis.
 
 --------------------------------------------------------------------------------
 PART 2: CAPS CURRICULUM KNOWLEDGE BASE & DISTRACTORS
 --------------------------------------------------------------------------------
 
-SUBTOPIC 1: MOMENTUM AND IMPULSE
+SUBTOPIC 1: NEWTON'S LAWS OF MOTION (Grade 11 Revision integrated into Grade 12)
+Definitions & Principles:
+- Normal Force (N): The force or the component of a force which a surface exerts on an object with which it is in contact, and which is perpendicular to the surface.
+- Frictional Force (f): The force that opposes the motion of an object and which acts parallel to the surface.
+- Static Friction (f_s): The force that counteracts the tendency of movement of a stationary object relative to a surface. Maximum static friction is f_s(max) = \mu_s N.
+- Kinetic Friction (f_k): The force that counteracts the motion of an object relative to a surface. f_k = \mu_k N.
+- Newton's First Law: A body will remain in its state of rest or motion at constant velocity unless a non-zero resultant/net force acts on it.
+- Inertia: The resistance of an object to any change in its state of motion. The mass of an object is a quantitative measure of its inertia.
+- Newton's Second Law: When a resultant/net force acts on an object, the object will accelerate in the direction of the force at an acceleration directly proportional to the force and inversely proportional to the mass of the object. (F_net = ma).
+- Newton's Third Law: When object A exerts a force on object B, object B SIMULTANEOUSLY exerts an oppositely directed force of equal magnitude on object A.
+- Newton's Law of Universal Gravitation: Each body in the universe attracts every other body with a force that is directly proportional to the product of their masses and inversely proportional to the square of the distance between their centres. (F = G m1 m2 / r^2).
+- Weight: The gravitational force the Earth exerts on any object on or near its surface.
+
+Common Distractors / Misconceptions:
+- Confusing mass and weight.
+- Incorrectly resolving forces on an inclined plane (e.g., using sin instead of cos for the normal force).
+- Forgetting that normal force is not always equal to weight (e.g., when a force is applied at an angle).
+- Believing that a constant velocity requires a constant net force (violates Newton's First Law).
+- Action-reaction pairs acting on the same object instead of different objects.
+
+---
+
+SUBTOPIC 2: MOMENTUM AND IMPULSE
 
 Definitions & Principles:
 - Momentum (p): The product of an object's mass and its velocity. (p = mv). It is a vector quantity. Unit: kg·m·s⁻¹
@@ -69,16 +77,16 @@ Definitions & Principles:
 - Elastic Collision: A collision in which both total momentum and total kinetic energy are conserved. (ΣE_k_initial = ΣE_k_final).
 - Inelastic Collision: A collision during which kinetic energy is not conserved (some kinetic energy is converted to heat, sound, or deformation). Momentum is still conserved.
 
-Common Distractors / Misconceptions to use in `wrong_answers_pool`:
+Common Distractors / Misconceptions:
 - Defining momentum as a scalar instead of a vector.
 - Confusing the units of impulse (N·s) with Force (N) or Work (J).
-- In calculations, failing to assign a negative sign to a change in direction (e.g., bouncing balls). If a ball hits a wall at 5 m/s right and bounces back at 4 m/s left, Δv = -4 - (+5) = -9 m/s. Students often mistakenly use Δv = 5 - 4 = 1 m/s. Calculate this wrong result and use it as a distractor!
+- In calculations, failing to assign a negative sign to a change in direction (e.g., bouncing balls).
 - Assuming ALL collisions conserve kinetic energy.
-- Forgetting to add masses together in perfectly inelastic collisions (where objects stick together: m1v1 + m2v2 = (m1+m2)v_final).
+- Forgetting to add masses together in perfectly inelastic collisions.
 
 ---
 
-SUBTOPIC 2: VERTICAL PROJECTILE MOTION IN 1D
+SUBTOPIC 3: VERTICAL PROJECTILE MOTION IN 1D
 
 Definitions & Principles:
 - Projectile: An object upon which the only force acting is the force of gravity.
@@ -96,51 +104,27 @@ Definitions & Principles:
   - Velocity vs. Time: A straight line with a constant gradient equal to g (9.8 or -9.8 depending on sign convention).
   - Acceleration vs. Time: A horizontal line at 9.8 m·s⁻² or -9.8 m·s⁻².
 
-Common Distractors / Misconceptions to use in `wrong_answers_pool`:
+Common Distractors / Misconceptions:
 - Thinking acceleration is zero at the maximum height (it is always 9.8 m·s⁻² downwards).
 - Using mass in kinematics equations (mass does not affect free fall acceleration).
 - Forgetting to establish a consistent sign convention (e.g., upward is positive, making a = -9.8 m·s⁻², but substituting a = +9.8 m·s⁻² instead).
 - Confusing displacement (Δy) with total distance traveled.
 - Assuming an object dropped from a moving balloon has an initial velocity of zero (it actually shares the balloon's velocity).
 
----
-
-SUBTOPIC 3: WORK, ENERGY AND POWER
-
-Definitions & Principles:
-- Work (W): The work done on an object by a constant force F is FΔx cosθ, where F is the magnitude of the force, Δx the magnitude of the displacement and θ the angle between the force and the displacement. Unit: Joules (J).
-- Positive Work: Adds energy to the system (θ < 90°).
-- Negative Work: Removes energy from the system (90° < θ ≤ 180°), e.g., friction.
-- Work-Energy Theorem: The net work done on an object is equal to the change in the object's kinetic energy. (W_net = ΔE_k = E_kf - E_ki).
-- Conservative Force: A force for which the work done in moving an object between two points is independent of the path taken. (Examples: Gravitational force, Elastic force in springs, Electrostatic force).
-- Non-conservative Force: A force for which the work done in moving an object between two points depends on the path taken. (Examples: Friction, Air resistance, Tension, Applied forces).
-- Principle of Conservation of Mechanical Energy: The total mechanical energy (sum of gravitational potential energy and kinetic energy) in an isolated system remains constant. (E_m = E_k + E_p = constant, ONLY if W_nc = 0).
-- Relationship with Non-Conservative Forces: W_nc = ΔE_k + ΔE_p.
-- Power (P): The rate at which work is done or energy is expended. P = W / Δt. Unit: Watts (W).
-- Average Power at constant velocity: P_ave = Fv_ave.
-
-Common Distractors / Misconceptions to use in `wrong_answers_pool`:
-- Miscalculating the angle θ in W = FΔx cosθ (e.g., using the angle with the vertical instead of the horizontal displacement).
-- Forgetting to square velocity when calculating kinetic energy (E_k = ½mv²).
-- Stating that friction is a conservative force.
-- Ignoring the work done by gravity when calculating W_net on an incline.
-- Using mass (kg) instead of weight (mg) when calculating work done by gravity.
-- Confusing the Work-Energy theorem (W_net = ΔE_k) with Conservation of Mechanical Energy (which only applies when W_nc = 0).
-
 --------------------------------------------------------------------------------
 PART 3: EXAMPLES OF HIGH-QUALITY QUESTION GENERATION
 --------------------------------------------------------------------------------
 
 Example 1: Concept Recall (Easy)
-Question: Which one of the following pairs contains only conservative forces?
-Correct Answer: Gravitational force and electrostatic force
+Question: Which one of the following statements correctly describes an isolated system in physics?
+Correct Answer: A system on which the net external force is zero.
 Distractor Pool:
-1. Friction and gravitational force (Friction is non-conservative)
-2. Tension and electrostatic force (Tension is non-conservative)
-3. Air resistance and normal force (Both non-conservative)
-4. Gravitational force and applied force (Applied force is non-conservative)
-5. Electrostatic force and friction (Friction is non-conservative)
-6. Tension and friction (Both are non-conservative)
+1. A system where no internal forces act.
+2. A system that does not interact with gravity.
+3. A system on which the net external force is constant but not zero.
+4. A system where only kinetic energy is conserved.
+5. A system in which momentum is not conserved.
+6. A system with zero initial momentum.
 
 Example 2: Application / Calculation (Medium)
 Question: A ball is thrown vertically upwards with an initial velocity of 15 m.s⁻¹. Ignoring air resistance, what is the maximum height reached by the ball?
@@ -155,23 +139,19 @@ Distractor Pool (calculated from common errors):
 6. 147.0 m (Multiplied instead of divided)
 
 Example 3: Complex Synthesis (Hard)
-Question: A 1200 kg car accelerates from rest. The engine delivers a constant average power of 45 kW over 8 seconds. If the work done by friction during this time is 60 000 J, what is the final velocity of the car?
+Question: A 5 kg block rests on a rough horizontal surface. A force of 30 N is applied to the block at an angle of 30° to the horizontal. If the block moves at a constant velocity, what is the magnitude of the kinetic frictional force acting on the block?
 Logic:
-P = W_engine / t => 45 000 = W_engine / 8 => W_engine = 360 000 J.
-W_net = W_engine + W_friction (where W_friction is negative).
-W_net = 360 000 - 60 000 = 300 000 J.
-W_net = ΔE_k = ½mv_f² - 0
-300 000 = ½(1200)v_f²
-300 000 = 600 v_f²
-v_f² = 500 => v_f = 22.36 m.s⁻¹
-Correct Answer: 22.36 m.s⁻¹
+Constant velocity means net force is zero.
+F_x = F cos(30°) = 30 * cos(30°) = 30 * 0.866 = 25.98 N.
+Since F_net = 0, F_x - f_k = 0, therefore f_k = 25.98 N.
+Correct Answer: 26.0 N
 Distractor Pool:
-1. 24.49 m.s⁻¹ (Forgot to subtract friction work, used 360 000 J)
-2. 500 m.s⁻¹ (Forgot to take the square root of v²)
-3. 11.18 m.s⁻¹ (Forgot the ½ in kinetic energy formula)
-4. 31.62 m.s⁻¹ (Added friction instead of subtracting)
-5. 15.81 m.s⁻¹ (Used W_net = mv_f² instead of ½mv_f²)
-6. 20.00 m.s⁻¹ (Miscalculated power conversion, used 4.5 kW instead of 45 kW)
+1. 30.0 N
+2. 15.0 N
+3. 21.2 N
+4. 49.0 N
+5. 24.5 N
+6. 34.6 N
 
 --------------------------------------------------------------------------------
 END OF KNOWLEDGE BASE
