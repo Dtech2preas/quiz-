@@ -1,0 +1,995 @@
+[
+  {
+    "id": "CALC_408",
+    "topic": "Differential Calculus",
+    "subtopic": "derivative rules",
+    "difficulty": "hard",
+    "question": "Determine $D_x \\left[ \\frac{x^2 +2x -1}{x} \\right]$.",
+    "correct_answer": "1 + \\frac{1}{x^{2}}",
+    "wrong_answers_pool": [
+      "2 + \\frac{2}{x^{2}}",
+      "x + 1 + \\frac{1}{x^{2}}",
+      "2 + \\frac{1}{x^{2}}",
+      "-1 - \\frac{1}{x^{2}}",
+      "- \\frac{2}{x^{3}}",
+      "\\frac{1}{x^{2}}",
+      "- x + 1 + \\frac{1}{x^{2}}",
+      "3 + \\frac{1}{x^{2}}"
+    ],
+    "explanation": "First simplify the expression to $x + 2 + -1x^{-1}$. Then differentiate: $1 - -1x^{-2} = 1 + \\frac{1}{x^{2}}$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_1"
+  },
+  {
+    "id": "SEQ_116",
+    "topic": "Patterns and Sequences",
+    "subtopic": "series sums",
+    "difficulty": "hard",
+    "question": "Evaluate: $\\sum_{k=2}^{7} 4(3)^{k-1}$",
+    "correct_answer": "4368",
+    "wrong_answers_pool": [
+      "8736",
+      "4387",
+      "4357",
+      "2184",
+      "4366",
+      "4367",
+      "-4368",
+      "4369"
+    ],
+    "explanation": "Geometric series with $a = 12$, $r = 3$, $n = 6$. $S_n = \\frac{a(r^n - 1)}{r - 1} = 4368$",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_2"
+  },
+  {
+    "id": "ALG_174",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "linear equations",
+    "difficulty": "hard",
+    "question": "Solve the system of equations for $x$: \n$ 1x -2y = 5 $ \n$ 5x + 1y = 25 $",
+    "correct_answer": "5",
+    "wrong_answers_pool": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "6",
+      "7",
+      "10",
+      "13"
+    ],
+    "explanation": "Using substitution or elimination, we find $x = 5$ and $y = 0$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_3"
+  },
+  {
+    "id": "FIN_810",
+    "topic": "Finance, Growth and Decay",
+    "subtopic": "exponential growth",
+    "difficulty": "medium",
+    "question": "The population of a town is currently $32373$ and grows at $1\\%$ per year. What will the population be in $31$ years?",
+    "correct_answer": "44070",
+    "wrong_answers_pool": [
+      "44066",
+      "44068",
+      "44069",
+      "44071",
+      "44072",
+      "88140",
+      "44081",
+      "132210"
+    ],
+    "explanation": "$A = P(1+i)^n = 32373(1 + 0.01)^31 \\approx 44070$",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_4"
+  },
+  {
+    "id": "FUN_950",
+    "topic": "Functions and Graphs",
+    "subtopic": "quadratic functions",
+    "difficulty": "medium",
+    "question": "Find the x-intercepts of the function $f(x) = x^{2} + x - 6$.",
+    "correct_answer": "-3 and 2",
+    "wrong_answers_pool": [
+      "3 and -2",
+      "-3 and -2",
+      "3 and 2",
+      "-4 and 1",
+      "-2 and 3",
+      "-6 and 4",
+      "0 and -1"
+    ],
+    "explanation": "$f(x) = 0 \\implies 1(x - -3)(x - 2) = 0$. The x-intercepts are $x = -3$ and $x = 2$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_5"
+  },
+  {
+    "id": "FUN_474",
+    "topic": "Functions and Graphs",
+    "subtopic": "quadratic functions",
+    "difficulty": "hard",
+    "question": "A parabola has x-intercepts at $(0; 0)$ and $(4; 0)$ and passes through the point $(-1; 10)$. Find its equation in the form $y = ax^2 + bx + c$.",
+    "correct_answer": "y = 2 x^{2} - 8 x",
+    "wrong_answers_pool": [
+      "y = 2 x^{2} - 8 x + 1",
+      "y = 4 x^{2} - 16 x",
+      "y = 2 x^{2} - 8 x - 1",
+      "y = 2 x^{2} - 9 x",
+      "y = 4 x - 8",
+      "y = 2 x^{2} - 7 x",
+      "y = - 2 x^{2} + 8 x",
+      "y = 2 x^{2} - 8 x + 3"
+    ],
+    "explanation": "$y = a(x - 0)(x - 4)$. Substitute $(-1; 10)$: $10 = a(-1 - 0)(-1 - 4) \\implies a = 2$. Equation: $y = 2 x^{2} - 8 x$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_6"
+  },
+  {
+    "id": "FIN_637",
+    "topic": "Finance, Growth and Decay",
+    "subtopic": "compound interest",
+    "difficulty": "medium",
+    "question": "An investment of R$26590$ grows to R$147169$ at an interest rate of $13\\%$ p.a. compounded annually. Find the number of years $n$.",
+    "correct_answer": "14",
+    "wrong_answers_pool": [
+      "1",
+      "7",
+      "42",
+      "12",
+      "13",
+      "15",
+      "16",
+      "-14"
+    ],
+    "explanation": "$A = P(1+i)^n \\implies 147169 = 26590(1 + 0.13)^n \\implies (1.13)^n = 5.5347 \\implies n = \\log_{1.13}(5.5347) \\approx 14$",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_7"
+  },
+  {
+    "id": "FIN_273",
+    "topic": "Finance, Growth and Decay",
+    "subtopic": "compound interest",
+    "difficulty": "hard",
+    "question": "An amount grows to R$39652.18$ after $3$ years at an interest rate of $4\\%$ p.a. compounded semi-annually. Calculate the original principal amount $P$.",
+    "correct_answer": "35210",
+    "wrong_answers_pool": [
+      "35202",
+      "35198",
+      "17605",
+      "35208",
+      "35209",
+      "35211",
+      "35212",
+      "35216"
+    ],
+    "explanation": "$A = P(1+\\frac{i}{k})^{nk} \\implies 39652.18 = P(1 + \\frac{0.04}{2})^{6} \\implies P = \\frac{39652.18}{(1 + 0.0200)^{6}} \\approx 35210$",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_8"
+  },
+  {
+    "id": "ALG_904",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "linear equations",
+    "difficulty": "medium",
+    "question": "Solve for $x$: $4(x +3) = 3(x +1) +10$",
+    "correct_answer": "1",
+    "wrong_answers_pool": [
+      "0",
+      "2",
+      "3",
+      "10",
+      "11",
+      "-19",
+      "-18",
+      "16"
+    ],
+    "explanation": "Expand both sides: $4x +12 = 3x +3 +10$. Then simplify to find $x = 1$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_9"
+  },
+  {
+    "id": "ALG_771",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "linear equations",
+    "difficulty": "hard",
+    "question": "Solve the system of equations for $x$: \n$ 2x -4y = -26 $ \n$ 4x + 1y = -16 $",
+    "correct_answer": "-5",
+    "wrong_answers_pool": [
+      "5",
+      "-20",
+      "12",
+      "14",
+      "-17",
+      "-15",
+      "-14",
+      "-10"
+    ],
+    "explanation": "Using substitution or elimination, we find $x = -5$ and $y = 4$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_10"
+  },
+  {
+    "id": "PROB_268",
+    "topic": "Probability",
+    "subtopic": "independent events",
+    "difficulty": "hard",
+    "question": "A and B are independent events with $P(A) = 0.18$ and $P(A \\cup B) = 0.549$. Find $P(B)$.",
+    "correct_answer": "0.45",
+    "wrong_answers_pool": [
+      "0.62",
+      "0.86",
+      "0.88",
+      "0.91",
+      "0.38",
+      "0.21",
+      "0.08",
+      "0.70"
+    ],
+    "explanation": "$P(A \\cup B) = P(A) + P(B) - P(A)P(B) \\implies 0.549 = 0.18 + P(B)(1 - 0.18) \\implies P(B) = \\frac{0.549 - 0.18}{0.82} = 0.45$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_11"
+  },
+  {
+    "id": "FUN_743",
+    "topic": "Functions and Graphs",
+    "subtopic": "intercepts and turning points",
+    "difficulty": "medium",
+    "question": "What is the range of the function $f(x) = - x^{2} - 8$?",
+    "correct_answer": "y \\leq -8",
+    "wrong_answers_pool": [
+      "y \\geq -8",
+      "y \\leq 8",
+      "y \\geq 8",
+      "y \\leq 0",
+      "y \\geq 0",
+      "y \\in \\mathbb{R}",
+      "y < -8"
+    ],
+    "explanation": "The maximum value is $y = -8$. Therefore, range is $y \\leq -8$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_12"
+  },
+  {
+    "id": "ALG_061",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "logarithmic equations",
+    "difficulty": "medium",
+    "question": "Solve for $x$: $\\log_{2}(x + 4) = 4$",
+    "correct_answer": "12",
+    "wrong_answers_pool": [
+      "36",
+      "6",
+      "9",
+      "10",
+      "11",
+      "13",
+      "14",
+      "-12"
+    ],
+    "explanation": "Rewrite in exponential form: $x + 4 = 2^{4} \\implies x + 4 = 16 \\implies x = 12$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_13"
+  },
+  {
+    "id": "PROB_012",
+    "topic": "Probability",
+    "subtopic": "dependent events",
+    "difficulty": "medium",
+    "question": "A bag contains $3$ red and $5$ blue balls. Two balls are drawn WITHOUT replacement. What is the probability of drawing one red and one blue ball in any order?",
+    "correct_answer": "15/28",
+    "wrong_answers_pool": [
+      "3/28",
+      "27/56",
+      "43/56",
+      "8/7",
+      "25/56",
+      "15/14",
+      "9/28",
+      "59/56"
+    ],
+    "explanation": "P(RB or BR) = $P(RB) + P(BR) = \\left(\\frac{3}{8} \\times \\frac{5}{7}\\right) + \\left(\\frac{5}{8} \\times \\frac{3}{7}\\right) = 15/28$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_14"
+  },
+  {
+    "id": "ALG_006",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "inequalities",
+    "difficulty": "hard",
+    "question": "Solve for $x$: $\\frac{(x - -1)(x - 2)}{x - 5} \\geq 0$",
+    "correct_answer": "-1 \\leq x \\leq 2 \\text{ or } x > 5",
+    "wrong_answers_pool": [
+      "x \\leq -1 \\text{ or } 2 \\leq x < 5",
+      "-1 \\leq x \\leq 2 \\text{ or } x \\geq 5",
+      "-1 < x < 2 \\text{ or } x > 5",
+      "x < -1 \\text{ or } x > 5",
+      "x \\geq 5",
+      "-1 \\leq x < 5",
+      "x \\leq -1 \\text{ or } x \\geq 2"
+    ],
+    "explanation": "Critical values are $-1, 2, 5$. Checking regions with a sign table gives $-1 \\leq x \\leq 2 \\text{ or } x > 5$. Note $x \\neq 5$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_15"
+  },
+  {
+    "id": "FIN_335",
+    "topic": "Finance, Growth and Decay",
+    "subtopic": "depreciation",
+    "difficulty": "hard",
+    "question": "A machine bought for R$363000$ has a book value of R$155338$ after $9$ years on the reducing-balance method. Calculate the annual rate of depreciation $r$ (as a percentage).",
+    "correct_answer": "9.00",
+    "wrong_answers_pool": [
+      "0.11",
+      "2.09",
+      "4.50",
+      "6.04",
+      "8.00",
+      "10.00",
+      "10.05",
+      "13.50"
+    ],
+    "explanation": "$A = P(1 - i)^n \\implies 155338 = 363000(1 - i)^9 \\implies 1 - i = \\sqrt[9]{\\frac{155338}{363000}} \\implies i \\approx 9.0\\%$",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_16"
+  },
+  {
+    "id": "FUN_529",
+    "topic": "Functions and Graphs",
+    "subtopic": "quadratic functions",
+    "difficulty": "hard",
+    "question": "A parabola has x-intercepts at $(0; 0)$ and $(2; 0)$ and passes through the point $(-2; 24)$. Find its equation in the form $y = ax^2 + bx + c$.",
+    "correct_answer": "y = 3 x^{2} - 6 x",
+    "wrong_answers_pool": [
+      "y = - 3 x^{2} + 6 x",
+      "y = 3 x^{2} - 7 x",
+      "y = 6 x - 6",
+      "y = 6 x^{2} - 12 x",
+      "y = 3 x^{2} - 5 x",
+      "y = 3 x^{2} - 6 x + 1",
+      "y = 3 x^{2} - 6 x - 1",
+      "y = 3 x^{2} - 6 x + 2"
+    ],
+    "explanation": "$y = a(x - 0)(x - 2)$. Substitute $(-2; 24)$: $24 = a(-2 - 0)(-2 - 2) \\implies a = 3$. Equation: $y = 3 x^{2} - 6 x$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_17"
+  },
+  {
+    "id": "ALG_134",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "linear equations",
+    "difficulty": "hard",
+    "question": "Solve the system of equations for $x$: \n$ 4x -3y = 19 $ \n$ 3x + 1y = -2 $",
+    "correct_answer": "1",
+    "wrong_answers_pool": [
+      "0",
+      "2",
+      "3",
+      "15",
+      "16",
+      "-16",
+      "-15",
+      "-12"
+    ],
+    "explanation": "Using substitution or elimination, we find $x = 1$ and $y = -5$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_18"
+  },
+  {
+    "id": "FUN_415",
+    "topic": "Functions and Graphs",
+    "subtopic": "cubic functions",
+    "difficulty": "medium",
+    "question": "Given $f(x) = x^{3} - 4 x^{2} - 3 x + 18$, find the x-intercepts.",
+    "correct_answer": "-2, 3",
+    "wrong_answers_pool": [
+      "-4, -3",
+      "0, 1, 3",
+      "-3, -1, 0",
+      "-1, 4",
+      "-1, 2, 3",
+      "-2, -1, 3",
+      "0, 1, 4",
+      "-5, -1"
+    ],
+    "explanation": "$f(x) = (x - 3)(x - -2)(x - 3) = 0$. The intercepts are $x = 3$, $x = -2$, $x = 3$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_19"
+  },
+  {
+    "id": "CALC_784",
+    "topic": "Differential Calculus",
+    "subtopic": "derivative rules",
+    "difficulty": "medium",
+    "question": "Find $\\frac{dy}{dx}$ if $y = - 3 x^{2} + \\frac{2}{x}$.",
+    "correct_answer": "- 6 x - \\frac{2}{x^{2}}",
+    "wrong_answers_pool": [
+      "-6 + \\frac{4}{x^{3}}",
+      "- 5 x - \\frac{2}{x^{2}}",
+      "- 6 x - 1 - \\frac{2}{x^{2}}",
+      "- 6 x + 1 - \\frac{2}{x^{2}}",
+      "- 12 x - \\frac{4}{x^{2}}",
+      "6 x + \\frac{2}{x^{2}}",
+      "- 7 x - \\frac{2}{x^{2}}",
+      "- 6 x + 4 - \\frac{2}{x^{2}}"
+    ],
+    "explanation": "Apply the power rule to each term: $\\frac{dy}{dx} = - 6 x - \\frac{2}{x^{2}}$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_20"
+  },
+  {
+    "id": "CALC_221",
+    "topic": "Differential Calculus",
+    "subtopic": "turning points",
+    "difficulty": "medium",
+    "question": "Find the x-coordinates of the turning points of $f(x) = 2 x^{3} - 54 x - 3$.",
+    "correct_answer": "-3 and 3",
+    "wrong_answers_pool": [
+      "-2 and -1",
+      "-4 and -2",
+      "-4 and 5",
+      "-3 and 0",
+      "-4 and 4",
+      "-4 and 3",
+      "-3 and 1",
+      "1 and 4"
+    ],
+    "explanation": "$f'(x) = \\left(x - 3\\right) \\left(6 x + 18\\right) = 0$. So $x = -3$ or $x = 3$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_21"
+  },
+  {
+    "id": "CALC_842",
+    "topic": "Differential Calculus",
+    "subtopic": "turning points",
+    "difficulty": "medium",
+    "question": "Find the x-coordinates of the turning points of $f(x) = - x^{3} + \\frac{3 x^{2}}{2} - 1$.",
+    "correct_answer": "0 and 1",
+    "wrong_answers_pool": [
+      "-2 and 3",
+      "-2 and 5",
+      "1 and 3",
+      "-3 and 1",
+      "-4 and 1",
+      "-4 and 2",
+      "-1 and 5",
+      "0 and 3"
+    ],
+    "explanation": "$f'(x) = x \\left(3 - 3 x\\right) = 0$. So $x = 0$ or $x = 1$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_22"
+  },
+  {
+    "id": "CALC_1000",
+    "topic": "Differential Calculus",
+    "subtopic": "turning points",
+    "difficulty": "medium",
+    "question": "Find the x-coordinates of the turning points of $f(x) = x^{3} - \\frac{9 x^{2}}{2} - 2$.",
+    "correct_answer": "0 and 3",
+    "wrong_answers_pool": [
+      "-2 and 3",
+      "-4 and -1",
+      "-4 and 4",
+      "0 and 4",
+      "2 and 4",
+      "-4 and -3",
+      "-1 and 5",
+      "3 and 5"
+    ],
+    "explanation": "$f'(x) = x \\left(3 x - 9\\right) = 0$. So $x = 0$ or $x = 3$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_23"
+  },
+  {
+    "id": "FIN_874",
+    "topic": "Finance, Growth and Decay",
+    "subtopic": "exponential growth",
+    "difficulty": "medium",
+    "question": "The population of a town is currently $4092$ and grows at $8\\%$ per year. What will the population be in $21$ years?",
+    "correct_answer": "20598",
+    "wrong_answers_pool": [
+      "20608",
+      "61794",
+      "20579",
+      "20583",
+      "-20598",
+      "20603",
+      "41196",
+      "20596"
+    ],
+    "explanation": "$A = P(1+i)^n = 4092(1 + 0.08)^21 \\approx 20598$",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_24"
+  },
+  {
+    "id": "FUN_090",
+    "topic": "Functions and Graphs",
+    "subtopic": "intercepts and turning points",
+    "difficulty": "medium",
+    "question": "What is the range of the function $f(x) = - x^{2} - 2 x - 8$?",
+    "correct_answer": "y \\leq -7",
+    "wrong_answers_pool": [
+      "y \\geq -7",
+      "y \\leq 7",
+      "y \\geq 7",
+      "y \\leq -1",
+      "y \\geq -1",
+      "y \\in \\mathbb{R}",
+      "y < -7"
+    ],
+    "explanation": "The maximum value is $y = -7$. Therefore, range is $y \\leq -7$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_25"
+  },
+  {
+    "id": "SEQ_353",
+    "topic": "Patterns and Sequences",
+    "subtopic": "geometric sequences",
+    "difficulty": "hard",
+    "question": "Find the sum to infinity of the geometric sequence: $320; 80; 20; \\dots$",
+    "correct_answer": "426.667",
+    "wrong_answers_pool": [
+      "640.00",
+      "0.00",
+      "420.57",
+      "421.11",
+      "425.67",
+      "427.67",
+      "432.66",
+      "434.15"
+    ],
+    "explanation": "$S_\\infty = \\frac{a}{1-r} = \\frac{320}{1 - (1/4)} = 426.667$",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_26"
+  },
+  {
+    "id": "ALG_048",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "quadratic equations",
+    "difficulty": "hard",
+    "question": "Solve for $x$: $x + \\frac{6}{x} = 5$",
+    "correct_answer": "2, 3",
+    "wrong_answers_pool": [
+      "-3, 6",
+      "4, 10",
+      "-5, -3",
+      "5, 10",
+      "5, 7",
+      "3, 4",
+      "1, 5",
+      "0, 4"
+    ],
+    "explanation": "Multiply by $x$: $x^2 + 6 = 5x \\implies x^2 - 5x + 6 = 0 \\implies (x - 2)(x - 3) = 0$. So $x = 2$ or $x = 3$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_27"
+  },
+  {
+    "id": "FUN_894",
+    "topic": "Functions and Graphs",
+    "subtopic": "intercepts and turning points",
+    "difficulty": "medium",
+    "question": "What is the range of the function $f(x) = - x^{2} - 6 x - 1$?",
+    "correct_answer": "y \\leq 8",
+    "wrong_answers_pool": [
+      "y \\geq 8",
+      "y \\leq -8",
+      "y \\geq -8",
+      "y \\leq -3",
+      "y \\geq -3",
+      "y \\in \\mathbb{R}",
+      "y < 8"
+    ],
+    "explanation": "The maximum value is $y = 8$. Therefore, range is $y \\leq 8$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_28"
+  },
+  {
+    "id": "FIN_459",
+    "topic": "Finance, Growth and Decay",
+    "subtopic": "depreciation",
+    "difficulty": "hard",
+    "question": "A machine bought for R$235000$ has a book value of R$142493$ after $6$ years on the reducing-balance method. Calculate the annual rate of depreciation $r$ (as a percentage).",
+    "correct_answer": "8.00",
+    "wrong_answers_pool": [
+      "0.12",
+      "4.00",
+      "7.00",
+      "9.00",
+      "9.05",
+      "9.56",
+      "12.00",
+      "9.93"
+    ],
+    "explanation": "$A = P(1 - i)^n \\implies 142493 = 235000(1 - i)^6 \\implies 1 - i = \\sqrt[6]{\\frac{142493}{235000}} \\implies i \\approx 8.0\\%$",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_29"
+  },
+  {
+    "id": "CALC_369",
+    "topic": "Differential Calculus",
+    "subtopic": "gradients of curves",
+    "difficulty": "hard",
+    "question": "Find the equation of the tangent to the curve $y = x^{2} + 5 x$ at the point $(-1; -4)$.",
+    "correct_answer": "y = 3 x - 1",
+    "wrong_answers_pool": [
+      "y = 1 - 3 x",
+      "y = 3",
+      "y = 6 x - 2",
+      "y = 2 x - 1",
+      "y = 3 x",
+      "y = 3 x - 2",
+      "y = 4 x - 1",
+      "y = 3 x + 4"
+    ],
+    "explanation": "Gradient $m = \\frac{dy}{dx}$ at $x=-1$ is $3$. Using $y - y_1 = m(x - x_1)$, we get $y - -4 = 3(x - -1) \\implies y = 3 x - 1$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_30"
+  },
+  {
+    "id": "ALG_880",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "linear equations",
+    "difficulty": "medium",
+    "question": "Solve for $x$: $2(x +5) = 3(x +5) -6$",
+    "correct_answer": "1",
+    "wrong_answers_pool": [
+      "0",
+      "2",
+      "3",
+      "7",
+      "12",
+      "-19",
+      "14",
+      "-18"
+    ],
+    "explanation": "Expand both sides: $2x +10 = 3x +15 -6$. Then simplify to find $x = 1$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_31"
+  },
+  {
+    "id": "SEQ_371",
+    "topic": "Patterns and Sequences",
+    "subtopic": "arithmetic sequences",
+    "difficulty": "hard",
+    "question": "In an arithmetic sequence, $T_{15} = -143$ and $T_{42} = -467$. Find the common difference $d$.",
+    "correct_answer": "-12",
+    "wrong_answers_pool": [
+      "2",
+      "5",
+      "-24",
+      "-22",
+      "12",
+      "-17",
+      "-14",
+      "-13"
+    ],
+    "explanation": "$T_{15} = a + 14d = -143$ and $T_{42} = a + 41d = -467$. Subtracting the equations gives $d = -12$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_32"
+  },
+  {
+    "id": "FIN_224",
+    "topic": "Finance, Growth and Decay",
+    "subtopic": "depreciation",
+    "difficulty": "hard",
+    "question": "A machine bought for R$327000$ has a book value of R$212052$ after $7$ years on the reducing-balance method. Calculate the annual rate of depreciation $r$ (as a percentage).",
+    "correct_answer": "6.00",
+    "wrong_answers_pool": [
+      "0.17",
+      "-6.72",
+      "3.00",
+      "5.00",
+      "7.00",
+      "9.00",
+      "10.86",
+      "12.00"
+    ],
+    "explanation": "$A = P(1 - i)^n \\implies 212052 = 327000(1 - i)^7 \\implies 1 - i = \\sqrt[7]{\\frac{212052}{327000}} \\implies i \\approx 6.0\\%$",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_33"
+  },
+  {
+    "id": "SEQ_674",
+    "topic": "Patterns and Sequences",
+    "subtopic": "sigma notation",
+    "difficulty": "medium",
+    "question": "Evaluate: $\\sum_{k=5}^{47} (2k + 24)$",
+    "correct_answer": "3268",
+    "wrong_answers_pool": [
+      "1634",
+      "3267",
+      "3266",
+      "3269",
+      "3270",
+      "3271",
+      "6536",
+      "3275"
+    ],
+    "explanation": "This is an arithmetic series with $n = 47 - 5 + 1 = 43$ terms. $a = 34$. Sum = $3268$",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_34"
+  },
+  {
+    "id": "FUN_085",
+    "topic": "Functions and Graphs",
+    "subtopic": "cubic functions",
+    "difficulty": "hard",
+    "question": "The function $f(x) = x^{3} - 3 x + 2$ has a local turning point on the x-axis. Find the coordinates of this turning point.",
+    "correct_answer": "(1; 0)",
+    "wrong_answers_pool": [
+      "(-1; 0)",
+      "(0; 1)",
+      "(-2; 0)",
+      "(2; 0)",
+      "(0; -1)",
+      "(1; -2)",
+      "(-2; 1)",
+      "(-1; 2)"
+    ],
+    "explanation": "Since $(x - 1)^2$ is a factor, the graph touches the x-axis at $x = 1$. Turning point: $(1; 0)$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_35"
+  },
+  {
+    "id": "CALC_799",
+    "topic": "Differential Calculus",
+    "subtopic": "turning points",
+    "difficulty": "medium",
+    "question": "Find the x-coordinates of the turning points of $f(x) = - x^{3} - \\frac{3 x^{2}}{2} - 4$.",
+    "correct_answer": "-1 and 0",
+    "wrong_answers_pool": [
+      "-2 and 0",
+      "-4 and -2",
+      "-5 and 2",
+      "-5 and 3",
+      "-3 and -1",
+      "-3 and -2",
+      "4 and 5",
+      "3 and 5"
+    ],
+    "explanation": "$f'(x) = x \\left(- 3 x - 3\\right) = 0$. So $x = -1$ or $x = 0$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_36"
+  },
+  {
+    "id": "CALC_457",
+    "topic": "Differential Calculus",
+    "subtopic": "gradients of curves",
+    "difficulty": "hard",
+    "question": "Find the equation of the tangent to the curve $y = 2 x^{2} + 5 x$ at the point $(2; 18)$.",
+    "correct_answer": "y = 13 x - 8",
+    "wrong_answers_pool": [
+      "y = 14 x - 8",
+      "y = 12 x - 8",
+      "y = 13",
+      "y = 8 - 13 x",
+      "y = 26 x - 16",
+      "y = 13 x - 7",
+      "y = 13 x - 9",
+      "y = 13 x - 4"
+    ],
+    "explanation": "Gradient $m = \\frac{dy}{dx}$ at $x=2$ is $13$. Using $y - y_1 = m(x - x_1)$, we get $y - 18 = 13(x - 2) \\implies y = 13 x - 8$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_37"
+  },
+  {
+    "id": "FIN_361",
+    "topic": "Finance, Growth and Decay",
+    "subtopic": "exponential growth",
+    "difficulty": "medium",
+    "question": "The population of a town is currently $38378$ and grows at $8\\%$ per year. What will the population be in $45$ years?",
+    "correct_answer": "1225043",
+    "wrong_answers_pool": [
+      "1225057",
+      "1225026",
+      "1225060",
+      "2450086",
+      "1225049",
+      "612521",
+      "1225034",
+      "-1225043"
+    ],
+    "explanation": "$A = P(1+i)^n = 38378(1 + 0.08)^45 \\approx 1225043$",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_38"
+  },
+  {
+    "id": "FUN_077",
+    "topic": "Functions and Graphs",
+    "subtopic": "quadratic functions",
+    "difficulty": "hard",
+    "question": "A parabola has x-intercepts at $(3; 0)$ and $(5; 0)$ and passes through the point $(-5; -160)$. Find its equation in the form $y = ax^2 + bx + c$.",
+    "correct_answer": "y = - 2 x^{2} + 16 x - 30",
+    "wrong_answers_pool": [
+      "y = 2 x^{2} - 16 x + 30",
+      "y = - 2 x^{2} + 16 x - 31",
+      "y = - 4 x^{2} + 32 x - 60",
+      "y = - 2 x^{2} + 16 x - 29",
+      "y = - 2 x^{2} + 15 x - 30",
+      "y = 16 - 4 x",
+      "y = - 2 x^{2} + 17 x - 30",
+      "y = - 2 x^{2} + 18 x - 30"
+    ],
+    "explanation": "$y = a(x - 3)(x - 5)$. Substitute $(-5; -160)$: $-160 = a(-5 - 3)(-5 - 5) \\implies a = -2$. Equation: $y = - 2 x^{2} + 16 x - 30$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_39"
+  },
+  {
+    "id": "ALG_988",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "linear equations",
+    "difficulty": "medium",
+    "question": "Solve for $x$: $4(x -4) = 1(x -2) -20$",
+    "correct_answer": "-2",
+    "wrong_answers_pool": [
+      "0",
+      "2",
+      "10",
+      "-19",
+      "14",
+      "13",
+      "-14",
+      "-11"
+    ],
+    "explanation": "Expand both sides: $4x -16 = 1x -2 -20$. Then simplify to find $x = -2$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_40"
+  },
+  {
+    "id": "SEQ_759",
+    "topic": "Patterns and Sequences",
+    "subtopic": "sigma notation",
+    "difficulty": "medium",
+    "question": "Evaluate: $\\sum_{k=8}^{73} (8k + 0)$",
+    "correct_answer": "21384",
+    "wrong_answers_pool": [
+      "10692",
+      "21380",
+      "21382",
+      "21383",
+      "21385",
+      "21386",
+      "64152",
+      "21389"
+    ],
+    "explanation": "This is an arithmetic series with $n = 73 - 8 + 1 = 66$ terms. $a = 64$. Sum = $21384$",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_41"
+  },
+  {
+    "id": "ALG_382",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "inequalities",
+    "difficulty": "hard",
+    "question": "Solve for $x$: $\\frac{(x - -2)(x - 1)}{x - 5} \\geq 0$",
+    "correct_answer": "-2 \\leq x \\leq 1 \\text{ or } x > 5",
+    "wrong_answers_pool": [
+      "x \\leq -2 \\text{ or } 1 \\leq x < 5",
+      "-2 \\leq x \\leq 1 \\text{ or } x \\geq 5",
+      "-2 < x < 1 \\text{ or } x > 5",
+      "x < -2 \\text{ or } x > 5",
+      "x \\geq 5",
+      "-2 \\leq x < 5",
+      "x \\leq -2 \\text{ or } x \\geq 1"
+    ],
+    "explanation": "Critical values are $-2, 1, 5$. Checking regions with a sign table gives $-2 \\leq x \\leq 1 \\text{ or } x > 5$. Note $x \\neq 5$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_42"
+  },
+  {
+    "id": "CALC_763",
+    "topic": "Differential Calculus",
+    "subtopic": "turning points",
+    "difficulty": "medium",
+    "question": "Find the x-coordinates of the turning points of $f(x) = 2 x^{3} - 6 x^{2} - 2$.",
+    "correct_answer": "0 and 2",
+    "wrong_answers_pool": [
+      "-2 and 3",
+      "-2 and 0",
+      "-4 and 4",
+      "2 and 3",
+      "1 and 3",
+      "-3 and 4",
+      "-3 and -1",
+      "-5 and 0"
+    ],
+    "explanation": "$f'(x) = 6 x \\left(x - 2\\right) = 0$. So $x = 0$ or $x = 2$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_43"
+  },
+  {
+    "id": "FUN_662",
+    "topic": "Functions and Graphs",
+    "subtopic": "intercepts and turning points",
+    "difficulty": "medium",
+    "question": "What is the range of the function $f(x) = x^{2} - 2 x + 9$?",
+    "correct_answer": "y \\geq 8",
+    "wrong_answers_pool": [
+      "y \\leq 8",
+      "y \\geq -8",
+      "y \\leq -8",
+      "y \\geq 1",
+      "y \\leq 1",
+      "y \\in \\mathbb{R}",
+      "y > 8"
+    ],
+    "explanation": "The minimum value is $y = 8$. Therefore, range is $y \\geq 8$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_44"
+  },
+  {
+    "id": "PROB_274",
+    "topic": "Probability",
+    "subtopic": "independent events",
+    "difficulty": "hard",
+    "question": "A and B are independent events with $P(A) = 0.27$ and $P(A \\cup B) = 0.3503$. Find $P(B)$.",
+    "correct_answer": "0.11",
+    "wrong_answers_pool": [
+      "0.53",
+      "0.95",
+      "0.33",
+      "0.54",
+      "0.22",
+      "0.42",
+      "0.37",
+      "0.85"
+    ],
+    "explanation": "$P(A \\cup B) = P(A) + P(B) - P(A)P(B) \\implies 0.3503 = 0.27 + P(B)(1 - 0.27) \\implies P(B) = \\frac{0.3503 - 0.27}{0.73} = 0.11$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_45"
+  },
+  {
+    "id": "CALC_421",
+    "topic": "Differential Calculus",
+    "subtopic": "gradients of curves",
+    "difficulty": "hard",
+    "question": "Find the equation of the tangent to the curve $y = 2 x^{2} + 2 x$ at the point $(0; 0)$.",
+    "correct_answer": "y = 2 x",
+    "wrong_answers_pool": [
+      "y = 4 x",
+      "y = 2",
+      "y = - 2 x",
+      "y = x",
+      "y = 2 x - 1",
+      "y = 2 x + 1",
+      "y = 3 x",
+      "y = - x^{2} + 2 x"
+    ],
+    "explanation": "Gradient $m = \\frac{dy}{dx}$ at $x=0$ is $2$. Using $y - y_1 = m(x - x_1)$, we get $y - 0 = 2(x - 0) \\implies y = 2 x$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_46"
+  },
+  {
+    "id": "CALC_500",
+    "topic": "Differential Calculus",
+    "subtopic": "gradients of curves",
+    "difficulty": "hard",
+    "question": "Find the equation of the tangent to the curve $y = 2 x^{2} + 4 x$ at the point $(-1; -2)$.",
+    "correct_answer": "y = -2",
+    "wrong_answers_pool": [
+      "y = 0",
+      "y = 2",
+      "y = x - 2",
+      "y = - x - 2",
+      "y = -4",
+      "y = -3",
+      "y = -1",
+      "y = 3"
+    ],
+    "explanation": "Gradient $m = \\frac{dy}{dx}$ at $x=-1$ is $0$. Using $y - y_1 = m(x - x_1)$, we get $y - -2 = 0(x - -1) \\implies y = -2$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_47"
+  },
+  {
+    "id": "CALC_648",
+    "topic": "Differential Calculus",
+    "subtopic": "turning points",
+    "difficulty": "medium",
+    "question": "Find the x-coordinates of the turning points of $f(x) = - 2 x^{3} + 3 x^{2} + 36 x$.",
+    "correct_answer": "-2 and 3",
+    "wrong_answers_pool": [
+      "-4 and -1",
+      "1 and 2",
+      "0 and 4",
+      "3 and 4",
+      "0 and 1",
+      "1 and 5",
+      "-5 and -2",
+      "0 and 3"
+    ],
+    "explanation": "$f'(x) = \\left(18 - 6 x\\right) \\left(x + 2\\right) = 0$. So $x = -2$ or $x = 3$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_48"
+  },
+  {
+    "id": "CALC_456",
+    "topic": "Differential Calculus",
+    "subtopic": "turning points",
+    "difficulty": "hard",
+    "question": "Determine the x-coordinate of the local MAXIMUM of $f(x) = - 2 x^{3} - 3 x^{2} + 12 x - 2$.",
+    "correct_answer": "1",
+    "wrong_answers_pool": [
+      "0",
+      "2",
+      "3",
+      "7",
+      "9",
+      "12",
+      "-19",
+      "-17"
+    ],
+    "explanation": "$f'(x) = \\left(6 - 6 x\\right) \\left(x + 2\\right) = 0 \\implies x = 1$ or $x = -2$. $f''(x) = - 12 x - 6$. Substituting the critical values, $f''(1) < 0$, so $x = 1$ is a local maximum.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_49"
+  },
+  {
+    "id": "PROB_339",
+    "topic": "Probability",
+    "subtopic": "basic probability",
+    "difficulty": "medium",
+    "question": "Given $P(A) = 0.37$, $P(B) = 0.23$, and $P(A \\cup B) = 0.45$. Calculate $P(A \\cap B)$.",
+    "correct_answer": "0.15",
+    "wrong_answers_pool": [
+      "0.59",
+      "0.25",
+      "0.04",
+      "0.31",
+      "0.27",
+      "0.17",
+      "0.24",
+      "0.98"
+    ],
+    "explanation": "$P(A \\cup B) = P(A) + P(B) - P(A \\cap B) \\implies 0.45 = 0.37 + 0.23 - P(A \\cap B) \\implies P(A \\cap B) = 0.15$.",
+    "exam_id": "EXAM_2026-W39_grade12_mathematics_paper1_50"
+  }
+]
