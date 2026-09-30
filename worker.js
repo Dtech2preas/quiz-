@@ -1379,7 +1379,7 @@ async function handleGetSchools(request, env) {
 async function handleAdminData(request, env) {
   const url = new URL(request.url);
   const secret = url.searchParams.get("secret");
-  if (secret !== "admin-secret-123") {
+  if (!env.ADMIN_SECRET || secret !== env.ADMIN_SECRET) {
     return jsonResponse({ error: "Unauthorized" }, 401);
   }
 
@@ -1504,7 +1504,7 @@ async function handleAdminData(request, env) {
 async function handleAdminDeleteUser(request, env, path) {
   const url = new URL(request.url);
   const secret = url.searchParams.get("secret");
-  if (secret !== "admin-secret-123") {
+  if (!env.ADMIN_SECRET || secret !== env.ADMIN_SECRET) {
     return jsonResponse({ error: "Unauthorized" }, 401);
   }
 
