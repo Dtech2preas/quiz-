@@ -1,0 +1,155 @@
+[
+  {
+    "repo": "Dtech2preas/quiz-",
+    "provider": "local",
+    "visibility": "local",
+    "created_at": "2026-10-03",
+    "last_activity": "2026-10-03",
+    "default_branch": "jules-12594116444742245090-1408062c",
+    "commits": 1,
+    "first_commit": "2026-10-03",
+    "last_commit": "2026-10-03",
+    "languages": {
+      "Python": 1222737,
+      "HTML": 519365,
+      "Kotlin": 34479,
+      "JavaScript": 161947
+    },
+    "primary_language": "Python",
+    "contributors": 1,
+    "human_contributors": 0,
+    "total_mrs": "",
+    "merged_mrs": "",
+    "mrs_note": "not detectable from git history",
+    "pct_simple": "",
+    "pct_standard": "",
+    "pct_rich": "",
+    "pct_automated": "",
+    "pct_other": "",
+    "avg_loc_per_mr": "",
+    "mr_sample_size": 0,
+    "source_files": 66,
+    "test_files": 0,
+    "untested_source_files": 65,
+    "pct_untested_files": 100.0,
+    "total_loc_estimate": 22433,
+    "ci_configured": "Yes",
+    "ci_systems": [
+      "GitHub Actions"
+    ],
+    "ci_config_files": 4,
+    "ci_jobs_approx": 4,
+    "ci_stages_approx": 4,
+    "ci_pipelines_total": "",
+    "ci_success_rate": "",
+    "ci_avg_duration_min": "",
+    "coverage_pct_gitlab": "",
+    "coverage_pct_github": "",
+    "coverage_pct_local": "",
+    "ci_commits": 1,
+    "test_cases": 0,
+    "assertions": 0,
+    "genuine_test_files": 0,
+    "suspicious_test_files": 0,
+    "misnamed_test_files": 1,
+    "pct_test_to_code_ratio": 0.0,
+    "pct_genuine_tests": "",
+    "suspicious_tests_detail": [],
+    "llm_commits_scanned": 1,
+    "llm_ai_commits": 0,
+    "llm_pct_commits": 0.0,
+    "llm_ai_mrs": "",
+    "llm_pct_mrs": "",
+    "ai_tool_configs": [
+      "Gemini / Jules"
+    ],
+    "ai_tool_config_files": 2,
+    "llm_code_files": 0,
+    "llm_files_scanned": 66,
+    "llm_commit_breakdown": {},
+    "llm_mr_breakdown": {},
+    "llm_combined_score": {
+      "Gemini / Jules": 1
+    },
+    "llm_evidence": [
+      {
+        "source": "config-file",
+        "llm": [
+          "Gemini / Jules"
+        ],
+        "sample": ".jules/bolt.md; .jules/sentinel.md",
+        "location": ".jules/bolt.md; .jules/sentinel.md"
+      }
+    ],
+    "llm_detected": "Yes",
+    "primary_llm": "Gemini / Jules",
+    "llm_usage_pct": "",
+    "llm_usage_basis": "tool configs only",
+    "built_by_company": "Dtech2preas",
+    "built_by_confidence": "medium",
+    "built_by_evidence": [
+      "VCS owner/organization: \"Dtech2preas\""
+    ],
+    "built_for_company": "Quiz",
+    "built_for_confidence": "low",
+    "built_for_evidence": [
+      "android_app/app/build.gradle: bundle id \"com.dtech.quizzes\"",
+      "repo/folder name: \"Dtech2preas/quiz-\""
+    ],
+    "license": "NONE",
+    "license_risk": "no-license (all rights reserved)",
+    "quality_files_scanned": 66,
+    "total_functions": 378,
+    "total_classes": 28,
+    "blank_ratio_pct": 10.0,
+    "total_comment_lines": 1009,
+    "total_blank_lines": 2243,
+    "syntax_valid_pct": 100.0,
+    "avg_line_length": 48.0,
+    "pct_long_lines": 7.7,
+    "comment_ratio_pct": 4.5,
+    "docstring_pct": 8.3,
+    "avg_func_length": 60.1,
+    "duplicate_files": 0,
+    "duplicate_pct": 0.0,
+    "secrets_found": 3,
+    "secrets_detail": [
+      {
+        "type": "Google API Key",
+        "file": "firebase_config.js",
+        "masked": "AIza\u2026wQ"
+      },
+      {
+        "type": "Hardcoded secret",
+        "file": "firebase_config.js",
+        "masked": "apiK\u2026Q\""
+      },
+      {
+        "type": "Google API Key",
+        "file": "worker.js",
+        "masked": "AIza\u2026wQ"
+      }
+    ],
+    "pii_emails": 2,
+    "eval_contamination_files": 1,
+    "eval_contamination_detail": [
+      "Script..py"
+    ],
+    "quality_score": 55.0,
+    "training_suitability": "C",
+    "quality_reasons": [
+      "3 secrets/keys found",
+      "no tests",
+      "eval-benchmark code in 1 files",
+      "no license \u2014 training use is risky"
+    ],
+    "swe_quality_score": 35.0,
+    "swe_quality_level": "Mixed",
+    "swe_quality_reasons": [
+      "CI/CD configured",
+      "no tests",
+      "low code duplication",
+      "3 hardcoded secret(s) found"
+    ]
+  }
+]
