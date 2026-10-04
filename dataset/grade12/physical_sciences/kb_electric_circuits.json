@@ -1,0 +1,176 @@
+{
+  "definitions": [
+    {
+      "term": "Ohm's Law",
+      "definition": "The potential difference across a conductor is directly proportional to the current in the conductor at constant temperature.",
+      "distractors": [
+        "The potential difference across a conductor is inversely proportional to the current in the conductor.",
+        "The resistance of a conductor is directly proportional to the temperature.",
+        "The current in a conductor is directly proportional to its resistance.",
+        "The total voltage in a series circuit is equal to the sum of the individual voltage drops.",
+        "The power dissipated by a resistor is proportional to the square of the potential difference.",
+        "The resistance of a conductor is equal to the product of potential difference and current."
+      ]
+    },
+    {
+      "term": "Ohmic Conductor",
+      "definition": "A conductor that obeys Ohm's law (it has a constant resistance; its $V$ vs. $I$ graph is a straight line through the origin).",
+      "distractors": [
+        "A conductor whose resistance increases as its temperature increases.",
+        "A conductor that only allows current to flow in one direction.",
+        "A conductor with zero internal resistance.",
+        "A component that stores electrical energy in a magnetic field.",
+        "A conductor that requires a specific threshold voltage before conducting.",
+        "A conductor whose $V$ vs. $I$ graph is a parabolic curve."
+      ]
+    },
+    {
+      "term": "Non-Ohmic Conductor",
+      "definition": "A conductor that does not obey Ohm's law (resistance changes as temperature/current changes).",
+      "distractors": [
+        "A conductor that obeys Ohm's law.",
+        "A conductor with an infinite resistance that does not allow current to pass.",
+        "A conductor whose $V$ vs. $I$ graph is a straight line passing through the origin.",
+        "A device that converts electrical energy into mechanical energy.",
+        "A power source with no internal resistance.",
+        "An ideal ammeter connected in series."
+      ]
+    },
+    {
+      "term": "Electromotive Force (emf)",
+      "definition": "The maximum energy provided by a battery per unit charge passing through it.",
+      "distractors": [
+        "The force exerted on an electron as it moves through a conductor.",
+        "The total power dissipated by the external circuit.",
+        "The potential difference measured across the terminals of a battery when the switch is closed.",
+        "The opposition to the flow of charge within the battery itself.",
+        "The energy lost as heat per unit charge inside the cell.",
+        "The rate at which work is done by the battery."
+      ]
+    },
+    {
+      "term": "Terminal Potential Difference",
+      "definition": "The potential difference measured across the terminals of a battery when charges are flowing through the circuit (switch closed).",
+      "distractors": [
+        "The maximum energy provided by a battery per unit charge passing through it.",
+        "The total current flowing through the main branch of the circuit.",
+        "The potential difference across the internal resistance of the battery.",
+        "The reading on a voltmeter when the external circuit is disconnected.",
+        "The sum of all currents entering a junction.",
+        "The energy dissipated by the entire circuit over one hour."
+      ]
+    },
+    {
+      "term": "Internal Resistance",
+      "definition": "The opposition to the flow of charge within the battery itself.",
+      "distractors": [
+        "The total equivalent resistance of the external circuit.",
+        "The resistance of the connecting wires in the circuit.",
+        "The force required to move a charge through a vacuum.",
+        "The potential difference across the battery when the switch is open.",
+        "The maximum current a battery can supply when short-circuited.",
+        "The sum of all resistors connected in parallel."
+      ]
+    },
+    {
+      "term": "Lost Volts",
+      "definition": "The potential difference across the internal resistance of the battery when current flows, representing the energy lost as heat per unit charge inside the cell.",
+      "distractors": [
+        "The potential difference measured across the external circuit.",
+        "The maximum voltage a battery can produce.",
+        "The voltage drop across an ideal ammeter.",
+        "The total energy provided by a battery per unit charge.",
+        "The voltage that is converted into useful mechanical work.",
+        "The reading on a voltmeter placed across an open switch."
+      ]
+    }
+  ],
+  "proportionality": [
+    {
+      "statement": "If a resistor is added in parallel to an existing circuit, the total external resistance of the circuit will...",
+      "correct": "decrease.",
+      "distractors": [
+        "increase.",
+        "remain the same.",
+        "become zero.",
+        "double.",
+        "fluctuate depending on the internal resistance.",
+        "equal the value of the added resistor."
+      ]
+    },
+    {
+      "statement": "If a resistor is added in series to an existing circuit, the total external resistance of the circuit will...",
+      "correct": "increase.",
+      "distractors": [
+        "decrease.",
+        "remain the same.",
+        "become zero.",
+        "halve.",
+        "fluctuate depending on the internal resistance.",
+        "equal the value of the added resistor."
+      ]
+    },
+    {
+      "statement": "In a circuit with internal resistance, if the total external resistance is decreased, the total current flowing from the battery will...",
+      "correct": "increase.",
+      "distractors": [
+        "decrease.",
+        "remain the same.",
+        "become zero.",
+        "be unaffected by internal resistance.",
+        "fluctuate randomly.",
+        "halve."
+      ]
+    },
+    {
+      "statement": "In a circuit with internal resistance, if the total current drawn from the battery increases, the terminal potential difference ($V_{ext}$) will...",
+      "correct": "decrease, because the lost volts ($Ir$) increase.",
+      "distractors": [
+        "increase, because the lost volts ($Ir$) decrease.",
+        "remain the same, because emf is constant.",
+        "increase, because the emf increases.",
+        "decrease, because the emf decreases.",
+        "become zero instantly.",
+        "remain constant, because internal resistance is constant."
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "question": "A student measures the potential difference across a battery with the switch OPEN, and then again with the switch CLOSED. Which of the following is true?",
+      "correct": "The reading is higher when the switch is OPEN, representing the emf.",
+      "distractors": [
+        "The reading is lower when the switch is OPEN, representing the lost volts.",
+        "The reading is identical in both cases, representing the terminal voltage.",
+        "The reading is zero when the switch is OPEN.",
+        "The reading is higher when the switch is CLOSED, representing the emf.",
+        "The reading when CLOSED represents the internal resistance.",
+        "The reading when OPEN depends on the external resistance."
+      ]
+    },
+    {
+      "question": "On a graph of Terminal Potential Difference ($V$) vs. Current ($I$) for a battery, what does the y-intercept represent?",
+      "correct": "The electromotive force (emf) of the battery.",
+      "distractors": [
+        "The internal resistance of the battery.",
+        "The total external resistance of the circuit.",
+        "The short-circuit current.",
+        "The lost volts.",
+        "The total power dissipated by the circuit.",
+        "The negative internal resistance."
+      ]
+    },
+    {
+      "question": "On a graph of Terminal Potential Difference ($V$) vs. Current ($I$) for a battery, what does the negative of the gradient (slope) represent?",
+      "correct": "The internal resistance ($r$) of the battery.",
+      "distractors": [
+        "The electromotive force (emf) of the battery.",
+        "The total external resistance ($R_{ext}$).",
+        "The short-circuit current.",
+        "The lost volts.",
+        "The equivalent parallel resistance.",
+        "The total power of the battery."
+      ]
+    }
+  ]
+}
