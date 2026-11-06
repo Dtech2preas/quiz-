@@ -56,6 +56,19 @@ jobs:
             python generate_accounting12.py
           fi
 
+          if [ "$SUBJECT" = "all" ] || [ "$SUBJECT" = "life_sciences" ]; then
+            python dataset/grade12/life_sciences/generators/generate_dna_code.py
+            python dataset/grade12/life_sciences/generators/generate_genetics.py
+            python dataset/grade12/life_sciences/generators/generate_evolution.py
+            python dataset/grade12/life_sciences/generators/generate_meiosis.py
+            python dataset/grade12/life_sciences/generators/generate_reproduction_vertebrates.py
+            python dataset/grade12/life_sciences/generators/generate_human_reproduction.py
+            python dataset/grade12/life_sciences/generators/generate_environment_humans.py
+            python dataset/grade12/life_sciences/generators/generate_environment_plants.py
+            python dataset/grade12/life_sciences/generators/generate_endocrine_system.py
+            python dataset/grade12/life_sciences/generators/generate_human_impact.py
+          fi
+
           if [ "$SUBJECT" = "all" ] || [ "$SUBJECT" = "mathematical_literacy" ]; then
             python generate_mathlit12.py
           fi

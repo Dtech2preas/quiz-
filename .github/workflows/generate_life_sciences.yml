@@ -1,0 +1,107 @@
+name: Generate Grade 12 Life Sciences
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Select Life Sciences Paper to generate'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - paper1
+          - paper2
+
+permissions:
+  contents: write
+
+jobs:
+  build-questions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Generate Questions
+        run: |
+          TARGET="${{ github.event.inputs.target }}"
+          echo "Generating Life Sciences batch for: $TARGET"
+
+          if [ "$TARGET" = "all" ] || [ "$TARGET" = "paper1" ]; then
+            python dataset/grade12/life_sciences/generators/generate_meiosis.py
+            python dataset/grade12/life_sciences/generators/generate_reproduction_vertebrates.py
+            python dataset/grade12/life_sciences/generators/generate_human_reproduction.py
+            python dataset/grade12/life_sciences/generators/generate_environment_humans.py
+            python dataset/grade12/life_sciences/generators/generate_environment_plants.py
+            python dataset/grade12/life_sciences/generators/generate_endocrine_system.py
+            python dataset/grade12/life_sciences/generators/generate_human_impact.py
+          fi
+
+          if [ "$TARGET" = "all" ] || [ "$TARGET" = "paper2" ]; then
+            python dataset/grade12/life_sciences/generators/generate_dna_code.py
+            python dataset/grade12/life_sciences/generators/generate_genetics.py
+            python dataset/grade12/life_sciences/generators/generate_evolution.py
+            python dataset/grade12/life_sciences/generators/generate_meiosis.py
+          fi
+
+      - name: Verify Datasets Quality & Distribution
+        run: |
+          python -c "
+          import glob, json, sys
+
+          files = sorted(glob.glob('dataset/grade12/life_sciences/paper*.json'))
+          all_passed = True
+          for f in files:
+              with open(f) as fp:
+                  data = json.load(fp)
+              count = len(data)
+              diffs = {'easy': 0, 'medium': 0, 'hard': 0}
+              bad_wrongs = 0
+              corr_in_wrongs = 0
+              q_texts = set()
+              dups = 0
+              for q in data:
+                  d = q.get('difficulty')
+                  if d in diffs: diffs[d] += 1
+                  corr = str(q.get('correct_answer', '')).strip()
+                  wrongs = [str(w).strip() for w in q.get('wrong_answers_pool', [])]
+                  if len(wrongs) < 6: bad_wrongs += 1
+                  if corr in wrongs: corr_in_wrongs += 1
+                  txt = q.get('question', '').strip()
+                  if txt in q_texts: dups += 1
+                  q_texts.add(txt)
+              passed = (count == 1000 and diffs == {'easy': 300, 'medium': 500, 'hard': 200} and bad_wrongs == 0 and corr_in_wrongs == 0 and dups == 0)
+              if not passed:
+                  print(f'FAIL: {f} (Count: {count}, Diffs: {diffs}, BadWrongs: {bad_wrongs}, CorrInWrongs: {corr_in_wrongs}, Dups: {dups})')
+                  all_passed = False
+              else:
+                  print(f'PASS: {f} (1000 Qs, 300/500/200, 0 Errors)')
+
+          if not all_passed:
+              print('Audit failed!')
+              sys.exit(1)
+          print('All Grade 12 Life Sciences datasets verified!')
+          "
+
+      - name: Update Global Manifest
+        run: python build_manifest.py
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add dataset/grade12/life_sciences/ manifest.json
+          if ! git diff --staged --quiet; then
+            git commit -m "chore: auto-generate and verify Grade 12 Life Sciences question banks [skip ci]"
+            git push
+          else
+            echo "No changes to commit"
+          fi
