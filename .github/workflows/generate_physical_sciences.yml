@@ -1,0 +1,93 @@
+name: Generate Grade 12 Physical Sciences
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Select topics to generate'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - paper2_chemistry
+          - paper1_physics
+
+permissions:
+  contents: write
+
+jobs:
+  build-questions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Generate Questions
+        run: |
+          TARGET="${{ github.event.inputs.target }}"
+          echo "Generating Physical Sciences batch for: $TARGET"
+
+          if [ "$TARGET" = "all" ] || [ "$TARGET" = "paper2_chemistry" ]; then
+            python dataset/grade12/physical_sciences/generators/generate_organic_chemistry.py
+            python dataset/grade12/physical_sciences/generators/generate_reaction_rates.py
+            python dataset/grade12/physical_sciences/generators/generate_chemical_equilibrium.py
+            python dataset/grade12/physical_sciences/generators/generate_acids_bases.py
+            python dataset/grade12/physical_sciences/generators/generate_electrochemical_reactions.py
+            python dataset/grade12/physical_sciences/generators/generate_chemical_industry.py
+          fi
+
+          if [ "$TARGET" = "all" ] || [ "$TARGET" = "paper1_physics" ]; then
+            python dataset/grade12/physical_sciences/generators/generate_optical_phenomena.py
+            python dataset/grade12/physical_sciences/generators/generate_doppler_effect.py
+            python heal_physics_datasets.py
+          fi
+
+      - name: Strict Quality & Deduplication Audit
+        run: |
+          python -c "
+          import json, glob, os, sys
+          files = sorted(glob.glob('dataset/grade12/physical_sciences/paper*.json'))
+          failed = False
+          for fpath in files:
+              fname = os.path.basename(fpath)
+              with open(fpath) as f:
+                  data = json.load(f)
+              count = len(data)
+              diffs = {'easy': 0, 'medium': 0, 'hard': 0}
+              bad_wrongs = sum(1 for q in data if len(q.get('wrong_answers_pool', [])) < 6)
+              corrs = [str(q.get('correct_answer', '')).strip() for q in data]
+              corr_in_wrongs = sum(1 for q in data if str(q.get('correct_answer', '')).strip() in [str(w).strip() for w in q.get('wrong_answers_pool', [])])
+              for q in data:
+                  d = q.get('difficulty')
+                  if d in diffs: diffs[d] += 1
+              if count != 1000 or diffs != {'easy': 300, 'medium': 500, 'hard': 200} or bad_wrongs > 0 or corr_in_wrongs > 0:
+                  print(f'FAIL: {fname} (Count: {count}, Diff: {diffs}, BadWrongs: {bad_wrongs}, CorrInWrongs: {corr_in_wrongs})')
+                  failed = True
+              else:
+                  print(f'PASS: {fname} (1000 items, 300/500/200, 0 errors)')
+          if failed:
+              sys.exit(1)
+          "
+
+      - name: Rebuild Manifest
+        run: python build_manifest.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add dataset/grade12/physical_sciences/ manifest.json
+          if ! git diff --staged --quiet; then
+            git commit -m "chore: auto-generate Grade 12 Physical Sciences dataset batch"
+            git push
+          else
+            echo "No changes to commit."
+          fi

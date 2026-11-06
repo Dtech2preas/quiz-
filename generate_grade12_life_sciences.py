@@ -287,7 +287,7 @@ def build_datasets():
     kb = KnowledgeBase()
 
     # Load all individual KB files
-    kb_files = glob.glob("/app/dataset/grade12/life_sciences/kb_*.json")
+    kb_files = glob.glob("dataset/grade12/life_sciences/kb_*.json")
     topics_data = []
     for kb_file in kb_files:
         with open(kb_file, 'r') as f:
@@ -355,7 +355,7 @@ def build_datasets():
                 else:
                     generate_hard_reverse_engineering(engine, subtopic, e1)
 
-        engine.save_to_json("/app/dataset/grade12/life_sciences")
+        engine.save_to_json("dataset/grade12/life_sciences")
         total_generated += len(engine.questions)
         topic_counts[t['topic']] = len(engine.questions)
 

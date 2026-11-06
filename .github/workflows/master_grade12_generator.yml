@@ -1,0 +1,126 @@
+name: Master Grade 12 Generator & Verifier
+
+on:
+  workflow_dispatch:
+    inputs:
+      subject:
+        description: 'Select Grade 12 Subject to process'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - physical_sciences
+          - mathematics
+          - life_sciences
+          - accounting
+          - mathematical_literacy
+          - technical_mathematics
+          - technical_sciences
+
+permissions:
+  contents: write
+
+jobs:
+  build-grade12:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Run Generators and Quality Engine
+        run: |
+          SUBJECT="${{ github.event.inputs.subject }}"
+          echo "Processing Grade 12 Subject: $SUBJECT"
+
+          if [ "$SUBJECT" = "all" ] || [ "$SUBJECT" = "physical_sciences" ]; then
+            python dataset/grade12/physical_sciences/generators/generate_organic_chemistry.py
+            python dataset/grade12/physical_sciences/generators/generate_reaction_rates.py
+            python dataset/grade12/physical_sciences/generators/generate_chemical_equilibrium.py
+            python dataset/grade12/physical_sciences/generators/generate_acids_bases.py
+            python dataset/grade12/physical_sciences/generators/generate_electrochemical_reactions.py
+            python dataset/grade12/physical_sciences/generators/generate_chemical_industry.py
+            python dataset/grade12/physical_sciences/generators/generate_optical_phenomena.py
+            python dataset/grade12/physical_sciences/generators/generate_doppler_effect.py
+            python heal_physics_datasets.py
+          fi
+
+          if [ "$SUBJECT" = "all" ] || [ "$SUBJECT" = "accounting" ]; then
+            python generate_accounting12.py
+          fi
+
+          if [ "$SUBJECT" = "all" ] || [ "$SUBJECT" = "mathematical_literacy" ]; then
+            python generate_mathlit12.py
+          fi
+
+          python heal_and_complete_all_grade12.py
+
+      - name: Strict 68-Topic Quality & Deduplication Audit
+        run: |
+          python -c "
+          import glob, os, json, sys
+
+          subjects = ['accounting', 'life_sciences', 'mathematics', 'mathematical_literacy', 'physical_sciences', 'technical_mathematics', 'technical_sciences']
+          all_passed = True
+          total_checked = 0
+
+          for s in subjects:
+              s_path = os.path.join('dataset/grade12', s)
+              files = sorted(glob.glob(f'{s_path}/paper*.json'))
+              for fpath in files:
+                  total_checked += 1
+                  fname = os.path.basename(fpath)
+                  with open(fpath) as f:
+                      data = json.load(f)
+                  count = len(data)
+                  diffs = {'easy': 0, 'medium': 0, 'hard': 0}
+                  bad_wrongs = 0
+                  corr_in_wrongs = 0
+                  q_texts = set()
+                  dups = 0
+                  for q in data:
+                      d = q.get('difficulty')
+                      if d in diffs: diffs[d] += 1
+                      corr = str(q.get('correct_answer', '')).strip()
+                      wrongs = [str(w).strip() for w in q.get('wrong_answers_pool', [])]
+                      if len(wrongs) < 6: bad_wrongs += 1
+                      if corr in wrongs: corr_in_wrongs += 1
+                      txt = q.get('question', '').strip()
+                      if txt in q_texts: dups += 1
+                      q_texts.add(txt)
+                  
+                  passed = (count == 1000 and diffs == {'easy': 300, 'medium': 500, 'hard': 200} and bad_wrongs == 0 and corr_in_wrongs == 0 and dups == 0)
+                  if not passed:
+                      print(f'FAIL: {s}/{fname} (Count: {count}, Diffs: {diffs}, BadWrongs: {bad_wrongs}, CorrInWrongs: {corr_in_wrongs}, Dups: {dups})')
+                      all_passed = False
+                  else:
+                      print(f'PASS: {s}/{fname} (1000 Qs, 300/500/200, 0 Errors)')
+
+          print(f'\nTotal Topics Audited: {total_checked}/68')
+          if not all_passed:
+              print('Master Audit FAILED! Aborting deployment.')
+              sys.exit(1)
+          print('Master Audit 100% PASSED across all 68 Grade 12 datasets!')
+          "
+
+      - name: Rebuild Global Dataset Manifest
+        run: python build_manifest.py
+
+      - name: Commit and Push Changes to Main
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add dataset/grade12/ manifest.json
+          if ! git diff --staged --quiet; then
+            git commit -m "chore: auto-generate and verify Grade 12 question bank [skip ci]"
+            git push
+          else
+            echo "All 68 Grade 12 datasets are up to date. No changes to commit."
+          fi

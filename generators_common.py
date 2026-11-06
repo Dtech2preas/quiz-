@@ -1,7 +1,10 @@
 import json
 import random
 import math
-import sympy as sp
+try:
+    import sympy as sp
+except ImportError:
+    sp = None
 from typing import List
 
 class TopicGenerator:

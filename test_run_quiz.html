@@ -20,7 +20,6 @@
             }
         };
     </script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
@@ -270,12 +269,31 @@
 
     function initNewTestQuiz() {
         let numQuestions = 10;
-        if (numQuestions > fullDataset.length) {
-            numQuestions = fullDataset.length;
+
+        const seenKey = `dtech_seen_test_run_${subject}_${currentTopic}`;
+        let seenIds = [];
+        try {
+            seenIds = JSON.parse(localStorage.getItem(seenKey) || "[]");
+        } catch(e) {
+            seenIds = [];
+        }
+        const seenSet = new Set(seenIds);
+
+        let available = fullDataset.filter(q => q.id && !seenSet.has(q.id));
+        if (available.length < numQuestions) {
+            seenSet.clear();
+            localStorage.setItem(seenKey, JSON.stringify([]));
+            available = fullDataset;
         }
 
-        // Shuffle and select
-        quizQuestions = [...fullDataset].sort(() => 0.5 - Math.random()).slice(0, numQuestions);
+        if (numQuestions > available.length) {
+            numQuestions = available.length;
+        }
+
+        quizQuestions = [...available].sort(() => 0.5 - Math.random()).slice(0, numQuestions);
+
+        const newlySeen = quizQuestions.map(q => q.id).filter(Boolean);
+        localStorage.setItem(seenKey, JSON.stringify([...seenSet, ...newlySeen]));
 
         currentQuestionIndex = 0;
         correctAnswersCount = 0;

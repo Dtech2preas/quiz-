@@ -40,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 </script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
@@ -403,11 +402,36 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
         }
         numQuestions = parseInt(numQuestions) || 15;
 
-        if (numQuestions > fullDataset.length) {
-            numQuestions = fullDataset.length;
+        // Anti-repeat mechanism: prioritize questions the user hasn't seen yet in this topic
+        const seenKey = `dtech_seen_${subject}_${currentTopic}`;
+        let seenIds = [];
+        try {
+            seenIds = JSON.parse(localStorage.getItem(seenKey) || "[]");
+        } catch(e) {
+            seenIds = [];
+        }
+        const seenSet = new Set(seenIds);
+
+        let available = fullDataset.filter(q => q.id && !seenSet.has(q.id));
+
+        // If the pool of unseen questions is exhausted or smaller than requested, reset the seen cycle
+        if (available.length < numQuestions) {
+            seenSet.clear();
+            localStorage.setItem(seenKey, JSON.stringify([]));
+            available = fullDataset;
         }
 
-        quizQuestions = [...fullDataset].sort(() => 0.5 - Math.random()).slice(0, numQuestions);
+        if (numQuestions > available.length) {
+            numQuestions = available.length;
+        }
+
+        quizQuestions = [...available].sort(() => 0.5 - Math.random()).slice(0, numQuestions);
+
+        // Record the freshly selected question IDs into the seen queue
+        const newlySeen = quizQuestions.map(q => q.id).filter(Boolean);
+        const updatedSeen = [...seenSet, ...newlySeen];
+        localStorage.setItem(seenKey, JSON.stringify(updatedSeen));
+
         currentQuestionIndex = 0;
         correctAnswersCount = 0;
         userAnswers = [];

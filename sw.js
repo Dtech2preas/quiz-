@@ -30,8 +30,7 @@ const ASSETS_TO_CACHE = [
   '/firebase_config.js',
   '/register_sw.js',
   '/update_timer.js',
-  '/logo.png',
-  '/test.png'
+  '/logo.png'
 ];
 
 let cachedActiveCacheName = null;

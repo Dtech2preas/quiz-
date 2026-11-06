@@ -841,30 +841,30 @@ def generate_p2_probability() -> MathLit12Generator:
 
 if __name__ == "__main__":
     random.seed(42)
-    os.makedirs("dataset/mathematical_literacy", exist_ok=True)
+    os.makedirs("dataset/grade12/mathematical_literacy", exist_ok=True)
 
     print("Generating Paper 1 Finance...")
     p1_finance = generate_p1_finance()
-    p1_finance.save_to_json("dataset/mathematical_literacy/paper1_mathlit12_finance.json")
+    p1_finance.save_to_json("dataset/grade12/mathematical_literacy/paper1_mathlit12_finance.json")
 
     print("Generating Paper 1 Data Handling...")
     p1_data = generate_p1_data_handling()
-    p1_data.save_to_json("dataset/mathematical_literacy/paper1_mathlit12_data_handling.json")
+    p1_data.save_to_json("dataset/grade12/mathematical_literacy/paper1_mathlit12_data_handling.json")
 
     print("Generating Paper 1 Probability...")
     p1_prob = generate_p1_probability()
-    p1_prob.save_to_json("dataset/mathematical_literacy/paper1_mathlit12_probability.json")
+    p1_prob.save_to_json("dataset/grade12/mathematical_literacy/paper1_mathlit12_probability.json")
 
     print("Generating Paper 2 Measurement...")
     p2_meas = generate_p2_measurement()
-    p2_meas.save_to_json("dataset/mathematical_literacy/paper2_mathlit12_measurement.json")
+    p2_meas.save_to_json("dataset/grade12/mathematical_literacy/paper2_mathlit12_measurement.json")
 
     print("Generating Paper 2 Maps and Plans...")
     p2_maps = generate_p2_maps_plans()
-    p2_maps.save_to_json("dataset/mathematical_literacy/paper2_mathlit12_maps_plans.json")
+    p2_maps.save_to_json("dataset/grade12/mathematical_literacy/paper2_mathlit12_maps_plans.json")
 
     print("Generating Paper 2 Probability...")
     p2_prob = generate_p2_probability()
-    p2_prob.save_to_json("dataset/mathematical_literacy/paper2_mathlit12_probability.json")
+    p2_prob.save_to_json("dataset/grade12/mathematical_literacy/paper2_mathlit12_probability.json")
 
-    print("Done! All 6 Grade 12 Math Lit files generated in dataset/mathematical_literacy/")
+    print("Done! All 6 Grade 12 Math Lit files generated in dataset/grade12/mathematical_literacy/")
