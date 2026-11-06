@@ -56,6 +56,19 @@ jobs:
             python generate_accounting12.py
           fi
 
+          if [ "$SUBJECT" = "all" ] || [ "$SUBJECT" = "mathematics" ]; then
+            python dataset/grade12/mathematics/generators/generate_math_algebra.py
+            python dataset/grade12/mathematics/generators/generate_math_sequences.py
+            python dataset/grade12/mathematics/generators/generate_math_functions.py
+            python dataset/grade12/mathematics/generators/generate_math_finance.py
+            python dataset/grade12/mathematics/generators/generate_math_calculus.py
+            python dataset/grade12/mathematics/generators/generate_math_probability.py
+            python dataset/grade12/mathematics/generators/generate_math_statistics.py
+            python dataset/grade12/mathematics/generators/generate_math_analytical.py
+            python dataset/grade12/mathematics/generators/generate_math_trigonometry.py
+            python dataset/grade12/mathematics/generators/generate_math_geometry.py
+          fi
+
           if [ "$SUBJECT" = "all" ] || [ "$SUBJECT" = "life_sciences" ]; then
             python dataset/grade12/life_sciences/generators/generate_dna_code.py
             python dataset/grade12/life_sciences/generators/generate_genetics.py
