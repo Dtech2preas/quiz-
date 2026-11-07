@@ -51,54 +51,99 @@ jobs:
             python dataset/grade11/physical_sciences/generators/generate_physci11_acids_bases.py
           fi
 
+          if [ "$SUBJECT" = "all" ] || [ "$SUBJECT" = "mathematics" ]; then
+            python dataset/grade11/mathematics/generators/generate_math11_algebra.py
+            python dataset/grade11/mathematics/generators/generate_math11_functions.py
+            python dataset/grade11/mathematics/generators/generate_math11_sequences.py
+            python dataset/grade11/mathematics/generators/generate_math11_finance.py
+            python dataset/grade11/mathematics/generators/generate_math11_probability.py
+            python dataset/grade11/mathematics/generators/generate_math11_statistics.py
+            python dataset/grade11/mathematics/generators/generate_math11_analytical_geometry.py
+            python dataset/grade11/mathematics/generators/generate_math11_trigonometry.py
+            python dataset/grade11/mathematics/generators/generate_math11_euclidean_geometry.py
+          fi
+
           if [ "$SUBJECT" = "all" ] || [ "$SUBJECT" = "mathematical_literacy" ]; then
-            if [ -f "generate_mathlit11.py" ]; then
-              python generate_mathlit11.py
-            fi
+            python dataset/grade11/mathematical_literacy/generators/generate_mathlit11_finance.py
+            python dataset/grade11/mathematical_literacy/generators/generate_mathlit11_data_handling.py
+            python dataset/grade11/mathematical_literacy/generators/generate_mathlit11_patterns.py
+            python dataset/grade11/mathematical_literacy/generators/generate_mathlit11_probability.py
+            python dataset/grade11/mathematical_literacy/generators/generate_mathlit11_revision.py
+            python dataset/grade11/mathematical_literacy/generators/generate_mathlit11_maps_plans.py
+            python dataset/grade11/mathematical_literacy/generators/generate_mathlit11_measurement.py
           fi
 
           if [ "$SUBJECT" = "all" ] || [ "$SUBJECT" = "agricultural_sciences" ]; then
-            if [ -f "generate_agri_sciences.py" ]; then
-              python generate_agri_sciences.py
-            fi
+            python dataset/grade11/agricultural_sciences/generators/generate_agrisci11_chemistry.py
+            python dataset/grade11/agricultural_sciences/generators/generate_agrisci11_soil_science.py
+            python dataset/grade11/agricultural_sciences/generators/generate_agrisci11_plant_studies.py
+            python dataset/grade11/agricultural_sciences/generators/generate_agrisci11_resource_utilisation.py
           fi
 
-      - name: Strict Quality & Deduplication Audit
+          if [ "$SUBJECT" = "all" ] || [ "$SUBJECT" = "life_sciences" ]; then
+            python dataset/grade11/life_sciences/generators/generate_lifesci11_homeostasis.py
+            python dataset/grade11/life_sciences/generators/generate_lifesci11_endocrine_system.py
+            python dataset/grade11/life_sciences/generators/generate_lifesci11_environment_humans.py
+            python dataset/grade11/life_sciences/generators/generate_lifesci11_environment_plants.py
+            python dataset/grade11/life_sciences/generators/generate_lifesci11_human_impact.py
+            python dataset/grade11/life_sciences/generators/generate_lifesci11_human_reproduction.py
+            python dataset/grade11/life_sciences/generators/generate_lifesci11_reproduction_vertebrates.py
+            python dataset/grade11/life_sciences/generators/generate_lifesci11_p1_meiosis.py
+            python dataset/grade11/life_sciences/generators/generate_lifesci11_dna_code.py
+            python dataset/grade11/life_sciences/generators/generate_lifesci11_evolution.py
+            python dataset/grade11/life_sciences/generators/generate_lifesci11_genetics.py
+            python dataset/grade11/life_sciences/generators/generate_lifesci11_p2_meiosis.py
+          fi
+
+      - name: Strict 42-Topic Quality & Deduplication Audit
         run: |
           python -c "
           import glob, os, json, sys
 
+          subjects = ['physical_sciences', 'mathematics', 'mathematical_literacy', 'agricultural_sciences', 'life_sciences']
           all_passed = True
-          total_checked = 0
+          total_topics = 0
+          total_questions = 0
 
-          # Always audit physical sciences
-          phys_files = sorted(glob.glob('dataset/grade11/physical_sciences/paper*.json'))
-          for fpath in phys_files:
-              total_checked += 1
-              fname = os.path.basename(fpath)
-              with open(fpath) as f:
-                  data = json.load(f)
-              count = len(data)
-              diffs = {'easy': 0, 'medium': 0, 'hard': 0}
-              bad_wrongs = sum(1 for q in data if len(q.get('wrong_answers_pool', [])) < 6)
-              corr_in_wrongs = sum(1 for q in data if str(q.get('correct_answer', '')).strip() in [str(w).strip() for w in q.get('wrong_answers_pool', [])])
-              dups = len(data) - len(set(q.get('question', '').strip() for q in data))
-              for q in data:
-                  d = q.get('difficulty')
-                  if d in diffs: diffs[d] += 1
-              
-              passed = (count == 1000 and diffs == {'easy': 300, 'medium': 500, 'hard': 200} and bad_wrongs == 0 and corr_in_wrongs == 0 and dups == 0)
-              if not passed:
-                  print(f'FAIL: physical_sciences/{fname} (Count: {count}, Diffs: {diffs}, BadWrongs: {bad_wrongs}, CorrInWrongs: {corr_in_wrongs}, Dups: {dups})')
-                  all_passed = False
-              else:
-                  print(f'PASS: physical_sciences/{fname} (1000 Qs, 300/500/200, 0 Errors)')
+          for s in subjects:
+              s_path = os.path.join('dataset/grade11', s)
+              files = sorted(glob.glob(f'{s_path}/paper*.json'))
+              for fpath in files:
+                  total_topics += 1
+                  fname = os.path.basename(fpath)
+                  with open(fpath) as f:
+                      data = json.load(f)
+                  count = len(data)
+                  total_questions += count
+                  diffs = {'easy': 0, 'medium': 0, 'hard': 0}
+                  bad_wrongs = 0
+                  corr_in_wrongs = 0
+                  seen_texts = set()
+                  dups = 0
+                  for q in data:
+                      d = q.get('difficulty')
+                      if d in diffs: diffs[d] += 1
+                      corr = str(q.get('correct_answer', '')).strip()
+                      wrongs = [str(w).strip() for w in q.get('wrong_answers_pool', [])]
+                      if len(wrongs) < 6: bad_wrongs += 1
+                      if corr in wrongs: corr_in_wrongs += 1
+                      txt = q.get('question', '').strip()
+                      if txt in seen_texts: dups += 1
+                      seen_texts.add(txt)
 
-          print(f'\nTotal Topics Audited: {total_checked}')
+                  passed = (count == 1000 and diffs == {'easy': 300, 'medium': 500, 'hard': 200} and bad_wrongs == 0 and corr_in_wrongs == 0 and dups == 0)
+                  if not passed:
+                      print(f'FAIL: {s}/{fname} (count={count}, diffs={diffs}, bad_wrongs={bad_wrongs}, corr_in_wrongs={corr_in_wrongs}, dups={dups})')
+                      all_passed = False
+                  else:
+                      print(f'PASS: {s}/{fname} (1000 Qs, 300/500/200, 0 err, 0 dups)')
+
+          print(f'\nTotal Grade 11 Topics Audited: {total_topics}/42')
+          print(f'Total Grade 11 Questions Audited: {total_questions}/42000')
           if not all_passed:
               print('Master Grade 11 Audit FAILED! Aborting deployment.')
               sys.exit(1)
-          print('Master Grade 11 Audit 100% PASSED!')
+          print('Master Grade 11 Audit 100% PASSED across all 42 Grade 11 datasets!')
           "
 
       - name: Rebuild Global Dataset Manifest
@@ -113,5 +158,5 @@ jobs:
             git commit -m "chore: auto-generate and verify Grade 11 question bank [skip ci]"
             git push
           else
-            echo "All Grade 11 datasets are up to date. No changes to commit."
+            echo "All 42 Grade 11 datasets are up to date. No changes to commit."
           fi
