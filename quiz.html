@@ -306,6 +306,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         return text;
     }
+
+    function cleanQuestionText(text) {
+        if (!text) return "";
+        let str = String(text);
+        // Remove artificial prefix tags: "Clinical diagnostic case 1:", "Pedigree/Paternity scenario 4:", "[Case 10] "
+        str = str.replace(/^\s*([A-Za-z\/\-\s]+?\s+(?:scenario|case|batch|set)\s*#?\d+\s*:\s*|\[(?:Case|Scenario|Variant|Set|Batch)\s*#?\d+\]\s*|A\s+[\w\s]+?application problem variant\s+\d+\s+relating to\s+[^:]+:\s*)/i, "");
+        // Remove parenthetical labels: "(variant 1)", "(Case 4)", "(Scenario 12)", "(Set 1)"
+        str = str.replace(/\s*\((?:variant|case|scenario|set|batch)\s*#?\d+\)/gi, "");
+        // Remove trailing dash labels: " - Case 4"
+        str = str.replace(/\s*[-–]\s*(?:case|scenario|variant|set)\s*#?\d+/gi, "");
+        if (str.length > 0) {
+            str = str.charAt(0).toUpperCase() + str.slice(1);
+        }
+        return str.trim();
+    }
 var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
     const userId = localStorage.getItem("user_id");
 
@@ -459,7 +474,7 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
         document.getElementById("progress-text").textContent = `Question ${currentQuestionIndex + 1} of ${quizQuestions.length}`;
 
         const qText = document.getElementById("question-text");
-        qText.innerHTML = formatLatexOption(q.question);
+        qText.innerHTML = formatLatexOption(cleanQuestionText(q.question));
 
         // Reset animations
         qText.classList.remove('fade-in');
@@ -529,11 +544,11 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
 
         // Store result for review later
         userAnswers.push({
-            question: formatLatexOption(q.question),
+            question: formatLatexOption(cleanQuestionText(q.question)),
             correctAnswer: formatLatexOption(q.correct_answer),
             selectedAnswer: selectedText, // This was already formatted when created
             isCorrect: isCorrect,
-            explanation: formatLatexOption(q.explanation) || `The correct answer is: ${formatLatexOption(q.correct_answer)}`
+            explanation: formatLatexOption(cleanQuestionText(q.explanation)) || `The correct answer is: ${formatLatexOption(q.correct_answer)}`
         });
 
         if (isCorrect) {
