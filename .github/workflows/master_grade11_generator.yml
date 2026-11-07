@@ -1,0 +1,117 @@
+name: Master Grade 11 Generator & Verifier
+
+on:
+  workflow_dispatch:
+    inputs:
+      subject:
+        description: 'Select Grade 11 Subject to process'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - physical_sciences
+          - mathematics
+          - mathematical_literacy
+          - agricultural_sciences
+          - life_sciences
+
+permissions:
+  contents: write
+
+jobs:
+  build-grade11:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Run Grade 11 Generators
+        run: |
+          SUBJECT="${{ github.event.inputs.subject }}"
+          echo "Processing Grade 11 Subject: $SUBJECT"
+
+          if [ "$SUBJECT" = "all" ] || [ "$SUBJECT" = "physical_sciences" ]; then
+            python dataset/grade11/physical_sciences/generators/generate_physci11_vectors.py
+            python dataset/grade11/physical_sciences/generators/generate_physci11_newtons_laws.py
+            python dataset/grade11/physical_sciences/generators/generate_physci11_waves_sound_light.py
+            python dataset/grade11/physical_sciences/generators/generate_physci11_electricity.py
+            python dataset/grade11/physical_sciences/generators/generate_physci11_magnetism.py
+            python dataset/grade11/physical_sciences/generators/generate_physci11_matter_materials.py
+            python dataset/grade11/physical_sciences/generators/generate_physci11_ideal_gases.py
+            python dataset/grade11/physical_sciences/generators/generate_physci11_quantitative_chem.py
+            python dataset/grade11/physical_sciences/generators/generate_physci11_energy_change.py
+            python dataset/grade11/physical_sciences/generators/generate_physci11_acids_bases.py
+          fi
+
+          if [ "$SUBJECT" = "all" ] || [ "$SUBJECT" = "mathematical_literacy" ]; then
+            if [ -f "generate_mathlit11.py" ]; then
+              python generate_mathlit11.py
+            fi
+          fi
+
+          if [ "$SUBJECT" = "all" ] || [ "$SUBJECT" = "agricultural_sciences" ]; then
+            if [ -f "generate_agri_sciences.py" ]; then
+              python generate_agri_sciences.py
+            fi
+          fi
+
+      - name: Strict Quality & Deduplication Audit
+        run: |
+          python -c "
+          import glob, os, json, sys
+
+          all_passed = True
+          total_checked = 0
+
+          # Always audit physical sciences
+          phys_files = sorted(glob.glob('dataset/grade11/physical_sciences/paper*.json'))
+          for fpath in phys_files:
+              total_checked += 1
+              fname = os.path.basename(fpath)
+              with open(fpath) as f:
+                  data = json.load(f)
+              count = len(data)
+              diffs = {'easy': 0, 'medium': 0, 'hard': 0}
+              bad_wrongs = sum(1 for q in data if len(q.get('wrong_answers_pool', [])) < 6)
+              corr_in_wrongs = sum(1 for q in data if str(q.get('correct_answer', '')).strip() in [str(w).strip() for w in q.get('wrong_answers_pool', [])])
+              dups = len(data) - len(set(q.get('question', '').strip() for q in data))
+              for q in data:
+                  d = q.get('difficulty')
+                  if d in diffs: diffs[d] += 1
+              
+              passed = (count == 1000 and diffs == {'easy': 300, 'medium': 500, 'hard': 200} and bad_wrongs == 0 and corr_in_wrongs == 0 and dups == 0)
+              if not passed:
+                  print(f'FAIL: physical_sciences/{fname} (Count: {count}, Diffs: {diffs}, BadWrongs: {bad_wrongs}, CorrInWrongs: {corr_in_wrongs}, Dups: {dups})')
+                  all_passed = False
+              else:
+                  print(f'PASS: physical_sciences/{fname} (1000 Qs, 300/500/200, 0 Errors)')
+
+          print(f'\nTotal Topics Audited: {total_checked}')
+          if not all_passed:
+              print('Master Grade 11 Audit FAILED! Aborting deployment.')
+              sys.exit(1)
+          print('Master Grade 11 Audit 100% PASSED!')
+          "
+
+      - name: Rebuild Global Dataset Manifest
+        run: python build_manifest.py
+
+      - name: Commit and Push Changes to Main
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add dataset/grade11/ manifest.json
+          if ! git diff --staged --quiet; then
+            git commit -m "chore: auto-generate and verify Grade 11 question bank [skip ci]"
+            git push
+          else
+            echo "All Grade 11 datasets are up to date. No changes to commit."
+          fi
