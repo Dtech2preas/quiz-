@@ -1,3 +1,4 @@
+from __future__ import annotations
 import json
 import random
 import math
@@ -5,7 +6,7 @@ try:
     import sympy as sp
 except ImportError:
     sp = None
-from typing import List
+from typing import List, Any
 
 class TopicGenerator:
     def __init__(self, topic_name: str, topic_prefix: str, subtopics: List[str], grade: str = '12', subject: str = 'Accounting'):
@@ -122,8 +123,10 @@ def get_wrong_floats(correct_val: float, count=8, decimals=2) -> List[str]:
     res = [f"{x:.{decimals}f}" for x in wrongs if abs(x - correct_val) > 1e-9]
     return res[:count]
 
-def get_wrong_exprs(correct_expr: sp.Expr, count=8) -> List[str]:
-    x = list(correct_expr.free_symbols)[0] if correct_expr.free_symbols else sp.Symbol('x')
+def get_wrong_exprs(correct_expr: Any, count=8) -> List[str]:
+    if sp is None:
+        return []
+    x = list(correct_expr.free_symbols)[0] if (hasattr(correct_expr, 'free_symbols') and correct_expr.free_symbols) else (sp.Symbol('x') if sp else 'x')
     wrongs = set()
     wrongs.add(-correct_expr)
     wrongs.add(correct_expr * 2)
