@@ -53,7 +53,14 @@ jobs:
           fi
 
           if [ "$SUBJECT" = "all" ] || [ "$SUBJECT" = "accounting" ]; then
-            python generate_accounting12.py
+            python dataset/grade12/accounting/generators/generate_acc_companies.py
+            python dataset/grade12/accounting/generators/generate_acc_financial_statements.py
+            python dataset/grade12/accounting/generators/generate_acc_cash_flow.py
+            python dataset/grade12/accounting/generators/generate_acc_analysis.py
+            python dataset/grade12/accounting/generators/generate_acc_manufacturing.py
+            python dataset/grade12/accounting/generators/generate_acc_budgeting.py
+            python dataset/grade12/accounting/generators/generate_acc_inventory.py
+            python dataset/grade12/accounting/generators/generate_acc_reconciliations.py
           fi
 
           if [ "$SUBJECT" = "all" ] || [ "$SUBJECT" = "mathematics" ]; then
@@ -83,10 +90,37 @@ jobs:
           fi
 
           if [ "$SUBJECT" = "all" ] || [ "$SUBJECT" = "mathematical_literacy" ]; then
-            python generate_mathlit12.py
+            python dataset/grade12/mathematical_literacy/generators/generate_mathlit_finance.py
+            python dataset/grade12/mathematical_literacy/generators/generate_mathlit_data_handling.py
+            python dataset/grade12/mathematical_literacy/generators/generate_mathlit_p1_probability.py
+            python dataset/grade12/mathematical_literacy/generators/generate_mathlit_measurement.py
+            python dataset/grade12/mathematical_literacy/generators/generate_mathlit_maps_plans.py
+            python dataset/grade12/mathematical_literacy/generators/generate_mathlit_p2_probability.py
           fi
 
-          python heal_and_complete_all_grade12.py
+          if [ "$SUBJECT" = "all" ] || [ "$SUBJECT" = "technical_mathematics" ]; then
+            python dataset/grade12/technical_mathematics/generators/generate_techmath_algebra.py
+            python dataset/grade12/technical_mathematics/generators/generate_techmath_functions.py
+            python dataset/grade12/technical_mathematics/generators/generate_techmath_finance.py
+            python dataset/grade12/technical_mathematics/generators/generate_techmath_calculus.py
+            python dataset/grade12/technical_mathematics/generators/generate_techmath_analytical.py
+            python dataset/grade12/technical_mathematics/generators/generate_techmath_trig.py
+            python dataset/grade12/technical_mathematics/generators/generate_techmath_circle_angular.py
+            python dataset/grade12/technical_mathematics/generators/generate_techmath_mensuration.py
+          fi
+
+          if [ "$SUBJECT" = "all" ] || [ "$SUBJECT" = "technical_sciences" ]; then
+            python dataset/grade12/technical_sciences/generators/generate_techsci_elasticity.py
+            python dataset/grade12/technical_sciences/generators/generate_techsci_electricity.py
+            python dataset/grade12/technical_sciences/generators/generate_techsci_electromagnetism.py
+            python dataset/grade12/technical_sciences/generators/generate_techsci_momentum.py
+            python dataset/grade12/technical_sciences/generators/generate_techsci_newtons_laws.py
+            python dataset/grade12/technical_sciences/generators/generate_techsci_waves.py
+            python dataset/grade12/technical_sciences/generators/generate_techsci_work_energy.py
+            python dataset/grade12/technical_sciences/generators/generate_techsci_electrochem.py
+            python dataset/grade12/technical_sciences/generators/generate_techsci_materials.py
+            python dataset/grade12/technical_sciences/generators/generate_techsci_organic.py
+          fi
 
       - name: Strict 68-Topic Quality & Deduplication Audit
         run: |

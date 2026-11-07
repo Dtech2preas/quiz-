@@ -1,0 +1,112 @@
+name: Generate Grade 12 Accounting
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Select Accounting Paper to generate'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - paper1
+          - paper2
+
+permissions:
+  contents: write
+
+jobs:
+  build-questions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Generate Questions
+        run: |
+          TARGET="${{ github.event.inputs.target }}"
+          echo "Generating Grade 12 Accounting batch for: $TARGET"
+
+          if [ "$TARGET" = "all" ] || [ "$TARGET" = "paper1" ]; then
+            python dataset/grade12/accounting/generators/generate_acc_companies.py
+            python dataset/grade12/accounting/generators/generate_acc_financial_statements.py
+            python dataset/grade12/accounting/generators/generate_acc_cash_flow.py
+            python dataset/grade12/accounting/generators/generate_acc_analysis.py
+          fi
+
+          if [ "$TARGET" = "all" ] || [ "$TARGET" = "paper2" ]; then
+            python dataset/grade12/accounting/generators/generate_acc_manufacturing.py
+            python dataset/grade12/accounting/generators/generate_acc_budgeting.py
+            python dataset/grade12/accounting/generators/generate_acc_inventory.py
+            python dataset/grade12/accounting/generators/generate_acc_reconciliations.py
+          fi
+
+      - name: Verify Datasets Quality & Distribution
+        run: |
+          python -c "
+          import glob, json, sys
+
+          files = sorted(glob.glob('dataset/grade12/accounting/paper*.json'))
+          assert len(files) == 8, f'Expected 8 files, found {len(files)}'
+
+          all_passed = True
+          for fpath in files:
+              with open(fpath) as f:
+                  data = json.load(f)
+              count = len(data)
+              diffs = {'easy': 0, 'medium': 0, 'hard': 0}
+              bad_wrongs = 0
+              corr_in_wrongs = 0
+              q_texts = set()
+              dups = 0
+
+              for q in data:
+                  diff = q.get('difficulty')
+                  if diff in diffs:
+                      diffs[diff] += 1
+                  w_pool = q.get('wrong_answers_pool', [])
+                  if len(w_pool) < 6:
+                      bad_wrongs += 1
+                  if q.get('correct_answer') in w_pool:
+                      corr_in_wrongs += 1
+                  text = q.get('question')
+                  if text in q_texts:
+                      dups += 1
+                  q_texts.add(text)
+
+              is_valid = (count == 1000 and diffs['easy'] == 300 and diffs['medium'] == 500 and diffs['hard'] == 200 and bad_wrongs == 0 and corr_in_wrongs == 0 and dups == 0)
+              status = 'PASS' if is_valid else 'FAIL'
+              print(f'[{status}] {fpath}: count={count}, diffs={diffs}, bad_wrongs={bad_wrongs}, corr_in_wrongs={corr_in_wrongs}, dups={dups}')
+              if not is_valid:
+                  all_passed = False
+
+          if not all_passed:
+              print('Quality check FAILED!')
+              sys.exit(1)
+          print('All Grade 12 Accounting datasets passed strict production audit!')
+          "
+
+      - name: Update Manifest
+        run: |
+          python build_manifest.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add dataset/grade12/accounting/ manifest.json
+          git status
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "feat(acc12): batch update Grade 12 Accounting questions and manifest [skip ci]"
+            git push origin main
+          fi

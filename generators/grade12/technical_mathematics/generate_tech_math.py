@@ -1,6 +1,5 @@
 import random
 import math
-import sympy as sp
 import json
 import os
 import sys
@@ -421,97 +420,239 @@ def gen_p1_finance():
 def gen_p1_calculus():
     gen = TopicGenerator(
         "Differential Calculus & Integration", "CALC",
-        ["Limits", "First Principles", "Differentiation Rules", "Cubic Graphs", "Integration"]
+        ["Limits", "First Principles", "Differentiation Rules", "Tangents & Turning Points", "Integration"]
     )
     attempts = 0
-    while not gen.is_done() and attempts < 30000:
+    while not gen.is_done() and attempts < 60000:
         attempts += 1
         available_diffs = [d for d in ["easy", "medium", "hard"] if gen.difficulty_counts[d] < gen.difficulty_targets[d]]
         if not available_diffs: break
-
         diff = random.choice(available_diffs)
         sub = random.choice(gen.subtopics)
-
         q, correct, wrongs, exp = "", "", [], ""
 
         if sub == "Limits":
-            a = random.randint(2, 5)
-            x_val = random.randint(1, 4)
             if diff == "easy":
-                q = f"Evaluate: $\\lim_{{x \\to {x_val}}} ({a}x^2 - x)$"
-                ans = a*(x_val**2) - x_val
-                correct = str(ans)
-                wrongs = get_wrong_ints(ans, 6)
-                exp = f"Substitute $x={x_val}$: ${a}({x_val})^2 - ({x_val}) = {ans}$"
-            else:
-                q = f"Evaluate: $\\lim_{{x \\to {x_val}}} \\frac{{x^2 - {x_val**2}}}{{x - {x_val}}}$"
-                ans = 2 * x_val
-                correct = str(ans)
-                wrongs = get_wrong_ints(ans, 6)
-                exp = f"Factorise numerator: $\\frac{{(x-{x_val})(x+{x_val})}}{{x-{x_val}}} = x + {x_val}$. Then substitute $x={x_val}$ to get ${x_val}+{x_val} = {ans}$."
-
-        elif sub == "Differentiation Rules":
-            n = random.randint(2, 5)
-            a = random.randint(2, 6)
-            if diff == "easy":
-                q = f"Determine $\\frac{{dy}}{{dx}}$ if $y = {a}x^{n}$."
-                ans_a = a * n
-                ans_n = n - 1
-                correct = f"${ans_a}x^{ans_n}$"
-                wrongs = [f"${ans_a}x^{n}$", f"${a}x^{ans_n}$", f"${ans_a}x^{n+1}$", f"${a*n*2}x^{ans_n}$", f"${ans_a}x$", f"${a}x^{n-2}$"]
-                exp = f"Multiply coefficient by power, reduce power by 1: ${a} \\times {n} = {ans_a}$, new power = ${n}-1 = {ans_n}$."
-            else:
-                q = f"Determine $f'(x)$ if $f(x) = {a}x^{n} - \\frac{{{a}}}{{x^2}}$."
-                ans_a1 = a * n
-                ans_n1 = n - 1
-                correct = f"${ans_a1}x^{ans_n1} + {2*a}x^{{-3}}$"
-                wrongs = [
-                    f"${ans_a1}x^{ans_n1} - {2*a}x^{{-3}}$",
-                    f"${ans_a1}x^{ans_n1} + {a}x^{{-3}}$",
-                    f"${ans_a1}x^{ans_n1} - {a}x^{{-1}}$",
-                    f"${ans_a1}x^{n} + {2*a}x^{{-3}}$",
-                    f"${a}x^{ans_n1} + {2*a}x^{{-3}}$",
-                    f"${ans_a1}x^{ans_n1} + {2*a}x^{{-1}}$"
-                ]
-                exp = f"Rewrite as $f(x) = {a}x^{n} - {a}x^{{-2}}$. Then $f'(x) = {ans_a1}x^{ans_n1} - (-2)({a})x^{{-3}}$."
+                a = random.randint(1, 9)
+                b = random.randint(-15, 15)
+                c = random.randint(-5, 5)
+                val = a * c + b
+                q = f"Evaluate the limit: $\\lim_{{x \\to {c}}} ({a}x {b:+d})$"
+                correct = str(val)
+                wrongs = get_wrong_ints(val, 8)
+                exp = f"Substitute $x={c}$: ${a}({c}) {b:+d} = {val}$."
+            elif diff == "medium":
+                l_type = random.choice([1, 2, 3])
+                if l_type == 1:
+                    c = random.randint(-15, 15)
+                    if c == 0: c = 2
+                    q = f"Evaluate the limit: $\\lim_{{x \\to {c}}} \\frac{{x^2 - {c**2}}}{{x - {c}}}$"
+                    val = 2 * c
+                    correct = str(val)
+                    wrongs = get_wrong_ints(val, 8)
+                    exp = f"Factorise: $\\lim_{{x \\to {c}}} (x + {c}) = {val}$."
+                elif l_type == 2:
+                    a = random.randint(1, 9)
+                    b = random.randint(-20, 20)
+                    if b == 0: b = 3
+                    q = f"Evaluate the limit: $\\lim_{{x \\to 0}} \\frac{{{a}x^2 {b:+d}x}}{{x}}$"
+                    val = b
+                    correct = str(val)
+                    wrongs = get_wrong_ints(val, 8)
+                    exp = f"Factorise $x$: $\\lim_{{x \\to 0}} ({a}x {b:+d}) = {val}$."
+                else:
+                    a = random.randint(1, 4)
+                    b = random.randint(-5, 5)
+                    c = random.randint(-3, 3)
+                    d = random.randint(-10, 10)
+                    val = a*(c**2) + b*c + d
+                    q = f"Evaluate the limit: $\\lim_{{x \\to {c}}} ({a}x^2 {b:+d}x {d:+d})$"
+                    correct = str(val)
+                    wrongs = get_wrong_ints(val, 8)
+                    exp = f"Substitute $x={c}$: {val}."
+            else: # hard
+                a = random.randint(1, 8)
+                b = random.randint(1, 8)
+                c = random.randint(1, 5)
+                q = f"Evaluate the limit: $\\lim_{{x \\to {c}}} \\frac{{x^2 {a-c:+d}x - {a*c}}}{{x - {c}}}$"
+                val = c + a
+                correct = str(val)
+                wrongs = get_wrong_ints(val, 8)
+                exp = f"Factorise into $(x-{c})(x+{a})/(x-{c}) = x + {a} \\to {c} + {a} = {val}$."
 
         elif sub == "First Principles":
-            a = random.randint(2, 5)
-            q = f"Determine the derivative of $f(x) = {a}x^2$ from first principles. What is $f'(x)$?"
-            correct = f"${2*a}x$"
-            wrongs = [f"${a}x$", f"${2*a}x^2$", f"${a}x^2$", f"${2*a}$", f"${a}$", f"${2*a}x^3$"]
-            exp = f"$f'(x) = \\lim_{{h \\to 0}} \\frac{{{a}(x+h)^2 - {a}x^2}}{{h}} = \\lim_{{h \\to 0}} \\frac{{{a}(x^2+2xh+h^2) - {a}x^2}}{{h}} = {2*a}x$"
+            if diff == "easy":
+                m = random.choice([2, 3, 4, 5, 6, 7, 8, 9, -2, -3, -4, -5])
+                c_val = random.randint(-10, 10)
+                q = f"Use first principles to find $f'(x)$ for $f(x) = {m}x {c_val:+d}$."
+                correct = str(m)
+                wrongs = get_wrong_ints(m, 8)
+                exp = f"Derivative is {m}."
+            elif diff == "medium":
+                a = random.randint(-10, 10)
+                if a == 0: a = 2
+                b = random.randint(-20, 20)
+                q = f"Use first principles to determine the derivative of $f(x) = {a}x^2 {b:+d}$."
+                correct = f"${2*a}x$"
+                wrongs = [f"${a}x$", f"${2*a}x^2$", f"${a}x^2$", f"${2*a}$", f"${a}$", f"${-2*a}x$", f"${4*a}x$", f"${2*a}x^3$"]
+                exp = f"Derivative of ${a}x^2 {b:+d}$ is ${2*a}x$."
+            else: # hard
+                a = random.choice([2, 3, 4, -2, -3])
+                b = random.choice([1, 2, 3, 4, 5, -1, -2, -3, -4])
+                q = f"Determine the derivative of $f(x) = {a}x^2 {b:+d}x$ from first principles."
+                correct = f"${2*a}x {b:+d}$"
+                wrongs = [f"${2*a}x - {b}$", f"${a}x {b:+d}$", f"${2*a}x^2 {b:+d}$", f"${2*a}x$", f"${a*2}x {b*2:+d}$", f"${2*a+1}x {b:+d}$", f"${2*a}x {b-1:+d}$", f"${2*a}x {b+1:+d}$"]
+                exp = f"$f'(x) = {2*a}x {b:+d}$."
 
-        elif sub == "Cubic Graphs":
-            q = "A cubic function $f(x) = x^3 - 3x^2 + 4$. At what $x$-values do the turning points occur?"
-            correct = "$x = 0$ and $x = 2$"
-            wrongs = [
-                "$x = -2$ and $x = 0$", "$x = -1$ and $x = 2$", "$x = 1$ and $x = -2$",
-                "$x = 0$ and $x = 3$", "$x = 1$ and $x = 3$", "$x = -3$ and $x = 2$"
-            ]
-            exp = "$f'(x) = 3x^2 - 6x$. Set $f'(x)=0 \\implies 3x(x-2)=0 \\implies x=0$ or $x=2$."
+        elif sub == "Differentiation Rules":
+            if diff == "easy":
+                a = random.randint(2, 9)
+                n = random.randint(2, 6)
+                q = f"Determine $\\frac{{dy}}{{dx}}$ if $y = {a}x^{{{n}}}$."
+                correct = f"${a*n}x^{{{n-1}}}$"
+                wrongs = [f"${a*n}x^{{{n}}}$", f"${a}x^{{{n-1}}}$", f"${a*n}x^{{{n+1}}}$", f"${a*n*2}x^{{{n-1}}}$", f"${a*n}x$", f"${a}x^{{{n-2}}}$", f"${a*n+1}x^{{{n-1}}}$", f"${a*n-1}x^{{{n-1}}}$"]
+                exp = f"Power rule: {a*n}x^{n-1}."
+            elif diff == "medium":
+                m_type = random.choice([1, 2])
+                if m_type == 1:
+                    a = random.randint(2, 8)
+                    n = random.randint(2, 5)
+                    c_val = random.randint(1, 9)
+                    q = f"Differentiate $y = {a}x^{{{n}}} + \\frac{{{c_val}}}{{x}}$ with respect to $x$."
+                    correct = f"${a*n}x^{{{n-1}}} - \\frac{{{c_val}}}{{x^2}}$"
+                    wrongs = [
+                        f"${a*n}x^{{{n-1}}} + \\frac{{{c_val}}}{{x^2}}$",
+                        f"${a*n}x^{{{n}}} - \\frac{{{c_val}}}{{x^2}}$",
+                        f"${a}x^{{{n-1}}} - \\frac{{{c_val}}}{{x^2}}$",
+                        f"${a*n}x^{{{n-1}}} - {c_val}x$",
+                        f"${a*n}x^{{{n-1}}} + {c_val}\\ln x$",
+                        f"${a*n}x^{{{n+1}}} - \\frac{{{c_val}}}{{x^2}}$",
+                        f"${a*n}x^{{{n-1}}} - \\frac{{{c_val*2}}}{{x^2}}$",
+                        f"${a*n*2}x^{{{n-1}}} - \\frac{{{c_val}}}{{x^2}}$"
+                    ]
+                    exp = f"Derivative is {a*n}x^{n-1} - {c_val}/x^2."
+                else:
+                    a = random.randint(2, 6)
+                    b = random.randint(2, 6)
+                    n = random.randint(2, 5)
+                    m = random.randint(2, 4)
+                    if n == m: m = n + 1
+                    q = f"Determine $\\frac{{dy}}{{dx}}$ if $y = {a}x^{{{n}}} + {b}x^{{{m}}}$."
+                    correct = f"${a*n}x^{{{n-1}}} + {b*m}x^{{{m-1}}}$"
+                    wrongs = [
+                        f"${a*n}x^{{{n}}} + {b*m}x^{{{m}}}$",
+                        f"${a}x^{{{n-1}}} + {b}x^{{{m-1}}}$",
+                        f"${a*n}x^{{{n-1}}} - {b*m}x^{{{m-1}}}$",
+                        f"${a*n*2}x^{{{n-1}}} + {b*m}x^{{{m-1}}}$",
+                        f"${a*n}x^{{{n+1}}} + {b*m}x^{{{m+1}}}$",
+                        f"${a*n}x^{{{n-1}}} + {b}x^{{{m}}}$",
+                        f"${a}x^{{{n}}} + {b*m}x^{{{m-1}}}$",
+                        f"${a*n+1}x^{{{n-1}}} + {b*m}x^{{{m-1}}}$"
+                    ]
+                    exp = f"Differentiate term-by-term."
+            else: # hard
+                a = random.randint(2, 6)
+                b = random.randint(1, 8)
+                q = f"Determine $\\frac{{dy}}{{dx}}$ if $y = \\sqrt{{{a}x}} + {b}x^{{-2}}$."
+                correct = f"$\\frac{{\\sqrt{{{a}}}}}{{2\\sqrt{{x}}}} - {2*b}x^{{-3}}$"
+                wrongs = [
+                    f"$\\frac{{\\sqrt{{{a}}}}}{{2\\sqrt{{x}}}} + {2*b}x^{{-3}}$",
+                    f"$\\frac{{{a}}}{{2\\sqrt{{x}}}} - {2*b}x^{{-3}}$",
+                    f"$\\frac{{\\sqrt{{{a}}}}}{{\\sqrt{{x}}}} - {2*b}x^{{-3}}$",
+                    f"$\\frac{{\\sqrt{{{a}}}}}{{2\\sqrt{{x}}}} - {b}x^{{-3}}$",
+                    f"$\\frac{{\\sqrt{{{a}}}}}{{2\\sqrt{{x}}}} - {2*b}x^{{-1}}$",
+                    f"$\\frac{{\\sqrt{{{a}}}}}{{2x}} - {2*b}x^{{-3}}$",
+                    f"$\\sqrt{{{a}x}} - {2*b}x^{{-3}}$",
+                    f"$\\frac{{1}}{{2\\sqrt{{{a}x}}}} - {2*b}x^{{-3}}$"
+                ]
+                exp = f"Derivative is \\frac{{\\sqrt{{{a}}}}}{{2\\sqrt{{x}}}} - {2*b}x^{{-3}}."
+
+        elif sub == "Tangents & Turning Points":
+            if diff == "easy":
+                m = random.choice([2, 3, 4, 5, -2, -3, -4, -5])
+                q = f"Determine the gradient of the tangent to the curve where $\\frac{{dy}}{{dx}} = {m}$."
+                correct = str(m)
+                wrongs = get_wrong_ints(m, 8)
+                exp = f"Gradient $m = {m}$."
+            elif diff == "medium":
+                a = random.choice([1, 2, 3])
+                b = random.choice([-6, -4, -2, 2, 4, 6])
+                x0 = random.randint(-5, 5)
+                m = 2 * a * x0 + b
+                q = f"Determine the gradient of the tangent to the parabola $y = {a}x^2 {b:+d}x$ at $x = {x0}$."
+                correct = str(m)
+                wrongs = get_wrong_ints(m, 8)
+                exp = f"Gradient $m = {m}$."
+            else: # hard
+                k = random.choice([1, 2, 3, 4, 5, 6])
+                c_val = random.randint(-20, 20)
+                q = f"Find the $x$-coordinates of the stationary points of $f(x) = x^3 - {3*k**2}x {c_val:+d}$."
+                correct = f"$x = {k}$ and $x = {-k}$"
+                wrongs = [
+                    f"$x = {k+1}$ and $x = {-k-1}$",
+                    f"$x = {k}$ and $x = 0$",
+                    f"$x = {-k}$ and $x = 0$",
+                    f"$x = {k**2}$ and $x = {-k**2}$",
+                    f"$x = {3*k}$ and $x = {-3*k}$",
+                    f"$x = {k*2}$ and $x = {-k*2}$",
+                    f"$x = 1$ and $x = -1$",
+                    f"$x = {k+2}$ and $x = {-k+2}$"
+                ]
+                exp = f"Stationary points: x = {k} and x = {-k}."
 
         elif sub == "Integration":
-            a = random.randint(2, 6)
-            n = random.randint(2, 4)
-            q = f"Determine the indefinite integral: $\\int {a}x^{n} dx$"
-            ans_n = n + 1
-            correct = f"$\\frac{{{a}}}{{{ans_n}}}x^{{{ans_n}}} + C$"
-            wrongs = [
-                f"$\\frac{{{a}}}{{{n}}}x^{{{ans_n}}} + C$",
-                f"${a * n}x^{{{n-1}}} + C$",
-                f"$\\frac{{{a}}}{{{ans_n}}}x^{{{n}}} + C$",
-                f"$\\frac{{{a}}}{{{n-1}}}x^{{{ans_n}}} + C$",
-                f"$\\frac{{{a}}}{{{ans_n}}}x^{{{ans_n}}}$",
-                f"${a}x^{{{ans_n}}} + C$"
-            ]
-            exp = "Add 1 to the exponent and divide by the new exponent, plus C."
+            if diff == "easy":
+                a = random.randint(2, 9)
+                n = random.randint(2, 5)
+                n1 = n + 1
+                q = f"Determine the indefinite integral: $\\int {a*n1}x^{{{n}}} dx$."
+                correct = f"${a}x^{{{n1}}} + C$"
+                wrongs = [f"${a*n1}x^{{{n1}}} + C$", f"${a}x^{{{n}}} + C$", f"${a*n}x^{{{n-1}}} + C$", f"${a*2}x^{{{n1}}} + C$", f"${a}x^{{{n1}}}$", f"${a*n1}x^{{{n-1}}} + C$", f"${a+1}x^{{{n1}}} + C$", f"${a-1}x^{{{n1}}} + C$"]
+                exp = f"Integral is {a}x^{n1} + C."
+            elif diff == "medium":
+                m_int_type = random.choice([1, 2])
+                if m_int_type == 1:
+                    k = random.randint(2, 25)
+                    q = f"Determine the integral: $\\int \\frac{{{k}}}{{x}} dx$."
+                    correct = f"${k}\\ln|x| + C$"
+                    wrongs = [
+                        f"$\\frac{{{k}}}{{x^2}} + C$",
+                        f"${k}x + C$",
+                        f"$-{k}x^{{-2}} + C$",
+                        f"$\\frac{{{k}}}{{2}}x^2 + C$",
+                        f"${k}\\ln(x)$",
+                        f"$-{k}\\ln|x| + C$",
+                        f"$\\frac{{{1}}}{{{k}}}\\ln|x| + C$",
+                        f"${k+1}\\ln|x| + C$"
+                    ]
+                    exp = f"Integral is {k}ln|x| + C."
+                else:
+                    a = random.choice([2, 4, 6])
+                    b = random.randint(1, 10)
+                    q = f"Determine the indefinite integral: $\\int ({a}x {b:+d}) dx$."
+                    correct = f"${a//2}x^2 {b:+d}x + C$"
+                    wrongs = [
+                        f"${a}x^2 {b:+d}x + C$",
+                        f"${a//2}x^2 {b:+d} + C$",
+                        f"${a*2}x^2 {b:+d}x + C$",
+                        f"${a//2}x^2 - {b}x + C$",
+                        f"${a//2}x^2 + C$",
+                        f"${a}x + {b} + C$",
+                        f"${a//2}x^3 {b:+d}x + C$",
+                        f"${a+1}x^2 {b:+d}x + C$"
+                    ]
+                    exp = f"Integral is {a//2}x^2 {b:+d}x + C."
+            else: # hard
+                a = random.choice([2, 4, 6, 8])
+                b = random.randint(1, 6)
+                val = int((a // 2) * (b ** 2))
+                q = f"Evaluate the definite integral: $\\int_{{0}}^{{{b}}} {a}x \\, dx$."
+                correct = str(val)
+                wrongs = get_wrong_ints(val, 8)
+                exp = f"Definite integral value is {val}."
 
         if q and correct and len(wrongs) >= 6:
-            try:
-                gen.add_question(sub, diff, q, correct, wrongs[:6], exp)
-            except TypeError:
-                gen.add_question(sub, diff, q, correct, wrongs[:6], exp)
+            gen.add_question(sub, diff, q, correct, wrongs[:8], exp)
 
     gen.save_to_json("dataset/grade12/technical_mathematics/paper1_tech_calculus.json")
 
@@ -609,54 +750,219 @@ def gen_p2_trig():
         ["Identities", "Reduction Formulae", "Solving Equations", "2D/3D Problems"]
     )
     attempts = 0
-    while not gen.is_done() and attempts < 30000:
+    while not gen.is_done() and attempts < 60000:
         attempts += 1
         available_diffs = [d for d in ["easy", "medium", "hard"] if gen.difficulty_counts[d] < gen.difficulty_targets[d]]
         if not available_diffs: break
-
         diff = random.choice(available_diffs)
         sub = random.choice(gen.subtopics)
-
         q, correct, wrongs, exp = "", "", [], ""
 
         if sub == "Identities":
-            q = "Simplify: $\\tan x \\cdot \\cos x$"
-            correct = "$\\sin x$"
-            wrongs = ["$\\cos x$", "$1$", "$\\sec x$", "$\\csc x$", "$\\cot x$", "$\\sin^2 x$"]
-            exp = "$\\tan x = \\frac{\\sin x}{\\cos x}$, so $\\frac{\\sin x}{\\cos x} \\cdot \\cos x = \\sin x$"
+            var = random.choice(["x", "\\theta", "\\alpha", "\\beta", "A", "B"])
+            if diff == "easy":
+                id_type = random.choice([1, 2, 3, 4, 5, 6])
+                if id_type == 1:
+                    q = f"Which of the following is equivalent to $\\sec {var}$?"
+                    correct = f"$\\frac{{1}}{{\\cos {var}}}$"
+                    wrongs = [f"$\\frac{{1}}{{\\sin {var}}}$", f"$\\frac{{1}}{{\\tan {var}}}$", f"$\\cos {var}$", f"$\\frac{{\\sin {var}}}{{\\cos {var}}}$", f"$1 - \\cos {var}$", f"$\\frac{{1}}{{\\cot {var}}}$", f"$\\tan^2 {var}$", f"$-\\cos {var}$"]
+                    exp = f"By definition, secant is the reciprocal of cosine: $\\sec {var} = \\frac{{1}}{{\\cos {var}}}$."
+                elif id_type == 2:
+                    q = f"Which of the following is equivalent to $\\csc {var}$?"
+                    correct = f"$\\frac{{1}}{{\\sin {var}}}$"
+                    wrongs = [f"$\\frac{{1}}{{\\cos {var}}}$", f"$\\frac{{1}}{{\\tan {var}}}$", f"$\\sin {var}$", f"$\\frac{{\\cos {var}}}{{\\sin {var}}}$", f"$1 - \\sin {var}$", f"$\\frac{{1}}{{\\sec {var}}}$", f"$\\cot^2 {var}$", f"$-\\sin {var}$"]
+                    exp = f"Cosecant is the reciprocal of sine: $\\csc {var} = \\frac{{1}}{{\\sin {var}}}$."
+                elif id_type == 3:
+                    q = f"Which of the following is equivalent to $\\cot {var}$?"
+                    correct = f"$\\frac{{1}}{{\\tan {var}}}$"
+                    wrongs = [f"$\\frac{{1}}{{\\sin {var}}}$", f"$\\frac{{1}}{{\\cos {var}}}$", f"$\\tan {var}$", f"$\\sin {var} \\cos {var}$", f"$1 + \\tan {var}$", f"$\\sec {var}$", f"$\\csc {var}$", f"$-\\tan {var}$"]
+                    exp = f"Cotangent is the reciprocal of tangent: $\\cot {var} = \\frac{{1}}{{\\tan {var}}}$."
+                elif id_type == 4:
+                    q = f"Simplify the trigonometric expression: $\\sin^2 {var} + \\cos^2 {var}$."
+                    correct = "$1$"
+                    wrongs = ["$0$", "$2$", "$\\tan {var}$", "$\\sec {var}$", "$-1$", "$\\sin {var}$", "$\\cos {var}$", "$2\\sin {var}$"]
+                    exp = "The fundamental Pythagorean identity states $\\sin^2 \\theta + \\cos^2 \\theta = 1$."
+                elif id_type == 5:
+                    q = f"Simplify: $\\tan {var} \\cdot \\cot {var}$."
+                    correct = "$1$"
+                    wrongs = ["$0$", "$\\tan^2 {var}$", "$\\cot^2 {var}$", "$-1$", "$\\sec {var}$", "$\\sin {var}$", "$2$", "$\\cos {var}$"]
+                    exp = f"$\\tan {var} \\cdot \\cot {var} = \\tan {var} \\cdot \\frac{{1}}{{\\tan {var}}} = 1$."
+                else:
+                    q = f"Simplify: $\\cos {var} \\cdot \\sec {var}$."
+                    correct = "$1$"
+                    wrongs = ["$0$", "$\\cos^2 {var}$", "$\\sec^2 {var}$", "$-1$", "$\\sin {var}$", "$\\tan {var}$", "$2$", "$\\csc {var}$"]
+                    exp = f"$\\cos {var} \\cdot \\sec {var} = \\cos {var} \\cdot \\frac{{1}}{{\\cos {var}}} = 1$."
+            elif diff == "medium":
+                m_type = random.choice([1, 2, 3, 4, 5])
+                if m_type == 1:
+                    q = f"Simplify the expression: $\\frac{{\\sin {var}}}{{\\cos {var}}} \\cdot \\cos {var}$."
+                    correct = f"$\\sin {var}$"
+                    wrongs = [f"$\\cos {var}$", "$1$", f"$\\tan {var}$", f"$\\sec {var}$", f"$\\cot {var}$", f"$\\sin^2 {var}$", f"$\\csc {var}$", "$0$"]
+                    exp = f"$\\frac{{\\sin {var}}}{{\\cos {var}}} \\cdot \\cos {var} = \\sin {var}$."
+                elif m_type == 2:
+                    q = f"Simplify: $1 - \\cos^2 {var}$."
+                    correct = f"$\\sin^2 {var}$"
+                    wrongs = [f"$\\cos^2 {var}$", f"$\\sin {var}$", "$1$", f"-\\sin^2 {var}", f"$\\tan^2 {var}$", f"$\\sec^2 {var}$", "$0$", f"$1 + \\cos {var}$"]
+                    exp = f"From $\\sin^2 {var} + \\cos^2 {var} = 1$, $1 - \\cos^2 {var} = \\sin^2 {var}$."
+                elif m_type == 3:
+                    q = f"Simplify: $\\sec^2 {var} - \\tan^2 {var}$."
+                    correct = "$1$"
+                    wrongs = ["$0$", "$-1$", f"$\\sec^2 {var}$", f"$\\tan^2 {var}$", f"$\\sin^2 {var}$", "$2$", f"$\\cos^2 {var}$", f"$\\cot^2 {var}$"]
+                    exp = f"Identity $1 + \\tan^2 {var} = \\sec^2 {var} \\implies \\sec^2 {var} - \\tan^2 {var} = 1$."
+                elif m_type == 4:
+                    q = f"Simplify: $(1 - \\sin {var})(1 + \\sin {var})$."
+                    correct = f"$\\cos^2 {var}$"
+                    wrongs = [f"$\\sin^2 {var}$", f"$1 - \\sin {var}$", "$1$", f"$-\\cos^2 {var}$", f"$\\cos {var}$", f"$\\tan^2 {var}$", "$0$", f"$\\sec^2 {var}$"]
+                    exp = f"$(1 - \\sin {var})(1 + \\sin {var}) = 1 - \\sin^2 {var} = \\cos^2 {var}$."
+                else:
+                    q = f"Simplify: $\\frac{{\\tan {var}}}{{\\sec {var}}}$."
+                    correct = f"$\\sin {var}$"
+                    wrongs = [f"$\\cos {var}$", f"$\\cot {var}$", "$1$", f"$\\csc {var}$", f"$\\sin^2 {var}$", f"$\\tan^2 {var}$", "$0$", f"$\\sec {var}$"]
+                    exp = f"$\\frac{{\\tan {var}}}{{\\sec {var}}} = \\frac{{\\sin {var}/\\cos {var}}}{{1/\\cos {var}}} = \\sin {var}$."
+            else: # hard
+                q = f"Simplify: $\\frac{{1 - \\cos^2 {var}}}{{\\sin {var}}}$."
+                correct = f"$\\sin {var}$"
+                wrongs = [f"$\\cos {var}$", "$1$", f"$\\sin^2 {var}$", f"$\\tan {var}$", f"$\\csc {var}$", f"-\\sin {var}", "$0$", f"$\\sec {var}$"]
+                exp = f"$\\frac{{1 - \\cos^2 {var}}}{{\\sin {var}}} = \\frac{{\\sin^2 {var}}}{{\\sin {var}}} = \\sin {var}$."
 
         elif sub == "Reduction Formulae":
-            angle = random.choice([120, 135, 150, 210, 225, 240, 300, 315, 330])
-            q = f"Evaluate without a calculator: $\\sin({angle}^\\circ)$"
-            val = math.sin(math.radians(angle))
-            correct = f"{val:.3f}"
-            wrongs = [f"{(val + random.uniform(0.1, 0.5)):.3f}" for _ in range(6)]
-            exp = f"Reduce ${angle}^\\circ$ to the first quadrant using CAST diagram."
+            var = "\\theta"
+            if diff == "easy":
+                r_type = random.choice([1, 2, 3, 4, 5, 6])
+                if r_type == 1:
+                    q = f"Reduce to a single ratio: $\\sin(180^\\circ - {var})$."
+                    correct = f"$\\sin {var}$"
+                    wrongs = [f"$-\\sin {var}$", f"$\\cos {var}$", f"$-\\cos {var}$", f"$\\tan {var}$", f"$1$", f"$0$", f"$\\csc {var}$", f"-\\tan {var}"]
+                    exp = f"In the second quadrant, sine is positive: $\\sin(180^\\circ - {var}) = \\sin {var}$."
+                elif r_type == 2:
+                    q = f"Reduce to a single ratio: $\\cos(180^\\circ - {var})$."
+                    correct = f"$-\\cos {var}$"
+                    wrongs = [f"$\\cos {var}$", f"$\\sin {var}$", f"$-\\sin {var}$", f"$\\tan {var}$", f"$1$", f"$-1$", f"$\\sec {var}$", f"-\\sec {var}"]
+                    exp = f"In the second quadrant, cosine is negative: $\\cos(180^\\circ - {var}) = -\\cos {var}$."
+                elif r_type == 3:
+                    q = f"Reduce to a single ratio: $\\tan(180^\\circ + {var})$."
+                    correct = f"$\\tan {var}$"
+                    wrongs = [f"$-\\tan {var}$", f"$\\cot {var}$", f"$-\\cot {var}$", f"$\\sin {var}$", f"$\\cos {var}$", f"$1$", f"$0$", f"-\\sin {var}"]
+                    exp = f"In the third quadrant, tangent is positive: $\\tan(180^\\circ + {var}) = \\tan {var}$."
+                elif r_type == 4:
+                    q = f"Reduce to a single ratio: $\\cos(360^\\circ - {var})$."
+                    correct = f"$\\cos {var}$"
+                    wrongs = [f"$-\\cos {var}$", f"$\\sin {var}$", f"$-\\sin {var}$", f"$\\tan {var}$", f"$1$", f"$-1$", f"$\\sec {var}$", f"-\\tan {var}"]
+                    exp = f"In the fourth quadrant, cosine is positive: $\\cos(360^\\circ - {var}) = \\cos {var}$."
+                elif r_type == 5:
+                    q = f"Simplify the negative angle: $\\sin(-{var})$."
+                    correct = f"$-\\sin {var}$"
+                    wrongs = [f"$\\sin {var}$", f"$\\cos {var}$", f"$-\\cos {var}$", f"$\\tan {var}$", f"$1$", f"$-1$", f"$\\csc {var}$", f"-\\csc {var}"]
+                    exp = f"Sine is an odd function: $\\sin(-{var}) = -\\sin {var}$."
+                else:
+                    q = f"Simplify the negative angle: $\\cos(-{var})$."
+                    correct = f"$\\cos {var}$"
+                    wrongs = [f"$-\\cos {var}$", f"$\\sin {var}$", f"$-\\sin {var}$", f"$\\tan {var}$", f"$1$", f"$-1$", f"$\\sec {var}$", f"-\\sec {var}"]
+                    exp = f"Cosine is an even function: $\\cos(-{var}) = \\cos {var}$."
+            elif diff == "medium":
+                angle = random.choice([120, 135, 150, 210, 225, 240, 300, 315, 330])
+                fn = random.choice(["sin", "cos", "tan"])
+                if fn == "sin":
+                    rad = math.radians(angle)
+                    val = round(math.sin(rad), 3)
+                elif fn == "cos":
+                    rad = math.radians(angle)
+                    val = round(math.cos(rad), 3)
+                else:
+                    rad = math.radians(angle)
+                    val = round(math.tan(rad), 3)
+                q = f"Determine the exact value of $\\{fn}({angle}^\\circ)$ (to 3 decimal places)."
+                correct = f"{val:.3f}"
+                wrongs = [f"{(val + offset):.3f}" for offset in [0.2, -0.2, 0.5, -0.5, 0.866, -0.866, 0.707, -0.707] if round(val+offset, 3) != val][:8]
+                while len(wrongs) < 6: wrongs.append(f"{val + random.uniform(0.1, 0.9):.3f}")
+                exp = f"Reduce ${angle}^\\circ$ using CAST diagram to find reference angle."
+            else: # hard
+                angle = random.choice([120, 150, 210, 240, 300, 330])
+                q = f"Simplify: $\\frac{{\\sin(180^\\circ - {var}) \\cdot \\cos({angle}^\\circ)}}{{\\sin {var}}}$."
+                val = round(math.cos(math.radians(angle)), 3)
+                correct = f"{val:.3f}"
+                wrongs = [f"{(val + off):.3f}" for off in [0.5, -0.5, 1.0, -1.0, 0.866, -0.866, 0.707, -0.707] if round(val+off, 3) != val][:8]
+                while len(wrongs) < 6: wrongs.append(f"{val + random.uniform(0.1, 0.9):.3f}")
+                exp = f"$\\sin(180^\\circ - {var}) = \\sin {var}$, which cancels with denominator, leaving $\\cos({angle}^\\circ) = {val:.3f}$."
 
         elif sub == "Solving Equations":
-            a = random.randint(2, 5)
-            q = f"Solve for $x$ in the interval $[0^\\circ, 90^\\circ]$: $\\cos x = \\frac{{1}}{{{a}}}$"
-            ans = math.degrees(math.acos(1/a))
-            correct = f"{ans:.1f}^\\circ"
-            wrongs = [f"{(ans + random.randint(10, 50)):.1f}^\\circ" for _ in range(6)]
-            exp = f"Use inverse cosine: $x = \\cos^{{-1}}(1/{a})$."
+            if diff == "easy":
+                fn = random.choice(["sin", "cos", "tan"])
+                if fn == "sin":
+                    q = "Solve for $\\theta \\in [0^\\circ, 90^\\circ]$: $\\sin \\theta = 0.5$."
+                    correct = "$30^\\circ$"
+                    wrongs = ["$45^\\circ$", "$60^\\circ$", "$90^\\circ$", "$15^\\circ$", "$75^\\circ$", "$120^\\circ$", "$150^\\circ$", "$0^\\circ$"]
+                    exp = "$\\sin^{-1}(0.5) = 30^\\circ$."
+                elif fn == "cos":
+                    q = "Solve for $\\theta \\in [0^\\circ, 90^\\circ]$: $\\cos \\theta = 0.5$."
+                    correct = "$60^\\circ$"
+                    wrongs = ["$30^\\circ$", "$45^\\circ$", "$90^\\circ$", "$15^\\circ$", "$75^\\circ$", "$120^\\circ$", "$150^\\circ$", "$0^\\circ$"]
+                    exp = "$\\cos^{-1}(0.5) = 60^\\circ$."
+                else:
+                    q = "Solve for $\\theta \\in [0^\\circ, 90^\\circ]$: $\\tan \\theta = 1$."
+                    correct = "$45^\\circ$"
+                    wrongs = ["$30^\\circ$", "$60^\\circ$", "$90^\\circ$", "$15^\\circ$", "$75^\\circ$", "$120^\\circ$", "$135^\\circ$", "$0^\\circ$"]
+                    exp = "$\\tan^{-1}(1) = 45^\\circ$."
+            elif diff == "medium":
+                c_val = random.randint(2, 6)
+                ans = round(math.degrees(math.asin(1.0 / c_val)), 1)
+                q = f"Solve for $\\theta \\in [0^\\circ, 90^\\circ]$: ${c_val}\\sin \\theta = 1$."
+                correct = f"{ans}^\\circ"
+                wrongs = [f"{round(ans + off, 1)}^\\circ" for off in [10, -10, 15, -15, 20, -20, 25, 30] if round(ans+off, 1) != ans][:8]
+                while len(wrongs) < 6: wrongs.append(f"{ans + random.randint(5, 40):.1f}^\\circ")
+                exp = f"$\\sin \\theta = \\frac{{1}}{{{c_val}}} \\implies \\theta = \\sin^{{-1}}(1/{c_val}) = {ans}^\\circ$."
+            else: # hard
+                ans = random.choice([15.0, 22.5, 30.0, 45.0, 60.0])
+                if ans == 15.0:
+                    q = "Solve for $\\theta \\in [0^\\circ, 90^\\circ]$: $\\sin(2\\theta) = 0.5$."
+                    correct = "$15^\\circ$"
+                    wrongs = ["$30^\\circ$", "$45^\\circ$", "$60^\\circ$", "$10^\\circ$", "$20^\\circ$", "$25^\\circ$", "$75^\\circ$", "$90^\\circ$"]
+                    exp = "$2\\theta = 30^\\circ \\implies \\theta = 15^\\circ$."
+                elif ans == 30.0:
+                    q = "Solve for $\\theta \\in [0^\\circ, 90^\\circ]$: $\\cos(2\\theta) = 0.5$."
+                    correct = "$30^\\circ$"
+                    wrongs = ["$15^\\circ$", "$45^\\circ$", "$60^\\circ$", "$20^\\circ$", "$25^\\circ$", "$50^\\circ$", "$75^\\circ$", "$90^\\circ$"]
+                    exp = "$2\\theta = 60^\\circ \\implies \\theta = 30^\\circ$."
+                else:
+                    q = "Solve for $\\theta \\in [0^\\circ, 90^\\circ]$: $\\tan(2\\theta) = 1$."
+                    correct = "$22.5^\\circ$"
+                    wrongs = ["$45^\\circ$", "$30^\\circ$", "$15^\\circ$", "$20^\\circ$", "$25^\\circ$", "$35^\\circ$", "$40^\\circ$", "$12.5^\\circ$"]
+                    exp = "$2\\theta = 45^\\circ \\implies \\theta = 22.5^\\circ$."
 
         elif sub == "2D/3D Problems":
-            a, b = random.randint(5, 15), random.randint(5, 15)
-            angle = random.choice([30, 45, 60, 120])
-            q = f"In $\\Delta ABC$, $a = {a}$, $b = {b}$ and $\\angle C = {angle}^\\circ$. Calculate the area of the triangle."
-            ans = 0.5 * a * b * math.sin(math.radians(angle))
-            correct = f"{ans:.2f}"
-            wrongs = [f"{(ans * random.uniform(0.5, 1.5)):.2f}" for _ in range(6)]
-            exp = f"Area = $\\frac{{1}}{{2}}ab\\sin C = 0.5 \\times {a} \\times {b} \\times \\sin({angle}^\\circ)$"
+            a = random.randint(4, 30)
+            b = random.randint(4, 30)
+            if diff == "easy":
+                angle = random.choice([30, 90, 150])
+                sin_val = math.sin(math.radians(angle))
+                area = round(0.5 * a * b * sin_val, 2)
+                q = f"In $\\Delta ABC$, $a = {a}$ cm, $b = {b}$ cm and $\\angle C = {angle}^\\circ$. Calculate the area of $\\Delta ABC$."
+                correct = f"{area:.2f} cm²"
+                wrongs = [f"{(area * m):.2f} cm²" for m in [0.5, 1.5, 0.8, 1.2, 2.0, 0.7, 1.3, 1.8] if round(area*m, 2) != area][:8]
+                while len(wrongs) < 6: wrongs.append(f"{area + random.randint(5, 50):.2f} cm²")
+                exp = f"Area = $\\frac{{1}}{{2}}ab\\sin C = 0.5 \\times {a} \\times {b} \\times \\sin({angle}^\\circ) = {area:.2f}$ cm²."
+            elif diff == "medium":
+                angle = random.choice([45, 60, 120, 135])
+                sin_val = math.sin(math.radians(angle))
+                area = round(0.5 * a * b * sin_val, 2)
+                q = f"In $\\Delta PQR$, $p = {a}$ m, $q = {b}$ m and $\\angle R = {angle}^\\circ$. Calculate the area of the triangle."
+                correct = f"{area:.2f} m²"
+                wrongs = [f"{(area * m):.2f} m²" for m in [0.5, 1.5, 0.8, 1.2, 2.0, 0.7, 1.3, 1.8] if round(area*m, 2) != area][:8]
+                while len(wrongs) < 6: wrongs.append(f"{area + random.randint(5, 50):.2f} m²")
+                exp = f"Area = $\\frac{{1}}{{2}}pq\\sin R = 0.5 \\times {a} \\times {b} \\times \\sin({angle}^\\circ) = {area:.2f}$ m²."
+            else: # hard (cosine rule)
+                angle = random.choice([60, 90, 120])
+                cos_val = math.cos(math.radians(angle))
+                c_sq = a**2 + b**2 - 2 * a * b * cos_val
+                c_len = round(math.sqrt(c_sq), 2)
+                q = f"In $\\Delta ABC$, $a = {a}$ cm, $b = {b}$ cm and $\\angle C = {angle}^\\circ$. Calculate the length of side $c$ using the Cosine Rule."
+                correct = f"{c_len:.2f} cm"
+                wrongs = [f"{(c_len * m):.2f} cm" for m in [0.8, 1.2, 0.9, 1.1, 1.5, 0.7, 1.3, 0.6] if round(c_len*m, 2) != c_len][:8]
+                while len(wrongs) < 6: wrongs.append(f"{c_len + random.randint(2, 20):.2f} cm")
+                exp = f"$c^2 = a^2 + b^2 - 2ab\\cos C = {a}^2 + {b}^2 - 2({a})({b})\\cos({angle}^\\circ) = {c_sq:.2f} \\implies c = {c_len:.2f}$ cm."
 
         if q and correct and len(wrongs) >= 6:
-            wrongs = list(set(wrongs))
-            while len(wrongs) < 6: wrongs.append(f"{random.randint(1, 99)}")
-            try:
-                gen.add_question(sub, diff, q, correct, wrongs[:6], exp)
-            except TypeError:
-                gen.add_question(sub, diff, q, correct, wrongs[:6], exp)
+            gen.add_question(sub, diff, q, correct, wrongs[:8], exp)
 
     gen.save_to_json("dataset/grade12/technical_mathematics/paper2_tech_trig.json")
 

@@ -54,10 +54,12 @@ class TopicGenerator:
 
         q_dict = {
             "id": question_id,
+            "topic": self.topic_name,
             "question": question,
             "correct_answer": correct_str,
             "wrong_answers_pool": unique_wrong_answers[:8],
             "explanation": explanation,
+            "difficulty": difficulty,
             "tags": {
                 "grade": self.grade,
                 "subject": self.subject,
