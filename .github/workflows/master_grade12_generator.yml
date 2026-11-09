@@ -41,15 +41,21 @@ jobs:
           echo "Processing Grade 12 Subject: $SUBJECT"
 
           if [ "$SUBJECT" = "all" ] || [ "$SUBJECT" = "physical_sciences" ]; then
+            python dataset/grade12/physical_sciences/generators/generate_newtons_laws.py
+            python dataset/grade12/physical_sciences/generators/generate_vertical_projectile.py
+            python dataset/grade12/physical_sciences/generators/generate_momentum_impulse.py
+            python dataset/grade12/physical_sciences/generators/generate_work_energy_power.py
+            python dataset/grade12/physical_sciences/generators/generate_electrostatics.py
+            python dataset/grade12/physical_sciences/generators/generate_electric_circuits.py
+            python dataset/grade12/physical_sciences/generators/generate_electrodynamics.py
+            python dataset/grade12/physical_sciences/generators/generate_optical_phenomena.py
+            python dataset/grade12/physical_sciences/generators/generate_doppler_effect.py
             python dataset/grade12/physical_sciences/generators/generate_organic_chemistry.py
             python dataset/grade12/physical_sciences/generators/generate_reaction_rates.py
             python dataset/grade12/physical_sciences/generators/generate_chemical_equilibrium.py
             python dataset/grade12/physical_sciences/generators/generate_acids_bases.py
             python dataset/grade12/physical_sciences/generators/generate_electrochemical_reactions.py
             python dataset/grade12/physical_sciences/generators/generate_chemical_industry.py
-            python dataset/grade12/physical_sciences/generators/generate_optical_phenomena.py
-            python dataset/grade12/physical_sciences/generators/generate_doppler_effect.py
-            python heal_physics_datasets.py
           fi
 
           if [ "$SUBJECT" = "all" ] || [ "$SUBJECT" = "accounting" ]; then

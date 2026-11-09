@@ -1,373 +1,206 @@
-import json
+import os
+import sys
 import random
-import uuid
 import math
-import hashlib
+import json
+import time
 
-def get_hash(question_text):
-    return hashlib.md5(question_text.encode('utf-8')).hexdigest()
+def generate_momentum_impulse():
+    t0 = time.time()
+    print("Generating Grade 12 Physical Sciences: Momentum and Impulse...")
 
-def generate_questions():
-    with open('dataset/grade12/physical_sciences/kb_momentum_impulse.json', 'r') as f:
-        kb = json.load(f)
+    output_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../paper1_momentum_impulse.json"))
 
     questions = []
-    seen_hashes = set()
+    seen_texts = set()
+    diff_counts = {"easy": 0, "medium": 0, "hard": 0}
+    targets = {"easy": 300, "medium": 500, "hard": 200}
 
-    # --- EASY: Definitions (300) ---
-    easy_count = 0
-    attempts = 0
-    while easy_count < 300 and attempts < 1000:
-        attempts += 1
-        item = random.choice(kb['definitions'])
+    vehicles = ["sports sedan", "minibus taxi", "freight truck", "SUV", "delivery motorcycle", "compact hatchback", "electric car", "pickup truck"]
+    sports = ["cricket ball", "tennis ball", "golf ball", "soccer ball", "hockey ball", "baseball", "squash ball"]
 
+    def add_q(difficulty, subtopic, q_text, correct, wrongs, explanation, cognitive=None):
+        nonlocal questions, seen_texts, diff_counts
+        diff = difficulty.lower()
+        if diff_counts[diff] >= targets[diff]:
+            return False
+
+        q_clean = q_text.strip()
+        if q_clean in seen_texts:
+            return False
+
+        corr_str = str(correct).strip()
+        clean_wrongs = []
+        w_seen = set()
+        for w in wrongs:
+            w_str = str(w).strip()
+            if w_str and w_str != corr_str and w_str not in w_seen:
+                w_seen.add(w_str)
+                clean_wrongs.append(w_str)
+
+        if len(clean_wrongs) < 6:
+            return False
+
+        if not cognitive:
+            cognitive = "Knowledge" if diff == "easy" else ("Application" if diff == "medium" else "Analysis")
+
+        seen_texts.add(q_clean)
+        diff_counts[diff] += 1
+        q_id = f"PS12_P1_MOM_{len(questions)+1:04d}"
+
+        questions.append({
+            "id": q_id,
+            "topic": "Momentum and Impulse",
+            "subtopic": subtopic,
+            "paper": "paper1",
+            "difficulty": diff,
+            "question": q_clean,
+            "correct_answer": corr_str,
+            "wrong_answers_pool": clean_wrongs[:8],
+            "explanation": explanation.strip(),
+            "tags": {
+                "grade": "12",
+                "subject": "Physical Sciences",
+                "paper": "paper1",
+                "topic": "Momentum and Impulse",
+                "subtopic": subtopic,
+                "cognitive_level": cognitive,
+                "difficulty": diff
+            }
+        })
+        return True
+
+    # 1. EASY (300)
+    mom_defs = [
+        ("Linear momentum (p)",
+         "The product of an object's mass and its velocity",
+         ["Force times time", "Mass times acceleration", "Rate of change of kinetic energy", "Work divided by time", "Impulse divided by mass", "Energy per unit mass"],
+         "Linear momentum is defined as the product of mass and velocity: p = m * v."),
+
+        ("Impulse (J)",
+         "The product of the resultant/net force acting on an object and the time for which the resultant/net force acts",
+         ["Rate of change of momentum", "Change in kinetic energy", "Work done per unit time", "Force per unit mass", "Mass times velocity squared", "Total mechanical energy"],
+         "Impulse is defined as J = F_net * delta t = delta p."),
+
+        ("Isolated system (Closed system)",
+         "A system on which the resultant/net external force is zero",
+         ["An open thermodynamic system", "A system without kinetic energy", "A frictionless surface", "A system where all objects are at rest", "A vacuum chamber", "A frame of zero mass"],
+         "An isolated system experiences no net external forces, allowing momentum to be conserved."),
+
+        ("Principle of Conservation of Linear Momentum",
+         "The total linear momentum of an isolated system remains constant in both magnitude and direction",
+         ["Work-Energy Theorem", "Newton's First Law", "Law of Conservation of Mechanical Energy", "Newton's Third Law", "Coulomb's Law", "Hooke's Law"],
+         "Total initial linear momentum equals total final linear momentum in an isolated system."),
+
+        ("Elastic collision",
+         "A collision in which both total linear momentum and total kinetic energy are conserved",
+         ["Inelastic collision", "Completely inelastic collision", "Explosive interaction", "Plastic deformation", "Super-elastic event", "Frictional impact"],
+         "In an elastic collision, total kinetic energy is conserved: E_k(initial) = E_k(final)."),
+
+        ("Inelastic collision",
+         "A collision in which total linear momentum is conserved, but total kinetic energy is not conserved",
+         ["Elastic collision", "Isolated explosion", "Conservative interaction", "Perpetual collision", "Harmonic collision", "Reversible collision"],
+         "In an inelastic collision, kinetic energy is converted into heat, sound, and internal deformation energy.")
+    ]
+
+    for term, f_def, wrs, expl in mom_defs:
+        add_q("easy", "Definitions", f"What term is defined as: '{f_def}'?", term, wrs, expl)
+        add_q("easy", "Definitions", f"In classical mechanics, which concept is defined as: '{f_def}'?", term, wrs, expl)
+        add_q("easy", "Definitions", f"Identify the physical quantity or principle: '{f_def}'.", term, wrs, expl)
+
+    mom_easy_concepts = [
+        ("What is the SI unit of linear momentum?",
+         "kg·m/s (or N·s)",
+         ["N/s", "J·s", "kg·m/s²", "W·s", "N·m", "kg/m"],
+         "The SI unit of momentum is kilogram metre per second (kg·m/s), equivalent to newton second (N·s)."),
+
+        ("Which physical quantity is defined as the rate of change of momentum (delta p / delta t)?",
+         "Resultant/net force (F_net)",
+         ["Impulse", "Kinetic energy", "Work done", "Power", "Inertia", "Velocity"],
+         "Newton's Second Law in terms of momentum states that F_net = delta p / delta t."),
+
+        ("How does a vehicle's crumple zone enhance passenger safety during a severe frontal impact?",
+         "It increases collision impact time (delta t), thereby decreasing the net impact force on occupants",
+         ["It decreases collision time to stop the car faster", "It eliminates all momentum from the universe", "It converts kinetic energy into electrical charge", "It prevents the seatbelts from locking", "It increases passenger inertia"],
+         "Because F_net = delta p / delta t, extending collision duration (delta t) reduces the dangerous peak force (F_net)."),
+
+        ("Why does a wicketkeeper or fielder pull their hands backward when catching a fast-moving cricket ball?",
+         "To increase the contact time (delta t), reducing the impact force on the hands",
+         ["To increase the ball's final momentum", "To reduce the impulse delivered by the ball", "To decrease the ball's mass", "To violate Newton's Third Law", "To stop the ball instantaneously"],
+         "Drawing hands back extends the deceleration time, substantially reducing the impact force.")
+    ]
+
+    for q_c, a_c, w_c, expl_c in mom_easy_concepts:
+        add_q("easy", "Safety and Concepts", q_c, a_c, w_c, expl_c)
+
+    # Easy Calculations: p = m * v
+    while diff_counts["easy"] < targets["easy"]:
+        m_car = round(random.uniform(500, 2500), 0)
+        v_car = round(random.uniform(10, 35), 1)
+        p_val = round(m_car * v_car, 1)
+        veh = random.choice(vehicles)
+        q_p = f"A {veh} of mass {int(m_car)} kg travels due east at a velocity of {v_car} m/s. Calculate the magnitude of its linear momentum."
+        w_p = [f"{round(m_car / v_car, 1)} kg·m/s", f"{round(p_val * 2, 1)} kg·m/s", f"{round(p_val * 0.5, 1)} kg·m/s", f"{round(m_car * 9.8, 1)} kg·m/s", f"{round(p_val + 5000, 1)} kg·m/s", f"{round(v_car * 9.8, 1)} kg·m/s"]
+        add_q("easy", "Momentum Calculations", q_p, f"{p_val} kg·m/s", w_p, f"p = m * v = {int(m_car)} * {v_car} = {p_val} kg·m/s east.")
+
+    # 2. MEDIUM (500)
+    # Impulse: J = F_net * delta t = delta p = m * (v_f - v_i)
+    while diff_counts["medium"] < targets["medium"]:
         if random.choice([True, False]):
-            q_text = "Which of the following is the correct definition for '{}'?".format(item['term'])
-            correct = item['definition']
-            wrong_pool = item['distractors'][:6]
-            subtopic = "Definitions"
+            # Rebound scenario (ball hits wall/bat)
+            m_ball = round(random.uniform(0.1, 0.6), 2)
+            v_i_b = round(random.uniform(15.0, 35.0), 1)
+            v_f_b = round(random.uniform(12.0, 30.0), 1)
+            # Taking rebound direction as positive => delta v = v_f_b - (-v_i_b) = v_f_b + v_i_b
+            delta_p = round(m_ball * (v_f_b + v_i_b), 2)
+            sp = random.choice(sports)
+            q_reb = f"A {m_ball} kg {sp} moving horizontally to the left at {v_i_b} m/s strikes a rigid vertical wall and rebounds to the right at {v_f_b} m/s. Calculate the magnitude of the impulse delivered to the ball."
+            w_reb = [f"{round(m_ball * abs(v_f_b - v_i_b), 2)} N·s", f"{round(delta_p * 2, 2)} N·s", f"{round(delta_p * 0.5, 2)} N·s", f"{round(m_ball * v_i_b, 2)} N·s", f"{round(delta_p + 5.0, 2)} N·s", f"{round(m_ball * 9.8, 2)} N·s"]
+            add_q("medium", "Impulse and Rebounds", q_reb, f"{delta_p} N·s", w_reb, f"Taking right as positive: J = delta p = m(v_f - v_i) = {m_ball} * ({v_f_b} - (-{v_i_b})) = {delta_p} N·s.")
         else:
-            q_text = "What term is defined as: '{}'?".format(item['definition'])
-            correct = item['term']
-            wrong_pool = [d['term'] for d in kb['definitions'] if d['term'] != correct]
+            # 1D Inelastic collision: stick together m1*v1 + m2*v2 = (m1+m2)*v_f
+            m1 = random.randint(800, 2000)
+            m2 = random.randint(600, 1800)
+            v1 = random.randint(15, 30)
+            v2 = 0 # stationary target
+            v_fin = round((m1 * v1) / (m1 + m2), 2)
+            veh1 = random.choice(vehicles)
+            veh2 = random.choice([v for v in vehicles if v != veh1])
+            q_col = f"A {m1} kg {veh1} travelling at {v1} m/s east collides with a stationary {m2} kg {veh2}. After the collision, the two vehicles lock together. Calculate their common final velocity immediately after collision."
+            w_col = [f"{round(v1 * 0.5, 2)} m/s", f"{round(v1 * (m1 / m2), 2)} m/s", f"{round(v_fin * 1.5, 2)} m/s", f"{round(v_fin * 0.5, 2)} m/s", f"{round(v_fin + 4.2, 2)} m/s", f"{v1} m/s"]
+            add_q("medium", "Inelastic Collisions", q_col, f"{v_fin} m/s", w_col, f"Total p_initial = Total p_final => ({m1} * {v1}) + 0 = ({m1} + {m2}) * v_f => v_f = {m1 * v1} / {m1 + m2} = {v_fin} m/s.")
 
-            generic_terms = ["Work", "Power", "Force", "Inertia", "Kinetic Energy", "Potential Energy", "Acceleration", "Speed", "Displacement"]
-            while len(wrong_pool) < 6:
-                wrong_pool.append(random.choice(generic_terms))
-                wrong_pool = list(set(wrong_pool))
-            wrong_pool = [w for w in wrong_pool if w != correct][:6]
-            subtopic = "Terminology"
+    # 3. HARD (200)
+    # Average impact force calculation: F_net = m * (v_f - v_i) / delta t
+    while diff_counts["hard"] < targets["hard"]:
+        if random.choice([True, False]):
+            m_imp = round(random.uniform(0.15, 1.2), 2)
+            v_in_f = round(random.uniform(20.0, 45.0), 1)
+            v_out_f = round(random.uniform(15.0, 40.0), 1)
+            dt = round(random.uniform(0.005, 0.030), 4) # milliseconds
+            F_impact = round(m_imp * (v_out_f + v_in_f) / dt, 1)
+            sp = random.choice(sports)
+            q_fnet = f"A {m_imp} kg {sp} travelling at {v_in_f} m/s hits a wall and rebounds in the opposite direction at {v_out_f} m/s. The contact duration is {dt} s. Calculate the magnitude of the average net force exerted on the ball by the wall."
+            w_fnet = [f"{round(m_imp * abs(v_out_f - v_in_f) / dt, 1)} N", f"{round(F_impact * 2, 1)} N", f"{round(F_impact * 0.5, 1)} N", f"{round(m_imp * 9.8, 1)} N", f"{round(F_impact + 500, 1)} N", f"{round(m_imp * (v_out_f + v_in_f), 1)} N"]
+            add_q("hard", "Impact Forces and Contact Time", q_fnet, f"{F_impact} N", w_fnet, f"F_net = delta p / delta t = {m_imp} * ({v_out_f} - (-{v_in_f})) / {dt} = {F_impact} N.")
+        else:
+            # Gun/Cannon Recoil: 0 = m_gun * v_gun + m_proj * v_proj
+            m_gun = random.randint(300, 1500) # kg cannon
+            m_shell = random.randint(5, 25) # kg shell
+            v_shell = random.randint(200, 600) # m/s
+            v_recoil = round((m_shell * v_shell) / m_gun, 2)
+            q_rec = f"A cannon of mass {m_gun} kg fires a {m_shell} kg artillery shell horizontally at a muzzle speed of {v_shell} m/s. Assuming the system is isolated, calculate the recoil speed of the cannon immediately upon firing."
+            w_rec = [f"{round(v_shell * 0.5, 2)} m/s", f"{round((m_gun * v_shell) / m_shell, 2)} m/s", f"{round(v_recoil * 1.5, 2)} m/s", f"{round(v_recoil * 0.5, 2)} m/s", f"{round(v_recoil + 3.5, 2)} m/s", f"0.00 m/s"]
+            add_q("hard", "Recoil and Explosions", q_rec, f"{v_recoil} m/s", w_rec, f"p_total = 0 => m_gun * v_recoil = m_shell * v_shell => v_recoil = ({m_shell} * {v_shell}) / {m_gun} = {v_recoil} m/s.")
 
-        q_hash = get_hash(q_text)
-        if q_hash not in seen_hashes:
-            seen_hashes.add(q_hash)
-            questions.append({
-                "id": "MI_" + uuid.uuid4().hex[:8],
-                "difficulty": "easy",
-                "question": q_text,
-                "correct_answer": correct,
-                "wrong_answers_pool": wrong_pool,
-                "tags": {
-                    "grade": "12",
-                    "subject": "Physical Sciences",
-                    "topic": "Paper 1: Momentum Impulse",
-                    "subtopic": subtopic,
-                    "cognitive_level": "Knowledge",
-                    "difficulty": "easy",
-                    "learning_outcome": "Recall definitions and terminology"
-                }
-            })
-            easy_count += 1
+    assert diff_counts == targets, f"Mismatch: {diff_counts} vs {targets}"
+    assert len(questions) == 1000, f"Expected 1000, got {len(questions)}"
 
-    # We ran out of definitions so we can pad with more duplicates just with different ID/Phrasing if necessary but usually we add variations
-    while easy_count < 300:
-       item = random.choice(kb['definitions'])
-       q_text = "Identify the concept defined by: '{}'".format(item['definition'])
-       correct = item['term']
-       wrong_pool = [d['term'] for d in kb['definitions'] if d['term'] != correct]
-       generic_terms = ["Work", "Power", "Force", "Inertia", "Kinetic Energy", "Potential Energy", "Acceleration", "Speed", "Displacement", f"RandomTerm_{easy_count}"]
-       while len(wrong_pool) < 6:
-           wrong_pool.append(random.choice(generic_terms))
-           wrong_pool = list(set(wrong_pool))
-       wrong_pool = [w for w in wrong_pool if w != correct][:6]
-       q_hash = get_hash(q_text + str(easy_count)) # Force uniqueness
-       seen_hashes.add(q_hash)
-       questions.append({
-                "id": "MI_" + uuid.uuid4().hex[:8],
-                "difficulty": "easy",
-                "question": q_text,
-                "correct_answer": correct,
-                "wrong_answers_pool": wrong_pool,
-                "tags": {
-                    "grade": "12",
-                    "subject": "Physical Sciences",
-                    "topic": "Paper 1: Momentum Impulse",
-                    "subtopic": "Terminology",
-                    "cognitive_level": "Knowledge",
-                    "difficulty": "easy",
-                    "learning_outcome": "Recall definitions and terminology"
-                }
-       })
-       easy_count += 1
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(questions, f, indent=2, ensure_ascii=False)
 
-    # --- MEDIUM: Concepts & Proportionality (500) ---
-    medium_count = 0
-    attempts = 0
-    while medium_count < 500 and attempts < 2000:
-        attempts += 1
-        choice = random.choice(['prop', 'concept', 'calc_p'])
-
-        if choice == 'prop':
-            item = random.choice(kb['proportionality'])
-            q_text = item['statement']
-            correct = item['correct']
-            wrong_pool = item['distractors'][:6]
-            subtopic = "Proportionality"
-
-        elif choice == 'concept':
-            item = random.choice(kb['concepts'])
-            q_text = item['question']
-            correct = item['correct']
-            wrong_pool = item['distractors'][:6]
-            subtopic = "Conceptual Application"
-
-        elif choice == 'calc_p':
-            m = random.randint(5, 500)
-            v = random.randint(2, 40)
-            p = m * v
-
-            q_text = "An object with a mass of {}\\text{{ kg}} moves at a constant speed of {}\\text{{ m\\cdot s}}^{{-1}}. Calculate the magnitude of its momentum.".format(m, v)
-            correct = "{}\\text{{ kg\\cdot m\\cdot s}}^{{-1}}".format(p)
-            wrong_pool = [
-                "{:.2f}\\text{{ kg\\cdot m\\cdot s}}^{{-1}}".format(m/v),
-                "{:.4f}\\text{{ kg\\cdot m\\cdot s}}^{{-1}}".format(v/m),
-                "{}\\text{{ kg\\cdot m\\cdot s}}^{{-1}}".format(m+v),
-                "{}\\text{{ kg\\cdot m\\cdot s}}^{{-1}}".format(0.5 * m * v**2),
-                "{}\\text{{ kg\\cdot m\\cdot s}}^{{-1}}".format(m * v**2),
-                "{}\\text{{ kg\\cdot m\\cdot s}}^{{-1}}".format(p * 9.8),
-                "{}\\text{{ kg\\cdot m\\cdot s}}^{{-1}}".format(p * 2)
-            ]
-            wrong_pool = list(set(wrong_pool))
-            wrong_pool = [w for w in wrong_pool if w != correct][:6]
-            subtopic = "Momentum Calculation"
-
-        # To avoid infinite loop, make slightly unique string
-        q_hash = get_hash(q_text + str(medium_count) if choice != 'calc_p' else q_text)
-        if q_hash not in seen_hashes:
-            seen_hashes.add(q_hash)
-            questions.append({
-                "id": "MI_" + uuid.uuid4().hex[:8],
-                "difficulty": "medium",
-                "question": q_text,
-                "correct_answer": correct,
-                "wrong_answers_pool": wrong_pool,
-                "tags": {
-                    "grade": "12",
-                    "subject": "Physical Sciences",
-                    "topic": "Paper 1: Momentum Impulse",
-                    "subtopic": subtopic,
-                    "cognitive_level": "Comprehension",
-                    "difficulty": "medium",
-                    "learning_outcome": "Apply momentum concepts"
-                }
-            })
-            medium_count += 1
-
-    while medium_count < 500:
-        # Fallback calc_p
-        m = random.randint(5, 500)
-        v = random.randint(2, 40)
-        p = m * v
-        q_text = "An object with a mass of {}\\text{{ kg}} moves at a constant speed of {}\\text{{ m\\cdot s}}^{{-1}}. Calculate the magnitude of its momentum.".format(m, v)
-        correct = "{}\\text{{ kg\\cdot m\\cdot s}}^{{-1}}".format(p)
-        wrong_pool = [
-                "{:.2f}\\text{{ kg\\cdot m\\cdot s}}^{{-1}}".format(m/v),
-                "{:.4f}\\text{{ kg\\cdot m\\cdot s}}^{{-1}}".format(v/m),
-                "{}\\text{{ kg\\cdot m\\cdot s}}^{{-1}}".format(m+v),
-                "{}\\text{{ kg\\cdot m\\cdot s}}^{{-1}}".format(0.5 * m * v**2),
-                "{}\\text{{ kg\\cdot m\\cdot s}}^{{-1}}".format(m * v**2),
-                "{}\\text{{ kg\\cdot m\\cdot s}}^{{-1}}".format(p * 9.8),
-                "{}\\text{{ kg\\cdot m\\cdot s}}^{{-1}}".format(p * 2)
-        ]
-        wrong_pool = list(set(wrong_pool))
-        wrong_pool = [w for w in wrong_pool if w != correct][:6]
-        q_hash = get_hash(q_text + str(medium_count))
-        seen_hashes.add(q_hash)
-        questions.append({
-                "id": "MI_" + uuid.uuid4().hex[:8],
-                "difficulty": "medium",
-                "question": q_text,
-                "correct_answer": correct,
-                "wrong_answers_pool": wrong_pool,
-                "tags": {
-                    "grade": "12",
-                    "subject": "Physical Sciences",
-                    "topic": "Paper 1: Momentum Impulse",
-                    "subtopic": "Momentum Calculation",
-                    "cognitive_level": "Comprehension",
-                    "difficulty": "medium",
-                    "learning_outcome": "Apply momentum concepts"
-                }
-        })
-        medium_count += 1
-
-    # --- HARD: Complex Calculations (200) ---
-    hard_count = 0
-    attempts = 0
-    while hard_count < 200 and attempts < 1000:
-        attempts += 1
-        choice = random.choice(['conservation', 'impulse', 'elasticity'])
-
-        if choice == 'conservation':
-            m1 = random.randint(2, 10)
-            m2 = random.randint(2, 10)
-            v1i = random.randint(5, 20)
-            v2i = -random.randint(2, 10)
-            v1f = -random.randint(1, 5)
-
-            v2f = (m1*v1i + m2*v2i - m1*v1f) / m2
-
-            q_text = "Car A of mass {}\\text{{ kg}} moving east at {}\\text{{ m\\cdot s}}^{{-1}} collides head-on with Car B of mass {}\\text{{ kg}} moving west at {}\\text{{ m\\cdot s}}^{{-1}}. After the collision, Car A moves west at {}\\text{{ m\\cdot s}}^{{-1}}. Calculate the magnitude of the speed of Car B after the collision. Ignore friction.".format(m1, v1i, m2, abs(v2i), abs(v1f))
-            correct = "{:.2f}\\text{{ m\\cdot s}}^{{-1}}".format(abs(v2f))
-
-            err1 = (m1*v1i + m2*abs(v2i) - m1*v1f) / m2
-            err2 = (m1*v1i + m2*v2i - m1*abs(v1f)) / m2
-            err3 = (m1*v1i + m2*abs(v2i) - m1*abs(v1f)) / m2
-            err4 = (m1*v1i + m2*v2i + m1*v1f) / m2
-            err5 = (m1*v1i - m2*v2i - m1*v1f) / m2
-            err6 = (m1*v1f + m2*v2i - m1*v1i) / m2
-
-            wrong_pool = [
-                "{:.2f}\\text{{ m\\cdot s}}^{{-1}}".format(abs(err1)),
-                "{:.2f}\\text{{ m\\cdot s}}^{{-1}}".format(abs(err2)),
-                "{:.2f}\\text{{ m\\cdot s}}^{{-1}}".format(abs(err3)),
-                "{:.2f}\\text{{ m\\cdot s}}^{{-1}}".format(abs(err4)),
-                "{:.2f}\\text{{ m\\cdot s}}^{{-1}}".format(abs(err5)),
-                "{:.2f}\\text{{ m\\cdot s}}^{{-1}}".format(abs(err6))
-            ]
-            subtopic = "Conservation of Momentum"
-
-        elif choice == 'impulse':
-            m = random.randint(50, 1500)
-            v_i = random.randint(10, 30)
-            v_f = -random.randint(5, 15)
-            dt = random.choice([0.1, 0.2, 0.5, 1.0])
-
-            fnet = (m * (v_f - v_i)) / dt
-
-            q_text = "An object of mass {}\\text{{ kg}} is moving east at {}\\text{{ m\\cdot s}}^{{-1}}. It collides with a wall and rebounds west at {}\\text{{ m\\cdot s}}^{{-1}}. The collision lasts for {}\\text{{ s}}. Calculate the magnitude of the average net force exerted by the wall on the object.".format(m, v_i, abs(v_f), dt)
-            correct = "{:.2f}\\text{{ N}}".format(abs(fnet))
-
-            err1 = (m * (abs(v_f) - v_i)) / dt
-            err2 = (m * (v_i - abs(v_f))) / dt
-            err3 = (m * (v_f - v_i)) * dt
-            err4 = (m * v_f) / dt
-            err5 = (m * v_i) / dt
-            err6 = (m * (v_f - v_i))
-
-            wrong_pool = [
-                "{:.2f}\\text{{ N}}".format(abs(err1)),
-                "{:.2f}\\text{{ N}}".format(abs(err2)),
-                "{:.2f}\\text{{ N}}".format(abs(err3)),
-                "{:.2f}\\text{{ N}}".format(abs(err4)),
-                "{:.2f}\\text{{ N}}".format(abs(err5)),
-                "{:.2f}\\text{{ N}}".format(abs(err6))
-            ]
-            subtopic = "Impulse-Momentum Theorem"
-
-        elif choice == 'elasticity':
-            m1 = random.randint(2, 5)
-            m2 = random.randint(2, 5)
-            v1i = random.randint(4, 10)
-
-            v_f = (m1 * v1i) / (m1 + m2)
-
-            eki = 0.5 * m1 * (v1i**2)
-            ekf = 0.5 * (m1 + m2) * (v_f**2)
-            delta_ek = eki - ekf
-
-            q_text = "An object of mass {}\\text{{ kg}} moving at {}\\text{{ m\\cdot s}}^{{-1}} collides with a stationary object of mass {}\\text{{ kg}}. They stick together after the collision. Calculate the magnitude of the kinetic energy lost during this collision.".format(m1, v1i, m2)
-            correct = "{:.2f}\\text{{ J}}".format(delta_ek)
-
-            err1 = eki
-            err2 = ekf
-            err3 = eki + ekf
-            err4 = (m1 * v1i)
-            err5 = 0.5 * m1 * (v1i**2) - 0.5 * m2 * (v_f**2)
-            err6 = delta_ek * 2
-
-            wrong_pool = [
-                "{:.2f}\\text{{ J}}".format(abs(err1)),
-                "{:.2f}\\text{{ J}}".format(abs(err2)),
-                "{:.2f}\\text{{ J}}".format(abs(err3)),
-                "{:.2f}\\text{{ J}}".format(abs(err4)),
-                "{:.2f}\\text{{ J}}".format(abs(err5)),
-                "{:.2f}\\text{{ J}}".format(abs(err6))
-            ]
-            subtopic = "Elastic and Inelastic Collisions"
-
-        wrong_pool = list(set(wrong_pool))
-        wrong_pool = [w for w in wrong_pool if w != correct]
-        while len(wrong_pool) < 6:
-             wrong_pool.append("{:.2f}".format(random.uniform(10, 1000)))
-             wrong_pool = list(set(wrong_pool))
-        wrong_pool = wrong_pool[:6]
-
-        q_hash = get_hash(q_text)
-        if q_hash not in seen_hashes:
-            seen_hashes.add(q_hash)
-            questions.append({
-                "id": "MI_" + uuid.uuid4().hex[:8],
-                "difficulty": "hard",
-                "question": q_text,
-                "correct_answer": correct,
-                "wrong_answers_pool": wrong_pool,
-                "tags": {
-                    "grade": "12",
-                    "subject": "Physical Sciences",
-                    "topic": "Paper 1: Momentum Impulse",
-                    "subtopic": subtopic,
-                    "cognitive_level": "Application",
-                    "difficulty": "hard",
-                    "learning_outcome": "Calculate complex collision scenarios"
-                }
-            })
-            hard_count += 1
-
-    while hard_count < 200:
-        # Fallback
-        m = random.randint(50, 1500)
-        v_i = random.randint(10, 30)
-        v_f = -random.randint(5, 15)
-        dt = random.choice([0.1, 0.2, 0.5, 1.0])
-        fnet = (m * (v_f - v_i)) / dt
-        q_text = "An object of mass {}\\text{{ kg}} is moving east at {}\\text{{ m\\cdot s}}^{{-1}}. It collides with a wall and rebounds west at {}\\text{{ m\\cdot s}}^{{-1}}. The collision lasts for {}\\text{{ s}}. Calculate the magnitude of the average net force exerted by the wall on the object.".format(m, v_i, abs(v_f), dt)
-        correct = "{:.2f}\\text{{ N}}".format(abs(fnet))
-        err1 = (m * (abs(v_f) - v_i)) / dt
-        err2 = (m * (v_i - abs(v_f))) / dt
-        err3 = (m * (v_f - v_i)) * dt
-        err4 = (m * v_f) / dt
-        err5 = (m * v_i) / dt
-        err6 = (m * (v_f - v_i))
-        wrong_pool = [
-                "{:.2f}\\text{{ N}}".format(abs(err1)),
-                "{:.2f}\\text{{ N}}".format(abs(err2)),
-                "{:.2f}\\text{{ N}}".format(abs(err3)),
-                "{:.2f}\\text{{ N}}".format(abs(err4)),
-                "{:.2f}\\text{{ N}}".format(abs(err5)),
-                "{:.2f}\\text{{ N}}".format(abs(err6))
-        ]
-        wrong_pool = list(set(wrong_pool))
-        wrong_pool = [w for w in wrong_pool if w != correct]
-        while len(wrong_pool) < 6:
-             wrong_pool.append("{:.2f}".format(random.uniform(10, 1000)))
-             wrong_pool = list(set(wrong_pool))
-        wrong_pool = wrong_pool[:6]
-
-        q_hash = get_hash(q_text + str(hard_count))
-        seen_hashes.add(q_hash)
-        questions.append({
-                "id": "MI_" + uuid.uuid4().hex[:8],
-                "difficulty": "hard",
-                "question": q_text,
-                "correct_answer": correct,
-                "wrong_answers_pool": wrong_pool,
-                "tags": {
-                    "grade": "12",
-                    "subject": "Physical Sciences",
-                    "topic": "Paper 1: Momentum Impulse",
-                    "subtopic": "Impulse-Momentum Theorem",
-                    "cognitive_level": "Application",
-                    "difficulty": "hard",
-                    "learning_outcome": "Calculate complex collision scenarios"
-                }
-        })
-        hard_count += 1
-
-    random.shuffle(questions)
-
-    with open('dataset/grade12/physical_sciences/paper1_momentum_impulse.json', 'w') as f:
-        json.dump(questions, f, indent=2)
+    print(f"SUCCESS: {output_path} generated in {time.time()-t0:.2f}s with {len(questions)} questions ({diff_counts}).")
+    return questions
 
 if __name__ == "__main__":
-    generate_questions()
+    generate_momentum_impulse()

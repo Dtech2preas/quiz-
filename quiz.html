@@ -440,7 +440,45 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
             numQuestions = available.length;
         }
 
-        quizQuestions = [...available].sort(() => 0.5 - Math.random()).slice(0, numQuestions);
+        // Smart diverse sampling: maximize subtopic balance and eliminate repetition within the same quiz
+        const shuffled = [...available].sort(() => 0.5 - Math.random());
+        const selected = [];
+        const subtopicCounts = {};
+        let definitionCount = 0;
+
+        // Pass 1: Select balanced questions across diverse subtopics, strictly capping definitions to 1 max
+        for (const q of shuffled) {
+            if (selected.length >= numQuestions) break;
+            const sub = (q.subtopic || (q.tags && q.tags.subtopic) || "General").trim();
+            const qTxt = (q.question || "").toLowerCase();
+            const isDef = sub.toLowerCase().includes("definition") || 
+                          qTxt.includes("what term is defined") || 
+                          qTxt.includes("identify the concept") ||
+                          qTxt.includes("state the definition") ||
+                          qTxt.includes("is defined as");
+
+            if (isDef && definitionCount >= 1) continue;
+
+            const maxPerSubtopic = numQuestions <= 15 ? 2 : 3;
+            const currentSubCount = subtopicCounts[sub] || 0;
+            if (currentSubCount >= maxPerSubtopic) continue;
+
+            selected.push(q);
+            subtopicCounts[sub] = currentSubCount + 1;
+            if (isDef) definitionCount++;
+        }
+
+        // Pass 2: If quota not fully reached, fill from remaining unseen candidates
+        if (selected.length < numQuestions) {
+            for (const q of shuffled) {
+                if (selected.length >= numQuestions) break;
+                if (!selected.some(s => s.id === q.id)) {
+                    selected.push(q);
+                }
+            }
+        }
+
+        quizQuestions = selected;
 
         // Record the freshly selected question IDs into the seen queue
         const newlySeen = quizQuestions.map(q => q.id).filter(Boolean);
