@@ -1,259 +1,81 @@
 [
   {
-    "id": "MATH11_P1_ALG_0813",
-    "topic": "Algebra, Equations and Inequalities",
-    "subtopic": "Equations",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Solve for x: $x^{2} - 19 x + 84 = 0$",
-    "correct_answer": "x = 7 or x = 12",
-    "wrong_answers_pool": [
-      "x = 6 or x = 10",
-      "x = 12 or x = 17",
-      "x = 5 or x = 14",
-      "x = 12 or x = 9",
-      "x = 6 or x = 13",
-      "x = 3 or x = 14",
-      "x = 11 or x = 7",
-      "x = 12 or x = 12"
-    ],
-    "explanation": "Factorising gives $(x - 7)(x - 12) = 0$, so x = 7 or x = 12.",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Algebra, Equations and Inequalities",
-      "subtopic": "Equations",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_1"
-  },
-  {
-    "id": "MATH11_P1_FIN_0520",
-    "topic": "Finance, Growth and Decay",
-    "subtopic": "Depreciation",
+    "id": "MATH11_P1_FUNC_0391",
+    "topic": "Functions and Graphs",
+    "subtopic": "Exponential",
     "paper": "paper1",
     "difficulty": "hard",
-    "question": "An asset valued at R22000 depreciates at 8.6% p.a. on a reducing balance. What is its value after 7 years?",
-    "correct_answer": "R11723.20",
+    "question": "What is the horizontal asymptote of the exponential function $y = 3^{x - (-14)} + (4)$?",
+    "correct_answer": "$y = 4$",
     "wrong_answers_pool": [
-      "R12637.84",
-      "R11283.56",
-      "R11202.35",
-      "R11635.77",
-      "R12158.80",
-      "R12421.31",
-      "R11765.18",
-      "R11353.20"
+      "$y = -1$",
+      "$y = -3$",
+      "$y = -4$",
+      "$y = 2$",
+      "$y = 12$",
+      "$y = 14$",
+      "$y = -2$"
     ],
-    "explanation": "Using $A = P(1 - i)^n$: $A = 22000(1 - 8.6/100)^7 = 11723.20$.",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Finance, Growth and Decay",
-      "subtopic": "Depreciation",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_2"
-  },
-  {
-    "id": "MATH11_P1_ALG_0622",
-    "topic": "Algebra, Equations and Inequalities",
-    "subtopic": "Surds",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Simplify: $\\sqrt{432}$",
-    "correct_answer": "$12\\sqrt{3}$",
-    "wrong_answers_pool": [
-      "$12\\sqrt{8}$",
-      "$8\\sqrt{5}$",
-      "$10\\sqrt{1}$",
-      "$14\\sqrt{2}$",
-      "$10\\sqrt{2}$",
-      "$12\\sqrt{5}$",
-      "$8\\sqrt{1}$",
-      "$9\\sqrt{5}$"
-    ],
-    "explanation": "$\\sqrt{432} = \\sqrt{144} \\times \\sqrt{3} = 12\\sqrt{3}$.",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Algebra, Equations and Inequalities",
-      "subtopic": "Surds",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_3"
-  },
-  {
-    "id": "MATH11_P1_FUNC_0938",
-    "topic": "Functions and Graphs",
-    "subtopic": "Linear",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "What is the gradient of the line $y = -1x + -9$?",
-    "correct_answer": "$-1$",
-    "wrong_answers_pool": [
-      "$2$",
-      "$-9$",
-      "$-7$",
-      "$-8$",
-      "$6$",
-      "$3$",
-      "$-11$"
-    ],
-    "explanation": "The equation is in the form $y = mx + c$, where $m$ is the gradient. So, the gradient is -1.",
+    "explanation": "The horizontal asymptote is given by the constant term, so $y = 4$.",
     "tags": {
       "grade": "11",
       "subject": "Mathematics",
       "paper": "paper1",
       "topic": "Functions and Graphs",
-      "subtopic": "Linear",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
+      "subtopic": "Exponential",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_4"
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_1"
   },
   {
-    "id": "MATH11_P1_SEQ_0471",
+    "id": "MATH11_P1_SEQ_0502",
     "topic": "Number Patterns and Sequences",
     "subtopic": "Quadratic Sequences",
     "paper": "paper1",
-    "difficulty": "medium",
-    "question": "What is the constant second difference of the sequence: -17, -18, -29, -50, ...?",
-    "correct_answer": "$-10$",
+    "difficulty": "hard",
+    "question": "What is the constant second difference of the sequence: 12, 15, 12, 3, ...?",
+    "correct_answer": "$-6$",
     "wrong_answers_pool": [
-      "$-16$",
-      "$-14$",
-      "$-19$",
-      "$-1$",
-      "$-17$",
-      "$0$"
+      "$2$",
+      "$0$",
+      "$-3$",
+      "$-11$",
+      "$-9$",
+      "$-13$",
+      "$-4$"
     ],
-    "explanation": "First differences are -1, -11, -21, ... The second difference is $(-11) - (-1) = -10$.",
+    "explanation": "First differences are 3, -3, -9, ... The second difference is $(-3) - (3) = -6$.",
     "tags": {
       "grade": "11",
       "subject": "Mathematics",
       "paper": "paper1",
       "topic": "Number Patterns and Sequences",
       "subtopic": "Quadratic Sequences",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_5"
-  },
-  {
-    "id": "MATH11_P1_FUNC_0322",
-    "topic": "Functions and Graphs",
-    "subtopic": "Hyperbolic",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "What is the horizontal asymptote of the hyperbola $y = \\frac{11}{x - (-6)} + (6)$?",
-    "correct_answer": "$y = 6$",
-    "wrong_answers_pool": [
-      "$y = 10$",
-      "$y = 1$",
-      "$y = 15$",
-      "$y = -1$",
-      "$y = 11$",
-      "$y = 9$",
-      "$y = 8$"
-    ],
-    "explanation": "The horizontal asymptote is given by the constant term outside the fraction, so $y = 6$.",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Functions and Graphs",
-      "subtopic": "Hyperbolic",
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_6"
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_2"
   },
   {
-    "id": "MATH11_P1_ALG_0974",
-    "topic": "Algebra, Equations and Inequalities",
-    "subtopic": "Inequalities",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "Solve for x: $x - 30 > 19$",
-    "correct_answer": "$x > 49.00$",
-    "wrong_answers_pool": [
-      "$x \\ge 41.29$",
-      "$x \\ge 42.92$",
-      "$x > 48.20$",
-      "$x \\le 48.14$",
-      "$x > 51.64$",
-      "$x < 44.21$",
-      "$x \\le 44.99$",
-      "$x > 44.34$"
-    ],
-    "explanation": "Subtract -30 from both sides, then divide by 1. Remember to flip the inequality sign if dividing by a negative number.",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Algebra, Equations and Inequalities",
-      "subtopic": "Inequalities",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_7"
-  },
-  {
-    "id": "MATH11_P1_PROB_0544",
-    "topic": "Probability",
-    "subtopic": "Tree Diagrams",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "A bag contains 3 red marbles and 4 blue marbles. A marble is drawn and NOT replaced. Then a second marble is drawn. What is the probability of drawing two red marbles?",
-    "correct_answer": "$6/42$",
-    "wrong_answers_pool": [
-      "$1/32$",
-      "$5/35$",
-      "$6/50$",
-      "$6/34$",
-      "$11/46$",
-      "$3/49$",
-      "$7/47$",
-      "$1/37$"
-    ],
-    "explanation": "Probability of red first is $3/7$. Without replacement, there are 2 red left out of 6 total. So probability of red second is $2/6$. $P(\\text{Red, Red}) = (3/7) \\times (2/6) = 6/42$.",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Probability",
-      "subtopic": "Tree Diagrams",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_8"
-  },
-  {
-    "id": "MATH11_P1_FIN_0037",
+    "id": "MATH11_P1_FIN_0765",
     "topic": "Finance, Growth and Decay",
     "subtopic": "Compound Interest",
     "paper": "paper1",
     "difficulty": "medium",
-    "question": "An amount of R20700 is invested at 23.5% p.a. compounded annually. What is the accumulated amount after 14 years?",
-    "correct_answer": "R397473.11",
+    "question": "An amount of R22000 is invested at 19.5% p.a. compounded annually. What is the accumulated amount after 16 years?",
+    "correct_answer": "R380460.14",
     "wrong_answers_pool": [
-      "R397224.33",
-      "R396849.06",
-      "R397559.17",
-      "R398212.32",
-      "R396495.59",
-      "R397512.55",
-      "R397387.69",
-      "R397809.98"
+      "R380206.53",
+      "R380016.06",
+      "R381165.36",
+      "R380040.52",
+      "R380389.28",
+      "R380670.89",
+      "R380237.81",
+      "R380866.18"
     ],
-    "explanation": "Using $A = P(1 + i)^n$: $A = 20700(1 + 23.5/100)^14 = 397473.11$.",
+    "explanation": "Using $A = P(1 + i)^n$: $A = 22000(1 + 19.5/100)^16 = 380460.14$.",
     "tags": {
       "grade": "11",
       "subject": "Mathematics",
@@ -263,84 +85,25 @@
       "cognitive_level": "Application",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_9"
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_3"
   },
   {
-    "id": "MATH11_P1_SEQ_0836",
-    "topic": "Number Patterns and Sequences",
-    "subtopic": "Geometric Sequences",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "What is the common ratio of the geometric sequence: 16, 16, 16, 16, ...?",
-    "correct_answer": "$1$",
-    "wrong_answers_pool": [
-      "$3$",
-      "$-1$",
-      "$2$",
-      "$0$",
-      "$0.5$",
-      "$1.5$"
-    ],
-    "explanation": "The common ratio is $T_2 / T_1 = 16 / 16 = 1$.",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Number Patterns and Sequences",
-      "subtopic": "Geometric Sequences",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_10"
-  },
-  {
-    "id": "MATH11_P1_FIN_0763",
-    "topic": "Finance, Growth and Decay",
-    "subtopic": "Depreciation",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "An asset valued at R38500 depreciates at 11.9% p.a. on a reducing balance. What is its value after 6 years?",
-    "correct_answer": "R18001.81",
-    "wrong_answers_pool": [
-      "R18669.56",
-      "R17960.34",
-      "R18908.91",
-      "R17677.18",
-      "R17875.47",
-      "R17378.92",
-      "R17452.61",
-      "R18394.64"
-    ],
-    "explanation": "Using $A = P(1 - i)^n$: $A = 38500(1 - 11.9/100)^6 = 18001.81$.",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Finance, Growth and Decay",
-      "subtopic": "Depreciation",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_11"
-  },
-  {
-    "id": "MATH11_P1_SEQ_0249",
+    "id": "MATH11_P1_SEQ_0759",
     "topic": "Number Patterns and Sequences",
     "subtopic": "Linear Sequences",
     "paper": "paper1",
     "difficulty": "hard",
-    "question": "What is the common difference of the sequence: -31, -17, -3, 11, ...?",
-    "correct_answer": "$14$",
+    "question": "What is the common difference of the sequence: -46, -28, -10, 8, ...?",
+    "correct_answer": "$18$",
     "wrong_answers_pool": [
+      "$15$",
+      "$24$",
       "$21$",
-      "$10$",
       "$20$",
-      "$4$",
-      "$5$",
-      "$17$",
-      "$12$"
+      "$12$",
+      "$25$"
     ],
-    "explanation": "The common difference is $T_2 - T_1 = -17 - (-31) = 14$.",
+    "explanation": "The common difference is $T_2 - T_1 = -28 - (-46) = 18$.",
     "tags": {
       "grade": "11",
       "subject": "Mathematics",
@@ -350,176 +113,466 @@
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_12"
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_4"
   },
   {
-    "id": "MATH11_P1_ALG_0614",
+    "id": "MATH11_P1_SEQ_0285",
+    "topic": "Number Patterns and Sequences",
+    "subtopic": "Linear Sequences",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "What is the common difference of the sequence: 23, 33, 43, 53, ...?",
+    "correct_answer": "$10$",
+    "wrong_answers_pool": [
+      "$17$",
+      "$7$",
+      "$20$",
+      "$8$",
+      "$1$",
+      "$4$",
+      "$12$",
+      "$3$"
+    ],
+    "explanation": "The common difference is $T_2 - T_1 = 33 - (23) = 10$.",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Number Patterns and Sequences",
+      "subtopic": "Linear Sequences",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_5"
+  },
+  {
+    "id": "MATH11_P1_FUNC_0045",
+    "topic": "Functions and Graphs",
+    "subtopic": "Quadratic",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "What is the turning point of the parabola $y = 4(x - (16))^2 + (5)$?",
+    "correct_answer": "$(16, 5)$",
+    "wrong_answers_pool": [
+      "$(16, 0)$",
+      "$(21, 4)$",
+      "$(16, 4)$",
+      "$(12, 7)$",
+      "$(14, 2)$",
+      "$(12, 6)$",
+      "$(19, 4)$",
+      "$(12, 2)$"
+    ],
+    "explanation": "The turning point of $y = a(x - p)^2 + q$ is $(p, q)$. Thus, the turning point is $(16, 5)$.",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Functions and Graphs",
+      "subtopic": "Quadratic",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_6"
+  },
+  {
+    "id": "MATH11_P1_PROB_0540",
+    "topic": "Probability",
+    "subtopic": "Venn Diagrams",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "In a group of 197 learners, 54 like Math, 89 like Science, and 35 like both. What is the probability that a randomly chosen learner likes neither subject?",
+    "correct_answer": "$89/197$",
+    "wrong_answers_pool": [
+      "$81/197$",
+      "$98/197$",
+      "$91/197$",
+      "$82/197$",
+      "$96/197$",
+      "$93/197$",
+      "$92/197$",
+      "$94/197$"
+    ],
+    "explanation": "Number of learners liking at least one subject = $n(M \\cup S) = n(M) + n(S) - n(M \\cap S) = 54 + 89 - 35 = 108$. Learners liking neither = $197 - 108 = 89$. Probability = $89/197$.",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Probability",
+      "subtopic": "Venn Diagrams",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_7"
+  },
+  {
+    "id": "MATH11_P1_FUNC_0220",
+    "topic": "Functions and Graphs",
+    "subtopic": "Hyperbolic",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "What is the horizontal asymptote of the hyperbola $y = \\frac{-7}{x - (-10)} + (16)$?",
+    "correct_answer": "$y = 16$",
+    "wrong_answers_pool": [
+      "$y = 22$",
+      "$y = 8$",
+      "$y = 11$",
+      "$y = 7$",
+      "$y = 13$",
+      "$y = 17$"
+    ],
+    "explanation": "The horizontal asymptote is given by the constant term outside the fraction, so $y = 16$.",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Functions and Graphs",
+      "subtopic": "Hyperbolic",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_8"
+  },
+  {
+    "id": "MATH11_P1_PROB_0474",
+    "topic": "Probability",
+    "subtopic": "Tree Diagrams",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A bag contains 4 red marbles and 7 blue marbles. A marble is drawn and NOT replaced. Then a second marble is drawn. What is the probability of drawing two red marbles?",
+    "correct_answer": "$12/110$",
+    "wrong_answers_pool": [
+      "$17/105$",
+      "$14/113$",
+      "$14/106$",
+      "$13/103$",
+      "$7/104$",
+      "$15/113$",
+      "$10/120$",
+      "$8/101$"
+    ],
+    "explanation": "Probability of red first is $4/11$. Without replacement, there are 3 red left out of 10 total. So probability of red second is $3/10$. $P(\\text{Red, Red}) = (4/11) \\times (3/10) = 12/110$.",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Probability",
+      "subtopic": "Tree Diagrams",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_9"
+  },
+  {
+    "id": "MATH11_P1_ALG_0383",
     "topic": "Algebra, Equations and Inequalities",
     "subtopic": "Equations",
     "paper": "paper1",
-    "difficulty": "hard",
-    "question": "Solve for x: $x^{2} - 31 x + 240 = 0$",
-    "correct_answer": "x = 16 or x = 15",
+    "difficulty": "medium",
+    "question": "Solve for x: $x^{2} - 29 x + 208 = 0$",
+    "correct_answer": "x = 16 or x = 13",
     "wrong_answers_pool": [
-      "x = 18 or x = 17",
-      "x = 13 or x = 18",
-      "x = 16 or x = 10",
-      "x = 19 or x = 19",
-      "x = 18 or x = 13",
-      "x = 19 or x = 10",
-      "x = 13 or x = 11"
+      "x = 14 or x = 18",
+      "x = 19 or x = 16",
+      "x = 19 or x = 11",
+      "x = 11 or x = 14",
+      "x = 16 or x = 8",
+      "x = 18 or x = 12",
+      "x = 14 or x = 8"
     ],
-    "explanation": "Factorising gives $(x - 16)(x - 15) = 0$, so x = 16 or x = 15.",
+    "explanation": "Factorising gives $(x - 16)(x - 13) = 0$, so x = 16 or x = 13.",
     "tags": {
       "grade": "11",
       "subject": "Mathematics",
       "paper": "paper1",
       "topic": "Algebra, Equations and Inequalities",
       "subtopic": "Equations",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
+      "cognitive_level": "Application",
+      "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_13"
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_10"
   },
   {
-    "id": "MATH11_P1_FIN_0874",
-    "topic": "Finance, Growth and Decay",
-    "subtopic": "Simple Interest",
+    "id": "MATH11_P1_FUNC_0154",
+    "topic": "Functions and Graphs",
+    "subtopic": "Hyperbolic",
     "paper": "paper1",
-    "difficulty": "hard",
-    "question": "An amount of R4400 is invested at 22.1% p.a. simple interest. What is the accumulated amount after 7 years?",
-    "correct_answer": "R11206.80",
+    "difficulty": "medium",
+    "question": "What is the horizontal asymptote of the hyperbola $y = \\frac{-10}{x - (12)} + (3)$?",
+    "correct_answer": "$y = 3$",
     "wrong_answers_pool": [
-      "R11697.67",
-      "R10484.94",
-      "R11440.04",
-      "R10667.62",
-      "R11763.37",
-      "R11518.51",
-      "R11608.27",
-      "R12166.27"
+      "$y = -5$",
+      "$y = 10$",
+      "$y = 0$",
+      "$y = -2$",
+      "$y = 12$",
+      "$y = -3$"
     ],
-    "explanation": "Using $A = P(1 + in)$: $A = 4400(1 + (22.1/100) \\times 7) = 11206.80$.",
+    "explanation": "The horizontal asymptote is given by the constant term outside the fraction, so $y = 3$.",
     "tags": {
       "grade": "11",
       "subject": "Mathematics",
       "paper": "paper1",
-      "topic": "Finance, Growth and Decay",
-      "subtopic": "Simple Interest",
+      "topic": "Functions and Graphs",
+      "subtopic": "Hyperbolic",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_11"
+  },
+  {
+    "id": "MATH11_P1_FUNC_0425",
+    "topic": "Functions and Graphs",
+    "subtopic": "Hyperbolic",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "What is the horizontal asymptote of the hyperbola $y = \\frac{-13}{x - (-5)} + (-17)$?",
+    "correct_answer": "$y = -17$",
+    "wrong_answers_pool": [
+      "$y = -16$",
+      "$y = -20$",
+      "$y = -27$",
+      "$y = -7$",
+      "$y = -22$",
+      "$y = -23$"
+    ],
+    "explanation": "The horizontal asymptote is given by the constant term outside the fraction, so $y = -17$.",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Functions and Graphs",
+      "subtopic": "Hyperbolic",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_12"
+  },
+  {
+    "id": "MATH11_P1_ALG_0366",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "Inequalities",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Solve for x: $- 12 x - 24 \\ge 27$",
+    "correct_answer": "$x \\le -4.25$",
+    "wrong_answers_pool": [
+      "$x \\ge -7.26$",
+      "$x \\ge -5.33$",
+      "$x \\ge -11.64$",
+      "$x < -2.71$",
+      "$x < -1.01$",
+      "$x > -14.22$",
+      "$x > -6.15$",
+      "$x \\ge -12.90$"
+    ],
+    "explanation": "Subtract -24 from both sides, then divide by -12. Remember to flip the inequality sign if dividing by a negative number.",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Algebra, Equations and Inequalities",
+      "subtopic": "Inequalities",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_13"
+  },
+  {
+    "id": "MATH11_P1_ALG_0937",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "Equations",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "Solve for x: $x^{2} + 3 x - 70 = 0$",
+    "correct_answer": "x = -10 or x = 7",
+    "wrong_answers_pool": [
+      "x = -14 or x = 7",
+      "x = -9 or x = 6",
+      "x = -8 or x = 8",
+      "x = -8 or x = 2",
+      "x = -11 or x = 11",
+      "x = -8 or x = 10",
+      "x = -8 or x = 6"
+    ],
+    "explanation": "Factorising gives $(x - -10)(x - 7) = 0$, so x = -10 or x = 7.",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Algebra, Equations and Inequalities",
+      "subtopic": "Equations",
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
     "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_14"
   },
   {
-    "id": "MATH11_P1_FIN_0473",
+    "id": "MATH11_P1_FIN_0051",
     "topic": "Finance, Growth and Decay",
-    "subtopic": "Simple Interest",
+    "subtopic": "Compound Interest",
     "paper": "paper1",
-    "difficulty": "medium",
-    "question": "An amount of R28600 is invested at 23.3% p.a. simple interest. What is the accumulated amount after 7 years?",
-    "correct_answer": "R75246.60",
+    "difficulty": "hard",
+    "question": "An amount of R42200 is invested at 7.0% p.a. compounded annually. What is the accumulated amount after 3 years?",
+    "correct_answer": "R51696.81",
     "wrong_answers_pool": [
-      "R75345.23",
-      "R74473.85",
-      "R76053.98",
-      "R75628.22",
-      "R74293.29",
-      "R75844.19",
-      "R75802.11",
-      "R75875.47"
+      "R51555.28",
+      "R52030.53",
+      "R50854.04",
+      "R50786.80",
+      "R52552.19",
+      "R52377.20",
+      "R52619.64",
+      "R51068.71"
     ],
-    "explanation": "Using $A = P(1 + in)$: $A = 28600(1 + (23.3/100) \\times 7) = 75246.60$.",
+    "explanation": "Using $A = P(1 + i)^n$: $A = 42200(1 + 7.0/100)^3 = 51696.81$.",
     "tags": {
       "grade": "11",
       "subject": "Mathematics",
       "paper": "paper1",
       "topic": "Finance, Growth and Decay",
-      "subtopic": "Simple Interest",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
+      "subtopic": "Compound Interest",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
     },
     "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_15"
   },
   {
-    "id": "MATH11_P1_ALG_0126",
-    "topic": "Algebra, Equations and Inequalities",
-    "subtopic": "Surds",
+    "id": "MATH11_P1_SEQ_0909",
+    "topic": "Number Patterns and Sequences",
+    "subtopic": "Linear Sequences",
     "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Simplify: $\\sqrt{5415}$",
-    "correct_answer": "$19\\sqrt{15}$",
+    "difficulty": "hard",
+    "question": "What is the common difference of the sequence: 38, 48, 58, 68, ...?",
+    "correct_answer": "$10$",
     "wrong_answers_pool": [
-      "$17\\sqrt{12}$",
-      "$15\\sqrt{11}$",
-      "$16\\sqrt{17}$",
-      "$16\\sqrt{14}$",
-      "$19\\sqrt{19}$",
-      "$14\\sqrt{13}$",
-      "$19\\sqrt{17}$",
-      "$17\\sqrt{15}$"
+      "$14$",
+      "$19$",
+      "$15$",
+      "$4$",
+      "$16$",
+      "$6$",
+      "$9$",
+      "$13$"
     ],
-    "explanation": "$\\sqrt{5415} = \\sqrt{361} \\times \\sqrt{15} = 19\\sqrt{15}$.",
+    "explanation": "The common difference is $T_2 - T_1 = 48 - (38) = 10$.",
     "tags": {
       "grade": "11",
       "subject": "Mathematics",
       "paper": "paper1",
-      "topic": "Algebra, Equations and Inequalities",
-      "subtopic": "Surds",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
+      "topic": "Number Patterns and Sequences",
+      "subtopic": "Linear Sequences",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
     },
     "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_16"
   },
   {
-    "id": "MATH11_P1_ALG_0550",
-    "topic": "Algebra, Equations and Inequalities",
-    "subtopic": "Equations",
+    "id": "MATH11_P1_FUNC_0526",
+    "topic": "Functions and Graphs",
+    "subtopic": "Quadratic",
     "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Solve for x: $x^{2} - 4 x - 140 = 0$",
-    "correct_answer": "x = -10 or x = 14",
+    "difficulty": "hard",
+    "question": "What is the turning point of the parabola $y = -1(x - (-5))^2 + (11)$?",
+    "correct_answer": "$(-5, 11)$",
     "wrong_answers_pool": [
-      "x = -8 or x = 16",
-      "x = -14 or x = 14",
-      "x = -12 or x = 12",
-      "x = -14 or x = 12",
-      "x = -8 or x = 11",
-      "x = -15 or x = 18",
-      "x = -12 or x = 10",
-      "x = -7 or x = 19"
+      "$(-6, 7)$",
+      "$(-10, 13)$",
+      "$(-7, 12)$",
+      "$(-8, 11)$",
+      "$(0, 13)$",
+      "$(-5, 10)$",
+      "$(-3, 14)$",
+      "$(-8, 12)$"
     ],
-    "explanation": "Factorising gives $(x - -10)(x - 14) = 0$, so x = -10 or x = 14.",
+    "explanation": "The turning point of $y = a(x - p)^2 + q$ is $(p, q)$. Thus, the turning point is $(-5, 11)$.",
     "tags": {
       "grade": "11",
       "subject": "Mathematics",
       "paper": "paper1",
-      "topic": "Algebra, Equations and Inequalities",
-      "subtopic": "Equations",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
+      "topic": "Functions and Graphs",
+      "subtopic": "Quadratic",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
     },
     "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_17"
   },
   {
-    "id": "MATH11_P1_PROB_0665",
+    "id": "MATH11_P1_SEQ_0097",
+    "topic": "Number Patterns and Sequences",
+    "subtopic": "Linear Sequences",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "What is the common difference of the sequence: -41, -33, -25, -17, ...?",
+    "correct_answer": "$8$",
+    "wrong_answers_pool": [
+      "$0$",
+      "$-2$",
+      "$2$",
+      "$5$",
+      "$12$",
+      "$15$"
+    ],
+    "explanation": "The common difference is $T_2 - T_1 = -33 - (-41) = 8$.",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Number Patterns and Sequences",
+      "subtopic": "Linear Sequences",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_18"
+  },
+  {
+    "id": "MATH11_P1_SEQ_0134",
+    "topic": "Number Patterns and Sequences",
+    "subtopic": "Linear Sequences",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "What is the common difference of the sequence: -19, -34, -49, -64, ...?",
+    "correct_answer": "$-15$",
+    "wrong_answers_pool": [
+      "$-24$",
+      "$-11$",
+      "$-22$",
+      "$-21$",
+      "$-5$",
+      "$-23$",
+      "$-7$"
+    ],
+    "explanation": "The common difference is $T_2 - T_1 = -34 - (-19) = -15$.",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Number Patterns and Sequences",
+      "subtopic": "Linear Sequences",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_19"
+  },
+  {
+    "id": "MATH11_P1_PROB_0076",
     "topic": "Probability",
     "subtopic": "Tree Diagrams",
     "paper": "paper1",
     "difficulty": "hard",
-    "question": "A bag contains 11 red marbles and 3 blue marbles. A marble is drawn and NOT replaced. Then a second marble is drawn. What is the probability of drawing two red marbles?",
-    "correct_answer": "$110/182$",
+    "question": "A bag contains 15 red marbles and 4 blue marbles. A marble is drawn and NOT replaced. Then a second marble is drawn. What is the probability of drawing two red marbles?",
+    "correct_answer": "$210/342$",
     "wrong_answers_pool": [
-      "$113/173$",
-      "$112/183$",
-      "$108/181$",
-      "$115/188$",
-      "$110/179$",
-      "$107/191$",
-      "$109/179$",
-      "$107/178$"
+      "$210/338$",
+      "$215/333$",
+      "$207/345$",
+      "$209/336$",
+      "$208/339$",
+      "$209/342$",
+      "$212/339$",
+      "$211/338$"
     ],
-    "explanation": "Probability of red first is $11/14$. Without replacement, there are 10 red left out of 13 total. So probability of red second is $10/13$. $P(\\text{Red, Red}) = (11/14) \\times (10/13) = 110/182$.",
+    "explanation": "Probability of red first is $15/19$. Without replacement, there are 14 red left out of 18 total. So probability of red second is $14/18$. $P(\\text{Red, Red}) = (15/19) \\times (14/18) = 210/342$.",
     "tags": {
       "grade": "11",
       "subject": "Mathematics",
@@ -529,84 +582,25 @@
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_18"
-  },
-  {
-    "id": "MATH11_P1_SEQ_0472",
-    "topic": "Number Patterns and Sequences",
-    "subtopic": "Quadratic Sequences",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "What is the constant second difference of the sequence: -9, -27, -55, -93, ...?",
-    "correct_answer": "$-10$",
-    "wrong_answers_pool": [
-      "$0$",
-      "$-9$",
-      "$-16$",
-      "$-11$",
-      "$-18$",
-      "$-14$"
-    ],
-    "explanation": "First differences are -18, -28, -38, ... The second difference is $(-28) - (-18) = -10$.",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Number Patterns and Sequences",
-      "subtopic": "Quadratic Sequences",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_19"
-  },
-  {
-    "id": "MATH11_P1_PROB_0373",
-    "topic": "Probability",
-    "subtopic": "Dependent and Independent Events",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Events A and B are independent. If $P(A) = 0.11$ and $P(B) = 0.83$, what is $P(A \\text{ and } B)$?",
-    "correct_answer": "$0.0913$",
-    "wrong_answers_pool": [
-      "$0.1501$",
-      "$0.0916$",
-      "$0.0388$",
-      "$0.0136$",
-      "$0.1311$",
-      "$0.0739$",
-      "$0.0231$",
-      "$0.1860$"
-    ],
-    "explanation": "For independent events, $P(A \\text{ and } B) = P(A) \\times P(B) = 0.11 \\times 0.83 = 0.0913$.",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Probability",
-      "subtopic": "Dependent and Independent Events",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
     "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_20"
   },
   {
-    "id": "MATH11_P1_PROB_0045",
+    "id": "MATH11_P1_PROB_0224",
     "topic": "Probability",
     "subtopic": "Contingency Tables",
     "paper": "paper1",
     "difficulty": "hard",
-    "question": "A survey of 129 people found 46 left-handed males, 41 right-handed males, 9 left-handed females, and 33 right-handed females. What is the probability that a randomly chosen person is left-handed?",
-    "correct_answer": "$55/129$",
+    "question": "A survey of 135 people found 36 left-handed males, 29 right-handed males, 48 left-handed females, and 22 right-handed females. What is the probability that a randomly chosen person is left-handed?",
+    "correct_answer": "$84/135$",
     "wrong_answers_pool": [
-      "$47/129$",
-      "$64/129$",
-      "$53/129$",
-      "$48/129$",
-      "$59/129$",
-      "$46/129$",
-      "$52/129$"
+      "$90/135$",
+      "$79/135$",
+      "$92/135$",
+      "$76/135$",
+      "$74/135$",
+      "$78/135$"
     ],
-    "explanation": "Total left-handed = $46 + 9 = 55$. Total people = $129$. Probability = $55/129$.",
+    "explanation": "Total left-handed = $36 + 48 = 84$. Total people = $135$. Probability = $84/135$.",
     "tags": {
       "grade": "11",
       "subject": "Mathematics",
@@ -619,381 +613,113 @@
     "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_21"
   },
   {
-    "id": "MATH11_P1_SEQ_0356",
-    "topic": "Number Patterns and Sequences",
-    "subtopic": "Linear Sequences",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "What is the common difference of the sequence: 42, 50, 58, 66, ...?",
-    "correct_answer": "$8$",
-    "wrong_answers_pool": [
-      "$10$",
-      "$4$",
-      "$14$",
-      "$11$",
-      "$9$",
-      "$16$",
-      "$-2$",
-      "$18$"
-    ],
-    "explanation": "The common difference is $T_2 - T_1 = 50 - (42) = 8$.",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Number Patterns and Sequences",
-      "subtopic": "Linear Sequences",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_22"
-  },
-  {
-    "id": "MATH11_P1_FIN_0467",
-    "topic": "Finance, Growth and Decay",
-    "subtopic": "Compound Interest",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "An amount of R45100 is invested at 3.8% p.a. compounded annually. What is the accumulated amount after 4 years?",
-    "correct_answer": "R52355.94",
-    "wrong_answers_pool": [
-      "R53001.02",
-      "R52333.27",
-      "R51983.77",
-      "R52283.67",
-      "R51474.90",
-      "R53225.45",
-      "R53097.80",
-      "R52135.60"
-    ],
-    "explanation": "Using $A = P(1 + i)^n$: $A = 45100(1 + 3.8/100)^4 = 52355.94$.",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Finance, Growth and Decay",
-      "subtopic": "Compound Interest",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_23"
-  },
-  {
-    "id": "MATH11_P1_PROB_0491",
+    "id": "MATH11_P1_PROB_0822",
     "topic": "Probability",
     "subtopic": "Contingency Tables",
     "paper": "paper1",
-    "difficulty": "hard",
-    "question": "A survey of 115 people found 28 left-handed males, 35 right-handed males, 31 left-handed females, and 21 right-handed females. What is the probability that a randomly chosen person is left-handed?",
-    "correct_answer": "$59/115$",
+    "difficulty": "medium",
+    "question": "A survey of 81 people found 24 left-handed males, 23 right-handed males, 27 left-handed females, and 7 right-handed females. What is the probability that a randomly chosen person is left-handed?",
+    "correct_answer": "$51/81$",
     "wrong_answers_pool": [
-      "$53/115$",
-      "$55/115$",
-      "$57/115$",
-      "$69/115$",
-      "$63/115$",
-      "$64/115$"
+      "$50/81$",
+      "$58/81$",
+      "$56/81$",
+      "$42/81$",
+      "$46/81$",
+      "$57/81$",
+      "$55/81$"
     ],
-    "explanation": "Total left-handed = $28 + 31 = 59$. Total people = $115$. Probability = $59/115$.",
+    "explanation": "Total left-handed = $24 + 27 = 51$. Total people = $81$. Probability = $51/81$.",
     "tags": {
       "grade": "11",
       "subject": "Mathematics",
       "paper": "paper1",
       "topic": "Probability",
       "subtopic": "Contingency Tables",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_24"
-  },
-  {
-    "id": "MATH11_P1_FIN_0867",
-    "topic": "Finance, Growth and Decay",
-    "subtopic": "Compound Interest",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "An amount of R44200 is invested at 20.9% p.a. compounded annually. What is the accumulated amount after 19 years?",
-    "correct_answer": "R1627503.70",
-    "wrong_answers_pool": [
-      "R1626949.06",
-      "R1626854.72",
-      "R1627213.40",
-      "R1627919.91",
-      "R1627903.39",
-      "R1626773.45",
-      "R1626843.67",
-      "R1627484.24"
-    ],
-    "explanation": "Using $A = P(1 + i)^n$: $A = 44200(1 + 20.9/100)^19 = 1627503.70$.",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Finance, Growth and Decay",
-      "subtopic": "Compound Interest",
       "cognitive_level": "Application",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_25"
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_22"
   },
   {
-    "id": "MATH11_P1_FIN_0817",
-    "topic": "Finance, Growth and Decay",
-    "subtopic": "Simple Interest",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "An amount of R37000 is invested at 21.3% p.a. simple interest. What is the accumulated amount after 1 years?",
-    "correct_answer": "R44881.00",
-    "wrong_answers_pool": [
-      "R45420.45",
-      "R44668.58",
-      "R44662.47",
-      "R44298.55",
-      "R45805.44",
-      "R44072.11",
-      "R44063.37",
-      "R45004.08"
-    ],
-    "explanation": "Using $A = P(1 + in)$: $A = 37000(1 + (21.3/100) \\times 1) = 44881.00$.",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Finance, Growth and Decay",
-      "subtopic": "Simple Interest",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_26"
-  },
-  {
-    "id": "MATH11_P1_FUNC_0025",
+    "id": "MATH11_P1_FUNC_0242",
     "topic": "Functions and Graphs",
     "subtopic": "Quadratic",
     "paper": "paper1",
-    "difficulty": "medium",
-    "question": "What is the turning point of the parabola $y = -2(x - (10))^2 + (17)$?",
-    "correct_answer": "$(10, 17)$",
+    "difficulty": "hard",
+    "question": "What is the turning point of the parabola $y = 2(x - (2))^2 + (-15)$?",
+    "correct_answer": "$(2, -15)$",
     "wrong_answers_pool": [
-      "$(8, 22)$",
-      "$(15, 15)$",
-      "$(11, 13)$",
-      "$(7, 12)$",
-      "$(5, 15)$",
-      "$(14, 15)$",
-      "$(6, 21)$",
-      "$(5, 20)$"
+      "$(6, -12)$",
+      "$(7, -10)$",
+      "$(-1, -16)$",
+      "$(1, -10)$",
+      "$(6, -20)$",
+      "$(-3, -17)$",
+      "$(0, -13)$",
+      "$(2, -19)$"
     ],
-    "explanation": "The turning point of $y = a(x - p)^2 + q$ is $(p, q)$. Thus, the turning point is $(10, 17)$.",
+    "explanation": "The turning point of $y = a(x - p)^2 + q$ is $(p, q)$. Thus, the turning point is $(2, -15)$.",
     "tags": {
       "grade": "11",
       "subject": "Mathematics",
       "paper": "paper1",
       "topic": "Functions and Graphs",
       "subtopic": "Quadratic",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_27"
-  },
-  {
-    "id": "MATH11_P1_SEQ_0709",
-    "topic": "Number Patterns and Sequences",
-    "subtopic": "Linear Sequences",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "What is the common difference of the sequence: -45, -53, -61, -69, ...?",
-    "correct_answer": "$-8$",
-    "wrong_answers_pool": [
-      "$-5$",
-      "$-16$",
-      "$-7$",
-      "$-11$",
-      "$-18$",
-      "$2$",
-      "$-13$",
-      "$-15$"
-    ],
-    "explanation": "The common difference is $T_2 - T_1 = -53 - (-45) = -8$.",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Number Patterns and Sequences",
-      "subtopic": "Linear Sequences",
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_28"
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_23"
   },
   {
-    "id": "MATH11_P1_ALG_0135",
-    "topic": "Algebra, Equations and Inequalities",
-    "subtopic": "Inequalities",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Solve for x: $10 x - 23 \\ge -30$",
-    "correct_answer": "$x \\ge -0.70$",
-    "wrong_answers_pool": [
-      "$x \\ge -10.62$",
-      "$x \\ge -2.84$",
-      "$x \\ge 0.10$",
-      "$x \\le 6.27$",
-      "$x > 6.46$",
-      "$x < 7.71$",
-      "$x > 8.02$",
-      "$x < -8.69$"
-    ],
-    "explanation": "Subtract -23 from both sides, then divide by 10. Remember to flip the inequality sign if dividing by a negative number.",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Algebra, Equations and Inequalities",
-      "subtopic": "Inequalities",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_29"
-  },
-  {
-    "id": "MATH11_P1_FUNC_0311",
-    "topic": "Functions and Graphs",
-    "subtopic": "Hyperbolic",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "What is the horizontal asymptote of the hyperbola $y = \\frac{10}{x - (-13)} + (13)$?",
-    "correct_answer": "$y = 13$",
-    "wrong_answers_pool": [
-      "$y = 17$",
-      "$y = 14$",
-      "$y = 16$",
-      "$y = 6$",
-      "$y = 7$",
-      "$y = 4$",
-      "$y = 3$"
-    ],
-    "explanation": "The horizontal asymptote is given by the constant term outside the fraction, so $y = 13$.",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Functions and Graphs",
-      "subtopic": "Hyperbolic",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_30"
-  },
-  {
-    "id": "MATH11_P1_FIN_0818",
+    "id": "MATH11_P1_FIN_0460",
     "topic": "Finance, Growth and Decay",
     "subtopic": "Simple Interest",
     "paper": "paper1",
-    "difficulty": "hard",
-    "question": "An amount of R15800 is invested at 6.3% p.a. simple interest. What is the accumulated amount after 8 years?",
-    "correct_answer": "R23763.20",
+    "difficulty": "medium",
+    "question": "An amount of R40000 is invested at 7.8% p.a. simple interest. What is the accumulated amount after 19 years?",
+    "correct_answer": "R99280.00",
     "wrong_answers_pool": [
-      "R23694.98",
-      "R23004.05",
-      "R22820.67",
-      "R24230.95",
-      "R23310.51",
-      "R24693.32",
-      "R24672.35",
-      "R24240.73"
+      "R98622.05",
+      "R98494.58",
+      "R98845.69",
+      "R100229.10",
+      "R98898.44",
+      "R99195.32",
+      "R98617.57",
+      "R99388.07"
     ],
-    "explanation": "Using $A = P(1 + in)$: $A = 15800(1 + (6.3/100) \\times 8) = 23763.20$.",
+    "explanation": "Using $A = P(1 + in)$: $A = 40000(1 + (7.8/100) \\times 19) = 99280.00$.",
     "tags": {
       "grade": "11",
       "subject": "Mathematics",
       "paper": "paper1",
       "topic": "Finance, Growth and Decay",
       "subtopic": "Simple Interest",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_31"
-  },
-  {
-    "id": "MATH11_P1_ALG_0662",
-    "topic": "Algebra, Equations and Inequalities",
-    "subtopic": "Inequalities",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Solve for x: $14 x + 1 \\ge 23$",
-    "correct_answer": "$x \\ge 1.57$",
-    "wrong_answers_pool": [
-      "$x < 11.06$",
-      "$x \\ge 2.61$",
-      "$x < 4.21$",
-      "$x > 9.55$",
-      "$x > -2.15$",
-      "$x \\ge -5.09$",
-      "$x \\ge -3.33$",
-      "$x \\ge 10.75$"
-    ],
-    "explanation": "Subtract 1 from both sides, then divide by 14. Remember to flip the inequality sign if dividing by a negative number.",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Algebra, Equations and Inequalities",
-      "subtopic": "Inequalities",
       "cognitive_level": "Application",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_32"
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_24"
   },
   {
-    "id": "MATH11_P1_PROB_0852",
-    "topic": "Probability",
-    "subtopic": "Dependent and Independent Events",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Events A and B are independent. If $P(A) = 0.86$ and $P(B) = 0.92$, what is $P(A \\text{ and } B)$?",
-    "correct_answer": "$0.7912$",
-    "wrong_answers_pool": [
-      "$0.8088$",
-      "$0.7999$",
-      "$0.7315$",
-      "$0.7066$",
-      "$0.7839$",
-      "$0.7618$",
-      "$0.8185$",
-      "$0.8626$"
-    ],
-    "explanation": "For independent events, $P(A \\text{ and } B) = P(A) \\times P(B) = 0.86 \\times 0.92 = 0.7912$.",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Probability",
-      "subtopic": "Dependent and Independent Events",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_33"
-  },
-  {
-    "id": "MATH11_P1_FIN_0537",
+    "id": "MATH11_P1_FIN_0365",
     "topic": "Finance, Growth and Decay",
     "subtopic": "Nominal and Effective Rates",
     "paper": "paper1",
     "difficulty": "medium",
-    "question": "Calculate the effective annual interest rate if the nominal interest rate is 21.9% p.a. compounded quarterly.",
-    "correct_answer": "23.77%",
+    "question": "Calculate the effective annual interest rate if the nominal interest rate is 12.2% p.a. compounded daily.",
+    "correct_answer": "12.97%",
     "wrong_answers_pool": [
-      "23.27%",
-      "25.24%",
-      "23.28%",
-      "24.88%",
-      "25.27%",
-      "25.13%",
-      "21.87%",
-      "25.78%"
+      "13.91%",
+      "15.64%",
+      "15.69%",
+      "10.29%",
+      "12.33%",
+      "11.18%",
+      "12.57%",
+      "15.77%"
     ],
-    "explanation": "Using $1 + i_{eff} = (1 + \\frac{i_{nom}}{m})^m$: $i_{eff} = (1 + \\frac{21.9/100}{4})^{4} - 1$. Convert to percentage: 23.77%.",
+    "explanation": "Using $1 + i_{eff} = (1 + \\frac{i_{nom}}{m})^m$: $i_{eff} = (1 + \\frac{12.2/100}{365})^{365} - 1$. Convert to percentage: 12.97%.",
     "tags": {
       "grade": "11",
       "subject": "Mathematics",
@@ -1003,175 +729,27 @@
       "cognitive_level": "Application",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_34"
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_25"
   },
   {
-    "id": "MATH11_P1_PROB_0904",
-    "topic": "Probability",
-    "subtopic": "Contingency Tables",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "A survey of 131 people found 18 left-handed males, 42 right-handed males, 40 left-handed females, and 31 right-handed females. What is the probability that a randomly chosen person is left-handed?",
-    "correct_answer": "$58/131$",
-    "wrong_answers_pool": [
-      "$63/131$",
-      "$50/131$",
-      "$62/131$",
-      "$68/131$",
-      "$65/131$",
-      "$55/131$",
-      "$67/131$",
-      "$64/131$"
-    ],
-    "explanation": "Total left-handed = $18 + 40 = 58$. Total people = $131$. Probability = $58/131$.",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Probability",
-      "subtopic": "Contingency Tables",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_35"
-  },
-  {
-    "id": "MATH11_P1_ALG_0230",
-    "topic": "Algebra, Equations and Inequalities",
-    "subtopic": "Expressions",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Expand and simplify: $(18 x + 1)(x - 12)$",
-    "correct_answer": "$18 x^{2} - 215 x - 12$",
-    "wrong_answers_pool": [
-      "$13 x^{2} - 12$",
-      "$17 x^{2} - x - 9$",
-      "$23 x^{2} + 4 x - 10$",
-      "$23 x^{2} + x - 10$",
-      "$15 x^{2} + 4 x - 17$",
-      "$20 x^{2} + 3 x - 16$",
-      "$22 x^{2} - 3 x - 15$",
-      "$23 x^{2} - 4 x - 16$"
-    ],
-    "explanation": "Multiply the terms: $(18x)(x) + (18x)(-12) + (1)(x) + (1)(-12) = 18 x^{2} - 215 x - 12$",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Algebra, Equations and Inequalities",
-      "subtopic": "Expressions",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_36"
-  },
-  {
-    "id": "MATH11_P1_SEQ_0403",
-    "topic": "Number Patterns and Sequences",
-    "subtopic": "Linear Sequences",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "What is the common difference of the sequence: -8, -20, -32, -44, ...?",
-    "correct_answer": "$-12$",
-    "wrong_answers_pool": [
-      "$-8$",
-      "$-9$",
-      "$-7$",
-      "$-21$",
-      "$-13$",
-      "$-10$",
-      "$-11$"
-    ],
-    "explanation": "The common difference is $T_2 - T_1 = -20 - (-8) = -12$.",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Number Patterns and Sequences",
-      "subtopic": "Linear Sequences",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_37"
-  },
-  {
-    "id": "MATH11_P1_FUNC_0039",
-    "topic": "Functions and Graphs",
-    "subtopic": "Quadratic",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "What is the turning point of the parabola $y = -3(x - (6))^2 + (-16)$?",
-    "correct_answer": "$(6, -16)$",
-    "wrong_answers_pool": [
-      "$(11, -18)$",
-      "$(11, -12)$",
-      "$(5, -19)$",
-      "$(11, -16)$",
-      "$(1, -15)$",
-      "$(3, -19)$",
-      "$(10, -11)$",
-      "$(3, -15)$"
-    ],
-    "explanation": "The turning point of $y = a(x - p)^2 + q$ is $(p, q)$. Thus, the turning point is $(6, -16)$.",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Functions and Graphs",
-      "subtopic": "Quadratic",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_38"
-  },
-  {
-    "id": "MATH11_P1_FIN_0584",
-    "topic": "Finance, Growth and Decay",
-    "subtopic": "Compound Interest",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "An amount of R46700 is invested at 2.6% p.a. compounded annually. What is the accumulated amount after 6 years?",
-    "correct_answer": "R54475.48",
-    "wrong_answers_pool": [
-      "R54867.79",
-      "R54198.73",
-      "R55268.31",
-      "R54537.74",
-      "R53528.46",
-      "R55197.70",
-      "R54314.74",
-      "R54518.02"
-    ],
-    "explanation": "Using $A = P(1 + i)^n$: $A = 46700(1 + 2.6/100)^6 = 54475.48$.",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Finance, Growth and Decay",
-      "subtopic": "Compound Interest",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_39"
-  },
-  {
-    "id": "MATH11_P1_ALG_0701",
+    "id": "MATH11_P1_ALG_0489",
     "topic": "Algebra, Equations and Inequalities",
     "subtopic": "Equations",
     "paper": "paper1",
     "difficulty": "hard",
-    "question": "Solve for x: $x^{2} - 34 x + 288 = 0$",
-    "correct_answer": "x = 16 or x = 18",
+    "question": "Solve for x: $x^{2} - 9 x - 220 = 0$",
+    "correct_answer": "x = -11 or x = 20",
     "wrong_answers_pool": [
-      "x = 11 or x = 20",
-      "x = 15 or x = 20",
-      "x = 12 or x = 14",
-      "x = 17 or x = 23",
-      "x = 17 or x = 22",
-      "x = 17 or x = 14",
-      "x = 11 or x = 15"
+      "x = -15 or x = 19",
+      "x = -8 or x = 23",
+      "x = -13 or x = 18",
+      "x = -10 or x = 25",
+      "x = -14 or x = 22",
+      "x = -6 or x = 22",
+      "x = -6 or x = 24",
+      "x = -16 or x = 16"
     ],
-    "explanation": "Factorising gives $(x - 16)(x - 18) = 0$, so x = 16 or x = 18.",
+    "explanation": "Factorising gives $(x - -11)(x - 20) = 0$, so x = -11 or x = 20.",
     "tags": {
       "grade": "11",
       "subject": "Mathematics",
@@ -1181,205 +759,25 @@
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_40"
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_26"
   },
   {
-    "id": "MATH11_P1_PROB_0669",
-    "topic": "Probability",
-    "subtopic": "Dependent and Independent Events",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "Events A and B are independent. If $P(A) = 0.66$ and $P(B) = 0.09$, what is $P(A \\text{ and } B)$?",
-    "correct_answer": "$0.0594$",
-    "wrong_answers_pool": [
-      "$0.1466$",
-      "$0.1000$",
-      "$-0.0336$",
-      "$0.0945$",
-      "$0.0925$",
-      "$0.0778$",
-      "$0.1095$",
-      "$0.0754$"
-    ],
-    "explanation": "For independent events, $P(A \\text{ and } B) = P(A) \\times P(B) = 0.66 \\times 0.09 = 0.0594$.",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Probability",
-      "subtopic": "Dependent and Independent Events",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_41"
-  },
-  {
-    "id": "MATH11_P1_PROB_0957",
-    "topic": "Probability",
-    "subtopic": "Dependent and Independent Events",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Events A and B are independent. If $P(A) = 0.48$ and $P(B) = 0.76$, what is $P(A \\text{ and } B)$?",
-    "correct_answer": "$0.3648$",
-    "wrong_answers_pool": [
-      "$0.4640$",
-      "$0.3982$",
-      "$0.4119$",
-      "$0.4093$",
-      "$0.2900$",
-      "$0.3174$",
-      "$0.3082$",
-      "$0.3485$"
-    ],
-    "explanation": "For independent events, $P(A \\text{ and } B) = P(A) \\times P(B) = 0.48 \\times 0.76 = 0.3648$.",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Probability",
-      "subtopic": "Dependent and Independent Events",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_42"
-  },
-  {
-    "id": "MATH11_P1_ALG_0998",
-    "topic": "Algebra, Equations and Inequalities",
-    "subtopic": "Inequalities",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "Solve for x: $18 - 3 x < -21$",
-    "correct_answer": "$x > 13.00$",
-    "wrong_answers_pool": [
-      "$x > 11.77$",
-      "$x > 13.02$",
-      "$x \\le 11.70$",
-      "$x > 18.09$",
-      "$x \\le 5.93$",
-      "$x < 3.31$",
-      "$x \\ge 8.09$",
-      "$x \\ge 17.78$"
-    ],
-    "explanation": "Subtract 18 from both sides, then divide by -3. Remember to flip the inequality sign if dividing by a negative number.",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Algebra, Equations and Inequalities",
-      "subtopic": "Inequalities",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_43"
-  },
-  {
-    "id": "MATH11_P1_FIN_0435",
-    "topic": "Finance, Growth and Decay",
-    "subtopic": "Compound Interest",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "An amount of R29100 is invested at 8.6% p.a. compounded annually. What is the accumulated amount after 12 years?",
-    "correct_answer": "R78316.07",
-    "wrong_answers_pool": [
-      "R79264.81",
-      "R79074.61",
-      "R79310.38",
-      "R78508.94",
-      "R77792.76",
-      "R77707.93",
-      "R77360.30",
-      "R78304.57"
-    ],
-    "explanation": "Using $A = P(1 + i)^n$: $A = 29100(1 + 8.6/100)^12 = 78316.07$.",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Finance, Growth and Decay",
-      "subtopic": "Compound Interest",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_44"
-  },
-  {
-    "id": "MATH11_P1_PROB_0721",
-    "topic": "Probability",
-    "subtopic": "Dependent and Independent Events",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "Events A and B are independent. If $P(A) = 0.63$ and $P(B) = 0.51$, what is $P(A \\text{ and } B)$?",
-    "correct_answer": "$0.3213$",
-    "wrong_answers_pool": [
-      "$0.2549$",
-      "$0.3364$",
-      "$0.4078$",
-      "$0.3159$",
-      "$0.3160$",
-      "$0.4121$",
-      "$0.4161$",
-      "$0.3344$"
-    ],
-    "explanation": "For independent events, $P(A \\text{ and } B) = P(A) \\times P(B) = 0.63 \\times 0.51 = 0.3213$.",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Probability",
-      "subtopic": "Dependent and Independent Events",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_45"
-  },
-  {
-    "id": "MATH11_P1_PROB_0949",
-    "topic": "Probability",
-    "subtopic": "Contingency Tables",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "A survey of 158 people found 49 left-handed males, 17 right-handed males, 42 left-handed females, and 50 right-handed females. What is the probability that a randomly chosen person is left-handed?",
-    "correct_answer": "$91/158$",
-    "wrong_answers_pool": [
-      "$92/158$",
-      "$98/158$",
-      "$82/158$",
-      "$87/158$",
-      "$89/158$",
-      "$86/158$",
-      "$84/158$",
-      "$81/158$"
-    ],
-    "explanation": "Total left-handed = $49 + 42 = 91$. Total people = $158$. Probability = $91/158$.",
-    "tags": {
-      "grade": "11",
-      "subject": "Mathematics",
-      "paper": "paper1",
-      "topic": "Probability",
-      "subtopic": "Contingency Tables",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_46"
-  },
-  {
-    "id": "MATH11_P1_SEQ_0428",
+    "id": "MATH11_P1_SEQ_0790",
     "topic": "Number Patterns and Sequences",
     "subtopic": "Quadratic Sequences",
     "paper": "paper1",
     "difficulty": "hard",
-    "question": "What is the constant second difference of the sequence: 24, 32, 52, 84, ...?",
-    "correct_answer": "$12$",
+    "question": "What is the constant second difference of the sequence: 31, 23, 5, -23, ...?",
+    "correct_answer": "$-10$",
     "wrong_answers_pool": [
-      "$9$",
-      "$5$",
-      "$2$",
-      "$20$",
-      "$3$",
-      "$7$"
+      "$-3$",
+      "$-5$",
+      "$-11$",
+      "$-2$",
+      "$-15$",
+      "$-20$"
     ],
-    "explanation": "First differences are 8, 20, 32, ... The second difference is $(20) - (8) = 12$.",
+    "explanation": "First differences are -8, -18, -28, ... The second difference is $(-18) - (-8) = -10$.",
     "tags": {
       "grade": "11",
       "subject": "Mathematics",
@@ -1389,26 +787,54 @@
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_47"
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_27"
   },
   {
-    "id": "MATH11_P1_SEQ_0336",
+    "id": "MATH11_P1_PROB_0172",
+    "topic": "Probability",
+    "subtopic": "Venn Diagrams",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "In a group of 80 learners, 50 like Math, 36 like Science, and 30 like both. What is the probability that a randomly chosen learner likes neither subject?",
+    "correct_answer": "$24/80$",
+    "wrong_answers_pool": [
+      "$15/80$",
+      "$28/80$",
+      "$14/80$",
+      "$27/80$",
+      "$34/80$",
+      "$31/80$"
+    ],
+    "explanation": "Number of learners liking at least one subject = $n(M \\cup S) = n(M) + n(S) - n(M \\cap S) = 50 + 36 - 30 = 56$. Learners liking neither = $80 - 56 = 24$. Probability = $24/80$.",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Probability",
+      "subtopic": "Venn Diagrams",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_28"
+  },
+  {
+    "id": "MATH11_P1_SEQ_0844",
     "topic": "Number Patterns and Sequences",
     "subtopic": "Linear Sequences",
     "paper": "paper1",
     "difficulty": "medium",
-    "question": "What is the common difference of the sequence: 32, 21, 10, -1, ...?",
-    "correct_answer": "$-11$",
+    "question": "What is the common difference of the sequence: -13, -6, 1, 8, ...?",
+    "correct_answer": "$7$",
     "wrong_answers_pool": [
-      "$-17$",
-      "$-20$",
-      "$-13$",
-      "$-21$",
-      "$-18$",
-      "$-7$",
-      "$-15$"
+      "$15$",
+      "$3$",
+      "$9$",
+      "$6$",
+      "$12$",
+      "$17$",
+      "$4$"
     ],
-    "explanation": "The common difference is $T_2 - T_1 = 21 - (32) = -11$.",
+    "explanation": "The common difference is $T_2 - T_1 = -6 - (-13) = 7$.",
     "tags": {
       "grade": "11",
       "subject": "Mathematics",
@@ -1418,62 +844,622 @@
       "cognitive_level": "Application",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_48"
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_29"
   },
   {
-    "id": "MATH11_P1_FIN_0340",
+    "id": "MATH11_P1_PROB_0388",
+    "topic": "Probability",
+    "subtopic": "Tree Diagrams",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A bag contains 14 red marbles and 4 blue marbles. A marble is drawn and NOT replaced. Then a second marble is drawn. What is the probability of drawing two red marbles?",
+    "correct_answer": "$182/306$",
+    "wrong_answers_pool": [
+      "$183/307$",
+      "$187/313$",
+      "$184/305$",
+      "$187/300$",
+      "$187/298$",
+      "$179/302$",
+      "$181/309$",
+      "$185/314$"
+    ],
+    "explanation": "Probability of red first is $14/18$. Without replacement, there are 13 red left out of 17 total. So probability of red second is $13/17$. $P(\\text{Red, Red}) = (14/18) \\times (13/17) = 182/306$.",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Probability",
+      "subtopic": "Tree Diagrams",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_30"
+  },
+  {
+    "id": "MATH11_P1_FUNC_0099",
+    "topic": "Functions and Graphs",
+    "subtopic": "Quadratic",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "What is the turning point of the parabola $y = 1(x - (-9))^2 + (9)$?",
+    "correct_answer": "$(-9, 9)$",
+    "wrong_answers_pool": [
+      "$(-10, 11)$",
+      "$(-5, 14)$",
+      "$(-12, 13)$",
+      "$(-11, 4)$",
+      "$(-14, 11)$",
+      "$(-7, 10)$",
+      "$(-10, 10)$",
+      "$(-11, 10)$"
+    ],
+    "explanation": "The turning point of $y = a(x - p)^2 + q$ is $(p, q)$. Thus, the turning point is $(-9, 9)$.",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Functions and Graphs",
+      "subtopic": "Quadratic",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_31"
+  },
+  {
+    "id": "MATH11_P1_PROB_0864",
+    "topic": "Probability",
+    "subtopic": "Dependent and Independent Events",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Events A and B are independent. If $P(A) = 0.75$ and $P(B) = 0.59$, what is $P(A \\text{ and } B)$?",
+    "correct_answer": "$0.4425$",
+    "wrong_answers_pool": [
+      "$0.4420$",
+      "$0.4173$",
+      "$0.4536$",
+      "$0.4662$",
+      "$0.4610$",
+      "$0.4755$",
+      "$0.5372$",
+      "$0.4957$"
+    ],
+    "explanation": "For independent events, $P(A \\text{ and } B) = P(A) \\times P(B) = 0.75 \\times 0.59 = 0.4425$.",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Probability",
+      "subtopic": "Dependent and Independent Events",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_32"
+  },
+  {
+    "id": "MATH11_P1_SEQ_0354",
+    "topic": "Number Patterns and Sequences",
+    "subtopic": "Linear Sequences",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "What is the common difference of the sequence: 7, 0, -7, -14, ...?",
+    "correct_answer": "$-7$",
+    "wrong_answers_pool": [
+      "$-8$",
+      "$-10$",
+      "$-5$",
+      "$-9$",
+      "$-4$",
+      "$-13$",
+      "$-6$"
+    ],
+    "explanation": "The common difference is $T_2 - T_1 = 0 - (7) = -7$.",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Number Patterns and Sequences",
+      "subtopic": "Linear Sequences",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_33"
+  },
+  {
+    "id": "MATH11_P1_FUNC_0230",
+    "topic": "Functions and Graphs",
+    "subtopic": "Trigonometric",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "What is the amplitude of the function $y = 9\\sin(x - 118^\\circ)$?",
+    "correct_answer": "$9$",
+    "wrong_answers_pool": [
+      "$5$",
+      "$7$",
+      "$13$",
+      "$11$",
+      "$6$",
+      "$14$",
+      "$4$"
+    ],
+    "explanation": "The amplitude is the absolute value of the coefficient of the trigonometric function, so it is 9.",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Functions and Graphs",
+      "subtopic": "Trigonometric",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_34"
+  },
+  {
+    "id": "MATH11_P1_ALG_0186",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "Inequalities",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Solve for x: $4 x - 23 > 9$",
+    "correct_answer": "$x > 8.00$",
+    "wrong_answers_pool": [
+      "$x > 7.27$",
+      "$x > 16.26$",
+      "$x < 2.09$",
+      "$x \\le 9.50$",
+      "$x \\le 17.20$",
+      "$x \\ge 5.11$",
+      "$x > -0.85$",
+      "$x < 15.03$"
+    ],
+    "explanation": "Subtract -23 from both sides, then divide by 4. Remember to flip the inequality sign if dividing by a negative number.",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Algebra, Equations and Inequalities",
+      "subtopic": "Inequalities",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_35"
+  },
+  {
+    "id": "MATH11_P1_SEQ_0817",
+    "topic": "Number Patterns and Sequences",
+    "subtopic": "Quadratic Sequences",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "What is the constant second difference of the sequence: 29, 44, 69, 104, ...?",
+    "correct_answer": "$10$",
+    "wrong_answers_pool": [
+      "$9$",
+      "$7$",
+      "$4$",
+      "$20$",
+      "$13$",
+      "$18$",
+      "$12$"
+    ],
+    "explanation": "First differences are 15, 25, 35, ... The second difference is $(25) - (15) = 10$.",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Number Patterns and Sequences",
+      "subtopic": "Quadratic Sequences",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_36"
+  },
+  {
+    "id": "MATH11_P1_PROB_0968",
+    "topic": "Probability",
+    "subtopic": "Venn Diagrams",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "In a group of 117 learners, 77 like Math, 57 like Science, and 47 like both. What is the probability that a randomly chosen learner likes neither subject?",
+    "correct_answer": "$30/117$",
+    "wrong_answers_pool": [
+      "$36/117$",
+      "$23/117$",
+      "$32/117$",
+      "$21/117$",
+      "$40/117$",
+      "$24/117$"
+    ],
+    "explanation": "Number of learners liking at least one subject = $n(M \\cup S) = n(M) + n(S) - n(M \\cap S) = 77 + 57 - 47 = 87$. Learners liking neither = $117 - 87 = 30$. Probability = $30/117$.",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Probability",
+      "subtopic": "Venn Diagrams",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_37"
+  },
+  {
+    "id": "MATH11_P1_FIN_0324",
     "topic": "Finance, Growth and Decay",
     "subtopic": "Nominal and Effective Rates",
     "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Calculate the effective annual interest rate if the nominal interest rate is 2.3% p.a. compounded quarterly.",
-    "correct_answer": "2.32%",
+    "difficulty": "hard",
+    "question": "Calculate the effective annual interest rate if the nominal interest rate is 4.8% p.a. compounded daily.",
+    "correct_answer": "4.92%",
     "wrong_answers_pool": [
-      "1.44%",
-      "-0.48%",
-      "2.29%",
-      "5.21%",
-      "1.40%",
-      "4.29%",
-      "2.07%",
-      "-0.13%"
+      "4.62%",
+      "5.57%",
+      "6.05%",
+      "5.91%",
+      "3.80%",
+      "7.01%",
+      "2.13%",
+      "4.87%"
     ],
-    "explanation": "Using $1 + i_{eff} = (1 + \\frac{i_{nom}}{m})^m$: $i_{eff} = (1 + \\frac{2.3/100}{4})^{4} - 1$. Convert to percentage: 2.32%.",
+    "explanation": "Using $1 + i_{eff} = (1 + \\frac{i_{nom}}{m})^m$: $i_{eff} = (1 + \\frac{4.8/100}{365})^{365} - 1$. Convert to percentage: 4.92%.",
     "tags": {
       "grade": "11",
       "subject": "Mathematics",
       "paper": "paper1",
       "topic": "Finance, Growth and Decay",
       "subtopic": "Nominal and Effective Rates",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_38"
+  },
+  {
+    "id": "MATH11_P1_PROB_0389",
+    "topic": "Probability",
+    "subtopic": "Venn Diagrams",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "In a group of 80 learners, 27 like Math, 54 like Science, and 6 like both. What is the probability that a randomly chosen learner likes neither subject?",
+    "correct_answer": "$5/80$",
+    "wrong_answers_pool": [
+      "$8/80$",
+      "$13/80$",
+      "$11/80$",
+      "$7/80$",
+      "$0/80$",
+      "$4/80$"
+    ],
+    "explanation": "Number of learners liking at least one subject = $n(M \\cup S) = n(M) + n(S) - n(M \\cap S) = 27 + 54 - 6 = 75$. Learners liking neither = $80 - 75 = 5$. Probability = $5/80$.",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Probability",
+      "subtopic": "Venn Diagrams",
       "cognitive_level": "Application",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_49"
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_39"
   },
   {
-    "id": "MATH11_P1_SEQ_0820",
+    "id": "MATH11_P1_FIN_0691",
+    "topic": "Finance, Growth and Decay",
+    "subtopic": "Compound Interest",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "An amount of R42600 is invested at 3.6% p.a. compounded annually. What is the accumulated amount after 12 years?",
+    "correct_answer": "R65121.84",
+    "wrong_answers_pool": [
+      "R65978.42",
+      "R64769.16",
+      "R65895.01",
+      "R64212.75",
+      "R66065.34",
+      "R64669.94",
+      "R65487.55",
+      "R64881.29"
+    ],
+    "explanation": "Using $A = P(1 + i)^n$: $A = 42600(1 + 3.6/100)^12 = 65121.84$.",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Finance, Growth and Decay",
+      "subtopic": "Compound Interest",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_40"
+  },
+  {
+    "id": "MATH11_P1_ALG_0715",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "Expressions",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Expand and simplify: $(7 - 7 x)(x + 2)$",
+    "correct_answer": "$- 7 x^{2} - 7 x + 14$",
+    "wrong_answers_pool": [
+      "$- 6 x^{2} + 5 x + 4$",
+      "$- 5 x^{2} + 5 x + 2$",
+      "$- 8 x^{2} + 11 x$",
+      "$- 9 x^{2} + 10 x + 7$",
+      "$- 7 x^{2} + 8 x + 2$",
+      "$- 10 x^{2} + 7 x + 6$",
+      "$- 12 x^{2} + 5 x - 1$",
+      "$- 12 x^{2} + 12 x + 6$"
+    ],
+    "explanation": "Multiply the terms: $(-7x)(x) + (-7x)(2) + (7)(x) + (7)(2) = - 7 x^{2} - 7 x + 14$",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Algebra, Equations and Inequalities",
+      "subtopic": "Expressions",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_41"
+  },
+  {
+    "id": "MATH11_P1_ALG_0079",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "Expressions",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "Expand and simplify: $(- 14 x - 6)(x + 16)$",
+    "correct_answer": "$- 14 x^{2} - 230 x - 96$",
+    "wrong_answers_pool": [
+      "$- 19 x^{2} - 8 x + 21$",
+      "$- 10 x^{2} - 7 x + 13$",
+      "$- 11 x^{2} - 8 x + 15$",
+      "$- 15 x^{2} - 10 x + 21$",
+      "$- 12 x^{2} - 3 x + 13$",
+      "$- 18 x^{2} - 7 x + 19$",
+      "$- 18 x^{2} - 6 x + 11$",
+      "$- 17 x^{2} - 3 x + 15$"
+    ],
+    "explanation": "Multiply the terms: $(-14x)(x) + (-14x)(16) + (-6)(x) + (-6)(16) = - 14 x^{2} - 230 x - 96$",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Algebra, Equations and Inequalities",
+      "subtopic": "Expressions",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_42"
+  },
+  {
+    "id": "MATH11_P1_SEQ_0601",
     "topic": "Number Patterns and Sequences",
     "subtopic": "Linear Sequences",
     "paper": "paper1",
-    "difficulty": "hard",
-    "question": "What is the common difference of the sequence: -7, -21, -35, -49, ...?",
-    "correct_answer": "$-14$",
+    "difficulty": "medium",
+    "question": "What is the common difference of the sequence: -37, -52, -67, -82, ...?",
+    "correct_answer": "$-15$",
     "wrong_answers_pool": [
-      "$-19$",
-      "$-17$",
-      "$-9$",
       "$-13$",
-      "$-11$",
+      "$-5$",
+      "$-17$",
+      "$-6$",
       "$-8$",
-      "$-20$"
+      "$-24$",
+      "$-14$",
+      "$-12$"
     ],
-    "explanation": "The common difference is $T_2 - T_1 = -21 - (-7) = -14$.",
+    "explanation": "The common difference is $T_2 - T_1 = -52 - (-37) = -15$.",
     "tags": {
       "grade": "11",
       "subject": "Mathematics",
       "paper": "paper1",
       "topic": "Number Patterns and Sequences",
       "subtopic": "Linear Sequences",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_43"
+  },
+  {
+    "id": "MATH11_P1_ALG_0083",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "Inequalities",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "Solve for x: $- 13 x - 26 \\le 26$",
+    "correct_answer": "$x \\ge -4.00$",
+    "wrong_answers_pool": [
+      "$x \\ge -12.59$",
+      "$x \\ge -0.31$",
+      "$x \\ge 4.66$",
+      "$x \\le -4.55$",
+      "$x \\le -11.05$",
+      "$x \\ge -10.28$",
+      "$x > 4.91$",
+      "$x > 4.71$"
+    ],
+    "explanation": "Subtract -26 from both sides, then divide by -13. Remember to flip the inequality sign if dividing by a negative number.",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Algebra, Equations and Inequalities",
+      "subtopic": "Inequalities",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_44"
+  },
+  {
+    "id": "MATH11_P1_FIN_0093",
+    "topic": "Finance, Growth and Decay",
+    "subtopic": "Compound Interest",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "An amount of R34000 is invested at 15.6% p.a. compounded annually. What is the accumulated amount after 11 years?",
+    "correct_answer": "R167500.11",
+    "wrong_answers_pool": [
+      "R168375.33",
+      "R167477.14",
+      "R166815.58",
+      "R168458.68",
+      "R166784.57",
+      "R167083.43",
+      "R167906.57",
+      "R167921.59"
+    ],
+    "explanation": "Using $A = P(1 + i)^n$: $A = 34000(1 + 15.6/100)^11 = 167500.11$.",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Finance, Growth and Decay",
+      "subtopic": "Compound Interest",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_45"
+  },
+  {
+    "id": "MATH11_P1_FIN_0339",
+    "topic": "Finance, Growth and Decay",
+    "subtopic": "Simple Interest",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "An amount of R36300 is invested at 17.1% p.a. simple interest. What is the accumulated amount after 15 years?",
+    "correct_answer": "R129409.50",
+    "wrong_answers_pool": [
+      "R129579.66",
+      "R129523.29",
+      "R128961.49",
+      "R128854.07",
+      "R130121.80",
+      "R129317.09",
+      "R128637.42",
+      "R128447.84"
+    ],
+    "explanation": "Using $A = P(1 + in)$: $A = 36300(1 + (17.1/100) \\times 15) = 129409.50$.",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Finance, Growth and Decay",
+      "subtopic": "Simple Interest",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_46"
+  },
+  {
+    "id": "MATH11_P1_FUNC_0316",
+    "topic": "Functions and Graphs",
+    "subtopic": "Exponential",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "What is the horizontal asymptote of the exponential function $y = 2^{x - (1)} + (5)$?",
+    "correct_answer": "$y = 5$",
+    "wrong_answers_pool": [
+      "$y = 15$",
+      "$y = 9$",
+      "$y = -5$",
+      "$y = -4$",
+      "$y = 2$",
+      "$y = 1$"
+    ],
+    "explanation": "The horizontal asymptote is given by the constant term, so $y = 5$.",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Functions and Graphs",
+      "subtopic": "Exponential",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_47"
+  },
+  {
+    "id": "MATH11_P1_ALG_0163",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "Expressions",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "Expand and simplify: $(12 x - 17)(x + 3)$",
+    "correct_answer": "$12 x^{2} + 19 x - 51$",
+    "wrong_answers_pool": [
+      "$8 x^{2} - 16 x + 6$",
+      "$16 x^{2} - 20 x + 3$",
+      "$7 x^{2} - 15 x + 5$",
+      "$16 x^{2} - 22 x + 6$",
+      "$12 x^{2} - 16 x$",
+      "$13 x^{2} - 17 x + 1$",
+      "$16 x^{2} - 17 x + 2$",
+      "$13 x^{2} - 15 x$"
+    ],
+    "explanation": "Multiply the terms: $(12x)(x) + (12x)(3) + (-17)(x) + (-17)(3) = 12 x^{2} + 19 x - 51$",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Algebra, Equations and Inequalities",
+      "subtopic": "Expressions",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_48"
+  },
+  {
+    "id": "MATH11_P1_ALG_0723",
+    "topic": "Algebra, Equations and Inequalities",
+    "subtopic": "Exponents",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Simplify: $5^{11} \\times 5^{-8}$",
+    "correct_answer": "$5^{3}$",
+    "wrong_answers_pool": [
+      "$5^{6}$",
+      "$5^{0}$",
+      "$5^{4}$",
+      "$5^{1}$",
+      "$5^{2}$",
+      "$5^{7}$"
+    ],
+    "explanation": "When multiplying powers with the same base, add the exponents: $11 + (-8) = 3$.",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Algebra, Equations and Inequalities",
+      "subtopic": "Exponents",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_mathematics_paper1_49"
+  },
+  {
+    "id": "MATH11_P1_PROB_0186",
+    "topic": "Probability",
+    "subtopic": "Venn Diagrams",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "In a group of 93 learners, 21 like Math, 42 like Science, and 9 like both. What is the probability that a randomly chosen learner likes neither subject?",
+    "correct_answer": "$39/93$",
+    "wrong_answers_pool": [
+      "$49/93$",
+      "$32/93$",
+      "$34/93$",
+      "$33/93$",
+      "$40/93$",
+      "$46/93$",
+      "$44/93$",
+      "$36/93$"
+    ],
+    "explanation": "Number of learners liking at least one subject = $n(M \\cup S) = n(M) + n(S) - n(M \\cap S) = 21 + 42 - 9 = 54$. Learners liking neither = $93 - 54 = 39$. Probability = $39/93$.",
+    "tags": {
+      "grade": "11",
+      "subject": "Mathematics",
+      "paper": "paper1",
+      "topic": "Probability",
+      "subtopic": "Venn Diagrams",
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
