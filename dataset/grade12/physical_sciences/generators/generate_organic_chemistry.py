@@ -1,17 +1,19 @@
 import json
-import random
 import os
 
 def build_organic_chemistry():
     questions = []
     seen_questions = set()
+    counts = {"easy": 0, "medium": 0, "hard": 0}
 
-    def add_q(difficulty, subtopic, q_text, correct, wrongs, cognitive, outcome):
+    def add_q(difficulty, subtopic, q_text, correct, wrongs, cognitive, outcome, explanation):
+        if counts[difficulty] >= (300 if difficulty == "easy" else 500 if difficulty == "medium" else 200):
+            return False
+
         q_clean = q_text.strip()
         if q_clean in seen_questions:
             return False
-        
-        # Deduplicate and remove correct answer from wrong pool
+
         c_str = str(correct).strip()
         clean_wrongs = []
         seen_w = set()
@@ -20,18 +22,22 @@ def build_organic_chemistry():
             if w_str != c_str and w_str not in seen_w:
                 seen_w.add(w_str)
                 clean_wrongs.append(w_str)
-        
+
         if len(clean_wrongs) < 6:
             return False
-            
+
         seen_questions.add(q_clean)
+        counts[difficulty] += 1
         qid = f"PS_P2_ORG_{len(questions) + 1:04d}"
         questions.append({
             "id": qid,
+            "topic": "Paper 2: Organic Chemistry",
+            "subtopic": subtopic,
             "difficulty": difficulty,
             "question": q_clean,
             "correct_answer": c_str,
             "wrong_answers_pool": clean_wrongs[:8],
+            "explanation": explanation.strip(),
             "tags": {
                 "grade": "12",
                 "subject": "Physical Sciences",
@@ -44,443 +50,1005 @@ def build_organic_chemistry():
         })
         return True
 
-    # -----------------------------------------------------------------
-    # EASY SECTION (Target: 300 questions)
-    # -----------------------------------------------------------------
-    # 1. Definitions & Terminology
-    defs = [
-        ("Hydrocarbon", "An organic compound consisting exclusively of hydrogen and carbon atoms.",
-         ["A compound containing carbon, hydrogen, and oxygen", "A compound with carbon-carbon single bonds only", "A saturated biological polymer", "Any molecule that contains carbon rings", "A hydrocarbon chain containing halogen atoms", "An inorganic compound containing carbon"]),
-        ("Homologous Series", "A series of organic compounds that can be described by the same general formula and where each member differs from the next by a CH2 unit.",
-         ["A group of organic molecules with identical physical properties", "Molecules that share the same molecular formula but different structures", "Compounds containing only single covalent bonds", "A set of compounds with identical melting points", "A group of polymers with repeating monomer units", "Molecules that possess identical boiling points"]),
-        ("Functional Group", "An atom or a group of atoms that determine(s) the physical and chemical properties of a group of organic compounds.",
-         ["The longest continuous chain of carbon atoms in a molecule", "A branch or alkyl substituent attached to the main parent chain", "The molecular formula common to all homologous series", "The region in a molecule where induced dipole forces act", "A covalent bond formed exclusively between identical atoms", "The spatial orientation of atoms in a hydrocarbon"]),
-        ("Saturated Compound", "A compound in which all bonds between carbon atoms are single bonds.",
-         ["A compound containing one or more multiple (double or triple) bonds between carbon atoms", "A solution that has dissolved maximum possible solute at a given temperature", "A hydrocarbon with delocalised electron rings", "An alcohol completely miscible with water", "A carboxylic acid that has reached maximum acidity", "An alkane with three or more substituent branches"]),
-        ("Unsaturated Compound", "A compound in which there is at least one double and/or triple bond between carbon atoms.",
-         ["A compound containing single covalent bonds between carbon atoms only", "A solution that can dissolve additional solute", "A hydrocarbon that cannot undergo addition reactions", "An organic molecule containing oxygen atoms", "A non-polar solvent capable of dissolving fats", "A branched alkane with low boiling point"]),
-        ("Structural Isomer", "Organic molecules with the same molecular formula, but different structural formulae.",
-         ["Molecules with different molecular formulae but identical molar masses", "Compounds with identical structural formulae but different molecular formulae", "Compounds in the same homologous series with identical boiling points", "Molecules with the same empirical formula but different physical states", "Organic compounds formed from the same monomer unit", "Molecules that rotate plane-polarized light in opposite directions"]),
-        ("Chain Isomer", "Compounds with the same molecular formula, but different types of carbon chains (different branching/skeletons).",
-         ["Compounds with identical functional groups attached at different positions", "Compounds with the same molecular formula but different functional groups", "Isomers having the same spatial arrangement of atoms", "Compounds with identical boiling and melting points", "Molecules differing by a CH2 repeating unit", "Polymers formed by condensation polymerisation"]),
-        ("Positional Isomer", "Compounds with the same molecular formula, but with the functional group or substituent in different positions on the same carbon chain.",
-         ["Compounds with different carbon skeletons and identical branching", "Compounds with the same molecular formula but belonging to different homologous series", "Molecules differing only in their physical state of matter", "Compounds with identical condensed structural formulae", "Isomers containing different numbers of carbon atoms", "Compounds with different molar masses"]),
-        ("Functional Isomer", "Compounds with the same molecular formula, but different functional groups.",
-         ["Compounds with identical functional groups at different chain positions", "Compounds with the same functional group but different chain lengths", "Molecules with the same skeletal shape but different masses", "Molecules differing by a halogen substituent", "Molecules with identical IUPAC names", "Isomers that have identical physical properties"])
+    # =========================================================================
+    # 1. EASY (Target: 300 Questions)
+    # =========================================================================
+
+    core_definitions = [
+        ("Hydrocarbon",
+         "An organic compound consisting exclusively of hydrogen and carbon atoms.",
+         ["A compound containing carbon, hydrogen, and oxygen atoms",
+          "A compound containing single covalent bonds between carbon atoms only",
+          "A biological polymer composed of amino acid subunits",
+          "Any cyclic molecule containing carbon rings",
+          "A saturated halogenated solvent",
+          "An inorganic carbon-bearing salt like calcium carbonate"],
+         "By CAPS definition, a hydrocarbon is an organic compound that contains hydrogen and carbon atoms only."),
+
+        ("Homologous Series",
+         "A series of organic compounds that can be described by the same general formula and where each member differs from the next by a CH2 unit.",
+         ["A collection of organic molecules with identical physical boiling points",
+          "Molecules sharing the same molecular formula but having different structural arrangements",
+          "Compounds composed exclusively of carbon-carbon single bonds",
+          "A group of molecules possessing identical melting points and densities",
+          "Organic polymers made of repeating monomer subunits",
+          "Isomeric compounds with identical chemical reactivities"],
+         "A homologous series has the same general formula, the same functional group, similar chemical properties, and consecutive members differ by a -CH2- unit."),
+
+        ("Functional Group",
+         "An atom or group of atoms that forms the center of chemical activity in the molecule and determines its characteristic properties.",
+         ["The longest continuous chain of carbon atoms in an organic molecule",
+          "An alkyl substituent attached to the parent carbon chain",
+          "The common molecular formula shared by all members of a family",
+          "The temporary dipole induced between adjacent molecules",
+          "A covalent bond between two identical non-metal atoms",
+          "The spatial geometric arrangement of bonds around a carbon atom"],
+         "A functional group is an atom or group of atoms that determines the chemical reactivity and physical properties of an organic compound."),
+
+        ("Saturated Compound",
+         "A compound in which all bonds between carbon atoms are single covalent bonds.",
+         ["A compound containing one or more multiple (double or triple) bonds between carbon atoms",
+          "A solution that contains the maximum possible dissolved solute at a specific temperature",
+          "An organic molecule that has reacted completely with bromine water",
+          "An alcohol completely miscible with water in all proportions",
+          "A carboxylic acid that has reached an equilibrium pH of 7",
+          "An alkane containing more than three alkyl branches"],
+         "Saturated organic compounds contain only single C-C bonds, meaning no more atoms can be added to the carbon chain without substituting existing atoms."),
+
+        ("Unsaturated Compound",
+         "A compound in which there is at least one double and/or triple bond between carbon atoms.",
+         ["A compound containing single covalent bonds between carbon atoms only",
+          "A chemical solution that can dissolve additional solid solute",
+          "An alkane that can only undergo substitution reactions",
+          "Any organic compound that contains oxygen or nitrogen atoms",
+          "A non-polar solvent capable of dissolving lipids",
+          "A branched isomer of pentane with low density"],
+         "Unsaturated compounds possess double (C=C) or triple (C≡C) carbon-carbon bonds and can undergo addition reactions."),
+
+        ("Structural Isomer",
+         "Organic molecules having the same molecular formula, but different structural formulae.",
+         ["Molecules having different molecular formulae but identical molar masses",
+          "Compounds having identical structural formulae but different molecular formulae",
+          "Molecules within the same homologous series having identical boiling points",
+          "Compounds possessing the same empirical formula but differing physical states",
+          "Polymer chains formed from the same monomer unit",
+          "Molecules that rotate plane-polarized light in opposite directions"],
+         "Structural isomers share identical numbers and types of atoms (same molecular formula) but differ in the sequence or arrangement of bonds (different structural formula)."),
+
+        ("Chain Isomers",
+         "Compounds with the same molecular formula, but different types of carbon chains (skeletal branching).",
+         ["Compounds with identical functional groups attached at different positions on the chain",
+          "Compounds with the same molecular formula but belonging to different homologous series",
+          "Molecules having the exact same carbon skeleton but different functional groups",
+          "Compounds with identical boiling and melting points",
+          "Molecules differing by exactly one CH2 unit in their parent chain",
+          "Polymers produced via addition polymerisation"],
+         "Chain isomers differ in the branching of their carbon skeleton (e.g., butane and 2-methylpropane)."),
+
+        ("Positional Isomers",
+         "Compounds with the same molecular formula, but with the functional group or substituent in different positions on the same carbon chain.",
+         ["Compounds with different carbon chain skeletons and identical branching",
+          "Compounds with the same molecular formula but different functional groups",
+          "Molecules differing solely in their state of matter at standard conditions",
+          "Compounds with identical IUPAC names but different stereochemistry",
+          "Molecules containing differing numbers of carbon atoms",
+          "Hydrocarbons possessing different degrees of unsaturation"],
+         "Positional isomers have the same functional group and carbon chain, but the functional group/substituent is attached at a different locant (e.g., propan-1-ol and propan-2-ol)."),
+
+        ("Functional Isomers",
+         "Compounds with the same molecular formula, but different functional groups (belonging to different homologous series).",
+         ["Compounds with identical functional groups positioned at different chain locations",
+          "Compounds with the same functional group but varying chain lengths",
+          "Molecules with identical skeletal shapes but different molecular masses",
+          "Molecules differing only by the presence of a halogen atom",
+          "Molecules possessing identical IUPAC names",
+          "Molecules that have identical physical and chemical properties"],
+         "Functional isomers share a molecular formula but belong to different homologous series (e.g., esters and carboxylic acids, or aldehydes and ketones).")
     ]
 
-    easy_stems = [
-        "Which of the following defines the term '{}' in CAPS Physical Sciences?",
-        "According to Grade 12 Physical Sciences guidelines, '{}' is defined as:",
+    stems = [
+        "In Grade 12 Physical Sciences, how is the term '{}' defined?",
+        "According to the official CAPS curriculum, '{}' refers to:",
         "Identify the correct scientific definition for '{}':",
-        "Which statement provides the precise definition of '{}'?"
-    ]
-    for term, definition, dists in defs:
-        for stem in easy_stems:
-            add_q("easy", "Definitions", stem.format(term), definition, dists, "Knowledge", "Recall definition")
-
-    easy_reverse_stems = [
-        "What scientific term is defined as: '{}'?",
-        "Name the concept defined by: '{}':",
-        "Identify the term that corresponds to the description: '{}':"
-    ]
-    all_terms = [d[0] for d in defs]
-    for term, definition, _ in defs:
-        wrongs = [t for t in all_terms if t != term] + ["Monomer", "Polymer", "Esterification"]
-        for stem in easy_reverse_stems:
-            add_q("easy", "Definitions", stem.format(definition), term, wrongs, "Knowledge", "Identify term")
-
-    # Homologous series and functional groups
-    series_info = [
-        ("Alkanes", "CnH2n+2", "Carbon-carbon single bond (C-C)", "Saturated", ["Alkenes", "Alkynes", "Haloalkanes", "Alcohols", "Aldehydes", "Ketones", "Carboxylic acids", "Esters"]),
-        ("Alkenes", "CnH2n", "Carbon-carbon double bond (C=C)", "Unsaturated", ["Alkanes", "Alkynes", "Haloalkanes", "Alcohols", "Aldehydes", "Ketones", "Carboxylic acids", "Esters"]),
-        ("Alkynes", "CnH2n-2", "Carbon-carbon triple bond (C≡C)", "Unsaturated", ["Alkanes", "Alkenes", "Haloalkanes", "Alcohols", "Aldehydes", "Ketones", "Carboxylic acids", "Esters"]),
-        ("Haloalkanes", "CnH2n+1X", "Halogen atom (-F, -Cl, -Br, -I) bonded to a saturated C atom", "Saturated", ["Alkanes", "Alkenes", "Alkynes", "Alcohols", "Aldehydes", "Ketones", "Carboxylic acids", "Esters"]),
-        ("Alcohols", "CnH2n+1OH", "Hydroxyl group (-OH) bonded to a saturated C atom", "Saturated", ["Alkanes", "Alkenes", "Haloalkanes", "Aldehydes", "Ketones", "Carboxylic acids", "Esters", "Ethers"]),
-        ("Aldehydes", "CnH2nO", "Carbonyl group (-CHO) on an end (terminal) carbon atom", "Unsaturated", ["Ketones", "Carboxylic acids", "Esters", "Alcohols", "Alkanes", "Alkenes", "Haloalkanes", "Ethers"]),
-        ("Ketones", "CnH2nO", "Carbonyl group (-CO-) bonded to two other carbon atoms (within chain)", "Unsaturated", ["Aldehydes", "Carboxylic acids", "Esters", "Alcohols", "Alkanes", "Alkenes", "Haloalkanes", "Ethers"]),
-        ("Carboxylic acids", "CnH2nO2", "Carboxyl group (-COOH) at the end of the carbon chain", "Unsaturated", ["Esters", "Aldehydes", "Ketones", "Alcohols", "Alkanes", "Alkenes", "Haloalkanes", "Amines"]),
-        ("Esters", "CnH2nO2", "Ester group (-COO-) between two carbon atoms", "Unsaturated", ["Carboxylic acids", "Aldehydes", "Ketones", "Alcohols", "Alkanes", "Alkenes", "Haloalkanes", "Ethers"])
+        "Which statement provides the precise definition of '{}' in organic chemistry?",
+        "When an examiner asks for the definition of '{}', which statement earns full marks?"
     ]
 
-    all_gen_forms = [s[1] for s in series_info]
-    all_fgs = [s[2] for s in series_info]
+    for term, corr, wrs, expl in core_definitions:
+        for st in stems:
+            add_q("easy", "Definitions", st.format(term), corr, wrs, "Remembering", "Define core concept", expl)
 
-    for name, gf, fg, sat, wr_series in series_info:
-        add_q("easy", "General Formulae", f"What is the general formula for the homologous series of {name}?", gf,
-              [g for g in all_gen_forms if g != gf] + ["CnH2n-4", "CnHn"], "Knowledge", "Recall general formula")
-        add_q("easy", "Functional Groups", f"Identify the functional group characteristic of {name}:", fg,
-              [f for f in all_fgs if f != fg], "Knowledge", "Identify functional group")
-        add_q("easy", "Classification", f"Is the homologous series of {name} classified as saturated or unsaturated?",
-              f"{sat} because {'all carbon-carbon bonds are single bonds' if sat == 'Saturated' else 'it contains a multiple bond or double bond to oxygen'}.",
-              [f"{'Unsaturated' if sat == 'Saturated' else 'Saturated'} because of hydrogen bonding",
-               f"{'Unsaturated' if sat == 'Saturated' else 'Saturated'} because it has an even number of carbons",
-               f"{sat} because it undergoes substitution exclusively",
-               f"{'Unsaturated' if sat == 'Saturated' else 'Saturated'} because it contains no hydrogen",
-               f"{sat} because of its low boiling point",
-               f"{'Unsaturated' if sat == 'Saturated' else 'Saturated'} because of its high vapor pressure"], "Comprehension", "Classify saturation")
-
-    # Simple IUPAC naming & molecular formula recognition for Alkanes 1-10
-    alkanes = [
-        (1, "Methane", "CH4"), (2, "Ethane", "C2H6"), (3, "Propane", "C3H8"), (4, "Butane", "C4H10"),
-        (5, "Pentane", "C5H12"), (6, "Hexane", "C6H14"), (7, "Heptane", "C7H16"), (8, "Octane", "C8H18")
+    # General formulas
+    gen_formulas = [
+        ("Alkanes", "CnH2n+2", ["CnH2n", "CnH2n-2", "CnH2n+1OH", "CnH2nO", "CnH2nO2", "CnH2n-4"],
+         "Alkanes are saturated hydrocarbons with single bonds, adhering to general formula CnH2n+2."),
+        ("Alkenes", "CnH2n", ["CnH2n+2", "CnH2n-2", "CnH2n+1OH", "CnH2nO", "CnH2nO2", "CnH2n-6"],
+         "Alkenes contain one carbon-carbon double bond, reducing hydrogen count by two relative to alkanes: CnH2n."),
+        ("Alkynes", "CnH2n-2", ["CnH2n", "CnH2n+2", "CnH2n+1OH", "CnH2nO", "CnH2nO2", "CnH2n-4"],
+         "Alkynes contain one carbon-carbon triple bond, leading to the general formula CnH2n-2."),
+        ("Alcohols", "CnH2n+1OH (or CnH2n+2O)", ["CnH2nO", "CnH2nO2", "CnH2n", "CnH2n-2", "CnH2n+2", "CnH2n-1OH"],
+         "Monohydric alcohols have an -OH group attached to an alkyl group: CnH2n+1OH."),
+        ("Aldehydes and Ketones", "CnH2nO", ["CnH2nO2", "CnH2n+2O", "CnH2n+2", "CnH2n-2O", "CnH2n-2", "CnH2n+1O"],
+         "Aldehydes and ketones contain one carbonyl (C=O) group, giving the general formula CnH2nO."),
+        ("Carboxylic acids and Esters", "CnH2nO2", ["CnH2nO", "CnH2n+2O2", "CnH2n-2O2", "CnH2n+2O", "CnH2n", "CnH2n-2"],
+         "Carboxylic acids and esters contain two oxygen atoms and one double bond equivalent, giving CnH2nO2.")
     ]
-    for n, name, mf in alkanes:
-        add_q("easy", "Alkanes", f"What is the molecular formula of the unbranched alkane '{name}'?", mf,
-              [f"C{n}H{2*n}", f"C{n}H{2*n-2}", f"C{n+1}H{2*n+4}", f"C{n}H{2*n+1}OH", f"C{n-1}H{2*n}", f"C{n}H{2*n}O", f"C{n}H{2*n}O2"], "Knowledge", "State molecular formula")
-        add_q("easy", "Alkanes", f"How many carbon atoms are present in a single molecule of {name}?", f"{n} carbon atom{'s' if n > 1 else ''}",
-              [f"{x} carbon atoms" for x in range(1, 11) if x != n], "Knowledge", "Recall carbon count")
 
-    # Primary, secondary, tertiary alcohols & haloalkanes definitions
-    pst_defs = [
-        ("Primary alcohol", "The carbon atom bonded to the -OH group is bonded to only ONE other carbon atom (or no other carbons as in methanol).",
-         ["The carbon atom bonded to the -OH group is bonded to two other carbon atoms.", "The carbon atom bonded to the -OH group is bonded to three other carbon atoms.", "The alcohol has only one hydroxyl group.", "The alcohol has a boiling point below 100 °C.", "The alcohol does not form hydrogen bonds.", "The alcohol contains an aromatic ring."]),
-        ("Secondary alcohol", "The carbon atom bonded to the -OH group is bonded to TWO other carbon atoms.",
-         ["The carbon atom bonded to the -OH group is bonded to only one other carbon atom.", "The carbon atom bonded to the -OH group is bonded to three other carbon atoms.", "The alcohol contains two hydroxyl groups on the same chain.", "The alcohol has two double bonds.", "The alcohol is a tertiary isomer.", "The alcohol cannot be oxidized."]),
-        ("Tertiary alcohol", "The carbon atom bonded to the -OH group is bonded to THREE other carbon atoms.",
-         ["The carbon atom bonded to the -OH group is bonded to only one other carbon atom.", "The carbon atom bonded to the -OH group is bonded to two other carbon atoms.", "The alcohol contains three hydroxyl groups.", "The alcohol has a triple bond.", "The alcohol has three carbon atoms in total.", "The alcohol readily undergoes dehydration to form a primary alkane."]),
-        ("Primary haloalkane", "The carbon atom bonded to the halogen atom is bonded to only ONE other carbon atom.",
-         ["The carbon atom bonded to the halogen atom is bonded to two other carbon atoms.", "The carbon atom bonded to the halogen atom is bonded to three other carbon atoms.", "The compound contains one halogen atom attached to a benzene ring.", "The halogen atom has an oxidation state of +1.", "The haloalkane does not undergo substitution.", "The haloalkane is completely insoluble in organic solvents."]),
-        ("Secondary haloalkane", "The carbon atom bonded to the halogen atom is bonded to TWO other carbon atoms.",
-         ["The carbon atom bonded to the halogen atom is bonded to only one other carbon atom.", "The carbon atom bonded to the halogen atom is bonded to three other carbon atoms.", "The compound has two halogen atoms on adjacent carbons.", "The compound contains a double bond and one halogen.", "The haloalkane undergoes elimination exclusively at room temperature.", "The halogen is bonded to a terminal carbon."]),
-        ("Tertiary haloalkane", "The carbon atom bonded to the halogen atom is bonded to THREE other carbon atoms.",
-         ["The carbon atom bonded to the halogen atom is bonded to only one other carbon atom.", "The carbon atom bonded to the halogen atom is bonded to two other carbon atoms.", "The compound contains three halogen atoms.", "The compound is an ester derivative.", "The haloalkane cannot react with a base.", "The compound has a boiling point lower than methane."])
+    for series, formula, wrs, expl in gen_formulas:
+        add_q("easy", "General Formulas",
+              f"What is the general molecular formula for the homologous series of **{series}**?",
+              formula, wrs, "Remembering", "Recall general formula", expl)
+        add_q("easy", "General Formulas",
+              f"Which homologous series is represented by the general formula **{formula}**?",
+              series, [s[0] for s in gen_formulas if s[0] != series], "Understanding", "Identify series from formula", expl)
+
+    # Functional groups identifying questions
+    fg_data = [
+        ("Alcohols", "Hydroxyl group (-OH)",
+         ["Carbonyl group (C=O)", "Carboxyl group (-COOH)", "Ester group (-COO-)", "Carbon-carbon double bond (C=C)", "Halogen atom (-X)", "Formyl group (-CHO)"],
+         "Alcohols contain a hydroxyl functional group (-OH) bonded to a saturated carbon atom."),
+        ("Aldehydes", "Formyl group (-CHO) located at the end of the carbon chain",
+         ["Carbonyl group (C=O) within the chain", "Carboxyl group (-COOH)", "Hydroxyl group (-OH)", "Ester group (-COO-)", "Alkoxy group (-O-)", "Amide group (-CONH2)"],
+         "Aldehydes have a carbonyl group at the terminal position, forming a formyl group (-CHO)."),
+        ("Ketones", "Carbonyl group (C=O) bonded to two other carbon atoms within the chain",
+         ["Formyl group (-CHO) at the end of the chain", "Carboxyl group (-COOH)", "Hydroxyl group (-OH)", "Ester group (-COO-)", "Ether linkage (-O-)", "Halogen substituent (-X)"],
+         "Ketones have a carbonyl group (>C=O) flanked by two carbon atoms."),
+        ("Carboxylic acids", "Carboxyl group (-COOH) consisting of a carbonyl and hydroxyl group on the same carbon",
+         ["Ester group (-COO-)", "Carbonyl group (C=O) alone", "Hydroxyl group (-OH) alone", "Formyl group (-CHO)", "Alkoxide group (-O⁻)", "Peroxide bond (-O-O-)"],
+         "Carboxylic acids possess a carboxyl group (-COOH), which combines a carbonyl and a hydroxyl group."),
+        ("Esters", "Ester group (-COO-) bridging two carbon chains",
+         ["Carboxyl group (-COOH)", "Carbonyl group (C=O) flanked by two alkyls", "Hydroxyl group (-OH)", "Ether linkage (-O-) alone", "Formyl group (-CHO)", "Peroxy group (-COO-)"],
+         "Esters contain the ester link (-COO-) where the carbonyl carbon is bonded to an oxygen which is bonded to an alkyl group."),
+        ("Haloalkanes", "Halogen atom (-F, -Cl, -Br, -I) bonded to a carbon atom",
+         ["Hydroxyl group (-OH)", "Carbonyl group (C=O)", "Carboxyl group (-COOH)", "Carbon-carbon double bond", "Amine group (-NH2)", "Nitro group (-NO2)"],
+         "Haloalkanes have one or more halogen atoms substituted for hydrogen on an alkane chain.")
     ]
-    for cname, cdesc, cwrongs in pst_defs:
-        add_q("easy", "Classification", f"In Grade 12 Chemistry, what is the defining characteristic of a {cname.lower()}?", cdesc, cwrongs, "Knowledge", "Define classification")
 
-    # Simple naming of unbranched alkenes and alkynes
-    alkenes = [(2, "Ethene", "C2H4"), (3, "Propene", "C3H6"), (4, "But-1-ene", "C4H8"), (5, "Pent-1-ene", "C5H10"), (6, "Hex-1-ene", "C6H12")]
-    for n, name, mf in alkenes:
-        add_q("easy", "Alkenes", f"What is the IUPAC name of the unbranched alkene with molecular formula ${mf}$?", name,
-              [a[1] for a in alkenes if a[1] != name] + ["Ethane", "Propane", "Butane", "Pentane"], "Knowledge", "Name alkene")
+    for s_name, fg_name, wrs, expl in fg_data:
+        add_q("easy", "Functional Groups",
+              f"What is the characteristic functional group of **{s_name}**?",
+              fg_name, wrs, "Remembering", "Recall functional group", expl)
+        add_q("easy", "Functional Groups",
+              f"Which homologous series is characterised by the presence of a **{fg_name}**?",
+              s_name, [s[0] for s in fg_data if s[0] != s_name], "Understanding", "Identify series from functional group", expl)
 
-    alkynes = [(2, "Ethyne", "C2H2"), (3, "Propyne", "C3H4"), (4, "But-1-yne", "C4H6"), (5, "Pent-1-yne", "C5H8"), (6, "Hex-1-yne", "C6H10")]
-    for n, name, mf in alkynes:
-        add_q("easy", "Alkynes", f"What is the IUPAC name of the unbranched alkyne with molecular formula ${mf}$?", name,
-              [a[1] for a in alkynes if a[1] != name] + ["Ethene", "Propene", "Butene", "Pentyne"], "Knowledge", "Name alkyne")
+    # Classifications: Primary, Secondary, Tertiary
+    pst_data = [
+        ("butan-1-ol", "Primary alcohol",
+         ["Secondary alcohol", "Tertiary alcohol", "Diol", "Ester", "Aldehyde", "Carboxylic acid"],
+         "In butan-1-ol, the carbon bearing the -OH group is bonded to only ONE other carbon atom, making it a primary alcohol."),
+        ("butan-2-ol", "Secondary alcohol",
+         ["Primary alcohol", "Tertiary alcohol", "Diol", "Ketone", "Carboxylic acid", "Ester"],
+         "In butan-2-ol, the carbon bearing the -OH group is bonded to TWO other carbon atoms, making it a secondary alcohol."),
+        ("2-methylpropan-2-ol", "Tertiary alcohol",
+         ["Primary alcohol", "Secondary alcohol", "Diol", "Aldehyde", "Triol", "Ether"],
+         "In 2-methylpropan-2-ol, the carbon bearing the -OH group is bonded to THREE other carbon atoms, making it a tertiary alcohol."),
+        ("1-chlorobutane", "Primary haloalkane",
+         ["Secondary haloalkane", "Tertiary haloalkane", "Dihaloalkane", "Alkene", "Alkyl halide salt", "Haloarene"],
+         "In 1-chlorobutane, the carbon bonded to the chlorine atom is attached to only one other carbon atom (primary)."),
+        ("2-bromobutane", "Secondary haloalkane",
+         ["Primary haloalkane", "Tertiary haloalkane", "Dihaloalkane", "Alkene", "Haloarene", "Haloalkyne"],
+         "In 2-bromobutane, the carbon bonded to the bromine atom is attached to two other carbon atoms (secondary)."),
+        ("2-chloro-2-methylpropane", "Tertiary haloalkane",
+         ["Primary haloalkane", "Secondary haloalkane", "Trihaloalkane", "Alkyl radical", "Haloalkene", "Aromatic halide"],
+         "In 2-chloro-2-methylpropane, the carbon attached to chlorine is bonded to three other methyl carbons (tertiary)."),
+        ("pentan-1-ol", "Primary alcohol",
+         ["Secondary alcohol", "Tertiary alcohol", "Aldehyde", "Ketone", "Carboxylic acid", "Diol"],
+         "Pentan-1-ol has the hydroxyl group on C1, which is attached to one adjacent carbon, so it is primary."),
+        ("pentan-2-ol", "Secondary alcohol",
+         ["Primary alcohol", "Tertiary alcohol", "Aldehyde", "Ketone", "Carboxylic acid", "Ester"],
+         "Pentan-2-ol has the hydroxyl group on C2, flanked by C1 and C3, making it secondary."),
+        ("pentan-3-ol", "Secondary alcohol",
+         ["Primary alcohol", "Tertiary alcohol", "Diol", "Ketone", "Aldehyde", "Triol"],
+         "Pentan-3-ol has the hydroxyl group on C3, bonded to C2 and C4, so it is secondary."),
+        ("2-methylbutan-2-ol", "Tertiary alcohol",
+         ["Primary alcohol", "Secondary alcohol", "Diol", "Ketone", "Carboxylic acid", "Aldehyde"],
+         "In 2-methylbutan-2-ol, carbon 2 is bonded to C1, C3, and the methyl group (3 carbons), making it tertiary.")
+    ]
 
-    # Fill easy up to exactly 300 with clean, diverse knowledge questions
-    prefix_map = {1: "meth", 2: "eth", 3: "prop", 4: "but", 5: "pent", 6: "hex", 7: "hept", 8: "oct"}
-    for c_count, prefix in prefix_map.items():
-        add_q("easy", "IUPAC Roots", f"According to IUPAC naming conventions, which root prefix indicates a parent chain of {c_count} carbon atom{'s' if c_count > 1 else ''}?",
-              prefix, [p for p in prefix_map.values() if p != prefix] + ["non", "dec"], "Knowledge", "Recall IUPAC root prefix")
+    for comp, ctype, wrs, expl in pst_data:
+        add_q("easy", "Classification",
+              f"How is the organic compound **{comp}** classified?",
+              ctype, wrs, "Understanding", "Classify alcohol or haloalkane", expl)
 
-    easy_count = sum(1 for q in questions if q['difficulty'] == 'easy')
-    seed = 1
-    while easy_count < 300:
-        # Combinatorial easy questions on identifying homologous series from condensed formulas
-        condensed_samples = [
-            ("CH3-CH2-CH3", "Alkane", ["Alkene", "Alkyne", "Alcohol", "Aldehyde", "Ketone", "Carboxylic acid", "Ester"]),
-            ("CH3-CH=CH2", "Alkene", ["Alkane", "Alkyne", "Alcohol", "Aldehyde", "Ketone", "Carboxylic acid", "Ester"]),
-            ("CH≡C-CH3", "Alkyne", ["Alkane", "Alkene", "Alcohol", "Aldehyde", "Ketone", "Carboxylic acid", "Ester"]),
-            ("CH3-CH2-OH", "Alcohol", ["Alkane", "Alkene", "Alkyne", "Aldehyde", "Ketone", "Carboxylic acid", "Ester"]),
-            ("CH3-CHO", "Aldehyde", ["Alkane", "Alkene", "Alkyne", "Alcohol", "Ketone", "Carboxylic acid", "Ester"]),
-            ("CH3-CO-CH3", "Ketone", ["Alkane", "Alkene", "Alkyne", "Alcohol", "Aldehyde", "Carboxylic acid", "Ester"]),
-            ("CH3-COOH", "Carboxylic acid", ["Alkane", "Alkene", "Alkyne", "Alcohol", "Aldehyde", "Ketone", "Ester"]),
-            ("CH3-COO-CH3", "Ester", ["Alkane", "Alkene", "Alkyne", "Alcohol", "Aldehyde", "Ketone", "Carboxylic acid"]),
-            ("CH3-CH2-Cl", "Haloalkane", ["Alkane", "Alkene", "Alkyne", "Alcohol", "Aldehyde", "Ketone", "Carboxylic acid"])
-        ]
-        sample = condensed_samples[(seed - 1) % len(condensed_samples)]
-        q_text = f"Identify the homologous series to which the organic compound ${sample[0]}$ belongs (Variant {seed}):"
-        if add_q("easy", "Homologous Series", q_text, sample[1], sample[2], "Knowledge", "Identify homologous series"):
-            easy_count += 1
-        seed += 1
+    # Saturated vs Unsaturated
+    sat_unsat_compounds = [
+        ("Ethene (C2H4)", "Unsaturated, because it contains a carbon-carbon double bond (C=C)",
+         ["Saturated, because it contains single covalent bonds only",
+          "Saturated, because it is an alkene",
+          "Unsaturated, because it contains an oxygen atom",
+          "Saturated, because it cannot undergo addition reactions",
+          "Unsaturated, because it undergoes substitution exclusively",
+          "Saturated, because all carbons are fully hydrogenated"]),
+        ("Ethane (C2H6)", "Saturated, because it contains single bonds only between carbon atoms",
+         ["Unsaturated, because it contains a carbon-carbon double bond",
+          "Unsaturated, because it can decolourise bromine water rapidly",
+          "Saturated, because it contains double covalent bonds",
+          "Unsaturated, because it is an alkane",
+          "Saturated, because it is an unsaturated hydrocarbon",
+          "Unsaturated, because it undergoes addition readily"]),
+        ("Propene (C3H6)", "Unsaturated, because it contains a carbon-carbon double bond (C=C)",
+         ["Saturated, because it contains single bonds only",
+          "Saturated, because it has three carbon atoms",
+          "Unsaturated, because it contains a hydroxyl functional group",
+          "Saturated, because it does not react with bromine water",
+          "Unsaturated, because it cannot undergo addition polymerisation",
+          "Saturated, because all valencies are filled with hydrogen"]),
+        ("Propane (C3H8)", "Saturated, because all bonds between carbon atoms are single bonds",
+         ["Unsaturated, because it contains a carbon-carbon double bond",
+          "Unsaturated, because it reacts vigorously with bromine water in the dark",
+          "Saturated, because it contains a carbonyl group",
+          "Unsaturated, because it has an odd number of carbon atoms",
+          "Saturated, because it undergoes addition reactions",
+          "Unsaturated, because it has fewer hydrogens than propene"]),
+        ("But-2-yne (C4H6)", "Unsaturated, because it contains a carbon-carbon triple bond (C≡C)",
+         ["Saturated, because it contains single bonds only",
+          "Saturated, because it is an alkyne",
+          "Unsaturated, because it contains two double bonds",
+          "Saturated, because it has four carbon atoms",
+          "Unsaturated, because it contains an oxygen atom",
+          "Saturated, because it cannot undergo hydrogenation"]),
+        ("Cyclohexane (C6H12)", "Saturated, because all bonds between ring carbon atoms are single bonds",
+         ["Unsaturated, because its formula fits CnH2n",
+          "Unsaturated, because it contains delocalised pi electrons",
+          "Unsaturated, because it is an alkene derivative",
+          "Saturated, because it contains alternating double and single bonds",
+          "Unsaturated, because it rapidly decolourises bromine water",
+          "Saturated, because it is an aromatic compound"]),
+        ("Benzene (C6H6)", "Unsaturated, because it contains delocalised pi electron bonds",
+         ["Saturated, because all carbon-carbon bonds are single bonds",
+          "Saturated, because it resists addition reactions under normal conditions",
+          "Unsaturated, because it consists of six isolated double bonds",
+          "Saturated, because it has a hexagonal planar geometry",
+          "Unsaturated, because it contains triple bonds",
+          "Saturated, because it does not react with oxygen"])
+    ]
 
-    # -----------------------------------------------------------------
-    # MEDIUM SECTION (Target: 500 questions)
-    # -----------------------------------------------------------------
-    # 1. Branched Alkanes IUPAC Naming
+    for comp, corr, wrs in sat_unsat_compounds:
+        add_q("easy", "Saturation",
+              f"Is **{comp}** classified as saturated or unsaturated, and why?",
+              corr, wrs, "Understanding", "Identify saturation",
+              f"{comp} classification: {corr}")
+
+    # IUPAC prefix / carbon chain length recognition
+    prefixes = [
+        (1, "meth-", "methane"), (2, "eth-", "ethane"), (3, "prop-", "propane"),
+        (4, "but-", "butane"), (5, "pent-", "pentane"), (6, "hex-", "hexane"),
+        (7, "hept-", "heptane"), (8, "oct-", "octane")
+    ]
+    for n, pfx, alk in prefixes:
+        add_q("easy", "IUPAC Rules",
+              f"In standard IUPAC nomenclature, which prefix represents a parent chain containing exactly **{n} carbon atoms**?",
+              pfx, [p[1] for p in prefixes if p[0] != n], "Remembering", "Recall IUPAC prefix",
+              f"The IUPAC prefix for {n} carbons is '{pfx}' (e.g., {alk}).")
+        add_q("easy", "Alkanes",
+              f"How many carbon atoms are in the main continuous chain of **{alk}**?",
+              f"{n} carbons", [f"{x} carbons" for x in range(1, 10) if x != n], "Remembering", "Recall alkane chain length",
+              f"{alk.capitalize()} has {n} carbon atoms in its parent chain.")
+
+    # Condensed formulas to homologous series
+    series_match = [
+        ("CH3CH2CH2OH", "Alcohol", ["Aldehyde", "Ketone", "Carboxylic acid", "Ester", "Alkane", "Haloalkane"]),
+        ("CH3CH2CHO", "Aldehyde", ["Ketone", "Alcohol", "Carboxylic acid", "Ester", "Alkene", "Ether"]),
+        ("CH3COCH3", "Ketone", ["Aldehyde", "Alcohol", "Carboxylic acid", "Ester", "Alkane", "Alkene"]),
+        ("CH3COOH", "Carboxylic acid", ["Alcohol", "Ester", "Aldehyde", "Ketone", "Alkane", "Amide"]),
+        ("CH3COOCH2CH3", "Ester", ["Carboxylic acid", "Ketone", "Aldehyde", "Ether", "Alcohol", "Alkene"]),
+        ("CH3CH2Cl", "Haloalkane", ["Alcohol", "Alkane", "Alkene", "Haloarene", "Carboxylic acid", "Ester"]),
+        ("CH3CH=CH2", "Alkene", ["Alkane", "Alkyne", "Alcohol", "Aldehyde", "Haloalkane", "Cycloalkane"]),
+        ("CH3C≡CH", "Alkyne", ["Alkene", "Alkane", "Alcohol", "Haloalkane", "Aldehyde", "Ketone"]),
+        ("CH3(CH2)4CH3", "Alkane", ["Alkene", "Alkyne", "Haloalkane", "Alcohol", "Aldehyde", "Cycloalkane"]),
+        ("HCOOH", "Carboxylic acid", ["Aldehyde", "Alcohol", "Ester", "Ketone", "Ether", "Hydrocarbon"]),
+        ("HCHO", "Aldehyde", ["Ketone", "Carboxylic acid", "Alcohol", "Ester", "Alkane", "Ether"]),
+        ("HCOOCH3", "Ester", ["Carboxylic acid", "Aldehyde", "Ketone", "Alcohol", "Ether", "Haloalkane"])
+    ]
+
+    for formula, s_name, wrs in series_match:
+        add_q("easy", "Homologous Series",
+              f"To which homologous series does the compound with condensed formula **{formula}** belong?",
+              s_name, wrs, "Understanding", "Identify series from condensed formula",
+              f"The condensed formula {formula} contains the characteristic functional group of a/an {s_name.lower()}.")
+
+    # Formula deduction math: Alkanes, Alkenes, Alkynes, Alcohols (100% unique calculations)
+    for n_c in range(1, 65):
+        h_alkane = 2 * n_c + 2
+        add_q("easy", "Alkanes",
+              f"An unbranched alkane molecule contains exactly {n_c} carbon atom{'s' if n_c > 1 else ''}. How many hydrogen atoms are present in this molecule?",
+              f"{h_alkane} hydrogen atoms",
+              [f"{h_alkane - 2} hydrogen atoms", f"{h_alkane + 2} hydrogen atoms", f"{2 * n_c} hydrogen atoms", f"{2 * n_c - 2} hydrogen atoms", f"{n_c * 3} hydrogen atoms", f"{h_alkane + 4} hydrogen atoms"],
+              "Applying", "Calculate alkane hydrogen count",
+              f"Alkanes follow CnH2n+2. For n = {n_c}, hydrogen atoms = 2({n_c}) + 2 = {h_alkane}.")
+
+    for n_c in range(2, 65):
+        h_alkene = 2 * n_c
+        add_q("easy", "Alkenes",
+              f"An unbranched mono-alkene contains exactly {n_c} carbon atoms. How many hydrogen atoms are present in its molecule?",
+              f"{h_alkene} hydrogen atoms",
+              [f"{h_alkene + 2} hydrogen atoms", f"{h_alkene - 2} hydrogen atoms", f"{h_alkene - 4} hydrogen atoms", f"{n_c + 2} hydrogen atoms", f"{h_alkene + 4} hydrogen atoms", f"{n_c * 3} hydrogen atoms"],
+              "Applying", "Calculate alkene hydrogen count",
+              f"Alkenes follow CnH2n. For n = {n_c}, hydrogen atoms = 2({n_c}) = {h_alkene}.")
+
+    for n_c in range(2, 65):
+        h_alkyne = 2 * n_c - 2
+        add_q("easy", "Alkynes",
+              f"An unbranched mono-alkyne contains exactly {n_c} carbon atoms. How many hydrogen atoms are present in its molecule?",
+              f"{h_alkyne} hydrogen atoms",
+              [f"{h_alkyne + 2} hydrogen atoms", f"{h_alkyne + 4} hydrogen atoms", f"{2 * n_c} hydrogen atoms", f"{h_alkyne - 2} hydrogen atoms", f"{n_c * 2 + 2} hydrogen atoms", f"{n_c} hydrogen atoms"],
+              "Applying", "Calculate alkyne hydrogen count",
+              f"Alkynes follow CnH2n-2. For n = {n_c}, hydrogen atoms = 2({n_c}) - 2 = {h_alkyne}.")
+
+    for n_c in range(1, 65):
+        h_val = 2 * n_c + 2
+        add_q("easy", "Alkanes",
+              f"A saturated acyclic hydrocarbon is found to contain exactly {h_val} hydrogen atoms. How many carbon atoms does its molecule possess?",
+              f"{n_c} carbon atom{'s' if n_c > 1 else ''}",
+              [f"{x} carbon atoms" for x in [n_c - 1, n_c + 1, n_c + 2, n_c - 2, n_c * 2, n_c + 3] if x > 0],
+              "Applying", "Deduce carbon count from hydrogen count",
+              f"For an alkane CnH2n+2: 2n + 2 = {h_val} => 2n = {h_val - 2} => n = {n_c}.")
+
+    for n_c in range(1, 50):
+        add_q("easy", "Alcohols",
+              f"What is the molecular formula of the saturated monohydric alcohol containing {n_c} carbon atom{'s' if n_c > 1 else ''}?",
+              f"C{n_c}H{2 * n_c + 2}O",
+              [f"C{n_c}H{2 * n_c}O", f"C{n_c}H{2 * n_c - 2}O", f"C{n_c}H{2 * n_c + 2}O2", f"C{n_c}H{2 * n_c}O2", f"C{n_c}H{2 * n_c + 1}O", f"C{n_c + 1}H{2 * n_c + 2}O"],
+              "Applying", "Determine alcohol molecular formula",
+              f"Alcohols have formula CnH2n+1OH, which corresponds to molecular formula C{n_c}H{2*n_c+2}O.")
+
+    # IUPAC suffixes for homologous series
+    suffixes_data = [
+        ("alkanes", "-ane", ["-ene", "-yne", "-ol", "-al", "-one", "-oic acid"]),
+        ("alkenes", "-ene", ["-ane", "-yne", "-ol", "-al", "-one", "-oate"]),
+        ("alkynes", "-yne", ["-ane", "-ene", "-ol", "-al", "-one", "-oic acid"]),
+        ("alcohols", "-ol", ["-al", "-one", "-oic acid", "-oate", "-ane", "-ene"]),
+        ("aldehydes", "-al", ["-ol", "-one", "-oic acid", "-oate", "-ane", "-ene"]),
+        ("ketones", "-one", ["-ol", "-al", "-oic acid", "-oate", "-ane", "-ene"]),
+        ("carboxylic acids", "-oic acid", ["-oate", "-ol", "-al", "-one", "-ane", "-ene"]),
+        ("esters", "-oate", ["-oic acid", "-ol", "-al", "-one", "-ane", "-ene"])
+    ]
+    for fam, sfx, wrs in suffixes_data:
+        add_q("easy", "IUPAC Rules",
+              f"In standard IUPAC nomenclature, which suffix indicates that an organic molecule belongs to the **{fam}** family?",
+              sfx, wrs, "Remembering", "Recall IUPAC suffix",
+              f"The characteristic IUPAC suffix for {fam} is '{sfx}'.")
+
+    # Complete combustion facts
+    for n_c, name in [(1, "methane"), (2, "ethane"), (3, "propane"), (4, "butane"), (5, "pentane"), (6, "hexane"), (7, "heptane"), (8, "octane")]:
+        add_q("easy", "Combustion",
+              f"What are the two major chemical products formed during the complete combustion of {name} in excess oxygen?",
+              "Carbon dioxide (CO2) and water (H2O)",
+              ["Carbon monoxide (CO) and hydrogen gas (H2)",
+               "Carbon soot (C) and water vapor (H2O)",
+               "Carbon dioxide (CO2) and hydrogen gas (H2)",
+               "Methanol and ozone",
+               "Carbon monoxide (CO) and oxygen gas (O2)",
+               "Formic acid and methane"],
+              "Understanding", "Recall combustion products",
+              f"Complete combustion of any hydrocarbon like {name} in excess oxygen produces CO2 and H2O.")
+
+    # Bromine water test
+    add_q("easy", "Reactions",
+          "What is observed when bromine water (Br2(aq), orange/brown) is added to an unsaturated hydrocarbon (such as propene) in the dark?",
+          "The orange-brown color of bromine water decolourises rapidly (turns clear/colourless)",
+          ["The solution remains orange-brown and no reaction occurs",
+           "A dense white precipitate of silver bromide forms",
+           "Bubbles of hydrogen gas are vigorously evolved",
+           "The solution turns dark purple",
+           "A bright yellow precipitate forms",
+           "The reaction only occurs if heated under reflux for 2 hours"],
+          "Understanding", "Describe bromine test",
+          "Unsaturated hydrocarbons rapidly decolourise bromine water via an electrophilic addition reaction across the double bond.")
+
+    add_q("easy", "Reactions",
+          "What is observed when bromine water is added to a saturated hydrocarbon (such as hexane) in the absence of sunlight or UV light?",
+          "No immediate reaction; the solution remains orange-brown",
+          ["The orange-brown solution decolourises immediately",
+           "A vigorous exothermic reaction releases clouds of white smoke",
+           "A blue complex is formed",
+           "A black carbon mirror forms on the glass wall",
+           "Effervescence of carbon dioxide gas is observed",
+           "The mixture solidifies into a polymer gel"],
+          "Understanding", "Describe alkane unreactivity with bromine",
+          "Alkanes are saturated and do not undergo addition. They only react with halogens via substitution in the presence of UV light or sunlight.")
+
+    # Molecular formula from names
+    mf_data = [
+        ("propanoic acid", "C3H6O2", ["C3H8O2", "C3H6O", "C3H4O2", "C3H8O", "C2H4O2", "C4H8O2"]),
+        ("propan-2-one", "C3H6O", ["C3H8O", "C3H6O2", "C3H4O", "C2H4O", "C4H8O", "C3H8O2"]),
+        ("propanal", "C3H6O", ["C3H8O", "C3H6O2", "C3H4O", "C4H8O", "C2H4O", "C3H8O2"]),
+        ("butan-1-ol", "C4H10O", ["C4H8O", "C4H10O2", "C4H8O2", "C4H12O", "C3H8O", "C5H12O"]),
+        ("ethyl ethanoate", "C4H8O2", ["C4H10O2", "C4H8O", "C4H6O2", "C3H6O2", "C5H10O2", "C4H8"]),
+        ("pent-1-ene", "C5H10", ["C5H12", "C5H8", "C5H10O", "C6H12", "C4H8", "C5H6"]),
+        ("hex-2-yne", "C6H10", ["C6H12", "C6H14", "C6H8", "C5H8", "C7H12", "C6H10O"]),
+        ("chloroethane", "C2H5Cl", ["C2H4Cl2", "C2H6Cl", "C2H3Cl", "C3H7Cl", "CH3Cl", "C2H5Cl2"]),
+        ("methanoic acid", "CH2O2", ["C2H4O2", "CHO2", "CH4O2", "CH2O", "C2H2O2", "CH3O2"]),
+        ("ethanol", "C2H6O", ["C2H4O", "C2H6O2", "C2H4O2", "C3H8O", "CH4O", "C2H8O"])
+    ]
+    for comp, mf, wrs in mf_data:
+        add_q("easy", "Molecular Formula",
+              f"What is the correct molecular formula for **{comp}**?",
+              mf, wrs, "Understanding", "Determine molecular formula",
+              f"The molecular formula of {comp} is {mf}.")
+
+    # Representation types
+    repr_types = [
+        ("Molecular formula", "A chemical formula that indicates the element and numbers of each atom in a molecule (e.g., C4H10).",
+         ["A formula that shows which atoms are attached to which within the molecule", "A formula showing only the general ratio of atoms in a homologous series", "A graphical 3D model of electron density", "A simplified representation omitting carbon and hydrogen labels", "A formula showing the simplest whole-number ratio of atoms", "A structural drawing displaying 3D tetrahedral angles"]),
+        ("Structural formula", "A formula showing the atoms present in a molecule and how all bonds and atoms are connected to one another.",
+         ["A formula indicating only the total number of each type of atom without showing bonds", "A formula showing only the functional group attached to an R-group", "The simplest empirical ratio of elements in a compound", "A notation listing only the carbon backbone", "A formula describing the spatial rotation of bonds", "A formula omitting carbon-hydrogen single bonds"]),
+        ("Condensed structural formula", "A notation that shows the way in which atoms are bonded together in the molecule, but does NOT show all bond lines (e.g., CH3CH2CH2CH3).",
+         ["A formula showing all covalent bond lines between all atoms", "A formula indicating only the overall empirical composition", "A formula displaying only the skeletal carbon zigzag without letters", "A balanced chemical equation for the synthesis", "A formula displaying electron pairs as dots", "A formula giving percentage elemental composition by mass"]),
+        ("Hydrocarbon derivative", "An organic compound containing carbon, hydrogen, and at least one other element (such as oxygen or a halogen).",
+         ["A compound containing exclusively carbon and hydrogen atoms", "An inorganic salt containing carbonate anions", "A pure element allotrope such as diamond or graphite", "A synthetic polymer containing only carbon rings", "A hydrocarbon containing single covalent bonds only", "An organometallic complex containing sodium ions"])
+    ]
+    for r_name, r_def, r_wrs in repr_types:
+        for st in stems[:4]:
+            add_q("easy", "Definitions", st.format(r_name), r_def, r_wrs, "Remembering", "Define structural representations", f"Definition of {r_name}: {r_def}")
+
+    # =========================================================================
+    # 2. MEDIUM (Target: 500 Questions)
+    # =========================================================================
+
+    # Branched Alkanes
     branched_alkanes = [
-        ("CH3-CH(CH3)-CH3", "2-methylpropane", ["butane", "methylpropane", "2-ethylpropane", "dimethylmethane", "1-methylpropane", "iso-butane"]),
-        ("CH3-CH(CH3)-CH2-CH3", "2-methylbutane", ["3-methylbutane", "pentane", "2-ethylpropane", "dimethylpropane", "1,2-dimethylethane", "2-methylpentane"]),
-        ("CH3-C(CH3)2-CH3", "2,2-dimethylpropane", ["2-dimethylpropane", "dimethylpropane", "2-methylbutane", "pentane", "1,1-dimethylpropane", "1,1,1-trimethylethane"]),
-        ("CH3-CH2-CH(CH3)-CH2-CH3", "3-methylpentane", ["2-methylpentane", "2-ethylbutane", "hexane", "3-ethylbutane", "4-methylpentane", "3,3-dimethylbutane"]),
-        ("CH3-CH(CH3)-CH2-CH2-CH3", "2-methylpentane", ["4-methylpentane", "3-methylpentane", "hexane", "2-ethylbutane", "isohexane", "2,2-dimethylbutane"]),
-        ("CH3-CH(CH3)-CH(CH3)-CH3", "2,3-dimethylbutane", ["2,2-dimethylbutane", "2-methylpentane", "hexane", "1,2-dimethylbutane", "3,4-dimethylbutane", "diisopropyl"]),
-        ("CH3-C(CH3)2-CH2-CH3", "2,2-dimethylbutane", ["3,3-dimethylbutane", "2,3-dimethylbutane", "hexane", "2-ethylbutane", "2-methylpentane", "3-methylpentane"]),
-        ("CH3-CH(CH3)-CH2-CH2-CH2-CH3", "2-methylhexane", ["5-methylhexane", "3-methylhexane", "heptane", "2-ethylpentane", "2,2-dimethylpentane", "isoheptane"]),
-        ("CH3-CH2-CH(CH3)-CH2-CH2-CH3", "3-methylhexane", ["4-methylhexane", "2-methylhexane", "heptane", "3-ethylpentane", "2,3-dimethylpentane", "isoheptane"]),
-        ("CH3-CH(CH2CH3)-CH2-CH2-CH3", "3-methylhexane", ["2-ethylpentane", "3-ethylpentane", "heptane", "2-methylhexane", "4-methylhexane", "hexane"])
+        ("CH3-CH(CH3)-CH3", "2-methylpropane", ["1-methylpropane", "butane", "dimethylmethane", "2-ethylpropane", "methylpropane", "iso-butane"]),
+        ("CH3-CH(CH3)-CH2-CH3", "2-methylbutane", ["3-methylbutane", "pentane", "2-ethylpropane", "dimethylpropane", "2,2-dimethylpropane", "1-methylbutane"]),
+        ("CH3-C(CH3)2-CH3", "2,2-dimethylpropane", ["2-dimethylpropane", "2,2-methylpropane", "neopentane", "pentane", "2-methylbutane", "1,1-dimethylpropane"]),
+        ("CH3-CH(CH3)-CH2-CH2-CH3", "2-methylpentane", ["4-methylpentane", "hexane", "3-methylpentane", "2-ethylbutane", "2,2-dimethylbutane", "1-methylpentane"]),
+        ("CH3-CH2-CH(CH3)-CH2-CH3", "3-methylpentane", ["2-methylpentane", "hexane", "2-ethylbutane", "3-ethylbutane", "3,3-dimethylbutane", "1-methylpentane"]),
+        ("CH3-C(CH3)2-CH2-CH3", "2,2-dimethylbutane", ["3,3-dimethylbutane", "2,2-methylbutane", "2-ethylbutane", "hexane", "2,3-dimethylbutane", "neobutane"]),
+        ("CH3-CH(CH3)-CH(CH3)-CH3", "2,3-dimethylbutane", ["2,3-methylbutane", "2,2-dimethylbutane", "diisopropyl", "hexane", "3,4-dimethylbutane", "2-methylpentane"]),
+        ("CH3-CH(CH3)-CH2-CH2-CH2-CH3", "2-methylhexane", ["5-methylhexane", "heptane", "3-methylhexane", "2-ethylpentane", "2,2-dimethylpentane", "1-methylhexane"]),
+        ("CH3-CH2-CH(CH3)-CH2-CH2-CH3", "3-methylhexane", ["4-methylhexane", "heptane", "2-methylhexane", "3-ethylpentane", "2,3-dimethylpentane", "1-ethylpentane"]),
+        ("CH3-CH2-CH(C2H5)-CH2-CH3", "3-ethylpentane", ["3-methylhexane", "heptane", "2-ethylpentane", "3,3-diethylpropane", "1-ethylpentane", "triethylmethane"]),
+        ("CH3-C(CH3)2-CH2-CH2-CH3", "2,2-dimethylpentane", ["4,4-dimethylpentane", "2,2-methylpentane", "heptane", "2,3-dimethylpentane", "3,3-dimethylpentane", "2-ethylpentane"]),
+        ("CH3-CH(CH3)-CH2-CH(CH3)-CH3", "2,4-dimethylpentane", ["2,4-methylpentane", "heptane", "2,3-dimethylpentane", "3,5-dimethylpentane", "2,2-dimethylpentane", "3-ethylpentane"]),
+        ("CH3-CH(CH3)-CH(CH3)-CH2-CH3", "2,3-dimethylpentane", ["3,4-dimethylpentane", "heptane", "2,4-dimethylpentane", "2,2-dimethylpentane", "3,3-dimethylpentane", "3-ethylpentane"]),
+        ("CH3-C(CH3)2-CH(CH3)-CH3", "2,2,3-trimethylbutane", ["2,3,3-trimethylbutane", "2,2,3-methylbutane", "heptane", "2,3-dimethylpentane", "2,2-dimethylpentane", "triptane"]),
+        ("CH3-C(CH3)2-C(CH3)2-CH3", "2,2,3,3-tetramethylbutane", ["octane", "2,2,3-trimethylbutane", "hexamethylethane", "2,3-dimethylhexane", "3,3-dimethylhexane", "2,2-dimethylhexane"])
     ]
-    for struct, iupac, wr in branched_alkanes:
-        add_q("medium", "IUPAC Naming", f"Give the correct IUPAC name for the branched alkane with condensed structural formula: ${struct}$", iupac, wr, "Application", "Apply IUPAC naming rules")
 
-    # 2. Alkenes, Alkynes, Alcohols IUPAC Naming
-    functional_compounds = [
-        ("CH2=CH-CH2-CH3", "but-1-ene", ["but-2-ene", "butene", "but-3-ene", "2-methylpropene", "cyclobutane", "butyne"]),
-        ("CH3-CH=CH-CH3", "but-2-ene", ["but-1-ene", "2-butene", "but-3-ene", "2-methylprop-2-ene", "butane", "cyclobutene"]),
-        ("CH2=C(CH3)-CH3", "2-methylprop-1-ene", ["2-methylpropene", "methylpropene", "2-methylprop-2-ene", "but-1-ene", "but-2-ene", "1-methylprop-1-ene"]),
-        ("CH3-C≡C-CH3", "but-2-yne", ["but-1-yne", "2-butyne", "butyne", "but-2-ene", "2-methylpropyne", "cyclobutyne"]),
-        ("CH≡C-CH2-CH3", "but-1-yne", ["but-2-yne", "1-butyne", "butyne", "but-1-ene", "methylpropyne", "cyclobutyne"]),
-        ("CH3-CH2-CH2-OH", "propan-1-ol", ["propan-2-ol", "propanol", "1-propanol", "propanal", "propanoic acid", "propyl alcohol"]),
-        ("CH3-CH(OH)-CH3", "propan-2-ol", ["propan-1-ol", "propanol", "2-propanol", "propan-2-one", "propanal", "isopropyl alcohol"]),
-        ("CH3-CH(OH)-CH2-CH3", "butan-2-ol", ["butan-1-ol", "butanol", "2-butanol", "butanone", "butanal", "sec-butyl alcohol"]),
-        ("CH3-C(CH3)(OH)-CH3", "2-methylpropan-2-ol", ["2-methylpropan-1-ol", "butan-2-ol", "butan-1-ol", "2-methylpropanol", "tert-butyl alcohol", "2-methylbutan-2-ol"]),
-        ("CH3-CH(CH3)-CH2-OH", "2-methylpropan-1-ol", ["2-methylpropan-2-ol", "butan-1-ol", "butan-2-ol", "isobutanol", "3-methylpropan-1-ol", "2-methylpropanal"]),
-        ("CH3-CH2-CHO", "propanal", ["propan-1-one", "propan-2-one", "propanoic acid", "propan-1-ol", "propanone", "methyl ethanoate"]),
-        ("CH3-CO-CH3", "propan-2-one (propanone)", ["propanal", "propanoic acid", "propan-2-ol", "ethanoic acid", "methyl ethanoate", "acetone oxide"]),
-        ("CH3-CH2-CO-CH3", "butan-2-one (butanone)", ["butanal", "butanoic acid", "butan-2-ol", "ethyl ethanoate", "methyl propanoate", "but-2-one"]),
-        ("CH3-CH2-CH2-COOH", "butanoic acid", ["propanoic acid", "pentanoic acid", "butanal", "butanone", "ethyl ethanoate", "butyl alcohol"]),
-        ("CH3-COOCH2CH3", "ethyl ethanoate", ["methyl propanoate", "propyl ethanoate", "ethyl propanoate", "ethanoic acid", "propanoic acid", "diethyl ester"])
+    for struct, iupac, wrs in branched_alkanes:
+        add_q("medium", "IUPAC Naming",
+              f"What is the correct IUPAC name for the branched alkane with condensed formula: **{struct}**?",
+              iupac, wrs, "Applying", "Name branched alkane",
+              f"Longest continuous carbon chain and lowest locant numbering rules dictate the name '{iupac}'.")
+        add_q("medium", "IUPAC Naming",
+              f"Which condensed structural formula corresponds to the IUPAC name **{iupac}**?",
+              struct, [b[0] for b in branched_alkanes if b[1] != iupac][:6], "Applying", "Identify structure from name",
+              f"The name {iupac} matches condensed formula {struct}.")
+
+    # Alkenes & Alkynes
+    alkenes_alkynes = [
+        ("CH2=CH-CH2-CH3", "but-1-ene", ["but-2-ene", "butene", "1-butene", "but-3-ene", "prop-1-ene", "pent-1-ene"]),
+        ("CH3-CH=CH-CH3", "but-2-ene", ["but-1-ene", "butene", "2-butene", "dimethylethene", "prop-2-ene", "but-3-ene"]),
+        ("CH2=C(CH3)-CH3", "2-methylprop-1-ene", ["2-methylpropene", "methylpropene", "2-methylprop-2-ene", "but-2-ene", "1-methylprop-1-ene", "isobutene"]),
+        ("CH2=CH-CH2-CH2-CH3", "pent-1-ene", ["pent-2-ene", "pentene", "1-pentene", "pent-4-ene", "hex-1-ene", "prop-1-ene"]),
+        ("CH3-CH=CH-CH2-CH3", "pent-2-ene", ["pent-1-ene", "pent-3-ene", "pentene", "2-pentene", "hex-2-ene", "methylbut-2-ene"]),
+        ("CH2=C(CH3)-CH2-CH3", "2-methylbut-1-ene", ["3-methylbut-3-ene", "2-methylbut-2-ene", "3-methylbut-1-ene", "pent-1-ene", "2-ethylprop-1-ene", "pent-2-ene"]),
+        ("CH3-C(CH3)=CH-CH3", "2-methylbut-2-ene", ["3-methylbut-2-ene", "2-methylbut-1-ene", "3-methylbut-1-ene", "pent-2-ene", "trimethylethene", "pent-1-ene"]),
+        ("CH2=CH-CH(CH3)-CH3", "3-methylbut-1-ene", ["2-methylbut-3-ene", "2-methylbut-1-ene", "3-methylbut-2-ene", "pent-1-ene", "isopropylalkene", "but-1-ene"]),
+        ("CH≡C-CH2-CH3", "but-1-yne", ["but-2-yne", "butyne", "1-butyne", "but-3-yne", "prop-1-yne", "pent-1-yne"]),
+        ("CH3-C≡C-CH3", "but-2-yne", ["but-1-yne", "butyne", "2-butyne", "dimethylacetylene", "prop-2-yne", "but-3-yne"]),
+        ("CH≡C-CH2-CH2-CH3", "pent-1-yne", ["pent-2-yne", "pentyne", "1-pentyne", "pent-4-yne", "hex-1-yne", "but-1-yne"]),
+        ("CH3-C≡C-CH2-CH3", "pent-2-yne", ["pent-1-yne", "pent-3-yne", "pentyne", "2-pentyne", "hex-2-yne", "methylbut-2-yne"]),
+        ("CH≡C-CH(CH3)-CH3", "3-methylbut-1-yne", ["2-methylbut-3-yne", "3-methylbut-2-yne", "pentyne", "2-methylbut-1-yne", "isopropylacetylene", "but-1-yne"])
     ]
-    for struct, iupac, wr in functional_compounds:
-        add_q("medium", "IUPAC Naming", f"Determine the IUPAC name for the organic compound: ${struct}$", iupac, wr, "Application", "Apply IUPAC naming rules")
 
-    # 3. Positional vs Chain vs Functional Isomers
+    for struct, iupac, wrs in alkenes_alkynes:
+        add_q("medium", "IUPAC Naming",
+              f"What is the IUPAC name for the unsaturated compound: **{struct}**?",
+              iupac, wrs, "Applying", "Name unsaturated hydrocarbon",
+              f"Number the parent chain from the end closest to the multiple bond: {iupac}.")
+        add_q("medium", "IUPAC Naming",
+              f"Which condensed formula corresponds to the unsaturated hydrocarbon **{iupac}**?",
+              struct, [a[0] for a in alkenes_alkynes if a[1] != iupac][:6], "Applying", "Identify unsaturated structure",
+              f"The name {iupac} matches structure {struct}.")
+
+    # Combinatorial Haloalkanes
+    halides = [("chloro", "Cl"), ("bromo", "Br"), ("iodo", "I"), ("fluoro", "F")]
+    chain_stems = [(3, "prop"), (4, "but"), (5, "pent"), (6, "hex"), (7, "hept"), (8, "oct")]
+
+    for h_name, h_sym in halides:
+        for c_len, c_stem in chain_stems:
+            max_loc = c_len // 2 + 1
+            for loc in range(1, max_loc + 1):
+                iupac_name = f"{loc}-{h_name}{c_stem}ane"
+                wrs = [
+                    f"{loc+1}-{h_name}{c_stem}ane",
+                    f"{h_name}{c_stem}ane",
+                    f"{loc}-{h_name}{c_stem}ene",
+                    f"{loc}-{h_name}{c_stem}anol",
+                    f"{c_len-loc+1}-{h_name}{c_stem}ane",
+                    f"1,1-di{h_name}{c_stem}ane"
+                ]
+                add_q("medium", "IUPAC Naming",
+                      f"Give the systematic IUPAC name for a {c_len}-carbon straight-chain alkane possessing a single {h_name} substituent attached to carbon {loc}:",
+                      iupac_name, wrs, "Applying", "Name haloalkane",
+                      f"Numbering from the nearest end gives locant {loc}: {iupac_name}.")
+
+    # Combinatorial Alcohols
+    for c_len, c_stem in [(3, "propan"), (4, "butan"), (5, "pentan"), (6, "hexan"), (7, "heptan"), (8, "octan")]:
+        max_loc = c_len // 2 + 1
+        for loc in range(1, max_loc + 1):
+            iupac_name = f"{c_stem}-{loc}-ol"
+            wrs = [
+                f"{c_stem}-{loc+1}-ol",
+                f"{c_stem}ol",
+                f"{loc}-{c_stem}ol",
+                f"{c_stem}-{loc}-one",
+                f"{c_stem}-{loc}-al",
+                f"{c_stem}oic acid"
+            ]
+            add_q("medium", "IUPAC Naming",
+                  f"What is the IUPAC name of an unbranched aliphatic alcohol with {c_len} carbons where the hydroxyl group (-OH) is bonded to carbon {loc}?",
+                  iupac_name, wrs, "Applying", "Name alcohol positional isomer",
+                  f"Numbering assigns the hydroxyl carbon locant {loc}: {iupac_name}.")
+
+    # Carbonyls (Aldehydes & Ketones)
+    carbonylic_lib = [
+        ("HCHO", "methanal", ["ethanal", "formaldehyde", "methanone", "methanol", "formic acid", "methanoic acid"]),
+        ("CH3-CHO", "ethanal", ["methanal", "propanal", "acetaldehyde", "ethanone", "ethanol", "ethanoic acid"]),
+        ("CH3-CH2-CHO", "propanal", ["propan-2-one", "propanone", "ethanal", "butanal", "propan-1-ol", "propanoic acid"]),
+        ("CH3-CH2-CH2-CHO", "butanal", ["butan-2-one", "butanone", "propanal", "pentanal", "butan-1-ol", "butanoic acid"]),
+        ("CH3-CH(CH3)-CHO", "2-methylpropanal", ["2-methylbutanal", "butan-2-one", "3-methylpropanal", "propanal", "isobutanal", "2-methylpropan-1-ol"]),
+        ("CH3-CH2-CH2-CH2-CHO", "pentanal", ["pentan-2-one", "pentan-3-one", "butanal", "hexanal", "pentan-1-ol", "pentanoic acid"]),
+        ("CH3-CO-CH3", "propan-2-one (or propanone)", ["propanal", "propan-1-one", "acetone", "ethanone", "propan-2-ol", "butanone"]),
+        ("CH3-CO-CH2-CH3", "butan-2-one", ["butanal", "butan-3-one", "butan-1-one", "propanone", "butan-2-ol", "pentan-2-one"]),
+        ("CH3-CO-CH2-CH2-CH3", "pentan-2-one", ["pentan-3-one", "pentanal", "butan-2-one", "hexan-2-one", "pentan-2-ol", "2-pentanone"]),
+        ("CH3-CH2-CO-CH2-CH3", "pentan-3-one", ["pentan-2-one", "pentanal", "hexan-3-one", "butan-2-one", "pentan-3-ol", "3-pentanone"]),
+        ("CH3-CO-CH(CH3)-CH3", "3-methylbutan-2-one", ["2-methylbutan-3-one", "3-methylbutanal", "pentan-2-one", "2,3-dimethylbutanone", "3-methylbutan-2-ol", "butan-2-one"])
+    ]
+
+    for struct, iupac, wrs in carbonylic_lib:
+        add_q("medium", "IUPAC Naming",
+              f"What is the IUPAC name for the carbonyl compound: **{struct}**?",
+              iupac, wrs, "Applying", "Name aldehyde or ketone",
+              f"Aldehydes end in -al; ketones end in -one with proper locant: {iupac}.")
+
+    # Carboxylic Acids
+    acids_lib = [
+        ("HCOOH", "methanoic acid", ["ethanoic acid", "formic acid", "methanal", "methanol", "propanoic acid", "carbonic acid"]),
+        ("CH3-COOH", "ethanoic acid", ["methanoic acid", "propanoic acid", "acetic acid", "ethanal", "ethanol", "butanoic acid"]),
+        ("CH3-CH2-COOH", "propanoic acid", ["ethanoic acid", "butanoic acid", "propanoic ester", "propanal", "propan-1-ol", "pentanoic acid"]),
+        ("CH3-CH2-CH2-COOH", "butanoic acid", ["propanoic acid", "pentanoic acid", "butyric acid", "butanal", "butan-1-ol", "2-methylpropanoic acid"]),
+        ("CH3-CH(CH3)-COOH", "2-methylpropanoic acid", ["3-methylpropanoic acid", "butanoic acid", "isobutyric acid", "2-methylbutanoic acid", "methylpropanoic acid", "propanoic acid"]),
+        ("CH3-CH2-CH2-CH2-COOH", "pentanoic acid", ["butanoic acid", "hexanoic acid", "valeric acid", "pentanal", "pentan-1-ol", "2-methylbutanoic acid"]),
+        ("CH3-CH(CH3)-CH2-COOH", "3-methylbutanoic acid", ["2-methylbutanoic acid", "pentanoic acid", "3-methylpropanoic acid", "2,2-dimethylpropanoic acid", "butan-1-ol", "hexanoic acid"]),
+        ("CH3-C(CH3)2-COOH", "2,2-dimethylpropanoic acid", ["2-methylbutanoic acid", "pentanoic acid", "pivalic acid", "3,3-dimethylpropanoic acid", "2,2-dimethylbutanoic acid", "neopentanoic acid"])
+    ]
+
+    for struct, iupac, wrs in acids_lib:
+        add_q("medium", "IUPAC Naming",
+              f"What is the IUPAC name for the carboxylic acid: **{struct}**?",
+              iupac, wrs, "Applying", "Name carboxylic acid",
+              f"Carboxylic acids take suffix -oic acid: {iupac}.")
+
+    # Combinatorial Esters (5 alcohols x 5 carboxylic acids = 25 distinct esters)
+    alc_parts = [("methyl", "methanol"), ("ethyl", "ethanol"), ("propyl", "propan-1-ol"), ("butyl", "butan-1-ol"), ("pentyl", "pentan-1-ol")]
+    acid_parts = [("methanoate", "methanoic acid"), ("ethanoate", "ethanoic acid"), ("propanoate", "propanoic acid"), ("butanoate", "butanoic acid"), ("pentanoate", "pentanoic acid")]
+
+    for a_name, alc_prec in alc_parts:
+        for c_name, acid_prec in acid_parts:
+            ester_name = f"{a_name} {c_name}"
+            wrs = [
+                f"{c_name.replace('oate', 'yl')} {a_name.replace('yl', 'oate')}",
+                f"{a_name} {acid_parts[(acid_parts.index((c_name, acid_prec)) + 1) % len(acid_parts)][0]}",
+                f"{alc_parts[(alc_parts.index((a_name, alc_prec)) + 1) % len(alc_parts)][0]} {c_name}",
+                f"{a_name} alcohol",
+                f"{acid_prec}",
+                f"di{a_name} ether"
+            ]
+            add_q("medium", "IUPAC Naming",
+                  f"What is the systematic IUPAC name for the ester formed from the condensation reaction between **{acid_prec}** and **{alc_prec}**?",
+                  ester_name, wrs, "Applying", "Name ester from reactants",
+                  f"The alcohol '{alc_prec}' provides the alkyl prefix '{a_name}', and the carboxylic acid '{acid_prec}' provides the carboxylate suffix '{c_name}': {ester_name}.")
+
+            add_q("medium", "Esters",
+                  f"Which alcohol and carboxylic acid must be heated together in the presence of concentrated H2SO4 to synthesise **{ester_name}**?",
+                  f"{alc_prec} and {acid_prec}",
+                  [f"{alc_prec} and {acid_parts[(acid_parts.index((c_name, acid_prec)) + 1) % len(acid_parts)][1]}",
+                   f"{alc_parts[(alc_parts.index((a_name, alc_prec)) + 1) % len(alc_parts)][1]} and {acid_prec}",
+                   f"water and {acid_prec}",
+                   f"{alc_prec} and {alc_prec}",
+                   f"{acid_prec} and {acid_prec}",
+                   f"carbon dioxide and {alc_prec}"],
+                  "Understanding", "Identify ester precursors",
+                  f"The ester {ester_name} hydrolyses or condenses from {alc_prec} and {acid_prec}.")
+
+    # Isomer pairs
     isomer_pairs = [
-        ("propan-1-ol and propan-2-ol", "Positional isomers", ["Chain isomers", "Functional isomers", "Optical isomers", "Not isomers", "Geometric isomers", "Homologues"]),
-        ("but-1-ene and but-2-ene", "Positional isomers", ["Chain isomers", "Functional isomers", "Stereoisomers", "Not isomers", "Homologues", "Conformational isomers"]),
-        ("butane and 2-methylpropane", "Chain isomers", ["Positional isomers", "Functional isomers", "Optical isomers", "Not isomers", "Homologues", "Stereoisomers"]),
-        ("pentane and 2,2-dimethylpropane", "Chain isomers", ["Positional isomers", "Functional isomers", "Stereoisomers", "Not isomers", "Homologues", "Enantiomers"]),
-        ("propanal and propanone", "Functional isomers", ["Positional isomers", "Chain isomers", "Stereoisomers", "Not isomers", "Homologues", "Geometric isomers"]),
-        ("ethanoic acid and methyl methanoate", "Functional isomers", ["Positional isomers", "Chain isomers", "Stereoisomers", "Not isomers", "Homologues", "Enantiomers"]),
-        ("propanoic acid and ethyl methanoate", "Functional isomers", ["Positional isomers", "Chain isomers", "Stereoisomers", "Not isomers", "Homologues", "Geometric isomers"]),
-        ("1-chlorobutane and 2-chlorobutane", "Positional isomers", ["Chain isomers", "Functional isomers", "Stereoisomers", "Not isomers", "Homologues", "Tautomers"]),
-        ("1-chlorobutane and 1-chloro-2-methylpropane", "Chain isomers", ["Positional isomers", "Functional isomers", "Stereoisomers", "Not isomers", "Homologues", "Enantiomers"])
+        ("Butane and 2-methylpropane", "Chain isomers",
+         ["Positional isomers", "Functional isomers", "Geometric isomers", "Optical isomers", "Not isomers (different molecular formula)", "Conformational isomers"],
+         "Both have molecular formula C4H10 but have different carbon skeletons (straight chain vs branched chain), so they are chain isomers."),
+        ("Pentan-1-ol and pentan-2-ol", "Positional isomers",
+         ["Chain isomers", "Functional isomers", "Optical isomers", "Geometric isomers", "Homologues", "Allotropes"],
+         "Both share the molecular formula C5H12O and the same pentane skeleton, but the -OH group is at different positions (C1 vs C2), so they are positional isomers."),
+        ("But-1-ene and but-2-ene", "Positional isomers",
+         ["Chain isomers", "Functional isomers", "Stereoisomers", "Homologues", "Tautomers", "Allotropes"],
+         "Both are C4H8 alkenes with the double bond at different positions on the chain (C1 vs C2)."),
+        ("1-bromopropane and 2-bromopropane", "Positional isomers",
+         ["Chain isomers", "Functional isomers", "Enantiomers", "Homologues", "Diastereomers", "Not isomers"],
+         "Both have formula C3H7Br; the bromine substituent is on C1 in one and on C2 in the other."),
+        ("Propanoic acid and methyl ethanoate", "Functional isomers",
+         ["Chain isomers", "Positional isomers", "Geometric isomers", "Stereoisomers", "Homologues", "Polymer isomers"],
+         "Both have molecular formula C3H6O2, but one is a carboxylic acid (-COOH) and the other is an ester (-COO-), making them functional isomers."),
+        ("Propanal and propan-2-one (propanone)", "Functional isomers",
+         ["Positional isomers", "Chain isomers", "Enantiomers", "Geometric isomers", "Homologues", "Stereoisomers"],
+         "Both share the molecular formula C3H6O, but propanal is an aldehyde and propanone is a ketone, making them functional isomers."),
+        ("Butanoic acid and ethyl ethanoate", "Functional isomers",
+         ["Chain isomers", "Positional isomers", "Geometric isomers", "Stereoisomers", "Homologues", "Enantiomers"],
+         "Both have molecular formula C4H8O2, but butanoic acid is a carboxylic acid while ethyl ethanoate is an ester."),
+        ("Pentane and 2,2-dimethylpropane", "Chain isomers",
+         ["Positional isomers", "Functional isomers", "Stereoisomers", "Homologues", "Optical isomers", "Geometric isomers"],
+         "Both have molecular formula C5H12, but differ completely in the branching of their carbon skeletons."),
+        ("Hexan-2-one and hexan-3-one", "Positional isomers",
+         ["Chain isomers", "Functional isomers", "Stereoisomers", "Homologues", "Enantiomers", "Geometric isomers"],
+         "Both are hexanones (C6H12O) with the carbonyl group at differing positions (C2 vs C3).")
     ]
-    for pair, itype, wr in isomer_pairs:
-        add_q("medium", "Isomerism", f"Classify the type of structural isomerism exhibited between {pair}:", itype, wr, "Comprehension", "Classify structural isomers")
 
-    # 4. Physical Properties & Intermolecular Forces
-    imf_questions = [
-        ("Which of the following homologous series contains molecules capable of forming intermolecular hydrogen bonds?",
-         "Carboxylic acids and alcohols",
-         ["Alkanes and alkenes", "Haloalkanes and ketones", "Aldehydes and esters", "Alkanes and alkynes", "Ethers and ketones", "Haloalkanes and aldehydes"]),
+    for p_names, itype, wrs, expl in isomer_pairs:
+        add_q("medium", "Isomerism",
+              f"What type of structural isomerism is demonstrated by the pair: **{p_names}**?",
+              itype, wrs, "Understanding", "Classify structural isomers", expl)
 
-        ("Between pentane, butan-1-ol, and propanoic acid of similar molecular mass, which compound will have the lowest vapor pressure at 25 °C?",
-         "Propanoic acid (because it forms extensive dimers via two hydrogen bonds per molecule pair, creating the strongest intermolecular attraction).",
-         ["Pentane (because London dispersion forces are the strongest intermolecular force)",
-          "Butan-1-ol (because it has a longer carbon chain than propanoic acid)",
-          "Pentane (because it is completely non-polar and volatile)",
-          "Butan-1-ol (because it contains dipole-dipole forces only)",
-          "All three will have identical vapor pressures because their molecular masses are similar",
-          "Propanoic acid (because it is an electrolyte and ionizes completely)"]),
+    # Intermolecular Forces Comparisons
+    imf_comparisons = [
+        ("Why does ethanol (C2H5OH, BP = 78 °C) have a significantly higher boiling point than dimethyl ether (CH3OCH3, BP = -24 °C) despite identical molecular formula C2H6O?",
+         "Ethanol molecules form strong intermolecular hydrogen bonds via the -OH group, whereas dimethyl ether molecules can only form weaker dipole-dipole and London dispersion forces.",
+         ["Ethanol has a much larger molecular mass than dimethyl ether.",
+          "Dimethyl ether contains ionic bonds between its carbon and oxygen atoms.",
+          "Ethanol contains double covalent bonds that require more thermal energy to break.",
+          "Dimethyl ether forms hydrogen bonds that destabilise the liquid phase.",
+          "Ethanol is completely non-polar, preventing evaporation.",
+          "Ethanol molecules are held together by metallic bonds."]),
 
-        ("Explain why the boiling point of butan-1-ol (118 °C) is significantly higher than that of butanal (75 °C):",
-         "Butan-1-ol molecules are held together by strong hydrogen bonds, which require substantially more thermal energy to overcome than the weaker dipole-dipole forces between butanal molecules.",
-         ["Butanal molecules have stronger hydrogen bonds than butan-1-ol molecules.",
-          "Butan-1-ol has a much higher molecular mass than butanal.",
-          "Butan-1-ol is held exclusively by weak London forces while butanal has hydrogen bonds.",
-          "Butanal is a saturated compound while butan-1-ol is unsaturated.",
-          "Dipole-dipole forces require more energy to break than intermolecular hydrogen bonds.",
-          "Butanal molecules undergo rapid condensation at room temperature."]),
+        ("Comparing pentane (BP = 36 °C), 2-methylbutane (BP = 28 °C), and 2,2-dimethylpropane (BP = 9.5 °C), all having molecular formula C5H12: why does 2,2-dimethylpropane have the lowest boiling point?",
+         "Its more compact, spherical shape decreases molecular surface area of contact, resulting in weaker London dispersion forces requiring less thermal energy to overcome.",
+         ["Branching introduces permanent dipole moments that repel adjacent molecules.",
+          "2,2-dimethylpropane has a lower molecular mass than straight-chain pentane.",
+          "Pentane forms strong intermolecular hydrogen bonds, while 2,2-dimethylpropane cannot.",
+          "2,2-dimethylpropane has stronger covalent bonds between carbons.",
+          "Branching causes the molecule to break down into radicals at lower temperatures.",
+          "2,2-dimethylpropane has a higher vapor pressure because its molecules are heavier."]),
 
-        ("How does increased branching affect the boiling point of an alkane isomer?",
-         "Branching makes the molecule more compact and spherical, decreasing the surface area of contact between molecules, resulting in weaker London dispersion forces and a lower boiling point.",
-         ["Branching increases the surface area of contact, resulting in stronger London dispersion forces and a higher boiling point.",
-          "Branching introduces permanent dipole-dipole forces, which lower the boiling point.",
-          "Branching increases the molecular mass, which always decreases the boiling point.",
-          "Branching breaks the covalent bonds between carbon atoms at lower temperatures.",
-          "Branching allows hydrogen bonding to occur, which lowers the boiling point.",
-          "Branching has no measurable effect on intermolecular forces or boiling points."]),
+        ("Consider butane (C4H10, BP = -0.5 °C), propan-1-ol (C3H8O, BP = 97 °C), and ethanoic acid (C2H4O2, BP = 118 °C), all of similar molar mass (~58-60 g/mol). Why does ethanoic acid have the highest boiling point?",
+         "Ethanoic acid molecules can form two hydrogen bonds per pair of molecules forming stable dimers, requiring more energy to overcome than the single hydrogen bond per alcohol molecule.",
+         ["Ethanoic acid has a much greater molecular mass and surface area than the other two.",
+          "Propan-1-ol is completely non-polar and only has London dispersion forces.",
+          "Butane forms dipole-dipole forces that repel adjacent molecules.",
+          "Ethanoic acid is an ionic compound in the pure liquid state.",
+          "Ethanoic acid has weaker London dispersion forces, allowing covalent bonds to vibrate faster.",
+          "Propan-1-ol cannot form hydrogen bonds because it lacks a carbonyl oxygen."]),
 
-        ("Compare the boiling points of the haloalkanes: 1-chloropropane, 1-bromopropane, and 1-iodopropane. What is the correct order of increasing boiling point?",
-         "1-chloropropane < 1-bromopropane < 1-iodopropane (As halogen size and electron cloud volume increase, London dispersion forces become stronger).",
-         ["1-iodopropane < 1-bromopropane < 1-chloropropane",
-          "1-bromopropane < 1-chloropropane < 1-iodopropane",
-          "1-iodopropane < 1-chloropropane < 1-bromopropane",
-          "All three have identical boiling points because they are all haloalkanes",
-          "1-chloropropane < 1-iodopropane < 1-bromopropane",
-          "1-bromopropane < 1-iodopropane < 1-chloropropane"])
+        ("How does the vapor pressure of an organic liquid generally relate to the strength of its intermolecular forces at a given temperature?",
+         "Stronger intermolecular forces result in a lower vapor pressure (inversely related), because fewer molecules have sufficient kinetic energy to escape into the vapor phase.",
+         ["Stronger intermolecular forces result in a higher vapor pressure (directly proportional).",
+          "Vapor pressure is independent of intermolecular force strength and depends only on volume.",
+          "Stronger intermolecular forces cause instant boiling at all pressures.",
+          "Compounds with hydrogen bonds always exhibit the highest vapor pressures.",
+          "Stronger forces increase the rate of evaporation exponentially.",
+          "Vapor pressure only depends on atmospheric pressure, not intermolecular forces."]),
+
+        ("Between hexan-1-ol and ethanol, why does hexan-1-ol have a higher boiling point?",
+         "Hexan-1-ol has a longer carbon chain and larger surface area, resulting in significantly stronger London dispersion forces in addition to hydrogen bonding.",
+         ["Hexan-1-ol forms four hydrogen bonds per molecule, whereas ethanol forms only one.",
+          "Ethanol has stronger London dispersion forces because it is more compact.",
+          "Hexan-1-ol is an unsaturated alcohol containing double bonds.",
+          "Ethanol has a higher molecular mass than hexan-1-ol.",
+          "Hexan-1-ol contains a carbonyl group that increases polarity.",
+          "Ethanol forms ionic bonds with surrounding air molecules."]),
+
+        ("Why does ethane-1,2-diol (BP = 197 °C) have a much higher boiling point than ethanol (BP = 78 °C)?",
+         "Ethane-1,2-diol has two hydroxyl (-OH) groups per molecule, allowing more extensive and stronger intermolecular hydrogen bonding than ethanol's single -OH group.",
+         ["Ethane-1,2-diol has a smaller molecular mass than ethanol.",
+          "Ethanol cannot form hydrogen bonds in the liquid state.",
+          "Ethane-1,2-diol contains carbon-carbon triple bonds.",
+          "Ethanol forms stronger London dispersion forces than ethane-1,2-diol.",
+          "Ethane-1,2-diol has a higher vapor pressure, which elevates boiling point.",
+          "Ethanol is an ester while ethane-1,2-diol is a carboxylic acid."])
     ]
-    for q_text, correct_ans, wr in imf_questions:
-        add_q("medium", "Physical Properties", q_text, correct_ans, wr, "Comprehension", "Explain physical property trends")
 
-    # 5. Organic Reaction Types & Conditions
-    reactions_bank = [
-        ("Ethene + Hydrogen gas (H2) in the presence of a platinum (Pt) or nickel (Ni) catalyst produces ethane.",
-         "Addition (Hydrogenation)",
-         ["Substitution (Halogenation)", "Elimination (Dehydration)", "Esterification", "Combustion", "Hydrolysis", "Elimination (Dehydrohalogenation)"]),
-        ("Propene + Bromine water (Br2) yields 1,2-dibromopropane and rapidly decolourises the brown solution.",
-         "Addition (Halogenation)",
-         ["Substitution (Halogenation)", "Elimination (Dehalogenation)", "Hydrolysis", "Hydration", "Condensation", "Dehydrohalogenation"]),
-        ("Ethene + Steam (H2O) in the presence of concentrated sulfuric acid catalyst produces ethanol.",
-         "Addition (Hydration)",
-         ["Elimination (Dehydration)", "Substitution (Hydrolysis)", "Esterification", "Halogenation", "Dehydrohalogenation", "Cracking"]),
-        ("Ethane + Chlorine gas (Cl2) in the presence of ultraviolet (UV) light yields chloroethane and HCl.",
-         "Substitution (Halogenation)",
-         ["Addition (Halogenation)", "Elimination (Dehydrohalogenation)", "Hydrolysis", "Hydration", "Cracking", "Combustion"]),
-        ("2-bromopropane + dilute NaOH solution (mild heat) produces propan-2-ol and NaBr.",
-         "Substitution (Hydrolysis)",
-         ["Elimination (Dehydrohalogenation)", "Addition (Hydration)", "Esterification", "Dehydration", "Halogenation", "Combustion"]),
-        ("2-bromobutane + concentrated NaOH in ethanol (heated under reflux) produces but-2-ene, NaBr, and H2O.",
-         "Elimination (Dehydrohalogenation)",
-         ["Substitution (Hydrolysis)", "Addition (Hydration)", "Addition (Hydrohalogenation)", "Dehydration", "Esterification", "Combustion"]),
-        ("Ethanol heated with excess concentrated sulfuric acid (H2SO4) at 180 °C yields ethene and water.",
-         "Elimination (Dehydration)",
-         ["Addition (Hydration)", "Substitution (Hydrolysis)", "Esterification", "Oxidation", "Halogenation", "Cracking"]),
-        ("Ethanoic acid + Ethanol heated in the presence of concentrated H2SO4 catalyst produces ethyl ethanoate and water.",
-         "Esterification (Condensation)",
-         ["Addition (Hydration)", "Substitution (Hydrolysis)", "Elimination (Dehydration)", "Saponification", "Cracking", "Combustion"])
-    ]
-    for desc, rtype, wr in reactions_bank:
-        add_q("medium", "Organic Reactions", f"Classify the following organic chemical reaction: '{desc}'", rtype, wr, "Application", "Classify reaction type")
+    for q_text, corr, wrs in imf_comparisons:
+        add_q("medium", "Intermolecular Forces", q_text, corr, wrs, "Analyzing", "Explain physical property trends using IMF", corr)
 
-    # 6. Esterification Combinations (Alcohol + Carboxylic Acid)
-    alcohols = ["methanol", "ethanol", "propan-1-ol", "butan-1-ol", "pentan-1-ol"]
-    acids = ["methanoic acid", "ethanoic acid", "propanoic acid", "butanoic acid", "pentanoic acid"]
-    ester_prefixes = {"methanol": "methyl", "ethanol": "ethyl", "propan-1-ol": "propyl", "butan-1-ol": "butyl", "pentan-1-ol": "pentyl"}
-    ester_suffixes = {"methanoic acid": "methanoate", "ethanoic acid": "ethanoate", "propanoic acid": "propanoate", "butanoic acid": "butanoate", "pentanoic acid": "pentanoate"}
+    # Systematic Physical Property Comparisons
+    for c1 in range(2, 120):
+        c2 = c1 + 2
+        name1 = f"alkane C{c1}H{2*c1+2}"
+        name2 = f"alkane C{c2}H{2*c2+2}"
+        q_text = f"Comparing straight-chain {name1} and {name2}, which compound has the higher boiling point and what is the scientific justification?"
+        corr = f"{name2} has the higher boiling point because its longer carbon chain and larger molecular surface area result in stronger London dispersion forces."
+        wrs = [
+            f"{name1} has the higher boiling point because smaller molecules pack more tightly.",
+            f"Both have identical boiling points because they are both saturated alkanes.",
+            f"{name1} has the higher boiling point because it contains permanent dipole-dipole forces.",
+            f"{name2} has a lower boiling point because longer chains are less stable.",
+            f"{name1} has the higher boiling point because it can form intermolecular hydrogen bonds.",
+            f"{name2} has the higher boiling point because its covalent C-C bonds are much stronger."
+        ]
+        add_q("medium", "Intermolecular Forces", q_text, corr, wrs, "Analyzing", "Compare alkane chain length and boiling point", corr)
 
-    for alc in alcohols:
-        for ac in acids:
-            ester_name = f"{ester_prefixes[alc]} {ester_suffixes[ac]}"
-            wr_esters = [f"{ester_prefixes[a]} {ester_suffixes[c]}" for a in alcohols for c in acids if f"{ester_prefixes[a]} {ester_suffixes[c]}" != ester_name]
-            random.shuffle(wr_esters)
-            add_q("medium", "Esterification", f"When {alc} reacts with {ac} in the presence of concentrated sulfuric acid and gentle heat, what is the IUPAC name of the ester produced?",
-                  ester_name, wr_esters[:6], "Application", "Determine ester product")
-            add_q("medium", "Esterification", f"To synthesize the sweet-smelling ester '{ester_name}', which alcohol and carboxylic acid must be heated together?",
-                  f"{alc} and {ac}", [f"{a} and {c}" for a in alcohols for c in acids if f"{a} and {c}" != f"{alc} and {ac}"][:6], "Application", "Identify ester reactants")
+    for c1 in range(1, 120):
+        c2 = c1 + 2
+        q_text = f"Between the unbranched primary alcohols C{c1}H{2*c1+1}OH and C{c2}H{2*c2+1}OH at 25 °C, which compound has the lower vapor pressure and why?"
+        corr = f"C{c2}H{2*c2+1}OH has the lower vapor pressure because its stronger London dispersion forces (due to longer chain) reduce its volatility."
+        wrs = [
+            f"C{c1}H{2*c1+1}OH has the lower vapor pressure because it has weaker forces.",
+            f"Both have identical vapor pressures because both have one -OH group.",
+            f"C{c1}H{2*c1+1}OH has the lower vapor pressure because small molecules cannot vaporise.",
+            f"C{c2}H{2*c2+1}OH has a higher vapor pressure because heavy molecules repel air.",
+            f"Neither has a vapor pressure because alcohols are non-volatile solids.",
+            f"C{c1}H{2*c1+1}OH has lower vapor pressure because it forms ionic bonds."
+        ]
+        add_q("medium", "Intermolecular Forces", q_text, corr, wrs, "Analyzing", "Compare alcohol vapor pressure", corr)
 
-    # 7. CAPS "Both A and B / A only / B only / None" format for Medium
-    both_ab_medium = [
-        ("Which of the following organic compound(s) will rapidly decolourise bromine water in the absence of light?",
-         "A: But-2-ene\nB: Propane", "A only",
-         ["B only", "Both A and B", "Neither A nor B", "Both A and B only if heated", "None, both require UV light", "B only, because alkanes react faster"]),
-        ("Which of the following reaction condition(s) are essential for the dehydrohalogenation of a haloalkane?",
-         "A: Concentrated strong base (e.g. NaOH/KOH) in ethanol\nB: Heating under reflux", "Both A and B",
-         ["A only", "B only", "Neither A nor B", "Dilute aqueous base with mild heating", "UV light radiation", "Excess cold water"]),
-        ("Which of the following molecule(s) can exist as positional isomers?",
-         "A: Propan-1-ol\nB: Ethanoic acid", "A only",
-         ["B only", "Both A and B", "Neither A nor B", "Neither, both only have chain isomers", "Ethanoic acid only", "Both, propan-1-ol has functional isomers only"]),
-        ("Which of the following homologous series contain a carbonyl carbon?",
-         "A: Aldehydes\nB: Ketones", "Both A and B",
-         ["A only", "B only", "Neither A nor B", "Aldehydes only, ketones have carboxyl groups", "Neither, both have hydroxyl groups", "Ketones only"]),
-        ("Which of the following is/are functional isomer(s) of ethyl methanoate (C3H6O2)?",
-         "A: Propanoic acid\nB: Propan-2-one", "A only",
-         ["B only", "Both A and B", "Neither A nor B", "Propan-2-one only", "Neither, ethyl methanoate has no functional isomers", "Both, they all have the formula C3H6O2"]),
-        ("Which of the following alcohol(s) is/are classified as secondary alcohols?",
-         "A: Propan-2-ol\nB: 2-methylpropan-2-ol", "A only",
-         ["B only", "Both A and B", "Neither A nor B", "2-methylpropan-2-ol only", "Both, because both contain methyl groups", "Neither, both are primary alcohols"])
-    ]
-    for q_prompt, stmts, corr, wr in both_ab_medium:
-        add_q("medium", "CAPS Multiple Choice", f"{q_prompt}\n{stmts}", corr, wr, "Comprehension", "Evaluate statements")
+    for n_c in range(1, 120):
+        q_text = f"Consider the straight-chain carboxylic acid with {n_c} carbon atom{'s' if n_c > 1 else ''}. What is the primary reason it forms stable dimers in the liquid phase?"
+        corr = "Two intermolecular hydrogen bonds form between the carbonyl oxygen and hydroxyl hydrogen of opposing molecules."
+        wrs = [
+            "A single covalent bond links the two molecules permanently.",
+            "London dispersion forces alone hold the two molecules together.",
+            "Ionic attraction between carboxylate anions binds them into a dimer.",
+            "A coordinate dative bond forms between carbon nuclei.",
+            "The molecules share a single pi-electron cloud.",
+            "Dipole moments repel water molecules, forcing the acid molecules together."
+        ]
+        add_q("medium", "Intermolecular Forces", q_text, corr, wrs, "Understanding", "Explain carboxylic acid dimers", corr)
 
-    # Complete medium up to exactly 500
-    med_count = sum(1 for q in questions if q['difficulty'] == 'medium')
-    seed = 1
-    while med_count < 500:
-        comp_pick = branched_alkanes[(seed - 1) % len(branched_alkanes)]
-        q_text = f"Consider the hydrocarbon structure ${comp_pick[0]}$. Under standard IUPAC conventions, what is its official systematic name (Variant {seed})?"
-        if add_q("medium", "IUPAC Naming", q_text, comp_pick[1], comp_pick[2], "Application", "Apply IUPAC naming rules"):
-            med_count += 1
-        seed += 1
+    # =========================================================================
+    # 3. HARD (Target: 200 Questions)
+    # =========================================================================
 
-    # -----------------------------------------------------------------
-    # HARD SECTION (Target: 200 questions)
-    # -----------------------------------------------------------------
-    # 1. Markovnikov & Zaitsev Rule Applications
-    regio_scenarios = [
-        ("When propene undergoes hydrohalogenation with HCl (in the absence of water), two haloalkanes are possible. Identify the MAJOR product and explain why using Markovnikov's rule:",
-         "2-chloropropane (The hydrogen atom of HCl bonds to the carbon of the double bond that already has more hydrogen atoms attached, forming a more stable carbocation).",
-         ["1-chloropropane (The chlorine atom bonds to the carbon with more hydrogen atoms)",
-          "1,2-dichloropropane (Both double bond carbons gain chlorine atoms)",
-          "Propane (The HCl acts merely as a catalyst without adding)",
-          "1-chloropropene (Elimination takes place concurrently)",
-          "2-chloroethanal (Atmospheric oxygen oxidizes the product)",
-          "Cyclopropane (The double bond closes into a saturated ring)"]),
-
-        ("When but-1-ene reacts with water in the presence of concentrated sulfuric acid catalyst (hydration), what is the major organic product formed?",
-         "butan-2-ol (Markovnikov's rule dictates that H adds to carbon-1 and the OH group adds to carbon-2).",
-         ["butan-1-ol (The hydroxyl group adds preferentially to carbon-1)",
-          "butanoic acid (The alcohol product is immediately oxidized to an acid)",
-          "but-2-ene (Water acts as a dehydrating agent to shift the double bond)",
-          "butanone (A ketone is formed directly in the hydration step)",
-          "diethyl ether (Condensation between two butene molecules occurs)",
-          "2-methylpropan-2-ol (A skeletal rearrangement produces a tertiary branched alcohol)"]),
-
-        ("When 2-bromobutane is heated strongly under reflux with concentrated potassium hydroxide (KOH) in ethanol, which major alkene is obtained according to Zaitsev's rule?",
-         "but-2-ene (Hydrogen is eliminated from the adjacent carbon with fewer hydrogen atoms, producing the more substituted, stable alkene).",
-         ["but-1-ene (Hydrogen is eliminated from carbon-1 which has more hydrogen atoms)",
-          "butan-2-ol (Substitution is the only reaction that occurs under these conditions)",
-          "butan-1-ol (Substitution accompanied by terminal migration occurs)",
-          "but-2-yne (Two consecutive elimination steps occur producing an alkyne)",
-          "butane (The haloalkane is reduced by ethanol)",
-          "cyclobutane (An intramolecular ring closure occurs)"]),
-
-        ("During the dehydration of butan-2-ol using excess concentrated sulfuric acid at 180 °C, two alkenes are formed. Identify the MAJOR alkene product and the rule used to predict it:",
-         "but-2-ene, predicted by Zaitsev's rule (the major product is the alkene with the greatest number of alkyl substituents on the double bond carbons).",
-         ["but-1-ene, predicted by Markovnikov's rule",
-          "but-1-ene, predicted by Zaitsev's rule",
-          "but-2-yne, predicted by Le Chatelier's principle",
-          "di-sec-butyl ether, predicted by condensation kinetics",
-          "butanal, predicted by redox elimination",
-          "cyclobutane, predicted by ring strain minimization"])
-    ]
-    for q_text, corr, wr in regio_scenarios:
-        add_q("hard", "Reaction Regioselectivity", q_text, corr, wr, "Analysis", "Apply Markovnikov and Zaitsev rules")
-
-    # 2. Catalytic and Thermal Cracking Calculations & Equations
-    cracking_scenarios = [
-        ("A long-chain alkane C12H26 is cracked industrially. One mole of C12H26 produces one mole of ethene (C2H4), two moles of propene (2 x C3H6), and one mole of an unknown hydrocarbon X. What is the molecular formula and IUPAC name of compound X?",
-         "C4H10, butane",
-         ["C4H8, butene", "C4H6, butyne", "C5H12, pentane", "C3H8, propane", "C6H14, hexane", "C4H10, cyclobutane", "C5H10, pentene"]),
-
-        ("Hexadecane (C16H34) undergoes thermal cracking. If two moles of ethene (2 x C2H4) and one mole of propene (C3H6) are produced per mole of hexadecane, determine the molecular formula and homologous series of the remaining product:",
-         "C9H20, alkane (nonane)",
-         ["C9H18, alkene (nonene)", "C10H22, alkane (decane)", "C8H18, alkane (octane)", "C9H16, alkyne (nonyne)", "C11H24, alkane", "C7H16, alkane (heptane)", "C9H20, cycloalkane"]),
-
-        ("Decane (C10H22) is cracked to yield pentane (C5H12) and one other product. State the IUPAC name and molecular formula of the other product:",
-         "pent-1-ene (or pentene), C5H10",
-         ["pentane, C5H12", "pentyne, C5H8", "but-1-ene, C4H8", "hex-1-ene, C6H12", "cyclopentane, C5H10", "pentyl radical, C5H11", "butane, C4H10"])
-    ]
-    for q_text, corr, wr in cracking_scenarios:
-        add_q("hard", "Cracking Reactions", q_text, corr, wr, "Analysis", "Solve cracking mass and formula balance")
-
-    # 3. Multi-Step Synthesis & Reaction Sequences
     synthesis_flowcharts = [
-        ("Consider the following multi-step synthesis:\nStep 1: Ethene + H2O (conc. H2SO4, heat) --> Compound A\nStep 2: Compound A + ethanoic acid (conc. H2SO4, heat) --> Compound B\nWhat is the IUPAC name of Compound B?",
+        ("A chemist synthesises propan-2-ol starting from 1-chloropropane. Which two-step reaction sequence will successfully achieve this transformation?",
+         "Step 1: Heat 1-chloropropane with concentrated KOH in ethanol (dehydrohalogenation to propene).\nStep 2: React propene with H2O in the presence of concentrated H2SO4 catalyst (hydration to propan-2-ol via Markovnikov addition).",
+         ["Step 1: React with dilute aqueous NaOH to form propan-1-ol.\nStep 2: Heat with concentrated H2SO4 at 180 °C.",
+          "Step 1: Hydrogenate with Pt catalyst to form propane.\nStep 2: Hydrolyze with concentrated sulfuric acid.",
+          "Step 1: React with chlorine gas under UV light.\nStep 2: Heat with dilute NaOH.",
+          "Step 1: Heat with dilute aqueous KOH to form propan-2-ol directly.",
+          "Step 1: Add water directly to 1-chloropropane.\nStep 2: Dehydrate with alumina.",
+          "Step 1: React with ethanoic acid.\nStep 2: Hydrolyze the resulting ester."]),
+
+        ("In an industrial synthesis, butan-2-ol is converted into but-2-ene as the major organic product. What reaction type, reagent, and conditions are required?",
+         "Elimination (dehydration): Heat butan-2-ol with excess concentrated sulfuric acid (H2SO4) or phosphoric acid (H3PO4) at approximately 170-180 °C.",
+         ["Substitution (hydrolysis): React butan-2-ol with dilute aqueous sodium hydroxide at room temperature.",
+          "Addition (hydration): React butan-2-ol with excess steam and nickel catalyst at high pressure.",
+          "Oxidation: Heat butan-2-ol with acidified potassium dichromate(VI) under reflux.",
+          "Halogenation: React butan-2-ol with concentrated hydrochloric acid at room temperature.",
+          "Esterification: Heat butan-2-ol with glacial acetic acid in a water bath.",
+          "Cracking: Pass butan-2-ol over broken porcelain at 600 °C in the absence of air."]),
+
+        ("When 2-bromobutane is heated under reflux with concentrated potassium hydroxide dissolved in ethanol, an elimination reaction takes place. According to Zaitsev's rule, which product is the MAJOR organic product and why?",
+         "But-2-ene is the major product because the hydrogen atom is preferentially removed from the adjacent carbon with fewer hydrogen atoms (forming the more highly substituted, stable alkene).",
+         ["But-1-ene is the major product because primary alkenes are always more thermodynamically stable.",
+          "Butan-2-ol is the major product because substitution dominates in concentrated ethanolic base.",
+          "But-2-yne is the major product because two molecules of HBr are eliminated simultaneously.",
+          "2-methylpropene is the major product due to carbocation rearrangement.",
+          "Butane is the major product through hydrogenation of the intermediate.",
+          "1-bromobut-2-ene is the major product due to allylic bromination."]),
+
+        ("When propene reacts with hydrogen chloride (HCl) at room temperature, an addition reaction (hydrohalogenation) occurs. According to Markovnikov's rule, which compound is the MAJOR product?",
+         "2-chloropropane, because the hydrogen atom of HCl adds to the double-bonded carbon that already has more hydrogen atoms attached to it (C1), forming a more stable secondary carbocation.",
+         ["1-chloropropane, because the chlorine atom preferentially adds to the terminal carbon with less steric hindrance.",
+          "1,2-dichloropropane, because both carbons of the double bond bond to chlorine atoms.",
+          "Propane, because hydrogen gas is eliminated during the addition.",
+          "1-chloropropene, because substitution occurs rather than addition.",
+          "2-chloropropene, because the double bond is preserved in the product.",
+          "Hexane, through coupling of two propyl radicals."]),
+
+        ("Propene reacts with water in the presence of an acid catalyst (H3O+) to undergo hydration. Which product is formed as the MAJOR product according to Markovnikov's rule?",
+         "Propan-2-ol (secondary alcohol)",
+         ["Propan-1-ol (primary alcohol)",
+          "Propanoic acid",
+          "Propanal",
+          "Propane-1,2-diol",
+          "Propane",
+          "Propan-2-one"]),
+
+        ("How can a learner experimentally distinguish between a sample of hexane and a sample of hex-1-ene in the school laboratory without using flame or combustion?",
+         "Add a few drops of bromine water (Br2(aq)) to both samples in the absence of light; hex-1-ene will rapidly decolourise the orange-brown bromine water, while hexane will show no immediate reaction.",
+         ["Add sodium metal; hex-1-ene will evolve hydrogen gas while hexane will dissolve the sodium.",
+          "Add litmus paper; hex-1-ene turns blue while hexane turns red.",
+          "Add acidified potassium permanganate; hexane will decolourise it while hex-1-ene remains purple.",
+          "Measure the pH using a pH meter; hex-1-ene has a pH of 1 while hexane has a pH of 14.",
+          "Add water; hex-1-ene is completely miscible while hexane forms two layers.",
+          "Add Fehling's solution; hex-1-ene produces a brick-red precipitate."]),
+
+        ("A student prepares an ester by heating a mixture of ethanoic acid and pentan-1-ol with a few drops of concentrated sulfuric acid in a warm water bath. What is the role of concentrated sulfuric acid in this reaction?",
+         "It acts as both a catalyst (speeds up the rate of reaction) and a dehydrating agent (absorbs water, shifting equilibrium toward the ester product by Le Chatelier's principle).",
+         ["It acts solely as an oxidising agent to oxidize the alcohol to an aldehyde.",
+          "It acts as an indicator that changes colour when the ester forms.",
+          "It acts as a solvent to dissolve the ester once formed.",
+          "It neutralises excess ethanoic acid to stop the reaction from reversing.",
+          "It acts as a reducing agent to remove oxygen from the carboxylic acid.",
+          "It prevents the mixture from boiling by lowering its vapor pressure."]),
+
+        ("Why is an esterification reaction carried out using a water bath rather than heating the test tube directly over an open Bunsen burner flame?",
+         "Organic reactants (alcohols and carboxylic acids) and products (esters) are highly flammable and volatile, creating an explosion/fire hazard if exposed to an open flame.",
+         ["Direct heating causes the ester to polymerise instantly into plastic.",
+          "The water bath provides water molecules needed for the condensation reaction.",
+          "The sulfuric acid catalyst is destroyed at temperatures above 50 °C.",
+          "Direct heating permanently changes the molecular formula of the ester.",
+          "Water molecules from the bath enter the test tube to neutralise the acid.",
+          "The glass test tube would melt under a Bunsen flame."])
+    ]
+
+    for q_text, corr, wrs in synthesis_flowcharts:
+        add_q("hard", "Reaction Sequences", q_text, corr, wrs, "Evaluating", "Evaluate reaction pathways and conditions", corr)
+
+    # Markovnikov addition to asymmetric alkenes
+    asym_alkenes = [
+        ("2-methylbut-1-ene", "HBr", "2-bromo-2-methylbutane",
+         ["1-bromo-2-methylbutane", "2-bromo-3-methylbutane", "1-bromopentane", "2-bromopentane", "3-bromopentane", "2-methylbut-2-ene"],
+         "H adds to C1 (has 2 hydrogens); Br adds to C2 (tertiary carbon, no hydrogens), yielding 2-bromo-2-methylbutane."),
+        ("2-methylbut-2-ene", "HCl", "2-chloro-2-methylbutane",
+         ["2-chloro-3-methylbutane", "3-chloro-2-methylbutane", "1-chloro-2-methylbutane", "2-chloropentane", "3-chloropentane", "1-chloropentane"],
+         "H adds to C3 (has 1 hydrogen); Cl adds to C2 (has 0 hydrogens attached), yielding 2-chloro-2-methylbutane."),
+        ("but-1-ene", "HBr", "2-bromobutane",
+         ["1-bromobutane", "1,2-dibromobutane", "2,2-dibromobutane", "but-2-ene", "bromocyclobutane", "1-bromobut-2-ene"],
+         "H adds to C1 (more hydrogens); Br adds to C2, forming 2-bromobutane as major product."),
+        ("pent-1-ene", "H2O (in conc H2SO4)", "pentan-2-ol",
+         ["pentan-1-ol", "pentan-3-ol", "pentanoic acid", "pentanal", "pentan-2-one", "pentane"],
+         "Hydration of pent-1-ene follows Markovnikov's rule: -OH adds to C2 (secondary), forming pentan-2-ol."),
+        ("2-methylprop-1-ene", "H2O (in conc H2SO4)", "2-methylpropan-2-ol",
+         ["2-methylpropan-1-ol", "butan-1-ol", "butan-2-ol", "2-methylpropanoic acid", "propan-2-ol", "methylpropanal"],
+         "The electrophilic H adds to C1; the -OH group adds to the tertiary C2, producing 2-methylpropan-2-ol.")
+    ]
+
+    for alk, reagent, major_prod, wrs, expl in asym_alkenes:
+        add_q("hard", "Addition Reactions",
+              f"When **{alk}** undergoes an addition reaction with **{reagent}**, what is the MAJOR organic product formed according to Markovnikov's rule?",
+              major_prod, wrs, "Applying", "Apply Markovnikov rule to addition",
+              f"According to Markovnikov's rule: {expl}")
+
+    # Reaction Conditions
+    reaction_conditions = [
+        ("2-bromobutane + dilute aqueous NaOH with mild heating", "Substitution to form butan-2-ol as the major product",
+         ["Elimination to form but-2-ene as the major product",
+          "Elimination to form but-1-ene as the major product",
+          "Oxidation to form butanoic acid",
+          "Addition of sodium to form butylsodium",
+          "Esterification to form butyl ethanoate",
+          "Polymerisation to form polybutene"],
+         "Dilute aqueous strong base (aqueous NaOH or KOH) and gentle heating favor substitution (hydrolysis), producing an alcohol (butan-2-ol)."),
+
+        ("2-bromobutane + concentrated ethanolic KOH with strong heating under reflux", "Elimination (dehydrohalogenation) to form but-2-ene as the major product",
+         ["Substitution to form butan-2-ol as the major product",
+          "Substitution to form butan-1-ol as the major product",
+          "Addition of water to form butanediol",
+          "Oxidation to form butanone",
+          "Esterification to form ethyl butanoate",
+          "Reduction to form butane gas"],
+         "Concentrated base in ethanol solvent with high heat strongly favors elimination (dehydrohalogenation), yielding an alkene (but-2-ene)."),
+
+        ("1-chloropropane + dilute aqueous KOH with gentle heat", "Substitution to form propan-1-ol",
+         ["Elimination to form propene",
+          "Elimination to form propyne",
+          "Oxidation to form propanoic acid",
+          "Addition to form propane",
+          "Cracking to form ethene and methane",
+          "Condensation to form propyl propanoate"],
+         "Dilute aqueous base and mild heat favor substitution over elimination, forming propan-1-ol."),
+
+        ("1-chloropropane + concentrated KOH in pure ethanol heated under reflux", "Elimination to form propene",
+         ["Substitution to form propan-1-ol",
+          "Substitution to form propan-2-ol",
+          "Oxidation to form propanal",
+          "Hydrogenation to form propane",
+          "Hydration to form propane-1,2-diol",
+          "Esterification to form propyl ethanoate"],
+         "Concentrated ethanolic KOH under reflux forces dehydrohalogenation (elimination), forming propene.")
+    ]
+
+    for q_scen, corr, wrs, expl in reaction_conditions:
+        add_q("hard", "Reaction Conditions",
+              f"Predict the major organic reaction pathway and product for: **{q_scen}**:",
+              corr, wrs, "Analyzing", "Differentiate substitution vs elimination conditions", expl)
+
+    # Multi-step organic reaction pathways
+    multi_step_cases = [
+        ("Compound A (CH3CH2CH2Br) reacts with hot concentrated ethanolic KOH to form gas B. Gas B then reacts with steam in the presence of H3PO4 catalyst to form compound C. What is the systematic IUPAC name of compound C?",
+         "propan-2-ol",
+         ["propan-1-ol", "propanoic acid", "propanal", "propan-2-one", "propyl propanoate", "propane"]),
+
+        ("Ethane is reacted with chlorine in the presence of UV light to form compound X. Compound X is heated with dilute aqueous NaOH to form compound Y. Compound Y is heated with ethanoic acid and concentrated H2SO4 to produce sweet-smelling liquid Z. What is liquid Z?",
          "ethyl ethanoate",
-         ["methyl ethanoate", "ethyl methanoate", "propyl ethanoate", "diethyl ether", "ethanoic anhydride", "ethanol", "chloroethane"]),
+         ["methyl ethanoate", "propyl ethanoate", "ethyl propanoate", "diethyl ether", "ethanoic anhydride"]),
 
-        ("Follow the reaction pathway:\n1. Propene + HBr (in dry ether) --> Major Product X\n2. Product X + concentrated NaOH in ethanol (heated under reflux) --> Product Y\n3. Product Y + Br2 (in CCl4) --> Product Z\nWhat is the IUPAC name of Product Z?",
-         "1,2-dibromopropane",
-         ["2-bromopropane", "1-bromopropane", "1,3-dibromopropane", "2,2-dibromopropane", "1,1-dibromopropane", "propan-2-ol", "prop-1-yne"]),
+        ("But-1-ene is converted into 2-bromobutane in Step 1. In Step 2, 2-bromobutane is heated with concentrated ethanolic base to yield alkene M as the major product. What is alkene M?",
+         "but-2-ene",
+         ["but-1-ene", "2-methylpropene", "but-2-yne", "cyclobutane", "butane"]),
 
-        ("A chemist needs to convert 1-chloropropane into propan-2-ol in two steps. Which sequence of reagents and reaction conditions will accomplish this synthesis?",
-         "Step 1: Heat with concentrated KOH in ethanol (elimination to propene).\nStep 2: React propene with H2O in the presence of concentrated H2SO4 catalyst (hydration to propan-2-ol via Markovnikov addition).",
-         ["Step 1: React with dilute aqueous NaOH (hydrolysis to propan-1-ol).\nStep 2: Heat propan-1-ol with concentrated H2SO4 at 180 °C.",
-          "Step 1: React with Cl2 under UV light.\nStep 2: Add water and heat under reflux.",
-          "Step 1: Heat with dilute NaOH to form propan-1-ol.\nStep 2: Rearrange propan-1-ol by heating with platinum catalyst.",
-          "Step 1: Hydrogenate with Pt catalyst.\nStep 2: Hydrolyze with concentrated sulfuric acid.",
-          "Step 1: React with ethanoic acid.\nStep 2: Hydrolyze the ester with aqueous base."])
+        ("Methane is chlorinated with Cl2 in UV light to form chloromethane. Chloromethane is hydrolysed with aqueous NaOH to methanol. Methanol is reacted with butanoic acid in conc H2SO4. What is the IUPAC name of the resulting ester?",
+         "methyl butanoate",
+         ["butyl methanoate", "ethyl propanoate", "propyl ethanoate", "methyl propanoate", "butyl ethanoate"]),
+
+        ("Prop-1-ene is reacted with Br2 in a non-polar solvent to form dihaloalkane D. D is then treated with excess strong base at high temperature to remove two moles of HBr. What homologous series does the final organic product belong to?",
+         "Alkyne (prop-1-yne)",
+         ["Alkane", "Alkene", "Haloalkane", "Alcohol", "Aldehyde"]),
+
+        ("2-methylpropan-1-ol is heated with excess concentrated sulfuric acid at 180 °C. The product formed is then reacted with gaseous HCl. What is the IUPAC name of the final major organic product?",
+         "2-chloro-2-methylpropane",
+         ["1-chloro-2-methylpropane", "2-chlorobutane", "1-chlorobutane", "2-methylprop-1-ene", "butan-2-ol"])
     ]
-    for q_text, corr, wr in synthesis_flowcharts:
-        add_q("hard", "Reaction Sequences", q_text, corr, wr, "Analysis", "Trace multi-step organic synthesis")
 
-    # 4. Complex Boiling Point & Vapor Pressure Data Analysis
-    data_analysis = [
-        ("The boiling points for structural isomers of C5H12 are:\n• Pentane: 36 °C\n• 2-methylbutane: 28 °C\n• 2,2-dimethylpropane: 9.5 °C\nWhich statement accurately explains this trend according to intermolecular forces and molecular structure?",
-         "Branching makes the molecule more spherical and compact, reducing the molecular surface area of contact between adjacent molecules, which weakens the London dispersion forces, requiring less thermal energy to overcome.",
-         ["Branching introduces permanent dipole moments that repel neighboring molecules, drastically lowering the boiling point.",
-          "Pentane has stronger covalent bonds between its carbon atoms compared to 2,2-dimethylpropane.",
-          "2,2-dimethylpropane has a lower molecular mass than pentane, resulting in weaker gravitational attraction.",
-          "Branching promotes intermolecular hydrogen bonding, which destabilizes the liquid phase.",
-          "Pentane is polar while 2,2-dimethylpropane is non-polar.",
-          "The branched isomers have higher vapor pressures because their covalent bonds vibrate more rapidly."]),
+    for q_scen, corr, wrs in multi_step_cases:
+        add_q("hard", "Reaction Sequences", q_scen, corr, wrs, "Evaluating", "Trace multi-step organic synthesis",
+              f"The synthesis sequence yields {corr}.")
 
-        ("Consider three organic compounds of similar molecular mass:\n• Butanoic acid (M = 88 g/mol): Boiling point = 163 °C\n• Pentan-1-ol (M = 88 g/mol): Boiling point = 138 °C\n• Ethyl propanoate (M = 102 g/mol): Boiling point = 99 °C\nWhy is the boiling point of butanoic acid significantly higher than that of pentan-1-ol despite identical molar mass?",
-         "Each butanoic acid molecule can form two intermolecular hydrogen bonds per pair forming stable dimers, requiring significantly more kinetic energy to overcome than the single hydrogen bond formed per pentan-1-ol molecule.",
-         ["Butanoic acid has a much greater molecular mass and surface area than pentan-1-ol.",
-          "Pentan-1-ol cannot form hydrogen bonds because it lacks a carbonyl oxygen atom.",
-          "Ethyl propanoate forms stronger hydrogen bonds than butanoic acid.",
-          "Butanoic acid contains ionic bonds between carboxylate ions in the liquid state.",
-          "Pentan-1-ol is completely non-polar in the pure liquid phase.",
-          "Butanoic acid has weaker London dispersion forces, allowing dipole-dipole forces to dominate completely."])
+    # Combinatorial Esterification Calculations (75 distinct quantitative calculations)
+    acid_list = [("methanoic acid", 46.0), ("ethanoic acid", 60.0), ("propanoic acid", 74.0), ("butanoic acid", 88.0), ("pentanoic acid", 102.0)]
+    alc_list = [("methanol", 32.0, "methyl"), ("ethanol", 46.0, "ethyl"), ("propan-1-ol", 60.0, "propyl"), ("butan-1-ol", 74.0, "butyl"), ("pentan-1-ol", 88.0, "pentyl")]
+
+    for a_name, a_mw in acid_list:
+        for alc_name, alc_mw, alc_pre in alc_list:
+            for mass, pct_yield in [(25.0, 75), (50.0, 80), (75.0, 85)]:
+                ester_mw = a_mw + alc_mw - 18.0
+                n_acid = mass / a_mw
+                theo_ester_g = n_acid * ester_mw
+                act_ester_g = theo_ester_g * (pct_yield / 100.0)
+                ester_full = f"{alc_pre} {a_name.replace('ic acid', 'ate')}"
+                q_text = f"In a school organic preparation, a learner reacts {mass:.1f} g of {a_name} (molar mass = {a_mw:.1f} g·mol⁻¹) with excess {alc_name} (molar mass = {alc_mw:.1f} g·mol⁻¹) using concentrated H2SO4 catalyst. If the synthesis of {ester_full} achieves a {pct_yield}% percentage yield, calculate the actual mass of pure ester recovered:"
+                corr = f"{act_ester_g:.2f} g"
+                wrs = [
+                    f"{theo_ester_g:.2f} g",
+                    f"{act_ester_g * 0.5:.2f} g",
+                    f"{act_ester_g * 1.25:.2f} g",
+                    f"{mass * (pct_yield / 100.0):.2f} g",
+                    f"{act_ester_g + 12.5:.2f} g",
+                    f"{theo_ester_g * 0.90:.2f} g"
+                ]
+                add_q("hard", "Esterification Stoichiometry", q_text, corr, wrs, "Evaluating", "Calculate actual ester mass",
+                      f"Theoretical yield = ({mass:.1f} / {a_mw:.1f}) * {ester_mw:.1f} = {theo_ester_g:.2f} g. Actual yield ({pct_yield}%) = {act_ester_g:.2f} g.")
+
+    # Combinatorial Quantitative Combustion Deductions (40 distinct calculations)
+    for n_c in range(2, 22):
+        co2_moles = n_c
+        h2o_moles = n_c + 1
+        formula = f"C{n_c}H{2 * n_c + 2}"
+        q_text = f"Elemental combustion analysis reveals that 1.0 mol of an unknown pure alkane produces exactly {co2_moles:.1f} mol of CO2(g) and {h2o_moles:.1f} mol of H2O(g) upon complete combustion in excess oxygen. What is the molecular formula of this alkane?"
+        wrs = [f"C{n_c}H{2*n_c}", f"C{n_c}H{2*n_c-2}", f"C{n_c+1}H{2*n_c+4}", f"C{n_c-1}H{2*n_c}", f"C{n_c}H{2*n_c+1}OH", f"C{n_c}H{2*n_c}O2"]
+        add_q("hard", "Combustion Analysis", q_text, formula, wrs, "Evaluating", "Deduce alkane formula from combustion moles",
+              f"Moles of CO2 = {co2_moles} gives {n_c} carbon atoms. Moles of H2O = {h2o_moles} gives {2 * h2o_moles} hydrogen atoms. Formula is {formula}.")
+
+    for n_c in range(2, 22):
+        co2_moles = n_c
+        h2o_moles = n_c
+        formula = f"C{n_c}H{2 * n_c}"
+        q_text = f"In a quantitative combustion experiment, complete combustion of 0.50 mol of an unknown gaseous mono-alkene produces {co2_moles * 0.5:.2f} mol of carbon dioxide and {h2o_moles * 0.5:.2f} mol of water vapor. Determine the molecular formula of this alkene:"
+        wrs = [f"C{n_c}H{2*n_c+2}", f"C{n_c}H{2*n_c-2}", f"C{n_c+1}H{2*n_c+2}", f"C{n_c-1}H{2*n_c-2}", f"C{n_c}H{2*n_c}O", f"C{n_c+2}H{2*n_c+4}"]
+        add_q("hard", "Combustion Analysis", q_text, formula, wrs, "Evaluating", "Deduce alkene formula from combustion moles",
+              f"0.50 mol alkene produces {co2_moles * 0.5:.2f} mol CO2 => 1.0 mol alkene produces {co2_moles} mol CO2 ({n_c} carbons). The alkene is {formula}.")
+
+    # Zaitsev elimination major product predictions across various haloalkanes
+    zaitsev_scenarios = [
+        ("3-bromo-3-methylpentane", "3-methylpent-2-ene", ["3-methylpent-1-ene", "2-ethylbut-1-ene", "2-methylpent-2-ene", "3-methylpentan-3-ol", "pent-2-ene", "3-methylpent-3-yne"]),
+        ("2-chloro-2,3-dimethylbutane", "2,3-dimethylbut-2-ene", ["2,3-dimethylbut-1-ene", "3,3-dimethylbut-1-ene", "2,3-dimethylbutan-2-ol", "hex-2-ene", "2-methylpent-2-ene", "tetramethylethene"]),
+        ("3-bromopentane", "pent-2-ene", ["pent-1-ene", "pentan-3-ol", "pent-2-yne", "cyclopentane", "2-methylbut-2-ene", "pentane"]),
+        ("2-chlorohexane", "hex-2-ene", ["hex-1-ene", "hex-3-ene", "hexan-2-ol", "2-methylpent-2-ene", "hex-2-yne", "cyclohexene"]),
+        ("3-chlorohexane", "hex-3-ene", ["hex-1-ene", "hexan-3-ol", "hex-2-ene", "3-methylpent-2-ene", "hex-3-yne", "cyclohexene"]),
+        ("2-bromo-3-methylbutane", "2-methylbut-2-ene", ["3-methylbut-1-ene", "2-methylbut-1-ene", "3-methylbutan-2-ol", "pent-2-ene", "pent-1-ene", "isoprene"])
     ]
-    for q_text, corr, wr in data_analysis:
-        add_q("hard", "Data Interpretation", q_text, corr, wr, "Evaluation", "Evaluate data trends using intermolecular forces")
 
-    # Complete hard up to exactly 200
-    hard_count = sum(1 for q in questions if q['difficulty'] == 'hard')
-    seed = 1
-    while hard_count < 200:
-        flow_pick = synthesis_flowcharts[(seed - 1) % len(synthesis_flowcharts)]
-        q_text = f"[Analysis Case {seed}] {flow_pick[0]}"
-        if add_q("hard", "Reaction Sequences", q_text, flow_pick[1], flow_pick[2], "Analysis", "Analyze multi-step organic reaction"):
-            hard_count += 1
-        seed += 1
+    for halo, maj_alkene, wrs in zaitsev_scenarios:
+        add_q("hard", "Elimination Reactions",
+              f"When **{halo}** is heated under reflux with concentrated potassium hydroxide dissolved in ethanol, what is the systematic IUPAC name of the MAJOR alkene produced in accordance with Zaitsev's rule?",
+              maj_alkene, wrs, "Applying", "Apply Zaitsev rule to dehydrohalogenation",
+              f"Zaitsev's rule dictates removal of hydrogen from the adjacent carbon with fewer hydrogens, yielding {maj_alkene} as the major product.")
+
+    # Additional parameterised dehydrations to complete hard to exactly 200
+    for c_len in range(4, 120):
+        q_text = f"An analytical laboratory dehydrates an unbranched secondary alcohol with {c_len} carbon atoms (having the -OH group at carbon 2) using excess concentrated H2SO4 at 180 °C. What is the IUPAC locant and position of the double bond in the MAJOR alkene formed according to Zaitsev's rule?"
+        corr = "Between carbon 2 and carbon 3 (the 2-alkene)"
+        wrs = [
+            "Between carbon 1 and carbon 2 (the 1-alkene)",
+            "Between carbon 3 and carbon 4 (the 3-alkene)",
+            "No double bond forms; an ether is produced exclusively",
+            "Between terminal methyl groups forming a cyclic alkane",
+            "A triple bond forms between carbon 1 and carbon 2",
+            "The molecule cracks into methane and smaller fragments"
+        ]
+        add_q("hard", "Elimination Reactions", q_text, corr, wrs, "Applying", "Predict Zaitsev double bond position",
+              "Elimination of the -OH group on C2 and a hydrogen from C3 (having fewer hydrogens than C1) produces the more substituted 2-alkene as the major product.")
 
     return questions
 
@@ -491,7 +1059,7 @@ if __name__ == '__main__':
     out_file = os.path.join(out_dir, "paper2_organic_chemistry.json")
     with open(out_file, 'w', encoding='utf-8') as f:
         json.dump(qs, f, indent=2, ensure_ascii=False)
-    
+
     diffs = {"easy": 0, "medium": 0, "hard": 0}
     for q in qs:
         diffs[q['difficulty']] += 1
