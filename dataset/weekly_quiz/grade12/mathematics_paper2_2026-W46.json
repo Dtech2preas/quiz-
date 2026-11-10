@@ -1,101 +1,71 @@
 [
   {
-    "id": "MATH_P2_STAT_0823",
-    "topic": "Statistics",
-    "question": "The dataset $\\{x, 58, 33, 51, 38, 27, 50\\}$, containing an unknown value $x$, has an arithmetic mean of $43$. Calculate the value of $x$.",
-    "correct_answer": "44",
+    "id": "MATH_P2_TRIG_0532",
+    "topic": "Trigonometry",
+    "question": "Simplify the trigonometric expression to a single term: $\\cos^2(31^\\circ) - \\sin^2(31^\\circ)$.",
+    "correct_answer": "cos(62\u00b0)",
     "wrong_answers_pool": [
-      "54",
-      "40",
-      "49",
-      "45",
-      "48",
-      "34",
-      "43",
-      "42"
+      "sin(62\u00b0)",
+      "1",
+      "cos(31\u00b0)",
+      "-cos(62\u00b0)",
+      "tan(62\u00b0)",
+      "2cos(62\u00b0)",
+      "0"
     ],
-    "explanation": "Sum of all $7$ values $= 7 \\times 43 = 301$. Sum of known values $= 257$. Therefore, $x = 301 - 257 = 44$.",
-    "difficulty": "hard",
+    "explanation": "Using $\\cos^2(x) - \\sin^2(x) = \\cos(2x)$, we have $\\cos^2(31^\\circ) - \\sin^2(31^\\circ) = \\cos(62^\\circ)$.",
+    "difficulty": "medium",
     "tags": {
       "grade": "12",
       "subject": "Mathematics",
-      "topic": "Statistics",
-      "subtopic": "Measures of Central Tendency",
-      "cognitive_level": "Complex Procedures",
-      "difficulty": "hard"
+      "topic": "Trigonometry",
+      "subtopic": "Double Angles",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
     },
     "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_1"
   },
   {
-    "id": "MATH_P2_GEOM_0540",
-    "topic": "Euclidean Geometry",
-    "question": "In $\\triangle ABC$, $DE \\parallel BC$. If $AD = 48$ cm, $AE = 36$ cm, and $EC = 9$ cm, calculate the length of $DB$.",
-    "correct_answer": "12 cm",
-    "wrong_answers_pool": [
-      "2 cm",
-      "10 cm",
-      "7 cm",
-      "13 cm",
-      "11 cm",
-      "17 cm",
-      "27 cm",
-      "22 cm"
-    ],
-    "explanation": "Theorem ($DE \\parallel BC$): $\\frac{AD}{DB} = \\frac{AE}{EC} \\implies \\frac{48}{DB} = \\frac{36}{9} = 4 \\implies DB = \\frac{48}{4} = 12 cm$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Euclidean Geometry",
-      "subtopic": "Proportionality Theorem",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_2"
-  },
-  {
-    "id": "MATH_P2_ANAG_0327",
+    "id": "MATH_P2_ANAG_0823",
     "topic": "Analytical Geometry",
-    "question": "A line has a negative gradient of $m = -2.07$. Determine its angle of inclination $\\theta$ (correct to one decimal place).",
-    "correct_answer": "115.8\u00b0",
+    "question": "Circle $C_1$ has centre $(4; 5)$ and radius $r_1 = 9$. Circle $C_2$ has centre $(12; 11)$ and radius $r_2 = 8$. What is the geometric relationship between the two circles?",
+    "correct_answer": "Intersect at two distinct points",
     "wrong_answers_pool": [
-      "160.80\u00b0",
-      "70.80\u00b0",
-      "64.20\u00b0",
-      "25.80\u00b0",
-      "89.96\u00b0",
-      "37.37\u00b0",
-      "154.75\u00b0",
-      "13.74\u00b0"
+      "Touch externally",
+      "Touch internally",
+      "Do not intersect (disjoint and separate)",
+      "Concentric with identical centres",
+      "Coincident circles",
+      "Orthogonal at origin"
     ],
-    "explanation": "Since $m < 0$, $\\theta = 180^\\circ - \\tan^{-1}(|-2.07|) = 180^\\circ - 64.2^\\circ = 115.8\u00b0$.",
-    "difficulty": "medium",
+    "explanation": "Distance between centres $d = 10$. Here $|r_1 - r_2| < d < r_1 + r_2$, which confirms the circles intersect at two distinct points.",
+    "difficulty": "hard",
     "tags": {
       "grade": "12",
       "subject": "Mathematics",
       "topic": "Analytical Geometry",
-      "subtopic": "Angle of Inclination",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
+      "subtopic": "Intersecting Circles",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_3"
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_2"
   },
   {
-    "id": "MATH_P2_TRIG_0308",
+    "id": "MATH_P2_TRIG_0305",
     "topic": "Trigonometry",
-    "question": "Evaluate without using a calculator: $\\cos(126^\\circ)\\cos(66^\\circ) + \\sin(126^\\circ)\\sin(66^\\circ)$.",
+    "question": "Reduce using compound angle expansions: $\\sin(85^\\circ)\\cos(65^\\circ) + \\cos(85^\\circ)\\sin(65^\\circ)$.",
     "correct_answer": "1/2",
     "wrong_answers_pool": [
-      "-1/\u221a3",
-      "-\u221a2/2",
-      "-2",
-      "-\u221a3/2",
       "1/\u221a3",
-      "-1/2",
+      "-2",
       "\u221a3",
-      "2"
+      "-\u221a2/2",
+      "\u221a2/2",
+      "-1",
+      "-1/\u221a3",
+      "-1/2"
     ],
-    "explanation": "Apply the compound angle identity: $\\cos(126^\\circ)\\cos(66^\\circ) + \\sin(126^\\circ)\\sin(66^\\circ) = \\cos(126^\\circ - 66^\\circ) = \\cos(60^\\circ) = 1/2$.",
+    "explanation": "Apply the compound angle identity: $\\sin(85^\\circ)\\cos(65^\\circ) + \\cos(85^\\circ)\\sin(65^\\circ) = \\sin(85^\\circ + 65^\\circ) = \\sin(150^\\circ) = 1/2$.",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
@@ -105,24 +75,239 @@
       "cognitive_level": "Routine Procedures",
       "difficulty": "medium"
     },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_3"
+  },
+  {
+    "id": "MATH_P2_GEOM_0403",
+    "topic": "Euclidean Geometry",
+    "question": "Line $PQ$ is tangent to a circle at point $A$. Chord $AB$ is drawn. Point $C$ lies on the major arc such that $\\angle ACB = 42^\\circ$. Determine the size of the angle between the tangent $PQ$ and chord $AB$ ($\\angle QAB$).",
+    "correct_answer": "42\u00b0",
+    "wrong_answers_pool": [
+      "52\u00b0",
+      "62\u00b0",
+      "84\u00b0",
+      "21\u00b0",
+      "48\u00b0",
+      "32\u00b0",
+      "138\u00b0",
+      "22\u00b0"
+    ],
+    "explanation": "Theorem (Tan-Chord Theorem): The angle between a tangent to a circle and a chord drawn through the point of contact is equal to the angle in the alternate segment. Thus $\\angle QAB = \\angle ACB = 42\u00b0$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Euclidean Geometry",
+      "subtopic": "Tan-Chord Theorem",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
     "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_4"
   },
   {
-    "id": "MATH_P2_GEOM_0641",
-    "topic": "Euclidean Geometry",
-    "question": "Points $A, B, C,$ and $D$ lie in order on a circle. $\\angle ADB = (3x + 21)^\\circ$ and $\\angle ACB = (2x + 37)^\\circ$. Determine the actual size of $\\angle ADB$.",
-    "correct_answer": "69\u00b0",
+    "id": "MATH_P2_STAT_0591",
+    "topic": "Statistics",
+    "question": "For the dataset $\\{40, 43, 32, 33, 56, 24, 56, 46, 46, 23, 57\\}$, with mean $\\bar{x} = 41.5$ and standard deviation $\\sigma = 11.7$, how many data points lie within ONE standard deviation of the mean (in the interval $(\\bar{x} - \\sigma; \\bar{x} + \\sigma)$)?",
+    "correct_answer": "6",
     "wrong_answers_pool": [
-      "34\u00b0",
-      "49\u00b0",
-      "111\u00b0",
-      "21\u00b0",
-      "89\u00b0",
-      "138\u00b0",
-      "59\u00b0",
-      "79\u00b0"
+      "9",
+      "11",
+      "-4",
+      "10",
+      "3",
+      "16",
+      "4",
+      "7"
     ],
-    "explanation": "Equating angles in the same segment: $3x + 21 = 2x + 37 \\implies x = 16$. Thus $\\angle ADB = 3(16) + 21 = 69\u00b0$.",
+    "explanation": "Interval $= (41.5 - 11.7; 41.5 + 11.7) = (29.7; 53.2)$. Counting values in this range gives $6$ observations.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Standard Deviation",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_5"
+  },
+  {
+    "id": "MATH_P2_ANAG_0476",
+    "topic": "Analytical Geometry",
+    "question": "Find the coordinates of the centre of the circle defined by $x^2 + y^2 + 8x - 4y + 4 = 0$.",
+    "correct_answer": "(-4; 2)",
+    "wrong_answers_pool": [
+      "(-3; 2)",
+      "(-2; 4)",
+      "(-4; 1)",
+      "(4; -2)",
+      "(-4; 3)",
+      "(-5; 2)",
+      "(-4; -2)",
+      "(4; 2)"
+    ],
+    "explanation": "Complete the square: $(x - -4)^2 + (y - 2)^2 = 4^2$. Thus the centre is $(a; b) = (-4; 2)$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Analytical Geometry",
+      "subtopic": "Circle Geometry",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_6"
+  },
+  {
+    "id": "MATH_P2_STAT_0409",
+    "topic": "Statistics",
+    "question": "Given the ordered dataset: $\\{15, 16, 17, 35, 42, 57, 68, 83, 86, 87, 94\\}$, determine the lower quartile ($Q_1$).",
+    "correct_answer": "17",
+    "wrong_answers_pool": [
+      "27",
+      "19",
+      "22",
+      "13",
+      "15",
+      "16",
+      "21",
+      "20"
+    ],
+    "explanation": "The lower half of the data is $\\{15, 16, 17, 35, 42\\}$. Its median $Q_1 = 17$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Five Number Summary",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_7"
+  },
+  {
+    "id": "MATH_P2_STAT_0623",
+    "topic": "Statistics",
+    "question": "A test distribution has a mean of $74$ and a standard deviation of $15$. If every learner is awarded an adjustment of $+9$ marks, what is the NEW standard deviation?",
+    "correct_answer": "15",
+    "wrong_answers_pool": [
+      "24",
+      "135",
+      "6",
+      "1.67",
+      "83",
+      "17",
+      "225"
+    ],
+    "explanation": "Adding a constant $c = 9$ shifts all scores equally and leaves data dispersion unchanged. The new standard deviation remains $15$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Transformations",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_8"
+  },
+  {
+    "id": "MATH_P2_STAT_0594",
+    "topic": "Statistics",
+    "question": "For the dataset $\\{31, 49, 29, 41, 53, 46, 50, 31, 49, 58, 52, 52\\}$, with mean $\\bar{x} = 45.1$ and standard deviation $\\sigma = 9.4$, how many data points lie within ONE standard deviation of the mean (in the interval $(\\bar{x} - \\sigma; \\bar{x} + \\sigma)$)?",
+    "correct_answer": "8",
+    "wrong_answers_pool": [
+      "9",
+      "11",
+      "-2",
+      "10",
+      "3",
+      "13",
+      "6",
+      "4"
+    ],
+    "explanation": "Interval $= (45.1 - 9.4; 45.1 + 9.4) = (35.7; 54.5)$. Counting values in this range gives $8$ observations.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Standard Deviation",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_9"
+  },
+  {
+    "id": "MATH_P2_TRIG_0820",
+    "topic": "Trigonometry",
+    "question": "Solve the quadratic trigonometric equation for $\\cos(x)$: $4\\cos^2(x) - 9\\cos(x) - 9 = 0$.",
+    "correct_answer": "cos(x) = -3/4 or cos(x) = 3",
+    "wrong_answers_pool": [
+      "cos(x) = -3 or cos(x) = 3",
+      "cos(x) = 3/4 or cos(x) = -3",
+      "cos(x) = 0 or cos(x) = 1",
+      "cos(x) = 1 or cos(x) = -1",
+      "cos(x) = \u221a2/2 or cos(x) = -1",
+      "cos(x) = -3/4 or cos(x) = 0",
+      "cos(x) = 3 or cos(x) = -3",
+      "cos(x) = 1/2 or cos(x) = -1/2"
+    ],
+    "explanation": "Factorizing: $(4\\cos(x) + 3)(\\cos(x) - 3) = 0 \\implies cos(x) = -3/4 or cos(x) = 3$.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Trigonometry",
+      "subtopic": "Trig Equations",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_10"
+  },
+  {
+    "id": "MATH_P2_STAT_0342",
+    "topic": "Statistics",
+    "question": "Given the ordered dataset: $\\{20, 32, 47, 55, 61, 61, 65, 67, 89, 91, 95\\}$, determine the lower quartile ($Q_1$).",
+    "correct_answer": "47",
+    "wrong_answers_pool": [
+      "50",
+      "49",
+      "45",
+      "48",
+      "37",
+      "44",
+      "43",
+      "42"
+    ],
+    "explanation": "The lower half of the data is $\\{20, 32, 47, 55, 61\\}$. Its median $Q_1 = 47$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Five Number Summary",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_11"
+  },
+  {
+    "id": "MATH_P2_GEOM_0622",
+    "topic": "Euclidean Geometry",
+    "question": "Points $A, B, C,$ and $D$ lie on the circumference of a circle. Subtended by the same chord $AB$, $\\angle ADB = (4x + 10)^\\circ$ and $\\angle ACB = (3x + 26)^\\circ$. Determine the value of $x$.",
+    "correct_answer": "16",
+    "wrong_answers_pool": [
+      "15",
+      "26",
+      "11",
+      "17",
+      "31",
+      "6",
+      "21",
+      "1"
+    ],
+    "explanation": "Angles in the same segment are equal: $4x + 10 = 3x + 26 \\implies 1x = 16 \\implies x = 16$.",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
@@ -132,50 +317,77 @@
       "cognitive_level": "Routine Procedures",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_5"
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_12"
   },
   {
-    "id": "MATH_P2_STAT_0887",
-    "topic": "Statistics",
-    "question": "Determine which observation in the dataset $\\{58, 52, 62, 82, 61, 52, 60, 63, 69\\}$, if any, qualifies as an outlier using the standard $1.5 \\times \\text{IQR}$ rule.",
-    "correct_answer": "82",
+    "id": "MATH_P2_TRIG_0991",
+    "topic": "Trigonometry",
+    "question": "Simplify: $\\frac{\\sin(2\\beta)}{1 + \\cos(2\\beta)}$",
+    "correct_answer": "tan(beta)",
     "wrong_answers_pool": [
-      "52",
-      "58",
-      "60",
-      "61",
-      "62",
-      "63",
-      "69"
+      "cot(beta)",
+      "sin(beta)",
+      "cos(beta)",
+      "1",
+      "2tan(beta)",
+      "-tan(beta)",
+      "tan(2beta)"
     ],
-    "explanation": "Sorting the data gives $Q_1 = 55.0$, $Q_3 = 62.5$, and $\\text{IQR} = 7.5$. Upper boundary $= Q_3 + 1.5 \\times \\text{IQR} = 73.8$. The only value exceeding this boundary is $82$.",
+    "explanation": "$\\frac{2\\sin(\\beta)\\cos(\\beta)}{2\\cos^2(\\beta)} = \\frac{\\sin(\\beta)}{\\cos(\\beta)} = \\tan(\\beta)$.",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
       "subject": "Mathematics",
-      "topic": "Statistics",
-      "subtopic": "Outliers",
-      "cognitive_level": "Problem Solving",
+      "topic": "Trigonometry",
+      "subtopic": "Identities",
+      "cognitive_level": "Complex Procedures",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_6"
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_13"
   },
   {
-    "id": "MATH_P2_TRIG_0843",
+    "id": "MATH_P2_TRIG_0591",
     "topic": "Trigonometry",
-    "question": "Solve the quadratic trigonometric equation for $\\sin(x)$: $2\\sin^2(x) + 6\\sin(x) + 4 = 0$.",
-    "correct_answer": "sin(x) = -1 or sin(x) = -2",
+    "question": "In $\\triangle ABC$, $a = 11$ cm, $b = 14$ cm, and $\\hat{C} = 48^\\circ$. Use the Cosine Rule to calculate side $c$ (correct to 2 decimal places).",
+    "correct_answer": "10.53",
     "wrong_answers_pool": [
-      "sin(x) = -2 or sin(x) = -2",
-      "sin(x) = 2/2 or sin(x) = 2",
-      "sin(x) = 0 or sin(x) = 1",
-      "sin(x) = 1 or sin(x) = -1",
-      "sin(x) = \u221a2/2 or sin(x) = -1",
-      "sin(x) = -1 or sin(x) = 0",
-      "sin(x) = -2 or sin(x) = 2",
-      "sin(x) = 1/2 or sin(x) = -1/2"
+      "10.43",
+      "9.53",
+      "10.63",
+      "10.33",
+      "10.03",
+      "10.73",
+      "11.53",
+      "11.03"
     ],
-    "explanation": "Factorizing: $(2\\sin(x) + 2)(\\sin(x) + 2) = 0 \\implies sin(x) = -1 or sin(x) = -2$.",
+    "explanation": "$c^2 = a^2 + b^2 - 2ab\\cos C = 11^2 + 14^2 - 2(11)(14)\\cos(48^\\circ) = 110.91 \\implies c = \\sqrt{110.91} \\approx 10.53\\text{ cm}$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Trigonometry",
+      "subtopic": "Triangle Rules",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_14"
+  },
+  {
+    "id": "MATH_P2_TRIG_0811",
+    "topic": "Trigonometry",
+    "question": "Solve the quadratic trigonometric equation for $\\cos(x)$: $2\\cos^2(x) - 2\\cos(x) - 4 = 0$.",
+    "correct_answer": "cos(x) = -1 or cos(x) = 2",
+    "wrong_answers_pool": [
+      "cos(x) = -2 or cos(x) = 2",
+      "cos(x) = 2/2 or cos(x) = -2",
+      "cos(x) = 0 or cos(x) = 1",
+      "cos(x) = 1 or cos(x) = -1",
+      "cos(x) = \u221a2/2 or cos(x) = -1",
+      "cos(x) = -1 or cos(x) = 0",
+      "cos(x) = 2 or cos(x) = -2",
+      "cos(x) = 1/2 or cos(x) = -1/2"
+    ],
+    "explanation": "Factorizing: $(2\\cos(x) + 2)(\\cos(x) - 2) = 0 \\implies cos(x) = -1 or cos(x) = 2$.",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
@@ -185,78 +397,24 @@
       "cognitive_level": "Complex Procedures",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_7"
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_15"
   },
   {
-    "id": "MATH_P2_GEOM_0440",
-    "topic": "Euclidean Geometry",
-    "question": "In $\\triangle ABC$, $DE \\parallel BC$. If $AD = 14$ cm, $AE = 12$ cm, and $EC = 6$ cm, calculate the length of $DB$.",
-    "correct_answer": "7 cm",
-    "wrong_answers_pool": [
-      "12 cm",
-      "2 cm",
-      "5 cm",
-      "17 cm",
-      "6 cm",
-      "9 cm",
-      "22 cm",
-      "8 cm"
-    ],
-    "explanation": "Theorem ($DE \\parallel BC$): $\\frac{AD}{DB} = \\frac{AE}{EC} \\implies \\frac{14}{DB} = \\frac{12}{6} = 2 \\implies DB = \\frac{14}{2} = 7 cm$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Euclidean Geometry",
-      "subtopic": "Proportionality Theorem",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_8"
-  },
-  {
-    "id": "MATH_P2_GEOM_0853",
-    "topic": "Euclidean Geometry",
-    "question": "In $\\triangle PQR$, right-angled at $\\hat{Q}$, altitude $QS$ is drawn perpendicular to hypotenuse $PR$. If $PS = 3$ cm and $SR = 9$ cm, calculate the length of altitude $QS$.",
-    "correct_answer": "5.20 cm",
-    "wrong_answers_pool": [
-      "5.00 cm",
-      "6.20 cm",
-      "5.45 cm",
-      "4.20 cm",
-      "5.40 cm",
-      "4.95 cm",
-      "4.70 cm",
-      "5.70 cm"
-    ],
-    "explanation": "By the geometric mean theorem for right-angled triangles: $QS^2 = PS \\times SR = 3 \\times 9 = 27 \\implies QS = \\sqrt{27} \\approx 5.20 cm$.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Euclidean Geometry",
-      "subtopic": "Similarity",
-      "cognitive_level": "Problem Solving",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_9"
-  },
-  {
-    "id": "MATH_P2_TRIG_0894",
+    "id": "MATH_P2_TRIG_0871",
     "topic": "Trigonometry",
-    "question": "Determine the MAXIMUM value of the function $f(x) = 2\\sin(2x) - 7$.",
-    "correct_answer": "-5",
+    "question": "Determine the MINIMUM value of the function $f(x) = 2\\sin(3x) - 7$.",
+    "correct_answer": "-9",
     "wrong_answers_pool": [
       "-8",
       "-7",
-      "-1",
-      "0",
+      "-12",
       "-10",
-      "-2",
-      "-3",
-      "-4"
+      "-11",
+      "-5",
+      "-4",
+      "-6"
     ],
-    "explanation": "Since the maximum of $\\sin(2x)$ is $1$, $f_{\\text{max}} = 2(1) + (-7) = -5$.",
+    "explanation": "Since the minimum of $\\sin(3x)$ is $-1$, $f_{\\text{min}} = 2(-1) + (-7) = -9$.",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
@@ -266,185 +424,24 @@
       "cognitive_level": "Problem Solving",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_10"
-  },
-  {
-    "id": "MATH_P2_ANAG_0579",
-    "topic": "Analytical Geometry",
-    "question": "Determine the equation of the tangent to the circle $(x - 5)^2 + (y - 7)^2 = 8$ at the point $P(7; 9)$.",
-    "correct_answer": "y = -x + 16",
-    "wrong_answers_pool": [
-      "y = x + 15",
-      "y = 0x + 18",
-      "y = -3x + 18",
-      "y = -3x + 15",
-      "y = 0x + 14",
-      "y = -2x + 15",
-      "y = -3x + 17",
-      "y = -2x + 14"
-    ],
-    "explanation": "Radius connects centre $C(5; 7)$ to $P(7; 9)$. Gradient of radius $m_{rad} = \\frac{9 - 7}{7 - 5} = \\frac{2}{2}$. Since tangent is perpendicular to radius, $m_{tan} = -\\frac{1}{m_{rad}} = -1$. Using $y - 9 = -1(x - 7) \\implies y = -x + 16$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Analytical Geometry",
-      "subtopic": "Tangents to Circles",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_11"
-  },
-  {
-    "id": "MATH_P2_STAT_0782",
-    "topic": "Statistics",
-    "question": "The least squares regression equation modeling mathematics exam mark (%) ($y$) against study hours per week ($x$) is $\\hat{y} = 15.0 + 2.32x$. Predict the value of $y$ when $x = 4$.",
-    "correct_answer": "24.28",
-    "wrong_answers_pool": [
-      "23.28",
-      "25.28",
-      "24.43",
-      "24.78",
-      "24.08",
-      "24.13",
-      "24.48",
-      "24.23"
-    ],
-    "explanation": "Substitute $x = 4$ into the regression line: $\\hat{y} = 15.0 + 2.32(4) = 24.28$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Statistics",
-      "subtopic": "Regression",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_12"
-  },
-  {
-    "id": "MATH_P2_GEOM_0791",
-    "topic": "Euclidean Geometry",
-    "question": "In a circle with centre $O$, a chord of length $18$ cm is at a perpendicular distance of $18$ cm from the centre. Calculate the radius of the circle (correct to 2 decimal places).",
-    "correct_answer": "20.12 cm",
-    "wrong_answers_pool": [
-      "19.92 cm",
-      "20.62 cm",
-      "20.32 cm",
-      "20.37 cm",
-      "19.87 cm",
-      "19.12 cm",
-      "19.62 cm",
-      "21.12 cm"
-    ],
-    "explanation": "The perpendicular from centre bisects the chord: half-chord $= \\frac{18}{2} = 9$ cm. By Pythagoras: $r^2 = 18^2 + 9^2 = 405 \\implies r \\approx 20.12 cm$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Euclidean Geometry",
-      "subtopic": "Chord and Radius",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_13"
-  },
-  {
-    "id": "MATH_P2_ANAG_0902",
-    "topic": "Analytical Geometry",
-    "question": "Find the equations of the two VERTICAL tangents to the circle defined by $(x - 2)^2 + (y )^2 = 49$.",
-    "correct_answer": "x = 9 and x = -5",
-    "wrong_answers_pool": [
-      "y = 7 and y = -7",
-      "x = 10 and x = -6",
-      "x = 51 and x = -47",
-      "y = 9 and y = -5",
-      "x = 7 and x = -7",
-      "x = 2 and y = 0",
-      "x = 14 and x = -14"
-    ],
-    "explanation": "Vertical tangents are perpendicular to the horizontal diameter. The horizontal bounds of the circle are $x = a \\pm r = 2 \\pm 7$, giving $x = 9$ and $x = -5$.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Analytical Geometry",
-      "subtopic": "Tangents to Circles",
-      "cognitive_level": "Complex Procedures",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_14"
-  },
-  {
-    "id": "MATH_P2_ANAG_0401",
-    "topic": "Analytical Geometry",
-    "question": "A straight line has a gradient of $m = 0.31$. Calculate its angle of inclination $\\theta$ (correct to one decimal place).",
-    "correct_answer": "17.3\u00b0",
-    "wrong_answers_pool": [
-      "162.70\u00b0",
-      "72.70\u00b0",
-      "107.30\u00b0",
-      "62.30\u00b0",
-      "61.94\u00b0",
-      "59.63\u00b0",
-      "173.59\u00b0",
-      "90.71\u00b0"
-    ],
-    "explanation": "$\\tan \\theta = m = 0.31 \\implies \\theta = \\tan^{-1}(0.31) \\approx 17.3\u00b0$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Analytical Geometry",
-      "subtopic": "Angle of Inclination",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_15"
-  },
-  {
-    "id": "MATH_P2_TRIG_0801",
-    "topic": "Trigonometry",
-    "question": "Solve the quadratic trigonometric equation for $\\cos(x)$: $3\\cos^2(x) - 4\\cos(x) - 4 = 0$.",
-    "correct_answer": "cos(x) = -2/3 or cos(x) = 2",
-    "wrong_answers_pool": [
-      "cos(x) = -2 or cos(x) = 2",
-      "cos(x) = 2/3 or cos(x) = -2",
-      "cos(x) = 0 or cos(x) = 1",
-      "cos(x) = 1 or cos(x) = -1",
-      "cos(x) = \u221a2/2 or cos(x) = -1",
-      "cos(x) = -2/3 or cos(x) = 0",
-      "cos(x) = 2 or cos(x) = -2",
-      "cos(x) = 1/2 or cos(x) = -1/2"
-    ],
-    "explanation": "Factorizing: $(3\\cos(x) + 2)(\\cos(x) - 2) = 0 \\implies cos(x) = -2/3 or cos(x) = 2$.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Trigonometry",
-      "subtopic": "Trig Equations",
-      "cognitive_level": "Complex Procedures",
-      "difficulty": "hard"
-    },
     "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_16"
   },
   {
-    "id": "MATH_P2_ANAG_0998",
+    "id": "MATH_P2_ANAG_0995",
     "topic": "Analytical Geometry",
-    "question": "The three points $A(6; -5)$, $B(7; -6)$, and $C(10; k)$ are collinear. Find the value of $k$.",
-    "correct_answer": "-9",
+    "question": "The three points $A(3; -5)$, $B(4; -4)$, and $C(6; k)$ are collinear. Find the value of $k$.",
+    "correct_answer": "-2",
     "wrong_answers_pool": [
-      "-11",
+      "8",
       "-5",
+      "3",
       "1",
-      "-19",
-      "-8",
-      "-14",
-      "-13",
+      "-1",
+      "0",
+      "2",
       "-6"
     ],
-    "explanation": "Collinear points have equal gradients: $m_{AB} = m_{BC} = -1$. Thus $\\frac{k - (-6)}{10 - (7)} = -1 \\implies k - -6 = -3 \\implies k = -9$.",
+    "explanation": "Collinear points have equal gradients: $m_{AB} = m_{BC} = 1$. Thus $\\frac{k - (-4)}{6 - (4)} = 1 \\implies k - -4 = 2 \\implies k = -2$.",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
@@ -457,370 +454,20 @@
     "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_17"
   },
   {
-    "id": "MATH_P2_ANAG_0576",
-    "topic": "Analytical Geometry",
-    "question": "Determine the equation of the tangent to the circle $(x + 6)^2 + (y - 1)^2 = 20$ at the point $P(-10; 3)$.",
-    "correct_answer": "y = 2x + 23",
+    "id": "MATH_P2_STAT_0642",
+    "topic": "Statistics",
+    "question": "A dataset has a standard deviation of $5$. If each data item is transformed according to $x_{\\text{new}} = 5x + 16$, what is the new standard deviation?",
+    "correct_answer": "25",
     "wrong_answers_pool": [
-      "y = 0x + 22",
-      "y = 4x + 22",
-      "y = 3x + 22",
-      "y = x + 25",
-      "y = 3x + 25",
-      "y = 3x + 24",
-      "y = 0x + 24",
-      "y = 4x + 21"
-    ],
-    "explanation": "Radius connects centre $C(-6; 1)$ to $P(-10; 3)$. Gradient of radius $m_{rad} = \\frac{3 - 1}{-10 - -6} = \\frac{2}{-4}$. Since tangent is perpendicular to radius, $m_{tan} = -\\frac{1}{m_{rad}} = 2$. Using $y - 3 = 2(x - -10) \\implies y = 2x + 23$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Analytical Geometry",
-      "subtopic": "Tangents to Circles",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_18"
-  },
-  {
-    "id": "MATH_P2_GEOM_0647",
-    "topic": "Euclidean Geometry",
-    "question": "Points $A, B, C,$ and $D$ lie on the circumference of a circle. Subtended by the same chord $AB$, $\\angle ADB = (3x + 16)^\\circ$ and $\\angle ACB = (1x + 40)^\\circ$. Determine the value of $x$.",
-    "correct_answer": "12",
-    "wrong_answers_pool": [
-      "2",
+      "41",
+      "21",
+      "5",
       "10",
-      "7",
-      "13",
-      "11",
-      "17",
-      "27",
-      "22"
+      "80",
+      "125",
+      "9"
     ],
-    "explanation": "Angles in the same segment are equal: $3x + 16 = 1x + 40 \\implies 2x = 24 \\implies x = 12$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Euclidean Geometry",
-      "subtopic": "Angles in Same Segment",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_19"
-  },
-  {
-    "id": "MATH_P2_GEOM_0801",
-    "topic": "Euclidean Geometry",
-    "question": "Given that $\\triangle ABC \\,\\|\\|\\, \\triangle DEF$. If $AB = 5$ cm, $BC = 11$ cm, and $DE = 15$ cm, calculate the length of side $EF$.",
-    "correct_answer": "33 cm",
-    "wrong_answers_pool": [
-      "33.2 cm",
-      "32.5 cm",
-      "32.8 cm",
-      "33.5 cm",
-      "34.0 cm",
-      "32.0 cm",
-      "33.3 cm",
-      "36.6 cm"
-    ],
-    "explanation": "Since $\\triangle ABC \\,\\|\\|\\, \\triangle DEF$, corresponding sides are in proportion: $\\frac{EF}{BC} = \\frac{DE}{AB} \\implies \\frac{EF}{11} = \\frac{15}{5} = 3.0 \\implies EF = 3.0 \\times 11 = 33 cm$.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Euclidean Geometry",
-      "subtopic": "Similarity",
-      "cognitive_level": "Complex Procedures",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_20"
-  },
-  {
-    "id": "MATH_P2_STAT_0868",
-    "topic": "Statistics",
-    "question": "Determine which observation in the dataset $\\{82, 48, 50, 49, 52, 60, 70, 59, 50\\}$, if any, qualifies as an outlier using the standard $1.5 \\times \\text{IQR}$ rule.",
-    "correct_answer": "82",
-    "wrong_answers_pool": [
-      "48",
-      "49",
-      "50",
-      "52",
-      "59",
-      "60",
-      "70"
-    ],
-    "explanation": "Sorting the data gives $Q_1 = 49.5$, $Q_3 = 59.5$, and $\\text{IQR} = 10.0$. Upper boundary $= Q_3 + 1.5 \\times \\text{IQR} = 74.5$. The only value exceeding this boundary is $82$.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Statistics",
-      "subtopic": "Outliers",
-      "cognitive_level": "Problem Solving",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_21"
-  },
-  {
-    "id": "MATH_P2_GEOM_0558",
-    "topic": "Euclidean Geometry",
-    "question": "Points $A, B, C,$ and $D$ lie in order on a circle. $\\angle ADB = (3x + 5)^\\circ$ and $\\angle ACB = (2x + 11)^\\circ$. Determine the actual size of $\\angle ADB$.",
-    "correct_answer": "23\u00b0",
-    "wrong_answers_pool": [
-      "43\u00b0",
-      "33\u00b0",
-      "46\u00b0",
-      "67\u00b0",
-      "3\u00b0",
-      "11\u00b0",
-      "13\u00b0",
-      "157\u00b0"
-    ],
-    "explanation": "Equating angles in the same segment: $3x + 5 = 2x + 11 \\implies x = 6$. Thus $\\angle ADB = 3(6) + 5 = 23\u00b0$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Euclidean Geometry",
-      "subtopic": "Angles in Same Segment",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_22"
-  },
-  {
-    "id": "MATH_P2_ANAG_0800",
-    "topic": "Analytical Geometry",
-    "question": "The midpoint of line segment $AB$ is $M(-7; -7)$. If $A$ has coordinates $(4; 1)$, determine the coordinates of point $B$.",
-    "correct_answer": "(-18; -15)",
-    "wrong_answers_pool": [
-      "(-18; -14)",
-      "(-15; -18)",
-      "(-17; -15)",
-      "(18; -15)",
-      "(-18; 15)",
-      "(-19; -15)",
-      "(15; 18)",
-      "(-18; -16)"
-    ],
-    "explanation": "$\\frac{4 + x_B}{2} = -7 \\implies x_B = 2(-7) - (4) = -18$. $\\frac{1 + y_B}{2} = -7 \\implies y_B = 2(-7) - (1) = -15$. Thus $B(-18; -15)$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Analytical Geometry",
-      "subtopic": "Coordinate Geometry",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_23"
-  },
-  {
-    "id": "MATH_P2_TRIG_0599",
-    "topic": "Trigonometry",
-    "question": "In $\\triangle ABC$, $\\hat{A} = 30^\\circ$, $\\hat{B} = 39^\\circ$, and side $a = 23$ cm. Calculate the length of side $b$ (correct to 2 decimal places).",
-    "correct_answer": "28.95",
-    "wrong_answers_pool": [
-      "29.95",
-      "29.15",
-      "28.45",
-      "29.45",
-      "28.85",
-      "28.75",
-      "29.05",
-      "27.95"
-    ],
-    "explanation": "$\\frac{b}{\\sin B} = \\frac{a}{\\sin A} \\implies b = \\frac{23 \\cdot \\sin(39^\\circ)}{\\sin(30^\\circ)} = \\frac{23 \\cdot 0.6293}{0.5} \\approx 28.95\\text{ cm}$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Trigonometry",
-      "subtopic": "Triangle Rules",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_24"
-  },
-  {
-    "id": "MATH_P2_STAT_0388",
-    "topic": "Statistics",
-    "question": "Given the ordered dataset: $\\{18, 23, 31, 34, 57, 59, 80, 82, 85, 85, 94\\}$, determine the upper quartile ($Q_3$).",
-    "correct_answer": "85",
-    "wrong_answers_pool": [
-      "86",
-      "88",
-      "89",
-      "95",
-      "87",
-      "81",
-      "82",
-      "83"
-    ],
-    "explanation": "The upper half of the data is $\\{80, 82, 85, 85, 94\\}$. Its median $Q_3 = 85$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Statistics",
-      "subtopic": "Five Number Summary",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_25"
-  },
-  {
-    "id": "MATH_P2_TRIG_0858",
-    "topic": "Trigonometry",
-    "question": "Determine the MINIMUM value of the function $f(x) = 5\\sin(3x) + 7$.",
-    "correct_answer": "2",
-    "wrong_answers_pool": [
-      "-1",
-      "7",
-      "1",
-      "3",
-      "-2",
-      "-3",
-      "4",
-      "6"
-    ],
-    "explanation": "Since the minimum of $\\sin(3x)$ is $-1$, $f_{\\text{min}} = 5(-1) + (7) = 2$.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Trigonometry",
-      "subtopic": "Trig Functions",
-      "cognitive_level": "Problem Solving",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_26"
-  },
-  {
-    "id": "MATH_P2_GEOM_0938",
-    "topic": "Euclidean Geometry",
-    "question": "Tangents $WE$ and $WF$ are drawn from an external point $W$ to touch a circle at $E$ and $F$. If $\\angle EWF = 33^\\circ$, calculate the size of $\\angle WEF$.",
-    "correct_answer": "73.5\u00b0",
-    "wrong_answers_pool": [
-      "146\u00b0",
-      "83\u00b0",
-      "36\u00b0",
-      "53\u00b0",
-      "107\u00b0",
-      "63\u00b0",
-      "93\u00b0",
-      "17\u00b0"
-    ],
-    "explanation": "Theorem: Tangents drawn from a common external point are equal in length ($WE = WF$). Thus $\\triangle WEF$ is isosceles with $\\angle WEF = \\angle WFE = \\frac{180^\\circ - 33^\\circ}{2} = 73.5\u00b0$.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Euclidean Geometry",
-      "subtopic": "Tangents",
-      "cognitive_level": "Complex Procedures",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_27"
-  },
-  {
-    "id": "MATH_P2_GEOM_0872",
-    "topic": "Euclidean Geometry",
-    "question": "In $\\triangle XYZ$, right-angled at $\\hat{Y}$, altitude $YW$ is drawn perpendicular to hypotenuse $XZ$. If $XW = 24$ cm and $WZ = 11$ cm, calculate the length of altitude $YW$.",
-    "correct_answer": "16.25 cm",
-    "wrong_answers_pool": [
-      "16.75 cm",
-      "16.50 cm",
-      "15.25 cm",
-      "15.75 cm",
-      "16.45 cm",
-      "16.00 cm",
-      "16.05 cm",
-      "17.25 cm"
-    ],
-    "explanation": "By the geometric mean theorem for right-angled triangles: $YW^2 = XW \\times WZ = 24 \\times 11 = 264 \\implies YW = \\sqrt{264} \\approx 16.25 cm$.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Euclidean Geometry",
-      "subtopic": "Similarity",
-      "cognitive_level": "Problem Solving",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_28"
-  },
-  {
-    "id": "MATH_P2_TRIG_0400",
-    "topic": "Trigonometry",
-    "question": "Calculate the exact numerical value of the expression: $\\cos(93^\\circ)\\cos(48^\\circ) + \\sin(93^\\circ)\\sin(48^\\circ)$.",
-    "correct_answer": "\u221a2/2",
-    "wrong_answers_pool": [
-      "-\u221a3",
-      "\u221a3/2",
-      "-1/\u221a3",
-      "0",
-      "1/2",
-      "-\u221a2/2",
-      "-1/2",
-      "2"
-    ],
-    "explanation": "Apply the compound angle identity: $\\cos(93^\\circ)\\cos(48^\\circ) + \\sin(93^\\circ)\\sin(48^\\circ) = \\cos(93^\\circ - 48^\\circ) = \\cos(45^\\circ) = \u221a2/2$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Trigonometry",
-      "subtopic": "Compound Angles",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_29"
-  },
-  {
-    "id": "MATH_P2_GEOM_0437",
-    "topic": "Euclidean Geometry",
-    "question": "In $\\triangle ABC$, line segment $DE$ is drawn parallel to base $BC$, with $D$ on $AB$ and $E$ on $AC$. If $AD = 10$ cm, $DB = 5$ cm, and $EC = 4$ cm, calculate the length of $AE$.",
-    "correct_answer": "8 cm",
-    "wrong_answers_pool": [
-      "10 cm",
-      "7 cm",
-      "13 cm",
-      "3 cm",
-      "6 cm",
-      "9 cm",
-      "23 cm",
-      "18 cm"
-    ],
-    "explanation": "Theorem (Proportionality theorem, $DE \\parallel BC$): $\\frac{AE}{EC} = \\frac{AD}{DB} \\implies \\frac{AE}{4} = \\frac{10}{5} = 2 \\implies AE = 2 \\times 4 = 8 cm$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Euclidean Geometry",
-      "subtopic": "Proportionality Theorem",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_30"
-  },
-  {
-    "id": "MATH_P2_STAT_0693",
-    "topic": "Statistics",
-    "question": "A dataset has a standard deviation of $12$. If each data item is transformed according to $x_{\\text{new}} = 5x + 17$, what is the new standard deviation?",
-    "correct_answer": "60",
-    "wrong_answers_pool": [
-      "77",
-      "29",
-      "12",
-      "17",
-      "204",
-      "300",
-      "43"
-    ],
-    "explanation": "The constant addition $17$ does not affect spread. Only the multiplication factor $5$ affects standard deviation: $\\sigma_{\\text{new}} = 12 \\times 5 = 60$.",
+    "explanation": "The constant addition $16$ does not affect spread. Only the multiplication factor $5$ affects standard deviation: $\\sigma_{\\text{new}} = 5 \\times 5 = 25$.",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
@@ -830,199 +477,12 @@
       "cognitive_level": "Routine Procedures",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_31"
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_18"
   },
   {
-    "id": "MATH_P2_STAT_0903",
+    "id": "MATH_P2_STAT_0842",
     "topic": "Statistics",
-    "question": "A study recorded agricultural yield ($y$) for fertilizer application ($x$) where $x$ was recorded between $6$ and $80$. A researcher uses the regression model to predict $y$ at $x = 117$. How should this prediction be evaluated?",
-    "correct_answer": "Extrapolation (unreliable), because x = 117 lies outside the observed range [6, 80]",
-    "wrong_answers_pool": [
-      "Interpolation (reliable), because x = 117 lies within the observed range [6, 80]",
-      "Extrapolation (reliable), because the linear trend continues indefinitely",
-      "Interpolation (unreliable), because it is beyond the median",
-      "Extrapolation (reliable), because the slope is positive",
-      "Interpolation (reliable), because r is close to 1",
-      "Neither, because least squares cannot predict outside the mean",
-      "Extrapolation (reliable), because the y-intercept is non-zero"
-    ],
-    "explanation": "Since $x = 117$ lies outside the domain $[6, 80]$ of the collected data, it is an extrapolation and may not be reliable as the linear relationship may change.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Statistics",
-      "subtopic": "Regression Validity",
-      "cognitive_level": "Problem Solving",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_32"
-  },
-  {
-    "id": "MATH_P2_ANAG_0858",
-    "topic": "Analytical Geometry",
-    "question": "Determine the length of the tangent drawn from the external point $P(9; 4)$ to the circle $(x - -1)^2 + (y - 4)^2 = 36$.",
-    "correct_answer": "8",
-    "wrong_answers_pool": [
-      "3",
-      "18",
-      "-2",
-      "9",
-      "12",
-      "11",
-      "13",
-      "4"
-    ],
-    "explanation": "The distance from $P(9; 4)$ to centre $C(-1; 4)$ is $d = 10$. The radius is $r = 6$. By the Pythagorean theorem on the right triangle formed by the radius and tangent: $L = \\sqrt{d^2 - r^2} = \\sqrt{10^2 - 6^2} = \\sqrt{64} = 8$.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Analytical Geometry",
-      "subtopic": "Tangents to Circles",
-      "cognitive_level": "Problem Solving",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_33"
-  },
-  {
-    "id": "MATH_P2_TRIG_0732",
-    "topic": "Trigonometry",
-    "question": "Determine the general solution for $\\cos(x) = \\cos(30^\\circ)$.",
-    "correct_answer": "x = \u00b130\u00b0 + k\u00b7360\u00b0, k \u2208 Z",
-    "wrong_answers_pool": [
-      "x = 30\u00b0 + k\u00b7360\u00b0 or x = 150\u00b0 + k\u00b7360\u00b0, k \u2208 Z",
-      "x = 30\u00b0 + k\u00b7180\u00b0, k \u2208 Z",
-      "x = \u00b130\u00b0 + k\u00b7180\u00b0, k \u2208 Z",
-      "x = 30\u00b0 + k\u00b7360\u00b0, k \u2208 Z",
-      "x = \u00b160\u00b0 + k\u00b7360\u00b0, k \u2208 Z",
-      "x = 150\u00b0 + k\u00b7360\u00b0, k \u2208 Z",
-      "x = \u00b130\u00b0 + k\u00b7720\u00b0, k \u2208 Z"
-    ],
-    "explanation": "Reference angle is $30^\\circ$. Cosine is positive in Quadrants I and IV: $x = \\pm 30^\\circ + k \\cdot 360^\\circ$ ($k \\in \\mathbb{Z}$).",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Trigonometry",
-      "subtopic": "General Solutions",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_34"
-  },
-  {
-    "id": "MATH_P2_ANAG_0509",
-    "topic": "Analytical Geometry",
-    "question": "Find the coordinates of the centre of the circle defined by $x^2 + y^2 + 6x + 12y + 20 = 0$.",
-    "correct_answer": "(-3; -6)",
-    "wrong_answers_pool": [
-      "(-2; -6)",
-      "(3; 6)",
-      "(-3; -7)",
-      "(-1; -8)",
-      "(-3; -5)",
-      "(6; 3)",
-      "(3; -6)",
-      "(-6; -3)"
-    ],
-    "explanation": "Complete the square: $(x - -3)^2 + (y - -6)^2 = 5^2$. Thus the centre is $(a; b) = (-3; -6)$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Analytical Geometry",
-      "subtopic": "Circle Geometry",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_35"
-  },
-  {
-    "id": "MATH_P2_TRIG_0870",
-    "topic": "Trigonometry",
-    "question": "Determine the MAXIMUM value of the function $f(x) = 3\\cos(4x) + 5$.",
-    "correct_answer": "8",
-    "wrong_answers_pool": [
-      "9",
-      "7",
-      "12",
-      "10",
-      "11",
-      "3",
-      "4",
-      "13"
-    ],
-    "explanation": "Since the maximum of $\\cos(4x)$ is $1$, $f_{\\text{max}} = 3(1) + (5) = 8$.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Trigonometry",
-      "subtopic": "Trig Functions",
-      "cognitive_level": "Problem Solving",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_36"
-  },
-  {
-    "id": "MATH_P2_ANAG_0885",
-    "topic": "Analytical Geometry",
-    "question": "Determine the length of the tangent drawn from the external point $P(3; -3)$ to the circle $(x - -2)^2 + (y - -3)^2 = 9$.",
-    "correct_answer": "4",
-    "wrong_answers_pool": [
-      "8",
-      "3",
-      "1",
-      "9",
-      "0",
-      "-1",
-      "14",
-      "2"
-    ],
-    "explanation": "The distance from $P(3; -3)$ to centre $C(-2; -3)$ is $d = 5$. The radius is $r = 3$. By the Pythagorean theorem on the right triangle formed by the radius and tangent: $L = \\sqrt{d^2 - r^2} = \\sqrt{5^2 - 3^2} = \\sqrt{16} = 4$.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Analytical Geometry",
-      "subtopic": "Tangents to Circles",
-      "cognitive_level": "Problem Solving",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_37"
-  },
-  {
-    "id": "MATH_P2_TRIG_0918",
-    "topic": "Trigonometry",
-    "question": "Find an acute angle solution ($x \\in [0^\\circ; 90^\\circ]$) for: $\\sin(2x) = \\sin(x + 63^\\circ)$.",
-    "correct_answer": "63\u00b0",
-    "wrong_answers_pool": [
-      "73\u00b0",
-      "53\u00b0",
-      "78\u00b0",
-      "48\u00b0",
-      "83\u00b0",
-      "27\u00b0",
-      "93\u00b0",
-      "68\u00b0"
-    ],
-    "explanation": "Equating arguments: $2x = x + 63^\\circ \\implies x = 63\u00b0$.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Trigonometry",
-      "subtopic": "Co-function Equations",
-      "cognitive_level": "Problem Solving",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_38"
-  },
-  {
-    "id": "MATH_P2_STAT_0812",
-    "topic": "Statistics",
-    "question": "The dataset $\\{36, 36, 57, 27, 38, 42, x\\}$, containing an unknown value $x$, has an arithmetic mean of $44$. Calculate the value of $x$.",
+    "question": "The dataset $\\{56, 58, 58, x, 41, 36, 37, 50\\}$, containing an unknown value $x$, has an arithmetic mean of $51$. Calculate the value of $x$.",
     "correct_answer": "72",
     "wrong_answers_pool": [
       "62",
@@ -1034,7 +494,7 @@
       "70",
       "71"
     ],
-    "explanation": "Sum of all $7$ values $= 7 \\times 44 = 308$. Sum of known values $= 236$. Therefore, $x = 308 - 236 = 72$.",
+    "explanation": "Sum of all $8$ values $= 8 \\times 51 = 408$. Sum of known values $= 336$. Therefore, $x = 408 - 336 = 72$.",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
@@ -1044,154 +504,77 @@
       "cognitive_level": "Complex Procedures",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_39"
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_19"
   },
   {
-    "id": "MATH_P2_TRIG_0724",
-    "topic": "Trigonometry",
-    "question": "Determine the general solution for $\\tan(x) = \\tan(23^\\circ)$.",
-    "correct_answer": "x = 23\u00b0 + k\u00b7180\u00b0, k \u2208 Z",
+    "id": "MATH_P2_GEOM_0904",
+    "topic": "Euclidean Geometry",
+    "question": "Tangents $RM$ and $RN$ are drawn from an external point $R$ to touch a circle at $M$ and $N$. If $\\angle MRN = 26^\\circ$, calculate the size of $\\angle RMN$.",
+    "correct_answer": "77\u00b0",
     "wrong_answers_pool": [
-      "x = \u00b123\u00b0 + k\u00b7360\u00b0, k \u2208 Z",
-      "x = 23\u00b0 + k\u00b7360\u00b0 or x = 203\u00b0 + k\u00b7360\u00b0, k \u2208 Z",
-      "x = 23\u00b0 + k\u00b7360\u00b0, k \u2208 Z",
-      "x = 157\u00b0 + k\u00b7180\u00b0, k \u2208 Z",
-      "x = \u00b123\u00b0 + k\u00b7180\u00b0, k \u2208 Z",
-      "x = 23\u00b0 + k\u00b790\u00b0, k \u2208 Z",
-      "x = 67\u00b0 + k\u00b7180\u00b0, k \u2208 Z"
+      "154\u00b0",
+      "38\u00b0",
+      "57\u00b0",
+      "103\u00b0",
+      "67\u00b0",
+      "97\u00b0",
+      "87\u00b0",
+      "13\u00b0"
     ],
-    "explanation": "Reference angle is $23^\\circ$. Tangent has period $180^\\circ$: $x = 23^\\circ + k \\cdot 180^\\circ$ ($k \\in \\mathbb{Z}$).",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Trigonometry",
-      "subtopic": "General Solutions",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_40"
-  },
-  {
-    "id": "MATH_P2_ANAG_0901",
-    "topic": "Analytical Geometry",
-    "question": "Find the equations of the two HORIZONTAL tangents to the circle defined by $(x + 7)^2 + (y + 2)^2 = 81$.",
-    "correct_answer": "y = 7 and y = -11",
-    "wrong_answers_pool": [
-      "x = 2 and x = -16",
-      "y = 8 and y = -12",
-      "y = 79 and y = -83",
-      "x = 7 and x = -11",
-      "y = 9 and y = -9",
-      "y = -2 and x = -7",
-      "y = 18 and y = -18"
-    ],
-    "explanation": "Horizontal tangents are perpendicular to the vertical diameter. The vertical bounds of the circle are $y = b \\pm r = -2 \\pm 9$, giving $y = 7$ and $y = -11$.",
+    "explanation": "Theorem: Tangents drawn from a common external point are equal in length ($RM = RN$). Thus $\\triangle RMN$ is isosceles with $\\angle RMN = \\angle RNM = \\frac{180^\\circ - 26^\\circ}{2} = 77\u00b0$.",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
       "subject": "Mathematics",
-      "topic": "Analytical Geometry",
-      "subtopic": "Tangents to Circles",
+      "topic": "Euclidean Geometry",
+      "subtopic": "Tangents",
       "cognitive_level": "Complex Procedures",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_41"
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_20"
   },
   {
-    "id": "MATH_P2_STAT_0883",
-    "topic": "Statistics",
-    "question": "Determine which observation in the dataset $\\{68, 67, 57, 100, 57, 62, 58, 57, 56\\}$, if any, qualifies as an outlier using the standard $1.5 \\times \\text{IQR}$ rule.",
-    "correct_answer": "100",
-    "wrong_answers_pool": [
-      "56",
-      "57",
-      "58",
-      "62",
-      "67",
-      "68"
-    ],
-    "explanation": "Sorting the data gives $Q_1 = 57.0$, $Q_3 = 64.5$, and $\\text{IQR} = 7.5$. Upper boundary $= Q_3 + 1.5 \\times \\text{IQR} = 75.8$. The only value exceeding this boundary is $100$.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Statistics",
-      "subtopic": "Outliers",
-      "cognitive_level": "Problem Solving",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_42"
-  },
-  {
-    "id": "MATH_P2_GEOM_0402",
+    "id": "MATH_P2_GEOM_0677",
     "topic": "Euclidean Geometry",
-    "question": "Line $MN$ is tangent to a circle at point $X$. Chord $XY$ is drawn. Point $Z$ lies on the major arc such that $\\angle XZY = 33^\\circ$. Determine the size of the angle between the tangent $MN$ and chord $XY$ ($\\angle NXY$).",
-    "correct_answer": "33\u00b0",
+    "question": "In a circle with centre $O$, a chord of length $10$ cm is at a perpendicular distance of $19$ cm from the centre. Calculate the radius of the circle (correct to 2 decimal places).",
+    "correct_answer": "19.65 cm",
     "wrong_answers_pool": [
-      "43\u00b0",
-      "66\u00b0",
-      "13\u00b0",
-      "23\u00b0",
-      "53\u00b0",
-      "16\u00b0",
-      "147\u00b0",
-      "57\u00b0"
+      "20.65 cm",
+      "18.65 cm",
+      "20.15 cm",
+      "19.85 cm",
+      "19.45 cm",
+      "19.90 cm",
+      "19.40 cm",
+      "19.15 cm"
     ],
-    "explanation": "Theorem (Tan-Chord Theorem): The angle between a tangent to a circle and a chord drawn through the point of contact is equal to the angle in the alternate segment. Thus $\\angle NXY = \\angle XZY = 33\u00b0$.",
+    "explanation": "The perpendicular from centre bisects the chord: half-chord $= \\frac{10}{2} = 5$ cm. By Pythagoras: $r^2 = 19^2 + 5^2 = 386 \\implies r \\approx 19.65 cm$.",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
       "subject": "Mathematics",
       "topic": "Euclidean Geometry",
-      "subtopic": "Tan-Chord Theorem",
+      "subtopic": "Chord and Radius",
       "cognitive_level": "Routine Procedures",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_43"
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_21"
   },
   {
-    "id": "MATH_P2_STAT_0847",
-    "topic": "Statistics",
-    "question": "The dataset $\\{x, 39, 20, 52, 16, 36, 48\\}$, containing an unknown value $x$, has an arithmetic mean of $37$. Calculate the value of $x$.",
-    "correct_answer": "48",
-    "wrong_answers_pool": [
-      "50",
-      "49",
-      "45",
-      "38",
-      "44",
-      "43",
-      "53",
-      "58"
-    ],
-    "explanation": "Sum of all $7$ values $= 7 \\times 37 = 259$. Sum of known values $= 211$. Therefore, $x = 259 - 211 = 48$.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Statistics",
-      "subtopic": "Measures of Central Tendency",
-      "cognitive_level": "Complex Procedures",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_44"
-  },
-  {
-    "id": "MATH_P2_TRIG_0481",
+    "id": "MATH_P2_TRIG_0525",
     "topic": "Trigonometry",
-    "question": "Simplify the trigonometric expression to a single term: $1 - 2\\sin^2(49^\\circ)$.",
-    "correct_answer": "cos(98\u00b0)",
+    "question": "Express as a single trigonometric ratio using double angle formulas: $2\\cos^2(50^\\circ) - 1$.",
+    "correct_answer": "cos(100\u00b0)",
     "wrong_answers_pool": [
-      "sin(98\u00b0)",
-      "-cos(98\u00b0)",
-      "cos(49\u00b0)",
+      "sin(100\u00b0)",
+      "-cos(100\u00b0)",
+      "cos(50\u00b0)",
       "1",
-      "2cos(98\u00b0)",
-      "tan(98\u00b0)",
+      "2cos(100\u00b0)",
+      "tan(100\u00b0)",
       "0"
     ],
-    "explanation": "Using $1 - 2\\sin^2(x) = \\cos(2x)$, we have $1 - 2\\sin^2(49^\\circ) = \\cos(98^\\circ)$.",
+    "explanation": "Using $2\\cos^2(x) - 1 = \\cos(2x)$, we have $2\\cos^2(50^\\circ) - 1 = \\cos(100^\\circ)$.",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
@@ -1201,12 +584,12 @@
       "cognitive_level": "Routine Procedures",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_45"
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_22"
   },
   {
-    "id": "MATH_P2_ANAG_0488",
+    "id": "MATH_P2_ANAG_0877",
     "topic": "Analytical Geometry",
-    "question": "Determine the length of the radius of the circle defined by $x^2 + y^2 - 10x + 10y - 14 = 0$.",
+    "question": "Determine the length of the tangent drawn from the external point $P(10; 2)$ to the circle $(x - 0)^2 + (y - 2)^2 = 36$.",
     "correct_answer": "8",
     "wrong_answers_pool": [
       "3",
@@ -1218,34 +601,34 @@
       "13",
       "4"
     ],
-    "explanation": "Completing the square gives $(x - 5)^2 + (y - -5)^2 = 64 \\implies r = \\sqrt{64} = 8$.",
-    "difficulty": "medium",
+    "explanation": "The distance from $P(10; 2)$ to centre $C(0; 2)$ is $d = 10$. The radius is $r = 6$. By the Pythagorean theorem on the right triangle formed by the radius and tangent: $L = \\sqrt{d^2 - r^2} = \\sqrt{10^2 - 6^2} = \\sqrt{64} = 8$.",
+    "difficulty": "hard",
     "tags": {
       "grade": "12",
       "subject": "Mathematics",
       "topic": "Analytical Geometry",
-      "subtopic": "Circle Geometry",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
+      "subtopic": "Tangents to Circles",
+      "cognitive_level": "Problem Solving",
+      "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_46"
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_23"
   },
   {
-    "id": "MATH_P2_GEOM_0523",
+    "id": "MATH_P2_GEOM_0530",
     "topic": "Euclidean Geometry",
-    "question": "In $\\triangle ABC$, $DE \\parallel BC$. If $DB = 12$ cm, $AE = 60$ cm, and $EC = 12$ cm, calculate the length of $AD$.",
-    "correct_answer": "60 cm",
+    "question": "In $\\triangle ABC$, $DE \\parallel BC$. If $AD = 30$ cm, $DB = 6$ cm, and $AE = 25$ cm, calculate the length of $EC$.",
+    "correct_answer": "5 cm",
     "wrong_answers_pool": [
-      "45 cm",
-      "70 cm",
-      "61 cm",
-      "62 cm",
-      "75 cm",
-      "65 cm",
-      "58 cm",
-      "50 cm"
+      "20 cm",
+      "15 cm",
+      "10 cm",
+      "4 cm",
+      "7 cm",
+      "3 cm",
+      "6 cm",
+      "24 cm"
     ],
-    "explanation": "Theorem ($DE \\parallel BC$): $\\frac{AD}{DB} = \\frac{AE}{EC} \\implies \\frac{AD}{12} = \\frac{60}{12} = 5 \\implies AD = 5 \\times 12 = 60 cm$.",
+    "explanation": "Theorem ($DE \\parallel BC$): $\\frac{AE}{EC} = \\frac{AD}{DB} \\implies \\frac{25}{EC} = \\frac{30}{6} = 5 \\implies EC = \\frac{25}{5} = 5 cm$.",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
@@ -1255,51 +638,156 @@
       "cognitive_level": "Routine Procedures",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_47"
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_24"
   },
   {
-    "id": "MATH_P2_TRIG_0929",
-    "topic": "Trigonometry",
-    "question": "Find an acute angle solution ($x \\in [0^\\circ; 90^\\circ]$) for: $\\cos(2x) = \\cos(x + 42^\\circ)$.",
-    "correct_answer": "42\u00b0",
+    "id": "MATH_P2_STAT_0885",
+    "topic": "Statistics",
+    "question": "Determine which observation in the dataset $\\{50, 62, 43, 98, 69, 70, 58, 48, 54\\}$, if any, qualifies as an outlier using the standard $1.5 \\times \\text{IQR}$ rule.",
+    "correct_answer": "98",
     "wrong_answers_pool": [
-      "52\u00b0",
-      "32\u00b0",
-      "57\u00b0",
-      "27\u00b0",
-      "62\u00b0",
-      "48\u00b0",
-      "72\u00b0",
-      "47\u00b0"
+      "43",
+      "48",
+      "50",
+      "54",
+      "58",
+      "62",
+      "69",
+      "70"
     ],
-    "explanation": "Equating arguments: $2x = x + 42^\\circ \\implies x = 42\u00b0$.",
+    "explanation": "Sorting the data gives $Q_1 = 49.0$, $Q_3 = 65.5$, and $\\text{IQR} = 16.5$. Upper boundary $= Q_3 + 1.5 \\times \\text{IQR} = 90.2$. The only value exceeding this boundary is $98$.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Outliers",
+      "cognitive_level": "Problem Solving",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_25"
+  },
+  {
+    "id": "MATH_P2_STAT_0657",
+    "topic": "Statistics",
+    "question": "A dataset has a standard deviation of $8$. If each data item is transformed according to $x_{\\text{new}} = 3x + 21$, what is the new standard deviation?",
+    "correct_answer": "24",
+    "wrong_answers_pool": [
+      "45",
+      "29",
+      "8",
+      "11",
+      "168",
+      "72",
+      "3"
+    ],
+    "explanation": "The constant addition $21$ does not affect spread. Only the multiplication factor $3$ affects standard deviation: $\\sigma_{\\text{new}} = 8 \\times 3 = 24$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Transformations",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_26"
+  },
+  {
+    "id": "MATH_P2_TRIG_0953",
+    "topic": "Trigonometry",
+    "question": "Determine the identity: $\\frac{1 - \\cos(2\\beta)}{\\sin(2\\beta)}$",
+    "correct_answer": "tan(beta)",
+    "wrong_answers_pool": [
+      "cot(beta)",
+      "sin(beta)",
+      "cos(beta)",
+      "1",
+      "sin^2(beta)",
+      "-tan(beta)",
+      "tan(2beta)"
+    ],
+    "explanation": "$\\frac{2\\sin^2(\\beta)}{2\\sin(\\beta)\\cos(\\beta)} = \\frac{\\sin(\\beta)}{\\cos(\\beta)} = \\tan(\\beta)$.",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
       "subject": "Mathematics",
       "topic": "Trigonometry",
-      "subtopic": "Co-function Equations",
+      "subtopic": "Identities",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_27"
+  },
+  {
+    "id": "MATH_P2_TRIG_0886",
+    "topic": "Trigonometry",
+    "question": "Find the range of the function $f(x) = 3\\cos(3x) + 8$.",
+    "correct_answer": "[5; 11]",
+    "wrong_answers_pool": [
+      "[-3; 3]",
+      "[4; 12]",
+      "[5; 10]",
+      "(5; 11)",
+      "[-8; 8]",
+      "[7; 13]",
+      "[0; 11]"
+    ],
+    "explanation": "Amplitude is $|3| = 3$. Vertical shift is $8$. The range is $[-3 + (8); 3 + (8)] = [5; 11]$.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Trigonometry",
+      "subtopic": "Trig Functions",
       "cognitive_level": "Problem Solving",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_48"
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_28"
   },
   {
-    "id": "MATH_P2_STAT_0814",
-    "topic": "Statistics",
-    "question": "The dataset $\\{21, 35, x, 23, 53, 36\\}$, containing an unknown value $x$, has an arithmetic mean of $32$. Calculate the value of $x$.",
-    "correct_answer": "24",
+    "id": "MATH_P2_GEOM_0556",
+    "topic": "Euclidean Geometry",
+    "question": "Points $A, B, C,$ and $D$ lie on the circumference of a circle. Subtended by the same chord $AB$, $\\angle ADB = (3x + 5)^\\circ$ and $\\angle ACB = (1x + 15)^\\circ$. Determine the value of $x$.",
+    "correct_answer": "5",
     "wrong_answers_pool": [
-      "27",
-      "26",
-      "22",
-      "28",
-      "19",
-      "34",
-      "21",
-      "20"
+      "20",
+      "15",
+      "10",
+      "4",
+      "7",
+      "3",
+      "6",
+      "38"
     ],
-    "explanation": "Sum of all $6$ values $= 6 \\times 32 = 192$. Sum of known values $= 168$. Therefore, $x = 192 - 168 = 24$.",
+    "explanation": "Angles in the same segment are equal: $3x + 5 = 1x + 15 \\implies 2x = 10 \\implies x = 5$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Euclidean Geometry",
+      "subtopic": "Angles in Same Segment",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_29"
+  },
+  {
+    "id": "MATH_P2_STAT_0831",
+    "topic": "Statistics",
+    "question": "The dataset $\\{16, 46, 17, x, 16, 56\\}$, containing an unknown value $x$, has an arithmetic mean of $32$. Calculate the value of $x$.",
+    "correct_answer": "41",
+    "wrong_answers_pool": [
+      "40",
+      "36",
+      "45",
+      "37",
+      "38",
+      "44",
+      "43",
+      "42"
+    ],
+    "explanation": "Sum of all $6$ values $= 6 \\times 32 = 192$. Sum of known values $= 151$. Therefore, $x = 192 - 151 = 41$.",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
@@ -1309,30 +797,537 @@
       "cognitive_level": "Complex Procedures",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_49"
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_30"
   },
   {
-    "id": "MATH_P2_STAT_0889",
+    "id": "MATH_P2_STAT_0988",
     "topic": "Statistics",
-    "question": "Determine which observation in the dataset $\\{45, 55, 64, 44, 97, 62, 51, 63, 41\\}$, if any, qualifies as an outlier using the standard $1.5 \\times \\text{IQR}$ rule.",
-    "correct_answer": "97",
+    "question": "A bivariate data set has mean values $\\bar{x} = 48.6$ and $\\bar{y} = 52.7$. The slope of the least squares regression line is $b = 3.83$. Determine the $y$-intercept ($a$) of the regression line $\\hat{y} = a + bx$.",
+    "correct_answer": "-133.44",
     "wrong_answers_pool": [
-      "41",
-      "44",
-      "45",
-      "51",
-      "55",
-      "62",
-      "63",
-      "64"
+      "-133.64",
+      "-133.49",
+      "-132.94",
+      "-133.39",
+      "-133.24",
+      "-133.29",
+      "-133.94",
+      "-132.44"
     ],
-    "explanation": "Sorting the data gives $Q_1 = 44.5$, $Q_3 = 62.5$, and $\\text{IQR} = 18.0$. Upper boundary $= Q_3 + 1.5 \\times \\text{IQR} = 89.5$. The only value exceeding this boundary is $97$.",
+    "explanation": "Because the regression line passes through the centroid $(\\bar{x}; \\bar{y})$, we have $\\bar{y} = a + b\\bar{x} \\implies a = \\bar{y} - b\\bar{x} = 52.7 - (3.83 \\times 48.6) = -133.44$.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Regression",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_31"
+  },
+  {
+    "id": "MATH_P2_STAT_0303",
+    "topic": "Statistics",
+    "question": "Given the ordered dataset: $\\{15, 15, 18, 20, 23, 33, 37, 46, 51, 53, 56, 57, 59\\}$, determine the lower quartile ($Q_1$).",
+    "correct_answer": "19",
+    "wrong_answers_pool": [
+      "9",
+      "22",
+      "16",
+      "17",
+      "21",
+      "20",
+      "15",
+      "23"
+    ],
+    "explanation": "The lower half of the data is $\\{15, 15, 18, 20, 23, 33\\}$. Its median $Q_1 = 19$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Five Number Summary",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_32"
+  },
+  {
+    "id": "MATH_P2_ANAG_0957",
+    "topic": "Analytical Geometry",
+    "question": "The three points $A(5; -6)$, $B(7; -2)$, and $C(9; k)$ are collinear. Find the value of $k$.",
+    "correct_answer": "2",
+    "wrong_answers_pool": [
+      "3",
+      "1",
+      "-3",
+      "-2",
+      "-1",
+      "0",
+      "12",
+      "-8"
+    ],
+    "explanation": "Collinear points have equal gradients: $m_{AB} = m_{BC} = 2$. Thus $\\frac{k - (-2)}{9 - (7)} = 2 \\implies k - -2 = 4 \\implies k = 2$.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Analytical Geometry",
+      "subtopic": "Collinear Points",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_33"
+  },
+  {
+    "id": "MATH_P2_TRIG_0909",
+    "topic": "Trigonometry",
+    "question": "Find an acute angle solution ($x \\in [0^\\circ; 90^\\circ]$) for: $\\sin(2x) = \\sin(x + 68^\\circ)$.",
+    "correct_answer": "68\u00b0",
+    "wrong_answers_pool": [
+      "78\u00b0",
+      "58\u00b0",
+      "83\u00b0",
+      "53\u00b0",
+      "88\u00b0",
+      "22\u00b0",
+      "98\u00b0",
+      "73\u00b0"
+    ],
+    "explanation": "Equating arguments: $2x = x + 68^\\circ \\implies x = 68\u00b0$.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Trigonometry",
+      "subtopic": "Co-function Equations",
+      "cognitive_level": "Problem Solving",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_34"
+  },
+  {
+    "id": "MATH_P2_ANAG_0832",
+    "topic": "Analytical Geometry",
+    "question": "Circle $C_1$ has centre $(-1; 2)$ and radius $r_1 = 18$. Circle $C_2$ has centre $(4; 14)$ and radius $r_2 = 5$. What is the geometric relationship between the two circles?",
+    "correct_answer": "Touch internally",
+    "wrong_answers_pool": [
+      "Touch externally",
+      "Intersect at two distinct points",
+      "Do not intersect (disjoint and separate)",
+      "Concentric with identical centres",
+      "Coincident circles",
+      "Orthogonal at origin"
+    ],
+    "explanation": "Distance between centres $d = 13$. Difference between radii $|r_1 - r_2| = 18 - 5 = 13$. Since $d = |r_1 - r_2|$, the circles touch internally.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Analytical Geometry",
+      "subtopic": "Intersecting Circles",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_35"
+  },
+  {
+    "id": "MATH_P2_STAT_0968",
+    "topic": "Statistics",
+    "question": "A bivariate data set has mean values $\\bar{x} = 45.3$ and $\\bar{y} = 57.0$. The slope of the least squares regression line is $b = 1.89$. Determine the $y$-intercept ($a$) of the regression line $\\hat{y} = a + bx$.",
+    "correct_answer": "-28.62",
+    "wrong_answers_pool": [
+      "-28.77",
+      "-28.67",
+      "-29.62",
+      "-27.62",
+      "-28.47",
+      "-28.12",
+      "-29.12",
+      "-28.82"
+    ],
+    "explanation": "Because the regression line passes through the centroid $(\\bar{x}; \\bar{y})$, we have $\\bar{y} = a + b\\bar{x} \\implies a = \\bar{y} - b\\bar{x} = 57.0 - (1.89 \\times 45.3) = -28.62$.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Regression",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_36"
+  },
+  {
+    "id": "MATH_P2_GEOM_0830",
+    "topic": "Euclidean Geometry",
+    "question": "Given that $\\triangle ABC \\,\\|\\|\\, \\triangle DEF$. If $AB = 9$ cm, $BC = 5$ cm, and $DE = 27$ cm, calculate the length of side $EF$.",
+    "correct_answer": "15 cm",
+    "wrong_answers_pool": [
+      "15.5 cm",
+      "14.0 cm",
+      "14.5 cm",
+      "16.0 cm",
+      "15.2 cm",
+      "14.8 cm",
+      "17.3 cm",
+      "16.7 cm"
+    ],
+    "explanation": "Since $\\triangle ABC \\,\\|\\|\\, \\triangle DEF$, corresponding sides are in proportion: $\\frac{EF}{BC} = \\frac{DE}{AB} \\implies \\frac{EF}{5} = \\frac{27}{9} = 3.0 \\implies EF = 3.0 \\times 5 = 15 cm$.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Euclidean Geometry",
+      "subtopic": "Similarity",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_37"
+  },
+  {
+    "id": "MATH_P2_STAT_0631",
+    "topic": "Statistics",
+    "question": "A set of data has a standard deviation of $14$. If every observation in the dataset is multiplied by $3$, what is the NEW standard deviation?",
+    "correct_answer": "42",
+    "wrong_answers_pool": [
+      "14",
+      "17",
+      "126",
+      "4.67",
+      "20",
+      "47",
+      "140"
+    ],
+    "explanation": "Multiplying every observation by a constant factor $k = 3$ scales the standard deviation by $|k|$. New $\\sigma = 14 \\times 3 = 42$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Transformations",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_38"
+  },
+  {
+    "id": "MATH_P2_ANAG_0893",
+    "topic": "Analytical Geometry",
+    "question": "Determine the length of the tangent drawn from the external point $P(11; -4)$ to the circle $(x - 1)^2 + (y - -4)^2 = 64$.",
+    "correct_answer": "6",
+    "wrong_answers_pool": [
+      "8",
+      "3",
+      "1",
+      "9",
+      "11",
+      "4",
+      "2",
+      "10"
+    ],
+    "explanation": "The distance from $P(11; -4)$ to centre $C(1; -4)$ is $d = 10$. The radius is $r = 8$. By the Pythagorean theorem on the right triangle formed by the radius and tangent: $L = \\sqrt{d^2 - r^2} = \\sqrt{10^2 - 8^2} = \\sqrt{36} = 6$.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Analytical Geometry",
+      "subtopic": "Tangents to Circles",
+      "cognitive_level": "Problem Solving",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_39"
+  },
+  {
+    "id": "MATH_P2_TRIG_0808",
+    "topic": "Trigonometry",
+    "question": "Solve the quadratic trigonometric equation for $\\cos(x)$: $4\\cos^2(x) - 11\\cos(x) - 3 = 0$.",
+    "correct_answer": "cos(x) = -1/4 or cos(x) = 3",
+    "wrong_answers_pool": [
+      "cos(x) = -1 or cos(x) = 3",
+      "cos(x) = 1/4 or cos(x) = -3",
+      "cos(x) = 0 or cos(x) = 1",
+      "cos(x) = 1 or cos(x) = -1",
+      "cos(x) = \u221a2/2 or cos(x) = -1",
+      "cos(x) = -1/4 or cos(x) = 0",
+      "cos(x) = 3 or cos(x) = -3",
+      "cos(x) = 1/2 or cos(x) = -1/2"
+    ],
+    "explanation": "Factorizing: $(4\\cos(x) + 1)(\\cos(x) - 3) = 0 \\implies cos(x) = -1/4 or cos(x) = 3$.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Trigonometry",
+      "subtopic": "Trig Equations",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_40"
+  },
+  {
+    "id": "MATH_P2_STAT_0859",
+    "topic": "Statistics",
+    "question": "Determine which observation in the dataset $\\{70, 47, 61, 52, 67, 59, 107, 65, 40\\}$, if any, qualifies as an outlier using the standard $1.5 \\times \\text{IQR}$ rule.",
+    "correct_answer": "107",
+    "wrong_answers_pool": [
+      "40",
+      "47",
+      "52",
+      "59",
+      "61",
+      "65",
+      "67",
+      "70"
+    ],
+    "explanation": "Sorting the data gives $Q_1 = 49.5$, $Q_3 = 66.0$, and $\\text{IQR} = 16.5$. Upper boundary $= Q_3 + 1.5 \\times \\text{IQR} = 90.8$. The only value exceeding this boundary is $107$.",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
       "subject": "Mathematics",
       "topic": "Statistics",
       "subtopic": "Outliers",
+      "cognitive_level": "Problem Solving",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_41"
+  },
+  {
+    "id": "MATH_P2_TRIG_0478",
+    "topic": "Trigonometry",
+    "question": "State as a single trigonometric function: $2\\cos^2(51^\\circ) - 1$.",
+    "correct_answer": "cos(102\u00b0)",
+    "wrong_answers_pool": [
+      "sin(102\u00b0)",
+      "-cos(102\u00b0)",
+      "cos(51\u00b0)",
+      "1",
+      "2cos(102\u00b0)",
+      "tan(102\u00b0)",
+      "0"
+    ],
+    "explanation": "Using $2\\cos^2(x) - 1 = \\cos(2x)$, we have $2\\cos^2(51^\\circ) - 1 = \\cos(102^\\circ)$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Trigonometry",
+      "subtopic": "Double Angles",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_42"
+  },
+  {
+    "id": "MATH_P2_GEOM_0816",
+    "topic": "Euclidean Geometry",
+    "question": "Given that $\\triangle ABC \\,\\|\\|\\, \\triangle DEF$. If $AB = 7$ cm, $BC = 7$ cm, and $DE = 21$ cm, calculate the length of side $EF$.",
+    "correct_answer": "21 cm",
+    "wrong_answers_pool": [
+      "21.5 cm",
+      "22.0 cm",
+      "21.2 cm",
+      "20.5 cm",
+      "20.8 cm",
+      "20.0 cm",
+      "17.2 cm",
+      "19.6 cm"
+    ],
+    "explanation": "Since $\\triangle ABC \\,\\|\\|\\, \\triangle DEF$, corresponding sides are in proportion: $\\frac{EF}{BC} = \\frac{DE}{AB} \\implies \\frac{EF}{7} = \\frac{21}{7} = 3.0 \\implies EF = 3.0 \\times 7 = 21 cm$.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Euclidean Geometry",
+      "subtopic": "Similarity",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_43"
+  },
+  {
+    "id": "MATH_P2_STAT_0911",
+    "topic": "Statistics",
+    "question": "A chemical experiment recorded reaction rate ($y$) across temperatures ($x$) where $x$ was recorded between $17$ and $68$. A researcher uses the regression model to predict $y$ at $x = 104$. How should this prediction be evaluated?",
+    "correct_answer": "Extrapolation (unreliable), because x = 104 lies outside the observed range [17, 68]",
+    "wrong_answers_pool": [
+      "Interpolation (reliable), because x = 104 lies within the observed range [17, 68]",
+      "Extrapolation (reliable), because the linear trend continues indefinitely",
+      "Interpolation (unreliable), because it is beyond the median",
+      "Extrapolation (reliable), because the slope is positive",
+      "Interpolation (reliable), because r is close to 1",
+      "Neither, because least squares cannot predict outside the mean",
+      "Extrapolation (reliable), because the y-intercept is non-zero"
+    ],
+    "explanation": "Since $x = 104$ lies outside the domain $[17, 68]$ of the collected data, it is an extrapolation and may not be reliable as the linear relationship may change.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Regression Validity",
+      "cognitive_level": "Problem Solving",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_44"
+  },
+  {
+    "id": "MATH_P2_TRIG_0324",
+    "topic": "Trigonometry",
+    "question": "Reduce using compound angle expansions: $\\cos(51^\\circ)\\cos(39^\\circ) - \\sin(51^\\circ)\\sin(39^\\circ)$.",
+    "correct_answer": "0",
+    "wrong_answers_pool": [
+      "1",
+      "1/2",
+      "1/\u221a3",
+      "-1/\u221a3",
+      "\u221a2/2",
+      "-\u221a2/2",
+      "-\u221a3",
+      "-2"
+    ],
+    "explanation": "Apply the compound angle identity: $\\cos(51^\\circ)\\cos(39^\\circ) - \\sin(51^\\circ)\\sin(39^\\circ) = \\cos(51^\\circ + 39^\\circ) = \\cos(90^\\circ) = 0$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Trigonometry",
+      "subtopic": "Compound Angles",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_45"
+  },
+  {
+    "id": "MATH_P2_STAT_0785",
+    "topic": "Statistics",
+    "question": "The least squares regression equation modeling crop yield (tonnes/ha) ($y$) against fertilizer applied (kg) ($x$) is $\\hat{y} = 33.3 + 4.68x$. Predict the value of $y$ when $x = 9$.",
+    "correct_answer": "75.42",
+    "wrong_answers_pool": [
+      "74.92",
+      "75.57",
+      "75.92",
+      "75.47",
+      "75.27",
+      "75.62",
+      "74.42",
+      "75.22"
+    ],
+    "explanation": "Substitute $x = 9$ into the regression line: $\\hat{y} = 33.3 + 4.68(9) = 75.42$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Regression",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_46"
+  },
+  {
+    "id": "MATH_P2_TRIG_0330",
+    "topic": "Trigonometry",
+    "question": "Evaluate without using a calculator: $\\cos(94^\\circ)\\cos(64^\\circ) + \\sin(94^\\circ)\\sin(64^\\circ)$.",
+    "correct_answer": "\u221a3/2",
+    "wrong_answers_pool": [
+      "-2",
+      "2",
+      "1/\u221a3",
+      "-1/2",
+      "1",
+      "\u221a3",
+      "\u221a2/2",
+      "0"
+    ],
+    "explanation": "Apply the compound angle identity: $\\cos(94^\\circ)\\cos(64^\\circ) + \\sin(94^\\circ)\\sin(64^\\circ) = \\cos(94^\\circ - 64^\\circ) = \\cos(30^\\circ) = \u221a3/2$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Trigonometry",
+      "subtopic": "Compound Angles",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_47"
+  },
+  {
+    "id": "MATH_P2_GEOM_0768",
+    "topic": "Euclidean Geometry",
+    "question": "A circle has a radius of $13.42$ cm. A chord is drawn at a perpendicular distance of $6$ cm from the centre. What is the total length of the chord?",
+    "correct_answer": "24 cm",
+    "wrong_answers_pool": [
+      "26 cm",
+      "39 cm",
+      "23 cm",
+      "29 cm",
+      "25 cm",
+      "34 cm",
+      "22 cm",
+      "14 cm"
+    ],
+    "explanation": "Half-chord length $= \\sqrt{r^2 - d^2} = \\sqrt{13.42^2 - 6^2} = 12$ cm. Total chord length $= 2 \\times 12 = 24 cm$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Euclidean Geometry",
+      "subtopic": "Chord and Radius",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_48"
+  },
+  {
+    "id": "MATH_P2_GEOM_0304",
+    "topic": "Euclidean Geometry",
+    "question": "Line $MN$ is tangent to a circle at point $X$. Chord $XY$ is drawn. Point $Z$ lies on the major arc such that $\\angle XZY = 70^\\circ$. Determine the size of the angle between the tangent $MN$ and chord $XY$ ($\\angle NXY$).",
+    "correct_answer": "70\u00b0",
+    "wrong_answers_pool": [
+      "35\u00b0",
+      "20\u00b0",
+      "110\u00b0",
+      "60\u00b0",
+      "90\u00b0",
+      "50\u00b0",
+      "140\u00b0",
+      "80\u00b0"
+    ],
+    "explanation": "Theorem (Tan-Chord Theorem): The angle between a tangent to a circle and a chord drawn through the point of contact is equal to the angle in the alternate segment. Thus $\\angle NXY = \\angle XZY = 70\u00b0$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Euclidean Geometry",
+      "subtopic": "Tan-Chord Theorem",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper2_49"
+  },
+  {
+    "id": "MATH_P2_STAT_0950",
+    "topic": "Statistics",
+    "question": "An engineering test evaluated beam deflection ($y$) under applied load ($x$) where $x$ was recorded between $10$ and $50$. A researcher uses the regression model to predict $y$ at $x = 25$. How should this prediction be evaluated?",
+    "correct_answer": "Interpolation (reliable), because x = 25 lies within the observed range [10, 50]",
+    "wrong_answers_pool": [
+      "Extrapolation (unreliable), because x = 25 lies outside the observed range [10, 50]",
+      "Interpolation (unreliable), because regression lines are never completely reliable",
+      "Extrapolation (reliable), because the sample size is sufficiently large",
+      "Interpolation (unreliable), because the correlation coefficient could be zero",
+      "Extrapolation (reliable), because linear regression always applies for all x",
+      "Neither interpolation nor extrapolation, because x is a discrete integer",
+      "Extrapolation (unreliable), because the regression line only applies to positive numbers"
+    ],
+    "explanation": "Since $x = 25$ lies between the minimum ($10$) and maximum ($50$) observed values, predicting $y$ is an interpolation and is generally reliable.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Statistics",
+      "subtopic": "Regression Validity",
       "cognitive_level": "Problem Solving",
       "difficulty": "hard"
     },
