@@ -1,49 +1,49 @@
 [
   {
-    "id": "PS11_P1_VEC_959",
-    "topic": "Vectors in two dimensions",
-    "subtopic": "Addition of vectors",
+    "id": "PS11_P1_NEW_619",
+    "topic": "Newton's Laws and Gravitation",
+    "subtopic": "Newton's Law of Universal Gravitation",
     "paper": "paper1",
-    "difficulty": "hard",
-    "question": "Two forces act on an object: F1 = 83 N at 78\u00b0 and F2 = 89 N at 159\u00b0 (angles measured counterclockwise from positive x-axis). What is the magnitude of the resultant force?",
-    "correct_answer": "130.85 N",
+    "difficulty": "medium",
+    "question": "Calculate the gravitational force of attraction between two masses, 251 kg and 265 kg, separated by a distance of 30 m. (G = 6.67x10^-11 N\u00b7m\u00b2/kg\u00b2)",
+    "correct_answer": "4.93x10^-09",
     "wrong_answers_pool": [
-      "120.85",
-      "65.42",
-      "1308.50",
-      "13.08",
-      "261.70",
-      "140.85"
+      "4.72x10^-08",
+      "5.35x10^-10",
+      "2.56x10^-09",
+      "5.12x10^-08",
+      "5.11x10^-08",
+      "5.87x10^-10"
     ],
-    "explanation": "Rx = 83cos(78) + 89cos(159) = -65.83 N. Ry = 83sin(78) + 89sin(159) = 113.08 N. Resultant = \u221a(-65.83\u00b2 + 113.08\u00b2) = 130.85 N.",
+    "explanation": "F = G * m1 * m2 / r\u00b2 = (6.67x10^-11) * 251 * 265 / 30\u00b2 = 4.93x10^-09 N.",
     "tags": {
       "grade": "11",
       "subject": "Physical Sciences",
       "paper": "paper1",
-      "topic": "Vectors in two dimensions",
-      "subtopic": "Addition of vectors",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
+      "topic": "Newton's Laws and Gravitation",
+      "subtopic": "Newton's Law of Universal Gravitation",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
     },
     "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_1"
   },
   {
-    "id": "PS11_P1_ELE_599",
+    "id": "PS11_P1_ELE_557",
     "topic": "Electrostatics and Electric Circuits",
     "subtopic": "Electric Circuits",
     "paper": "paper1",
     "difficulty": "hard",
-    "question": "A battery with an emf of 41 V and an internal resistance of 2.59 \u03a9 is connected to an external resistor of 11.85 \u03a9. Calculate the potential difference across the external resistor (terminal voltage).",
-    "correct_answer": "33.64",
+    "question": "A battery with an emf of 21 V and an internal resistance of 2.25 \u03a9 is connected to an external resistor of 20.05 \u03a9. Calculate the potential difference across the external resistor (terminal voltage).",
+    "correct_answer": "18.88",
     "wrong_answers_pool": [
-      "336.40",
-      "67.28",
-      "43.64",
-      "3.36",
-      "16.82",
-      "23.64"
+      "37.76",
+      "1.89",
+      "9.44",
+      "28.88",
+      "188.80",
+      "8.88"
     ],
-    "explanation": "I = emf / (R + r) = 41 / (11.85 + 2.59) = 2.839 A. V_load = I * R = 2.839 * 11.85 = 33.64 V.",
+    "explanation": "I = emf / (R + r) = 21 / (20.05 + 2.25) = 0.942 A. V_load = I * R = 0.942 * 20.05 = 18.88 V.",
     "tags": {
       "grade": "11",
       "subject": "Physical Sciences",
@@ -56,134 +56,22 @@
     "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_2"
   },
   {
-    "id": "PS11_P1_WAV_326",
-    "topic": "Geometrical Optics and Waves",
-    "subtopic": "Snell's Law",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Light travels from a medium with refractive index 1.47 into a medium with refractive index 1.87. If the angle of incidence is 21\u00b0, calculate the angle of refraction.",
-    "correct_answer": "16.3\u00b0",
-    "wrong_answers_pool": [
-      "8.15",
-      "26.30",
-      "163.00",
-      "6.30",
-      "1.63",
-      "32.60"
-    ],
-    "explanation": "n1 * sin(\u03b81) = n2 * sin(\u03b82) => 1.47 * sin(21\u00b0) = 1.87 * sin(\u03b82) => \u03b82 = arcsin((1.47 * sin(21\u00b0)) / 1.87) = 16.3\u00b0.",
-    "tags": {
-      "grade": "11",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Geometrical Optics and Waves",
-      "subtopic": "Snell's Law",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_3"
-  },
-  {
-    "id": "PS11_P1_WAV_478",
-    "topic": "Geometrical Optics and Waves",
-    "subtopic": "Critical angle and total internal reflection",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "Calculate the critical angle for light passing from a medium with refractive index 2.48 into a medium with refractive index 1.01.",
-    "correct_answer": "24.1\u00b0",
-    "wrong_answers_pool": [
-      "48.20",
-      "2.41",
-      "34.10",
-      "12.05",
-      "241.00",
-      "14.10"
-    ],
-    "explanation": "sin(\u03b8_c) = n2 / n1 = 1.01 / 2.48. \u03b8_c = arcsin(1.01 / 2.48) = 24.1\u00b0.",
-    "tags": {
-      "grade": "11",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Geometrical Optics and Waves",
-      "subtopic": "Critical angle and total internal reflection",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_4"
-  },
-  {
-    "id": "PS11_P1_WAV_530",
-    "topic": "Geometrical Optics and Waves",
-    "subtopic": "Critical angle and total internal reflection",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "Calculate the critical angle for light passing from a medium with refractive index 1.82 into a medium with refractive index 1.46.",
-    "correct_answer": "53.3\u00b0",
-    "wrong_answers_pool": [
-      "533.00",
-      "43.30",
-      "26.65",
-      "106.60",
-      "5.33",
-      "63.30"
-    ],
-    "explanation": "sin(\u03b8_c) = n2 / n1 = 1.46 / 1.82. \u03b8_c = arcsin(1.46 / 1.82) = 53.3\u00b0.",
-    "tags": {
-      "grade": "11",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Geometrical Optics and Waves",
-      "subtopic": "Critical angle and total internal reflection",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_5"
-  },
-  {
-    "id": "PS11_P1_VEC_141",
-    "topic": "Vectors in two dimensions",
-    "subtopic": "Addition of vectors",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "Two forces act on an object: F1 = 63 N at 77\u00b0 and F2 = 36 N at 107\u00b0 (angles measured counterclockwise from positive x-axis). What is the magnitude of the resultant force?",
-    "correct_answer": "95.88 N",
-    "wrong_answers_pool": [
-      "47.94",
-      "105.88",
-      "958.80",
-      "191.76",
-      "85.88",
-      "9.59"
-    ],
-    "explanation": "Rx = 63cos(77) + 36cos(107) = 3.65 N. Ry = 63sin(77) + 36sin(107) = 95.81 N. Resultant = \u221a(3.65\u00b2 + 95.81\u00b2) = 95.88 N.",
-    "tags": {
-      "grade": "11",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Vectors in two dimensions",
-      "subtopic": "Addition of vectors",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_6"
-  },
-  {
-    "id": "PS11_P1_MAG_130",
+    "id": "PS11_P1_MAG_573",
     "topic": "Electromagnetism",
     "subtopic": "Faraday's Law of Electromagnetic Induction",
     "paper": "paper1",
     "difficulty": "hard",
-    "question": "A circular coil of 1704 turns and radius 0.08 m is placed in a magnetic field perpendicular to its plane. The magnetic field increases from 0.46 T to 2.16 T in 1.40 s. Calculate the induced emf.",
-    "correct_answer": "39.92",
+    "question": "A circular coil of 733 turns and radius 0.07 m is placed in a magnetic field perpendicular to its plane. The magnetic field increases from 0.89 T to 4.68 T in 0.83 s. Calculate the induced emf.",
+    "correct_answer": "58.21",
     "wrong_answers_pool": [
-      "399.20",
-      "49.92",
-      "3.99",
-      "19.96",
-      "29.92",
-      "79.84"
+      "116.42",
+      "582.10",
+      "29.11",
+      "68.21",
+      "48.21",
+      "5.82"
     ],
-    "explanation": "A = \u03c0r\u00b2 = \u03c0(0.08)\u00b2 = 0.0193 m\u00b2. \u0394\u03a6 = (B_f - B_i) * A = (2.16 - 0.46) * 0.0193. emf = N(\u0394\u03a6/\u0394t) = 1704 * \u0394\u03a6 / 1.40 = 39.92 V.",
+    "explanation": "A = \u03c0r\u00b2 = \u03c0(0.07)\u00b2 = 0.0174 m\u00b2. \u0394\u03a6 = (B_f - B_i) * A = (4.68 - 0.89) * 0.0174. emf = N(\u0394\u03a6/\u0394t) = 733 * \u0394\u03a6 / 0.83 = 58.21 V.",
     "tags": {
       "grade": "11",
       "subject": "Physical Sciences",
@@ -193,53 +81,81 @@
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_7"
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_3"
   },
   {
-    "id": "PS11_P1_WAV_602",
-    "topic": "Geometrical Optics and Waves",
-    "subtopic": "Snell's Law",
+    "id": "PS11_P1_ELE_842",
+    "topic": "Electrostatics and Electric Circuits",
+    "subtopic": "Electric Circuits",
     "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Light travels from a medium with refractive index 1.87 into a medium with refractive index 1.99. If the angle of incidence is 30\u00b0, calculate the angle of refraction.",
-    "correct_answer": "28.0\u00b0",
+    "difficulty": "hard",
+    "question": "A battery with an emf of 29 V and an internal resistance of 0.54 \u03a9 is connected to an external resistor of 15.02 \u03a9. Calculate the potential difference across the external resistor (terminal voltage).",
+    "correct_answer": "27.99",
     "wrong_answers_pool": [
-      "14.00",
-      "18.00",
-      "38.00",
-      "280.00",
-      "56.00",
-      "2.80"
+      "17.99",
+      "279.90",
+      "55.98",
+      "13.99",
+      "2.80",
+      "37.99"
     ],
-    "explanation": "n1 * sin(\u03b81) = n2 * sin(\u03b82) => 1.87 * sin(30\u00b0) = 1.99 * sin(\u03b82) => \u03b82 = arcsin((1.87 * sin(30\u00b0)) / 1.99) = 28.0\u00b0.",
+    "explanation": "I = emf / (R + r) = 29 / (15.02 + 0.54) = 1.863 A. V_load = I * R = 1.863 * 15.02 = 27.99 V.",
     "tags": {
       "grade": "11",
       "subject": "Physical Sciences",
       "paper": "paper1",
-      "topic": "Geometrical Optics and Waves",
-      "subtopic": "Snell's Law",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
+      "topic": "Electrostatics and Electric Circuits",
+      "subtopic": "Electric Circuits",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_8"
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_4"
   },
   {
-    "id": "PS11_P1_WAV_759",
+    "id": "PS11_P1_ELE_766",
+    "topic": "Electrostatics and Electric Circuits",
+    "subtopic": "Electric Circuits",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A battery with an emf of 17 V and an internal resistance of 1.22 \u03a9 is connected to an external resistor of 14.79 \u03a9. Calculate the potential difference across the external resistor (terminal voltage).",
+    "correct_answer": "15.70",
+    "wrong_answers_pool": [
+      "1.57",
+      "157.00",
+      "31.40",
+      "25.70",
+      "7.85",
+      "5.70"
+    ],
+    "explanation": "I = emf / (R + r) = 17 / (14.79 + 1.22) = 1.062 A. V_load = I * R = 1.062 * 14.79 = 15.70 V.",
+    "tags": {
+      "grade": "11",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electrostatics and Electric Circuits",
+      "subtopic": "Electric Circuits",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_5"
+  },
+  {
+    "id": "PS11_P1_WAV_118",
     "topic": "Geometrical Optics and Waves",
     "subtopic": "Critical angle and total internal reflection",
     "paper": "paper1",
     "difficulty": "hard",
-    "question": "Calculate the critical angle for light passing from a medium with refractive index 2.16 into a medium with refractive index 1.27.",
-    "correct_answer": "36.1\u00b0",
+    "question": "Calculate the critical angle for light passing from a medium with refractive index 2.13 into a medium with refractive index 1.35.",
+    "correct_answer": "39.2\u00b0",
     "wrong_answers_pool": [
-      "18.05",
-      "3.61",
-      "361.00",
-      "46.10",
-      "26.10",
-      "72.20"
+      "29.20",
+      "49.20",
+      "3.92",
+      "19.60",
+      "78.40",
+      "392.00"
     ],
-    "explanation": "sin(\u03b8_c) = n2 / n1 = 1.27 / 2.16. \u03b8_c = arcsin(1.27 / 2.16) = 36.1\u00b0.",
+    "explanation": "sin(\u03b8_c) = n2 / n1 = 1.35 / 2.13. \u03b8_c = arcsin(1.35 / 2.13) = 39.2\u00b0.",
     "tags": {
       "grade": "11",
       "subject": "Physical Sciences",
@@ -249,25 +165,111 @@
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_6"
+  },
+  {
+    "id": "PS11_P1_ELE_270",
+    "topic": "Electrostatics and Electric Circuits",
+    "subtopic": "Electric Circuits",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A battery with an emf of 42 V and an internal resistance of 2.65 \u03a9 is connected to an external resistor of 28.46 \u03a9. Calculate the potential difference across the external resistor (terminal voltage).",
+    "correct_answer": "38.43",
+    "wrong_answers_pool": [
+      "384.30",
+      "76.86",
+      "19.21",
+      "48.43",
+      "3.84",
+      "28.43"
+    ],
+    "explanation": "I = emf / (R + r) = 42 / (28.46 + 2.65) = 1.350 A. V_load = I * R = 1.350 * 28.46 = 38.43 V.",
+    "tags": {
+      "grade": "11",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electrostatics and Electric Circuits",
+      "subtopic": "Electric Circuits",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_7"
+  },
+  {
+    "id": "PS11_P1_VEC_068",
+    "topic": "Vectors in two dimensions",
+    "subtopic": "Resolution of vectors into components",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A force of 151 N acts at an angle of 24\u00b0 above the horizontal. Calculate its horizontal (Fx) and vertical (Fy) components.",
+    "correct_answer": "Fx = 137.95 N, Fy = 61.42 N",
+    "wrong_answers_pool": [
+      "Fx = 61.42 N, Fy = 137.95 N",
+      "Fx = 119.78 N, Fy = 50.77 N",
+      "Fx = 147.19 N, Fy = 58.70 N",
+      "Fx = 148.68 N, Fy = 60.18 N",
+      "Fx = 128.83 N, Fy = 51.73 N",
+      "Fx = 157.31 N, Fy = 68.89 N",
+      "Fx = 132.46 N, Fy = 69.27 N",
+      "Fx = 138.63 N, Fy = 72.07 N"
+    ],
+    "explanation": "Fx = F cos(\u03b8) = 151 cos(24\u00b0) = 137.95 N. Fy = F sin(\u03b8) = 151 sin(24\u00b0) = 61.42 N.",
+    "tags": {
+      "grade": "11",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Vectors in two dimensions",
+      "subtopic": "Resolution of vectors into components",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_8"
+  },
+  {
+    "id": "PS11_P1_MAG_830",
+    "topic": "Electromagnetism",
+    "subtopic": "Faraday's Law of Electromagnetic Induction",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A uniform magnetic field of 2.53 T passes perpendicular to a loop of area 371 cm\u00b2. Calculate the magnetic flux passing through the loop.",
+    "correct_answer": "9.38x10^-02",
+    "wrong_answers_pool": [
+      "9.10x10^00",
+      "8.48x10^-03",
+      "9.38x10^-03",
+      "1.06x10^-02",
+      "7.58x10^-04",
+      "9.03x10^-04"
+    ],
+    "explanation": "\u03a6 = B * A * cos(0\u00b0) = 2.53 * 0.0371 * 1 = 9.38x10^-02 Wb.",
+    "tags": {
+      "grade": "11",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electromagnetism",
+      "subtopic": "Faraday's Law of Electromagnetic Induction",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
     "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_9"
   },
   {
-    "id": "PS11_P1_MAG_280",
+    "id": "PS11_P1_MAG_839",
     "topic": "Electromagnetism",
     "subtopic": "Faraday's Law of Electromagnetic Induction",
     "paper": "paper1",
     "difficulty": "hard",
-    "question": "A circular coil of 255 turns and radius 0.31 m is placed in a magnetic field perpendicular to its plane. The magnetic field increases from 0.96 T to 4.25 T in 0.32 s. Calculate the induced emf.",
-    "correct_answer": "783.74",
+    "question": "A circular coil of 422 turns and radius 0.46 m is placed in a magnetic field perpendicular to its plane. The magnetic field increases from 0.78 T to 1.32 T in 0.33 s. Calculate the induced emf.",
+    "correct_answer": "455.99",
     "wrong_answers_pool": [
-      "793.74",
-      "391.87",
-      "7837.40",
-      "78.37",
-      "773.74",
-      "1567.48"
+      "445.99",
+      "465.99",
+      "4559.90",
+      "911.98",
+      "45.60",
+      "228.00"
     ],
-    "explanation": "A = \u03c0r\u00b2 = \u03c0(0.31)\u00b2 = 0.2992 m\u00b2. \u0394\u03a6 = (B_f - B_i) * A = (4.25 - 0.96) * 0.2992. emf = N(\u0394\u03a6/\u0394t) = 255 * \u0394\u03a6 / 0.32 = 783.74 V.",
+    "explanation": "A = \u03c0r\u00b2 = \u03c0(0.46)\u00b2 = 0.6742 m\u00b2. \u0394\u03a6 = (B_f - B_i) * A = (1.32 - 0.78) * 0.6742. emf = N(\u0394\u03a6/\u0394t) = 422 * \u0394\u03a6 / 0.33 = 455.99 V.",
     "tags": {
       "grade": "11",
       "subject": "Physical Sciences",
@@ -280,22 +282,50 @@
     "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_10"
   },
   {
-    "id": "PS11_P1_MAG_148",
+    "id": "PS11_P1_WAV_206",
+    "topic": "Geometrical Optics and Waves",
+    "subtopic": "Snell's Law",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Light travels from a medium with refractive index 1.78 into a medium with refractive index 1.64. If the angle of incidence is 45\u00b0, calculate the angle of refraction.",
+    "correct_answer": "50.4\u00b0",
+    "wrong_answers_pool": [
+      "5.04",
+      "60.40",
+      "25.20",
+      "504.00",
+      "100.80",
+      "40.40"
+    ],
+    "explanation": "n1 * sin(\u03b81) = n2 * sin(\u03b82) => 1.78 * sin(45\u00b0) = 1.64 * sin(\u03b82) => \u03b82 = arcsin((1.78 * sin(45\u00b0)) / 1.64) = 50.4\u00b0.",
+    "tags": {
+      "grade": "11",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Geometrical Optics and Waves",
+      "subtopic": "Snell's Law",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_11"
+  },
+  {
+    "id": "PS11_P1_MAG_851",
     "topic": "Electromagnetism",
     "subtopic": "Faraday's Law of Electromagnetic Induction",
     "paper": "paper1",
     "difficulty": "medium",
-    "question": "A uniform magnetic field of 0.10 T passes perpendicular to a loop of area 497 cm\u00b2. Calculate the magnetic flux passing through the loop.",
-    "correct_answer": "5.09x10^-03",
+    "question": "A uniform magnetic field of 2.07 T passes perpendicular to a loop of area 498 cm\u00b2. Calculate the magnetic flux passing through the loop.",
+    "correct_answer": "1.03x10^-01",
     "wrong_answers_pool": [
-      "5.47x10^-04",
-      "5.97x10^-04",
-      "5.54x10^-05",
-      "5.46x10^-04",
-      "4.46x10^-04",
-      "4.93x10^-01"
+      "8.88x10^-01",
+      "8.88x10^-04",
+      "1.03x10^-03",
+      "1.15x10^-02",
+      "9.59x10^-03",
+      "1.11x10^-03"
     ],
-    "explanation": "\u03a6 = B * A * cos(0\u00b0) = 0.10 * 0.0497 * 1 = 5.09x10^-03 Wb.",
+    "explanation": "\u03a6 = B * A * cos(0\u00b0) = 2.07 * 0.0498 * 1 = 1.03x10^-01 Wb.",
     "tags": {
       "grade": "11",
       "subject": "Physical Sciences",
@@ -305,81 +335,53 @@
       "cognitive_level": "Application",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_11"
-  },
-  {
-    "id": "PS11_P1_VEC_514",
-    "topic": "Vectors in two dimensions",
-    "subtopic": "Addition of vectors",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "Two forces act on an object: F1 = 94 N at 50\u00b0 and F2 = 28 N at 112\u00b0 (angles measured counterclockwise from positive x-axis). What is the magnitude of the resultant force?",
-    "correct_answer": "109.96 N",
-    "wrong_answers_pool": [
-      "1099.60",
-      "219.92",
-      "11.00",
-      "99.96",
-      "54.98",
-      "119.96"
-    ],
-    "explanation": "Rx = 94cos(50) + 28cos(112) = 49.93 N. Ry = 94sin(50) + 28sin(112) = 97.97 N. Resultant = \u221a(49.93\u00b2 + 97.97\u00b2) = 109.96 N.",
-    "tags": {
-      "grade": "11",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Vectors in two dimensions",
-      "subtopic": "Addition of vectors",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
     "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_12"
   },
   {
-    "id": "PS11_P1_MAG_094",
-    "topic": "Electromagnetism",
-    "subtopic": "Faraday's Law of Electromagnetic Induction",
+    "id": "PS11_P1_ELE_130",
+    "topic": "Electrostatics and Electric Circuits",
+    "subtopic": "Coulomb's Law",
     "paper": "paper1",
-    "difficulty": "hard",
-    "question": "A circular coil of 1282 turns and radius 0.48 m is placed in a magnetic field perpendicular to its plane. The magnetic field increases from 0.15 T to 4.97 T in 1.35 s. Calculate the induced emf.",
-    "correct_answer": "3311.97",
+    "difficulty": "medium",
+    "question": "Two point charges of 13.0 \u03bcC and 13.0 \u03bcC are separated by a distance of 66.0 cm. Calculate the electrostatic force between them. (k = 9x10^9 N\u00b7m\u00b2/C\u00b2)",
+    "correct_answer": "3.49",
     "wrong_answers_pool": [
-      "33119.70",
-      "3301.97",
-      "6623.94",
-      "1655.98",
-      "3321.97",
-      "331.20"
+      "6.98",
+      "0.35",
+      "34.90",
+      "13.49",
+      "12.18",
+      "1.75"
     ],
-    "explanation": "A = \u03c0r\u00b2 = \u03c0(0.48)\u00b2 = 0.7269 m\u00b2. \u0394\u03a6 = (B_f - B_i) * A = (4.97 - 0.15) * 0.7269. emf = N(\u0394\u03a6/\u0394t) = 1282 * \u0394\u03a6 / 1.35 = 3311.97 V.",
+    "explanation": "F = k * q1 * q2 / r\u00b2 = (9x10^9) * (1.3e-05) * (1.3e-05) / (0.66\u00b2) = 3.49 N.",
     "tags": {
       "grade": "11",
       "subject": "Physical Sciences",
       "paper": "paper1",
-      "topic": "Electromagnetism",
-      "subtopic": "Faraday's Law of Electromagnetic Induction",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
+      "topic": "Electrostatics and Electric Circuits",
+      "subtopic": "Coulomb's Law",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
     },
     "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_13"
   },
   {
-    "id": "PS11_P1_WAV_987",
+    "id": "PS11_P1_WAV_426",
     "topic": "Geometrical Optics and Waves",
     "subtopic": "Snell's Law",
     "paper": "paper1",
     "difficulty": "medium",
-    "question": "Light travels from a medium with refractive index 1.23 into a medium with refractive index 1.70. If the angle of incidence is 30\u00b0, calculate the angle of refraction.",
-    "correct_answer": "21.1\u00b0",
+    "question": "Light travels from a medium with refractive index 1.94 into a medium with refractive index 1.50. If the angle of incidence is 17\u00b0, calculate the angle of refraction.",
+    "correct_answer": "22.2\u00b0",
     "wrong_answers_pool": [
-      "10.55",
-      "211.00",
-      "2.11",
-      "31.10",
-      "42.20",
-      "11.10"
+      "11.10",
+      "2.22",
+      "44.40",
+      "222.00",
+      "12.20",
+      "32.20"
     ],
-    "explanation": "n1 * sin(\u03b81) = n2 * sin(\u03b82) => 1.23 * sin(30\u00b0) = 1.70 * sin(\u03b82) => \u03b82 = arcsin((1.23 * sin(30\u00b0)) / 1.70) = 21.1\u00b0.",
+    "explanation": "n1 * sin(\u03b81) = n2 * sin(\u03b82) => 1.94 * sin(17\u00b0) = 1.50 * sin(\u03b82) => \u03b82 = arcsin((1.94 * sin(17\u00b0)) / 1.50) = 22.2\u00b0.",
     "tags": {
       "grade": "11",
       "subject": "Physical Sciences",
@@ -392,22 +394,50 @@
     "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_14"
   },
   {
-    "id": "PS11_P1_NEW_251",
+    "id": "PS11_P1_MAG_309",
+    "topic": "Electromagnetism",
+    "subtopic": "Faraday's Law of Electromagnetic Induction",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A circular coil of 1199 turns and radius 0.48 m is placed in a magnetic field perpendicular to its plane. The magnetic field increases from 0.47 T to 2.58 T in 0.85 s. Calculate the induced emf.",
+    "correct_answer": "2198.43",
+    "wrong_answers_pool": [
+      "2188.43",
+      "2208.43",
+      "1099.21",
+      "219.84",
+      "21984.30",
+      "4396.86"
+    ],
+    "explanation": "A = \u03c0r\u00b2 = \u03c0(0.48)\u00b2 = 0.7369 m\u00b2. \u0394\u03a6 = (B_f - B_i) * A = (2.58 - 0.47) * 0.7369. emf = N(\u0394\u03a6/\u0394t) = 1199 * \u0394\u03a6 / 0.85 = 2198.43 V.",
+    "tags": {
+      "grade": "11",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electromagnetism",
+      "subtopic": "Faraday's Law of Electromagnetic Induction",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_15"
+  },
+  {
+    "id": "PS11_P1_NEW_258",
     "topic": "Newton's Laws and Gravitation",
     "subtopic": "Newton's Law of Universal Gravitation",
     "paper": "paper1",
     "difficulty": "medium",
-    "question": "Calculate the gravitational force of attraction between two masses, 22 kg and 675 kg, separated by a distance of 24 m. (G = 6.67x10^-11 N\u00b7m\u00b2/kg\u00b2)",
-    "correct_answer": "1.72x10^-09",
+    "question": "Calculate the gravitational force of attraction between two masses, 225 kg and 461 kg, separated by a distance of 39 m. (G = 6.67x10^-11 N\u00b7m\u00b2/kg\u00b2)",
+    "correct_answer": "4.55x10^-09",
     "wrong_answers_pool": [
-      "1.53x10^-08",
-      "1.58x10^-10",
-      "3.93x10^-09",
-      "3.73x10^-09",
-      "1.91x10^-08",
-      "9.20x10^-10"
+      "2.21x10^-09",
+      "5.19x10^-08",
+      "7.80x10^-09",
+      "8.02x10^-09",
+      "9.90x10^-09",
+      "5.43x10^-10"
     ],
-    "explanation": "F = G * m1 * m2 / r\u00b2 = (6.67x10^-11) * 22 * 675 / 24\u00b2 = 1.72x10^-09 N.",
+    "explanation": "F = G * m1 * m2 / r\u00b2 = (6.67x10^-11) * 225 * 461 / 39\u00b2 = 4.55x10^-09 N.",
     "tags": {
       "grade": "11",
       "subject": "Physical Sciences",
@@ -417,27 +447,55 @@
       "cognitive_level": "Application",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_15"
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_16"
   },
   {
-    "id": "PS11_P1_VEC_212",
+    "id": "PS11_P1_MAG_261",
+    "topic": "Electromagnetism",
+    "subtopic": "Faraday's Law of Electromagnetic Induction",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A circular coil of 255 turns and radius 0.17 m is placed in a magnetic field perpendicular to its plane. The magnetic field increases from 0.87 T to 4.44 T in 1.35 s. Calculate the induced emf.",
+    "correct_answer": "64.38",
+    "wrong_answers_pool": [
+      "128.76",
+      "643.80",
+      "6.44",
+      "54.38",
+      "74.38",
+      "32.19"
+    ],
+    "explanation": "A = \u03c0r\u00b2 = \u03c0(0.17)\u00b2 = 0.0958 m\u00b2. \u0394\u03a6 = (B_f - B_i) * A = (4.44 - 0.87) * 0.0958. emf = N(\u0394\u03a6/\u0394t) = 255 * \u0394\u03a6 / 1.35 = 64.38 V.",
+    "tags": {
+      "grade": "11",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electromagnetism",
+      "subtopic": "Faraday's Law of Electromagnetic Induction",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_17"
+  },
+  {
+    "id": "PS11_P1_VEC_565",
     "topic": "Vectors in two dimensions",
     "subtopic": "Resolution of vectors into components",
     "paper": "paper1",
     "difficulty": "medium",
-    "question": "A force of 10 N acts at an angle of 28\u00b0 above the horizontal. Calculate its horizontal (Fx) and vertical (Fy) components.",
-    "correct_answer": "Fx = 8.83 N, Fy = 4.69 N",
+    "question": "A force of 64 N acts at an angle of 34\u00b0 above the horizontal. Calculate its horizontal (Fx) and vertical (Fy) components.",
+    "correct_answer": "Fx = 53.06 N, Fy = 35.79 N",
     "wrong_answers_pool": [
-      "Fx = 4.69 N, Fy = 8.83 N",
-      "Fx = 8.82 N, Fy = 4.38 N",
-      "Fx = 8.83 N, Fy = 4.46 N",
-      "Fx = 10.30 N, Fy = 5.30 N",
-      "Fx = 8.04 N, Fy = 5.12 N",
-      "Fx = 8.11 N, Fy = 4.00 N",
-      "Fx = 8.26 N, Fy = 4.75 N",
-      "Fx = 8.45 N, Fy = 4.28 N"
+      "Fx = 35.79 N, Fy = 53.06 N",
+      "Fx = 63.10 N, Fy = 29.17 N",
+      "Fx = 48.57 N, Fy = 42.17 N",
+      "Fx = 62.42 N, Fy = 41.86 N",
+      "Fx = 43.19 N, Fy = 31.33 N",
+      "Fx = 47.91 N, Fy = 41.81 N",
+      "Fx = 48.29 N, Fy = 29.24 N",
+      "Fx = 59.07 N, Fy = 42.71 N"
     ],
-    "explanation": "Fx = F cos(\u03b8) = 10 cos(28\u00b0) = 8.83 N. Fy = F sin(\u03b8) = 10 sin(28\u00b0) = 4.69 N.",
+    "explanation": "Fx = F cos(\u03b8) = 64 cos(34\u00b0) = 53.06 N. Fy = F sin(\u03b8) = 64 sin(34\u00b0) = 35.79 N.",
     "tags": {
       "grade": "11",
       "subject": "Physical Sciences",
@@ -447,81 +505,83 @@
       "cognitive_level": "Application",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_16"
-  },
-  {
-    "id": "PS11_P1_NEW_094",
-    "topic": "Newton's Laws and Gravitation",
-    "subtopic": "Newton's Second Law",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "A 21 kg block is pulled along a rough horizontal surface by a force of 231 N at an angle of 48\u00b0 above the horizontal. If the kinetic friction is 51 N, calculate the acceleration of the block.",
-    "correct_answer": "4.93",
-    "wrong_answers_pool": [
-      "49.30",
-      "2.46",
-      "0.49",
-      "9.86",
-      "14.93",
-      "24.30"
-    ],
-    "explanation": "Fx = F_applied * cos(\u03b8) = 231 * cos(48\u00b0) = 154.57 N. F_net = Fx - fk = 154.57 - 51 = 103.57 N. a = F_net / m = 103.57 / 21 = 4.93 m/s\u00b2.",
-    "tags": {
-      "grade": "11",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Newton's Laws and Gravitation",
-      "subtopic": "Newton's Second Law",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_17"
-  },
-  {
-    "id": "PS11_P1_NEW_566",
-    "topic": "Newton's Laws and Gravitation",
-    "subtopic": "Newton's Law of Universal Gravitation",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Calculate the gravitational force of attraction between two masses, 242 kg and 812 kg, separated by a distance of 16 m. (G = 6.67x10^-11 N\u00b7m\u00b2/kg\u00b2)",
-    "correct_answer": "5.12x10^-08",
-    "wrong_answers_pool": [
-      "1.18x10^-07",
-      "4.10x10^-09",
-      "1.19x10^-07",
-      "2.27x10^-08",
-      "5.93x10^-07",
-      "2.67x10^-08"
-    ],
-    "explanation": "F = G * m1 * m2 / r\u00b2 = (6.67x10^-11) * 242 * 812 / 16\u00b2 = 5.12x10^-08 N.",
-    "tags": {
-      "grade": "11",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Newton's Laws and Gravitation",
-      "subtopic": "Newton's Law of Universal Gravitation",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
     "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_18"
   },
   {
-    "id": "PS11_P1_MAG_093",
+    "id": "PS11_P1_VEC_505",
+    "topic": "Vectors in two dimensions",
+    "subtopic": "Resolution of vectors into components",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A force of 56 N acts at an angle of 79\u00b0 above the horizontal. Calculate its horizontal (Fx) and vertical (Fy) components.",
+    "correct_answer": "Fx = 10.69 N, Fy = 54.97 N",
+    "wrong_answers_pool": [
+      "Fx = 54.97 N, Fy = 10.69 N",
+      "Fx = 10.44 N, Fy = 54.48 N",
+      "Fx = 11.29 N, Fy = 48.64 N",
+      "Fx = 12.33 N, Fy = 61.69 N",
+      "Fx = 11.23 N, Fy = 46.56 N",
+      "Fx = 11.81 N, Fy = 60.56 N",
+      "Fx = 12.31 N, Fy = 55.47 N",
+      "Fx = 10.49 N, Fy = 44.97 N"
+    ],
+    "explanation": "Fx = F cos(\u03b8) = 56 cos(79\u00b0) = 10.69 N. Fy = F sin(\u03b8) = 56 sin(79\u00b0) = 54.97 N.",
+    "tags": {
+      "grade": "11",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Vectors in two dimensions",
+      "subtopic": "Resolution of vectors into components",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_19"
+  },
+  {
+    "id": "PS11_P1_MAG_548",
+    "topic": "Electromagnetism",
+    "subtopic": "Faraday's Law of Electromagnetic Induction",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A circular coil of 773 turns and radius 0.19 m is placed in a magnetic field perpendicular to its plane. The magnetic field increases from 0.62 T to 3.12 T in 1.53 s. Calculate the induced emf.",
+    "correct_answer": "142.66",
+    "wrong_answers_pool": [
+      "285.32",
+      "152.66",
+      "132.66",
+      "1426.60",
+      "71.33",
+      "14.27"
+    ],
+    "explanation": "A = \u03c0r\u00b2 = \u03c0(0.19)\u00b2 = 0.1129 m\u00b2. \u0394\u03a6 = (B_f - B_i) * A = (3.12 - 0.62) * 0.1129. emf = N(\u0394\u03a6/\u0394t) = 773 * \u0394\u03a6 / 1.53 = 142.66 V.",
+    "tags": {
+      "grade": "11",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electromagnetism",
+      "subtopic": "Faraday's Law of Electromagnetic Induction",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_20"
+  },
+  {
+    "id": "PS11_P1_MAG_826",
     "topic": "Electromagnetism",
     "subtopic": "Faraday's Law of Electromagnetic Induction",
     "paper": "paper1",
     "difficulty": "medium",
-    "question": "A uniform magnetic field of 1.54 T passes perpendicular to a loop of area 91 cm\u00b2. Calculate the magnetic flux passing through the loop.",
-    "correct_answer": "1.40x10^-02",
+    "question": "A uniform magnetic field of 2.13 T passes perpendicular to a loop of area 123 cm\u00b2. Calculate the magnetic flux passing through the loop.",
+    "correct_answer": "2.62x10^-02",
     "wrong_answers_pool": [
-      "1.38x10^-03",
-      "1.37x10^-04",
-      "1.62x10^-01",
-      "1.57x10^00",
-      "1.32x10^-04",
-      "1.60x10^-03"
+      "2.19x10^-03",
+      "2.49x10^-03",
+      "3.01x10^-04",
+      "2.86x10^-03",
+      "2.55x10^-04",
+      "3.11x10^-03"
     ],
-    "explanation": "\u03a6 = B * A * cos(0\u00b0) = 1.54 * 0.0091 * 1 = 1.40x10^-02 Wb.",
+    "explanation": "\u03a6 = B * A * cos(0\u00b0) = 2.13 * 0.0123 * 1 = 2.62x10^-02 Wb.",
     "tags": {
       "grade": "11",
       "subject": "Physical Sciences",
@@ -531,7 +591,175 @@
       "cognitive_level": "Application",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_19"
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_21"
+  },
+  {
+    "id": "PS11_P1_WAV_624",
+    "topic": "Geometrical Optics and Waves",
+    "subtopic": "Snell's Law",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Light travels from a medium with refractive index 1.13 into a medium with refractive index 1.62. If the angle of incidence is 11\u00b0, calculate the angle of refraction.",
+    "correct_answer": "7.6\u00b0",
+    "wrong_answers_pool": [
+      "0.76",
+      "3.80",
+      "57.76",
+      "17.60",
+      "76.00",
+      "15.20"
+    ],
+    "explanation": "n1 * sin(\u03b81) = n2 * sin(\u03b82) => 1.13 * sin(11\u00b0) = 1.62 * sin(\u03b82) => \u03b82 = arcsin((1.13 * sin(11\u00b0)) / 1.62) = 7.6\u00b0.",
+    "tags": {
+      "grade": "11",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Geometrical Optics and Waves",
+      "subtopic": "Snell's Law",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_22"
+  },
+  {
+    "id": "PS11_P1_WAV_193",
+    "topic": "Geometrical Optics and Waves",
+    "subtopic": "Critical angle and total internal reflection",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "Calculate the critical angle for light passing from a medium with refractive index 1.98 into a medium with refractive index 1.21.",
+    "correct_answer": "37.6\u00b0",
+    "wrong_answers_pool": [
+      "47.60",
+      "3.76",
+      "27.60",
+      "376.00",
+      "18.80",
+      "75.20"
+    ],
+    "explanation": "sin(\u03b8_c) = n2 / n1 = 1.21 / 1.98. \u03b8_c = arcsin(1.21 / 1.98) = 37.6\u00b0.",
+    "tags": {
+      "grade": "11",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Geometrical Optics and Waves",
+      "subtopic": "Critical angle and total internal reflection",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_23"
+  },
+  {
+    "id": "PS11_P1_WAV_308",
+    "topic": "Geometrical Optics and Waves",
+    "subtopic": "Snell's Law",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Light travels from a medium with refractive index 1.37 into a medium with refractive index 1.16. If the angle of incidence is 17\u00b0, calculate the angle of refraction.",
+    "correct_answer": "20.3\u00b0",
+    "wrong_answers_pool": [
+      "2.03",
+      "30.30",
+      "10.30",
+      "40.60",
+      "203.00",
+      "10.15"
+    ],
+    "explanation": "n1 * sin(\u03b81) = n2 * sin(\u03b82) => 1.37 * sin(17\u00b0) = 1.16 * sin(\u03b82) => \u03b82 = arcsin((1.37 * sin(17\u00b0)) / 1.16) = 20.3\u00b0.",
+    "tags": {
+      "grade": "11",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Geometrical Optics and Waves",
+      "subtopic": "Snell's Law",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_24"
+  },
+  {
+    "id": "PS11_P1_NEW_325",
+    "topic": "Newton's Laws and Gravitation",
+    "subtopic": "Newton's Law of Universal Gravitation",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Calculate the gravitational force of attraction between two masses, 82 kg and 987 kg, separated by a distance of 41 m. (G = 6.67x10^-11 N\u00b7m\u00b2/kg\u00b2)",
+    "correct_answer": "3.21x10^-09",
+    "wrong_answers_pool": [
+      "1.64x10^-09",
+      "2.90x10^-10",
+      "5.34x10^-09",
+      "3.80x10^-08",
+      "3.74x10^-10",
+      "3.52x10^-10"
+    ],
+    "explanation": "F = G * m1 * m2 / r\u00b2 = (6.67x10^-11) * 82 * 987 / 41\u00b2 = 3.21x10^-09 N.",
+    "tags": {
+      "grade": "11",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Newton's Laws and Gravitation",
+      "subtopic": "Newton's Law of Universal Gravitation",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_25"
+  },
+  {
+    "id": "PS11_P1_MAG_969",
+    "topic": "Electromagnetism",
+    "subtopic": "Faraday's Law of Electromagnetic Induction",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A circular coil of 550 turns and radius 0.43 m is placed in a magnetic field perpendicular to its plane. The magnetic field increases from 0.33 T to 4.59 T in 0.57 s. Calculate the induced emf.",
+    "correct_answer": "2399.43",
+    "wrong_answers_pool": [
+      "2409.43",
+      "23994.30",
+      "2389.43",
+      "1199.71",
+      "239.94",
+      "4798.86"
+    ],
+    "explanation": "A = \u03c0r\u00b2 = \u03c0(0.43)\u00b2 = 0.5842 m\u00b2. \u0394\u03a6 = (B_f - B_i) * A = (4.59 - 0.33) * 0.5842. emf = N(\u0394\u03a6/\u0394t) = 550 * \u0394\u03a6 / 0.57 = 2399.43 V.",
+    "tags": {
+      "grade": "11",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electromagnetism",
+      "subtopic": "Faraday's Law of Electromagnetic Induction",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_26"
+  },
+  {
+    "id": "PS11_P1_MAG_867",
+    "topic": "Electromagnetism",
+    "subtopic": "Faraday's Law of Electromagnetic Induction",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A uniform magnetic field of 1.71 T passes perpendicular to a loop of area 152 cm\u00b2. Calculate the magnetic flux passing through the loop.",
+    "correct_answer": "2.60x10^-02",
+    "wrong_answers_pool": [
+      "3.03x10^-04",
+      "3.01x10^-04",
+      "2.21x10^00",
+      "2.82x10^00",
+      "2.58x10^00",
+      "2.17x10^-03"
+    ],
+    "explanation": "\u03a6 = B * A * cos(0\u00b0) = 1.71 * 0.0152 * 1 = 2.60x10^-02 Wb.",
+    "tags": {
+      "grade": "11",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electromagnetism",
+      "subtopic": "Faraday's Law of Electromagnetic Induction",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_27"
   },
   {
     "id": "PS11_P1_ELE_379",
@@ -559,81 +787,25 @@
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_20"
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_28"
   },
   {
-    "id": "PS11_P1_VEC_844",
-    "topic": "Vectors in two dimensions",
-    "subtopic": "Addition of vectors",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "Two forces act on an object: F1 = 25 N at 42\u00b0 and F2 = 93 N at 125\u00b0 (angles measured counterclockwise from positive x-axis). What is the magnitude of the resultant force?",
-    "correct_answer": "99.20 N",
-    "wrong_answers_pool": [
-      "109.20",
-      "9.92",
-      "89.20",
-      "49.60",
-      "992.00",
-      "198.40"
-    ],
-    "explanation": "Rx = 25cos(42) + 93cos(125) = -34.76 N. Ry = 25sin(42) + 93sin(125) = 92.91 N. Resultant = \u221a(-34.76\u00b2 + 92.91\u00b2) = 99.20 N.",
-    "tags": {
-      "grade": "11",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Vectors in two dimensions",
-      "subtopic": "Addition of vectors",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_21"
-  },
-  {
-    "id": "PS11_P1_WAV_011",
-    "topic": "Geometrical Optics and Waves",
-    "subtopic": "Critical angle and total internal reflection",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "Calculate the critical angle for light passing from a medium with refractive index 1.88 into a medium with refractive index 1.35.",
-    "correct_answer": "45.6\u00b0",
-    "wrong_answers_pool": [
-      "456.00",
-      "22.80",
-      "91.20",
-      "55.60",
-      "4.56",
-      "35.60"
-    ],
-    "explanation": "sin(\u03b8_c) = n2 / n1 = 1.35 / 1.88. \u03b8_c = arcsin(1.35 / 1.88) = 45.6\u00b0.",
-    "tags": {
-      "grade": "11",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Geometrical Optics and Waves",
-      "subtopic": "Critical angle and total internal reflection",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_22"
-  },
-  {
-    "id": "PS11_P1_NEW_164",
+    "id": "PS11_P1_NEW_729",
     "topic": "Newton's Laws and Gravitation",
     "subtopic": "Newton's Second Law",
     "paper": "paper1",
     "difficulty": "hard",
-    "question": "A 97 kg block is pulled along a rough horizontal surface by a force of 830 N at an angle of 40\u00b0 above the horizontal. If the kinetic friction is 55 N, calculate the acceleration of the block.",
-    "correct_answer": "5.99",
+    "question": "A 22 kg block is pulled along a rough horizontal surface by a force of 253 N at an angle of 40\u00b0 above the horizontal. If the kinetic friction is 98 N, calculate the acceleration of the block.",
+    "correct_answer": "4.35",
     "wrong_answers_pool": [
-      "0.60",
-      "35.88",
-      "15.99",
-      "3.00",
-      "59.90",
-      "11.98"
+      "18.92",
+      "8.70",
+      "0.43",
+      "14.35",
+      "2.17",
+      "43.50"
     ],
-    "explanation": "Fx = F_applied * cos(\u03b8) = 830 * cos(40\u00b0) = 635.82 N. F_net = Fx - fk = 635.82 - 55 = 580.82 N. a = F_net / m = 580.82 / 97 = 5.99 m/s\u00b2.",
+    "explanation": "Fx = F_applied * cos(\u03b8) = 253 * cos(40\u00b0) = 193.81 N. F_net = Fx - fk = 193.81 - 98 = 95.81 N. a = F_net / m = 95.81 / 22 = 4.35 m/s\u00b2.",
     "tags": {
       "grade": "11",
       "subject": "Physical Sciences",
@@ -643,113 +815,53 @@
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_23"
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_29"
   },
   {
-    "id": "PS11_P1_VEC_611",
-    "topic": "Vectors in two dimensions",
-    "subtopic": "Resolution of vectors into components",
+    "id": "PS11_P1_MAG_440",
+    "topic": "Electromagnetism",
+    "subtopic": "Faraday's Law of Electromagnetic Induction",
     "paper": "paper1",
-    "difficulty": "medium",
-    "question": "A force of 196 N acts at an angle of 72\u00b0 above the horizontal. Calculate its horizontal (Fx) and vertical (Fy) components.",
-    "correct_answer": "Fx = 60.57 N, Fy = 186.41 N",
+    "difficulty": "hard",
+    "question": "A circular coil of 1801 turns and radius 0.07 m is placed in a magnetic field perpendicular to its plane. The magnetic field increases from 0.23 T to 4.46 T in 1.61 s. Calculate the induced emf.",
+    "correct_answer": "70.53",
     "wrong_answers_pool": [
-      "Fx = 186.41 N, Fy = 60.57 N",
-      "Fx = 68.05 N, Fy = 210.35 N",
-      "Fx = 62.96 N, Fy = 219.71 N",
-      "Fx = 56.98 N, Fy = 208.27 N",
-      "Fx = 70.34 N, Fy = 203.48 N",
-      "Fx = 55.14 N, Fy = 157.37 N",
-      "Fx = 55.03 N, Fy = 187.68 N",
-      "Fx = 55.00 N, Fy = 197.47 N"
+      "80.53",
+      "35.27",
+      "141.06",
+      "7.05",
+      "705.30",
+      "60.53"
     ],
-    "explanation": "Fx = F cos(\u03b8) = 196 cos(72\u00b0) = 60.57 N. Fy = F sin(\u03b8) = 196 sin(72\u00b0) = 186.41 N.",
+    "explanation": "A = \u03c0r\u00b2 = \u03c0(0.07)\u00b2 = 0.0149 m\u00b2. \u0394\u03a6 = (B_f - B_i) * A = (4.46 - 0.23) * 0.0149. emf = N(\u0394\u03a6/\u0394t) = 1801 * \u0394\u03a6 / 1.61 = 70.53 V.",
     "tags": {
       "grade": "11",
       "subject": "Physical Sciences",
       "paper": "paper1",
-      "topic": "Vectors in two dimensions",
-      "subtopic": "Resolution of vectors into components",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
+      "topic": "Electromagnetism",
+      "subtopic": "Faraday's Law of Electromagnetic Induction",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_24"
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_30"
   },
   {
-    "id": "PS11_P1_VEC_656",
-    "topic": "Vectors in two dimensions",
-    "subtopic": "Resolution of vectors into components",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "A force of 105 N acts at an angle of 75\u00b0 above the horizontal. Calculate its horizontal (Fx) and vertical (Fy) components.",
-    "correct_answer": "Fx = 27.18 N, Fy = 101.42 N",
-    "wrong_answers_pool": [
-      "Fx = 101.42 N, Fy = 27.18 N",
-      "Fx = 29.90 N, Fy = 111.80 N",
-      "Fx = 32.04 N, Fy = 106.14 N",
-      "Fx = 27.86 N, Fy = 121.62 N",
-      "Fx = 24.04 N, Fy = 96.50 N",
-      "Fx = 25.41 N, Fy = 121.68 N",
-      "Fx = 25.85 N, Fy = 117.53 N",
-      "Fx = 29.87 N, Fy = 81.51 N"
-    ],
-    "explanation": "Fx = F cos(\u03b8) = 105 cos(75\u00b0) = 27.18 N. Fy = F sin(\u03b8) = 105 sin(75\u00b0) = 101.42 N.",
-    "tags": {
-      "grade": "11",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Vectors in two dimensions",
-      "subtopic": "Resolution of vectors into components",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_25"
-  },
-  {
-    "id": "PS11_P1_NEW_733",
-    "topic": "Newton's Laws and Gravitation",
-    "subtopic": "Newton's Law of Universal Gravitation",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Calculate the gravitational force of attraction between two masses, 257 kg and 655 kg, separated by a distance of 41 m. (G = 6.67x10^-11 N\u00b7m\u00b2/kg\u00b2)",
-    "correct_answer": "6.68x10^-09",
-    "wrong_answers_pool": [
-      "3.48x10^-09",
-      "6.52x10^-08",
-      "7.08x10^-10",
-      "6.20x10^-08",
-      "2.71x10^-09",
-      "5.63x10^-08"
-    ],
-    "explanation": "F = G * m1 * m2 / r\u00b2 = (6.67x10^-11) * 257 * 655 / 41\u00b2 = 6.68x10^-09 N.",
-    "tags": {
-      "grade": "11",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Newton's Laws and Gravitation",
-      "subtopic": "Newton's Law of Universal Gravitation",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_26"
-  },
-  {
-    "id": "PS11_P1_MAG_540",
+    "id": "PS11_P1_MAG_476",
     "topic": "Electromagnetism",
     "subtopic": "Faraday's Law of Electromagnetic Induction",
     "paper": "paper1",
     "difficulty": "medium",
-    "question": "A uniform magnetic field of 2.55 T passes perpendicular to a loop of area 44 cm\u00b2. Calculate the magnetic flux passing through the loop.",
-    "correct_answer": "1.12x10^-02",
+    "question": "A uniform magnetic field of 0.61 T passes perpendicular to a loop of area 160 cm\u00b2. Calculate the magnetic flux passing through the loop.",
+    "correct_answer": "9.82x10^-03",
     "wrong_answers_pool": [
-      "9.68x10^-01",
-      "1.25x10^-03",
-      "9.58x10^-01",
-      "1.08x10^00",
-      "1.20x10^-04",
-      "1.03x10^-04"
+      "9.75x10^-04",
+      "8.07x10^-04",
+      "1.17x10^-01",
+      "8.19x10^-01",
+      "9.24x10^-04",
+      "1.12x10^00"
     ],
-    "explanation": "\u03a6 = B * A * cos(0\u00b0) = 2.55 * 0.0044 * 1 = 1.12x10^-02 Wb.",
+    "explanation": "\u03a6 = B * A * cos(0\u00b0) = 0.61 * 0.0160 * 1 = 9.82x10^-03 Wb.",
     "tags": {
       "grade": "11",
       "subject": "Physical Sciences",
@@ -759,589 +871,137 @@
       "cognitive_level": "Application",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_27"
-  },
-  {
-    "id": "PS11_P1_VEC_657",
-    "topic": "Vectors in two dimensions",
-    "subtopic": "Resolution of vectors into components",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "A force of 73 N acts at an angle of 72\u00b0 above the horizontal. Calculate its horizontal (Fx) and vertical (Fy) components.",
-    "correct_answer": "Fx = 22.56 N, Fy = 69.43 N",
-    "wrong_answers_pool": [
-      "Fx = 69.43 N, Fy = 22.56 N",
-      "Fx = 24.65 N, Fy = 73.93 N",
-      "Fx = 21.05 N, Fy = 80.79 N",
-      "Fx = 18.11 N, Fy = 75.46 N",
-      "Fx = 26.39 N, Fy = 79.90 N",
-      "Fx = 25.69 N, Fy = 64.40 N",
-      "Fx = 26.97 N, Fy = 57.36 N",
-      "Fx = 22.06 N, Fy = 69.47 N"
-    ],
-    "explanation": "Fx = F cos(\u03b8) = 73 cos(72\u00b0) = 22.56 N. Fy = F sin(\u03b8) = 73 sin(72\u00b0) = 69.43 N.",
-    "tags": {
-      "grade": "11",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Vectors in two dimensions",
-      "subtopic": "Resolution of vectors into components",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_28"
-  },
-  {
-    "id": "PS11_P1_WAV_303",
-    "topic": "Geometrical Optics and Waves",
-    "subtopic": "Snell's Law",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Light travels from a medium with refractive index 1.09 into a medium with refractive index 1.77. If the angle of incidence is 10\u00b0, calculate the angle of refraction.",
-    "correct_answer": "6.1\u00b0",
-    "wrong_answers_pool": [
-      "61.00",
-      "16.10",
-      "3.05",
-      "12.20",
-      "37.21",
-      "0.61"
-    ],
-    "explanation": "n1 * sin(\u03b81) = n2 * sin(\u03b82) => 1.09 * sin(10\u00b0) = 1.77 * sin(\u03b82) => \u03b82 = arcsin((1.09 * sin(10\u00b0)) / 1.77) = 6.1\u00b0.",
-    "tags": {
-      "grade": "11",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Geometrical Optics and Waves",
-      "subtopic": "Snell's Law",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_29"
-  },
-  {
-    "id": "PS11_P1_ELE_685",
-    "topic": "Electrostatics and Electric Circuits",
-    "subtopic": "Coulomb's Law",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Two point charges of 12.0 \u03bcC and 4.0 \u03bcC are separated by a distance of 36.0 cm. Calculate the electrostatic force between them. (k = 9x10^9 N\u00b7m\u00b2/C\u00b2)",
-    "correct_answer": "3.33",
-    "wrong_answers_pool": [
-      "33.30",
-      "11.09",
-      "0.33",
-      "13.33",
-      "6.66",
-      "1.67"
-    ],
-    "explanation": "F = k * q1 * q2 / r\u00b2 = (9x10^9) * (1.2e-05) * (4e-06) / (0.36\u00b2) = 3.33 N.",
-    "tags": {
-      "grade": "11",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Electrostatics and Electric Circuits",
-      "subtopic": "Coulomb's Law",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_30"
-  },
-  {
-    "id": "PS11_P1_VEC_504",
-    "topic": "Vectors in two dimensions",
-    "subtopic": "Addition of vectors",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "Two forces act on an object: F1 = 33 N at 49\u00b0 and F2 = 76 N at 158\u00b0 (angles measured counterclockwise from positive x-axis). What is the magnitude of the resultant force?",
-    "correct_answer": "72.33 N",
-    "wrong_answers_pool": [
-      "723.30",
-      "36.16",
-      "144.66",
-      "82.33",
-      "7.23",
-      "62.33"
-    ],
-    "explanation": "Rx = 33cos(49) + 76cos(158) = -48.82 N. Ry = 33sin(49) + 76sin(158) = 53.38 N. Resultant = \u221a(-48.82\u00b2 + 53.38\u00b2) = 72.33 N.",
-    "tags": {
-      "grade": "11",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Vectors in two dimensions",
-      "subtopic": "Addition of vectors",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
     "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_31"
   },
   {
-    "id": "PS11_P1_ELE_165",
+    "id": "PS11_P1_ELE_163",
     "topic": "Electrostatics and Electric Circuits",
-    "subtopic": "Coulomb's Law",
+    "subtopic": "Electric Circuits",
     "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Two point charges of 2.0 \u03bcC and 13.0 \u03bcC are separated by a distance of 56.0 cm. Calculate the electrostatic force between them. (k = 9x10^9 N\u00b7m\u00b2/C\u00b2)",
-    "correct_answer": "0.75",
+    "difficulty": "hard",
+    "question": "A battery with an emf of 13 V and an internal resistance of 0.69 \u03a9 is connected to an external resistor of 28.94 \u03a9. Calculate the potential difference across the external resistor (terminal voltage).",
+    "correct_answer": "12.70",
     "wrong_answers_pool": [
-      "1.50",
-      "0.56",
-      "7.50",
-      "0.38",
-      "0.07",
-      "10.75"
+      "2.70",
+      "1.27",
+      "25.40",
+      "6.35",
+      "22.70",
+      "127.00"
     ],
-    "explanation": "F = k * q1 * q2 / r\u00b2 = (9x10^9) * (2e-06) * (1.3e-05) / (0.56\u00b2) = 0.75 N.",
+    "explanation": "I = emf / (R + r) = 13 / (28.94 + 0.69) = 0.439 A. V_load = I * R = 0.439 * 28.94 = 12.70 V.",
     "tags": {
       "grade": "11",
       "subject": "Physical Sciences",
       "paper": "paper1",
       "topic": "Electrostatics and Electric Circuits",
-      "subtopic": "Coulomb's Law",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
+      "subtopic": "Electric Circuits",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
     },
     "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_32"
   },
   {
-    "id": "PS11_P1_ELE_252",
-    "topic": "Electrostatics and Electric Circuits",
-    "subtopic": "Coulomb's Law",
+    "id": "PS11_P1_MAG_024",
+    "topic": "Electromagnetism",
+    "subtopic": "Faraday's Law of Electromagnetic Induction",
     "paper": "paper1",
     "difficulty": "medium",
-    "question": "Two point charges of 10.0 \u03bcC and 10.0 \u03bcC are separated by a distance of 22.0 cm. Calculate the electrostatic force between them. (k = 9x10^9 N\u00b7m\u00b2/C\u00b2)",
-    "correct_answer": "18.60",
+    "question": "A uniform magnetic field of 0.81 T passes perpendicular to a loop of area 347 cm\u00b2. Calculate the magnetic flux passing through the loop.",
+    "correct_answer": "2.81x10^-02",
     "wrong_answers_pool": [
-      "1.86",
-      "186.00",
-      "28.60",
-      "9.30",
-      "8.60",
-      "37.20"
+      "2.80x10^00",
+      "2.56x10^-03",
+      "2.33x10^00",
+      "2.94x10^-04",
+      "3.29x10^-01",
+      "2.83x10^00"
     ],
-    "explanation": "F = k * q1 * q2 / r\u00b2 = (9x10^9) * (9.999999999999999e-06) * (9.999999999999999e-06) / (0.22\u00b2) = 18.60 N.",
+    "explanation": "\u03a6 = B * A * cos(0\u00b0) = 0.81 * 0.0347 * 1 = 2.81x10^-02 Wb.",
     "tags": {
       "grade": "11",
       "subject": "Physical Sciences",
       "paper": "paper1",
-      "topic": "Electrostatics and Electric Circuits",
-      "subtopic": "Coulomb's Law",
+      "topic": "Electromagnetism",
+      "subtopic": "Faraday's Law of Electromagnetic Induction",
       "cognitive_level": "Application",
       "difficulty": "medium"
     },
     "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_33"
   },
   {
-    "id": "PS11_P1_VEC_157",
-    "topic": "Vectors in two dimensions",
-    "subtopic": "Addition of vectors",
+    "id": "PS11_P1_WAV_938",
+    "topic": "Geometrical Optics and Waves",
+    "subtopic": "Critical angle and total internal reflection",
     "paper": "paper1",
     "difficulty": "hard",
-    "question": "Two forces act on an object: F1 = 22 N at 52\u00b0 and F2 = 76 N at 106\u00b0 (angles measured counterclockwise from positive x-axis). What is the magnitude of the resultant force?",
-    "correct_answer": "90.69 N",
+    "question": "Calculate the critical angle for light passing from a medium with refractive index 2.37 into a medium with refractive index 1.97.",
+    "correct_answer": "55.9\u00b0",
     "wrong_answers_pool": [
-      "100.69",
-      "45.34",
-      "9.07",
-      "181.38",
-      "80.69",
-      "906.90"
+      "559.00",
+      "5.59",
+      "45.90",
+      "65.90",
+      "27.95",
+      "111.80"
     ],
-    "explanation": "Rx = 22cos(52) + 76cos(106) = -7.40 N. Ry = 22sin(52) + 76sin(106) = 90.39 N. Resultant = \u221a(-7.40\u00b2 + 90.39\u00b2) = 90.69 N.",
+    "explanation": "sin(\u03b8_c) = n2 / n1 = 1.97 / 2.37. \u03b8_c = arcsin(1.97 / 2.37) = 55.9\u00b0.",
     "tags": {
       "grade": "11",
       "subject": "Physical Sciences",
       "paper": "paper1",
-      "topic": "Vectors in two dimensions",
-      "subtopic": "Addition of vectors",
+      "topic": "Geometrical Optics and Waves",
+      "subtopic": "Critical angle and total internal reflection",
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
     "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_34"
   },
   {
-    "id": "PS11_P1_VEC_731",
-    "topic": "Vectors in two dimensions",
-    "subtopic": "Resolution of vectors into components",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "A force of 18 N acts at an angle of 57\u00b0 above the horizontal. Calculate its horizontal (Fx) and vertical (Fy) components.",
-    "correct_answer": "Fx = 9.80 N, Fy = 15.10 N",
-    "wrong_answers_pool": [
-      "Fx = 15.10 N, Fy = 9.80 N",
-      "Fx = 9.74 N, Fy = 17.47 N",
-      "Fx = 10.26 N, Fy = 16.92 N",
-      "Fx = 9.64 N, Fy = 13.72 N",
-      "Fx = 8.84 N, Fy = 13.58 N",
-      "Fx = 8.03 N, Fy = 16.04 N",
-      "Fx = 10.27 N, Fy = 12.65 N",
-      "Fx = 7.92 N, Fy = 16.09 N"
-    ],
-    "explanation": "Fx = F cos(\u03b8) = 18 cos(57\u00b0) = 9.80 N. Fy = F sin(\u03b8) = 18 sin(57\u00b0) = 15.10 N.",
-    "tags": {
-      "grade": "11",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Vectors in two dimensions",
-      "subtopic": "Resolution of vectors into components",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_35"
-  },
-  {
-    "id": "PS11_P1_ELE_458",
-    "topic": "Electrostatics and Electric Circuits",
-    "subtopic": "Electric Circuits",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "A battery with an emf of 40 V and an internal resistance of 0.90 \u03a9 is connected to an external resistor of 14.36 \u03a9. Calculate the potential difference across the external resistor (terminal voltage).",
-    "correct_answer": "37.63",
-    "wrong_answers_pool": [
-      "18.82",
-      "376.30",
-      "3.76",
-      "47.63",
-      "27.63",
-      "75.26"
-    ],
-    "explanation": "I = emf / (R + r) = 40 / (14.36 + 0.90) = 2.622 A. V_load = I * R = 2.622 * 14.36 = 37.63 V.",
-    "tags": {
-      "grade": "11",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Electrostatics and Electric Circuits",
-      "subtopic": "Electric Circuits",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_36"
-  },
-  {
-    "id": "PS11_P1_ELE_637",
-    "topic": "Electrostatics and Electric Circuits",
-    "subtopic": "Electric Circuits",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "A battery with an emf of 37 V and an internal resistance of 1.35 \u03a9 is connected to an external resistor of 28.00 \u03a9. Calculate the potential difference across the external resistor (terminal voltage).",
-    "correct_answer": "35.29",
-    "wrong_answers_pool": [
-      "352.90",
-      "45.29",
-      "17.64",
-      "3.53",
-      "25.29",
-      "70.58"
-    ],
-    "explanation": "I = emf / (R + r) = 37 / (28.00 + 1.35) = 1.260 A. V_load = I * R = 1.260 * 28.00 = 35.29 V.",
-    "tags": {
-      "grade": "11",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Electrostatics and Electric Circuits",
-      "subtopic": "Electric Circuits",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_37"
-  },
-  {
-    "id": "PS11_P1_NEW_780",
-    "topic": "Newton's Laws and Gravitation",
-    "subtopic": "Newton's Law of Universal Gravitation",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Calculate the gravitational force of attraction between two masses, 344 kg and 206 kg, separated by a distance of 8 m. (G = 6.67x10^-11 N\u00b7m\u00b2/kg\u00b2)",
-    "correct_answer": "7.39x10^-08",
-    "wrong_answers_pool": [
-      "6.48x10^-07",
-      "1.46x10^-07",
-      "7.15x10^-09",
-      "7.73x10^-07",
-      "7.90x10^-09",
-      "8.36x10^-09"
-    ],
-    "explanation": "F = G * m1 * m2 / r\u00b2 = (6.67x10^-11) * 344 * 206 / 8\u00b2 = 7.39x10^-08 N.",
-    "tags": {
-      "grade": "11",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Newton's Laws and Gravitation",
-      "subtopic": "Newton's Law of Universal Gravitation",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_38"
-  },
-  {
-    "id": "PS11_P1_VEC_237",
-    "topic": "Vectors in two dimensions",
-    "subtopic": "Addition of vectors",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "Two forces act on an object: F1 = 58 N at 40\u00b0 and F2 = 62 N at 136\u00b0 (angles measured counterclockwise from positive x-axis). What is the magnitude of the resultant force?",
-    "correct_answer": "80.35 N",
-    "wrong_answers_pool": [
-      "160.70",
-      "8.04",
-      "90.35",
-      "70.35",
-      "803.50",
-      "40.17"
-    ],
-    "explanation": "Rx = 58cos(40) + 62cos(136) = -0.17 N. Ry = 58sin(40) + 62sin(136) = 80.35 N. Resultant = \u221a(-0.17\u00b2 + 80.35\u00b2) = 80.35 N.",
-    "tags": {
-      "grade": "11",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Vectors in two dimensions",
-      "subtopic": "Addition of vectors",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_39"
-  },
-  {
-    "id": "PS11_P1_WAV_552",
-    "topic": "Geometrical Optics and Waves",
-    "subtopic": "Snell's Law",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Light travels from a medium with refractive index 1.83 into a medium with refractive index 1.69. If the angle of incidence is 21\u00b0, calculate the angle of refraction.",
-    "correct_answer": "22.9\u00b0",
-    "wrong_answers_pool": [
-      "2.29",
-      "229.00",
-      "12.90",
-      "45.80",
-      "32.90",
-      "11.45"
-    ],
-    "explanation": "n1 * sin(\u03b81) = n2 * sin(\u03b82) => 1.83 * sin(21\u00b0) = 1.69 * sin(\u03b82) => \u03b82 = arcsin((1.83 * sin(21\u00b0)) / 1.69) = 22.9\u00b0.",
-    "tags": {
-      "grade": "11",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Geometrical Optics and Waves",
-      "subtopic": "Snell's Law",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_40"
-  },
-  {
-    "id": "PS11_P1_WAV_831",
-    "topic": "Geometrical Optics and Waves",
-    "subtopic": "Critical angle and total internal reflection",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "Calculate the critical angle for light passing from a medium with refractive index 1.58 into a medium with refractive index 1.04.",
-    "correct_answer": "41.4\u00b0",
-    "wrong_answers_pool": [
-      "20.70",
-      "31.40",
-      "51.40",
-      "414.00",
-      "4.14",
-      "82.80"
-    ],
-    "explanation": "sin(\u03b8_c) = n2 / n1 = 1.04 / 1.58. \u03b8_c = arcsin(1.04 / 1.58) = 41.4\u00b0.",
-    "tags": {
-      "grade": "11",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Geometrical Optics and Waves",
-      "subtopic": "Critical angle and total internal reflection",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_41"
-  },
-  {
-    "id": "PS11_P1_MAG_793",
+    "id": "PS11_P1_MAG_082",
     "topic": "Electromagnetism",
     "subtopic": "Faraday's Law of Electromagnetic Induction",
     "paper": "paper1",
-    "difficulty": "hard",
-    "question": "A circular coil of 317 turns and radius 0.41 m is placed in a magnetic field perpendicular to its plane. The magnetic field increases from 0.15 T to 4.03 T in 1.80 s. Calculate the induced emf.",
-    "correct_answer": "358.72",
+    "difficulty": "medium",
+    "question": "A uniform magnetic field of 1.15 T passes perpendicular to a loop of area 382 cm\u00b2. Calculate the magnetic flux passing through the loop.",
+    "correct_answer": "4.40x10^-02",
     "wrong_answers_pool": [
-      "35.87",
-      "348.72",
-      "179.36",
-      "3587.20",
-      "717.44",
-      "368.72"
+      "4.59x10^-03",
+      "4.63x10^00",
+      "3.75x10^-01",
+      "4.73x10^-01",
+      "4.60x10^-03",
+      "4.48x10^-03"
     ],
-    "explanation": "A = \u03c0r\u00b2 = \u03c0(0.41)\u00b2 = 0.5261 m\u00b2. \u0394\u03a6 = (B_f - B_i) * A = (4.03 - 0.15) * 0.5261. emf = N(\u0394\u03a6/\u0394t) = 317 * \u0394\u03a6 / 1.80 = 358.72 V.",
+    "explanation": "\u03a6 = B * A * cos(0\u00b0) = 1.15 * 0.0382 * 1 = 4.40x10^-02 Wb.",
     "tags": {
       "grade": "11",
       "subject": "Physical Sciences",
       "paper": "paper1",
       "topic": "Electromagnetism",
       "subtopic": "Faraday's Law of Electromagnetic Induction",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_42"
-  },
-  {
-    "id": "PS11_P1_WAV_354",
-    "topic": "Geometrical Optics and Waves",
-    "subtopic": "Snell's Law",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Light travels from a medium with refractive index 1.82 into a medium with refractive index 1.41. If the angle of incidence is 21\u00b0, calculate the angle of refraction.",
-    "correct_answer": "27.6\u00b0",
-    "wrong_answers_pool": [
-      "2.76",
-      "13.80",
-      "276.00",
-      "55.20",
-      "17.60",
-      "37.60"
-    ],
-    "explanation": "n1 * sin(\u03b81) = n2 * sin(\u03b82) => 1.82 * sin(21\u00b0) = 1.41 * sin(\u03b82) => \u03b82 = arcsin((1.82 * sin(21\u00b0)) / 1.41) = 27.6\u00b0.",
-    "tags": {
-      "grade": "11",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Geometrical Optics and Waves",
-      "subtopic": "Snell's Law",
       "cognitive_level": "Application",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_43"
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_35"
   },
   {
-    "id": "PS11_P1_NEW_542",
-    "topic": "Newton's Laws and Gravitation",
-    "subtopic": "Newton's Law of Universal Gravitation",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Calculate the gravitational force of attraction between two masses, 672 kg and 400 kg, separated by a distance of 24 m. (G = 6.67x10^-11 N\u00b7m\u00b2/kg\u00b2)",
-    "correct_answer": "3.11x10^-08",
-    "wrong_answers_pool": [
-      "1.60x10^-08",
-      "2.68x10^-09",
-      "1.61x10^-08",
-      "1.78x10^-08",
-      "1.86x10^-08",
-      "3.29x10^-07"
-    ],
-    "explanation": "F = G * m1 * m2 / r\u00b2 = (6.67x10^-11) * 672 * 400 / 24\u00b2 = 3.11x10^-08 N.",
-    "tags": {
-      "grade": "11",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Newton's Laws and Gravitation",
-      "subtopic": "Newton's Law of Universal Gravitation",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_44"
-  },
-  {
-    "id": "PS11_P1_ELE_579",
-    "topic": "Electrostatics and Electric Circuits",
-    "subtopic": "Coulomb's Law",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Two point charges of 11.0 \u03bcC and 6.0 \u03bcC are separated by a distance of 89.0 cm. Calculate the electrostatic force between them. (k = 9x10^9 N\u00b7m\u00b2/C\u00b2)",
-    "correct_answer": "0.75",
-    "wrong_answers_pool": [
-      "1.50",
-      "0.56",
-      "7.50",
-      "0.38",
-      "0.07",
-      "10.75"
-    ],
-    "explanation": "F = k * q1 * q2 / r\u00b2 = (9x10^9) * (1.1e-05) * (6e-06) / (0.89\u00b2) = 0.75 N.",
-    "tags": {
-      "grade": "11",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Electrostatics and Electric Circuits",
-      "subtopic": "Coulomb's Law",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_45"
-  },
-  {
-    "id": "PS11_P1_WAV_385",
-    "topic": "Geometrical Optics and Waves",
-    "subtopic": "Critical angle and total internal reflection",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "Calculate the critical angle for light passing from a medium with refractive index 2.11 into a medium with refractive index 1.71.",
-    "correct_answer": "54.3\u00b0",
-    "wrong_answers_pool": [
-      "44.30",
-      "543.00",
-      "27.15",
-      "108.60",
-      "5.43",
-      "64.30"
-    ],
-    "explanation": "sin(\u03b8_c) = n2 / n1 = 1.71 / 2.11. \u03b8_c = arcsin(1.71 / 2.11) = 54.3\u00b0.",
-    "tags": {
-      "grade": "11",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Geometrical Optics and Waves",
-      "subtopic": "Critical angle and total internal reflection",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_46"
-  },
-  {
-    "id": "PS11_P1_NEW_862",
-    "topic": "Newton's Laws and Gravitation",
-    "subtopic": "Newton's Law of Universal Gravitation",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Calculate the gravitational force of attraction between two masses, 835 kg and 63 kg, separated by a distance of 10 m. (G = 6.67x10^-11 N\u00b7m\u00b2/kg\u00b2)",
-    "correct_answer": "3.51x10^-08",
-    "wrong_answers_pool": [
-      "3.15x10^-09",
-      "5.84x10^-08",
-      "4.08x10^-07",
-      "3.39x10^-09",
-      "3.58x10^-09",
-      "1.91x10^-08"
-    ],
-    "explanation": "F = G * m1 * m2 / r\u00b2 = (6.67x10^-11) * 835 * 63 / 10\u00b2 = 3.51x10^-08 N.",
-    "tags": {
-      "grade": "11",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Newton's Laws and Gravitation",
-      "subtopic": "Newton's Law of Universal Gravitation",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_47"
-  },
-  {
-    "id": "PS11_P1_NEW_972",
+    "id": "PS11_P1_NEW_899",
     "topic": "Newton's Laws and Gravitation",
     "subtopic": "Newton's Second Law",
     "paper": "paper1",
     "difficulty": "hard",
-    "question": "A 66 kg block is pulled along a rough horizontal surface by a force of 375 N at an angle of 30\u00b0 above the horizontal. If the kinetic friction is 10 N, calculate the acceleration of the block.",
-    "correct_answer": "4.77",
+    "question": "A 61 kg block is pulled along a rough horizontal surface by a force of 526 N at an angle of 22\u00b0 above the horizontal. If the kinetic friction is 61 N, calculate the acceleration of the block.",
+    "correct_answer": "7.00",
     "wrong_answers_pool": [
-      "2.38",
-      "47.70",
-      "0.48",
-      "9.54",
-      "22.75",
-      "14.77"
+      "0.70",
+      "17.00",
+      "14.00",
+      "70.00",
+      "3.50",
+      "49.00"
     ],
-    "explanation": "Fx = F_applied * cos(\u03b8) = 375 * cos(30\u00b0) = 324.76 N. F_net = Fx - fk = 324.76 - 10 = 314.76 N. a = F_net / m = 314.76 / 66 = 4.77 m/s\u00b2.",
+    "explanation": "Fx = F_applied * cos(\u03b8) = 526 * cos(22\u00b0) = 487.70 N. F_net = Fx - fk = 487.70 - 61 = 426.70 N. a = F_net / m = 426.70 / 61 = 7.00 m/s\u00b2.",
     "tags": {
       "grade": "11",
       "subject": "Physical Sciences",
@@ -1351,55 +1011,165 @@
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_48"
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_36"
   },
   {
-    "id": "PS11_P1_VEC_025",
+    "id": "PS11_P1_VEC_828",
     "topic": "Vectors in two dimensions",
-    "subtopic": "Resolution of vectors into components",
+    "subtopic": "Addition of vectors",
     "paper": "paper1",
-    "difficulty": "medium",
-    "question": "A force of 67 N acts at an angle of 69\u00b0 above the horizontal. Calculate its horizontal (Fx) and vertical (Fy) components.",
-    "correct_answer": "Fx = 24.01 N, Fy = 62.55 N",
+    "difficulty": "hard",
+    "question": "Two forces act on an object: F1 = 65 N at 14\u00b0 and F2 = 71 N at 103\u00b0 (angles measured counterclockwise from positive x-axis). What is the magnitude of the resultant force?",
+    "correct_answer": "97.09 N",
     "wrong_answers_pool": [
-      "Fx = 62.55 N, Fy = 24.01 N",
-      "Fx = 28.81 N, Fy = 64.39 N",
-      "Fx = 25.16 N, Fy = 69.83 N",
-      "Fx = 24.86 N, Fy = 73.71 N",
-      "Fx = 23.73 N, Fy = 73.13 N",
-      "Fx = 20.46 N, Fy = 65.99 N",
-      "Fx = 28.59 N, Fy = 65.30 N",
-      "Fx = 23.12 N, Fy = 51.50 N"
+      "194.18",
+      "48.55",
+      "107.09",
+      "970.90",
+      "9.71",
+      "87.09"
     ],
-    "explanation": "Fx = F cos(\u03b8) = 67 cos(69\u00b0) = 24.01 N. Fy = F sin(\u03b8) = 67 sin(69\u00b0) = 62.55 N.",
+    "explanation": "Rx = 65cos(14) + 71cos(103) = 47.10 N. Ry = 65sin(14) + 71sin(103) = 84.91 N. Resultant = \u221a(47.10\u00b2 + 84.91\u00b2) = 97.09 N.",
     "tags": {
       "grade": "11",
       "subject": "Physical Sciences",
       "paper": "paper1",
       "topic": "Vectors in two dimensions",
-      "subtopic": "Resolution of vectors into components",
+      "subtopic": "Addition of vectors",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_37"
+  },
+  {
+    "id": "PS11_P1_ELE_178",
+    "topic": "Electrostatics and Electric Circuits",
+    "subtopic": "Coulomb's Law",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Two point charges of 9.0 \u03bcC and 13.0 \u03bcC are separated by a distance of 27.0 cm. Calculate the electrostatic force between them. (k = 9x10^9 N\u00b7m\u00b2/C\u00b2)",
+    "correct_answer": "14.44",
+    "wrong_answers_pool": [
+      "1.44",
+      "7.22",
+      "4.44",
+      "24.44",
+      "144.40",
+      "28.88"
+    ],
+    "explanation": "F = k * q1 * q2 / r\u00b2 = (9x10^9) * (9e-06) * (1.3e-05) / (0.27\u00b2) = 14.44 N.",
+    "tags": {
+      "grade": "11",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electrostatics and Electric Circuits",
+      "subtopic": "Coulomb's Law",
       "cognitive_level": "Application",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_49"
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_38"
   },
   {
-    "id": "PS11_P1_WAV_465",
+    "id": "PS11_P1_MAG_643",
+    "topic": "Electromagnetism",
+    "subtopic": "Faraday's Law of Electromagnetic Induction",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A uniform magnetic field of 0.56 T passes perpendicular to a loop of area 488 cm\u00b2. Calculate the magnetic flux passing through the loop.",
+    "correct_answer": "2.71x10^-02",
+    "wrong_answers_pool": [
+      "3.25x10^-01",
+      "2.96x10^-03",
+      "2.53x10^-03",
+      "3.17x10^00",
+      "3.09x10^-01",
+      "3.14x10^-01"
+    ],
+    "explanation": "\u03a6 = B * A * cos(0\u00b0) = 0.56 * 0.0488 * 1 = 2.71x10^-02 Wb.",
+    "tags": {
+      "grade": "11",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electromagnetism",
+      "subtopic": "Faraday's Law of Electromagnetic Induction",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_39"
+  },
+  {
+    "id": "PS11_P1_NEW_558",
+    "topic": "Newton's Laws and Gravitation",
+    "subtopic": "Newton's Second Law",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A 37 kg block is pulled along a rough horizontal surface by a force of 528 N at an angle of 53\u00b0 above the horizontal. If the kinetic friction is 34 N, calculate the acceleration of the block.",
+    "correct_answer": "7.67",
+    "wrong_answers_pool": [
+      "3.83",
+      "58.83",
+      "15.34",
+      "76.70",
+      "0.77",
+      "17.67"
+    ],
+    "explanation": "Fx = F_applied * cos(\u03b8) = 528 * cos(53\u00b0) = 317.76 N. F_net = Fx - fk = 317.76 - 34 = 283.76 N. a = F_net / m = 283.76 / 37 = 7.67 m/s\u00b2.",
+    "tags": {
+      "grade": "11",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Newton's Laws and Gravitation",
+      "subtopic": "Newton's Second Law",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_40"
+  },
+  {
+    "id": "PS11_P1_NEW_057",
+    "topic": "Newton's Laws and Gravitation",
+    "subtopic": "Newton's Law of Universal Gravitation",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Calculate the gravitational force of attraction between two masses, 564 kg and 36 kg, separated by a distance of 15 m. (G = 6.67x10^-11 N\u00b7m\u00b2/kg\u00b2)",
+    "correct_answer": "6.02x10^-09",
+    "wrong_answers_pool": [
+      "5.90x10^-08",
+      "6.94x10^-08",
+      "3.42x10^-09",
+      "6.46x10^-10",
+      "1.32x10^-08",
+      "3.17x10^-09"
+    ],
+    "explanation": "F = G * m1 * m2 / r\u00b2 = (6.67x10^-11) * 564 * 36 / 15\u00b2 = 6.02x10^-09 N.",
+    "tags": {
+      "grade": "11",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Newton's Laws and Gravitation",
+      "subtopic": "Newton's Law of Universal Gravitation",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_41"
+  },
+  {
+    "id": "PS11_P1_WAV_366",
     "topic": "Geometrical Optics and Waves",
     "subtopic": "Critical angle and total internal reflection",
     "paper": "paper1",
     "difficulty": "hard",
-    "question": "Calculate the critical angle for light passing from a medium with refractive index 1.93 into a medium with refractive index 1.64.",
-    "correct_answer": "58.1\u00b0",
+    "question": "Calculate the critical angle for light passing from a medium with refractive index 1.87 into a medium with refractive index 1.18.",
+    "correct_answer": "39.3\u00b0",
     "wrong_answers_pool": [
-      "581.00",
-      "29.05",
-      "5.81",
-      "68.10",
-      "48.10",
-      "116.20"
+      "393.00",
+      "78.60",
+      "49.30",
+      "29.30",
+      "3.93",
+      "19.65"
     ],
-    "explanation": "sin(\u03b8_c) = n2 / n1 = 1.64 / 1.93. \u03b8_c = arcsin(1.64 / 1.93) = 58.1\u00b0.",
+    "explanation": "sin(\u03b8_c) = n2 / n1 = 1.18 / 1.87. \u03b8_c = arcsin(1.18 / 1.87) = 39.3\u00b0.",
     "tags": {
       "grade": "11",
       "subject": "Physical Sciences",
@@ -1408,6 +1178,230 @@
       "subtopic": "Critical angle and total internal reflection",
       "cognitive_level": "Analysis",
       "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_42"
+  },
+  {
+    "id": "PS11_P1_ELE_439",
+    "topic": "Electrostatics and Electric Circuits",
+    "subtopic": "Coulomb's Law",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Two point charges of 10.0 \u03bcC and 3.0 \u03bcC are separated by a distance of 60.0 cm. Calculate the electrostatic force between them. (k = 9x10^9 N\u00b7m\u00b2/C\u00b2)",
+    "correct_answer": "0.75",
+    "wrong_answers_pool": [
+      "1.50",
+      "0.56",
+      "7.50",
+      "0.38",
+      "0.07",
+      "10.75"
+    ],
+    "explanation": "F = k * q1 * q2 / r\u00b2 = (9x10^9) * (9.999999999999999e-06) * (3e-06) / (0.6\u00b2) = 0.75 N.",
+    "tags": {
+      "grade": "11",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electrostatics and Electric Circuits",
+      "subtopic": "Coulomb's Law",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_43"
+  },
+  {
+    "id": "PS11_P1_VEC_609",
+    "topic": "Vectors in two dimensions",
+    "subtopic": "Addition of vectors",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "Two forces act on an object: F1 = 86 N at 41\u00b0 and F2 = 74 N at 103\u00b0 (angles measured counterclockwise from positive x-axis). What is the magnitude of the resultant force?",
+    "correct_answer": "137.29 N",
+    "wrong_answers_pool": [
+      "127.29",
+      "13.73",
+      "274.58",
+      "68.64",
+      "147.29",
+      "1372.90"
+    ],
+    "explanation": "Rx = 86cos(41) + 74cos(103) = 48.26 N. Ry = 86sin(41) + 74sin(103) = 128.52 N. Resultant = \u221a(48.26\u00b2 + 128.52\u00b2) = 137.29 N.",
+    "tags": {
+      "grade": "11",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Vectors in two dimensions",
+      "subtopic": "Addition of vectors",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_44"
+  },
+  {
+    "id": "PS11_P1_WAV_254",
+    "topic": "Geometrical Optics and Waves",
+    "subtopic": "Snell's Law",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Light travels from a medium with refractive index 1.65 into a medium with refractive index 1.10. If the angle of incidence is 28\u00b0, calculate the angle of refraction.",
+    "correct_answer": "44.4\u00b0",
+    "wrong_answers_pool": [
+      "4.44",
+      "34.40",
+      "88.80",
+      "444.00",
+      "22.20",
+      "54.40"
+    ],
+    "explanation": "n1 * sin(\u03b81) = n2 * sin(\u03b82) => 1.65 * sin(28\u00b0) = 1.10 * sin(\u03b82) => \u03b82 = arcsin((1.65 * sin(28\u00b0)) / 1.10) = 44.4\u00b0.",
+    "tags": {
+      "grade": "11",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Geometrical Optics and Waves",
+      "subtopic": "Snell's Law",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_45"
+  },
+  {
+    "id": "PS11_P1_VEC_328",
+    "topic": "Vectors in two dimensions",
+    "subtopic": "Addition of vectors",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "Two forces act on an object: F1 = 55 N at 54\u00b0 and F2 = 47 N at 167\u00b0 (angles measured counterclockwise from positive x-axis). What is the magnitude of the resultant force?",
+    "correct_answer": "56.69 N",
+    "wrong_answers_pool": [
+      "566.90",
+      "113.38",
+      "28.34",
+      "46.69",
+      "66.69",
+      "5.67"
+    ],
+    "explanation": "Rx = 55cos(54) + 47cos(167) = -13.47 N. Ry = 55sin(54) + 47sin(167) = 55.07 N. Resultant = \u221a(-13.47\u00b2 + 55.07\u00b2) = 56.69 N.",
+    "tags": {
+      "grade": "11",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Vectors in two dimensions",
+      "subtopic": "Addition of vectors",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_46"
+  },
+  {
+    "id": "PS11_P1_WAV_770",
+    "topic": "Geometrical Optics and Waves",
+    "subtopic": "Critical angle and total internal reflection",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "Calculate the critical angle for light passing from a medium with refractive index 1.87 into a medium with refractive index 1.31.",
+    "correct_answer": "44.6\u00b0",
+    "wrong_answers_pool": [
+      "89.20",
+      "54.60",
+      "34.60",
+      "4.46",
+      "446.00",
+      "22.30"
+    ],
+    "explanation": "sin(\u03b8_c) = n2 / n1 = 1.31 / 1.87. \u03b8_c = arcsin(1.31 / 1.87) = 44.6\u00b0.",
+    "tags": {
+      "grade": "11",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Geometrical Optics and Waves",
+      "subtopic": "Critical angle and total internal reflection",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_47"
+  },
+  {
+    "id": "PS11_P1_ELE_154",
+    "topic": "Electrostatics and Electric Circuits",
+    "subtopic": "Coulomb's Law",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Two point charges of 15.0 \u03bcC and 15.0 \u03bcC are separated by a distance of 71.0 cm. Calculate the electrostatic force between them. (k = 9x10^9 N\u00b7m\u00b2/C\u00b2)",
+    "correct_answer": "4.02",
+    "wrong_answers_pool": [
+      "16.16",
+      "8.04",
+      "0.40",
+      "2.01",
+      "14.02",
+      "40.20"
+    ],
+    "explanation": "F = k * q1 * q2 / r\u00b2 = (9x10^9) * (1.4999999999999999e-05) * (1.4999999999999999e-05) / (0.71\u00b2) = 4.02 N.",
+    "tags": {
+      "grade": "11",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electrostatics and Electric Circuits",
+      "subtopic": "Coulomb's Law",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_48"
+  },
+  {
+    "id": "PS11_P1_ELE_376",
+    "topic": "Electrostatics and Electric Circuits",
+    "subtopic": "Electric Circuits",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A battery with an emf of 13 V and an internal resistance of 0.83 \u03a9 is connected to an external resistor of 12.30 \u03a9. Calculate the potential difference across the external resistor (terminal voltage).",
+    "correct_answer": "12.18",
+    "wrong_answers_pool": [
+      "24.36",
+      "121.80",
+      "1.22",
+      "2.18",
+      "22.18",
+      "6.09"
+    ],
+    "explanation": "I = emf / (R + r) = 13 / (12.30 + 0.83) = 0.990 A. V_load = I * R = 0.990 * 12.30 = 12.18 V.",
+    "tags": {
+      "grade": "11",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electrostatics and Electric Circuits",
+      "subtopic": "Electric Circuits",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_49"
+  },
+  {
+    "id": "PS11_P1_ELE_096",
+    "topic": "Electrostatics and Electric Circuits",
+    "subtopic": "Coulomb's Law",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Two point charges of 7.0 \u03bcC and 4.0 \u03bcC are separated by a distance of 12.0 cm. Calculate the electrostatic force between them. (k = 9x10^9 N\u00b7m\u00b2/C\u00b2)",
+    "correct_answer": "17.50",
+    "wrong_answers_pool": [
+      "27.50",
+      "8.75",
+      "35.00",
+      "7.50",
+      "175.00",
+      "1.75"
+    ],
+    "explanation": "F = k * q1 * q2 / r\u00b2 = (9x10^9) * (7e-06) * (4e-06) / (0.12\u00b2) = 17.50 N.",
+    "tags": {
+      "grade": "11",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electrostatics and Electric Circuits",
+      "subtopic": "Coulomb's Law",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
     },
     "exam_id": "EXAM_2026-W46_grade11_physical_sciences_paper1_50"
   }

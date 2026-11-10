@@ -1,49 +1,77 @@
 [
   {
-    "id": "TS_P2_MAT_0865",
-    "topic": "Materials",
-    "subtopic": "Young's Modulus & Elastic Deformation",
-    "difficulty": "hard",
-    "question": "In a materials tensile laboratory test, a structural specimen of length L = 4.0 m and cross-sectional area A = 100 mm\u00b2 (1.0e-04 m\u00b2) elongates by \u0394L = 0.200 mm under a tensile load of F = 1000 N. Calculate the **YOUNG'S MODULUS (E)** of the tested material in GPa:",
-    "correct_answer": "200 GPa (2.0e+11 Pa)",
+    "id": "TS_P2_ORG_0381",
+    "topic": "Organic Chemistry",
+    "subtopic": "IUPAC Nomenclature",
+    "difficulty": "medium",
+    "question": "Give the correct IUPAC name for the molecule represented by: **CH3-COOH**",
+    "correct_answer": "ethanoic acid",
     "wrong_answers_pool": [
-      "400 GPa",
-      "100 GPa",
-      "2000 GPa",
-      "0.01 GPa (forgot area and length factors)",
-      "250 GPa",
-      "170 GPa",
-      "300 GPa"
+      "methanoic acid",
+      "acetic acid",
+      "propanoic acid",
+      "ethanol",
+      "ethanal",
+      "ethyl ethanoate",
+      "butanoic acid"
     ],
-    "explanation": "1. Stress: \u03c3 = F / A = 1000 N / 1.0e-04 m\u00b2 = 1.00e+07 Pa. 2. Strain: \u03b5 = \u0394L / L = 2.0000e-04 m / 4.0 m = 5.0000e-05. 3. Young's modulus: E = \u03c3 / \u03b5 = 200 GPa (2.0e+11 Pa).",
+    "explanation": "Two-carbon carboxylic acid -> ethanoic acid.",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
-      "topic": "Materials",
-      "subtopic": "Young's Modulus & Elastic Deformation",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate Young's modulus from tensile test data"
+      "topic": "Organic Chemistry",
+      "subtopic": "IUPAC Nomenclature",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Name ethanoic acid using IUPAC rules"
     },
     "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_1"
   },
   {
-    "id": "TS_P2_MAT_0485",
+    "id": "TS_P2_ORG_0442",
+    "topic": "Organic Chemistry",
+    "subtopic": "Reaction Product Prediction",
+    "difficulty": "medium",
+    "question": "Predict the principal organic product when **Propene (CH3-CH=CH2) reacting with Water (H2O) in the presence of H2SO4 catalyst** undergoes reaction:",
+    "correct_answer": "propan-2-ol (CH3-CH(OH)-CH3) as the major product",
+    "wrong_answers_pool": [
+      "propan-1-ol as major product",
+      "propanoic acid",
+      "propanal",
+      "propan-2-one",
+      "prop-2-en-1-ol",
+      "ethanol",
+      "glycerol"
+    ],
+    "explanation": "Hydration of propene follows Markovnikov's rule: -OH adds to C2 -> propan-2-ol (major product).",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Organic Chemistry",
+      "subtopic": "Reaction Product Prediction",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Predict organic reaction major product"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_2"
+  },
+  {
+    "id": "TS_P2_MAT_0759",
     "topic": "Materials",
     "subtopic": "Mechanical Stress Calculations",
     "difficulty": "medium",
-    "question": "A tensile test specimen with a cross-sectional area of A = 40.0 mm\u00b2 (0.00004 m\u00b2) is subjected to a tensile pulling force of F = 800 N. Calculate the mechanical STRESS (\u03c3) in the specimen:",
-    "correct_answer": "20.00 MPa (2.0e+07 Pa)",
+    "question": "A structural tie rod has a cross-sectional area of A = 400.0 mm\u00b2 (0.00040 m\u00b2). If the allowable design tensile stress is \u03c3 = 10.00 MPa (1.0e+07 Pa), calculate the maximum pulling force (F) the rod can support:",
+    "correct_answer": "4000 N",
     "wrong_answers_pool": [
-      "0.03 MPa (multiplied force by area instead of dividing)",
-      "20000.00 MPa (forgot to convert Pa to MPa)",
-      "40.00 MPa",
-      "10.00 MPa",
-      "5.0000e-08 MPa (inverted: A / F)",
-      "70.00 MPa",
-      "800.0 MPa"
+      "25000.0 N",
+      "8000 N",
+      "2000 N",
+      "40000 N",
+      "400 N",
+      "10000000 N (confused Pascals with Newtons)",
+      "4500 N"
     ],
-    "explanation": "Stress formula: \u03c3 = F / A = 800 N / 0.00004 m\u00b2 = 20000000 Pa = 20.00 MPa (2.0e+07 Pa).",
+    "explanation": "Force formula: F = \u03c3 \u00d7 A = 10000000 Pa \u00d7 0.00040 m\u00b2 = 4000 N.",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
@@ -51,136 +79,27 @@
       "subtopic": "Mechanical Stress Calculations",
       "cognitive_level": "Applying",
       "difficulty": "medium",
-      "learning_outcome": "Calculate mechanical stress from force and area"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_2"
-  },
-  {
-    "id": "TS_P2_ECHEM_0903",
-    "topic": "Electrochemistry",
-    "subtopic": "Quantitative Electrolysis Calculations",
-    "difficulty": "hard",
-    "question": "During industrial electroplating, a steady electric current of I = 20.0 A passes through an electrolytic bath containing **copper metal from CuSO4 (Cu2+ + 2e- \u2192 Cu, M = 63.5 g\u00b7mol\u207b\u00b9)** for a duration of \u0394t = 3600 s (60 minutes). Given Faraday's constant F = 96 500 C\u00b7mol\u207b\u00b9, calculate the mass of metal deposited at the cathode:",
-    "correct_answer": "23.69 g",
-    "wrong_answers_pool": [
-      "47.38 g (forgot to divide by electron valence z = 2)",
-      "11.84 g",
-      "47.38 g",
-      "72000 g (confused charge in Coulombs with mass in grams)",
-      "28.69 g",
-      "35.53 g"
-    ],
-    "explanation": "1. Total charge: Q = I \u00d7 \u0394t = 20.0 A \u00d7 3600 s = 72000 C. 2. Moles of electrons: n(e\u207b) = Q / F = 72000 C / 96 500 C\u00b7mol\u207b\u00b9 = 0.7461 mol. 3. Moles of metal: n(metal) = n(e\u207b) / 2 = 0.3731 mol. 4. Mass deposited: m = n \u00d7 M = 0.3731 mol \u00d7 63.5 g\u00b7mol\u207b\u00b9 = 23.69 g.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Electrochemistry",
-      "subtopic": "Quantitative Electrolysis Calculations",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate mass deposited for copper"
+      "learning_outcome": "Calculate allowable force from stress and area"
     },
     "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_3"
   },
   {
-    "id": "TS_P2_ORG_0548",
-    "topic": "Organic Chemistry",
-    "subtopic": "Hydrolysis Substitution",
-    "difficulty": "medium",
-    "question": "When **2-chloropentane** (CH3-CH(Cl)-CH2-CH2-CH3) is warmed gently with dilute aqueous sodium hydroxide (NaOH(aq)), which alcohol is produced as the main organic substitution product?",
-    "correct_answer": "pentan-2-ol",
-    "wrong_answers_pool": [
-      "pent-2-ene (major) (confused substitution with elimination)",
-      "haloalkene",
-      "carboxylic acid",
-      "ketone",
-      "ester",
-      "ether",
-      "alkane"
-    ],
-    "explanation": "Hydrolysis substitution: 2-chloropentane + dilute aqueous NaOH -> pentan-2-ol + NaX.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Organic Chemistry",
-      "subtopic": "Hydrolysis Substitution",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Predict hydrolysis of 2-chloropentane"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_4"
-  },
-  {
-    "id": "TS_P2_ECHEM_0624",
-    "topic": "Electrochemistry",
-    "subtopic": "Electrode Identification",
-    "difficulty": "medium",
-    "question": "For the galvanic cell pairing **Iron(III) / Iron(II)** (E\u00b0 = +0.77 V) and **Lithium** (E\u00b0 = -3.05 V), identify the CATHODE and ANODE:",
-    "correct_answer": "Cathode: Iron(III) / Iron(II) (more positive E\u00b0, reduction); Anode: Lithium (more negative E\u00b0, oxidation).",
-    "wrong_answers_pool": [
-      "Cathode: Lithium; Anode: Iron(III) / Iron(II).",
-      "Both electrodes act as anodes simultaneously.",
-      "Both electrodes act as cathodes simultaneously.",
-      "Cathode: Lithium (oxidation); Anode: Iron(III) / Iron(II) (reduction).",
-      "Cathode: Iron(III) / Iron(II) (oxidation); Anode: Lithium (reduction).",
-      "Neither electrode can be identified without an external battery."
-    ],
-    "explanation": "The half-cell with the more positive reduction potential acts as the CATHODE (Iron(III) / Iron(II), E\u00b0 = +0.77 V); the one with the more negative potential acts as the ANODE (Lithium, E\u00b0 = -3.05 V).",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Electrochemistry",
-      "subtopic": "Electrode Identification",
-      "cognitive_level": "Understanding",
-      "difficulty": "medium",
-      "learning_outcome": "Identify cathode/anode for Iron(III) / Iron(II)-Lithium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_5"
-  },
-  {
-    "id": "TS_P2_ECHEM_0972",
-    "topic": "Electrochemistry",
-    "subtopic": "Quantitative Electrolysis Calculations",
-    "difficulty": "hard",
-    "question": "During industrial electroplating, a steady electric current of I = 5.0 A passes through an electrolytic bath containing **silver metal from AgNO3 (Ag+ + e- \u2192 Ag, M = 108.0 g\u00b7mol\u207b\u00b9)** for a duration of \u0394t = 2400 s (40 minutes). Given Faraday's constant F = 96 500 C\u00b7mol\u207b\u00b9, calculate the mass of metal deposited at the cathode:",
-    "correct_answer": "13.43 g",
-    "wrong_answers_pool": [
-      "13.43 g (forgot to divide by electron valence z = 1)",
-      "26.86 g",
-      "6.72 g",
-      "12000 g (confused charge in Coulombs with mass in grams)",
-      "18.43 g",
-      "20.15 g"
-    ],
-    "explanation": "1. Total charge: Q = I \u00d7 \u0394t = 5.0 A \u00d7 2400 s = 12000 C. 2. Moles of electrons: n(e\u207b) = Q / F = 12000 C / 96 500 C\u00b7mol\u207b\u00b9 = 0.1244 mol. 3. Moles of metal: n(metal) = n(e\u207b) / 1 = 0.1244 mol. 4. Mass deposited: m = n \u00d7 M = 0.1244 mol \u00d7 108.0 g\u00b7mol\u207b\u00b9 = 13.43 g.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Electrochemistry",
-      "subtopic": "Quantitative Electrolysis Calculations",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate mass deposited for silver"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_6"
-  },
-  {
-    "id": "TS_P2_ECHEM_0797",
+    "id": "TS_P2_ECHEM_0609",
     "topic": "Electrochemistry",
     "subtopic": "Cell Notation",
     "difficulty": "medium",
-    "question": "Write the correct standard cell notation for the galvanic cell composed of **Magnesium** and **Lead**:",
-    "correct_answer": "Mg(s) | Mg2+(aq) || Pb2+(aq) | Pb(s)",
+    "question": "Write the correct standard cell notation for the galvanic cell composed of **Aluminium** and **Iron(III) / Iron(II)**:",
+    "correct_answer": "Al(s) | Al3+(aq) || Fe3+(aq) | Fe2+(s)",
     "wrong_answers_pool": [
-      "Pb(s) | Pb2+(aq) || Mg2+(aq) | Mg(s) (inverted anode and cathode)",
-      "Mg(s) || Mg2+(aq) | Pb2+(aq) || Pb(s)",
-      "Mg2+(aq) | Mg(s) || Pb(s) | Pb2+(aq)",
-      "Mg(s) + Pb2+(aq) \u2192 Mg2+(aq) + Pb(s)",
-      "Mg(s) | Pb(s) || Mg2+(aq) | Pb2+(aq)",
-      "Pb2+(aq) | Pb(s) || Mg(s) | Mg2+(aq)",
-      "Mg(s) / Mg2+(aq) // Pb2+(aq) / Pb(s)"
+      "Fe2+(s) | Fe3+(aq) || Al3+(aq) | Al(s) (inverted anode and cathode)",
+      "Al(s) || Al3+(aq) | Fe3+(aq) || Fe2+(s)",
+      "Al3+(aq) | Al(s) || Fe2+(s) | Fe3+(aq)",
+      "Al(s) + Fe3+(aq) \u2192 Al3+(aq) + Fe2+(s)",
+      "Al(s) | Fe2+(s) || Al3+(aq) | Fe3+(aq)",
+      "Fe3+(aq) | Fe2+(s) || Al(s) | Al3+(aq)",
+      "Al(s) / Al3+(aq) // Fe3+(aq) / Fe2+(s)"
     ],
-    "explanation": "Standard cell notation convention: Anode | Anode electrolyte || Cathode electrolyte | Cathode -> Mg(s) | Mg2+(aq) || Pb2+(aq) | Pb(s).",
+    "explanation": "Standard cell notation convention: Anode | Anode electrolyte || Cathode electrolyte | Cathode -> Al(s) | Al3+(aq) || Fe3+(aq) | Fe2+(s).",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
@@ -188,164 +107,26 @@
       "subtopic": "Cell Notation",
       "cognitive_level": "Applying",
       "difficulty": "medium",
-      "learning_outcome": "Write cell notation for Magnesium-Lead"
+      "learning_outcome": "Write cell notation for Aluminium-Iron(III) / Iron(II)"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_7"
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_4"
   },
   {
-    "id": "TS_P2_MAT_0598",
-    "topic": "Materials",
-    "subtopic": "Mechanical Stress Calculations",
-    "difficulty": "medium",
-    "question": "An engineering strut must carry a tensile load of F = 1500 N without the mechanical stress exceeding \u03c3 = 1.88 MPa (1.9e+06 Pa). Calculate the minimum required cross-sectional area (A):",
-    "correct_answer": "800.0 mm\u00b2 (0.00080 m\u00b2)",
-    "wrong_answers_pool": [
-      "1600.0 mm\u00b2",
-      "400.0 mm\u00b2",
-      "2812.5 mm\u00b2",
-      "0.0013 mm\u00b2",
-      "8000.0 mm\u00b2",
-      "815.0 mm\u00b2",
-      "8.00e-04 mm\u00b2 (forgot unit conversion to mm\u00b2)"
-    ],
-    "explanation": "Area formula: A = F / \u03c3 = 1500 N / 1875000 Pa = 0.00080 m\u00b2 = 800.0 mm\u00b2 (0.00080 m\u00b2).",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Materials",
-      "subtopic": "Mechanical Stress Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate required area from force and stress"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_8"
-  },
-  {
-    "id": "TS_P2_ORG_0873",
-    "topic": "Organic Chemistry",
-    "subtopic": "Multi-Step Organic Synthesis",
-    "difficulty": "hard",
-    "question": "Outline the multi-step synthetic pathway required for the: **Conversion of ethene into ethyl ethanoate**",
-    "correct_answer": "Step 1: Hydration of half the ethene with steam/H\u2083PO\u2084 to produce ethanol (CH\u2083CH\u2082OH). Step 2: Complete oxidation of a portion of ethanol with acidified KMnO\u2084 to produce ethanoic acid (CH\u2083COOH). Step 3: Acid-catalysed esterification of ethanoic acid and ethanol with conc. H\u2082SO\u2084 and gentle heating to produce ethyl ethanoate.",
-    "wrong_answers_pool": [
-      "Step 1: Direct reaction of ethene with acetic anhydride without catalyst.",
-      "Step 1: Halogenation of ethene with chlorine; Step 2: Reaction with sodium ethanoate.",
-      "Step 1: Cracking ethene into methane; Step 2: Saponification with sodium hydroxide.",
-      "Step 1: Hydrogenation to ethane; Step 2: Esterification with carbon dioxide.",
-      "Step 1: Addition of hydrogen bromide; Step 2: Condensation polymerization.",
-      "Step 1: Dehydration of ethene; Step 2: Hydrolysis with dilute sulfuric acid."
-    ],
-    "explanation": "Ethene -> ethanol -> ethanoic acid; ethanol + ethanoic acid (conc. H\u2082SO\u2084) -> ethyl ethanoate + H\u2082O.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Organic Chemistry",
-      "subtopic": "Multi-Step Organic Synthesis",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Design synthesis for Conversion of ethene into ethyl ethanoate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_9"
-  },
-  {
-    "id": "TS_P2_MAT_0800",
-    "topic": "Materials",
-    "subtopic": "Mechanical Stress Calculations",
-    "difficulty": "medium",
-    "question": "A tensile test specimen with a cross-sectional area of A = 400.0 mm\u00b2 (0.00040 m\u00b2) is subjected to a tensile pulling force of F = 5000 N. Calculate the mechanical STRESS (\u03c3) in the specimen:",
-    "correct_answer": "12.50 MPa (1.2e+07 Pa)",
-    "wrong_answers_pool": [
-      "2.00 MPa (multiplied force by area instead of dividing)",
-      "12500.00 MPa (forgot to convert Pa to MPa)",
-      "25.00 MPa",
-      "6.25 MPa",
-      "8.0000e-08 MPa (inverted: A / F)",
-      "62.50 MPa",
-      "5000.0 MPa"
-    ],
-    "explanation": "Stress formula: \u03c3 = F / A = 5000 N / 0.00040 m\u00b2 = 12500000 Pa = 12.50 MPa (1.2e+07 Pa).",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Materials",
-      "subtopic": "Mechanical Stress Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate mechanical stress from force and area"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_10"
-  },
-  {
-    "id": "TS_P2_MAT_0899",
-    "topic": "Materials",
-    "subtopic": "Young's Modulus & Elastic Deformation",
-    "difficulty": "hard",
-    "question": "In a materials tensile laboratory test, a structural specimen of length L = 3.0 m and cross-sectional area A = 200 mm\u00b2 (2.0e-04 m\u00b2) elongates by \u0394L = 0.188 mm under a tensile load of F = 2500 N. Calculate the **YOUNG'S MODULUS (E)** of the tested material in GPa:",
-    "correct_answer": "200 GPa (2.0e+11 Pa)",
-    "wrong_answers_pool": [
-      "400 GPa",
-      "100 GPa",
-      "2000 GPa",
-      "0.01 GPa (forgot area and length factors)",
-      "250 GPa",
-      "170 GPa",
-      "300 GPa"
-    ],
-    "explanation": "1. Stress: \u03c3 = F / A = 2500 N / 2.0e-04 m\u00b2 = 1.25e+07 Pa. 2. Strain: \u03b5 = \u0394L / L = 1.8750e-04 m / 3.0 m = 6.2500e-05. 3. Young's modulus: E = \u03c3 / \u03b5 = 200 GPa (2.0e+11 Pa).",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Materials",
-      "subtopic": "Young's Modulus & Elastic Deformation",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate Young's modulus from tensile test data"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_11"
-  },
-  {
-    "id": "TS_P2_ECHEM_0584",
-    "topic": "Electrochemistry",
-    "subtopic": "Electrode Identification",
-    "difficulty": "medium",
-    "question": "For the galvanic cell pairing **Iron(III) / Iron(II)** (E\u00b0 = +0.77 V) and **Lead** (E\u00b0 = -0.13 V), identify the CATHODE and ANODE:",
-    "correct_answer": "Cathode: Iron(III) / Iron(II) (more positive E\u00b0, reduction); Anode: Lead (more negative E\u00b0, oxidation).",
-    "wrong_answers_pool": [
-      "Cathode: Lead; Anode: Iron(III) / Iron(II).",
-      "Both electrodes act as anodes simultaneously.",
-      "Both electrodes act as cathodes simultaneously.",
-      "Cathode: Lead (oxidation); Anode: Iron(III) / Iron(II) (reduction).",
-      "Cathode: Iron(III) / Iron(II) (oxidation); Anode: Lead (reduction).",
-      "Neither electrode can be identified without an external battery."
-    ],
-    "explanation": "The half-cell with the more positive reduction potential acts as the CATHODE (Iron(III) / Iron(II), E\u00b0 = +0.77 V); the one with the more negative potential acts as the ANODE (Lead, E\u00b0 = -0.13 V).",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Electrochemistry",
-      "subtopic": "Electrode Identification",
-      "cognitive_level": "Understanding",
-      "difficulty": "medium",
-      "learning_outcome": "Identify cathode/anode for Iron(III) / Iron(II)-Lead"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_12"
-  },
-  {
-    "id": "TS_P2_ECHEM_0879",
+    "id": "TS_P2_ECHEM_0902",
     "topic": "Electrochemistry",
     "subtopic": "Quantitative Electrolysis Calculations",
     "difficulty": "hard",
-    "question": "During industrial electroplating, a steady electric current of I = 10.0 A passes through an electrolytic bath containing **copper metal from CuSO4 (Cu2+ + 2e- \u2192 Cu, M = 63.5 g\u00b7mol\u207b\u00b9)** for a duration of \u0394t = 3600 s (60 minutes). Given Faraday's constant F = 96 500 C\u00b7mol\u207b\u00b9, calculate the mass of metal deposited at the cathode:",
-    "correct_answer": "11.84 g",
+    "question": "How long (in seconds) must an electroplating current of I = 20.0 A be passed through the solution of **copper metal from CuSO4 (Cu2+ + 2e- \u2192 Cu, M = 63.5 g\u00b7mol\u207b\u00b9)** to deposit exactly 17.77 g of metal at the cathode? (F = 96 500 C\u00b7mol\u207b\u00b9):",
+    "correct_answer": "2700 s (45 min)",
     "wrong_answers_pool": [
-      "23.69 g (forgot to divide by electron valence z = 2)",
-      "5.92 g",
-      "23.69 g",
-      "36000 g (confused charge in Coulombs with mass in grams)",
-      "16.84 g",
-      "17.77 g"
+      "5400 s",
+      "1350 s",
+      "3000 s",
+      "54000 s",
+      "4050 s",
+      "675 s"
     ],
-    "explanation": "1. Total charge: Q = I \u00d7 \u0394t = 10.0 A \u00d7 3600 s = 36000 C. 2. Moles of electrons: n(e\u207b) = Q / F = 36000 C / 96 500 C\u00b7mol\u207b\u00b9 = 0.3731 mol. 3. Moles of metal: n(metal) = n(e\u207b) / 2 = 0.1865 mol. 4. Mass deposited: m = n \u00d7 M = 0.1865 mol \u00d7 63.5 g\u00b7mol\u207b\u00b9 = 11.84 g.",
+    "explanation": "1. Moles of metal: n = 17.77 g / 63.5 g\u00b7mol\u207b\u00b9 = 0.2798 mol. 2. Charge required: Q = n \u00d7 z \u00d7 F = 0.2798 \u00d7 2 \u00d7 96 500 = 54000 C. 3. Time: \u0394t = Q / I = 54000 C / 20.0 A = 2700 s (45 min).",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
@@ -353,26 +134,221 @@
       "subtopic": "Quantitative Electrolysis Calculations",
       "cognitive_level": "Evaluating",
       "difficulty": "hard",
-      "learning_outcome": "Calculate mass deposited for copper"
+      "learning_outcome": "Calculate time required to deposit copper"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_13"
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_5"
   },
   {
-    "id": "TS_P2_ECHEM_0991",
+    "id": "TS_P2_ECHEM_0440",
+    "topic": "Electrochemistry",
+    "subtopic": "Electrode Identification",
+    "difficulty": "medium",
+    "question": "For the galvanic cell pairing **Chlorine** (E\u00b0 = +1.36 V) and **Iron** (E\u00b0 = -0.44 V), identify the CATHODE and ANODE:",
+    "correct_answer": "Cathode: Chlorine (more positive E\u00b0, reduction); Anode: Iron (more negative E\u00b0, oxidation).",
+    "wrong_answers_pool": [
+      "Cathode: Iron; Anode: Chlorine.",
+      "Both electrodes act as anodes simultaneously.",
+      "Both electrodes act as cathodes simultaneously.",
+      "Cathode: Iron (oxidation); Anode: Chlorine (reduction).",
+      "Cathode: Chlorine (oxidation); Anode: Iron (reduction).",
+      "Neither electrode can be identified without an external battery."
+    ],
+    "explanation": "The half-cell with the more positive reduction potential acts as the CATHODE (Chlorine, E\u00b0 = +1.36 V); the one with the more negative potential acts as the ANODE (Iron, E\u00b0 = -0.44 V).",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Electrochemistry",
+      "subtopic": "Electrode Identification",
+      "cognitive_level": "Understanding",
+      "difficulty": "medium",
+      "learning_outcome": "Identify cathode/anode for Chlorine-Iron"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_6"
+  },
+  {
+    "id": "TS_P2_ECHEM_0765",
+    "topic": "Electrochemistry",
+    "subtopic": "Cell Notation",
+    "difficulty": "medium",
+    "question": "Write the correct standard cell notation for the galvanic cell composed of **Potassium** and **Standard Hydrogen Electrode (SHE)**:",
+    "correct_answer": "K(s) | K+(aq) || 2H+(aq) | H2(s)",
+    "wrong_answers_pool": [
+      "H2(s) | 2H+(aq) || K+(aq) | K(s) (inverted anode and cathode)",
+      "K(s) || K+(aq) | 2H+(aq) || H2(s)",
+      "K+(aq) | K(s) || H2(s) | 2H+(aq)",
+      "K(s) + 2H+(aq) \u2192 K+(aq) + H2(s)",
+      "K(s) | H2(s) || K+(aq) | 2H+(aq)",
+      "2H+(aq) | H2(s) || K(s) | K+(aq)",
+      "K(s) / K+(aq) // 2H+(aq) / H2(s)"
+    ],
+    "explanation": "Standard cell notation convention: Anode | Anode electrolyte || Cathode electrolyte | Cathode -> K(s) | K+(aq) || 2H+(aq) | H2(s).",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Electrochemistry",
+      "subtopic": "Cell Notation",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Write cell notation for Potassium-Standard Hydrogen Electrode (SHE)"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_7"
+  },
+  {
+    "id": "TS_P2_ORG_0990",
+    "topic": "Organic Chemistry",
+    "subtopic": "Industrial Polymerization Yields",
+    "difficulty": "hard",
+    "question": "An industrial reactor processes **600 kg of ethene monomer** to synthesize **Polyethene**. If the overall polymer yield is **95%**, calculate the mass of polymer produced:",
+    "correct_answer": "570.0 kg",
+    "wrong_answers_pool": [
+      "855.0 kg",
+      "285.0 kg",
+      "600.0 kg (100% yield)",
+      "620.0 kg",
+      "1140.0 kg",
+      "30.0 kg",
+      "456.0 kg"
+    ],
+    "explanation": "Polymer mass = (95 / 100) \u00d7 600 kg = 570.0 kg.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Organic Chemistry",
+      "subtopic": "Industrial Polymerization Yields",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate batch polymer yield for Polyethene"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_8"
+  },
+  {
+    "id": "TS_P2_ORG_0675",
+    "topic": "Organic Chemistry",
+    "subtopic": "Dihaloalkane Nomenclature",
+    "difficulty": "medium",
+    "question": "According to IUPAC nomenclature, what is the systematic name for the dihalogenated hydrocarbon with formula **CH3-CH(Cl)-CH2Cl**?",
+    "correct_answer": "1,2-dichloropropane",
+    "wrong_answers_pool": [
+      "1,3-dichloropropane",
+      "1,1-dichloropropane",
+      "2,2-dichloropropane",
+      "dichloropropane",
+      "propyl dichloride",
+      "1,2-dichlorobutane",
+      "2-chloropropane"
+    ],
+    "explanation": "Condensed formula CH3-CH(Cl)-CH2Cl: parent chain and locants indicate 1,2-dichloropropane.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Organic Chemistry",
+      "subtopic": "Dihaloalkane Nomenclature",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Name dihaloalkane 1,2-dichloropropane"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_9"
+  },
+  {
+    "id": "TS_P2_MAT_0808",
+    "topic": "Materials",
+    "subtopic": "Electrochemical Corrosion In-Depth",
+    "difficulty": "hard",
+    "question": "In advanced Grade 12 Technical Sciences metallurgy, evaluate: **Impressed Current Cathodic Protection (ICCP) vs Galvanic Sacrificial Anodes**",
+    "correct_answer": "ICCP uses an external direct current (DC) power source connected to inert non-sacrificial anodes (such as mixed metal oxide titanium) to continuously pump electrons into the protected steel structure, making it the cathode regardless of soil or water resistivity; sacrificial anode systems rely solely on the natural potential difference between dissimilar metals and require no external power, but have limited driving voltage and finite anode lifespan.",
+    "wrong_answers_pool": [
+      "ICCP converts alternating current into sound waves to repel water molecules from steel",
+      "Sacrificial anodes require high-voltage external power generators to function",
+      "ICCP operates exclusively on alternating current while sacrificial anodes use direct current",
+      "Sacrificial anodes dissolve faster when connected to external DC power supplies",
+      "ICCP creates a protective paint barrier through continuous electrodeposition of plastic",
+      "Both systems require replacing massive zinc anodes every twenty-four hours"
+    ],
+    "explanation": "ICCP uses an external DC power supply with inert anodes to force steel to be the cathode; sacrificial systems use galvanic potential difference without external power.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Materials",
+      "subtopic": "Electrochemical Corrosion In-Depth",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Analyze Impressed Current Cathodic Protection (ICCP) vs Galvanic Sacrificial Anodes"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_10"
+  },
+  {
+    "id": "TS_P2_ORG_0723",
+    "topic": "Organic Chemistry",
+    "subtopic": "Combustion Product Yields",
+    "difficulty": "medium",
+    "question": "Calculate the number of moles of carbon dioxide (CO2) produced by the complete combustion of **2 mole(s) of propene (C3H6)** in excess oxygen:",
+    "correct_answer": "6 mole(s) of CO2",
+    "wrong_answers_pool": [
+      "12 mole(s) of CO2",
+      "3.0 mole(s) of CO2",
+      "2 mole(s) of CO2 (assumed 1:1 ratio)",
+      "10 mole(s) of CO2",
+      "18 mole(s) of CO2",
+      "3 mole(s) of CO2 (for 1 mole only)",
+      "16 mole(s) of CO2"
+    ],
+    "explanation": "Balanced reaction: 2C3H6 + 9O2 \u2192 6CO2 + 6H2O (1 mol C3H6 needs 4.5 mol O2). 1 mole of propene produces 3 mol CO\u2082. For 2 mole(s): 2 \u00d7 3 = 6 mole(s) of CO2.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Organic Chemistry",
+      "subtopic": "Combustion Product Yields",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate CO2 yield for propene (C3H6)"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_11"
+  },
+  {
+    "id": "TS_P2_ORG_0834",
+    "topic": "Organic Chemistry",
+    "subtopic": "Advanced IUPAC Nomenclature",
+    "difficulty": "hard",
+    "question": "Determine the rigorous IUPAC name for the heavily branched/substituted organic structure **CH3-CH2-CH(Br)-CH(Br)-CH3**:",
+    "correct_answer": "2,3-dibromopentane",
+    "wrong_answers_pool": [
+      "3,4-dibromopentane (numbered from wrong end: 3,4 instead of 2,3)",
+      "2,3-bromopentane (missing 'di' multiplier prefix)",
+      "1,2-dibromopentane",
+      "2,3-dibromobutane",
+      "dibromopentane",
+      "2,3-dibromohexane",
+      "3,3-dibromopentane"
+    ],
+    "explanation": "Five-carbon chain (pentane). Numbering from right gives lowest locants 2,3 -> 2,3-dibromopentane.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Organic Chemistry",
+      "subtopic": "Advanced IUPAC Nomenclature",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Name complex molecule 2,3-dibromopentane"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_12"
+  },
+  {
+    "id": "TS_P2_ECHEM_0969",
     "topic": "Electrochemistry",
     "subtopic": "Quantitative Electrolysis Calculations",
     "difficulty": "hard",
-    "question": "How long (in seconds) must an electroplating current of I = 10.0 A be passed through the solution of **silver metal from AgNO3 (Ag+ + e- \u2192 Ag, M = 108.0 g\u00b7mol\u207b\u00b9)** to deposit exactly 6.72 g of metal at the cathode? (F = 96 500 C\u00b7mol\u207b\u00b9):",
-    "correct_answer": "600 s (10 min)",
+    "question": "How long (in seconds) must an electroplating current of I = 5.0 A be passed through the solution of **silver metal from AgNO3 (Ag+ + e- \u2192 Ag, M = 108.0 g\u00b7mol\u207b\u00b9)** to deposit exactly 6.72 g of metal at the cathode? (F = 96 500 C\u00b7mol\u207b\u00b9):",
+    "correct_answer": "1200 s (20 min)",
     "wrong_answers_pool": [
-      "1200 s",
-      "300 s",
+      "2400 s",
       "600 s",
-      "900 s",
+      "1200 s",
+      "1500 s",
       "6000 s",
-      "150 s"
+      "1800 s",
+      "300 s"
     ],
-    "explanation": "1. Moles of metal: n = 6.72 g / 108.0 g\u00b7mol\u207b\u00b9 = 0.0622 mol. 2. Charge required: Q = n \u00d7 z \u00d7 F = 0.0622 \u00d7 1 \u00d7 96 500 = 6000 C. 3. Time: \u0394t = Q / I = 6000 C / 10.0 A = 600 s (10 min).",
+    "explanation": "1. Moles of metal: n = 6.72 g / 108.0 g\u00b7mol\u207b\u00b9 = 0.0622 mol. 2. Charge required: Q = n \u00d7 z \u00d7 F = 0.0622 \u00d7 1 \u00d7 96 500 = 6000 C. 3. Time: \u0394t = Q / I = 6000 C / 5.0 A = 1200 s (20 min).",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
@@ -382,135 +358,80 @@
       "difficulty": "hard",
       "learning_outcome": "Calculate time required to deposit silver"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_14"
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_13"
   },
   {
-    "id": "TS_P2_ECHEM_0796",
-    "topic": "Electrochemistry",
-    "subtopic": "Electrode Identification",
-    "difficulty": "medium",
-    "question": "For the galvanic cell pairing **Lead** (E\u00b0 = -0.13 V) and **Magnesium** (E\u00b0 = -2.36 V), identify the CATHODE and ANODE:",
-    "correct_answer": "Cathode: Lead (more positive E\u00b0, reduction); Anode: Magnesium (more negative E\u00b0, oxidation).",
+    "id": "TS_P2_ORG_0815",
+    "topic": "Organic Chemistry",
+    "subtopic": "Synthetic Reaction Pathways",
+    "difficulty": "hard",
+    "question": "Consider the reaction pathway: **A petroleum engineer subjects decane (C10H22) to thermal and catalytic cracking at 500 \u00b0C using a zeolite catalyst. One of the primary reaction pathways yields ethene (C2H4) and an alkane compound Z.**. Identify the correct mechanistic pathway:",
+    "correct_answer": "Compound Z is octane (C8H18), since mass and atoms must balance: C10H22 \u2192 C2H4 + C8H18 (decane breaks into an unsaturated short-chain monomer and a valuable motor fuel alkane).",
     "wrong_answers_pool": [
-      "Cathode: Magnesium; Anode: Lead.",
-      "Both electrodes act as anodes simultaneously.",
-      "Both electrodes act as cathodes simultaneously.",
-      "Cathode: Magnesium (oxidation); Anode: Lead (reduction).",
-      "Cathode: Lead (oxidation); Anode: Magnesium (reduction).",
-      "Neither electrode can be identified without an external battery."
+      "Compound Z is octene (C8H16) with two hydrogen atoms lost as gas.",
+      "Compound Z is heptane (C7H16) and methane gas.",
+      "Compound Z is nonane (C9H20) and carbon soot.",
+      "Compound Z is butane (C4H10) and propene.",
+      "Compound Z is dec-1-ene (C10H20) and hydrogen gas.",
+      "Compound Z is hex-1-ene (C6H12) and propane."
     ],
-    "explanation": "The half-cell with the more positive reduction potential acts as the CATHODE (Lead, E\u00b0 = -0.13 V); the one with the more negative potential acts as the ANODE (Magnesium, E\u00b0 = -2.36 V).",
+    "explanation": "Cracking of alkanes: C\u2081\u2080H\u2082\u2082 -> C\u2082H\u2084 + C\u2088H\u2081\u2088 (decane cracking yields ethene + octane).",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
-      "topic": "Electrochemistry",
-      "subtopic": "Electrode Identification",
-      "cognitive_level": "Understanding",
+      "topic": "Organic Chemistry",
+      "subtopic": "Synthetic Reaction Pathways",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Analyze multi-step organic reaction pathways"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_14"
+  },
+  {
+    "id": "TS_P2_ORG_0330",
+    "topic": "Organic Chemistry",
+    "subtopic": "IUPAC Nomenclature",
+    "difficulty": "medium",
+    "question": "Give the correct IUPAC name for the molecule represented by: **CH3-CH2-CH2-Br**",
+    "correct_answer": "1-bromopropane",
+    "wrong_answers_pool": [
+      "2-bromopropane",
+      "bromopropane",
+      "3-bromopropane",
+      "bromobutane",
+      "1-bromoethane",
+      "propyl bromide",
+      "dibromopropane"
+    ],
+    "explanation": "Three-carbon chain numbered from right gives bromine at C1 -> 1-bromopropane.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Organic Chemistry",
+      "subtopic": "IUPAC Nomenclature",
+      "cognitive_level": "Applying",
       "difficulty": "medium",
-      "learning_outcome": "Identify cathode/anode for Lead-Magnesium"
+      "learning_outcome": "Name 1-bromopropane using IUPAC rules"
     },
     "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_15"
   },
   {
-    "id": "TS_P2_ECHEM_0543",
-    "topic": "Electrochemistry",
-    "subtopic": "Standard Cell Potential Calculations",
-    "difficulty": "medium",
-    "question": "A galvanic cell is constructed under standard conditions using a **Silver half-cell** (E\u00b0 = +0.80 V) and a **Chromium half-cell** (E\u00b0 = -0.74 V). Calculate the standard cell potential (E\u00b0_cell):",
-    "correct_answer": "+1.54 V",
-    "wrong_answers_pool": [
-      "-1.54 V (inverted anode and cathode potentials)",
-      "+0.06 V (added potentials instead of subtracting)",
-      "-1.54 V (E\u00b0anode - E\u00b0cathode)",
-      "+0.80 V (stated cathode potential only)",
-      "-0.74 V (stated anode potential only)",
-      "+3.08 V",
-      "0.00 V (assumed equilibrium potential)"
-    ],
-    "explanation": "E\u00b0_cell = E\u00b0_cathode - E\u00b0_anode = (+0.80 V) - (-0.74 V) = +1.54 V.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Electrochemistry",
-      "subtopic": "Standard Cell Potential Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate E\u00b0cell for Silver-Chromium cell"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_16"
-  },
-  {
-    "id": "TS_P2_MAT_0811",
-    "topic": "Materials",
-    "subtopic": "Advanced Material Selection",
-    "difficulty": "hard",
-    "question": "In engineering materials design, evaluate the specification for: **Subsea Natural Gas Pipeline across a deep marine trench (High pressure, saline water, continuous movement)**",
-    "correct_answer": "High-strength low-alloy (HSLA) steel pipe coated externally with three-layer polypropylene (3LPP) and protected by continuous sacrificial zinc anode bracelets or ICCP",
-    "wrong_answers_pool": [
-      "Pure unreinforced PVC plastic pipes because plastics do not rust in seawater",
-      "Cast iron pipes joined by rubber gaskets with zero external coating",
-      "Solid pure copper piping because copper is highly malleable and soft",
-      "Uncoated mild steel pipes because deep ocean water contains zero oxygen",
-      "Pure glass tubing because ceramics have infinite tensile flexibility",
-      "Aluminium foil wrapped around bamboo canes with tar adhesive"
-    ],
-    "explanation": "Marine subsea pipelines require high tensile strength (HSLA steel) to withstand internal gas pressure, heavy plastic coating (3LPP) against seawater, and sacrificial zinc bracelets for cathodic protection.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Materials",
-      "subtopic": "Advanced Material Selection",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Specify material for Subsea Natural Gas Pipeline across a deep marine trench (High pressure, saline water, continuous movement)"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_17"
-  },
-  {
-    "id": "TS_P2_MAT_0981",
+    "id": "TS_P2_MAT_0900",
     "topic": "Materials",
     "subtopic": "Young's Modulus & Elastic Deformation",
     "difficulty": "hard",
-    "question": "In a materials tensile laboratory test, a structural specimen of length L = 4.0 m and cross-sectional area A = 20 mm\u00b2 (2.0e-05 m\u00b2) elongates by \u0394L = 10.000 mm under a tensile load of F = 10000 N. Calculate the **YOUNG'S MODULUS (E)** of the tested material in GPa:",
-    "correct_answer": "200 GPa (2.0e+11 Pa)",
+    "question": "A **steel construction cable** made of **Structural Mild Steel (E = 200 GPa)** has an original length of L = 4.0 m and a cross-sectional area of A = 20 mm\u00b2 (2.0e-05 m\u00b2). When subjected to a tensile pulling force of F = 2500 N within its elastic limit, calculate the resulting ELONGATION (extension, \u0394L):",
+    "correct_answer": "2.500 mm (2.5000e-03 m)",
     "wrong_answers_pool": [
-      "400 GPa",
-      "100 GPa",
-      "2000 GPa",
-      "0.00 GPa (forgot area and length factors)",
-      "250 GPa",
-      "170 GPa",
-      "300 GPa"
-    ],
-    "explanation": "1. Stress: \u03c3 = F / A = 10000 N / 2.0e-05 m\u00b2 = 5.00e+08 Pa. 2. Strain: \u03b5 = \u0394L / L = 1.0000e-02 m / 4.0 m = 2.5000e-03. 3. Young's modulus: E = \u03c3 / \u03b5 = 200 GPa (2.0e+11 Pa).",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Materials",
-      "subtopic": "Young's Modulus & Elastic Deformation",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate Young's modulus from tensile test data"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_18"
-  },
-  {
-    "id": "TS_P2_MAT_0930",
-    "topic": "Materials",
-    "subtopic": "Young's Modulus & Elastic Deformation",
-    "difficulty": "hard",
-    "question": "A **steel construction cable** made of **Structural Mild Steel (E = 200 GPa)** has an original length of L = 2.0 m and a cross-sectional area of A = 200 mm\u00b2 (2.0e-04 m\u00b2). When subjected to a tensile pulling force of F = 5000 N within its elastic limit, calculate the resulting ELONGATION (extension, \u0394L):",
-    "correct_answer": "0.250 mm (2.5000e-04 m)",
-    "wrong_answers_pool": [
-      "2.500 mm",
-      "0.125 mm",
-      "0.500 mm",
+      "25.000 mm",
+      "1.250 mm",
+      "5.000 mm",
       "0.0000 mm",
-      "1.750 mm",
-      "250.000 mm",
-      "0.025 mm"
+      "4.000 mm",
+      "2500.000 mm",
+      "0.250 mm"
     ],
-    "explanation": "1. Hooke's law / Young's modulus: E = (F \u00d7 L) / (A \u00d7 \u0394L) => \u0394L = (F \u00d7 L) / (A \u00d7 E). 2. Substitution: \u0394L = (5000 N \u00d7 2.0 m) / (2.0e-04 m\u00b2 \u00d7 2.0e+11 Pa) = 0.000250 m = 0.250 mm (2.5000e-04 m).",
+    "explanation": "1. Hooke's law / Young's modulus: E = (F \u00d7 L) / (A \u00d7 \u0394L) => \u0394L = (F \u00d7 L) / (A \u00d7 E). 2. Substitution: \u0394L = (2500 N \u00d7 4.0 m) / (2.0e-05 m\u00b2 \u00d7 2.0e+11 Pa) = 0.002500 m = 2.500 mm (2.5000e-03 m).",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
@@ -520,380 +441,81 @@
       "difficulty": "hard",
       "learning_outcome": "Calculate elongation for Structural"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_19"
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_16"
   },
   {
-    "id": "TS_P2_MAT_0969",
-    "topic": "Materials",
-    "subtopic": "Young's Modulus & Elastic Deformation",
-    "difficulty": "hard",
-    "question": "In a materials tensile laboratory test, a structural specimen of length L = 2.0 m and cross-sectional area A = 100 mm\u00b2 (1.0e-04 m\u00b2) elongates by \u0394L = 1.000 mm under a tensile load of F = 10000 N. Calculate the **YOUNG'S MODULUS (E)** of the tested material in GPa:",
-    "correct_answer": "200 GPa (2.0e+11 Pa)",
-    "wrong_answers_pool": [
-      "400 GPa",
-      "100 GPa",
-      "2000 GPa",
-      "0.01 GPa (forgot area and length factors)",
-      "250 GPa",
-      "170 GPa",
-      "300 GPa"
-    ],
-    "explanation": "1. Stress: \u03c3 = F / A = 10000 N / 1.0e-04 m\u00b2 = 1.00e+08 Pa. 2. Strain: \u03b5 = \u0394L / L = 1.0000e-03 m / 2.0 m = 5.0000e-04. 3. Young's modulus: E = \u03c3 / \u03b5 = 200 GPa (2.0e+11 Pa).",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Materials",
-      "subtopic": "Young's Modulus & Elastic Deformation",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate Young's modulus from tensile test data"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_20"
-  },
-  {
-    "id": "TS_P2_ECHEM_0572",
+    "id": "TS_P2_ECHEM_0661",
     "topic": "Electrochemistry",
-    "subtopic": "Electrode Identification",
+    "subtopic": "Cell Notation",
     "difficulty": "medium",
-    "question": "For the galvanic cell pairing **Iron(III) / Iron(II)** (E\u00b0 = +0.77 V) and **Iodine** (E\u00b0 = +0.54 V), identify the CATHODE and ANODE:",
-    "correct_answer": "Cathode: Iron(III) / Iron(II) (more positive E\u00b0, reduction); Anode: Iodine (more negative E\u00b0, oxidation).",
+    "question": "Write the correct standard cell notation for the galvanic cell composed of **Aluminium** and **Iodine**:",
+    "correct_answer": "Al(s) | Al3+(aq) || I2(aq) | I-(s)",
     "wrong_answers_pool": [
-      "Cathode: Iodine; Anode: Iron(III) / Iron(II).",
-      "Both electrodes act as anodes simultaneously.",
-      "Both electrodes act as cathodes simultaneously.",
-      "Cathode: Iodine (oxidation); Anode: Iron(III) / Iron(II) (reduction).",
-      "Cathode: Iron(III) / Iron(II) (oxidation); Anode: Iodine (reduction).",
-      "Neither electrode can be identified without an external battery."
+      "I-(s) | I2(aq) || Al3+(aq) | Al(s) (inverted anode and cathode)",
+      "Al(s) || Al3+(aq) | I2(aq) || I-(s)",
+      "Al3+(aq) | Al(s) || I-(s) | I2(aq)",
+      "Al(s) + I2(aq) \u2192 Al3+(aq) + I-(s)",
+      "Al(s) | I-(s) || Al3+(aq) | I2(aq)",
+      "I2(aq) | I-(s) || Al(s) | Al3+(aq)",
+      "Al(s) / Al3+(aq) // I2(aq) / I-(s)"
     ],
-    "explanation": "The half-cell with the more positive reduction potential acts as the CATHODE (Iron(III) / Iron(II), E\u00b0 = +0.77 V); the one with the more negative potential acts as the ANODE (Iodine, E\u00b0 = +0.54 V).",
+    "explanation": "Standard cell notation convention: Anode | Anode electrolyte || Cathode electrolyte | Cathode -> Al(s) | Al3+(aq) || I2(aq) | I-(s).",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
       "topic": "Electrochemistry",
-      "subtopic": "Electrode Identification",
-      "cognitive_level": "Understanding",
+      "subtopic": "Cell Notation",
+      "cognitive_level": "Applying",
       "difficulty": "medium",
-      "learning_outcome": "Identify cathode/anode for Iron(III) / Iron(II)-Iodine"
+      "learning_outcome": "Write cell notation for Aluminium-Iodine"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_21"
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_17"
   },
   {
-    "id": "TS_P2_ORG_0321",
+    "id": "TS_P2_ORG_0955",
     "topic": "Organic Chemistry",
-    "subtopic": "IUPAC Nomenclature",
-    "difficulty": "medium",
-    "question": "Give the correct IUPAC name for the molecule represented by: **CH3-CH(CH3)-CH2-CH2-CH3**",
-    "correct_answer": "2-methylpentane",
+    "subtopic": "Percentage Composition",
+    "difficulty": "hard",
+    "question": "Using atomic mass C = 12.0 g\u00b7mol\u207b\u00b9, calculate the **PERCENTAGE COMPOSITION BY MASS OF CARBON (% C)** in pure **ethyl ethanoate (C4H8O2, M = 88.0 g\u00b7mol\u207b\u00b9)**:",
+    "correct_answer": "54.5%",
     "wrong_answers_pool": [
-      "4-methylpentane",
-      "hexane",
-      "2-ethylbutane",
-      "3-methylpentane",
-      "2-propylpropane",
-      "dimethylbutane",
-      "heptane"
+      "81.8%",
+      "27.3%",
+      "45.5% (calculated percentage of hydrogen/oxygen instead of carbon)",
+      "66.5%",
+      "44.5%",
+      "48.0% (confused mass of carbon with percentage)",
+      "43.6%"
     ],
-    "explanation": "Longest chain has 5 carbons (pentane). Numbering from left gives lowest locant C2 -> 2-methylpentane.",
+    "explanation": "% Carbon = (Total mass of Carbon / Molar mass of compound) \u00d7 100% = (48.0 / 88.0) \u00d7 100% = 54.5%.",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
       "topic": "Organic Chemistry",
-      "subtopic": "IUPAC Nomenclature",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Name 2-methylpentane using IUPAC rules"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_22"
-  },
-  {
-    "id": "TS_P2_ECHEM_0961",
-    "topic": "Electrochemistry",
-    "subtopic": "Quantitative Electrolysis Calculations",
-    "difficulty": "hard",
-    "question": "How long (in seconds) must an electroplating current of I = 3.0 A be passed through the solution of **silver metal from AgNO3 (Ag+ + e- \u2192 Ag, M = 108.0 g\u00b7mol\u207b\u00b9)** to deposit exactly 8.06 g of metal at the cathode? (F = 96 500 C\u00b7mol\u207b\u00b9):",
-    "correct_answer": "2400 s (40 min)",
-    "wrong_answers_pool": [
-      "4800 s",
-      "1200 s",
-      "2400 s",
-      "2700 s",
-      "7200 s",
-      "3600 s",
-      "600 s"
-    ],
-    "explanation": "1. Moles of metal: n = 8.06 g / 108.0 g\u00b7mol\u207b\u00b9 = 0.0746 mol. 2. Charge required: Q = n \u00d7 z \u00d7 F = 0.0746 \u00d7 1 \u00d7 96 500 = 7200 C. 3. Time: \u0394t = Q / I = 7200 C / 3.0 A = 2400 s (40 min).",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Electrochemistry",
-      "subtopic": "Quantitative Electrolysis Calculations",
+      "subtopic": "Percentage Composition",
       "cognitive_level": "Evaluating",
       "difficulty": "hard",
-      "learning_outcome": "Calculate time required to deposit silver"
+      "learning_outcome": "Calculate % C in ethyl"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_23"
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_18"
   },
   {
-    "id": "TS_P2_ORG_0862",
-    "topic": "Organic Chemistry",
-    "subtopic": "Polymer Chemistry & Materials",
-    "difficulty": "hard",
-    "question": "In Technical Sciences materials science, critically evaluate: **Polyethylene Terephthalate (PET) Structure and Recycling**",
-    "correct_answer": "A condensation polyester produced by reacting benzene-1,4-dicarboxylic acid (terephthalic acid) with ethane-1,2-diol (ethylene glycol), forming ester linkages (-COO-) and water; it is a thermoplastic polymer widely used in clear beverage containers (recycling code 1) and synthetic textile fibres (Dacron/Terylene).",
-    "wrong_answers_pool": [
-      "An addition polymer of styrene used exclusively in brittle polystyrene coffee cups",
-      "A thermosetting plastic that chars and decomposes upon heating without melting",
-      "A polyamide containing peptide bonds identical to natural animal silk",
-      "A biodegradable carbohydrate polymer derived from corn starch fermentation",
-      "An elastomer vulcanized with sulfur bridges to form automotive tyres",
-      "A chlorinated hydrocarbon that releases hydrogen chloride gas during washing"
-    ],
-    "explanation": "PET is a thermoplastic polyester made from terephthalic acid and ethylene glycol, easily melted and recycled.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Organic Chemistry",
-      "subtopic": "Polymer Chemistry & Materials",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Evaluate polymer structure and properties"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_24"
-  },
-  {
-    "id": "TS_P2_ECHEM_0833",
-    "topic": "Electrochemistry",
-    "subtopic": "Quantitative Electrolysis Calculations",
-    "difficulty": "hard",
-    "question": "During industrial electroplating, a steady electric current of I = 1.0 A passes through an electrolytic bath containing **copper metal from CuSO4 (Cu2+ + 2e- \u2192 Cu, M = 63.5 g\u00b7mol\u207b\u00b9)** for a duration of \u0394t = 5400 s (90 minutes). Given Faraday's constant F = 96 500 C\u00b7mol\u207b\u00b9, calculate the mass of metal deposited at the cathode:",
-    "correct_answer": "1.78 g",
-    "wrong_answers_pool": [
-      "3.55 g (forgot to divide by electron valence z = 2)",
-      "0.89 g",
-      "3.55 g",
-      "5400 g (confused charge in Coulombs with mass in grams)",
-      "6.78 g",
-      "2.67 g"
-    ],
-    "explanation": "1. Total charge: Q = I \u00d7 \u0394t = 1.0 A \u00d7 5400 s = 5400 C. 2. Moles of electrons: n(e\u207b) = Q / F = 5400 C / 96 500 C\u00b7mol\u207b\u00b9 = 0.0560 mol. 3. Moles of metal: n(metal) = n(e\u207b) / 2 = 0.0280 mol. 4. Mass deposited: m = n \u00d7 M = 0.0280 mol \u00d7 63.5 g\u00b7mol\u207b\u00b9 = 1.78 g.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Electrochemistry",
-      "subtopic": "Quantitative Electrolysis Calculations",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate mass deposited for copper"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_25"
-  },
-  {
-    "id": "TS_P2_ORG_0567",
-    "topic": "Organic Chemistry",
-    "subtopic": "Combustion Reactions",
-    "difficulty": "medium",
-    "question": "What is the balanced chemical equation for the COMPLETE COMBUSTION of **Propan-1-ol (C3H7OH)** in excess oxygen?",
-    "correct_answer": "2C3H7OH + 9O2 \u2192 6CO2 + 8H2O",
-    "wrong_answers_pool": [
-      "2C3H7OH + 9O2 \u2192 6CO + 8H2O",
-      "2C3H7OH + 9O2 \u2192 6CO2 + 8H2",
-      "2C3H7OH + 9O2 \u2192 6C + 8H2O",
-      "Propan-1-ol + O\u2082 \u2192 CO\u2082 + H\u2082",
-      "Propan-1-ol + 2O\u2082 \u2192 2CO + 2H\u2082O",
-      "2Propan-1-ol + O\u2082 \u2192 2CO\u2082 + H\u2082O"
-    ],
-    "explanation": "Complete combustion of Propan-1-ol (C3H7OH): 2C3H7OH + 9O2 \u2192 6CO2 + 8H2O. Produces 6 moles of CO2 and 8 moles of H2O.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Organic Chemistry",
-      "subtopic": "Combustion Reactions",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Balance combustion of Propan-1-ol (C3H7OH)"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_26"
-  },
-  {
-    "id": "TS_P2_ORG_0847",
-    "topic": "Organic Chemistry",
-    "subtopic": "Comparative Reaction Mechanisms",
-    "difficulty": "hard",
-    "question": "In experimental Technical Sciences chemistry, analyze: **Distinguishing an alkane from an alkene using the Bromine Water Test**",
-    "correct_answer": "When reddish-brown bromine water (Br2(aq)) is added to an alkene, it DECOLOURISES RAPIDLY (turns clear/colourless) in the dark via addition; when added to an alkane, it REMAINS REDDISH-BROWN in the dark and only slowly decolourises if exposed to UV light/sunlight via substitution.",
-    "wrong_answers_pool": [
-      "The alkane decolourises bromine water immediately while the alkene does not react",
-      "Both decolourise bromine water at identical rates in total darkness",
-      "The alkene turns the bromine water bright purple while the alkane turns it green",
-      "The alkene precipitates solid yellow sulfur while the alkane boils vigorously",
-      "The alkane undergoes addition while the alkene undergoes substitution",
-      "Bromine water test cannot distinguish between alkanes and alkenes under any conditions"
-    ],
-    "explanation": "Alkenes rapidly decolourise reddish-brown bromine water in the dark (addition of Br\u2082). Alkanes do not react in the dark (only slowly in UV light via substitution).",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Organic Chemistry",
-      "subtopic": "Comparative Reaction Mechanisms",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Distinguish reaction conditions and mechanisms"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_27"
-  },
-  {
-    "id": "TS_P2_ECHEM_0932",
-    "topic": "Electrochemistry",
-    "subtopic": "Quantitative Electrolysis Calculations",
-    "difficulty": "hard",
-    "question": "During industrial electroplating, a steady electric current of I = 1.0 A passes through an electrolytic bath containing **silver metal from AgNO3 (Ag+ + e- \u2192 Ag, M = 108.0 g\u00b7mol\u207b\u00b9)** for a duration of \u0394t = 600 s (10 minutes). Given Faraday's constant F = 96 500 C\u00b7mol\u207b\u00b9, calculate the mass of metal deposited at the cathode:",
-    "correct_answer": "0.67 g",
-    "wrong_answers_pool": [
-      "0.67 g (forgot to divide by electron valence z = 1)",
-      "1.34 g",
-      "0.34 g",
-      "600 g (confused charge in Coulombs with mass in grams)",
-      "5.67 g",
-      "1.01 g"
-    ],
-    "explanation": "1. Total charge: Q = I \u00d7 \u0394t = 1.0 A \u00d7 600 s = 600 C. 2. Moles of electrons: n(e\u207b) = Q / F = 600 C / 96 500 C\u00b7mol\u207b\u00b9 = 0.0062 mol. 3. Moles of metal: n(metal) = n(e\u207b) / 1 = 0.0062 mol. 4. Mass deposited: m = n \u00d7 M = 0.0062 mol \u00d7 108.0 g\u00b7mol\u207b\u00b9 = 0.67 g.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Electrochemistry",
-      "subtopic": "Quantitative Electrolysis Calculations",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate mass deposited for silver"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_28"
-  },
-  {
-    "id": "TS_P2_MAT_0314",
-    "topic": "Materials",
-    "subtopic": "Material Selection in Engineering",
-    "difficulty": "medium",
-    "question": "An engineering designer chooses **Copper Metal (Cu)** (High-purity ductile non-ferrous metal) for **Domestic electrical wiring, motor windings, and transformer coils**. What key property justifies this selection?",
-    "correct_answer": "Because of its excellent electrical conductivity (second only to silver), high ductility for drawing into wires, and corrosion resistance.",
-    "wrong_answers_pool": [
-      "Because it has an extremely low melting point and melts in warm water.",
-      "Because it is brittle and shatters spontaneously under light loads.",
-      "Because it conducts electricity exclusively when submerged in acid.",
-      "Because it dissolves into air to release harmless carbon dioxide.",
-      "Because it is an unrefined mineral ore with zero manufacturing cost.",
-      "Because it corrodes rapidly to coat itself with heavy iron rust."
-    ],
-    "explanation": "Copper Metal (Cu) (High-purity ductile non-ferrous metal) is chosen for Domestic electrical wiring, motor windings, and transformer coils because of its Excellent electrical conductivity (second only to silver), high ductility for drawing into wires, and corrosion resistance.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Materials",
-      "subtopic": "Material Selection in Engineering",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Select material Copper Metal (Cu)"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_29"
-  },
-  {
-    "id": "TS_P2_ECHEM_0422",
-    "topic": "Electrochemistry",
-    "subtopic": "Electrode Identification",
-    "difficulty": "medium",
-    "question": "For the galvanic cell pairing **Chlorine** (E\u00b0 = +1.36 V) and **Iodine** (E\u00b0 = +0.54 V), identify the CATHODE and ANODE:",
-    "correct_answer": "Cathode: Chlorine (more positive E\u00b0, reduction); Anode: Iodine (more negative E\u00b0, oxidation).",
-    "wrong_answers_pool": [
-      "Cathode: Iodine; Anode: Chlorine.",
-      "Both electrodes act as anodes simultaneously.",
-      "Both electrodes act as cathodes simultaneously.",
-      "Cathode: Iodine (oxidation); Anode: Chlorine (reduction).",
-      "Cathode: Chlorine (oxidation); Anode: Iodine (reduction).",
-      "Neither electrode can be identified without an external battery."
-    ],
-    "explanation": "The half-cell with the more positive reduction potential acts as the CATHODE (Chlorine, E\u00b0 = +1.36 V); the one with the more negative potential acts as the ANODE (Iodine, E\u00b0 = +0.54 V).",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Electrochemistry",
-      "subtopic": "Electrode Identification",
-      "cognitive_level": "Understanding",
-      "difficulty": "medium",
-      "learning_outcome": "Identify cathode/anode for Chlorine-Iodine"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_30"
-  },
-  {
-    "id": "TS_P2_ECHEM_0994",
-    "topic": "Electrochemistry",
-    "subtopic": "Quantitative Electrolysis Calculations",
-    "difficulty": "hard",
-    "question": "During industrial electroplating, a steady electric current of I = 10.0 A passes through an electrolytic bath containing **silver metal from AgNO3 (Ag+ + e- \u2192 Ag, M = 108.0 g\u00b7mol\u207b\u00b9)** for a duration of \u0394t = 1800 s (30 minutes). Given Faraday's constant F = 96 500 C\u00b7mol\u207b\u00b9, calculate the mass of metal deposited at the cathode:",
-    "correct_answer": "20.15 g",
-    "wrong_answers_pool": [
-      "20.15 g (forgot to divide by electron valence z = 1)",
-      "40.29 g",
-      "10.07 g",
-      "18000 g (confused charge in Coulombs with mass in grams)",
-      "25.15 g",
-      "30.22 g"
-    ],
-    "explanation": "1. Total charge: Q = I \u00d7 \u0394t = 10.0 A \u00d7 1800 s = 18000 C. 2. Moles of electrons: n(e\u207b) = Q / F = 18000 C / 96 500 C\u00b7mol\u207b\u00b9 = 0.1865 mol. 3. Moles of metal: n(metal) = n(e\u207b) / 1 = 0.1865 mol. 4. Mass deposited: m = n \u00d7 M = 0.1865 mol \u00d7 108.0 g\u00b7mol\u207b\u00b9 = 20.15 g.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Electrochemistry",
-      "subtopic": "Quantitative Electrolysis Calculations",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate mass deposited for silver"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_31"
-  },
-  {
-    "id": "TS_P2_MAT_0519",
-    "topic": "Materials",
-    "subtopic": "Mechanical Stress Calculations",
-    "difficulty": "medium",
-    "question": "A structural tie rod has a cross-sectional area of A = 10.0 mm\u00b2 (0.00001 m\u00b2). If the allowable design tensile stress is \u03c3 = 100.00 MPa (1.0e+08 Pa), calculate the maximum pulling force (F) the rod can support:",
-    "correct_answer": "1000 N",
-    "wrong_answers_pool": [
-      "10000000.0 N",
-      "2000 N",
-      "500 N",
-      "10000 N",
-      "100 N",
-      "100000000 N (confused Pascals with Newtons)",
-      "1500 N"
-    ],
-    "explanation": "Force formula: F = \u03c3 \u00d7 A = 100000000 Pa \u00d7 0.00001 m\u00b2 = 1000 N.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Materials",
-      "subtopic": "Mechanical Stress Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate allowable force from stress and area"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_32"
-  },
-  {
-    "id": "TS_P2_ORG_0914",
+    "id": "TS_P2_ORG_0910",
     "topic": "Organic Chemistry",
     "subtopic": "Degree of Polymerization",
     "difficulty": "hard",
-    "question": "A sample of commercial **Polychloroethene (PVC)** has an average molecular mass of **156,250 g\u00b7mol\u207b\u00b9**. Given that its monomer is **chloroethene (C2H3Cl, M = 62.5 g\u00b7mol\u207b\u00b9)**, calculate the average **degree of polymerization (n)** (the number of monomer units in the chain):",
-    "correct_answer": "2,500 monomer units",
+    "question": "A sample of commercial **Polyethene (PE)** has an average molecular mass of **140,000 g\u00b7mol\u207b\u00b9**. Given that its monomer is **ethene (C2H4, M = 28 g\u00b7mol\u207b\u00b9)**, calculate the average **degree of polymerization (n)** (the number of monomer units in the chain):",
+    "correct_answer": "5,000 monomer units",
     "wrong_answers_pool": [
-      "5,000 monomer units",
+      "10,000 monomer units",
+      "2,500 monomer units",
+      "140,000 monomer units (confused molar mass with monomer count)",
+      "5,500 monomer units",
+      "7,500 monomer units",
       "1,250 monomer units",
-      "156,250 monomer units (confused molar mass with monomer count)",
-      "3,000 monomer units",
-      "3,750 monomer units",
-      "625 monomer units",
-      "3,500 monomer units"
+      "6,000 monomer units"
     ],
-    "explanation": "Degree of polymerization: n = Polymer Molar Mass / Monomer Molar Mass = 156,250 g\u00b7mol\u207b\u00b9 / 62.5 g\u00b7mol\u207b\u00b9 = 2,500 monomer units.",
+    "explanation": "Degree of polymerization: n = Polymer Molar Mass / Monomer Molar Mass = 140,000 g\u00b7mol\u207b\u00b9 / 28.0 g\u00b7mol\u207b\u00b9 = 5,000 monomer units.",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
@@ -901,231 +523,37 @@
       "subtopic": "Degree of Polymerization",
       "cognitive_level": "Evaluating",
       "difficulty": "hard",
-      "learning_outcome": "Calculate degree of polymerization for Polychloroethene (PVC)"
+      "learning_outcome": "Calculate degree of polymerization for Polyethene (PE)"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_33"
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_19"
   },
   {
-    "id": "TS_P2_ORG_0800",
-    "topic": "Organic Chemistry",
-    "subtopic": "Reaction Mode Classification",
-    "difficulty": "medium",
-    "question": "In organic chemical reactivity, **Hex-1-ene (unsaturated alkene)** is characterized by which reaction pathway?",
-    "correct_answer": "It undergoes ADDITION because the terminal double bond rapidly adds halogens and hydrogen halides.",
-    "wrong_answers_pool": [
-      "It undergoes SUBSTITUTION spontaneously in total darkness.",
-      "It undergoes condensation polymerization with the elimination of sodium chloride.",
-      "It undergoes acid-base neutralization producing a carboxylic salt and water.",
-      "It undergoes radioactive decay into aromatic isotopes.",
-      "It undergoes thermal cracking at room temperature without any catalyst.",
-      "It does not react under any conditions because hydrocarbons are completely inert."
-    ],
-    "explanation": "Hex-1-ene (unsaturated alkene): It undergoes ADDITION because the terminal double bond rapidly adds halogens and hydrogen halides.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Organic Chemistry",
-      "subtopic": "Reaction Mode Classification",
-      "cognitive_level": "Understanding",
-      "difficulty": "medium",
-      "learning_outcome": "Classify reaction mode for Hex-1-ene (unsaturated alkene)"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_34"
-  },
-  {
-    "id": "TS_P2_MAT_0841",
+    "id": "TS_P2_MAT_0829",
     "topic": "Materials",
-    "subtopic": "Young's Modulus & Elastic Deformation",
+    "subtopic": "Quantitative Corrosion Loss Calculations",
     "difficulty": "hard",
-    "question": "In a materials tensile laboratory test, a structural specimen of length L = 1.0 m and cross-sectional area A = 100 mm\u00b2 (1.0e-04 m\u00b2) elongates by \u0394L = 0.050 mm under a tensile load of F = 1000 N. Calculate the **YOUNG'S MODULUS (E)** of the tested material in GPa:",
-    "correct_answer": "200 GPa (2.0e+11 Pa)",
+    "question": "A localized electrochemical corrosion cell on an **uncoated steel pipe in moist acidic clay soil** sustains an average corrosion current of I = 0.05 A for a duration of **30 days**. Given Fe \u2192 Fe\u00b2\u207a + 2e\u207b (M = 55.8 g\u00b7mol\u207b\u00b9, F = 96 500 C\u00b7mol\u207b\u00b9), calculate the mass of iron metal lost due to rusting:",
+    "correct_answer": "37.47 g",
     "wrong_answers_pool": [
-      "400 GPa",
-      "100 GPa",
-      "2000 GPa",
-      "0.02 GPa (forgot area and length factors)",
-      "250 GPa",
-      "170 GPa",
-      "300 GPa"
+      "74.94 g (forgot valence z = 2)",
+      "18.73 g",
+      "129600.0 g (confused Coulombs with grams)",
+      "374.70 g",
+      "87.47 g",
+      "56.20 g",
+      "9.37 g"
     ],
-    "explanation": "1. Stress: \u03c3 = F / A = 1000 N / 1.0e-04 m\u00b2 = 1.00e+07 Pa. 2. Strain: \u03b5 = \u0394L / L = 5.0000e-05 m / 1.0 m = 5.0000e-05. 3. Young's modulus: E = \u03c3 / \u03b5 = 200 GPa (2.0e+11 Pa).",
+    "explanation": "1. Total time: t = 30 days \u00d7 24 \u00d7 3600 = 2592000 s. 2. Total charge: Q = I \u00d7 t = 0.05 A \u00d7 2592000 s = 129600 C. 3. Moles of Fe oxidized: n = Q / (2 \u00d7 96 500) = 0.6715 mol. 4. Mass of iron lost: m = n \u00d7 M = 0.6715 mol \u00d7 55.8 g\u00b7mol\u207b\u00b9 = 37.47 g.",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
       "topic": "Materials",
-      "subtopic": "Young's Modulus & Elastic Deformation",
+      "subtopic": "Quantitative Corrosion Loss Calculations",
       "cognitive_level": "Evaluating",
       "difficulty": "hard",
-      "learning_outcome": "Calculate Young's modulus from tensile test data"
+      "learning_outcome": "Calculate mass of iron lost to rusting"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_35"
-  },
-  {
-    "id": "TS_P2_MAT_0991",
-    "topic": "Materials",
-    "subtopic": "Young's Modulus & Elastic Deformation",
-    "difficulty": "hard",
-    "question": "In a materials tensile laboratory test, a structural specimen of length L = 5.0 m and cross-sectional area A = 50 mm\u00b2 (5.0e-05 m\u00b2) elongates by \u0394L = 5.000 mm under a tensile load of F = 10000 N. Calculate the **YOUNG'S MODULUS (E)** of the tested material in GPa:",
-    "correct_answer": "200 GPa (2.0e+11 Pa)",
-    "wrong_answers_pool": [
-      "400 GPa",
-      "100 GPa",
-      "2000 GPa",
-      "0.00 GPa (forgot area and length factors)",
-      "250 GPa",
-      "170 GPa",
-      "300 GPa"
-    ],
-    "explanation": "1. Stress: \u03c3 = F / A = 10000 N / 5.0e-05 m\u00b2 = 2.00e+08 Pa. 2. Strain: \u03b5 = \u0394L / L = 5.0000e-03 m / 5.0 m = 1.0000e-03. 3. Young's modulus: E = \u03c3 / \u03b5 = 200 GPa (2.0e+11 Pa).",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Materials",
-      "subtopic": "Young's Modulus & Elastic Deformation",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate Young's modulus from tensile test data"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_36"
-  },
-  {
-    "id": "TS_P2_MAT_0510",
-    "topic": "Materials",
-    "subtopic": "Mechanical Stress Calculations",
-    "difficulty": "medium",
-    "question": "A structural tie rod has a cross-sectional area of A = 500.0 mm\u00b2 (0.00050 m\u00b2). If the allowable design tensile stress is \u03c3 = 1.60 MPa (1.6e+06 Pa), calculate the maximum pulling force (F) the rod can support:",
-    "correct_answer": "800 N",
-    "wrong_answers_pool": [
-      "3200.0 N",
-      "1600 N",
-      "400 N",
-      "8000 N",
-      "80 N",
-      "1600000 N (confused Pascals with Newtons)",
-      "1300 N"
-    ],
-    "explanation": "Force formula: F = \u03c3 \u00d7 A = 1600000 Pa \u00d7 0.00050 m\u00b2 = 800 N.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Materials",
-      "subtopic": "Mechanical Stress Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate allowable force from stress and area"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_37"
-  },
-  {
-    "id": "TS_P2_ECHEM_0743",
-    "topic": "Electrochemistry",
-    "subtopic": "Standard Cell Potential Calculations",
-    "difficulty": "medium",
-    "question": "A galvanic cell is constructed under standard conditions using a **Standard Hydrogen Electrode (SHE) half-cell** (E\u00b0 = +0.00 V) and a **Chromium half-cell** (E\u00b0 = -0.74 V). Calculate the standard cell potential (E\u00b0_cell):",
-    "correct_answer": "+0.74 V",
-    "wrong_answers_pool": [
-      "-0.74 V (inverted anode and cathode potentials)",
-      "-0.74 V (added potentials instead of subtracting)",
-      "-0.74 V (E\u00b0anode - E\u00b0cathode)",
-      "+0.00 V (stated cathode potential only)",
-      "-0.74 V (stated anode potential only)",
-      "+1.48 V",
-      "0.00 V (assumed equilibrium potential)"
-    ],
-    "explanation": "E\u00b0_cell = E\u00b0_cathode - E\u00b0_anode = (+0.00 V) - (-0.74 V) = +0.74 V.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Electrochemistry",
-      "subtopic": "Standard Cell Potential Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate E\u00b0cell for Standard Hydrogen Electrode (SHE)-Chromium cell"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_38"
-  },
-  {
-    "id": "TS_P2_ECHEM_0571",
-    "topic": "Electrochemistry",
-    "subtopic": "Standard Cell Potential Calculations",
-    "difficulty": "medium",
-    "question": "A galvanic cell is constructed under standard conditions using a **Iron(III) / Iron(II) half-cell** (E\u00b0 = +0.77 V) and a **Iodine half-cell** (E\u00b0 = +0.54 V). Calculate the standard cell potential (E\u00b0_cell):",
-    "correct_answer": "+0.23 V",
-    "wrong_answers_pool": [
-      "-0.23 V (inverted anode and cathode potentials)",
-      "+1.31 V (added potentials instead of subtracting)",
-      "-0.23 V (E\u00b0anode - E\u00b0cathode)",
-      "+0.77 V (stated cathode potential only)",
-      "+0.54 V (stated anode potential only)",
-      "+0.46 V",
-      "0.00 V (assumed equilibrium potential)"
-    ],
-    "explanation": "E\u00b0_cell = E\u00b0_cathode - E\u00b0_anode = (+0.77 V) - (+0.54 V) = +0.23 V.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Electrochemistry",
-      "subtopic": "Standard Cell Potential Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate E\u00b0cell for Iron(III) / Iron(II)-Iodine cell"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_39"
-  },
-  {
-    "id": "TS_P2_ECHEM_0516",
-    "topic": "Electrochemistry",
-    "subtopic": "Electrode Identification",
-    "difficulty": "medium",
-    "question": "For the galvanic cell pairing **Silver** (E\u00b0 = +0.80 V) and **Iodine** (E\u00b0 = +0.54 V), identify the CATHODE and ANODE:",
-    "correct_answer": "Cathode: Silver (more positive E\u00b0, reduction); Anode: Iodine (more negative E\u00b0, oxidation).",
-    "wrong_answers_pool": [
-      "Cathode: Iodine; Anode: Silver.",
-      "Both electrodes act as anodes simultaneously.",
-      "Both electrodes act as cathodes simultaneously.",
-      "Cathode: Iodine (oxidation); Anode: Silver (reduction).",
-      "Cathode: Silver (oxidation); Anode: Iodine (reduction).",
-      "Neither electrode can be identified without an external battery."
-    ],
-    "explanation": "The half-cell with the more positive reduction potential acts as the CATHODE (Silver, E\u00b0 = +0.80 V); the one with the more negative potential acts as the ANODE (Iodine, E\u00b0 = +0.54 V).",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Electrochemistry",
-      "subtopic": "Electrode Identification",
-      "cognitive_level": "Understanding",
-      "difficulty": "medium",
-      "learning_outcome": "Identify cathode/anode for Silver-Iodine"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_40"
-  },
-  {
-    "id": "TS_P2_ECHEM_0376",
-    "topic": "Electrochemistry",
-    "subtopic": "Standard Cell Potential Calculations",
-    "difficulty": "medium",
-    "question": "A galvanic cell is constructed under standard conditions using a **Lead(IV) / Lead(II) half-cell** (E\u00b0 = +1.46 V) and a **Standard Hydrogen Electrode (SHE) half-cell** (E\u00b0 = +0.00 V). Calculate the standard cell potential (E\u00b0_cell):",
-    "correct_answer": "+1.46 V",
-    "wrong_answers_pool": [
-      "-1.46 V (inverted anode and cathode potentials)",
-      "+1.46 V (added potentials instead of subtracting)",
-      "-1.46 V (E\u00b0anode - E\u00b0cathode)",
-      "+1.46 V (stated cathode potential only)",
-      "+0.00 V (stated anode potential only)",
-      "+2.92 V",
-      "0.00 V (assumed equilibrium potential)"
-    ],
-    "explanation": "E\u00b0_cell = E\u00b0_cathode - E\u00b0_anode = (+1.46 V) - (+0.00 V) = +1.46 V.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Electrochemistry",
-      "subtopic": "Standard Cell Potential Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate E\u00b0cell for Lead(IV) / Lead(II)-Standard Hydrogen Electrode (SHE) cell"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_41"
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_20"
   },
   {
     "id": "TS_P2_ECHEM_0845",
@@ -1152,25 +580,300 @@
       "difficulty": "hard",
       "learning_outcome": "Calculate mass deposited for copper"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_42"
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_21"
   },
   {
-    "id": "TS_P2_ORG_0892",
+    "id": "TS_P2_ECHEM_0595",
+    "topic": "Electrochemistry",
+    "subtopic": "Standard Cell Potential Calculations",
+    "difficulty": "medium",
+    "question": "A galvanic cell is constructed under standard conditions using a **Iron(III) / Iron(II) half-cell** (E\u00b0 = +0.77 V) and a **Iron half-cell** (E\u00b0 = -0.44 V). Calculate the standard cell potential (E\u00b0_cell):",
+    "correct_answer": "+1.21 V",
+    "wrong_answers_pool": [
+      "-1.21 V (inverted anode and cathode potentials)",
+      "+0.33 V (added potentials instead of subtracting)",
+      "-1.21 V (E\u00b0anode - E\u00b0cathode)",
+      "+0.77 V (stated cathode potential only)",
+      "-0.44 V (stated anode potential only)",
+      "+2.42 V",
+      "0.00 V (assumed equilibrium potential)"
+    ],
+    "explanation": "E\u00b0_cell = E\u00b0_cathode - E\u00b0_anode = (+0.77 V) - (-0.44 V) = +1.21 V.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Electrochemistry",
+      "subtopic": "Standard Cell Potential Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate E\u00b0cell for Iron(III) / Iron(II)-Iron cell"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_22"
+  },
+  {
+    "id": "TS_P2_ECHEM_0844",
+    "topic": "Electrochemistry",
+    "subtopic": "Quantitative Electrolysis Calculations",
+    "difficulty": "hard",
+    "question": "How long (in seconds) must an electroplating current of I = 2.5 A be passed through the solution of **copper metal from CuSO4 (Cu2+ + 2e- \u2192 Cu, M = 63.5 g\u00b7mol\u207b\u00b9)** to deposit exactly 2.96 g of metal at the cathode? (F = 96 500 C\u00b7mol\u207b\u00b9):",
+    "correct_answer": "3600 s (60 min)",
+    "wrong_answers_pool": [
+      "7200 s",
+      "1800 s",
+      "3900 s",
+      "9000 s",
+      "5400 s",
+      "900 s"
+    ],
+    "explanation": "1. Moles of metal: n = 2.96 g / 63.5 g\u00b7mol\u207b\u00b9 = 0.0466 mol. 2. Charge required: Q = n \u00d7 z \u00d7 F = 0.0466 \u00d7 2 \u00d7 96 500 = 9000 C. 3. Time: \u0394t = Q / I = 9000 C / 2.5 A = 3600 s (60 min).",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Electrochemistry",
+      "subtopic": "Quantitative Electrolysis Calculations",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate time required to deposit copper"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_23"
+  },
+  {
+    "id": "TS_P2_MAT_0944",
+    "topic": "Materials",
+    "subtopic": "Young's Modulus & Elastic Deformation",
+    "difficulty": "hard",
+    "question": "A **steel construction cable** made of **Structural Mild Steel (E = 200 GPa)** has an original length of L = 4.0 m and a cross-sectional area of A = 100 mm\u00b2 (1.0e-04 m\u00b2). When subjected to a tensile pulling force of F = 5000 N within its elastic limit, calculate the resulting ELONGATION (extension, \u0394L):",
+    "correct_answer": "1.000 mm (1.0000e-03 m)",
+    "wrong_answers_pool": [
+      "10.000 mm",
+      "0.500 mm",
+      "2.000 mm",
+      "0.0000 mm",
+      "2.500 mm",
+      "1000.000 mm",
+      "0.100 mm"
+    ],
+    "explanation": "1. Hooke's law / Young's modulus: E = (F \u00d7 L) / (A \u00d7 \u0394L) => \u0394L = (F \u00d7 L) / (A \u00d7 E). 2. Substitution: \u0394L = (5000 N \u00d7 4.0 m) / (1.0e-04 m\u00b2 \u00d7 2.0e+11 Pa) = 0.001000 m = 1.000 mm (1.0000e-03 m).",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Materials",
+      "subtopic": "Young's Modulus & Elastic Deformation",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate elongation for Structural"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_24"
+  },
+  {
+    "id": "TS_P2_ECHEM_0924",
+    "topic": "Electrochemistry",
+    "subtopic": "Quantitative Electrolysis Calculations",
+    "difficulty": "hard",
+    "question": "During industrial electroplating, a steady electric current of I = 0.5 A passes through an electrolytic bath containing **silver metal from AgNO3 (Ag+ + e- \u2192 Ag, M = 108.0 g\u00b7mol\u207b\u00b9)** for a duration of \u0394t = 1800 s (30 minutes). Given Faraday's constant F = 96 500 C\u00b7mol\u207b\u00b9, calculate the mass of metal deposited at the cathode:",
+    "correct_answer": "1.01 g",
+    "wrong_answers_pool": [
+      "1.01 g (forgot to divide by electron valence z = 1)",
+      "2.01 g",
+      "0.50 g",
+      "900 g (confused charge in Coulombs with mass in grams)",
+      "6.01 g",
+      "1.51 g"
+    ],
+    "explanation": "1. Total charge: Q = I \u00d7 \u0394t = 0.5 A \u00d7 1800 s = 900 C. 2. Moles of electrons: n(e\u207b) = Q / F = 900 C / 96 500 C\u00b7mol\u207b\u00b9 = 0.0093 mol. 3. Moles of metal: n(metal) = n(e\u207b) / 1 = 0.0093 mol. 4. Mass deposited: m = n \u00d7 M = 0.0093 mol \u00d7 108.0 g\u00b7mol\u207b\u00b9 = 1.01 g.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Electrochemistry",
+      "subtopic": "Quantitative Electrolysis Calculations",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate mass deposited for silver"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_25"
+  },
+  {
+    "id": "TS_P2_MAT_0639",
+    "topic": "Materials",
+    "subtopic": "Mechanical Stress Calculations",
+    "difficulty": "medium",
+    "question": "A structural tie rod has a cross-sectional area of A = 800.0 mm\u00b2 (0.00080 m\u00b2). If the allowable design tensile stress is \u03c3 = 2.50 MPa (2.5e+06 Pa), calculate the maximum pulling force (F) the rod can support:",
+    "correct_answer": "2000 N",
+    "wrong_answers_pool": [
+      "3125.0 N",
+      "4000 N",
+      "1000 N",
+      "20000 N",
+      "200 N",
+      "2500000 N (confused Pascals with Newtons)",
+      "2500 N"
+    ],
+    "explanation": "Force formula: F = \u03c3 \u00d7 A = 2500000 Pa \u00d7 0.00080 m\u00b2 = 2000 N.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Materials",
+      "subtopic": "Mechanical Stress Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate allowable force from stress and area"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_26"
+  },
+  {
+    "id": "TS_P2_MAT_0329",
+    "topic": "Materials",
+    "subtopic": "Material Selection in Engineering",
+    "difficulty": "medium",
+    "question": "An engineering designer chooses **Cast Iron (~2% - 4% C)** (Ferrous alloy with high carbon and silicon content) for **Engine cylinder blocks, heavy machine tool beds, brake discs, and manhole covers**. What key property justifies this selection?",
+    "correct_answer": "Because of its excellent compressive strength, outstanding vibration-damping capacity, low melting point with high fluidity for casting, but brittle in tension.",
+    "wrong_answers_pool": [
+      "Because it has an extremely low melting point and melts in warm water.",
+      "Because it is brittle and shatters spontaneously under light loads.",
+      "Because it conducts electricity exclusively when submerged in acid.",
+      "Because it dissolves into air to release harmless carbon dioxide.",
+      "Because it is an unrefined mineral ore with zero manufacturing cost.",
+      "Because it corrodes rapidly to coat itself with heavy iron rust."
+    ],
+    "explanation": "Cast Iron (~2% - 4% C) (Ferrous alloy with high carbon and silicon content) is chosen for Engine cylinder blocks, heavy machine tool beds, brake discs, and manhole covers because of its Excellent compressive strength, outstanding vibration-damping capacity, low melting point with high fluidity for casting, but brittle in tension.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Materials",
+      "subtopic": "Material Selection in Engineering",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Select material Cast Iron (~2% - 4% C)"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_27"
+  },
+  {
+    "id": "TS_P2_MAT_0679",
+    "topic": "Materials",
+    "subtopic": "Mechanical Stress Calculations",
+    "difficulty": "medium",
+    "question": "An engineering strut must carry a tensile load of F = 2500 N without the mechanical stress exceeding \u03c3 = 5.00 MPa (5.0e+06 Pa). Calculate the minimum required cross-sectional area (A):",
+    "correct_answer": "500.0 mm\u00b2 (0.00050 m\u00b2)",
+    "wrong_answers_pool": [
+      "1000.0 mm\u00b2",
+      "250.0 mm\u00b2",
+      "12500.0 mm\u00b2",
+      "0.0020 mm\u00b2",
+      "5000.0 mm\u00b2",
+      "515.0 mm\u00b2",
+      "5.00e-04 mm\u00b2 (forgot unit conversion to mm\u00b2)"
+    ],
+    "explanation": "Area formula: A = F / \u03c3 = 2500 N / 5000000 Pa = 0.00050 m\u00b2 = 500.0 mm\u00b2 (0.00050 m\u00b2).",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Materials",
+      "subtopic": "Mechanical Stress Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate required area from force and stress"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_28"
+  },
+  {
+    "id": "TS_P2_MAT_0756",
+    "topic": "Materials",
+    "subtopic": "Mechanical Stress Calculations",
+    "difficulty": "medium",
+    "question": "A structural tie rod has a cross-sectional area of A = 250.0 mm\u00b2 (0.00025 m\u00b2). If the allowable design tensile stress is \u03c3 = 16.00 MPa (1.6e+07 Pa), calculate the maximum pulling force (F) the rod can support:",
+    "correct_answer": "4000 N",
+    "wrong_answers_pool": [
+      "64000.0 N",
+      "8000 N",
+      "2000 N",
+      "40000 N",
+      "400 N",
+      "16000000 N (confused Pascals with Newtons)",
+      "4500 N"
+    ],
+    "explanation": "Force formula: F = \u03c3 \u00d7 A = 16000000 Pa \u00d7 0.00025 m\u00b2 = 4000 N.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Materials",
+      "subtopic": "Mechanical Stress Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate allowable force from stress and area"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_29"
+  },
+  {
+    "id": "TS_P2_ORG_0477",
+    "topic": "Organic Chemistry",
+    "subtopic": "Isomerism",
+    "difficulty": "medium",
+    "question": "In Grade 12 Technical Sciences, **Propan-1-ol and propan-2-ol (both C3H8O)** are classified as:",
+    "correct_answer": "They are POSITIONAL ISOMERS because the -OH functional group is on carbon-1 in propan-1-ol and carbon-2 in propan-2-ol.",
+    "wrong_answers_pool": [
+      "They are allotropes of carbon with identical crystalline packing.",
+      "They are identical identical molecules with different common trade names.",
+      "They are homologues differing by a -CH\u2082- unit in their molecular formula.",
+      "They are geometrical stereoisomers caused by restricted double bond rotation.",
+      "They are polymer macromolecular units formed by condensation reactions.",
+      "They are cracking fragments that cannot exist as stable independent compounds."
+    ],
+    "explanation": "They are POSITIONAL ISOMERS because the -OH functional group is on carbon-1 in propan-1-ol and carbon-2 in propan-2-ol.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Organic Chemistry",
+      "subtopic": "Isomerism",
+      "cognitive_level": "Understanding",
+      "difficulty": "medium",
+      "learning_outcome": "Classify structural isomers"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_30"
+  },
+  {
+    "id": "TS_P2_MAT_0678",
+    "topic": "Materials",
+    "subtopic": "Mechanical Stress Calculations",
+    "difficulty": "medium",
+    "question": "A structural tie rod has a cross-sectional area of A = 500.0 mm\u00b2 (0.00050 m\u00b2). If the allowable design tensile stress is \u03c3 = 5.00 MPa (5.0e+06 Pa), calculate the maximum pulling force (F) the rod can support:",
+    "correct_answer": "2500 N",
+    "wrong_answers_pool": [
+      "10000.0 N",
+      "5000 N",
+      "1250 N",
+      "25000 N",
+      "250 N",
+      "5000000 N (confused Pascals with Newtons)",
+      "3000 N"
+    ],
+    "explanation": "Force formula: F = \u03c3 \u00d7 A = 5000000 Pa \u00d7 0.00050 m\u00b2 = 2500 N.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Materials",
+      "subtopic": "Mechanical Stress Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate allowable force from stress and area"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_31"
+  },
+  {
+    "id": "TS_P2_ORG_0890",
     "topic": "Organic Chemistry",
     "subtopic": "Esterification Stoichiometry",
     "difficulty": "hard",
-    "question": "Calculate the mass of **ethyl methanoate (M = 74 g\u00b7mol\u207b\u00b9)** produced when **23.0 g of methanoic acid (0.50 mol, M = 46 g\u00b7mol\u207b\u00b9) reacting with excess ethanol** undergoes esterification with a reaction yield of **100%**:",
-    "correct_answer": "37.0 g",
+    "question": "Calculate the mass of **ethyl butanoate (M = 116 g\u00b7mol\u207b\u00b9)** produced when **44.0 g of butanoic acid (0.50 mol, M = 88 g\u00b7mol\u207b\u00b9) reacting with excess ethanol** undergoes esterification with a reaction yield of **75%**:",
+    "correct_answer": "43.5 g",
     "wrong_answers_pool": [
-      "55.5 g",
-      "18.5 g",
-      "74.0 g",
-      "37.0 g (assumed 100% yield instead of 100%)",
-      "62.0 g",
-      "3.7 g",
-      "55.0 g"
+      "87.0 g",
+      "21.8 g",
+      "58.0 g (assumed 100% yield instead of 75%)",
+      "68.5 g",
+      "4.4 g",
+      "76.0 g"
     ],
-    "explanation": "1. Theoretical yield (100% yield) = 37.0 g. 2. Actual yield at 100% = (100 / 100) \u00d7 37.0 g = 37.0 g.",
+    "explanation": "1. Theoretical yield (100% yield) = 58.0 g. 2. Actual yield at 75% = (75 / 100) \u00d7 58.0 g = 43.5 g.",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
@@ -1178,81 +881,329 @@
       "subtopic": "Esterification Stoichiometry",
       "cognitive_level": "Evaluating",
       "difficulty": "hard",
-      "learning_outcome": "Calculate yield of ethyl methanoate (M = 74 g\u00b7mol\u207b\u00b9)"
+      "learning_outcome": "Calculate yield of ethyl butanoate (M = 116 g\u00b7mol\u207b\u00b9)"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_43"
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_32"
   },
   {
-    "id": "TS_P2_ORG_0676",
+    "id": "TS_P2_ORG_0820",
     "topic": "Organic Chemistry",
-    "subtopic": "Dihaloalkane Nomenclature",
-    "difficulty": "medium",
-    "question": "According to IUPAC nomenclature, what is the systematic name for the dihalogenated hydrocarbon with formula **CH3-C(Cl)2-CH3**?",
-    "correct_answer": "2,2-dichloropropane",
+    "subtopic": "Advanced IUPAC Nomenclature",
+    "difficulty": "hard",
+    "question": "Which systematic IUPAC name correctly identifies the compound with structural formula **CH3-CH(CH3)-CH(CH2CH3)-CH2-CH3**?",
+    "correct_answer": "3-ethyl-2-methylpentane",
     "wrong_answers_pool": [
-      "1,2-dichloropropane",
-      "1,1-dichloropropane",
-      "1,3-dichloropropane",
-      "dichloropropane",
-      "2-dichloropropane",
-      "2,2-dichlorobutane",
-      "isopropyl chloride"
+      "2-methyl-3-ethylpentane (alphabetical rule violated: ethyl must precede methyl)",
+      "3-ethyl-4-methylpentane (incorrect numbering direction: 3,4 instead of 2,3)",
+      "2-isopropylpentane (longest chain missed)",
+      "3,4-dimethylhexane (incorrect chain identification)",
+      "3-ethyl-2-methylhexane",
+      "4-ethyl-2-methylpentane",
+      "3-methyl-2-ethylpentane"
     ],
-    "explanation": "Condensed formula CH3-C(Cl)2-CH3: parent chain and locants indicate 2,2-dichloropropane.",
+    "explanation": "Longest chain is 5 carbons (pentane). Numbering from left gives substituents at C2 (methyl) and C3 (ethyl). Alphabetical ordering: 3-ethyl-2-methylpentane.",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
       "topic": "Organic Chemistry",
-      "subtopic": "Dihaloalkane Nomenclature",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Name dihaloalkane 2,2-dichloropropane"
+      "subtopic": "Advanced IUPAC Nomenclature",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Name complex molecule 3-ethyl-2-methylpentane"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_44"
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_33"
   },
   {
-    "id": "TS_P2_ECHEM_0762",
+    "id": "TS_P2_ECHEM_0801",
     "topic": "Electrochemistry",
-    "subtopic": "Oxidizing and Reducing Agents",
-    "difficulty": "medium",
-    "question": "In the spontaneous reaction between **Standard Hydrogen Electrode (SHE)** and **Sodium**, identify the OXIDIZING AGENT and the REDUCING AGENT:",
-    "correct_answer": "Oxidizing agent: Standard Hydrogen Electrode (SHE) ions (2H+); Reducing agent: Sodium metal (Na).",
+    "subtopic": "Industrial Electrolysis In-Depth",
+    "difficulty": "hard",
+    "question": "Critically analyze the chemical reactions and electrochemical principles of: **Chlor-Alkali Membrane Cell Reactions and Mechanism**",
+    "correct_answer": "At the titanium ANODE: 2Cl\u207b(aq) \u2192 Cl\u2082(g) + 2e\u207b (oxidation of chloride ions to toxic green chlorine gas). At the nickel CATHODE: 2H\u2082O(l) + 2e\u207b \u2192 H\u2082(g) + 2OH\u207b(aq) (reduction of water to hydrogen gas and hydroxide ions). The fluoropolymer cation-exchange membrane allows ONLY Na\u207a cations to migrate from anode to cathode compartment, producing pure NaOH(aq) free from chloride contamination.",
     "wrong_answers_pool": [
-      "Oxidizing agent: Sodium metal; Reducing agent: Standard Hydrogen Electrode (SHE) ions (inverted agents).",
-      "Both species act as reducing agents simultaneously.",
-      "Both species act as oxidizing agents simultaneously.",
-      "Oxidizing agent: the salt bridge electrolyte; Reducing agent: the external wire.",
-      "Oxidizing agent: Standard Hydrogen Electrode (SHE) solid metal; Reducing agent: Sodium aqueous ions.",
-      "Neither substance undergoes redox because cell potential is positive."
+      "Sodium ions are reduced at the cathode to form dangerous molten sodium metal",
+      "Water is oxidized at the anode to produce oxygen gas and sulfuric acid",
+      "The membrane allows chloride anions to migrate into the cathode chamber",
+      "Chlorine gas is produced at the cathode while hydrogen gas evolves at the anode",
+      "The process operates spontaneously without any external direct current supply",
+      "The cell uses molten rock salt at 800 \u00b0C rather than aqueous brine solution"
     ],
-    "explanation": "The species reduced (Standard Hydrogen Electrode (SHE) ions) is the oxidizing agent; the species oxidized (Sodium metal) is the reducing agent.",
+    "explanation": "Membrane cell: Anode (Ti): 2Cl\u207b -> Cl\u2082 + 2e\u207b. Cathode (Ni): 2H\u2082O + 2e\u207b -> H\u2082 + 2OH\u207b. Na\u207a passes through membrane to form pure NaOH.",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
       "topic": "Electrochemistry",
-      "subtopic": "Oxidizing and Reducing Agents",
-      "cognitive_level": "Understanding",
-      "difficulty": "medium",
-      "learning_outcome": "Identify agents in Standard Hydrogen Electrode (SHE)-Sodium"
+      "subtopic": "Industrial Electrolysis In-Depth",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Analyze Chlor-Alkali Membrane Cell Reactions and Mechanism"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_45"
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_34"
   },
   {
-    "id": "TS_P2_ECHEM_0827",
+    "id": "TS_P2_ECHEM_0806",
+    "topic": "Electrochemistry",
+    "subtopic": "Industrial Electrolysis In-Depth",
+    "difficulty": "hard",
+    "question": "Which evaluation provides the complete, scientifically verified explanation of: **Why Hydrogen Gas (H2) and NOT Metallic Sodium (Na) is Produced at the Cathode in Brine Electrolysis**",
+    "correct_answer": "Water (H\u2082O) has a much more positive reduction potential (E\u00b0 = -0.83 V) than sodium ions (Na\u207a, E\u00b0 = -2.71 V); therefore, water is a stronger oxidizing agent and is much more easily reduced than sodium ions in aqueous solution.",
+    "wrong_answers_pool": [
+      "Sodium metal forms first but reacts immediately with the titanium cathode",
+      "Sodium ions have a positive charge and are repelled by the negative cathode",
+      "Sodium ions are oxidized at the cathode rather than reduced",
+      "Chlorine gas blocks sodium ions from physically touching the cathode surface",
+      "The cation-exchange membrane absorbs all sodium ions permanently",
+      "Sodium metal can only be reduced in an acidic electrolyte at pH below 1"
+    ],
+    "explanation": "In aqueous brine, H\u2082O (E\u00b0 = -0.83 V) is reduced preferentially over Na\u207a (E\u00b0 = -2.71 V) because H\u2082O is a much stronger oxidizing agent.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Electrochemistry",
+      "subtopic": "Industrial Electrolysis In-Depth",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Analyze Why Hydrogen Gas (H2) and NOT Metallic Sodium (Na) is Produced at the Cathode in Brine Electrolysis"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_35"
+  },
+  {
+    "id": "TS_P2_MAT_0816",
+    "topic": "Materials",
+    "subtopic": "Advanced Material Selection",
+    "difficulty": "hard",
+    "question": "Select and justify the optimal engineering material for: **Hypodermic Needle for medical injections (Extremely sharp hollow point, rigid under axial compression, sterile, corrosion resistant)**",
+    "correct_answer": "Austenitic Stainless Steel (Grade 304 or 316), because it offers high tensile strength and stiffness to prevent bending during insertion, excellent ductility for cold-drawing into ultra-thin hollow cannula tubes, and outstanding corrosion resistance to medical fluids",
+    "wrong_answers_pool": [
+      "Cast iron because cast iron is cheap and easy to pour into needle moulds",
+      "Pure gold because gold is non-reactive and hypoallergenic",
+      "Tungsten carbide because needles must be the hardest material possible",
+      "Low-density polyethene because flexible plastic needles don't hurt patients",
+      "Pure zinc metal because zinc acts as an antiseptic sacrificial anode",
+      "Unreinforced concrete because ceramic materials are sterile"
+    ],
+    "explanation": "Hypodermic needles require cold-drawing into micro-tubes, stiffness, and corrosion resistance -> Grade 304/316 Stainless Steel.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Materials",
+      "subtopic": "Advanced Material Selection",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Specify material for Hypodermic Needle for medical injections (Extremely sharp hollow point, rigid under axial compression, sterile, corrosion resistant)"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_36"
+  },
+  {
+    "id": "TS_P2_MAT_0871",
+    "topic": "Materials",
+    "subtopic": "Young's Modulus & Elastic Deformation",
+    "difficulty": "hard",
+    "question": "In a materials tensile laboratory test, a structural specimen of length L = 5.0 m and cross-sectional area A = 50 mm\u00b2 (5.0e-05 m\u00b2) elongates by \u0394L = 0.500 mm under a tensile load of F = 1000 N. Calculate the **YOUNG'S MODULUS (E)** of the tested material in GPa:",
+    "correct_answer": "200 GPa (2.0e+11 Pa)",
+    "wrong_answers_pool": [
+      "400 GPa",
+      "100 GPa",
+      "2000 GPa",
+      "0.00 GPa (forgot area and length factors)",
+      "250 GPa",
+      "170 GPa",
+      "300 GPa"
+    ],
+    "explanation": "1. Stress: \u03c3 = F / A = 1000 N / 5.0e-05 m\u00b2 = 2.00e+07 Pa. 2. Strain: \u03b5 = \u0394L / L = 5.0000e-04 m / 5.0 m = 1.0000e-04. 3. Young's modulus: E = \u03c3 / \u03b5 = 200 GPa (2.0e+11 Pa).",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Materials",
+      "subtopic": "Young's Modulus & Elastic Deformation",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate Young's modulus from tensile test data"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_37"
+  },
+  {
+    "id": "TS_P2_ECHEM_0955",
     "topic": "Electrochemistry",
     "subtopic": "Quantitative Electrolysis Calculations",
     "difficulty": "hard",
-    "question": "During industrial electroplating, a steady electric current of I = 1.0 A passes through an electrolytic bath containing **copper metal from CuSO4 (Cu2+ + 2e- \u2192 Cu, M = 63.5 g\u00b7mol\u207b\u00b9)** for a duration of \u0394t = 1800 s (30 minutes). Given Faraday's constant F = 96 500 C\u00b7mol\u207b\u00b9, calculate the mass of metal deposited at the cathode:",
-    "correct_answer": "0.59 g",
+    "question": "How long (in seconds) must an electroplating current of I = 3.0 A be passed through the solution of **silver metal from AgNO3 (Ag+ + e- \u2192 Ag, M = 108.0 g\u00b7mol\u207b\u00b9)** to deposit exactly 2.01 g of metal at the cathode? (F = 96 500 C\u00b7mol\u207b\u00b9):",
+    "correct_answer": "600 s (10 min)",
     "wrong_answers_pool": [
-      "1.18 g (forgot to divide by electron valence z = 2)",
-      "0.30 g",
-      "1.18 g",
-      "1800 g (confused charge in Coulombs with mass in grams)",
-      "5.59 g",
-      "0.89 g"
+      "1200 s",
+      "300 s",
+      "600 s",
+      "900 s",
+      "1800 s",
+      "150 s"
     ],
-    "explanation": "1. Total charge: Q = I \u00d7 \u0394t = 1.0 A \u00d7 1800 s = 1800 C. 2. Moles of electrons: n(e\u207b) = Q / F = 1800 C / 96 500 C\u00b7mol\u207b\u00b9 = 0.0187 mol. 3. Moles of metal: n(metal) = n(e\u207b) / 2 = 0.0093 mol. 4. Mass deposited: m = n \u00d7 M = 0.0093 mol \u00d7 63.5 g\u00b7mol\u207b\u00b9 = 0.59 g.",
+    "explanation": "1. Moles of metal: n = 2.01 g / 108.0 g\u00b7mol\u207b\u00b9 = 0.0187 mol. 2. Charge required: Q = n \u00d7 z \u00d7 F = 0.0187 \u00d7 1 \u00d7 96 500 = 1800 C. 3. Time: \u0394t = Q / I = 1800 C / 3.0 A = 600 s (10 min).",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Electrochemistry",
+      "subtopic": "Quantitative Electrolysis Calculations",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate time required to deposit silver"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_38"
+  },
+  {
+    "id": "TS_P2_ECHEM_0512",
+    "topic": "Electrochemistry",
+    "subtopic": "Electrode Identification",
+    "difficulty": "medium",
+    "question": "For the galvanic cell pairing **Silver** (E\u00b0 = +0.80 V) and **Iron(III) / Iron(II)** (E\u00b0 = +0.77 V), identify the CATHODE and ANODE:",
+    "correct_answer": "Cathode: Silver (more positive E\u00b0, reduction); Anode: Iron(III) / Iron(II) (more negative E\u00b0, oxidation).",
+    "wrong_answers_pool": [
+      "Cathode: Iron(III) / Iron(II); Anode: Silver.",
+      "Both electrodes act as anodes simultaneously.",
+      "Both electrodes act as cathodes simultaneously.",
+      "Cathode: Iron(III) / Iron(II) (oxidation); Anode: Silver (reduction).",
+      "Cathode: Silver (oxidation); Anode: Iron(III) / Iron(II) (reduction).",
+      "Neither electrode can be identified without an external battery."
+    ],
+    "explanation": "The half-cell with the more positive reduction potential acts as the CATHODE (Silver, E\u00b0 = +0.80 V); the one with the more negative potential acts as the ANODE (Iron(III) / Iron(II), E\u00b0 = +0.77 V).",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Electrochemistry",
+      "subtopic": "Electrode Identification",
+      "cognitive_level": "Understanding",
+      "difficulty": "medium",
+      "learning_outcome": "Identify cathode/anode for Silver-Iron(III) / Iron(II)"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_39"
+  },
+  {
+    "id": "TS_P2_MAT_0523",
+    "topic": "Materials",
+    "subtopic": "Mechanical Stress Calculations",
+    "difficulty": "medium",
+    "question": "An engineering strut must carry a tensile load of F = 1000 N without the mechanical stress exceeding \u03c3 = 50.00 MPa (5.0e+07 Pa). Calculate the minimum required cross-sectional area (A):",
+    "correct_answer": "20.0 mm\u00b2 (0.00002 m\u00b2)",
+    "wrong_answers_pool": [
+      "40.0 mm\u00b2",
+      "10.0 mm\u00b2",
+      "50000.0 mm\u00b2",
+      "0.0500 mm\u00b2",
+      "200.0 mm\u00b2",
+      "35.0 mm\u00b2",
+      "2.00e-05 mm\u00b2 (forgot unit conversion to mm\u00b2)"
+    ],
+    "explanation": "Area formula: A = F / \u03c3 = 1000 N / 50000000 Pa = 0.00002 m\u00b2 = 20.0 mm\u00b2 (0.00002 m\u00b2).",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Materials",
+      "subtopic": "Mechanical Stress Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate required area from force and stress"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_40"
+  },
+  {
+    "id": "TS_P2_ECHEM_0655",
+    "topic": "Electrochemistry",
+    "subtopic": "Standard Cell Potential Calculations",
+    "difficulty": "medium",
+    "question": "A galvanic cell is constructed under standard conditions using a **Iodine half-cell** (E\u00b0 = +0.54 V) and a **Zinc half-cell** (E\u00b0 = -0.76 V). Calculate the standard cell potential (E\u00b0_cell):",
+    "correct_answer": "+1.30 V",
+    "wrong_answers_pool": [
+      "-1.30 V (inverted anode and cathode potentials)",
+      "-0.22 V (added potentials instead of subtracting)",
+      "-1.30 V (E\u00b0anode - E\u00b0cathode)",
+      "+0.54 V (stated cathode potential only)",
+      "-0.76 V (stated anode potential only)",
+      "+2.60 V",
+      "0.00 V (assumed equilibrium potential)"
+    ],
+    "explanation": "E\u00b0_cell = E\u00b0_cathode - E\u00b0_anode = (+0.54 V) - (-0.76 V) = +1.30 V.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Electrochemistry",
+      "subtopic": "Standard Cell Potential Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate E\u00b0cell for Iodine-Zinc cell"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_41"
+  },
+  {
+    "id": "TS_P2_ORG_0612",
+    "topic": "Organic Chemistry",
+    "subtopic": "Alkene Addition Reactions",
+    "difficulty": "medium",
+    "question": "Predict the IUPAC name of the dihaloalkane formed when chlorine gas (Cl2) adds across the double bond of **but-2-ene** (CH3-CH=CH-CH3):",
+    "correct_answer": "2,3-dichlorobutane",
+    "wrong_answers_pool": [
+      "2-chlorobutane (confused halogenation with hydrohalogenation)",
+      "1-chlorobut-2-ene",
+      "trichlorobutane",
+      "but-2-ene dichloride",
+      "tetrachlorobutane",
+      "chlorobutane",
+      "2-chlorobut-2-ene"
+    ],
+    "explanation": "Halogenation addition: but-2-ene + Cl\u2082 -> 2,3-dichlorobutane.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Organic Chemistry",
+      "subtopic": "Alkene Addition Reactions",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Halogenation of but-2-ene"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_42"
+  },
+  {
+    "id": "TS_P2_ECHEM_0424",
+    "topic": "Electrochemistry",
+    "subtopic": "Standard Cell Potential Calculations",
+    "difficulty": "medium",
+    "question": "A galvanic cell is constructed under standard conditions using a **Chlorine half-cell** (E\u00b0 = +1.36 V) and a **Copper half-cell** (E\u00b0 = +0.34 V). Calculate the standard cell potential (E\u00b0_cell):",
+    "correct_answer": "+1.02 V",
+    "wrong_answers_pool": [
+      "-1.02 V (inverted anode and cathode potentials)",
+      "+1.70 V (added potentials instead of subtracting)",
+      "-1.02 V (E\u00b0anode - E\u00b0cathode)",
+      "+1.36 V (stated cathode potential only)",
+      "+0.34 V (stated anode potential only)",
+      "+2.04 V",
+      "0.00 V (assumed equilibrium potential)"
+    ],
+    "explanation": "E\u00b0_cell = E\u00b0_cathode - E\u00b0_anode = (+1.36 V) - (+0.34 V) = +1.02 V.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Electrochemistry",
+      "subtopic": "Standard Cell Potential Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate E\u00b0cell for Chlorine-Copper cell"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_43"
+  },
+  {
+    "id": "TS_P2_ECHEM_0837",
+    "topic": "Electrochemistry",
+    "subtopic": "Quantitative Electrolysis Calculations",
+    "difficulty": "hard",
+    "question": "During industrial electroplating, a steady electric current of I = 2.5 A passes through an electrolytic bath containing **copper metal from CuSO4 (Cu2+ + 2e- \u2192 Cu, M = 63.5 g\u00b7mol\u207b\u00b9)** for a duration of \u0394t = 900 s (15 minutes). Given Faraday's constant F = 96 500 C\u00b7mol\u207b\u00b9, calculate the mass of metal deposited at the cathode:",
+    "correct_answer": "0.74 g",
+    "wrong_answers_pool": [
+      "1.48 g (forgot to divide by electron valence z = 2)",
+      "0.37 g",
+      "1.48 g",
+      "2250 g (confused charge in Coulombs with mass in grams)",
+      "5.74 g",
+      "1.11 g"
+    ],
+    "explanation": "1. Total charge: Q = I \u00d7 \u0394t = 2.5 A \u00d7 900 s = 2250 C. 2. Moles of electrons: n(e\u207b) = Q / F = 2250 C / 96 500 C\u00b7mol\u207b\u00b9 = 0.0233 mol. 3. Moles of metal: n(metal) = n(e\u207b) / 2 = 0.0117 mol. 4. Mass deposited: m = n \u00d7 M = 0.0117 mol \u00d7 63.5 g\u00b7mol\u207b\u00b9 = 0.74 g.",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
@@ -1262,25 +1213,53 @@
       "difficulty": "hard",
       "learning_outcome": "Calculate mass deposited for copper"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_46"
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_44"
   },
   {
-    "id": "TS_P2_MAT_0878",
+    "id": "TS_P2_ECHEM_0409",
+    "topic": "Electrochemistry",
+    "subtopic": "Standard Cell Potential Calculations",
+    "difficulty": "medium",
+    "question": "A galvanic cell is constructed under standard conditions using a **Lead(IV) / Lead(II) half-cell** (E\u00b0 = +1.46 V) and a **Lithium half-cell** (E\u00b0 = -3.05 V). Calculate the standard cell potential (E\u00b0_cell):",
+    "correct_answer": "+4.51 V",
+    "wrong_answers_pool": [
+      "-4.51 V (inverted anode and cathode potentials)",
+      "-1.59 V (added potentials instead of subtracting)",
+      "-4.51 V (E\u00b0anode - E\u00b0cathode)",
+      "+1.46 V (stated cathode potential only)",
+      "-3.05 V (stated anode potential only)",
+      "+9.02 V",
+      "0.00 V (assumed equilibrium potential)"
+    ],
+    "explanation": "E\u00b0_cell = E\u00b0_cathode - E\u00b0_anode = (+1.46 V) - (-3.05 V) = +4.51 V.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Electrochemistry",
+      "subtopic": "Standard Cell Potential Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate E\u00b0cell for Lead(IV) / Lead(II)-Lithium cell"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_45"
+  },
+  {
+    "id": "TS_P2_MAT_0955",
     "topic": "Materials",
     "subtopic": "Young's Modulus & Elastic Deformation",
     "difficulty": "hard",
-    "question": "A **steel construction cable** made of **Structural Mild Steel (E = 200 GPa)** has an original length of L = 1.0 m and a cross-sectional area of A = 50 mm\u00b2 (5.0e-05 m\u00b2). When subjected to a tensile pulling force of F = 2500 N within its elastic limit, calculate the resulting ELONGATION (extension, \u0394L):",
-    "correct_answer": "0.250 mm (2.5000e-04 m)",
+    "question": "In a materials tensile laboratory test, a structural specimen of length L = 5.0 m and cross-sectional area A = 200 mm\u00b2 (2.0e-04 m\u00b2) elongates by \u0394L = 0.625 mm under a tensile load of F = 5000 N. Calculate the **YOUNG'S MODULUS (E)** of the tested material in GPa:",
+    "correct_answer": "200 GPa (2.0e+11 Pa)",
     "wrong_answers_pool": [
-      "2.500 mm",
-      "0.125 mm",
-      "0.500 mm",
-      "0.0000 mm",
-      "1.750 mm",
-      "250.000 mm",
-      "0.025 mm"
+      "400 GPa",
+      "100 GPa",
+      "2000 GPa",
+      "0.01 GPa (forgot area and length factors)",
+      "250 GPa",
+      "170 GPa",
+      "300 GPa"
     ],
-    "explanation": "1. Hooke's law / Young's modulus: E = (F \u00d7 L) / (A \u00d7 \u0394L) => \u0394L = (F \u00d7 L) / (A \u00d7 E). 2. Substitution: \u0394L = (2500 N \u00d7 1.0 m) / (5.0e-05 m\u00b2 \u00d7 2.0e+11 Pa) = 0.000250 m = 0.250 mm (2.5000e-04 m).",
+    "explanation": "1. Stress: \u03c3 = F / A = 5000 N / 2.0e-04 m\u00b2 = 2.50e+07 Pa. 2. Strain: \u03b5 = \u0394L / L = 6.2500e-04 m / 5.0 m = 1.2500e-04. 3. Young's modulus: E = \u03c3 / \u03b5 = 200 GPa (2.0e+11 Pa).",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
@@ -1288,27 +1267,55 @@
       "subtopic": "Young's Modulus & Elastic Deformation",
       "cognitive_level": "Evaluating",
       "difficulty": "hard",
-      "learning_outcome": "Calculate elongation for Structural"
+      "learning_outcome": "Calculate Young's modulus from tensile test data"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_46"
+  },
+  {
+    "id": "TS_P2_ECHEM_0999",
+    "topic": "Electrochemistry",
+    "subtopic": "Quantitative Electrolysis Calculations",
+    "difficulty": "hard",
+    "question": "How long (in seconds) must an electroplating current of I = 10.0 A be passed through the solution of **silver metal from AgNO3 (Ag+ + e- \u2192 Ag, M = 108.0 g\u00b7mol\u207b\u00b9)** to deposit exactly 40.29 g of metal at the cathode? (F = 96 500 C\u00b7mol\u207b\u00b9):",
+    "correct_answer": "3600 s (60 min)",
+    "wrong_answers_pool": [
+      "7200 s",
+      "1800 s",
+      "3600 s",
+      "3900 s",
+      "36000 s",
+      "5400 s",
+      "900 s"
+    ],
+    "explanation": "1. Moles of metal: n = 40.29 g / 108.0 g\u00b7mol\u207b\u00b9 = 0.3731 mol. 2. Charge required: Q = n \u00d7 z \u00d7 F = 0.3731 \u00d7 1 \u00d7 96 500 = 36000 C. 3. Time: \u0394t = Q / I = 36000 C / 10.0 A = 3600 s (60 min).",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Electrochemistry",
+      "subtopic": "Quantitative Electrolysis Calculations",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate time required to deposit silver"
     },
     "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_47"
   },
   {
-    "id": "TS_P2_MAT_0767",
+    "id": "TS_P2_MAT_0403",
     "topic": "Materials",
     "subtopic": "Mechanical Stress Calculations",
     "difficulty": "medium",
-    "question": "A tensile test specimen with a cross-sectional area of A = 1000.0 mm\u00b2 (0.00100 m\u00b2) is subjected to a tensile pulling force of F = 4000 N. Calculate the mechanical STRESS (\u03c3) in the specimen:",
-    "correct_answer": "4.00 MPa (4.0e+06 Pa)",
+    "question": "An engineering strut must carry a tensile load of F = 400 N without the mechanical stress exceeding \u03c3 = 10.00 MPa (1.0e+07 Pa). Calculate the minimum required cross-sectional area (A):",
+    "correct_answer": "40.0 mm\u00b2 (0.00004 m\u00b2)",
     "wrong_answers_pool": [
-      "4.00 MPa (multiplied force by area instead of dividing)",
-      "4000.00 MPa (forgot to convert Pa to MPa)",
-      "8.00 MPa",
-      "2.00 MPa",
-      "2.5000e-07 MPa (inverted: A / F)",
-      "54.00 MPa",
-      "4000.0 MPa"
+      "80.0 mm\u00b2",
+      "20.0 mm\u00b2",
+      "4000.0 mm\u00b2",
+      "0.0250 mm\u00b2",
+      "400.0 mm\u00b2",
+      "55.0 mm\u00b2",
+      "4.00e-05 mm\u00b2 (forgot unit conversion to mm\u00b2)"
     ],
-    "explanation": "Stress formula: \u03c3 = F / A = 4000 N / 0.00100 m\u00b2 = 4000000 Pa = 4.00 MPa (4.0e+06 Pa).",
+    "explanation": "Area formula: A = F / \u03c3 = 400 N / 10000000 Pa = 0.00004 m\u00b2 = 40.0 mm\u00b2 (0.00004 m\u00b2).",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
@@ -1316,27 +1323,55 @@
       "subtopic": "Mechanical Stress Calculations",
       "cognitive_level": "Applying",
       "difficulty": "medium",
-      "learning_outcome": "Calculate mechanical stress from force and area"
+      "learning_outcome": "Calculate required area from force and stress"
     },
     "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_48"
   },
   {
-    "id": "TS_P2_MAT_0946",
+    "id": "TS_P2_ORG_0713",
+    "topic": "Organic Chemistry",
+    "subtopic": "Branched Alkane Nomenclature",
+    "difficulty": "medium",
+    "question": "Give the correct IUPAC systematic name for the branched alkane with condensed formula **CH3-C(CH3)2-CH2-CH(CH3)-CH3**:",
+    "correct_answer": "2,2,4-trimethylpentane",
+    "wrong_answers_pool": [
+      "2,4,4-trimethylpentane",
+      "isooctane",
+      "2,2,4-methylpentane",
+      "trimethylpentane",
+      "octane",
+      "2,4-dimethylhexane",
+      "heptane"
+    ],
+    "explanation": "Longest carbon chain and lowest locants rule: CH3-C(CH3)2-CH2-CH(CH3)-CH3 -> 2,2,4-trimethylpentane.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Organic Chemistry",
+      "subtopic": "Branched Alkane Nomenclature",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Name branched alkane 2,2,4-trimethylpentane"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_49"
+  },
+  {
+    "id": "TS_P2_MAT_0901",
     "topic": "Materials",
     "subtopic": "Young's Modulus & Elastic Deformation",
     "difficulty": "hard",
-    "question": "A **steel construction cable** made of **Structural Mild Steel (E = 200 GPa)** has an original length of L = 4.0 m and a cross-sectional area of A = 200 mm\u00b2 (2.0e-04 m\u00b2). When subjected to a tensile pulling force of F = 5000 N within its elastic limit, calculate the resulting ELONGATION (extension, \u0394L):",
-    "correct_answer": "0.500 mm (5.0000e-04 m)",
+    "question": "In a materials tensile laboratory test, a structural specimen of length L = 4.0 m and cross-sectional area A = 20 mm\u00b2 (2.0e-05 m\u00b2) elongates by \u0394L = 2.500 mm under a tensile load of F = 2500 N. Calculate the **YOUNG'S MODULUS (E)** of the tested material in GPa:",
+    "correct_answer": "200 GPa (2.0e+11 Pa)",
     "wrong_answers_pool": [
-      "5.000 mm",
-      "0.250 mm",
-      "1.000 mm",
-      "0.0000 mm",
-      "2.000 mm",
-      "500.000 mm",
-      "0.050 mm"
+      "400 GPa",
+      "100 GPa",
+      "2000 GPa",
+      "0.00 GPa (forgot area and length factors)",
+      "250 GPa",
+      "170 GPa",
+      "300 GPa"
     ],
-    "explanation": "1. Hooke's law / Young's modulus: E = (F \u00d7 L) / (A \u00d7 \u0394L) => \u0394L = (F \u00d7 L) / (A \u00d7 E). 2. Substitution: \u0394L = (5000 N \u00d7 4.0 m) / (2.0e-04 m\u00b2 \u00d7 2.0e+11 Pa) = 0.000500 m = 0.500 mm (5.0000e-04 m).",
+    "explanation": "1. Stress: \u03c3 = F / A = 2500 N / 2.0e-05 m\u00b2 = 1.25e+08 Pa. 2. Strain: \u03b5 = \u0394L / L = 2.5000e-03 m / 4.0 m = 6.2500e-04. 3. Young's modulus: E = \u03c3 / \u03b5 = 200 GPa (2.0e+11 Pa).",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
@@ -1344,35 +1379,7 @@
       "subtopic": "Young's Modulus & Elastic Deformation",
       "cognitive_level": "Evaluating",
       "difficulty": "hard",
-      "learning_outcome": "Calculate elongation for Structural"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_49"
-  },
-  {
-    "id": "TS_P2_ORG_0711",
-    "topic": "Organic Chemistry",
-    "subtopic": "Combustion Oxygen Requirements",
-    "difficulty": "medium",
-    "question": "Calculate the number of moles of oxygen gas (O2) required for the complete stoichiometric combustion of **5 mole(s) of pentane (C5H12)**:",
-    "correct_answer": "40.0 moles of O2",
-    "wrong_answers_pool": [
-      "80.0 moles of O2",
-      "20.0 moles of O2",
-      "5.0 moles of O2 (assumed 1:1 mole ratio)",
-      "45.0 moles of O2",
-      "400.0 moles of O2",
-      "8.0 moles of O2 (for 1 mole only)",
-      "38.0 moles of O2"
-    ],
-    "explanation": "Combustion of pentane (C5H12) requires 8.0 mol O\u2082 per mole of fuel. For 5 mole(s): 5 \u00d7 8.0 = 40.0 moles of O2.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Organic Chemistry",
-      "subtopic": "Combustion Oxygen Requirements",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate O2 for 5 mol pentane (C5H12)"
+      "learning_outcome": "Calculate Young's modulus from tensile test data"
     },
     "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper2_50"
   }
