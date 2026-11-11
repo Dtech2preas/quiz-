@@ -1,26 +1,24 @@
 [
   {
-    "id": "CALC_301",
-    "topic": "Differential Calculus & Integration",
-    "question": "Determine the integral: $\\int \\frac{7}{x} dx$.",
-    "correct_answer": "$7\\ln|x| + C$",
+    "id": "FUN_240",
+    "topic": "Functions & Graphs (Technical)",
+    "question": "Determine the $y$-intercept of $g(x) = -2(x - 1)^2 + -1$.",
+    "correct_answer": "-3",
     "wrong_answers_pool": [
-      "$\\frac{7}{x^2} + C$",
-      "$7x + C$",
-      "$-7x^{-2} + C$",
-      "$\\frac{7}{2}x^2 + C$",
-      "$7\\ln(x)$",
-      "$-7\\ln|x| + C$",
-      "$\\frac{1}{7}\\ln|x| + C$",
-      "$8\\ln|x| + C$"
+      "3",
+      "14",
+      "16",
+      "-15",
+      "-1",
+      "-9"
     ],
-    "explanation": "Integral is 7ln|x| + C.",
+    "explanation": "Set $x = 0$: $g(0) = -2(0 - 1)^2 + -1 = -2(1) + -1 = -3$.",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
-      "topic": "Differential Calculus & Integration",
-      "subtopic": "Integration",
+      "topic": "Functions & Graphs (Technical)",
+      "subtopic": "Parabolas",
       "cognitive_level": "Application",
       "difficulty": "medium",
       "learning_outcome": "Calculate"
@@ -28,279 +26,17 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_1"
   },
   {
-    "id": "FIN_249",
-    "topic": "Financial Mathematics (Technical)",
-    "question": "A company deposits R600 at the end of each month into a sinking fund. The interest rate is 8.8% p.a. compounded monthly. Calculate the future value after 6 years.",
-    "correct_answer": "R56598.40",
-    "wrong_answers_pool": [
-      "R55642.97",
-      "R67256.21",
-      "R51644.15",
-      "R46386.34",
-      "R61176.41",
-      "R49975.63"
-    ],
-    "explanation": "Use $F = \\frac{x[(1+i)^n - 1]}{i}$ where $i$ is the monthly rate and $n$ is total months.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Mathematics (Technical)",
-      "subtopic": "Future Value Annuities",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_2"
-  },
-  {
-    "id": "FIN_175",
-    "topic": "Financial Mathematics (Technical)",
-    "question": "A loan of R519000 is repaid with equal monthly instalments over 14 years at an interest rate of 8.0% p.a. compounded monthly. Calculate the monthly instalment.",
-    "correct_answer": "R5147.59",
-    "wrong_answers_pool": [
-      "R5042.73",
-      "R5043.47",
-      "R5339.66",
-      "R5719.33",
-      "R5765.34",
-      "R4837.16"
-    ],
-    "explanation": "Use $P = \\frac{x[1 - (1+i)^{-n}]}{i}$ rearranged to solve for $x$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Mathematics (Technical)",
-      "subtopic": "Present Value Annuities",
-      "cognitive_level": "Application",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_3"
-  },
-  {
-    "id": "FUN_461",
-    "topic": "Functions & Graphs (Technical)",
-    "question": "Determine the maximum/minimum value of $f(x) = -2(x - 4)^2 + -2$.",
-    "correct_answer": "Maximum value is -2",
-    "wrong_answers_pool": [
-      "Minimum value is -2",
-      "Maximum value is 2",
-      "Minimum value is 2",
-      "Maximum value is 4",
-      "Minimum value is 4",
-      "Maximum value is -4"
-    ],
-    "explanation": "Since $a=-2$ (which is negative), the parabola opens downwards, giving a maximum value at $y = -2$.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Functions & Graphs (Technical)",
-      "subtopic": "Parabolas",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_4"
-  },
-  {
-    "id": "ALG_556",
+    "id": "ALG_870",
     "topic": "Algebra, Equations & Inequalities (Technical)",
-    "question": "Convert the binary number $1000111_2$ to decimal.",
-    "correct_answer": "71",
+    "question": "Solve for $x$ and $y$: \\\\ $2x + 2y = -6$ \\\\ $1x -1y = -1$",
+    "correct_answer": "$x = -2; y = -1$",
     "wrong_answers_pool": [
-      "35",
-      "69",
-      "70",
-      "72",
-      "73",
-      "142"
-    ],
-    "explanation": "Multiply each bit by increasing powers of 2 from right to left.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Algebra, Equations & Inequalities (Technical)",
-      "subtopic": "Binary Conversions",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_5"
-  },
-  {
-    "id": "FIN_528",
-    "topic": "Financial Mathematics (Technical)",
-    "question": "A vehicle costing R464000 depreciates on a reducing balance method at 20.0% p.a. What is its book value after 3 years?",
-    "correct_answer": "R237822.34",
-    "wrong_answers_pool": [
-      "R228183.92",
-      "R280902.18",
-      "R207251.20",
-      "R203411.78",
-      "R272226.50",
-      "R192091.25"
-    ],
-    "explanation": "$A = P(1 - i)^n = 464000(1 - 0.1997146041679794)^3$",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Mathematics (Technical)",
-      "subtopic": "Depreciation",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_6"
-  },
-  {
-    "id": "FIN_089",
-    "topic": "Financial Mathematics (Technical)",
-    "question": "Calculate the total amount if R20000 is invested at 10.3% p.a. compounded monthly for 3 years.",
-    "correct_answer": "R27227.36",
-    "wrong_answers_pool": [
-      "R28647.20",
-      "R24929.95",
-      "R24682.70",
-      "R25171.33",
-      "R28743.14",
-      "R29595.98"
-    ],
-    "explanation": "$A = P(1 + i/m)^{n \\times m} = 20000(1 + 0.10327189081077132/12)^{36}$",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Mathematics (Technical)",
-      "subtopic": "Interest Rates",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_7"
-  },
-  {
-    "id": "FIN_346",
-    "topic": "Financial Mathematics (Technical)",
-    "question": "A company deposits R1800 at the end of each month into a sinking fund. The interest rate is 7.4% p.a. compounded monthly. Calculate the future value after 8 years.",
-    "correct_answer": "R235069.58",
-    "wrong_answers_pool": [
-      "R208166.34",
-      "R199518.98",
-      "R235976.88",
-      "R219161.13",
-      "R194345.24",
-      "R227964.24"
-    ],
-    "explanation": "Use $F = \\frac{x[(1+i)^n - 1]}{i}$ where $i$ is the monthly rate and $n$ is total months.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Mathematics (Technical)",
-      "subtopic": "Future Value Annuities",
-      "cognitive_level": "Application",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_8"
-  },
-  {
-    "id": "CALC_706",
-    "topic": "Differential Calculus & Integration",
-    "question": "Determine $\\frac{dy}{dx}$ if $y = 4x^{2} + 4x^{3}$.",
-    "correct_answer": "$8x^{1} + 12x^{2}$",
-    "wrong_answers_pool": [
-      "$8x^{2} + 12x^{3}$",
-      "$4x^{1} + 4x^{2}$",
-      "$8x^{1} - 12x^{2}$",
-      "$16x^{1} + 12x^{2}$",
-      "$8x^{3} + 12x^{4}$",
-      "$8x^{1} + 4x^{3}$",
-      "$4x^{2} + 12x^{2}$",
-      "$9x^{1} + 12x^{2}$"
-    ],
-    "explanation": "Differentiate term-by-term.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Differential Calculus & Integration",
-      "subtopic": "Differentiation Rules",
-      "cognitive_level": "Application",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_9"
-  },
-  {
-    "id": "FIN_709",
-    "topic": "Financial Mathematics (Technical)",
-    "question": "A company deposits R1200 at the end of each month into a sinking fund. The interest rate is 7.7% p.a. compounded monthly. Calculate the future value after 6 years.",
-    "correct_answer": "R109254.24",
-    "wrong_answers_pool": [
-      "R120855.47",
-      "R109318.66",
-      "R88206.14",
-      "R109693.98",
-      "R113743.75",
-      "R102716.87"
-    ],
-    "explanation": "Use $F = \\frac{x[(1+i)^n - 1]}{i}$ where $i$ is the monthly rate and $n$ is total months.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Mathematics (Technical)",
-      "subtopic": "Future Value Annuities",
-      "cognitive_level": "Application",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_10"
-  },
-  {
-    "id": "ALG_412",
-    "topic": "Algebra, Equations & Inequalities (Technical)",
-    "question": "Convert the binary number $1100111_2$ to decimal.",
-    "correct_answer": "103",
-    "wrong_answers_pool": [
-      "121",
-      "100",
-      "101",
-      "102",
-      "104",
-      "105"
-    ],
-    "explanation": "Multiply each bit by increasing powers of 2 from right to left.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Algebra, Equations & Inequalities (Technical)",
-      "subtopic": "Binary Conversions",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_11"
-  },
-  {
-    "id": "ALG_551",
-    "topic": "Algebra, Equations & Inequalities (Technical)",
-    "question": "Solve for $x$ and $y$: \\\\ $2x + 1y = 2$ \\\\ $1x -2y = -4$",
-    "correct_answer": "$x = 0; y = 2$",
-    "wrong_answers_pool": [
-      "$x = 2; y = 1$",
-      "$x = 2; y = 4$",
-      "$x = 0; y = 0$",
-      "$x = 2; y = 0$",
-      "$x = 1; y = 4$",
-      "$x = -2; y = 3$"
+      "$x = -4; y = 0$",
+      "$x = -4; y = -1$",
+      "$x = 0; y = -3$",
+      "$x = -1; y = 1$",
+      "$x = -2; y = 1$",
+      "$x = -3; y = 1$"
     ],
     "explanation": "Use elimination or substitution to find the intersection of the two lines.",
     "difficulty": "medium",
@@ -313,98 +49,289 @@
       "difficulty": "medium",
       "learning_outcome": "Calculate"
     },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_2"
+  },
+  {
+    "id": "CALC_204",
+    "topic": "Differential Calculus & Integration",
+    "question": "Determine the gradient of the tangent to the parabola $y = 2x^2 +2x$ at $x = -4$.",
+    "correct_answer": "-14",
+    "wrong_answers_pool": [
+      "-28",
+      "-27",
+      "-25",
+      "14",
+      "-18",
+      "-16",
+      "-15",
+      "-13"
+    ],
+    "explanation": "Gradient $m = -14$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "Tangents & Turning Points",
+      "cognitive_level": "Application",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_3"
+  },
+  {
+    "id": "FIN_003",
+    "topic": "Financial Mathematics (Technical)",
+    "question": "Calculate the total amount if R15000 is invested at 6.4% p.a. compounded monthly for 4 years.",
+    "correct_answer": "R19331.59",
+    "wrong_answers_pool": [
+      "R18511.88",
+      "R20619.57",
+      "R20133.68",
+      "R20505.47",
+      "R20662.63",
+      "R20909.92"
+    ],
+    "explanation": "$A = P(1 + i/m)^{n \\times m} = 15000(1 + 0.06359045309680265/12)^{48}$",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Financial Mathematics (Technical)",
+      "subtopic": "Interest Rates",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_4"
+  },
+  {
+    "id": "CALC_028",
+    "topic": "Differential Calculus & Integration",
+    "question": "Evaluate the limit: $\\lim_{x \\to 4} \\frac{x^2 +0x - 16}{x - 4}$",
+    "correct_answer": "8",
+    "wrong_answers_pool": [
+      "3",
+      "4",
+      "6",
+      "7",
+      "9",
+      "10",
+      "12",
+      "16"
+    ],
+    "explanation": "Factorise into $(x-4)(x+4)/(x-4) = x + 4 \\to 4 + 4 = 8$.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "Limits",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_5"
+  },
+  {
+    "id": "CALC_315",
+    "topic": "Differential Calculus & Integration",
+    "question": "Evaluate the limit: $\\lim_{x \\to 4} \\frac{x^2 -2x - 8}{x - 4}$",
+    "correct_answer": "6",
+    "wrong_answers_pool": [
+      "3",
+      "4",
+      "5",
+      "7",
+      "8",
+      "11",
+      "12",
+      "13"
+    ],
+    "explanation": "Factorise into $(x-4)(x+2)/(x-4) = x + 2 \\to 4 + 2 = 6$.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "Limits",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_6"
+  },
+  {
+    "id": "ALG_665",
+    "topic": "Algebra, Equations & Inequalities (Technical)",
+    "question": "Convert the binary number $110011_2$ to decimal.",
+    "correct_answer": "51",
+    "wrong_answers_pool": [
+      "33",
+      "153",
+      "102",
+      "42",
+      "-51",
+      "49"
+    ],
+    "explanation": "Multiply each bit by increasing powers of 2 from right to left.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Algebra, Equations & Inequalities (Technical)",
+      "subtopic": "Binary Conversions",
+      "cognitive_level": "Application",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_7"
+  },
+  {
+    "id": "CALC_208",
+    "topic": "Differential Calculus & Integration",
+    "question": "Determine the derivative of $f(x) = -2x^2 -1x$ from first principles.",
+    "correct_answer": "$-4x -1$",
+    "wrong_answers_pool": [
+      "$-4x - -1$",
+      "$-2x -1$",
+      "$-4x^2 -1$",
+      "$-4x$",
+      "$-4x -2$",
+      "$-3x -1$",
+      "$-4x +0$"
+    ],
+    "explanation": "$f'(x) = -4x -1$.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "First Principles",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_8"
+  },
+  {
+    "id": "ALG_400",
+    "topic": "Algebra, Equations & Inequalities (Technical)",
+    "question": "Convert the decimal number $98$ to binary.",
+    "correct_answer": "1100010",
+    "wrong_answers_pool": [
+      "1011111",
+      "1100000",
+      "1100001",
+      "1100011",
+      "1100100",
+      "1100101"
+    ],
+    "explanation": "Repeatedly divide by 2 and read remainders upwards.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Algebra, Equations & Inequalities (Technical)",
+      "subtopic": "Binary Conversions",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_9"
+  },
+  {
+    "id": "ALG_709",
+    "topic": "Algebra, Equations & Inequalities (Technical)",
+    "question": "Convert the decimal number $62$ to binary.",
+    "correct_answer": "111110",
+    "wrong_answers_pool": [
+      "111011",
+      "111100",
+      "111101",
+      "111111",
+      "1000000",
+      "1000001"
+    ],
+    "explanation": "Repeatedly divide by 2 and read remainders upwards.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Algebra, Equations & Inequalities (Technical)",
+      "subtopic": "Binary Conversions",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_10"
+  },
+  {
+    "id": "ALG_921",
+    "topic": "Algebra, Equations & Inequalities (Technical)",
+    "question": "Solve for $x$ (correct to two decimal places): $3x^2 + 5x + -6 = 0$",
+    "correct_answer": "$x = -2.47$ or $x = 0.81$",
+    "wrong_answers_pool": [
+      "$x = -2.59$ or $x = -0.7$",
+      "$x = -4.39$ or $x = 1.96$",
+      "$x = -2.07$ or $x = -0.2$",
+      "$x = -4.05$ or $x = 0.11$",
+      "$x = -1.17$ or $x = -0.09$",
+      "$x = -3.34$ or $x = 0.65$"
+    ],
+    "explanation": "Use quadratic formula: $x = \\frac{-(5) \\pm \\sqrt{5^2 - 4(3)(-6)}}{2(3)} = \\frac{-5 \\pm \\sqrt{97}}{6}$",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Algebra, Equations & Inequalities (Technical)",
+      "subtopic": "Quadratic Equations",
+      "cognitive_level": "Application",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_11"
+  },
+  {
+    "id": "CALC_687",
+    "topic": "Differential Calculus & Integration",
+    "question": "Determine the gradient of the tangent to the parabola $y = 1x^2 -4x$ at $x = -4$.",
+    "correct_answer": "-12",
+    "wrong_answers_pool": [
+      "4",
+      "7",
+      "-24",
+      "12",
+      "-20",
+      "-14",
+      "-13",
+      "-11"
+    ],
+    "explanation": "Gradient $m = -12$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "Tangents & Turning Points",
+      "cognitive_level": "Application",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate"
+    },
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_12"
   },
   {
-    "id": "FIN_554",
+    "id": "FIN_304",
     "topic": "Financial Mathematics (Technical)",
-    "question": "A vehicle costing R245000 depreciates on a reducing balance method at 16.1% p.a. What is its book value after 4 years?",
-    "correct_answer": "R121431.95",
+    "question": "A company deposits R2400 at the end of each month into a sinking fund. The interest rate is 7.6% p.a. compounded monthly. Calculate the future value after 4 years.",
+    "correct_answer": "R134209.50",
     "wrong_answers_pool": [
-      "R124267.25",
-      "R116039.81",
-      "R138249.76",
-      "R107734.17",
-      "R109944.32",
-      "R106354.04"
-    ],
-    "explanation": "$A = P(1 - i)^n = 245000(1 - 0.16094250104496038)^4$",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Mathematics (Technical)",
-      "subtopic": "Depreciation",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_13"
-  },
-  {
-    "id": "FIN_560",
-    "topic": "Financial Mathematics (Technical)",
-    "question": "A vehicle costing R323000 depreciates on a reducing balance method at 17.0% p.a. What is its book value after 6 years?",
-    "correct_answer": "R105480.92",
-    "wrong_answers_pool": [
-      "R87928.84",
-      "R101217.45",
-      "R122485.37",
-      "R125615.00",
-      "R103305.88",
-      "R99801.61"
-    ],
-    "explanation": "$A = P(1 - i)^n = 323000(1 - 0.1701583419549495)^6$",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Mathematics (Technical)",
-      "subtopic": "Depreciation",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_14"
-  },
-  {
-    "id": "FUN_610",
-    "topic": "Functions & Graphs (Technical)",
-    "question": "Given the hyperbola $h(x) = \\frac{-4}{x - -3} + -1$. Determine the equations of the asymptotes.",
-    "correct_answer": "$x = -3$ and $y = -1$",
-    "wrong_answers_pool": [
-      "$x = 3$ and $y = -1$",
-      "$x = -3$ and $y = 1$",
-      "$x = 3$ and $y = 1$",
-      "$x = -1$ and $y = -3$",
-      "$x = 1$ and $y = 3$",
-      "$x = 0$ and $y = 0$"
-    ],
-    "explanation": "Vertical asymptote where denominator is zero: $x - -3 = 0 \\implies x = -3$. Horizontal asymptote is the constant term: $y = -1$.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Functions & Graphs (Technical)",
-      "subtopic": "Hyperbolas",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_15"
-  },
-  {
-    "id": "FIN_572",
-    "topic": "Financial Mathematics (Technical)",
-    "question": "A company deposits R1300 at the end of each month into a sinking fund. The interest rate is 7.8% p.a. compounded monthly. Calculate the future value after 4 years.",
-    "correct_answer": "R73014.29",
-    "wrong_answers_pool": [
-      "R83111.26",
-      "R83423.72",
-      "R65672.04",
-      "R82924.33",
-      "R81750.93",
-      "R87548.57"
+      "R146871.44",
+      "R143418.53",
+      "R122159.85",
+      "R138654.59",
+      "R150377.03",
+      "R109305.65"
     ],
     "explanation": "Use $F = \\frac{x[(1+i)^n - 1]}{i}$ where $i$ is the monthly rate and $n$ is total months.",
     "difficulty": "hard",
@@ -417,28 +344,108 @@
       "difficulty": "hard",
       "learning_outcome": "Calculate"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_16"
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_13"
   },
   {
-    "id": "FUN_039",
-    "topic": "Functions & Graphs (Technical)",
-    "question": "Given $k(x) = 2^x + -1$. Write down the equation of the horizontal asymptote.",
-    "correct_answer": "$y = -1$",
+    "id": "CALC_453",
+    "topic": "Differential Calculus & Integration",
+    "question": "Evaluate the limit: $\\lim_{x \\to 2} \\frac{x^2 +4x - 12}{x - 2}$",
+    "correct_answer": "8",
     "wrong_answers_pool": [
-      "$y = 1$",
-      "$y = 0$",
-      "$x = -1$",
-      "$x = 0$",
-      "$y = 2$",
-      "$y = -2$"
+      "4",
+      "6",
+      "7",
+      "9",
+      "10",
+      "11",
+      "16",
+      "20"
     ],
-    "explanation": "The horizontal asymptote is $y = q$, so $y = -1$.",
+    "explanation": "Factorise into $(x-2)(x+6)/(x-2) = x + 6 \\to 2 + 6 = 8$.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "Limits",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_14"
+  },
+  {
+    "id": "FUN_255",
+    "topic": "Functions & Graphs (Technical)",
+    "question": "Determine the $y$-intercept of $g(x) = 2(x - 1)^2 + 0$.",
+    "correct_answer": "2",
+    "wrong_answers_pool": [
+      "0",
+      "1",
+      "3",
+      "4",
+      "6",
+      "-18"
+    ],
+    "explanation": "Set $x = 0$: $g(0) = 2(0 - 1)^2 + 0 = 2(1) + 0 = 2$.",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
       "topic": "Functions & Graphs (Technical)",
-      "subtopic": "Exponential Graphs",
+      "subtopic": "Parabolas",
+      "cognitive_level": "Application",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_15"
+  },
+  {
+    "id": "ALG_219",
+    "topic": "Algebra, Equations & Inequalities (Technical)",
+    "question": "Convert the decimal number $117$ to binary.",
+    "correct_answer": "1110101",
+    "wrong_answers_pool": [
+      "1110010",
+      "1110011",
+      "1110100",
+      "1110110",
+      "1110111",
+      "1111000"
+    ],
+    "explanation": "Repeatedly divide by 2 and read remainders upwards.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Algebra, Equations & Inequalities (Technical)",
+      "subtopic": "Binary Conversions",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_16"
+  },
+  {
+    "id": "ALG_061",
+    "topic": "Algebra, Equations & Inequalities (Technical)",
+    "question": "Multiply the complex numbers: $( 5 + 6i )( 2 + 5i )$",
+    "correct_answer": "$-20 + 37i$",
+    "wrong_answers_pool": [
+      "$-16 + 36i$",
+      "$-15 + 39i$",
+      "$-19 + 35i$",
+      "$-23 + 39i$",
+      "$-25 + 41i$",
+      "$-24 + 34i$"
+    ],
+    "explanation": "Expand: $(5)(2) + (5)(5i) + (6i)(2) + (6i)(5i)$. Note $i^2 = -1$. $10 + 25i + 12i - 30 = -20 + 37i$",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Algebra, Equations & Inequalities (Technical)",
+      "subtopic": "Complex Numbers",
       "cognitive_level": "Application",
       "difficulty": "medium",
       "learning_outcome": "Calculate"
@@ -446,25 +453,27 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_17"
   },
   {
-    "id": "FUN_067",
-    "topic": "Functions & Graphs (Technical)",
-    "question": "Given $k(x) = 4^x + -2$. Write down the equation of the horizontal asymptote.",
-    "correct_answer": "$y = -2$",
+    "id": "CALC_691",
+    "topic": "Differential Calculus & Integration",
+    "question": "Use first principles to determine the derivative of $f(x) = -7x^2 -1$.",
+    "correct_answer": "$-14x$",
     "wrong_answers_pool": [
-      "$y = 2$",
-      "$y = 0$",
-      "$x = -2$",
-      "$x = 0$",
-      "$y = 4$",
-      "$y = -4$"
+      "$-7x$",
+      "$-14x^2$",
+      "$-7x^2$",
+      "$-14$",
+      "$-7$",
+      "$14x$",
+      "$-28x$",
+      "$-14x^3$"
     ],
-    "explanation": "The horizontal asymptote is $y = q$, so $y = -2$.",
+    "explanation": "Derivative of $-7x^2 -1$ is $-14x$.",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
-      "topic": "Functions & Graphs (Technical)",
-      "subtopic": "Exponential Graphs",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "First Principles",
       "cognitive_level": "Application",
       "difficulty": "medium",
       "learning_outcome": "Calculate"
@@ -472,53 +481,51 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_18"
   },
   {
-    "id": "CALC_071",
-    "topic": "Differential Calculus & Integration",
-    "question": "Determine the gradient of the tangent to the parabola $y = 1x^2 -2x$ at $x = 3$.",
-    "correct_answer": "4",
+    "id": "FIN_516",
+    "topic": "Financial Mathematics (Technical)",
+    "question": "Calculate the total amount if R47000 is invested at 6.3% p.a. compounded monthly for 5 years.",
+    "correct_answer": "R64493.21",
     "wrong_answers_pool": [
-      "2",
-      "3",
-      "5",
-      "6",
-      "8",
-      "9",
-      "12",
-      "-15"
+      "R61770.99",
+      "R59996.73",
+      "R60422.83",
+      "R67628.01",
+      "R70903.14",
+      "R68455.64"
     ],
-    "explanation": "Gradient $m = 4$.",
-    "difficulty": "medium",
+    "explanation": "$A = P(1 + i/m)^{n \\times m} = 47000(1 + 0.06344961345515113/12)^{60}$",
+    "difficulty": "hard",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
-      "topic": "Differential Calculus & Integration",
-      "subtopic": "Tangents & Turning Points",
-      "cognitive_level": "Application",
-      "difficulty": "medium",
+      "topic": "Financial Mathematics (Technical)",
+      "subtopic": "Interest Rates",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard",
       "learning_outcome": "Calculate"
     },
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_19"
   },
   {
-    "id": "FUN_053",
-    "topic": "Functions & Graphs (Technical)",
-    "question": "Given the hyperbola $h(x) = \\frac{2}{x - -3} + -1$. Determine the equations of the asymptotes.",
-    "correct_answer": "$x = -3$ and $y = -1$",
+    "id": "FIN_119",
+    "topic": "Financial Mathematics (Technical)",
+    "question": "A loan of R560000 is repaid with equal monthly instalments over 12 years at an interest rate of 9.7% p.a. compounded monthly. Calculate the monthly instalment.",
+    "correct_answer": "R6596.93",
     "wrong_answers_pool": [
-      "$x = 3$ and $y = -1$",
-      "$x = -3$ and $y = 1$",
-      "$x = 3$ and $y = 1$",
-      "$x = -1$ and $y = -3$",
-      "$x = 1$ and $y = 3$",
-      "$x = 0$ and $y = 0$"
+      "R6252.56",
+      "R7512.20",
+      "R6088.39",
+      "R7221.04",
+      "R5738.63",
+      "R7105.16"
     ],
-    "explanation": "Vertical asymptote where denominator is zero: $x - -3 = 0 \\implies x = -3$. Horizontal asymptote is the constant term: $y = -1$.",
+    "explanation": "Use $P = \\frac{x[1 - (1+i)^{-n}]}{i}$ rearranged to solve for $x$.",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
-      "topic": "Functions & Graphs (Technical)",
-      "subtopic": "Hyperbolas",
+      "topic": "Financial Mathematics (Technical)",
+      "subtopic": "Present Value Annuities",
       "cognitive_level": "Analysis",
       "difficulty": "hard",
       "learning_outcome": "Calculate"
@@ -526,25 +533,27 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_20"
   },
   {
-    "id": "FUN_258",
-    "topic": "Functions & Graphs (Technical)",
-    "question": "Determine the maximum/minimum value of $f(x) = 1(x - -4)^2 + 2$.",
-    "correct_answer": "Minimum value is 2",
+    "id": "CALC_256",
+    "topic": "Differential Calculus & Integration",
+    "question": "Find the $x$-coordinates of the stationary points of $f(x) = x^3 - 108x +4$.",
+    "correct_answer": "$x = 6$ and $x = -6$",
     "wrong_answers_pool": [
-      "Maximum value is 2",
-      "Minimum value is -2",
-      "Maximum value is -2",
-      "Minimum value is -4",
-      "Maximum value is -4",
-      "Minimum value is 4"
+      "$x = 7$ and $x = -7$",
+      "$x = 6$ and $x = 0$",
+      "$x = -6$ and $x = 0$",
+      "$x = 36$ and $x = -36$",
+      "$x = 18$ and $x = -18$",
+      "$x = 12$ and $x = -12$",
+      "$x = 1$ and $x = -1$",
+      "$x = 8$ and $x = -4$"
     ],
-    "explanation": "Since $a=1$ (which is positive), the parabola opens upwards, giving a minimum value at $y = 2$.",
+    "explanation": "Stationary points: x = 6 and x = -6.",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
-      "topic": "Functions & Graphs (Technical)",
-      "subtopic": "Parabolas",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "Tangents & Turning Points",
       "cognitive_level": "Analysis",
       "difficulty": "hard",
       "learning_outcome": "Calculate"
@@ -552,27 +561,25 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_21"
   },
   {
-    "id": "CALC_261",
-    "topic": "Differential Calculus & Integration",
-    "question": "Determine $\\frac{dy}{dx}$ if $y = 6x^{2} + 4x^{3}$.",
-    "correct_answer": "$12x^{1} + 12x^{2}$",
+    "id": "ALG_160",
+    "topic": "Algebra, Equations & Inequalities (Technical)",
+    "question": "Convert the binary number $1100100_2$ to decimal.",
+    "correct_answer": "100",
     "wrong_answers_pool": [
-      "$12x^{2} + 12x^{3}$",
-      "$6x^{1} + 4x^{2}$",
-      "$12x^{1} - 12x^{2}$",
-      "$24x^{1} + 12x^{2}$",
-      "$12x^{3} + 12x^{4}$",
-      "$12x^{1} + 4x^{3}$",
-      "$6x^{2} + 12x^{2}$",
-      "$13x^{1} + 12x^{2}$"
+      "98",
+      "99",
+      "101",
+      "102",
+      "200",
+      "300"
     ],
-    "explanation": "Differentiate term-by-term.",
+    "explanation": "Multiply each bit by increasing powers of 2 from right to left.",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
-      "topic": "Differential Calculus & Integration",
-      "subtopic": "Differentiation Rules",
+      "topic": "Algebra, Equations & Inequalities (Technical)",
+      "subtopic": "Binary Conversions",
       "cognitive_level": "Application",
       "difficulty": "medium",
       "learning_outcome": "Calculate"
@@ -580,25 +587,25 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_22"
   },
   {
-    "id": "FUN_582",
+    "id": "FUN_429",
     "topic": "Functions & Graphs (Technical)",
-    "question": "Determine the $y$-intercept of $g(x) = -1(x - -1)^2 + 1$.",
-    "correct_answer": "0",
+    "question": "Given the hyperbola $h(x) = \\frac{-2}{x - -3} + 4$. Determine the equations of the asymptotes.",
+    "correct_answer": "$x = -3$ and $y = 4$",
     "wrong_answers_pool": [
-      "1",
-      "2",
-      "6",
-      "-18",
-      "-16",
-      "-12"
+      "$x = 3$ and $y = 4$",
+      "$x = -3$ and $y = -4$",
+      "$x = 3$ and $y = -4$",
+      "$x = 4$ and $y = -3$",
+      "$x = -4$ and $y = 3$",
+      "$x = 0$ and $y = 0$"
     ],
-    "explanation": "Set $x = 0$: $g(0) = -1(0 - -1)^2 + 1 = -1(1) + 1 = 0$.",
+    "explanation": "Vertical asymptote where denominator is zero: $x - -3 = 0 \\implies x = -3$. Horizontal asymptote is the constant term: $y = 4$.",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
       "topic": "Functions & Graphs (Technical)",
-      "subtopic": "Parabolas",
+      "subtopic": "Hyperbolas",
       "cognitive_level": "Application",
       "difficulty": "medium",
       "learning_outcome": "Calculate"
@@ -606,530 +613,58 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_23"
   },
   {
-    "id": "CALC_149",
-    "topic": "Differential Calculus & Integration",
-    "question": "Determine the derivative of $f(x) = 4x^2 +4x$ from first principles.",
-    "correct_answer": "$8x +4$",
+    "id": "FIN_791",
+    "topic": "Financial Mathematics (Technical)",
+    "question": "A vehicle costing R304000 depreciates on a reducing balance method at 9.3% p.a. What is its book value after 5 years?",
+    "correct_answer": "R186942.55",
     "wrong_answers_pool": [
-      "$8x - 4$",
-      "$4x +4$",
-      "$8x^2 +4$",
-      "$8x$",
-      "$8x +8$",
-      "$9x +4$",
-      "$8x +3$",
-      "$8x +5$"
+      "R216065.01",
+      "R221928.69",
+      "R165490.63",
+      "R162860.72",
+      "R196984.27",
+      "R153774.51"
     ],
-    "explanation": "$f'(x) = 8x +4$.",
-    "difficulty": "hard",
+    "explanation": "$A = P(1 - i)^n = 304000(1 - 0.0926665589664903)^5$",
+    "difficulty": "medium",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
-      "topic": "Differential Calculus & Integration",
-      "subtopic": "First Principles",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard",
+      "topic": "Financial Mathematics (Technical)",
+      "subtopic": "Depreciation",
+      "cognitive_level": "Application",
+      "difficulty": "medium",
       "learning_outcome": "Calculate"
     },
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_24"
   },
   {
-    "id": "CALC_561",
+    "id": "CALC_068",
     "topic": "Differential Calculus & Integration",
-    "question": "Differentiate $y = 6x^{5} + \\frac{7}{x}$ with respect to $x$.",
-    "correct_answer": "$30x^{4} - \\frac{7}{x^2}$",
+    "question": "Evaluate the limit: $\\lim_{x \\to 13} \\frac{x^2 - 169}{x - 13}$",
+    "correct_answer": "26",
     "wrong_answers_pool": [
-      "$30x^{4} + \\frac{7}{x^2}$",
-      "$30x^{5} - \\frac{7}{x^2}$",
-      "$6x^{4} - \\frac{7}{x^2}$",
-      "$30x^{4} - 7x$",
-      "$30x^{4} + 7\\ln x$",
-      "$30x^{6} - \\frac{7}{x^2}$",
-      "$30x^{4} - \\frac{14}{x^2}$",
-      "$60x^{4} - \\frac{7}{x^2}$"
+      "-26",
+      "38",
+      "43",
+      "13",
+      "78",
+      "15",
+      "16",
+      "52"
     ],
-    "explanation": "Derivative is 30x^4 - 7/x^2.",
+    "explanation": "Factorise: $\\lim_{x \\to 13} (x + 13) = 26$.",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
       "topic": "Differential Calculus & Integration",
-      "subtopic": "Differentiation Rules",
+      "subtopic": "Limits",
       "cognitive_level": "Application",
       "difficulty": "medium",
       "learning_outcome": "Calculate"
     },
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_25"
-  },
-  {
-    "id": "FUN_750",
-    "topic": "Functions & Graphs (Technical)",
-    "question": "Determine the $y$-intercept of $g(x) = 2(x - -3)^2 + -1$.",
-    "correct_answer": "17",
-    "wrong_answers_pool": [
-      "34",
-      "7",
-      "8",
-      "-17",
-      "16",
-      "15"
-    ],
-    "explanation": "Set $x = 0$: $g(0) = 2(0 - -3)^2 + -1 = 2(9) + -1 = 17$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Functions & Graphs (Technical)",
-      "subtopic": "Parabolas",
-      "cognitive_level": "Application",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_26"
-  },
-  {
-    "id": "FIN_038",
-    "topic": "Financial Mathematics (Technical)",
-    "question": "A vehicle costing R104000 depreciates on a reducing balance method at 8.0% p.a. What is its book value after 5 years?",
-    "correct_answer": "R68399.48",
-    "wrong_answers_pool": [
-      "R74732.77",
-      "R65357.58",
-      "R79938.71",
-      "R69777.44",
-      "R64998.73",
-      "R81197.12"
-    ],
-    "explanation": "$A = P(1 - i)^n = 104000(1 - 0.08038955158337284)^5$",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Mathematics (Technical)",
-      "subtopic": "Depreciation",
-      "cognitive_level": "Application",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_27"
-  },
-  {
-    "id": "FIN_839",
-    "topic": "Financial Mathematics (Technical)",
-    "question": "A vehicle costing R264000 depreciates on a reducing balance method at 16.1% p.a. What is its book value after 3 years?",
-    "correct_answer": "R155712.63",
-    "wrong_answers_pool": [
-      "R177903.70",
-      "R160818.90",
-      "R179110.49",
-      "R159035.98",
-      "R163757.80",
-      "R164575.41"
-    ],
-    "explanation": "$A = P(1 - i)^n = 264000(1 - 0.16136438780328569)^3$",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Mathematics (Technical)",
-      "subtopic": "Depreciation",
-      "cognitive_level": "Application",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_28"
-  },
-  {
-    "id": "FUN_943",
-    "topic": "Functions & Graphs (Technical)",
-    "question": "Determine the $y$-intercept of $g(x) = 1(x - 0)^2 + -4$.",
-    "correct_answer": "-4",
-    "wrong_answers_pool": [
-      "0",
-      "4",
-      "5",
-      "12",
-      "-16",
-      "-12"
-    ],
-    "explanation": "Set $x = 0$: $g(0) = 1(0 - 0)^2 + -4 = 1(0) + -4 = -4$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Functions & Graphs (Technical)",
-      "subtopic": "Parabolas",
-      "cognitive_level": "Application",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_29"
-  },
-  {
-    "id": "CALC_752",
-    "topic": "Differential Calculus & Integration",
-    "question": "Use first principles to determine the derivative of $f(x) = 6x^2 -3$.",
-    "correct_answer": "$12x$",
-    "wrong_answers_pool": [
-      "$6x$",
-      "$12x^2$",
-      "$6x^2$",
-      "$12$",
-      "$6$",
-      "$-12x$",
-      "$24x$",
-      "$12x^3$"
-    ],
-    "explanation": "Derivative of $6x^2 -3$ is $12x$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Differential Calculus & Integration",
-      "subtopic": "First Principles",
-      "cognitive_level": "Application",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_30"
-  },
-  {
-    "id": "FIN_988",
-    "topic": "Financial Mathematics (Technical)",
-    "question": "Calculate the total amount if R42000 is invested at 10.3% p.a. compounded monthly for 7 years.",
-    "correct_answer": "R85925.30",
-    "wrong_answers_pool": [
-      "R80039.93",
-      "R83230.90",
-      "R87978.81",
-      "R78260.99",
-      "R87845.83",
-      "R78412.11"
-    ],
-    "explanation": "$A = P(1 + i/m)^{n \\times m} = 42000(1 + 0.10269531978710672/12)^{84}$",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Mathematics (Technical)",
-      "subtopic": "Interest Rates",
-      "cognitive_level": "Application",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_31"
-  },
-  {
-    "id": "ALG_465",
-    "topic": "Algebra, Equations & Inequalities (Technical)",
-    "question": "Solve for $x$: $2(x + 4) = 5x + -4$",
-    "correct_answer": "4",
-    "wrong_answers_pool": [
-      "1",
-      "2",
-      "3",
-      "5",
-      "6",
-      "7"
-    ],
-    "explanation": "$2x + 8 = 5x + -4 \\implies -3x = -12 \\implies x = 4$",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Algebra, Equations & Inequalities (Technical)",
-      "subtopic": "Linear Equations",
-      "cognitive_level": "Application",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_32"
-  },
-  {
-    "id": "FIN_475",
-    "topic": "Financial Mathematics (Technical)",
-    "question": "A vehicle costing R303000 depreciates on a reducing balance method at 11.1% p.a. What is its book value after 6 years?",
-    "correct_answer": "R149140.09",
-    "wrong_answers_pool": [
-      "R124707.12",
-      "R142102.03",
-      "R119520.00",
-      "R130840.25",
-      "R167707.48",
-      "R120262.73"
-    ],
-    "explanation": "$A = P(1 - i)^n = 303000(1 - 0.1114293514551537)^6$",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Mathematics (Technical)",
-      "subtopic": "Depreciation",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_33"
-  },
-  {
-    "id": "FUN_514",
-    "topic": "Functions & Graphs (Technical)",
-    "question": "Determine the maximum/minimum value of $f(x) = 2(x - 3)^2 + 2$.",
-    "correct_answer": "Minimum value is 2",
-    "wrong_answers_pool": [
-      "Maximum value is 2",
-      "Minimum value is -2",
-      "Maximum value is -2",
-      "Minimum value is 3",
-      "Maximum value is 3",
-      "Minimum value is -3"
-    ],
-    "explanation": "Since $a=2$ (which is positive), the parabola opens upwards, giving a minimum value at $y = 2$.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Functions & Graphs (Technical)",
-      "subtopic": "Parabolas",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_34"
-  },
-  {
-    "id": "FUN_641",
-    "topic": "Functions & Graphs (Technical)",
-    "question": "Determine the $y$-intercept of $g(x) = -1(x - 2)^2 + 2$.",
-    "correct_answer": "-2",
-    "wrong_answers_pool": [
-      "0",
-      "2",
-      "-21",
-      "12",
-      "13",
-      "18"
-    ],
-    "explanation": "Set $x = 0$: $g(0) = -1(0 - 2)^2 + 2 = -1(4) + 2 = -2$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Functions & Graphs (Technical)",
-      "subtopic": "Parabolas",
-      "cognitive_level": "Application",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_35"
-  },
-  {
-    "id": "FIN_323",
-    "topic": "Financial Mathematics (Technical)",
-    "question": "A vehicle costing R121000 depreciates on a reducing balance method at 19.7% p.a. What is its book value after 5 years?",
-    "correct_answer": "R40416.60",
-    "wrong_answers_pool": [
-      "R47584.27",
-      "R38819.33",
-      "R45553.24",
-      "R34335.39",
-      "R48021.63",
-      "R46283.24"
-    ],
-    "explanation": "$A = P(1 - i)^n = 121000(1 - 0.19692725285919374)^5$",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Mathematics (Technical)",
-      "subtopic": "Depreciation",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_36"
-  },
-  {
-    "id": "FUN_811",
-    "topic": "Functions & Graphs (Technical)",
-    "question": "Determine the $y$-intercept of $g(x) = 1(x - 4)^2 + 1$.",
-    "correct_answer": "17",
-    "wrong_answers_pool": [
-      "34",
-      "36",
-      "5",
-      "8",
-      "-17",
-      "16"
-    ],
-    "explanation": "Set $x = 0$: $g(0) = 1(0 - 4)^2 + 1 = 1(16) + 1 = 17$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Functions & Graphs (Technical)",
-      "subtopic": "Parabolas",
-      "cognitive_level": "Application",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_37"
-  },
-  {
-    "id": "FUN_520",
-    "topic": "Functions & Graphs (Technical)",
-    "question": "Given the hyperbola $h(x) = \\frac{5}{x - -2} + -1$. Determine the equations of the asymptotes.",
-    "correct_answer": "$x = -2$ and $y = -1$",
-    "wrong_answers_pool": [
-      "$x = 2$ and $y = -1$",
-      "$x = -2$ and $y = 1$",
-      "$x = 2$ and $y = 1$",
-      "$x = -1$ and $y = -2$",
-      "$x = 1$ and $y = 2$",
-      "$x = 0$ and $y = 0$"
-    ],
-    "explanation": "Vertical asymptote where denominator is zero: $x - -2 = 0 \\implies x = -2$. Horizontal asymptote is the constant term: $y = -1$.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Functions & Graphs (Technical)",
-      "subtopic": "Hyperbolas",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_38"
-  },
-  {
-    "id": "FUN_588",
-    "topic": "Functions & Graphs (Technical)",
-    "question": "Determine the maximum/minimum value of $f(x) = -2(x - -1)^2 + 3$.",
-    "correct_answer": "Maximum value is 3",
-    "wrong_answers_pool": [
-      "Minimum value is 3",
-      "Maximum value is -3",
-      "Minimum value is -3",
-      "Maximum value is -1",
-      "Minimum value is -1",
-      "Maximum value is 1"
-    ],
-    "explanation": "Since $a=-2$ (which is negative), the parabola opens downwards, giving a maximum value at $y = 3$.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Functions & Graphs (Technical)",
-      "subtopic": "Parabolas",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_39"
-  },
-  {
-    "id": "FUN_187",
-    "topic": "Functions & Graphs (Technical)",
-    "question": "Given the linear function $f(x) = -4x - 3$. Determine the $x$-intercept.",
-    "correct_answer": "-0.75",
-    "wrong_answers_pool": [
-      "0.75",
-      "0.25",
-      "-0.38",
-      "-1.33",
-      "2.92",
-      "-1.50"
-    ],
-    "explanation": "Set $f(x) = 0 \\implies -4x = 3 \\implies x = -0.75$",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Functions & Graphs (Technical)",
-      "subtopic": "Linear Graphs",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_40"
-  },
-  {
-    "id": "ALG_088",
-    "topic": "Algebra, Equations & Inequalities (Technical)",
-    "question": "Solve for $x$: $3(x + 9) = 4x + 23$",
-    "correct_answer": "4",
-    "wrong_answers_pool": [
-      "2",
-      "3",
-      "5",
-      "6",
-      "8",
-      "12"
-    ],
-    "explanation": "$3x + 27 = 4x + 23 \\implies -1x = -4 \\implies x = 4$",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Algebra, Equations & Inequalities (Technical)",
-      "subtopic": "Linear Equations",
-      "cognitive_level": "Application",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_41"
-  },
-  {
-    "id": "ALG_835",
-    "topic": "Algebra, Equations & Inequalities (Technical)",
-    "question": "Convert the binary number $111101_2$ to decimal.",
-    "correct_answer": "61",
-    "wrong_answers_pool": [
-      "-61",
-      "69",
-      "71",
-      "73",
-      "30",
-      "183"
-    ],
-    "explanation": "Multiply each bit by increasing powers of 2 from right to left.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Algebra, Equations & Inequalities (Technical)",
-      "subtopic": "Binary Conversions",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_42"
-  },
-  {
-    "id": "ALG_952",
-    "topic": "Algebra, Equations & Inequalities (Technical)",
-    "question": "Convert the binary number $1100001_2$ to decimal.",
-    "correct_answer": "97",
-    "wrong_answers_pool": [
-      "96",
-      "194",
-      "98",
-      "99",
-      "291",
-      "48"
-    ],
-    "explanation": "Multiply each bit by increasing powers of 2 from right to left.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Algebra, Equations & Inequalities (Technical)",
-      "subtopic": "Binary Conversions",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_43"
   },
   {
     "id": "FUN_058",
@@ -1155,102 +690,100 @@
       "difficulty": "hard",
       "learning_outcome": "Calculate"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_44"
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_26"
   },
   {
-    "id": "FUN_699",
+    "id": "FUN_376",
     "topic": "Functions & Graphs (Technical)",
-    "question": "Given the linear function $f(x) = -5x - 8$. Determine the $x$-intercept.",
-    "correct_answer": "-1.6",
+    "question": "Given the linear function $f(x) = -5x + 8$. Determine the $x$-intercept.",
+    "correct_answer": "1.6",
     "wrong_answers_pool": [
-      "-0.60",
-      "1.60",
-      "-0.80",
-      "-0.62",
-      "6.45",
-      "15.33"
+      "0.60",
+      "0.80",
+      "2.60",
+      "2.40",
+      "3.20",
+      "0.62"
     ],
-    "explanation": "Set $f(x) = 0 \\implies -5x = 8 \\implies x = -1.6$",
-    "difficulty": "medium",
+    "explanation": "Set $f(x) = 0 \\implies -5x = -8 \\implies x = 1.6$",
+    "difficulty": "hard",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
       "topic": "Functions & Graphs (Technical)",
       "subtopic": "Linear Graphs",
-      "cognitive_level": "Application",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_45"
-  },
-  {
-    "id": "FUN_741",
-    "topic": "Functions & Graphs (Technical)",
-    "question": "Given the hyperbola $h(x) = \\frac{5}{x - 1} + -3$. Determine the equations of the asymptotes.",
-    "correct_answer": "$x = 1$ and $y = -3$",
-    "wrong_answers_pool": [
-      "$x = -1$ and $y = -3$",
-      "$x = 1$ and $y = 3$",
-      "$x = -1$ and $y = 3$",
-      "$x = -3$ and $y = 1$",
-      "$x = 3$ and $y = -1$",
-      "$x = 0$ and $y = 0$"
-    ],
-    "explanation": "Vertical asymptote where denominator is zero: $x - 1 = 0 \\implies x = 1$. Horizontal asymptote is the constant term: $y = -3$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Functions & Graphs (Technical)",
-      "subtopic": "Hyperbolas",
-      "cognitive_level": "Application",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_46"
-  },
-  {
-    "id": "CALC_651",
-    "topic": "Differential Calculus & Integration",
-    "question": "Find the $x$-coordinates of the stationary points of $f(x) = x^3 - 75x +1$.",
-    "correct_answer": "$x = 5$ and $x = -5$",
-    "wrong_answers_pool": [
-      "$x = 6$ and $x = -6$",
-      "$x = 5$ and $x = 0$",
-      "$x = -5$ and $x = 0$",
-      "$x = 25$ and $x = -25$",
-      "$x = 15$ and $x = -15$",
-      "$x = 10$ and $x = -10$",
-      "$x = 1$ and $x = -1$",
-      "$x = 7$ and $x = -3$"
-    ],
-    "explanation": "Stationary points: x = 5 and x = -5.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Differential Calculus & Integration",
-      "subtopic": "Tangents & Turning Points",
       "cognitive_level": "Analysis",
       "difficulty": "hard",
       "learning_outcome": "Calculate"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_47"
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_27"
   },
   {
-    "id": "ALG_937",
-    "topic": "Algebra, Equations & Inequalities (Technical)",
-    "question": "Convert the decimal number $112$ to binary.",
-    "correct_answer": "1110000",
+    "id": "FUN_104",
+    "topic": "Functions & Graphs (Technical)",
+    "question": "Given $k(x) = 4^x + 5$. Write down the equation of the horizontal asymptote.",
+    "correct_answer": "$y = 5$",
     "wrong_answers_pool": [
-      "1101101",
-      "1101110",
-      "1101111",
-      "1110001",
-      "1110010",
-      "1110011"
+      "$y = -5$",
+      "$y = 0$",
+      "$x = 5$",
+      "$x = 0$",
+      "$y = 4$",
+      "$y = -4$"
     ],
-    "explanation": "Repeatedly divide by 2 and read remainders upwards.",
+    "explanation": "The horizontal asymptote is $y = q$, so $y = 5$.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Functions & Graphs (Technical)",
+      "subtopic": "Exponential Graphs",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_28"
+  },
+  {
+    "id": "ALG_210",
+    "topic": "Algebra, Equations & Inequalities (Technical)",
+    "question": "Solve for $x$ and $y$: \\\\ $1x + 1y = -4$ \\\\ $3x -1y = 0$",
+    "correct_answer": "$x = -1; y = -3$",
+    "wrong_answers_pool": [
+      "$x = -1; y = -2$",
+      "$x = 1; y = -3$",
+      "$x = -1; y = -5$",
+      "$x = -3; y = -5$",
+      "$x = 0; y = -3$",
+      "$x = 1; y = -2$"
+    ],
+    "explanation": "Use elimination or substitution to find the intersection of the two lines.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Algebra, Equations & Inequalities (Technical)",
+      "subtopic": "Simultaneous Equations",
+      "cognitive_level": "Application",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_29"
+  },
+  {
+    "id": "ALG_835",
+    "topic": "Algebra, Equations & Inequalities (Technical)",
+    "question": "Convert the binary number $111101_2$ to decimal.",
+    "correct_answer": "61",
+    "wrong_answers_pool": [
+      "-61",
+      "69",
+      "71",
+      "73",
+      "30",
+      "183"
+    ],
+    "explanation": "Multiply each bit by increasing powers of 2 from right to left.",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
@@ -1261,24 +794,104 @@
       "difficulty": "hard",
       "learning_outcome": "Calculate"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_48"
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_30"
   },
   {
-    "id": "CALC_408",
-    "topic": "Differential Calculus & Integration",
-    "question": "Determine $\\frac{dy}{dx}$ if $y = \\sqrt{3x} + 7x^{-2}$.",
-    "correct_answer": "$\\frac{\\sqrt{3}}{2\\sqrt{x}} - 14x^{-3}$",
+    "id": "FUN_024",
+    "topic": "Functions & Graphs (Technical)",
+    "question": "Given the hyperbola $h(x) = \\frac{5}{x - 2} + 3$. Determine the equations of the asymptotes.",
+    "correct_answer": "$x = 2$ and $y = 3$",
     "wrong_answers_pool": [
-      "$\\frac{\\sqrt{3}}{2\\sqrt{x}} + 14x^{-3}$",
-      "$\\frac{3}{2\\sqrt{x}} - 14x^{-3}$",
-      "$\\frac{\\sqrt{3}}{\\sqrt{x}} - 14x^{-3}$",
-      "$\\frac{\\sqrt{3}}{2\\sqrt{x}} - 7x^{-3}$",
-      "$\\frac{\\sqrt{3}}{2\\sqrt{x}} - 14x^{-1}$",
-      "$\\frac{\\sqrt{3}}{2x} - 14x^{-3}$",
-      "$\\sqrt{3x} - 14x^{-3}$",
-      "$\\frac{1}{2\\sqrt{3x}} - 14x^{-3}$"
+      "$x = -2$ and $y = 3$",
+      "$x = 2$ and $y = -3$",
+      "$x = -2$ and $y = -3$",
+      "$x = 3$ and $y = 2$",
+      "$x = -3$ and $y = -2$",
+      "$x = 0$ and $y = 0$"
     ],
-    "explanation": "Derivative is \\frac{\\sqrt{3}}{2\\sqrt{x}} - 14x^{-3}.",
+    "explanation": "Vertical asymptote where denominator is zero: $x - 2 = 0 \\implies x = 2$. Horizontal asymptote is the constant term: $y = 3$.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Functions & Graphs (Technical)",
+      "subtopic": "Hyperbolas",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_31"
+  },
+  {
+    "id": "CALC_790",
+    "topic": "Differential Calculus & Integration",
+    "question": "Use first principles to determine the derivative of $f(x) = -2x^2 -18$.",
+    "correct_answer": "$-4x$",
+    "wrong_answers_pool": [
+      "$-2x$",
+      "$-4x^2$",
+      "$-2x^2$",
+      "$-4$",
+      "$-2$",
+      "$4x$",
+      "$-8x$",
+      "$-4x^3$"
+    ],
+    "explanation": "Derivative of $-2x^2 -18$ is $-4x$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "First Principles",
+      "cognitive_level": "Application",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_32"
+  },
+  {
+    "id": "FUN_835",
+    "topic": "Functions & Graphs (Technical)",
+    "question": "Determine the $y$-intercept of $g(x) = 2(x - -3)^2 + 4$.",
+    "correct_answer": "22",
+    "wrong_answers_pool": [
+      "66",
+      "2",
+      "39",
+      "-22",
+      "11",
+      "44"
+    ],
+    "explanation": "Set $x = 0$: $g(0) = 2(0 - -3)^2 + 4 = 2(9) + 4 = 22$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Functions & Graphs (Technical)",
+      "subtopic": "Parabolas",
+      "cognitive_level": "Application",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_33"
+  },
+  {
+    "id": "CALC_202",
+    "topic": "Differential Calculus & Integration",
+    "question": "Determine $\\frac{dy}{dx}$ if $y = \\sqrt{3x} + 1x^{-2}$.",
+    "correct_answer": "$\\frac{\\sqrt{3}}{2\\sqrt{x}} - 2x^{-3}$",
+    "wrong_answers_pool": [
+      "$\\frac{\\sqrt{3}}{2\\sqrt{x}} + 2x^{-3}$",
+      "$\\frac{3}{2\\sqrt{x}} - 2x^{-3}$",
+      "$\\frac{\\sqrt{3}}{\\sqrt{x}} - 2x^{-3}$",
+      "$\\frac{\\sqrt{3}}{2\\sqrt{x}} - 1x^{-3}$",
+      "$\\frac{\\sqrt{3}}{2\\sqrt{x}} - 2x^{-1}$",
+      "$\\frac{\\sqrt{3}}{2x} - 2x^{-3}$",
+      "$\\sqrt{3x} - 2x^{-3}$",
+      "$\\frac{1}{2\\sqrt{3x}} - 2x^{-3}$"
+    ],
+    "explanation": "Derivative is \\frac{\\sqrt{3}}{2\\sqrt{x}} - 2x^{-3}.",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
@@ -1289,24 +902,375 @@
       "difficulty": "hard",
       "learning_outcome": "Calculate"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_49"
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_34"
   },
   {
-    "id": "CALC_433",
-    "topic": "Differential Calculus & Integration",
-    "question": "Evaluate the limit: $\\lim_{x \\to 0} (1x^2 -5x +8)$",
-    "correct_answer": "8",
+    "id": "ALG_552",
+    "topic": "Algebra, Equations & Inequalities (Technical)",
+    "question": "Solve for $x$: $3(x + -6) = 4x + -21$",
+    "correct_answer": "3",
     "wrong_answers_pool": [
+      "1",
+      "2",
       "4",
+      "5",
       "6",
+      "9"
+    ],
+    "explanation": "$3x + -18 = 4x + -21 \\implies -1x = -3 \\implies x = 3$",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Algebra, Equations & Inequalities (Technical)",
+      "subtopic": "Linear Equations",
+      "cognitive_level": "Application",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_35"
+  },
+  {
+    "id": "FIN_397",
+    "topic": "Financial Mathematics (Technical)",
+    "question": "Calculate the total amount if R44000 is invested at 7.7% p.a. compounded monthly for 9 years.",
+    "correct_answer": "R87713.88",
+    "wrong_answers_pool": [
+      "R85139.84",
+      "R88405.40",
+      "R93080.28",
+      "R96414.75",
+      "R87789.27",
+      "R89923.45"
+    ],
+    "explanation": "$A = P(1 + i/m)^{n \\times m} = 44000(1 + 0.07689985506112343/12)^{108}$",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Financial Mathematics (Technical)",
+      "subtopic": "Interest Rates",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_36"
+  },
+  {
+    "id": "CALC_571",
+    "topic": "Differential Calculus & Integration",
+    "question": "Determine $\\frac{dy}{dx}$ if $y = \\sqrt{2x} + 5x^{-2}$.",
+    "correct_answer": "$\\frac{\\sqrt{2}}{2\\sqrt{x}} - 10x^{-3}$",
+    "wrong_answers_pool": [
+      "$\\frac{\\sqrt{2}}{2\\sqrt{x}} + 10x^{-3}$",
+      "$\\frac{2}{2\\sqrt{x}} - 10x^{-3}$",
+      "$\\frac{\\sqrt{2}}{\\sqrt{x}} - 10x^{-3}$",
+      "$\\frac{\\sqrt{2}}{2\\sqrt{x}} - 5x^{-3}$",
+      "$\\frac{\\sqrt{2}}{2\\sqrt{x}} - 10x^{-1}$",
+      "$\\frac{\\sqrt{2}}{2x} - 10x^{-3}$",
+      "$\\sqrt{2x} - 10x^{-3}$",
+      "$\\frac{1}{2\\sqrt{2x}} - 10x^{-3}$"
+    ],
+    "explanation": "Derivative is \\frac{\\sqrt{2}}{2\\sqrt{x}} - 10x^{-3}.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "Differentiation Rules",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_37"
+  },
+  {
+    "id": "CALC_974",
+    "topic": "Differential Calculus & Integration",
+    "question": "Use first principles to determine the derivative of $f(x) = -10x^2 -5$.",
+    "correct_answer": "$-20x$",
+    "wrong_answers_pool": [
+      "$-10x$",
+      "$-20x^2$",
+      "$-10x^2$",
+      "$-20$",
+      "$-10$",
+      "$20x$",
+      "$-40x$",
+      "$-20x^3$"
+    ],
+    "explanation": "Derivative of $-10x^2 -5$ is $-20x$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "First Principles",
+      "cognitive_level": "Application",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_38"
+  },
+  {
+    "id": "CALC_022",
+    "topic": "Differential Calculus & Integration",
+    "question": "Evaluate the limit: $\\lim_{x \\to 4} \\frac{x^2 +3x - 28}{x - 4}$",
+    "correct_answer": "11",
+    "wrong_answers_pool": [
+      "33",
+      "5",
       "7",
       "9",
       "10",
       "12",
-      "15",
-      "16"
+      "13",
+      "15"
     ],
-    "explanation": "Substitute $x=0$: 8.",
+    "explanation": "Factorise into $(x-4)(x+7)/(x-4) = x + 7 \\to 4 + 7 = 11$.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "Limits",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_39"
+  },
+  {
+    "id": "FUN_677",
+    "topic": "Functions & Graphs (Technical)",
+    "question": "Given the linear function $f(x) = 3x + 3$. Determine the $x$-intercept.",
+    "correct_answer": "-1.0",
+    "wrong_answers_pool": [
+      "0.00",
+      "1.00",
+      "-0.50",
+      "0.35",
+      "6.82",
+      "11.94"
+    ],
+    "explanation": "Set $f(x) = 0 \\implies 3x = -3 \\implies x = -1.0$",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Functions & Graphs (Technical)",
+      "subtopic": "Linear Graphs",
+      "cognitive_level": "Application",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_40"
+  },
+  {
+    "id": "FUN_088",
+    "topic": "Functions & Graphs (Technical)",
+    "question": "Given the linear function $f(x) = -2x + 1$. Determine the $x$-intercept.",
+    "correct_answer": "0.5",
+    "wrong_answers_pool": [
+      "-0.50",
+      "1.50",
+      "1.00",
+      "0.75",
+      "0.25",
+      "2.00"
+    ],
+    "explanation": "Set $f(x) = 0 \\implies -2x = -1 \\implies x = 0.5$",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Functions & Graphs (Technical)",
+      "subtopic": "Linear Graphs",
+      "cognitive_level": "Application",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_41"
+  },
+  {
+    "id": "FUN_853",
+    "topic": "Functions & Graphs (Technical)",
+    "question": "Determine the $y$-intercept of $g(x) = -1(x - 2)^2 + -3$.",
+    "correct_answer": "-7",
+    "wrong_answers_pool": [
+      "3",
+      "7",
+      "-25",
+      "-22",
+      "-21",
+      "-14"
+    ],
+    "explanation": "Set $x = 0$: $g(0) = -1(0 - 2)^2 + -3 = -1(4) + -3 = -7$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Functions & Graphs (Technical)",
+      "subtopic": "Parabolas",
+      "cognitive_level": "Application",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_42"
+  },
+  {
+    "id": "CALC_027",
+    "topic": "Differential Calculus & Integration",
+    "question": "Find the $x$-coordinates of the stationary points of $f(x) = x^3 - 48x -19$.",
+    "correct_answer": "$x = 4$ and $x = -4$",
+    "wrong_answers_pool": [
+      "$x = 5$ and $x = -5$",
+      "$x = 4$ and $x = 0$",
+      "$x = -4$ and $x = 0$",
+      "$x = 16$ and $x = -16$",
+      "$x = 12$ and $x = -12$",
+      "$x = 8$ and $x = -8$",
+      "$x = 1$ and $x = -1$",
+      "$x = 6$ and $x = -2$"
+    ],
+    "explanation": "Stationary points: x = 4 and x = -4.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "Tangents & Turning Points",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_43"
+  },
+  {
+    "id": "CALC_385",
+    "topic": "Differential Calculus & Integration",
+    "question": "Find the $x$-coordinates of the stationary points of $f(x) = x^3 - 12x -5$.",
+    "correct_answer": "$x = 2$ and $x = -2$",
+    "wrong_answers_pool": [
+      "$x = 3$ and $x = -3$",
+      "$x = 2$ and $x = 0$",
+      "$x = -2$ and $x = 0$",
+      "$x = 4$ and $x = -4$",
+      "$x = 6$ and $x = -6$",
+      "$x = 1$ and $x = -1$",
+      "$x = 4$ and $x = 0$"
+    ],
+    "explanation": "Stationary points: x = 2 and x = -2.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "Tangents & Turning Points",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_44"
+  },
+  {
+    "id": "CALC_959",
+    "topic": "Differential Calculus & Integration",
+    "question": "Use first principles to determine the derivative of $f(x) = -1x^2 +13$.",
+    "correct_answer": "$-2x$",
+    "wrong_answers_pool": [
+      "$-1x$",
+      "$-2x^2$",
+      "$-1x^2$",
+      "$-2$",
+      "$-1$",
+      "$2x$",
+      "$-4x$",
+      "$-2x^3$"
+    ],
+    "explanation": "Derivative of $-1x^2 +13$ is $-2x$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "First Principles",
+      "cognitive_level": "Application",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_45"
+  },
+  {
+    "id": "ALG_956",
+    "topic": "Algebra, Equations & Inequalities (Technical)",
+    "question": "Solve for $x$: $\\frac{2x + 2}{3} = 2$",
+    "correct_answer": "2",
+    "wrong_answers_pool": [
+      "0",
+      "1",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "explanation": "$2x + 2 = 6 \\implies 2x = 4 \\implies x = 2$",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Algebra, Equations & Inequalities (Technical)",
+      "subtopic": "Linear Equations",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_46"
+  },
+  {
+    "id": "CALC_455",
+    "topic": "Differential Calculus & Integration",
+    "question": "Use first principles to determine the derivative of $f(x) = 2x^2 +14$.",
+    "correct_answer": "$4x$",
+    "wrong_answers_pool": [
+      "$2x$",
+      "$4x^2$",
+      "$2x^2$",
+      "$4$",
+      "$2$",
+      "$-4x$",
+      "$8x$",
+      "$4x^3$"
+    ],
+    "explanation": "Derivative of $2x^2 +14$ is $4x$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "First Principles",
+      "cognitive_level": "Application",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_47"
+  },
+  {
+    "id": "CALC_129",
+    "topic": "Differential Calculus & Integration",
+    "question": "Evaluate the limit: $\\lim_{x \\to 5} \\frac{x^2 - 25}{x - 5}$",
+    "correct_answer": "10",
+    "wrong_answers_pool": [
+      "1",
+      "2",
+      "3",
+      "5",
+      "7",
+      "8",
+      "9",
+      "11"
+    ],
+    "explanation": "Factorise: $\\lim_{x \\to 5} (x + 5) = 10$.",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
@@ -1315,6 +1279,60 @@
       "subtopic": "Limits",
       "cognitive_level": "Application",
       "difficulty": "medium",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_48"
+  },
+  {
+    "id": "ALG_850",
+    "topic": "Algebra, Equations & Inequalities (Technical)",
+    "question": "Solve for $x$ and $y$: \\\\ $2x + 3y = 0$ \\\\ $2x -1y = 0$",
+    "correct_answer": "$x = 0; y = 0$",
+    "wrong_answers_pool": [
+      "$x = -2; y = 1$",
+      "$x = 2; y = 2$",
+      "$x = -1; y = -1$",
+      "$x = -1; y = -2$",
+      "$x = -1; y = 0$",
+      "$x = 2; y = -2$"
+    ],
+    "explanation": "Use elimination or substitution to find the intersection of the two lines.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Algebra, Equations & Inequalities (Technical)",
+      "subtopic": "Simultaneous Equations",
+      "cognitive_level": "Application",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_49"
+  },
+  {
+    "id": "CALC_173",
+    "topic": "Differential Calculus & Integration",
+    "question": "Find the $x$-coordinates of the stationary points of $f(x) = x^3 - 48x +11$.",
+    "correct_answer": "$x = 4$ and $x = -4$",
+    "wrong_answers_pool": [
+      "$x = 5$ and $x = -5$",
+      "$x = 4$ and $x = 0$",
+      "$x = -4$ and $x = 0$",
+      "$x = 16$ and $x = -16$",
+      "$x = 12$ and $x = -12$",
+      "$x = 8$ and $x = -8$",
+      "$x = 1$ and $x = -1$",
+      "$x = 6$ and $x = -2$"
+    ],
+    "explanation": "Stationary points: x = 4 and x = -4.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "Tangents & Turning Points",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard",
       "learning_outcome": "Calculate"
     },
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper1_50"

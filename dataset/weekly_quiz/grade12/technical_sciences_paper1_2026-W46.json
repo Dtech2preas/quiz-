@@ -1,161 +1,49 @@
 [
   {
-    "id": "TS_P1_ELEC_0488",
+    "id": "TS_P1_ELEC_0722",
     "topic": "Electricity",
-    "subtopic": "Ohm's Law Calculations",
+    "subtopic": "Parallel Current Calculations",
     "difficulty": "medium",
-    "question": "When a potential difference of 60.0 V is applied across an unknown heating coil, a current of 4.00 A flows through it. Determine the resistance (R) of the coil:",
-    "correct_answer": "15.0 \u03a9",
+    "question": "For the same circuit with R1 = 30.0 \u03a9 and R2 = 15.0 \u03a9 connected in parallel across the 24 V source, calculate the TOTAL CURRENT (I_total) supplied by the battery:",
+    "correct_answer": "2.40 A",
     "wrong_answers_pool": [
-      "240.0 \u03a9 (multiplied V by I)",
-      "0.0667 \u03a9 (inverted: I / V)",
-      "30.0 \u03a9",
-      "7.5 \u03a9",
-      "25.0 \u03a9",
-      "60.0 \u03a9",
-      "21.0 \u03a9"
+      "0.53 A (divided by series sum of resistances)",
+      "4.80 A",
+      "1.20 A",
+      "0.80 A (calculated current in branch 1 only)",
+      "1.60 A (calculated current in branch 2 only)",
+      "5.40 A",
+      "3.36 A"
     ],
-    "explanation": "R = V / I = 60.0 V / 4.00 A = 15.0 \u03a9.",
+    "explanation": "I_total = V / R_p = 24 V / 10.00 \u03a9 = 2.40 A (or I_total = I1 + I2 = 0.80 A + 1.60 A = 2.40 A).",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
       "topic": "Electricity",
-      "subtopic": "Ohm's Law Calculations",
+      "subtopic": "Parallel Current Calculations",
       "cognitive_level": "Applying",
       "difficulty": "medium",
-      "learning_outcome": "Calculate resistance from voltage and current"
+      "learning_outcome": "Calculate total current in parallel circuit"
     },
     "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_1"
   },
   {
-    "id": "TS_P1_ELEC_0312",
+    "id": "TS_P1_ELEC_0597",
     "topic": "Electricity",
     "subtopic": "Ohm's Law Calculations",
     "difficulty": "medium",
-    "question": "When a potential difference of 18.0 V is applied across an unknown heating coil, a current of 9.00 A flows through it. Determine the resistance (R) of the coil:",
-    "correct_answer": "2.0 \u03a9",
+    "question": "An ohmic resistor of resistance R = 50.0 \u03a9 is connected across a potential difference of V = 15.0 V. Calculate the electric current (I) passing through the resistor:",
+    "correct_answer": "0.30 A",
     "wrong_answers_pool": [
-      "162.0 \u03a9 (multiplied V by I)",
-      "0.5000 \u03a9 (inverted: I / V)",
-      "4.0 \u03a9",
-      "1.0 \u03a9",
-      "12.0 \u03a9",
-      "18.0 \u03a9",
-      "2.8 \u03a9"
+      "750.0 A (multiplied voltage by resistance instead of dividing)",
+      "3.3333 A (inverted Ohm's law: R / V)",
+      "0.60 A",
+      "0.15 A",
+      "2.80 A",
+      "15.0 A",
+      "0.45 A"
     ],
-    "explanation": "R = V / I = 18.0 V / 9.00 A = 2.0 \u03a9.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Electricity",
-      "subtopic": "Ohm's Law Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate resistance from voltage and current"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_2"
-  },
-  {
-    "id": "TS_P1_MAG_0311",
-    "topic": "Electromagnetism",
-    "subtopic": "Faraday's Law Calculations",
-    "difficulty": "medium",
-    "question": "A coil consisting of N = 50 turns experiences a change in magnetic flux of \u0394\u03a6 = 0.005 Wb over a time interval of \u0394t = 0.10 s. Calculate the magnitude of the induced electromotive force (emf, \u03b5) in the coil:",
-    "correct_answer": "2.50 V",
-    "wrong_answers_pool": [
-      "0.0250 V (multiplied turns, flux and time together)",
-      "0.05 V (neglected the number of turns N in coil)",
-      "1000.00 V (inverted flux and time)",
-      "5.00 V",
-      "1.25 V",
-      "17.50 V",
-      "25.00 V"
-    ],
-    "explanation": "Faraday's Law: \u03b5 = N \u00d7 (\u0394\u03a6 / \u0394t) = 50 \u00d7 (0.005 Wb / 0.10 s) = 50 \u00d7 0.050 = 2.50 V.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Electromagnetism",
-      "subtopic": "Faraday's Law Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate induced EMF using Faraday's Law"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_3"
-  },
-  {
-    "id": "TS_P1_WAV_0546",
-    "topic": "Waves, Sound & Light",
-    "subtopic": "Lens Formula Calculations",
-    "difficulty": "medium",
-    "question": "An illuminated object is placed at a distance of d_o = 12.0 cm from a thin CONVEX lens of focal length f = +25.0 cm. Using the lens formula, calculate the image distance (d_i) and state the image nature:",
-    "correct_answer": "-23.1 cm (Virtual image (on same side as object))",
-    "wrong_answers_pool": [
-      "37.0 cm",
-      "13.0 cm",
-      "-46.2 cm",
-      "-11.5 cm",
-      "23.1 cm",
-      "-8.1 cm",
-      "-34.6 cm"
-    ],
-    "explanation": "1/f = 1/d_o + 1/d_i => 1/d_i = 1/f - 1/d_o = 1/25.0 - 1/12.0 = (-13.0) / (300.0) => d_i = (300.0) / (-13.0) = -23.1 cm (Virtual image (on same side as object)).",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Waves, Sound & Light",
-      "subtopic": "Lens Formula Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate image distance using lens formula"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_4"
-  },
-  {
-    "id": "TS_P1_MOM_0998",
-    "topic": "Momentum & Impulse",
-    "subtopic": "Rebounding Vectors",
-    "difficulty": "hard",
-    "question": "A ball of mass 0.50 kg moves horizontally rightwards at 20.0 m\u00b7s\u207b\u00b9 and strikes a vertical concrete wall. It rebounds horizontally to the left at a speed of 15.0 m\u00b7s\u207b\u00b9. Taking rightwards as the positive direction, calculate the magnitude and direction of the change in momentum (\u0394p) of the ball:",
-    "correct_answer": "17.50 N\u00b7s away from the wall (opposite to initial motion)",
-    "wrong_answers_pool": [
-      "2.50 N\u00b7s (failed to treat rebound velocity as a negative vector: vf - vi)",
-      "10.00 N\u00b7s (calculated initial momentum only)",
-      "7.50 N\u00b7s (calculated rebound momentum only)",
-      "35.00 N\u00b7s",
-      "8.75 N\u00b7s",
-      "22.50 N\u00b7s",
-      "24.50 N\u00b7s"
-    ],
-    "explanation": "Assign directions: Right = (+), Left = (-). v_i = +20.0 m\u00b7s\u207b\u00b9, v_f = -15.0 m\u00b7s\u207b\u00b9. \u0394p = m \u00d7 (v_f - v_i) = 0.50 \u00d7 [(-15.0) - (+20.0)] = 0.50 \u00d7 (-35.0) = -17.50 kg\u00b7m\u00b7s\u207b\u00b9 (magnitude = 17.50 N\u00b7s away from the wall (opposite to initial motion)).",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Momentum & Impulse",
-      "subtopic": "Rebounding Vectors",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate change in momentum for rebounding object using vector signs"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_5"
-  },
-  {
-    "id": "TS_P1_ELEC_0301",
-    "topic": "Electricity",
-    "subtopic": "Ohm's Law Calculations",
-    "difficulty": "medium",
-    "question": "An ohmic resistor of resistance R = 2.0 \u03a9 is connected across a potential difference of V = 3.0 V. Calculate the electric current (I) passing through the resistor:",
-    "correct_answer": "1.50 A",
-    "wrong_answers_pool": [
-      "6.0 A (multiplied voltage by resistance instead of dividing)",
-      "0.6667 A (inverted Ohm's law: R / V)",
-      "3.00 A",
-      "0.75 A",
-      "4.00 A",
-      "3.0 A",
-      "2.25 A"
-    ],
-    "explanation": "Ohm's Law: I = V / R = 3.0 V / 2.0 \u03a9 = 1.50 A.",
+    "explanation": "Ohm's Law: I = V / R = 15.0 V / 50.0 \u03a9 = 0.30 A.",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
@@ -165,25 +53,81 @@
       "difficulty": "medium",
       "learning_outcome": "Calculate current using Ohm's Law"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_6"
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_2"
   },
   {
-    "id": "TS_P1_WAV_0729",
+    "id": "TS_P1_WEP_0611",
+    "topic": "Work, Energy & Power",
+    "subtopic": "Work Calculations",
+    "difficulty": "medium",
+    "question": "A mechanical pulling force of 300 N is exerted on an industrial trolley, moving it through a displacement of 15.0 m along a flat track. The force acts horizontally in the direction of motion. Calculate the work done by this force:",
+    "correct_answer": "4500.0 J",
+    "wrong_answers_pool": [
+      "4500.0 J (omitted cos \u03b8 factor)",
+      "20.0 J (divided force by distance)",
+      "9000.0 J",
+      "2250.0 J",
+      "4650.0 J",
+      "-4500.0 J",
+      "6750.0 J"
+    ],
+    "explanation": "W = F \u00d7 \u0394x \u00d7 cos \u03b8 = 300 N \u00d7 15.0 m \u00d7 cos(0\u00b0) = 4500.0 \u00d7 1.0000 = 4500.0 J.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Work, Energy & Power",
+      "subtopic": "Work Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate work done by force at an angle"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_3"
+  },
+  {
+    "id": "TS_P1_NEWT_0668",
+    "topic": "Newton's Laws",
+    "subtopic": "Acceleration Calculations",
+    "difficulty": "medium",
+    "question": "A horizontal pulling force of 89.2 N acts on a 10.0 kg trolley resting on a horizontal track. A constant kinetic friction force of 39.2 N opposes the motion. Determine the acceleration (a) of the trolley:",
+    "correct_answer": "5.00 m\u00b7s\u207b\u00b2",
+    "wrong_answers_pool": [
+      "8.92 m\u00b7s\u207b\u00b2 (ignored friction force fk)",
+      "10.00 m\u00b7s\u207b\u00b2",
+      "2.50 m\u00b7s\u207b\u00b2",
+      "3.92 m\u00b7s\u207b\u00b2",
+      "6.25 m\u00b7s\u207b\u00b2",
+      "7.00 m\u00b7s\u207b\u00b2",
+      "0.00 m\u00b7s\u207b\u00b2 (assumed constant velocity)"
+    ],
+    "explanation": "F_net = F_app - f_k = 89.2 N - 39.2 N = 50.0 N. a = F_net / m = 50.0 N / 10.0 kg = 5.00 m\u00b7s\u207b\u00b2.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Newton's Laws",
+      "subtopic": "Acceleration Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate acceleration from applied force and friction"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_4"
+  },
+  {
+    "id": "TS_P1_WAV_0586",
     "topic": "Waves, Sound & Light",
     "subtopic": "Ultrasound Echo Calculations",
     "difficulty": "medium",
-    "question": "In medical ultrasound diagnostics, an ultrasound pulse (speed v = 1540 m\u00b7s\u207b\u00b9 in soft tissue) is emitted into a patient's abdomen. An echo reflected from an internal organ boundary is detected 350 \u03bcs (350.0 \u00d7 10\u207b\u2076 s) later. Calculate the DEPTH (d) of the organ boundary beneath the transducer probe:",
-    "correct_answer": "26.95 cm (269.5 mm)",
+    "question": "In medical ultrasound diagnostics, an ultrasound pulse (speed v = 1540 m\u00b7s\u207b\u00b9 in soft tissue) is emitted into a patient's abdomen. An echo reflected from an internal organ boundary is detected 64 \u03bcs (64.0 \u00d7 10\u207b\u2076 s) later. Calculate the DEPTH (d) of the organ boundary beneath the transducer probe:",
+    "correct_answer": "4.93 cm (49.3 mm)",
     "wrong_answers_pool": [
-      "53.90 cm (forgot to divide by 2 for the return echo)",
-      "53.90 cm",
-      "13.48 cm",
-      "28.95 cm",
-      "40.43 cm",
-      "2.70 cm",
+      "9.86 cm (forgot to divide by 2 for the return echo)",
+      "9.86 cm",
+      "2.46 cm",
+      "6.93 cm",
+      "7.39 cm",
+      "0.49 cm",
       "0.00 cm"
     ],
-    "explanation": "Ultrasound travels to the organ and back (two-way distance = 2d): 2d = v \u00d7 t => d = (v \u00d7 t) / 2 = (1540 m\u00b7s\u207b\u00b9 \u00d7 350.0 \u00d7 10\u207b\u2076 s) / 2 = 26.95 cm (269.5 mm).",
+    "explanation": "Ultrasound travels to the organ and back (two-way distance = 2d): 2d = v \u00d7 t => d = (v \u00d7 t) / 2 = (1540 m\u00b7s\u207b\u00b9 \u00d7 64.0 \u00d7 10\u207b\u2076 s) / 2 = 4.93 cm (49.3 mm).",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
@@ -193,53 +137,25 @@
       "difficulty": "medium",
       "learning_outcome": "Calculate organ depth using ultrasound echo timing"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_7"
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_5"
   },
   {
-    "id": "TS_P1_ELEC_0796",
-    "topic": "Electricity",
-    "subtopic": "Electricity Cost Calculations",
-    "difficulty": "medium",
-    "question": "An electrical appliance rated at 0.5 kW (500 W) is operated continuously for 4 hours. If electricity costs R 2.80 per kilowatt-hour (kWh), calculate the total cost of operating the appliance:",
-    "correct_answer": "R 5.60",
-    "wrong_answers_pool": [
-      "R 5600.00 (forgot to convert watts to kilowatts)",
-      "R 2.00 (calculated kWh used without multiplying by tariff)",
-      "R 11.20",
-      "R 2.80",
-      "R 20.16",
-      "R 20.60",
-      "R 8.40"
-    ],
-    "explanation": "1. Energy consumed = Power (kW) \u00d7 Time (hours) = 0.5 kW \u00d7 4 h = 2.00 kWh. 2. Cost = Energy (kWh) \u00d7 Tariff = 2.00 kWh \u00d7 R 2.80 = R 5.60.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Electricity",
-      "subtopic": "Electricity Cost Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate cost of electrical energy"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_8"
-  },
-  {
-    "id": "TS_P1_MOM_0856",
+    "id": "TS_P1_MOM_0914",
     "topic": "Momentum & Impulse",
     "subtopic": "Rebounding Vectors",
     "difficulty": "hard",
-    "question": "A ball of mass 0.25 kg moves horizontally rightwards at 20.0 m\u00b7s\u207b\u00b9 and strikes a vertical concrete wall. It rebounds horizontally to the left at a speed of 12.0 m\u00b7s\u207b\u00b9. Taking rightwards as the positive direction, calculate the magnitude and direction of the change in momentum (\u0394p) of the ball:",
-    "correct_answer": "8.00 N\u00b7s away from the wall (opposite to initial motion)",
+    "question": "A ball of mass 0.40 kg moves horizontally rightwards at 12.0 m\u00b7s\u207b\u00b9 and strikes a vertical concrete wall. It rebounds horizontally to the left at a speed of 9.6 m\u00b7s\u207b\u00b9. Taking rightwards as the positive direction, calculate the magnitude and direction of the change in momentum (\u0394p) of the ball:",
+    "correct_answer": "8.64 N\u00b7s away from the wall (opposite to initial motion)",
     "wrong_answers_pool": [
-      "2.00 N\u00b7s (failed to treat rebound velocity as a negative vector: vf - vi)",
-      "5.00 N\u00b7s (calculated initial momentum only)",
-      "3.00 N\u00b7s (calculated rebound momentum only)",
-      "16.00 N\u00b7s",
-      "4.00 N\u00b7s",
-      "13.00 N\u00b7s",
-      "11.20 N\u00b7s"
+      "0.96 N\u00b7s (failed to treat rebound velocity as a negative vector: vf - vi)",
+      "4.80 N\u00b7s (calculated initial momentum only)",
+      "3.84 N\u00b7s (calculated rebound momentum only)",
+      "17.28 N\u00b7s",
+      "4.32 N\u00b7s",
+      "13.64 N\u00b7s",
+      "12.10 N\u00b7s"
     ],
-    "explanation": "Assign directions: Right = (+), Left = (-). v_i = +20.0 m\u00b7s\u207b\u00b9, v_f = -12.0 m\u00b7s\u207b\u00b9. \u0394p = m \u00d7 (v_f - v_i) = 0.25 \u00d7 [(-12.0) - (+20.0)] = 0.25 \u00d7 (-32.0) = -8.00 kg\u00b7m\u00b7s\u207b\u00b9 (magnitude = 8.00 N\u00b7s away from the wall (opposite to initial motion)).",
+    "explanation": "Assign directions: Right = (+), Left = (-). v_i = +12.0 m\u00b7s\u207b\u00b9, v_f = -9.6 m\u00b7s\u207b\u00b9. \u0394p = m \u00d7 (v_f - v_i) = 0.40 \u00d7 [(-9.6) - (+12.0)] = 0.40 \u00d7 (-21.6) = -8.64 kg\u00b7m\u00b7s\u207b\u00b9 (magnitude = 8.64 N\u00b7s away from the wall (opposite to initial motion)).",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
@@ -249,80 +165,192 @@
       "difficulty": "hard",
       "learning_outcome": "Calculate change in momentum for rebounding object using vector signs"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_9"
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_6"
   },
   {
-    "id": "TS_P1_MOM_0748",
+    "id": "TS_P1_MOM_0411",
     "topic": "Momentum & Impulse",
-    "subtopic": "Inelastic Collisions",
+    "subtopic": "Momentum Calculations",
     "difficulty": "medium",
-    "question": "Trolley A of mass 3.0 kg moves eastwards across a frictionless track at 3.0 m\u00b7s\u207b\u00b9 and collides with stationary Trolley B of mass 3.0 kg. Upon impact, the two trolleys lock together. Calculate the common velocity (v_f) of the combined system immediately after collision:",
-    "correct_answer": "1.50 m\u00b7s\u207b\u00b9 eastwards",
+    "question": "A technical object of mass 0.50 kg travels at a constant velocity of 20.0 m\u00b7s\u207b\u00b9 eastwards. Calculate its linear momentum:",
+    "correct_answer": "10.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward",
     "wrong_answers_pool": [
-      "3.00 m\u00b7s\u207b\u00b9 eastwards (assumed speed unchanged)",
-      "1.50 m\u00b7s\u207b\u00b9 eastwards (halved speed regardless of mass ratio)",
-      "3.00 m\u00b7s\u207b\u00b9 eastwards",
-      "0.75 m\u00b7s\u207b\u00b9 eastwards",
-      "3.00 m\u00b7s\u207b\u00b9 eastwards (omitted m1 from final combined mass)",
-      "2.10 m\u00b7s\u207b\u00b9 eastwards"
+      "200.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward (used v\u00b2 instead of v)",
+      "100.00 J (calculated kinetic energy instead of momentum)",
+      "20.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward",
+      "5.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward",
+      "40.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward",
+      "15.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward"
     ],
-    "explanation": "Conservation of linear momentum: \u03a3p_initial = \u03a3p_final => (m1 \u00d7 v1i) + (m2 \u00d7 v2i) = (m1 + m2) \u00d7 v_f => (3.0 \u00d7 3.0) + 0 = (3.0 + 3.0) \u00d7 v_f => 9.00 = 6.0 \u00d7 v_f => v_f = 9.00 / 6.0 = 1.50 m\u00b7s\u207b\u00b9 eastwards.",
+    "explanation": "Linear momentum: p = m \u00d7 v = 0.50 kg \u00d7 20.0 m\u00b7s\u207b\u00b9 = 10.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward.",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
       "topic": "Momentum & Impulse",
-      "subtopic": "Inelastic Collisions",
+      "subtopic": "Momentum Calculations",
       "cognitive_level": "Applying",
       "difficulty": "medium",
-      "learning_outcome": "Calculate final velocity for completely inelastic collision"
+      "learning_outcome": "Calculate linear momentum from mass and velocity"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_10"
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_7"
   },
   {
-    "id": "TS_P1_WAV_0993",
-    "topic": "Waves, Sound & Light",
-    "subtopic": "Wavelength in Optical Media",
+    "id": "TS_P1_MAG_0980",
+    "topic": "Electromagnetism",
+    "subtopic": "Electromagnetic Induction & Ohm's Law",
     "difficulty": "hard",
-    "question": "A beam of yellow helium-neon laser light has a wavelength of 400 nm in vacuum. As this light beam enters a slab of **Sapphire** (refractive index n = 1.77), what is the new wavelength of the light INSIDE the Sapphire?",
-    "correct_answer": "226.0 nm",
+    "question": "A coil of N = 52 turns and total electrical resistance R = 15.00 \u03a9 is connected in a closed circuit. The magnetic flux linking the coil collapses by 0.085 Wb in \u0394t = 0.070 s. Calculate the magnitude of the INDUCED CURRENT (I_induced) flowing through the circuit:",
+    "correct_answer": "4.21 A",
     "wrong_answers_pool": [
-      "708.0 nm (multiplied wavelength by n instead of dividing)",
-      "400.0 nm (assumed wavelength does not change across boundary)",
-      "452.0 nm",
-      "113.0 nm",
-      "301.0 nm",
-      "177.0 nm",
-      "339.0 nm"
+      "947.14 A (multiplied EMF by resistance: \u03b5 \u00d7 R)",
+      "0.2376 A (inverted Ohm's law: R / \u03b5)",
+      "8.42 A",
+      "2.10 A",
+      "63.14 A (assumed induced current equals induced EMF)",
+      "9.21 A",
+      "6.31 A"
     ],
-    "explanation": "Light slows down in an optical medium: v = c / n. Frequency f remains constant. Therefore \u03bb_medium = v / f = (c / n) / f = \u03bb_vacuum / n = 400 nm / 1.77 = 226.0 nm.",
+    "explanation": "1. Induced EMF from Faraday's Law: \u03b5 = N \u00d7 (\u0394\u03a6 / \u0394t) = 52 \u00d7 (0.085 Wb / 0.070 s) = 63.14 V. 2. Induced current from Ohm's Law: I = \u03b5 / R = 63.14 V / 15.00 \u03a9 = 4.21 A.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Electromagnetism",
+      "subtopic": "Electromagnetic Induction & Ohm's Law",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate induced current combining Faraday's and Ohm's laws"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_8"
+  },
+  {
+    "id": "TS_P1_WAV_0712",
+    "topic": "Waves, Sound & Light",
+    "subtopic": "Ultrasound Echo Calculations",
+    "difficulty": "medium",
+    "question": "In medical ultrasound diagnostics, an ultrasound pulse (speed v = 1540 m\u00b7s\u207b\u00b9 in soft tissue) is emitted into a patient's abdomen. An echo reflected from an internal organ boundary is detected 316 \u03bcs (316.0 \u00d7 10\u207b\u2076 s) later. Calculate the DEPTH (d) of the organ boundary beneath the transducer probe:",
+    "correct_answer": "24.33 cm (243.3 mm)",
+    "wrong_answers_pool": [
+      "48.66 cm (forgot to divide by 2 for the return echo)",
+      "48.66 cm",
+      "12.17 cm",
+      "26.33 cm",
+      "36.50 cm",
+      "2.43 cm",
+      "0.00 cm"
+    ],
+    "explanation": "Ultrasound travels to the organ and back (two-way distance = 2d): 2d = v \u00d7 t => d = (v \u00d7 t) / 2 = (1540 m\u00b7s\u207b\u00b9 \u00d7 316.0 \u00d7 10\u207b\u2076 s) / 2 = 24.33 cm (243.3 mm).",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
       "topic": "Waves, Sound & Light",
-      "subtopic": "Wavelength in Optical Media",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate compressed wavelength inside Sapphire"
+      "subtopic": "Ultrasound Echo Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate organ depth using ultrasound echo timing"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_9"
+  },
+  {
+    "id": "TS_P1_WAV_0697",
+    "topic": "Waves, Sound & Light",
+    "subtopic": "Ultrasound Echo Calculations",
+    "difficulty": "medium",
+    "question": "In medical ultrasound diagnostics, an ultrasound pulse (speed v = 1540 m\u00b7s\u207b\u00b9 in soft tissue) is emitted into a patient's abdomen. An echo reflected from an internal organ boundary is detected 286 \u03bcs (286.0 \u00d7 10\u207b\u2076 s) later. Calculate the DEPTH (d) of the organ boundary beneath the transducer probe:",
+    "correct_answer": "22.02 cm (220.2 mm)",
+    "wrong_answers_pool": [
+      "44.04 cm (forgot to divide by 2 for the return echo)",
+      "44.04 cm",
+      "11.01 cm",
+      "24.02 cm",
+      "33.03 cm",
+      "2.20 cm",
+      "0.00 cm"
+    ],
+    "explanation": "Ultrasound travels to the organ and back (two-way distance = 2d): 2d = v \u00d7 t => d = (v \u00d7 t) / 2 = (1540 m\u00b7s\u207b\u00b9 \u00d7 286.0 \u00d7 10\u207b\u2076 s) / 2 = 22.02 cm (220.2 mm).",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Waves, Sound & Light",
+      "subtopic": "Ultrasound Echo Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate organ depth using ultrasound echo timing"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_10"
+  },
+  {
+    "id": "TS_P1_ELAST_0332",
+    "topic": "Elasticity & Hydraulics",
+    "subtopic": "Hooke's Law Calculations",
+    "difficulty": "medium",
+    "question": "A tensile force of 2.5 N is applied to an elastic spring, resulting in an extension of 2.5 cm. Determine the spring constant (k) of this spring:",
+    "correct_answer": "100.0 N\u00b7m\u207b\u00b9",
+    "wrong_answers_pool": [
+      "1.0 N\u00b7m\u207b\u00b9 (omitted cm to meter conversion)",
+      "0.06 N\u00b7m\u207b\u00b9 (multiplied force by extension)",
+      "200.0 N\u00b7m\u207b\u00b9",
+      "50.0 N\u00b7m\u207b\u00b9",
+      "150.0 N\u00b7m\u207b\u00b9",
+      "0.0100 N\u00b7m\u207b\u00b9",
+      "140.0 N\u00b7m\u207b\u00b9"
+    ],
+    "explanation": "k = F / \u0394x = 2.5 N / (2.5 \u00d7 10\u207b\u00b2 m) = 2.5 / 0.025 = 100.0 N\u00b7m\u207b\u00b9.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Elasticity & Hydraulics",
+      "subtopic": "Hooke's Law Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate spring constant from force and extension"
     },
     "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_11"
   },
   {
-    "id": "TS_P1_MOM_0634",
+    "id": "TS_P1_MOM_0813",
+    "topic": "Momentum & Impulse",
+    "subtopic": "Rebounding Vectors",
+    "difficulty": "hard",
+    "question": "A ball of mass 0.15 kg moves horizontally rightwards at 15.0 m\u00b7s\u207b\u00b9 and strikes a vertical concrete wall. It rebounds horizontally to the left at a speed of 11.2 m\u00b7s\u207b\u00b9. Taking rightwards as the positive direction, calculate the magnitude and direction of the change in momentum (\u0394p) of the ball:",
+    "correct_answer": "3.94 N\u00b7s away from the wall (opposite to initial motion)",
+    "wrong_answers_pool": [
+      "0.56 N\u00b7s (failed to treat rebound velocity as a negative vector: vf - vi)",
+      "2.25 N\u00b7s (calculated initial momentum only)",
+      "1.69 N\u00b7s (calculated rebound momentum only)",
+      "7.88 N\u00b7s",
+      "1.97 N\u00b7s",
+      "8.94 N\u00b7s",
+      "5.51 N\u00b7s"
+    ],
+    "explanation": "Assign directions: Right = (+), Left = (-). v_i = +15.0 m\u00b7s\u207b\u00b9, v_f = -11.2 m\u00b7s\u207b\u00b9. \u0394p = m \u00d7 (v_f - v_i) = 0.15 \u00d7 [(-11.2) - (+15.0)] = 0.15 \u00d7 (-26.2) = -3.94 kg\u00b7m\u00b7s\u207b\u00b9 (magnitude = 3.94 N\u00b7s away from the wall (opposite to initial motion)).",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Momentum & Impulse",
+      "subtopic": "Rebounding Vectors",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate change in momentum for rebounding object using vector signs"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_12"
+  },
+  {
+    "id": "TS_P1_MOM_0576",
     "topic": "Momentum & Impulse",
     "subtopic": "Impulse Calculations",
     "difficulty": "medium",
-    "question": "An object of mass 50.00 kg moving eastward at 40.0 m\u00b7s\u207b\u00b9 collides with a barrier and is brought to rest in a time of 0.05 s. Calculate the magnitude of the average net force exerted on the object to stop it:",
-    "correct_answer": "40000.0 N",
+    "question": "An object of mass 10.00 kg moving eastward at 18.0 m\u00b7s\u207b\u00b9 collides with a barrier and is brought to rest in a time of 0.05 s. Calculate the magnitude of the average net force exerted on the object to stop it:",
+    "correct_answer": "3600.0 N",
     "wrong_answers_pool": [
-      "100.000 N (multiplied by time instead of dividing)",
-      "80000.0 N",
-      "20000.0 N",
-      "2000.00 N (omitted impact time factor)",
-      "40120.0 N",
-      "4081.6 N",
-      "56000.0 N"
+      "9.000 N (multiplied by time instead of dividing)",
+      "7200.0 N",
+      "1800.0 N",
+      "180.00 N (omitted impact time factor)",
+      "3720.0 N",
+      "367.3 N",
+      "5040.0 N"
     ],
-    "explanation": "F_net = \u0394p / \u0394t = m \u00d7 (v_f - v_i) / \u0394t = 50.00 \u00d7 (0 - 40.0) / 0.05 = -2000.00 / 0.05 = -40000.0 N (magnitude is 40000.0 N).",
+    "explanation": "F_net = \u0394p / \u0394t = m \u00d7 (v_f - v_i) / \u0394t = 10.00 \u00d7 (0 - 18.0) / 0.05 = -180.00 / 0.05 = -3600.0 N (magnitude is 3600.0 N).",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
@@ -332,305 +360,25 @@
       "difficulty": "medium",
       "learning_outcome": "Calculate average impact force using impulse theorem"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_12"
-  },
-  {
-    "id": "TS_P1_ELEC_0893",
-    "topic": "Electricity",
-    "subtopic": "Internal Resistance Calculations",
-    "difficulty": "hard",
-    "question": "A battery has an open-circuit electromotive force (EMF) of \u03b5 = 6.0 V. When connected to an external load resistor of R = 10.0 \u03a9, the terminal potential difference across the battery drops to V_terminal = 5.45 V, and a current of 0.55 A flows. Calculate the internal resistance (r) of the battery:",
-    "correct_answer": "1.00 \u03a9",
-    "wrong_answers_pool": [
-      "0.55 \u03a9 (calculated lost volts instead of internal resistance)",
-      "10.00 \u03a9 (external load resistance)",
-      "2.00 \u03a9",
-      "0.50 \u03a9",
-      "11.00 \u03a9 (total circuit resistance R + r)",
-      "1.80 \u03a9",
-      "1.50 \u03a9"
-    ],
-    "explanation": "1. Lost volts: V_lost = \u03b5 - V_terminal = 6.0 V - 5.45 V = 0.55 V. 2. Internal resistance: r = V_lost / I = 0.55 V / 0.55 A = 1.00 \u03a9.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Electricity",
-      "subtopic": "Internal Resistance Calculations",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate battery internal resistance from EMF and load voltage"
-    },
     "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_13"
   },
   {
-    "id": "TS_P1_ELEC_0960",
-    "topic": "Electricity",
-    "subtopic": "Terminal Voltage Calculations",
-    "difficulty": "hard",
-    "question": "A power supply of EMF \u03b5 = 9.0 V and internal resistance r = 0.20 \u03a9 is connected to a circuit drawing a current of 0.74 A. Calculate the operating TERMINAL VOLTAGE (V_terminal) available to the external circuit:",
-    "correct_answer": "8.85 V",
-    "wrong_answers_pool": [
-      "9.0 V (neglected internal resistance: assumed zero lost volts)",
-      "0.15 V (calculated lost volts instead of terminal voltage)",
-      "9.15 V (added lost volts to EMF)",
-      "13.28 V",
-      "4.43 V",
-      "11.35 V",
-      "0.00 V"
-    ],
-    "explanation": "V_terminal = \u03b5 - I \u00d7 r = 9.0 V - (0.74 A \u00d7 0.20 \u03a9) = 9.0 V - 0.15 V = 8.85 V.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Electricity",
-      "subtopic": "Terminal Voltage Calculations",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate terminal voltage taking internal resistance into account"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_14"
-  },
-  {
-    "id": "TS_P1_ELAST_0303",
-    "topic": "Elasticity & Hydraulics",
-    "subtopic": "Hooke's Law Calculations",
-    "difficulty": "medium",
-    "question": "A coil spring has a spring constant (stiffness) of k = 50 N\u00b7m\u207b\u00b9. What magnitude of deforming force is required to produce an extension of 1.5 cm in the spring (assuming the limit of proportionality is not exceeded)?",
-    "correct_answer": "0.8 N",
-    "wrong_answers_pool": [
-      "75.0 N (forgot to convert cm to meters)",
-      "3333.3 N (divided k by extension)",
-      "1.5 N",
-      "0.4 N",
-      "25.8 N",
-      "0.0003 N",
-      "1.1 N"
-    ],
-    "explanation": "Hooke's Law: F = k \u00d7 \u0394x. Convert extension: 1.5 cm = 0.015 m. F = 50 N\u00b7m\u207b\u00b9 \u00d7 0.015 m = 0.8 N.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Elasticity & Hydraulics",
-      "subtopic": "Hooke's Law Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate deforming force from spring constant"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_15"
-  },
-  {
-    "id": "TS_P1_ELEC_0673",
-    "topic": "Electricity",
-    "subtopic": "Parallel Resistance Calculations",
-    "difficulty": "medium",
-    "question": "Two resistors of resistance R1 = 6.0 \u03a9 and R2 = 3.0 \u03a9 are connected in PARALLEL across an ideal 24 V battery. Calculate the equivalent parallel resistance (R_p) of the circuit:",
-    "correct_answer": "2.00 \u03a9",
-    "wrong_answers_pool": [
-      "9.0 \u03a9 (added resistors in series instead of parallel)",
-      "4.50 \u03a9 (averaged the resistances)",
-      "4.00 \u03a9",
-      "1.00 \u03a9",
-      "18.0 \u03a9 (multiplied without dividing by sum)",
-      "6.00 \u03a9",
-      "3.00 \u03a9"
-    ],
-    "explanation": "Parallel resistance formula: 1/R_p = 1/R1 + 1/R2 => R_p = (R1 \u00d7 R2) / (R1 + R2) = (6.0 \u00d7 3.0) / (6.0 + 3.0) = 18.0 / 9.0 = 2.00 \u03a9.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Electricity",
-      "subtopic": "Parallel Resistance Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate equivalent parallel resistance"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_16"
-  },
-  {
-    "id": "TS_P1_ELAST_0451",
-    "topic": "Elasticity & Hydraulics",
-    "subtopic": "Hooke's Law Calculations",
-    "difficulty": "medium",
-    "question": "A coil spring has a spring constant (stiffness) of k = 400 N\u00b7m\u207b\u00b9. What magnitude of deforming force is required to produce an extension of 2.5 cm in the spring (assuming the limit of proportionality is not exceeded)?",
-    "correct_answer": "10.0 N",
-    "wrong_answers_pool": [
-      "1000.0 N (forgot to convert cm to meters)",
-      "16000.0 N (divided k by extension)",
-      "20.0 N",
-      "5.0 N",
-      "35.0 N",
-      "0.0001 N",
-      "15.0 N"
-    ],
-    "explanation": "Hooke's Law: F = k \u00d7 \u0394x. Convert extension: 2.5 cm = 0.025 m. F = 400 N\u00b7m\u207b\u00b9 \u00d7 0.025 m = 10.0 N.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Elasticity & Hydraulics",
-      "subtopic": "Hooke's Law Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate deforming force from spring constant"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_17"
-  },
-  {
-    "id": "TS_P1_NEWT_0543",
-    "topic": "Newton's Laws",
-    "subtopic": "Newton Second Law Calculations",
-    "difficulty": "medium",
-    "question": "A mechanical crate of mass 8.0 kg is pulled across a rough horizontal concrete floor where the coefficient of kinetic friction is \u03bc_k = 0.50. What horizontal applied force (F_app) is required to accelerate the crate at 1.0 m\u00b7s\u207b\u00b2 (g = 9.8 m\u00b7s\u207b\u00b2)?",
-    "correct_answer": "47.2 N",
-    "wrong_answers_pool": [
-      "8.0 N (neglected kinetic friction fk)",
-      "39.2 N (applied force equals friction, zero acceleration)",
-      "94.4 N",
-      "23.6 N",
-      "92.2 N",
-      "-31.2 N (subtracted friction from net force)",
-      "70.8 N"
-    ],
-    "explanation": "1. Normal force: N = m \u00d7 g = 8.0 \u00d7 9.8 = 78.4 N. 2. Friction: f_k = \u03bc_k \u00d7 N = 0.50 \u00d7 78.4 = 39.2 N. 3. Newton's 2nd Law: F_net = F_app - f_k = m \u00d7 a => F_app = m \u00d7 a + f_k = (8.0 \u00d7 1.0) + 39.2 = 8.0 + 39.2 = 47.2 N.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Newton's Laws",
-      "subtopic": "Newton Second Law Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate horizontal applied force with friction"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_18"
-  },
-  {
-    "id": "TS_P1_MOM_0904",
-    "topic": "Momentum & Impulse",
-    "subtopic": "Rebounding Vectors",
-    "difficulty": "hard",
-    "question": "A ball of mass 0.30 kg moves horizontally rightwards at 30.0 m\u00b7s\u207b\u00b9 and strikes a vertical concrete wall. It rebounds horizontally to the left at a speed of 24.0 m\u00b7s\u207b\u00b9. Taking rightwards as the positive direction, calculate the magnitude and direction of the change in momentum (\u0394p) of the ball:",
-    "correct_answer": "16.20 N\u00b7s away from the wall (opposite to initial motion)",
-    "wrong_answers_pool": [
-      "1.80 N\u00b7s (failed to treat rebound velocity as a negative vector: vf - vi)",
-      "9.00 N\u00b7s (calculated initial momentum only)",
-      "7.20 N\u00b7s (calculated rebound momentum only)",
-      "32.40 N\u00b7s",
-      "8.10 N\u00b7s",
-      "21.20 N\u00b7s",
-      "22.68 N\u00b7s"
-    ],
-    "explanation": "Assign directions: Right = (+), Left = (-). v_i = +30.0 m\u00b7s\u207b\u00b9, v_f = -24.0 m\u00b7s\u207b\u00b9. \u0394p = m \u00d7 (v_f - v_i) = 0.30 \u00d7 [(-24.0) - (+30.0)] = 0.30 \u00d7 (-54.0) = -16.20 kg\u00b7m\u00b7s\u207b\u00b9 (magnitude = 16.20 N\u00b7s away from the wall (opposite to initial motion)).",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Momentum & Impulse",
-      "subtopic": "Rebounding Vectors",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate change in momentum for rebounding object using vector signs"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_19"
-  },
-  {
-    "id": "TS_P1_WAV_0837",
-    "topic": "Waves, Sound & Light",
-    "subtopic": "Lens Magnification",
-    "difficulty": "hard",
-    "question": "An arrow of height h_o = 3.0 cm is placed upright at a distance of d_o = 25.0 cm from a thin CONVEX lens having a focal length of f = +15.0 cm. Calculate the HEIGHT (h_i) of the resulting image:",
-    "correct_answer": "4.50 cm (Inverted real image)",
-    "wrong_answers_pool": [
-      "3.00 cm (assumed no magnification)",
-      "2.00 cm",
-      "9.00 cm",
-      "2.25 cm",
-      "37.50 cm (confused image distance with image height)",
-      "7.00 cm",
-      "6.30 cm"
-    ],
-    "explanation": "1. Image distance: 1/d_i = 1/f - 1/d_o = 1/15.0 - 1/25.0 => d_i = (375.0) / (10.0) = 37.50 cm. 2. Magnification: |m| = d_i / d_o = 37.50 / 25.0 = 1.500. 3. Image height: h_i = |m| \u00d7 h_o = 1.500 \u00d7 3.0 cm = 4.50 cm (Inverted real image).",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Waves, Sound & Light",
-      "subtopic": "Lens Magnification",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate image height from multi-step lens equation"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_20"
-  },
-  {
-    "id": "TS_P1_MAG_0921",
-    "topic": "Electromagnetism",
-    "subtopic": "Power Transmission Losses",
-    "difficulty": "hard",
-    "question": "A power station generates 25.0 kW of electrical power. Before transmission through cables with a total resistance of R_line = 2.00 \u03a9, the voltage is stepped up to 11.0 kV (11000 V). Calculate the rate of electrical energy loss (thermal power loss, P_loss) in the transmission cables:",
-    "correct_answer": "10.3 W",
-    "wrong_answers_pool": [
-      "4.5 W (calculated voltage drop instead of power loss: I \u00d7 R)",
-      "28409.1 W",
-      "103.3 W",
-      "5.2 W",
-      "20.7 W",
-      "24989.7 W (calculated delivered power instead of lost power)",
-      "260.3 W"
-    ],
-    "explanation": "1. Transmission current: I = P / V = 25000 W / 11000 V = 2.27 A. 2. Cable power loss: P_loss = I\u00b2 \u00d7 R_line = (2.27 A)\u00b2 \u00d7 2.00 \u03a9 = 10.3 W (representing 0.04% of generated power).",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Electromagnetism",
-      "subtopic": "Power Transmission Losses",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate transmission power loss at stepped-up voltage"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_21"
-  },
-  {
-    "id": "TS_P1_ELEC_0990",
-    "topic": "Electricity",
-    "subtopic": "Terminal Voltage Calculations",
-    "difficulty": "hard",
-    "question": "A power supply of EMF \u03b5 = 9.0 V and internal resistance r = 0.50 \u03a9 is connected to a circuit drawing a current of 0.86 A. Calculate the operating TERMINAL VOLTAGE (V_terminal) available to the external circuit:",
-    "correct_answer": "8.57 V",
-    "wrong_answers_pool": [
-      "9.0 V (neglected internal resistance: assumed zero lost volts)",
-      "0.43 V (calculated lost volts instead of terminal voltage)",
-      "9.43 V (added lost volts to EMF)",
-      "12.86 V",
-      "4.29 V",
-      "11.07 V",
-      "0.00 V"
-    ],
-    "explanation": "V_terminal = \u03b5 - I \u00d7 r = 9.0 V - (0.86 A \u00d7 0.50 \u03a9) = 9.0 V - 0.43 V = 8.57 V.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Electricity",
-      "subtopic": "Terminal Voltage Calculations",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate terminal voltage taking internal resistance into account"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_22"
-  },
-  {
-    "id": "TS_P1_WEP_0880",
+    "id": "TS_P1_WEP_0927",
     "topic": "Work, Energy & Power",
     "subtopic": "Work-Energy Theorem",
     "difficulty": "hard",
-    "question": "A stationary equipment trolley of mass 10 kg is pulled across a rough horizontal concrete floor by an applied horizontal force of 500 N through a displacement of 30.0 m. The coefficient of kinetic friction is \u03bc_k = 0.30. Using the Work-Energy Theorem (W_net = \u0394E_k), calculate the final velocity of the trolley (g = 9.8 m\u00b7s\u207b\u00b2):",
-    "correct_answer": "53.14 m\u00b7s\u207b\u00b9",
+    "question": "A stationary equipment trolley of mass 10 kg is pulled across a rough horizontal concrete floor by an applied horizontal force of 1000 N through a displacement of 15.0 m. The coefficient of kinetic friction is \u03bc_k = 0.20. Using the Work-Energy Theorem (W_net = \u0394E_k), calculate the final velocity of the trolley (g = 9.8 m\u00b7s\u207b\u00b2):",
+    "correct_answer": "54.23 m\u00b7s\u207b\u00b9",
     "wrong_answers_pool": [
       "54.77 m\u00b7s\u207b\u00b9 (neglected friction work W_f)",
-      "2823.60 m\u00b7s\u207b\u00b9 (forgot to take square root of vf\u00b2)",
-      "106.28 m\u00b7s\u207b\u00b9",
-      "26.57 m\u00b7s\u207b\u00b9",
-      "37.57 m\u00b7s\u207b\u00b9 (omitted factor of 2 in kinetic energy)",
-      "56.64 m\u00b7s\u207b\u00b9",
-      "79.71 m\u00b7s\u207b\u00b9"
+      "2941.20 m\u00b7s\u207b\u00b9 (forgot to take square root of vf\u00b2)",
+      "108.47 m\u00b7s\u207b\u00b9",
+      "27.12 m\u00b7s\u207b\u00b9",
+      "38.35 m\u00b7s\u207b\u00b9 (omitted factor of 2 in kinetic energy)",
+      "57.73 m\u00b7s\u207b\u00b9",
+      "81.35 m\u00b7s\u207b\u00b9"
     ],
-    "explanation": "1. Friction: f_k = \u03bc_k \u00d7 m \u00d7 g = 0.30 \u00d7 10 \u00d7 9.8 = 29.4 N. 2. Net force: F_net = F_app - f_k = 500 - 29.4 = 470.6 N. 3. W_net = F_net \u00d7 \u0394x = 470.6 \u00d7 30.0 = 14118.0 J. 4. Work-Energy Theorem: W_net = 1/2 \u00d7 m \u00d7 vf\u00b2 => vf = \u221a(2 \u00d7 W_net / m) = \u221a(2 \u00d7 14118.0 / 10) = 53.14 m\u00b7s\u207b\u00b9.",
+    "explanation": "1. Friction: f_k = \u03bc_k \u00d7 m \u00d7 g = 0.20 \u00d7 10 \u00d7 9.8 = 19.6 N. 2. Net force: F_net = F_app - f_k = 1000 - 19.6 = 980.4 N. 3. W_net = F_net \u00d7 \u0394x = 980.4 \u00d7 15.0 = 14706.0 J. 4. Work-Energy Theorem: W_net = 1/2 \u00d7 m \u00d7 vf\u00b2 => vf = \u221a(2 \u00d7 W_net / m) = \u221a(2 \u00d7 14706.0 / 10) = 54.23 m\u00b7s\u207b\u00b9.",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
@@ -640,81 +388,333 @@
       "difficulty": "hard",
       "learning_outcome": "Calculate final velocity using work-energy theorem with friction"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_23"
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_14"
   },
   {
-    "id": "TS_P1_ELAST_0868",
-    "topic": "Elasticity & Hydraulics",
-    "subtopic": "Young's Modulus",
-    "difficulty": "hard",
-    "question": "A solid cylindrical rod of **Wrought iron** has an initial length of 1.5 m and a circular diameter of 2.0 mm. A tensile load of 4000 N is applied axially along the rod. Given Young's modulus K = 190 GPa (190.0 \u00d7 10\u2079 Pa), calculate the extension (\u0394L) produced in the rod:",
-    "correct_answer": "10.052 mm",
-    "wrong_answers_pool": [
-      "40.208 mm (used diameter instead of radius for area)",
-      "0.01005 mm (unit conversion error)",
-      "20.104 mm",
-      "5.026 mm",
-      "0.004 mm",
-      "10.552 mm",
-      "15.078 mm"
-    ],
-    "explanation": "1. Cross-sectional area: A = \u03c0 \u00d7 r\u00b2 = \u03c0 \u00d7 (1.00 \u00d7 10\u207b\u00b3 m)\u00b2 = 3.142e-06 m\u00b2. 2. K = (F \u00d7 L_0) / (A \u00d7 \u0394L) => \u0394L = (F \u00d7 L_0) / (A \u00d7 K) = (4000 \u00d7 1.5) / (3.142e-06 \u00d7 1.90e+11) = 1.0052e-02 m = 10.052 mm.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Elasticity & Hydraulics",
-      "subtopic": "Young's Modulus",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate extension using Young's modulus for Wrought iron"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_24"
-  },
-  {
-    "id": "TS_P1_NEWT_0417",
+    "id": "TS_P1_NEWT_0520",
     "topic": "Newton's Laws",
-    "subtopic": "Newton Second Law Calculations",
+    "subtopic": "Acceleration Calculations",
     "difficulty": "medium",
-    "question": "A mechanical crate of mass 5.0 kg is pulled across a rough horizontal concrete floor where the coefficient of kinetic friction is \u03bc_k = 0.50. What horizontal applied force (F_app) is required to accelerate the crate at 1.5 m\u00b7s\u207b\u00b2 (g = 9.8 m\u00b7s\u207b\u00b2)?",
-    "correct_answer": "32.0 N",
+    "question": "A horizontal pulling force of 51.4 N acts on a 8.0 kg trolley resting on a horizontal track. A constant kinetic friction force of 27.4 N opposes the motion. Determine the acceleration (a) of the trolley:",
+    "correct_answer": "3.00 m\u00b7s\u207b\u00b2",
     "wrong_answers_pool": [
-      "7.5 N (neglected kinetic friction fk)",
-      "24.5 N (applied force equals friction, zero acceleration)",
-      "64.0 N",
-      "16.0 N",
-      "77.0 N",
-      "-17.0 N (subtracted friction from net force)",
-      "48.0 N"
+      "6.43 m\u00b7s\u207b\u00b2 (ignored friction force fk)",
+      "6.00 m\u00b7s\u207b\u00b2",
+      "1.50 m\u00b7s\u207b\u00b2",
+      "3.43 m\u00b7s\u207b\u00b2",
+      "4.25 m\u00b7s\u207b\u00b2",
+      "4.20 m\u00b7s\u207b\u00b2",
+      "0.00 m\u00b7s\u207b\u00b2 (assumed constant velocity)"
     ],
-    "explanation": "1. Normal force: N = m \u00d7 g = 5.0 \u00d7 9.8 = 49.0 N. 2. Friction: f_k = \u03bc_k \u00d7 N = 0.50 \u00d7 49.0 = 24.5 N. 3. Newton's 2nd Law: F_net = F_app - f_k = m \u00d7 a => F_app = m \u00d7 a + f_k = (5.0 \u00d7 1.5) + 24.5 = 7.5 + 24.5 = 32.0 N.",
+    "explanation": "F_net = F_app - f_k = 51.4 N - 27.4 N = 24.0 N. a = F_net / m = 24.0 N / 8.0 kg = 3.00 m\u00b7s\u207b\u00b2.",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
       "topic": "Newton's Laws",
-      "subtopic": "Newton Second Law Calculations",
+      "subtopic": "Acceleration Calculations",
       "cognitive_level": "Applying",
       "difficulty": "medium",
-      "learning_outcome": "Calculate horizontal applied force with friction"
+      "learning_outcome": "Calculate acceleration from applied force and friction"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_15"
+  },
+  {
+    "id": "TS_P1_MOM_0830",
+    "topic": "Momentum & Impulse",
+    "subtopic": "Rebounding Vectors",
+    "difficulty": "hard",
+    "question": "A ball of mass 0.15 kg moves horizontally rightwards at 25.0 m\u00b7s\u207b\u00b9 and strikes a vertical concrete wall. It rebounds horizontally to the left at a speed of 21.2 m\u00b7s\u207b\u00b9. Taking rightwards as the positive direction, calculate the magnitude and direction of the change in momentum (\u0394p) of the ball:",
+    "correct_answer": "6.94 N\u00b7s away from the wall (opposite to initial motion)",
+    "wrong_answers_pool": [
+      "0.56 N\u00b7s (failed to treat rebound velocity as a negative vector: vf - vi)",
+      "3.75 N\u00b7s (calculated initial momentum only)",
+      "3.19 N\u00b7s (calculated rebound momentum only)",
+      "13.88 N\u00b7s",
+      "3.47 N\u00b7s",
+      "11.94 N\u00b7s",
+      "9.71 N\u00b7s"
+    ],
+    "explanation": "Assign directions: Right = (+), Left = (-). v_i = +25.0 m\u00b7s\u207b\u00b9, v_f = -21.2 m\u00b7s\u207b\u00b9. \u0394p = m \u00d7 (v_f - v_i) = 0.15 \u00d7 [(-21.2) - (+25.0)] = 0.15 \u00d7 (-46.2) = -6.94 kg\u00b7m\u00b7s\u207b\u00b9 (magnitude = 6.94 N\u00b7s away from the wall (opposite to initial motion)).",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Momentum & Impulse",
+      "subtopic": "Rebounding Vectors",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate change in momentum for rebounding object using vector signs"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_16"
+  },
+  {
+    "id": "TS_P1_NEWT_0362",
+    "topic": "Newton's Laws",
+    "subtopic": "Acceleration Calculations",
+    "difficulty": "medium",
+    "question": "A horizontal pulling force of 32.2 N acts on a 5.0 kg trolley resting on a horizontal track. A constant kinetic friction force of 12.2 N opposes the motion. Determine the acceleration (a) of the trolley:",
+    "correct_answer": "4.00 m\u00b7s\u207b\u00b2",
+    "wrong_answers_pool": [
+      "6.45 m\u00b7s\u207b\u00b2 (ignored friction force fk)",
+      "8.00 m\u00b7s\u207b\u00b2",
+      "2.00 m\u00b7s\u207b\u00b2",
+      "2.45 m\u00b7s\u207b\u00b2",
+      "5.25 m\u00b7s\u207b\u00b2",
+      "5.60 m\u00b7s\u207b\u00b2",
+      "0.00 m\u00b7s\u207b\u00b2 (assumed constant velocity)"
+    ],
+    "explanation": "F_net = F_app - f_k = 32.2 N - 12.2 N = 20.0 N. a = F_net / m = 20.0 N / 5.0 kg = 4.00 m\u00b7s\u207b\u00b2.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Newton's Laws",
+      "subtopic": "Acceleration Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate acceleration from applied force and friction"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_17"
+  },
+  {
+    "id": "TS_P1_WEP_0999",
+    "topic": "Work, Energy & Power",
+    "subtopic": "Work-Energy Theorem",
+    "difficulty": "hard",
+    "question": "A stationary equipment trolley of mass 20 kg is pulled across a rough horizontal concrete floor by an applied horizontal force of 400 N through a displacement of 25.0 m. The coefficient of kinetic friction is \u03bc_k = 0.30. Using the Work-Energy Theorem (W_net = \u0394E_k), calculate the final velocity of the trolley (g = 9.8 m\u00b7s\u207b\u00b2):",
+    "correct_answer": "29.21 m\u00b7s\u207b\u00b9",
+    "wrong_answers_pool": [
+      "31.62 m\u00b7s\u207b\u00b9 (neglected friction work W_f)",
+      "853.00 m\u00b7s\u207b\u00b9 (forgot to take square root of vf\u00b2)",
+      "58.41 m\u00b7s\u207b\u00b9",
+      "14.60 m\u00b7s\u207b\u00b9",
+      "20.65 m\u00b7s\u207b\u00b9 (omitted factor of 2 in kinetic energy)",
+      "32.71 m\u00b7s\u207b\u00b9",
+      "43.81 m\u00b7s\u207b\u00b9"
+    ],
+    "explanation": "1. Friction: f_k = \u03bc_k \u00d7 m \u00d7 g = 0.30 \u00d7 20 \u00d7 9.8 = 58.8 N. 2. Net force: F_net = F_app - f_k = 400 - 58.8 = 341.2 N. 3. W_net = F_net \u00d7 \u0394x = 341.2 \u00d7 25.0 = 8530.0 J. 4. Work-Energy Theorem: W_net = 1/2 \u00d7 m \u00d7 vf\u00b2 => vf = \u221a(2 \u00d7 W_net / m) = \u221a(2 \u00d7 8530.0 / 20) = 29.21 m\u00b7s\u207b\u00b9.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Work, Energy & Power",
+      "subtopic": "Work-Energy Theorem",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate final velocity using work-energy theorem with friction"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_18"
+  },
+  {
+    "id": "TS_P1_ELEC_0846",
+    "topic": "Electricity",
+    "subtopic": "Terminal Voltage Calculations",
+    "difficulty": "hard",
+    "question": "A power supply of EMF \u03b5 = 6.0 V and internal resistance r = 0.50 \u03a9 is connected to a circuit drawing a current of 0.57 A. Calculate the operating TERMINAL VOLTAGE (V_terminal) available to the external circuit:",
+    "correct_answer": "5.71 V",
+    "wrong_answers_pool": [
+      "6.0 V (neglected internal resistance: assumed zero lost volts)",
+      "0.29 V (calculated lost volts instead of terminal voltage)",
+      "6.29 V (added lost volts to EMF)",
+      "8.57 V",
+      "2.86 V",
+      "8.21 V",
+      "0.00 V"
+    ],
+    "explanation": "V_terminal = \u03b5 - I \u00d7 r = 6.0 V - (0.57 A \u00d7 0.50 \u03a9) = 6.0 V - 0.29 V = 5.71 V.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Electricity",
+      "subtopic": "Terminal Voltage Calculations",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate terminal voltage taking internal resistance into account"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_19"
+  },
+  {
+    "id": "TS_P1_NEWT_0880",
+    "topic": "Newton's Laws",
+    "subtopic": "Inclined Plane Calculations",
+    "difficulty": "hard",
+    "question": "A block of mass 60 kg slides down an incline angled at 20\u00b0 to the horizontal. The coefficient of kinetic friction between the block and the incline is \u03bc_k = 0.30. Taking g = 9.8 m\u00b7s\u207b\u00b2, calculate the acceleration of the block down the incline:",
+    "correct_answer": "0.59 m\u00b7s\u207b\u00b2",
+    "wrong_answers_pool": [
+      "3.35 m\u00b7s\u207b\u00b2 (ignored friction on incline)",
+      "9.21 m\u00b7s\u207b\u00b2 (used cosine instead of sine for parallel component)",
+      "1.18 m\u00b7s\u207b\u00b2",
+      "0.29 m\u00b7s\u207b\u00b2",
+      "6.11 m\u00b7s\u207b\u00b2 (added friction instead of opposing motion)",
+      "2.09 m\u00b7s\u207b\u00b2",
+      "0.88 m\u00b7s\u207b\u00b2"
+    ],
+    "explanation": "1. Parallel weight component: F_g\u2225 = m \u00d7 g \u00d7 sin(20\u00b0) = 60 \u00d7 9.8 \u00d7 0.3420 = 201.1 N. 2. Normal force: N = m \u00d7 g \u00d7 cos(20\u00b0) = 60 \u00d7 9.8 \u00d7 0.9397 = 552.5 N. 3. Kinetic friction: f_k = \u03bc_k \u00d7 N = 0.30 \u00d7 552.5 = 165.8 N. 4. F_net = F_g\u2225 - f_k = 201.1 - 165.8 = 35.3 N. a = F_net / m = 35.3 / 60 = 0.59 m\u00b7s\u207b\u00b2.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Newton's Laws",
+      "subtopic": "Inclined Plane Calculations",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate acceleration down a rough inclined plane"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_20"
+  },
+  {
+    "id": "TS_P1_WEP_0922",
+    "topic": "Work, Energy & Power",
+    "subtopic": "Work-Energy Theorem",
+    "difficulty": "hard",
+    "question": "A stationary equipment trolley of mass 10 kg is pulled across a rough horizontal concrete floor by an applied horizontal force of 1000 N through a displacement of 15.0 m. The coefficient of kinetic friction is \u03bc_k = 0.15. Using the Work-Energy Theorem (W_net = \u0394E_k), calculate the final velocity of the trolley (g = 9.8 m\u00b7s\u207b\u00b2):",
+    "correct_answer": "54.37 m\u00b7s\u207b\u00b9",
+    "wrong_answers_pool": [
+      "54.77 m\u00b7s\u207b\u00b9 (neglected friction work W_f)",
+      "2955.90 m\u00b7s\u207b\u00b9 (forgot to take square root of vf\u00b2)",
+      "108.74 m\u00b7s\u207b\u00b9",
+      "27.18 m\u00b7s\u207b\u00b9",
+      "38.44 m\u00b7s\u207b\u00b9 (omitted factor of 2 in kinetic energy)",
+      "57.87 m\u00b7s\u207b\u00b9",
+      "81.55 m\u00b7s\u207b\u00b9"
+    ],
+    "explanation": "1. Friction: f_k = \u03bc_k \u00d7 m \u00d7 g = 0.15 \u00d7 10 \u00d7 9.8 = 14.7 N. 2. Net force: F_net = F_app - f_k = 1000 - 14.7 = 985.3 N. 3. W_net = F_net \u00d7 \u0394x = 985.3 \u00d7 15.0 = 14779.5 J. 4. Work-Energy Theorem: W_net = 1/2 \u00d7 m \u00d7 vf\u00b2 => vf = \u221a(2 \u00d7 W_net / m) = \u221a(2 \u00d7 14779.5 / 10) = 54.37 m\u00b7s\u207b\u00b9.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Work, Energy & Power",
+      "subtopic": "Work-Energy Theorem",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate final velocity using work-energy theorem with friction"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_21"
+  },
+  {
+    "id": "TS_P1_WEP_0918",
+    "topic": "Work, Energy & Power",
+    "subtopic": "Work-Energy Theorem",
+    "difficulty": "hard",
+    "question": "A stationary equipment trolley of mass 10 kg is pulled across a rough horizontal concrete floor by an applied horizontal force of 800 N through a displacement of 20.0 m. The coefficient of kinetic friction is \u03bc_k = 0.30. Using the Work-Energy Theorem (W_net = \u0394E_k), calculate the final velocity of the trolley (g = 9.8 m\u00b7s\u207b\u00b2):",
+    "correct_answer": "55.52 m\u00b7s\u207b\u00b9",
+    "wrong_answers_pool": [
+      "56.57 m\u00b7s\u207b\u00b9 (neglected friction work W_f)",
+      "3082.40 m\u00b7s\u207b\u00b9 (forgot to take square root of vf\u00b2)",
+      "111.04 m\u00b7s\u207b\u00b9",
+      "27.76 m\u00b7s\u207b\u00b9",
+      "39.26 m\u00b7s\u207b\u00b9 (omitted factor of 2 in kinetic energy)",
+      "59.02 m\u00b7s\u207b\u00b9",
+      "83.28 m\u00b7s\u207b\u00b9"
+    ],
+    "explanation": "1. Friction: f_k = \u03bc_k \u00d7 m \u00d7 g = 0.30 \u00d7 10 \u00d7 9.8 = 29.4 N. 2. Net force: F_net = F_app - f_k = 800 - 29.4 = 770.6 N. 3. W_net = F_net \u00d7 \u0394x = 770.6 \u00d7 20.0 = 15412.0 J. 4. Work-Energy Theorem: W_net = 1/2 \u00d7 m \u00d7 vf\u00b2 => vf = \u221a(2 \u00d7 W_net / m) = \u221a(2 \u00d7 15412.0 / 10) = 55.52 m\u00b7s\u207b\u00b9.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Work, Energy & Power",
+      "subtopic": "Work-Energy Theorem",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate final velocity using work-energy theorem with friction"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_22"
+  },
+  {
+    "id": "TS_P1_MOM_0915",
+    "topic": "Momentum & Impulse",
+    "subtopic": "Rebounding Vectors",
+    "difficulty": "hard",
+    "question": "A ball of mass 0.40 kg moves horizontally rightwards at 12.0 m\u00b7s\u207b\u00b9 and strikes a vertical concrete wall. It rebounds horizontally to the left at a speed of 10.2 m\u00b7s\u207b\u00b9. Taking rightwards as the positive direction, calculate the magnitude and direction of the change in momentum (\u0394p) of the ball:",
+    "correct_answer": "8.88 N\u00b7s away from the wall (opposite to initial motion)",
+    "wrong_answers_pool": [
+      "0.72 N\u00b7s (failed to treat rebound velocity as a negative vector: vf - vi)",
+      "4.80 N\u00b7s (calculated initial momentum only)",
+      "4.08 N\u00b7s (calculated rebound momentum only)",
+      "17.76 N\u00b7s",
+      "4.44 N\u00b7s",
+      "13.88 N\u00b7s",
+      "12.43 N\u00b7s"
+    ],
+    "explanation": "Assign directions: Right = (+), Left = (-). v_i = +12.0 m\u00b7s\u207b\u00b9, v_f = -10.2 m\u00b7s\u207b\u00b9. \u0394p = m \u00d7 (v_f - v_i) = 0.40 \u00d7 [(-10.2) - (+12.0)] = 0.40 \u00d7 (-22.2) = -8.88 kg\u00b7m\u00b7s\u207b\u00b9 (magnitude = 8.88 N\u00b7s away from the wall (opposite to initial motion)).",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Momentum & Impulse",
+      "subtopic": "Rebounding Vectors",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate change in momentum for rebounding object using vector signs"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_23"
+  },
+  {
+    "id": "TS_P1_MOM_0977",
+    "topic": "Momentum & Impulse",
+    "subtopic": "Rebounding Vectors",
+    "difficulty": "hard",
+    "question": "A ball of mass 0.50 kg moves horizontally rightwards at 10.0 m\u00b7s\u207b\u00b9 and strikes a vertical concrete wall. It rebounds horizontally to the left at a speed of 7.0 m\u00b7s\u207b\u00b9. Taking rightwards as the positive direction, calculate the magnitude and direction of the change in momentum (\u0394p) of the ball:",
+    "correct_answer": "8.50 N\u00b7s away from the wall (opposite to initial motion)",
+    "wrong_answers_pool": [
+      "1.50 N\u00b7s (failed to treat rebound velocity as a negative vector: vf - vi)",
+      "5.00 N\u00b7s (calculated initial momentum only)",
+      "3.50 N\u00b7s (calculated rebound momentum only)",
+      "17.00 N\u00b7s",
+      "4.25 N\u00b7s",
+      "13.50 N\u00b7s",
+      "11.90 N\u00b7s"
+    ],
+    "explanation": "Assign directions: Right = (+), Left = (-). v_i = +10.0 m\u00b7s\u207b\u00b9, v_f = -7.0 m\u00b7s\u207b\u00b9. \u0394p = m \u00d7 (v_f - v_i) = 0.50 \u00d7 [(-7.0) - (+10.0)] = 0.50 \u00d7 (-17.0) = -8.50 kg\u00b7m\u00b7s\u207b\u00b9 (magnitude = 8.50 N\u00b7s away from the wall (opposite to initial motion)).",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Momentum & Impulse",
+      "subtopic": "Rebounding Vectors",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate change in momentum for rebounding object using vector signs"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_24"
+  },
+  {
+    "id": "TS_P1_WAV_0802",
+    "topic": "Waves, Sound & Light",
+    "subtopic": "Lens Magnification",
+    "difficulty": "hard",
+    "question": "An arrow of height h_o = 3.0 cm is placed upright at a distance of d_o = 25.0 cm from a thin CONVEX lens having a focal length of f = +12.0 cm. Calculate the HEIGHT (h_i) of the resulting image:",
+    "correct_answer": "2.77 cm (Inverted real image)",
+    "wrong_answers_pool": [
+      "3.00 cm (assumed no magnification)",
+      "3.25 cm",
+      "5.54 cm",
+      "1.38 cm",
+      "23.08 cm (confused image distance with image height)",
+      "5.27 cm",
+      "3.88 cm"
+    ],
+    "explanation": "1. Image distance: 1/d_i = 1/f - 1/d_o = 1/12.0 - 1/25.0 => d_i = (300.0) / (13.0) = 23.08 cm. 2. Magnification: |m| = d_i / d_o = 23.08 / 25.0 = 0.923. 3. Image height: h_i = |m| \u00d7 h_o = 0.923 \u00d7 3.0 cm = 2.77 cm (Inverted real image).",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Waves, Sound & Light",
+      "subtopic": "Lens Magnification",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate image height from multi-step lens equation"
     },
     "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_25"
   },
   {
-    "id": "TS_P1_MAG_0662",
+    "id": "TS_P1_MAG_0584",
     "topic": "Electromagnetism",
     "subtopic": "Faraday's Law Calculations",
     "difficulty": "medium",
-    "question": "A coil consisting of N = 200 turns experiences a change in magnetic flux of \u0394\u03a6 = 0.025 Wb over a time interval of \u0394t = 0.05 s. Calculate the magnitude of the induced electromotive force (emf, \u03b5) in the coil:",
-    "correct_answer": "100.00 V",
+    "question": "A coil consisting of N = 150 turns experiences a change in magnetic flux of \u0394\u03a6 = 0.100 Wb over a time interval of \u0394t = 0.25 s. Calculate the magnitude of the induced electromotive force (emf, \u03b5) in the coil:",
+    "correct_answer": "60.00 V",
     "wrong_answers_pool": [
-      "0.2500 V (multiplied turns, flux and time together)",
-      "0.50 V (neglected the number of turns N in coil)",
-      "400.00 V (inverted flux and time)",
-      "200.00 V",
-      "50.00 V",
-      "115.00 V",
-      "1000.00 V"
+      "3.7500 V (multiplied turns, flux and time together)",
+      "0.40 V (neglected the number of turns N in coil)",
+      "375.00 V (inverted flux and time)",
+      "120.00 V",
+      "30.00 V",
+      "75.00 V",
+      "600.00 V"
     ],
-    "explanation": "Faraday's Law: \u03b5 = N \u00d7 (\u0394\u03a6 / \u0394t) = 200 \u00d7 (0.025 Wb / 0.05 s) = 200 \u00d7 0.500 = 100.00 V.",
+    "explanation": "Faraday's Law: \u03b5 = N \u00d7 (\u0394\u03a6 / \u0394t) = 150 \u00d7 (0.100 Wb / 0.25 s) = 150 \u00d7 0.400 = 60.00 V.",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
@@ -727,330 +727,50 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_26"
   },
   {
-    "id": "TS_P1_WAV_0905",
-    "topic": "Waves, Sound & Light",
-    "subtopic": "Lens Magnification",
-    "difficulty": "hard",
-    "question": "An arrow of height h_o = 10.0 cm is placed upright at a distance of d_o = 50.0 cm from a thin CONVEX lens having a focal length of f = +20.0 cm. Calculate the HEIGHT (h_i) of the resulting image:",
-    "correct_answer": "6.67 cm (Inverted real image)",
-    "wrong_answers_pool": [
-      "10.00 cm (assumed no magnification)",
-      "15.00 cm",
-      "13.33 cm",
-      "3.33 cm",
-      "33.33 cm (confused image distance with image height)",
-      "9.17 cm",
-      "9.33 cm"
-    ],
-    "explanation": "1. Image distance: 1/d_i = 1/f - 1/d_o = 1/20.0 - 1/50.0 => d_i = (1000.0) / (30.0) = 33.33 cm. 2. Magnification: |m| = d_i / d_o = 33.33 / 50.0 = 0.667. 3. Image height: h_i = |m| \u00d7 h_o = 0.667 \u00d7 10.0 cm = 6.67 cm (Inverted real image).",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Waves, Sound & Light",
-      "subtopic": "Lens Magnification",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate image height from multi-step lens equation"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_27"
-  },
-  {
-    "id": "TS_P1_MAG_0336",
-    "topic": "Electromagnetism",
-    "subtopic": "Faraday's Law Calculations",
-    "difficulty": "medium",
-    "question": "A coil consisting of N = 50 turns experiences a change in magnetic flux of \u0394\u03a6 = 0.025 Wb over a time interval of \u0394t = 0.02 s. Calculate the magnitude of the induced electromotive force (emf, \u03b5) in the coil:",
-    "correct_answer": "62.50 V",
-    "wrong_answers_pool": [
-      "0.0250 V (multiplied turns, flux and time together)",
-      "1.25 V (neglected the number of turns N in coil)",
-      "40.00 V (inverted flux and time)",
-      "125.00 V",
-      "31.25 V",
-      "77.50 V",
-      "625.00 V"
-    ],
-    "explanation": "Faraday's Law: \u03b5 = N \u00d7 (\u0394\u03a6 / \u0394t) = 50 \u00d7 (0.025 Wb / 0.02 s) = 50 \u00d7 1.250 = 62.50 V.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Electromagnetism",
-      "subtopic": "Faraday's Law Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate induced EMF using Faraday's Law"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_28"
-  },
-  {
-    "id": "TS_P1_ELEC_0516",
-    "topic": "Electricity",
-    "subtopic": "Ohm's Law Calculations",
-    "difficulty": "medium",
-    "question": "When a potential difference of 230.0 V is applied across an unknown heating coil, a current of 11.50 A flows through it. Determine the resistance (R) of the coil:",
-    "correct_answer": "20.0 \u03a9",
-    "wrong_answers_pool": [
-      "2645.0 \u03a9 (multiplied V by I)",
-      "0.0500 \u03a9 (inverted: I / V)",
-      "40.0 \u03a9",
-      "10.0 \u03a9",
-      "30.0 \u03a9",
-      "230.0 \u03a9",
-      "28.0 \u03a9"
-    ],
-    "explanation": "R = V / I = 230.0 V / 11.50 A = 20.0 \u03a9.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Electricity",
-      "subtopic": "Ohm's Law Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate resistance from voltage and current"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_29"
-  },
-  {
-    "id": "TS_P1_NEWT_0847",
-    "topic": "Newton's Laws",
-    "subtopic": "Inclined Plane Calculations",
-    "difficulty": "hard",
-    "question": "A block of mass 15 kg slides down an incline angled at 20\u00b0 to the horizontal. The coefficient of kinetic friction between the block and the incline is \u03bc_k = 0.15. Taking g = 9.8 m\u00b7s\u207b\u00b2, calculate the acceleration of the block down the incline:",
-    "correct_answer": "1.97 m\u00b7s\u207b\u00b2",
-    "wrong_answers_pool": [
-      "3.35 m\u00b7s\u207b\u00b2 (ignored friction on incline)",
-      "9.21 m\u00b7s\u207b\u00b2 (used cosine instead of sine for parallel component)",
-      "3.94 m\u00b7s\u207b\u00b2",
-      "0.99 m\u00b7s\u207b\u00b2",
-      "4.73 m\u00b7s\u207b\u00b2 (added friction instead of opposing motion)",
-      "3.47 m\u00b7s\u207b\u00b2",
-      "2.96 m\u00b7s\u207b\u00b2"
-    ],
-    "explanation": "1. Parallel weight component: F_g\u2225 = m \u00d7 g \u00d7 sin(20\u00b0) = 15 \u00d7 9.8 \u00d7 0.3420 = 50.3 N. 2. Normal force: N = m \u00d7 g \u00d7 cos(20\u00b0) = 15 \u00d7 9.8 \u00d7 0.9397 = 138.1 N. 3. Kinetic friction: f_k = \u03bc_k \u00d7 N = 0.15 \u00d7 138.1 = 20.7 N. 4. F_net = F_g\u2225 - f_k = 50.3 - 20.7 = 29.6 N. a = F_net / m = 29.6 / 15 = 1.97 m\u00b7s\u207b\u00b2.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Newton's Laws",
-      "subtopic": "Inclined Plane Calculations",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate acceleration down a rough inclined plane"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_30"
-  },
-  {
-    "id": "TS_P1_ELAST_0364",
-    "topic": "Elasticity & Hydraulics",
-    "subtopic": "Hooke's Law Calculations",
-    "difficulty": "medium",
-    "question": "A tensile force of 9.0 N is applied to an elastic spring, resulting in an extension of 6.0 cm. Determine the spring constant (k) of this spring:",
-    "correct_answer": "150.0 N\u00b7m\u207b\u00b9",
-    "wrong_answers_pool": [
-      "1.5 N\u00b7m\u207b\u00b9 (omitted cm to meter conversion)",
-      "0.54 N\u00b7m\u207b\u00b9 (multiplied force by extension)",
-      "300.0 N\u00b7m\u207b\u00b9",
-      "75.0 N\u00b7m\u207b\u00b9",
-      "200.0 N\u00b7m\u207b\u00b9",
-      "0.0067 N\u00b7m\u207b\u00b9",
-      "210.0 N\u00b7m\u207b\u00b9"
-    ],
-    "explanation": "k = F / \u0394x = 9.0 N / (6.0 \u00d7 10\u207b\u00b2 m) = 9.0 / 0.060 = 150.0 N\u00b7m\u207b\u00b9.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Elasticity & Hydraulics",
-      "subtopic": "Hooke's Law Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate spring constant from force and extension"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_31"
-  },
-  {
-    "id": "TS_P1_WEP_0827",
+    "id": "TS_P1_WEP_0491",
     "topic": "Work, Energy & Power",
-    "subtopic": "Work-Energy Theorem",
-    "difficulty": "hard",
-    "question": "A stationary equipment trolley of mass 10 kg is pulled across a rough horizontal concrete floor by an applied horizontal force of 300 N through a displacement of 15.0 m. The coefficient of kinetic friction is \u03bc_k = 0.20. Using the Work-Energy Theorem (W_net = \u0394E_k), calculate the final velocity of the trolley (g = 9.8 m\u00b7s\u207b\u00b2):",
-    "correct_answer": "29.00 m\u00b7s\u207b\u00b9",
+    "subtopic": "Work Calculations",
+    "difficulty": "medium",
+    "question": "A mechanical pulling force of 200 N is exerted on an industrial trolley, moving it through a displacement of 10.0 m along a flat track. The force acts horizontally in the direction of motion. Calculate the work done by this force:",
+    "correct_answer": "2000.0 J",
     "wrong_answers_pool": [
-      "30.00 m\u00b7s\u207b\u00b9 (neglected friction work W_f)",
-      "841.20 m\u00b7s\u207b\u00b9 (forgot to take square root of vf\u00b2)",
-      "58.01 m\u00b7s\u207b\u00b9",
-      "14.50 m\u00b7s\u207b\u00b9",
-      "20.51 m\u00b7s\u207b\u00b9 (omitted factor of 2 in kinetic energy)",
-      "32.50 m\u00b7s\u207b\u00b9",
-      "43.51 m\u00b7s\u207b\u00b9"
+      "2000.0 J (omitted cos \u03b8 factor)",
+      "20.0 J (divided force by distance)",
+      "4000.0 J",
+      "1000.0 J",
+      "2150.0 J",
+      "-2000.0 J",
+      "3000.0 J"
     ],
-    "explanation": "1. Friction: f_k = \u03bc_k \u00d7 m \u00d7 g = 0.20 \u00d7 10 \u00d7 9.8 = 19.6 N. 2. Net force: F_net = F_app - f_k = 300 - 19.6 = 280.4 N. 3. W_net = F_net \u00d7 \u0394x = 280.4 \u00d7 15.0 = 4206.0 J. 4. Work-Energy Theorem: W_net = 1/2 \u00d7 m \u00d7 vf\u00b2 => vf = \u221a(2 \u00d7 W_net / m) = \u221a(2 \u00d7 4206.0 / 10) = 29.00 m\u00b7s\u207b\u00b9.",
+    "explanation": "W = F \u00d7 \u0394x \u00d7 cos \u03b8 = 200 N \u00d7 10.0 m \u00d7 cos(0\u00b0) = 2000.0 \u00d7 1.0000 = 2000.0 J.",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
       "topic": "Work, Energy & Power",
-      "subtopic": "Work-Energy Theorem",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate final velocity using work-energy theorem with friction"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_32"
-  },
-  {
-    "id": "TS_P1_ELEC_0696",
-    "topic": "Electricity",
-    "subtopic": "Parallel Current Calculations",
-    "difficulty": "medium",
-    "question": "For the same circuit with R1 = 12.0 \u03a9 and R2 = 4.0 \u03a9 connected in parallel across the 12 V source, calculate the TOTAL CURRENT (I_total) supplied by the battery:",
-    "correct_answer": "4.00 A",
-    "wrong_answers_pool": [
-      "0.75 A (divided by series sum of resistances)",
-      "8.00 A",
-      "2.00 A",
-      "1.00 A (calculated current in branch 1 only)",
-      "3.00 A (calculated current in branch 2 only)",
-      "7.00 A",
-      "5.60 A"
-    ],
-    "explanation": "I_total = V / R_p = 12 V / 3.00 \u03a9 = 4.00 A (or I_total = I1 + I2 = 1.00 A + 3.00 A = 4.00 A).",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Electricity",
-      "subtopic": "Parallel Current Calculations",
+      "subtopic": "Work Calculations",
       "cognitive_level": "Applying",
       "difficulty": "medium",
-      "learning_outcome": "Calculate total current in parallel circuit"
+      "learning_outcome": "Calculate work done by force at an angle"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_33"
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_27"
   },
   {
-    "id": "TS_P1_ELEC_0930",
-    "topic": "Electricity",
-    "subtopic": "Terminal Voltage Calculations",
-    "difficulty": "hard",
-    "question": "A power supply of EMF \u03b5 = 6.0 V and internal resistance r = 2.00 \u03a9 is connected to a circuit drawing a current of 1.50 A. Calculate the operating TERMINAL VOLTAGE (V_terminal) available to the external circuit:",
-    "correct_answer": "3.00 V",
-    "wrong_answers_pool": [
-      "6.0 V (neglected internal resistance: assumed zero lost volts)",
-      "3.00 V (calculated lost volts instead of terminal voltage)",
-      "9.00 V (added lost volts to EMF)",
-      "4.50 V",
-      "1.50 V",
-      "5.50 V",
-      "0.00 V"
-    ],
-    "explanation": "V_terminal = \u03b5 - I \u00d7 r = 6.0 V - (1.50 A \u00d7 2.00 \u03a9) = 6.0 V - 3.00 V = 3.00 V.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Electricity",
-      "subtopic": "Terminal Voltage Calculations",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate terminal voltage taking internal resistance into account"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_34"
-  },
-  {
-    "id": "TS_P1_ELEC_0887",
-    "topic": "Electricity",
-    "subtopic": "Internal Resistance Calculations",
-    "difficulty": "hard",
-    "question": "A battery has an open-circuit electromotive force (EMF) of \u03b5 = 6.0 V. When connected to an external load resistor of R = 5.0 \u03a9, the terminal potential difference across the battery drops to V_terminal = 5.00 V, and a current of 1.00 A flows. Calculate the internal resistance (r) of the battery:",
-    "correct_answer": "1.00 \u03a9",
-    "wrong_answers_pool": [
-      "1.00 \u03a9 (calculated lost volts instead of internal resistance)",
-      "5.00 \u03a9 (external load resistance)",
-      "2.00 \u03a9",
-      "0.50 \u03a9",
-      "6.00 \u03a9 (total circuit resistance R + r)",
-      "1.80 \u03a9",
-      "1.50 \u03a9"
-    ],
-    "explanation": "1. Lost volts: V_lost = \u03b5 - V_terminal = 6.0 V - 5.00 V = 1.00 V. 2. Internal resistance: r = V_lost / I = 1.00 V / 1.00 A = 1.00 \u03a9.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Electricity",
-      "subtopic": "Internal Resistance Calculations",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate battery internal resistance from EMF and load voltage"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_35"
-  },
-  {
-    "id": "TS_P1_ELEC_0981",
-    "topic": "Electricity",
-    "subtopic": "Internal Resistance Calculations",
-    "difficulty": "hard",
-    "question": "A battery has an open-circuit electromotive force (EMF) of \u03b5 = 9.0 V. When connected to an external load resistor of R = 4.0 \u03a9, the terminal potential difference across the battery drops to V_terminal = 8.00 V, and a current of 2.00 A flows. Calculate the internal resistance (r) of the battery:",
-    "correct_answer": "0.50 \u03a9",
-    "wrong_answers_pool": [
-      "1.00 \u03a9 (calculated lost volts instead of internal resistance)",
-      "4.00 \u03a9 (external load resistance)",
-      "1.00 \u03a9",
-      "0.25 \u03a9",
-      "4.50 \u03a9 (total circuit resistance R + r)",
-      "1.30 \u03a9",
-      "0.75 \u03a9"
-    ],
-    "explanation": "1. Lost volts: V_lost = \u03b5 - V_terminal = 9.0 V - 8.00 V = 1.00 V. 2. Internal resistance: r = V_lost / I = 1.00 V / 2.00 A = 0.50 \u03a9.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Electricity",
-      "subtopic": "Internal Resistance Calculations",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate battery internal resistance from EMF and load voltage"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_36"
-  },
-  {
-    "id": "TS_P1_ELAST_0538",
-    "topic": "Elasticity & Hydraulics",
-    "subtopic": "Hooke's Law Calculations",
-    "difficulty": "medium",
-    "question": "A tensile force of 90.0 N is applied to an elastic spring, resulting in an extension of 12.0 cm. Determine the spring constant (k) of this spring:",
-    "correct_answer": "750.0 N\u00b7m\u207b\u00b9",
-    "wrong_answers_pool": [
-      "7.5 N\u00b7m\u207b\u00b9 (omitted cm to meter conversion)",
-      "10.80 N\u00b7m\u207b\u00b9 (multiplied force by extension)",
-      "1500.0 N\u00b7m\u207b\u00b9",
-      "375.0 N\u00b7m\u207b\u00b9",
-      "800.0 N\u00b7m\u207b\u00b9",
-      "0.0013 N\u00b7m\u207b\u00b9",
-      "1050.0 N\u00b7m\u207b\u00b9"
-    ],
-    "explanation": "k = F / \u0394x = 90.0 N / (12.0 \u00d7 10\u207b\u00b2 m) = 90.0 / 0.120 = 750.0 N\u00b7m\u207b\u00b9.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Elasticity & Hydraulics",
-      "subtopic": "Hooke's Law Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate spring constant from force and extension"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_37"
-  },
-  {
-    "id": "TS_P1_NEWT_0546",
+    "id": "TS_P1_NEWT_0360",
     "topic": "Newton's Laws",
     "subtopic": "Acceleration Calculations",
     "difficulty": "medium",
-    "question": "A horizontal pulling force of 51.2 N acts on a 8.0 kg trolley resting on a horizontal track. A constant kinetic friction force of 39.2 N opposes the motion. Determine the acceleration (a) of the trolley:",
-    "correct_answer": "1.50 m\u00b7s\u207b\u00b2",
+    "question": "A horizontal pulling force of 27.2 N acts on a 5.0 kg trolley resting on a horizontal track. A constant kinetic friction force of 12.2 N opposes the motion. Determine the acceleration (a) of the trolley:",
+    "correct_answer": "3.00 m\u00b7s\u207b\u00b2",
     "wrong_answers_pool": [
-      "6.40 m\u00b7s\u207b\u00b2 (ignored friction force fk)",
-      "3.00 m\u00b7s\u207b\u00b2",
-      "0.75 m\u00b7s\u207b\u00b2",
-      "4.90 m\u00b7s\u207b\u00b2",
-      "2.75 m\u00b7s\u207b\u00b2",
-      "2.10 m\u00b7s\u207b\u00b2",
+      "5.45 m\u00b7s\u207b\u00b2 (ignored friction force fk)",
+      "6.00 m\u00b7s\u207b\u00b2",
+      "1.50 m\u00b7s\u207b\u00b2",
+      "2.45 m\u00b7s\u207b\u00b2",
+      "4.25 m\u00b7s\u207b\u00b2",
+      "4.20 m\u00b7s\u207b\u00b2",
       "0.00 m\u00b7s\u207b\u00b2 (assumed constant velocity)"
     ],
-    "explanation": "F_net = F_app - f_k = 51.2 N - 39.2 N = 12.0 N. a = F_net / m = 12.0 N / 8.0 kg = 1.50 m\u00b7s\u207b\u00b2.",
+    "explanation": "F_net = F_app - f_k = 27.2 N - 12.2 N = 15.0 N. a = F_net / m = 15.0 N / 5.0 kg = 3.00 m\u00b7s\u207b\u00b2.",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
@@ -1060,25 +780,304 @@
       "difficulty": "medium",
       "learning_outcome": "Calculate acceleration from applied force and friction"
     },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_28"
+  },
+  {
+    "id": "TS_P1_MOM_0797",
+    "topic": "Momentum & Impulse",
+    "subtopic": "Inelastic Collisions",
+    "difficulty": "medium",
+    "question": "Trolley A of mass 3.0 kg moves eastwards across a frictionless track at 4.0 m\u00b7s\u207b\u00b9 and collides with stationary Trolley B of mass 15.0 kg. Upon impact, the two trolleys lock together. Calculate the common velocity (v_f) of the combined system immediately after collision:",
+    "correct_answer": "0.67 m\u00b7s\u207b\u00b9 eastwards",
+    "wrong_answers_pool": [
+      "4.00 m\u00b7s\u207b\u00b9 eastwards (assumed speed unchanged)",
+      "2.00 m\u00b7s\u207b\u00b9 eastwards (halved speed regardless of mass ratio)",
+      "1.33 m\u00b7s\u207b\u00b9 eastwards",
+      "0.33 m\u00b7s\u207b\u00b9 eastwards",
+      "0.80 m\u00b7s\u207b\u00b9 eastwards (omitted m1 from final combined mass)",
+      "2.17 m\u00b7s\u207b\u00b9 eastwards",
+      "0.93 m\u00b7s\u207b\u00b9 eastwards"
+    ],
+    "explanation": "Conservation of linear momentum: \u03a3p_initial = \u03a3p_final => (m1 \u00d7 v1i) + (m2 \u00d7 v2i) = (m1 + m2) \u00d7 v_f => (3.0 \u00d7 4.0) + 0 = (3.0 + 15.0) \u00d7 v_f => 12.00 = 18.0 \u00d7 v_f => v_f = 12.00 / 18.0 = 0.67 m\u00b7s\u207b\u00b9 eastwards.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Momentum & Impulse",
+      "subtopic": "Inelastic Collisions",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate final velocity for completely inelastic collision"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_29"
+  },
+  {
+    "id": "TS_P1_WAV_0910",
+    "topic": "Waves, Sound & Light",
+    "subtopic": "Lens Magnification",
+    "difficulty": "hard",
+    "question": "An arrow of height h_o = 6.0 cm is placed upright at a distance of d_o = 30.0 cm from a thin CONVEX lens having a focal length of f = +25.0 cm. Calculate the HEIGHT (h_i) of the resulting image:",
+    "correct_answer": "30.00 cm (Inverted real image)",
+    "wrong_answers_pool": [
+      "6.00 cm (assumed no magnification)",
+      "1.20 cm",
+      "60.00 cm",
+      "15.00 cm",
+      "150.00 cm (confused image distance with image height)",
+      "32.50 cm",
+      "42.00 cm"
+    ],
+    "explanation": "1. Image distance: 1/d_i = 1/f - 1/d_o = 1/25.0 - 1/30.0 => d_i = (750.0) / (5.0) = 150.00 cm. 2. Magnification: |m| = d_i / d_o = 150.00 / 30.0 = 5.000. 3. Image height: h_i = |m| \u00d7 h_o = 5.000 \u00d7 6.0 cm = 30.00 cm (Inverted real image).",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Waves, Sound & Light",
+      "subtopic": "Lens Magnification",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate image height from multi-step lens equation"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_30"
+  },
+  {
+    "id": "TS_P1_MOM_0940",
+    "topic": "Momentum & Impulse",
+    "subtopic": "Rebounding Vectors",
+    "difficulty": "hard",
+    "question": "A ball of mass 0.40 kg moves horizontally rightwards at 30.0 m\u00b7s\u207b\u00b9 and strikes a vertical concrete wall. It rebounds horizontally to the left at a speed of 25.5 m\u00b7s\u207b\u00b9. Taking rightwards as the positive direction, calculate the magnitude and direction of the change in momentum (\u0394p) of the ball:",
+    "correct_answer": "22.20 N\u00b7s away from the wall (opposite to initial motion)",
+    "wrong_answers_pool": [
+      "1.80 N\u00b7s (failed to treat rebound velocity as a negative vector: vf - vi)",
+      "12.00 N\u00b7s (calculated initial momentum only)",
+      "10.20 N\u00b7s (calculated rebound momentum only)",
+      "44.40 N\u00b7s",
+      "11.10 N\u00b7s",
+      "27.20 N\u00b7s",
+      "31.08 N\u00b7s"
+    ],
+    "explanation": "Assign directions: Right = (+), Left = (-). v_i = +30.0 m\u00b7s\u207b\u00b9, v_f = -25.5 m\u00b7s\u207b\u00b9. \u0394p = m \u00d7 (v_f - v_i) = 0.40 \u00d7 [(-25.5) - (+30.0)] = 0.40 \u00d7 (-55.5) = -22.20 kg\u00b7m\u00b7s\u207b\u00b9 (magnitude = 22.20 N\u00b7s away from the wall (opposite to initial motion)).",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Momentum & Impulse",
+      "subtopic": "Rebounding Vectors",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate change in momentum for rebounding object using vector signs"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_31"
+  },
+  {
+    "id": "TS_P1_ELAST_0901",
+    "topic": "Elasticity & Hydraulics",
+    "subtopic": "Young's Modulus",
+    "difficulty": "hard",
+    "question": "A solid cylindrical rod of **Wrought iron** has an initial length of 2.0 m and a circular diameter of 4.0 mm. A tensile load of 1000 N is applied axially along the rod. Given Young's modulus K = 190 GPa (190.0 \u00d7 10\u2079 Pa), calculate the extension (\u0394L) produced in the rod:",
+    "correct_answer": "0.838 mm",
+    "wrong_answers_pool": [
+      "3.351 mm (used diameter instead of radius for area)",
+      "0.00084 mm (unit conversion error)",
+      "1.675 mm",
+      "0.419 mm",
+      "0.005 mm",
+      "1.338 mm",
+      "1.256 mm"
+    ],
+    "explanation": "1. Cross-sectional area: A = \u03c0 \u00d7 r\u00b2 = \u03c0 \u00d7 (2.00 \u00d7 10\u207b\u00b3 m)\u00b2 = 1.257e-05 m\u00b2. 2. K = (F \u00d7 L_0) / (A \u00d7 \u0394L) => \u0394L = (F \u00d7 L_0) / (A \u00d7 K) = (1000 \u00d7 2.0) / (1.257e-05 \u00d7 1.90e+11) = 8.3766e-04 m = 0.838 mm.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Elasticity & Hydraulics",
+      "subtopic": "Young's Modulus",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate extension using Young's modulus for Wrought iron"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_32"
+  },
+  {
+    "id": "TS_P1_MAG_0942",
+    "topic": "Electromagnetism",
+    "subtopic": "Electromagnetic Induction & Ohm's Law",
+    "difficulty": "hard",
+    "question": "A coil of N = 52 turns and total electrical resistance R = 12.00 \u03a9 is connected in a closed circuit. The magnetic flux linking the coil collapses by 0.070 Wb in \u0394t = 0.061 s. Calculate the magnitude of the INDUCED CURRENT (I_induced) flowing through the circuit:",
+    "correct_answer": "4.97 A",
+    "wrong_answers_pool": [
+      "716.07 A (multiplied EMF by resistance: \u03b5 \u00d7 R)",
+      "0.2011 A (inverted Ohm's law: R / \u03b5)",
+      "9.95 A",
+      "2.49 A",
+      "59.67 A (assumed induced current equals induced EMF)",
+      "9.97 A",
+      "7.46 A"
+    ],
+    "explanation": "1. Induced EMF from Faraday's Law: \u03b5 = N \u00d7 (\u0394\u03a6 / \u0394t) = 52 \u00d7 (0.070 Wb / 0.061 s) = 59.67 V. 2. Induced current from Ohm's Law: I = \u03b5 / R = 59.67 V / 12.00 \u03a9 = 4.97 A.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Electromagnetism",
+      "subtopic": "Electromagnetic Induction & Ohm's Law",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate induced current combining Faraday's and Ohm's laws"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_33"
+  },
+  {
+    "id": "TS_P1_ELAST_0557",
+    "topic": "Elasticity & Hydraulics",
+    "subtopic": "Hooke's Law Calculations",
+    "difficulty": "medium",
+    "question": "A coil spring has a spring constant (stiffness) of k = 800 N\u00b7m\u207b\u00b9. What magnitude of deforming force is required to produce an extension of 8.0 cm in the spring (assuming the limit of proportionality is not exceeded)?",
+    "correct_answer": "64.0 N",
+    "wrong_answers_pool": [
+      "6400.0 N (forgot to convert cm to meters)",
+      "10000.0 N (divided k by extension)",
+      "128.0 N",
+      "32.0 N",
+      "89.0 N",
+      "0.0001 N",
+      "96.0 N"
+    ],
+    "explanation": "Hooke's Law: F = k \u00d7 \u0394x. Convert extension: 8.0 cm = 0.080 m. F = 800 N\u00b7m\u207b\u00b9 \u00d7 0.080 m = 64.0 N.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Elasticity & Hydraulics",
+      "subtopic": "Hooke's Law Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate deforming force from spring constant"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_34"
+  },
+  {
+    "id": "TS_P1_MOM_0473",
+    "topic": "Momentum & Impulse",
+    "subtopic": "Momentum Calculations",
+    "difficulty": "medium",
+    "question": "A technical object of mass 1.20 kg travels at a constant velocity of 10.0 m\u00b7s\u207b\u00b9 eastwards. Calculate its linear momentum:",
+    "correct_answer": "12.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward",
+    "wrong_answers_pool": [
+      "120.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward (used v\u00b2 instead of v)",
+      "60.00 J (calculated kinetic energy instead of momentum)",
+      "24.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward",
+      "6.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward",
+      "8.33 kg\u00b7m\u00b7s\u207b\u00b9 eastward",
+      "22.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward",
+      "18.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward"
+    ],
+    "explanation": "Linear momentum: p = m \u00d7 v = 1.20 kg \u00d7 10.0 m\u00b7s\u207b\u00b9 = 12.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Momentum & Impulse",
+      "subtopic": "Momentum Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate linear momentum from mass and velocity"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_35"
+  },
+  {
+    "id": "TS_P1_ELAST_0782",
+    "topic": "Elasticity & Hydraulics",
+    "subtopic": "Strain Calculations",
+    "difficulty": "medium",
+    "question": "A structural aluminium wire of initial length 1.0 m extends by 1.0 mm when subjected to an axial tensile force. Determine the tensile strain (\u03b5) in the wire:",
+    "correct_answer": "0.00100 (or 0.100%)",
+    "wrong_answers_pool": [
+      "1.0000 (forgot to convert mm to meters)",
+      "1000.0 (inverted strain formula)",
+      "0.00200",
+      "0.00050",
+      "0.00600",
+      "0.0100 m (incorrectly added unit meters)",
+      "0.00150"
+    ],
+    "explanation": "Strain \u03b5 = \u0394L / L_0. Convert extension: 1.0 mm = 0.0010 m. \u03b5 = 0.0010 m / 1.0 m = 0.00100 (or 0.100%). (Strain is dimensionless).",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Elasticity & Hydraulics",
+      "subtopic": "Strain Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate tensile strain from extension and initial length"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_36"
+  },
+  {
+    "id": "TS_P1_ELEC_0739",
+    "topic": "Electricity",
+    "subtopic": "Parallel Resistance Calculations",
+    "difficulty": "medium",
+    "question": "Two resistors of resistance R1 = 40.0 \u03a9 and R2 = 10.0 \u03a9 are connected in PARALLEL across an ideal 48 V battery. Calculate the equivalent parallel resistance (R_p) of the circuit:",
+    "correct_answer": "8.00 \u03a9",
+    "wrong_answers_pool": [
+      "50.0 \u03a9 (added resistors in series instead of parallel)",
+      "25.00 \u03a9 (averaged the resistances)",
+      "16.00 \u03a9",
+      "4.00 \u03a9",
+      "400.0 \u03a9 (multiplied without dividing by sum)",
+      "12.00 \u03a9"
+    ],
+    "explanation": "Parallel resistance formula: 1/R_p = 1/R1 + 1/R2 => R_p = (R1 \u00d7 R2) / (R1 + R2) = (40.0 \u00d7 10.0) / (40.0 + 10.0) = 400.0 / 50.0 = 8.00 \u03a9.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Electricity",
+      "subtopic": "Parallel Resistance Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate equivalent parallel resistance"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_37"
+  },
+  {
+    "id": "TS_P1_MOM_0951",
+    "topic": "Momentum & Impulse",
+    "subtopic": "Rebounding Vectors",
+    "difficulty": "hard",
+    "question": "A ball of mass 0.45 kg moves horizontally rightwards at 15.0 m\u00b7s\u207b\u00b9 and strikes a vertical concrete wall. It rebounds horizontally to the left at a speed of 9.0 m\u00b7s\u207b\u00b9. Taking rightwards as the positive direction, calculate the magnitude and direction of the change in momentum (\u0394p) of the ball:",
+    "correct_answer": "10.80 N\u00b7s away from the wall (opposite to initial motion)",
+    "wrong_answers_pool": [
+      "2.70 N\u00b7s (failed to treat rebound velocity as a negative vector: vf - vi)",
+      "6.75 N\u00b7s (calculated initial momentum only)",
+      "4.05 N\u00b7s (calculated rebound momentum only)",
+      "21.60 N\u00b7s",
+      "5.40 N\u00b7s",
+      "15.80 N\u00b7s",
+      "15.12 N\u00b7s"
+    ],
+    "explanation": "Assign directions: Right = (+), Left = (-). v_i = +15.0 m\u00b7s\u207b\u00b9, v_f = -9.0 m\u00b7s\u207b\u00b9. \u0394p = m \u00d7 (v_f - v_i) = 0.45 \u00d7 [(-9.0) - (+15.0)] = 0.45 \u00d7 (-24.0) = -10.80 kg\u00b7m\u00b7s\u207b\u00b9 (magnitude = 10.80 N\u00b7s away from the wall (opposite to initial motion)).",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Momentum & Impulse",
+      "subtopic": "Rebounding Vectors",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate change in momentum for rebounding object using vector signs"
+    },
     "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_38"
   },
   {
-    "id": "TS_P1_WEP_0803",
+    "id": "TS_P1_WEP_0998",
     "topic": "Work, Energy & Power",
     "subtopic": "Work-Energy Theorem",
     "difficulty": "hard",
-    "question": "A stationary equipment trolley of mass 10 kg is pulled across a rough horizontal concrete floor by an applied horizontal force of 200 N through a displacement of 20.0 m. The coefficient of kinetic friction is \u03bc_k = 0.15. Using the Work-Energy Theorem (W_net = \u0394E_k), calculate the final velocity of the trolley (g = 9.8 m\u00b7s\u207b\u00b2):",
-    "correct_answer": "27.22 m\u00b7s\u207b\u00b9",
+    "question": "A stationary equipment trolley of mass 20 kg is pulled across a rough horizontal concrete floor by an applied horizontal force of 400 N through a displacement of 20.0 m. The coefficient of kinetic friction is \u03bc_k = 0.30. Using the Work-Energy Theorem (W_net = \u0394E_k), calculate the final velocity of the trolley (g = 9.8 m\u00b7s\u207b\u00b2):",
+    "correct_answer": "26.12 m\u00b7s\u207b\u00b9",
     "wrong_answers_pool": [
       "28.28 m\u00b7s\u207b\u00b9 (neglected friction work W_f)",
-      "741.20 m\u00b7s\u207b\u00b9 (forgot to take square root of vf\u00b2)",
-      "54.45 m\u00b7s\u207b\u00b9",
-      "13.61 m\u00b7s\u207b\u00b9",
-      "19.25 m\u00b7s\u207b\u00b9 (omitted factor of 2 in kinetic energy)",
-      "30.72 m\u00b7s\u207b\u00b9",
-      "40.84 m\u00b7s\u207b\u00b9"
+      "682.40 m\u00b7s\u207b\u00b9 (forgot to take square root of vf\u00b2)",
+      "52.25 m\u00b7s\u207b\u00b9",
+      "13.06 m\u00b7s\u207b\u00b9",
+      "18.47 m\u00b7s\u207b\u00b9 (omitted factor of 2 in kinetic energy)",
+      "29.62 m\u00b7s\u207b\u00b9",
+      "39.18 m\u00b7s\u207b\u00b9"
     ],
-    "explanation": "1. Friction: f_k = \u03bc_k \u00d7 m \u00d7 g = 0.15 \u00d7 10 \u00d7 9.8 = 14.7 N. 2. Net force: F_net = F_app - f_k = 200 - 14.7 = 185.3 N. 3. W_net = F_net \u00d7 \u0394x = 185.3 \u00d7 20.0 = 3706.0 J. 4. Work-Energy Theorem: W_net = 1/2 \u00d7 m \u00d7 vf\u00b2 => vf = \u221a(2 \u00d7 W_net / m) = \u221a(2 \u00d7 3706.0 / 10) = 27.22 m\u00b7s\u207b\u00b9.",
+    "explanation": "1. Friction: f_k = \u03bc_k \u00d7 m \u00d7 g = 0.30 \u00d7 20 \u00d7 9.8 = 58.8 N. 2. Net force: F_net = F_app - f_k = 400 - 58.8 = 341.2 N. 3. W_net = F_net \u00d7 \u0394x = 341.2 \u00d7 20.0 = 6824.0 J. 4. Work-Energy Theorem: W_net = 1/2 \u00d7 m \u00d7 vf\u00b2 => vf = \u221a(2 \u00d7 W_net / m) = \u221a(2 \u00d7 6824.0 / 20) = 26.12 m\u00b7s\u207b\u00b9.",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
@@ -1091,39 +1090,122 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_39"
   },
   {
-    "id": "TS_P1_WEP_0978",
-    "topic": "Work, Energy & Power",
-    "subtopic": "Work-Energy Theorem",
+    "id": "TS_P1_NEWT_0902",
+    "topic": "Newton's Laws",
+    "subtopic": "Inclined Plane Calculations",
     "difficulty": "hard",
-    "question": "A stationary equipment trolley of mass 20 kg is pulled across a rough horizontal concrete floor by an applied horizontal force of 300 N through a displacement of 20.0 m. The coefficient of kinetic friction is \u03bc_k = 0.30. Using the Work-Energy Theorem (W_net = \u0394E_k), calculate the final velocity of the trolley (g = 9.8 m\u00b7s\u207b\u00b2):",
-    "correct_answer": "21.96 m\u00b7s\u207b\u00b9",
+    "question": "A block of mass 20 kg slides down an incline angled at 25\u00b0 to the horizontal. The coefficient of kinetic friction between the block and the incline is \u03bc_k = 0.15. Taking g = 9.8 m\u00b7s\u207b\u00b2, calculate the acceleration of the block down the incline:",
+    "correct_answer": "2.81 m\u00b7s\u207b\u00b2",
     "wrong_answers_pool": [
-      "24.49 m\u00b7s\u207b\u00b9 (neglected friction work W_f)",
-      "482.40 m\u00b7s\u207b\u00b9 (forgot to take square root of vf\u00b2)",
-      "43.93 m\u00b7s\u207b\u00b9",
-      "10.98 m\u00b7s\u207b\u00b9",
-      "15.53 m\u00b7s\u207b\u00b9 (omitted factor of 2 in kinetic energy)",
-      "25.46 m\u00b7s\u207b\u00b9",
-      "32.95 m\u00b7s\u207b\u00b9"
+      "4.14 m\u00b7s\u207b\u00b2 (ignored friction on incline)",
+      "8.88 m\u00b7s\u207b\u00b2 (used cosine instead of sine for parallel component)",
+      "5.62 m\u00b7s\u207b\u00b2",
+      "1.40 m\u00b7s\u207b\u00b2",
+      "5.47 m\u00b7s\u207b\u00b2 (added friction instead of opposing motion)",
+      "4.31 m\u00b7s\u207b\u00b2",
+      "4.21 m\u00b7s\u207b\u00b2"
     ],
-    "explanation": "1. Friction: f_k = \u03bc_k \u00d7 m \u00d7 g = 0.30 \u00d7 20 \u00d7 9.8 = 58.8 N. 2. Net force: F_net = F_app - f_k = 300 - 58.8 = 241.2 N. 3. W_net = F_net \u00d7 \u0394x = 241.2 \u00d7 20.0 = 4824.0 J. 4. Work-Energy Theorem: W_net = 1/2 \u00d7 m \u00d7 vf\u00b2 => vf = \u221a(2 \u00d7 W_net / m) = \u221a(2 \u00d7 4824.0 / 20) = 21.96 m\u00b7s\u207b\u00b9.",
+    "explanation": "1. Parallel weight component: F_g\u2225 = m \u00d7 g \u00d7 sin(25\u00b0) = 20 \u00d7 9.8 \u00d7 0.4226 = 82.8 N. 2. Normal force: N = m \u00d7 g \u00d7 cos(25\u00b0) = 20 \u00d7 9.8 \u00d7 0.9063 = 177.6 N. 3. Kinetic friction: f_k = \u03bc_k \u00d7 N = 0.15 \u00d7 177.6 = 26.6 N. 4. F_net = F_g\u2225 - f_k = 82.8 - 26.6 = 56.2 N. a = F_net / m = 56.2 / 20 = 2.81 m\u00b7s\u207b\u00b2.",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
-      "topic": "Work, Energy & Power",
-      "subtopic": "Work-Energy Theorem",
+      "topic": "Newton's Laws",
+      "subtopic": "Inclined Plane Calculations",
       "cognitive_level": "Evaluating",
       "difficulty": "hard",
-      "learning_outcome": "Calculate final velocity using work-energy theorem with friction"
+      "learning_outcome": "Calculate acceleration down a rough inclined plane"
     },
     "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_40"
   },
   {
-    "id": "TS_P1_NEWT_0896",
+    "id": "TS_P1_ELEC_0608",
+    "topic": "Electricity",
+    "subtopic": "Ohm's Law Calculations",
+    "difficulty": "medium",
+    "question": "When a potential difference of 60.0 V is applied across an unknown heating coil, a current of 1.20 A flows through it. Determine the resistance (R) of the coil:",
+    "correct_answer": "50.0 \u03a9",
+    "wrong_answers_pool": [
+      "72.0 \u03a9 (multiplied V by I)",
+      "0.0200 \u03a9 (inverted: I / V)",
+      "100.0 \u03a9",
+      "25.0 \u03a9",
+      "60.0 \u03a9",
+      "70.0 \u03a9"
+    ],
+    "explanation": "R = V / I = 60.0 V / 1.20 A = 50.0 \u03a9.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Electricity",
+      "subtopic": "Ohm's Law Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate resistance from voltage and current"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_41"
+  },
+  {
+    "id": "TS_P1_ELEC_0910",
+    "topic": "Electricity",
+    "subtopic": "Terminal Voltage Calculations",
+    "difficulty": "hard",
+    "question": "A power supply of EMF \u03b5 = 6.0 V and internal resistance r = 1.20 \u03a9 is connected to a circuit drawing a current of 0.54 A. Calculate the operating TERMINAL VOLTAGE (V_terminal) available to the external circuit:",
+    "correct_answer": "5.36 V",
+    "wrong_answers_pool": [
+      "6.0 V (neglected internal resistance: assumed zero lost volts)",
+      "0.64 V (calculated lost volts instead of terminal voltage)",
+      "6.64 V (added lost volts to EMF)",
+      "8.04 V",
+      "2.68 V",
+      "7.86 V",
+      "0.00 V"
+    ],
+    "explanation": "V_terminal = \u03b5 - I \u00d7 r = 6.0 V - (0.54 A \u00d7 1.20 \u03a9) = 6.0 V - 0.64 V = 5.36 V.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Electricity",
+      "subtopic": "Terminal Voltage Calculations",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate terminal voltage taking internal resistance into account"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_42"
+  },
+  {
+    "id": "TS_P1_ELAST_0972",
+    "topic": "Elasticity & Hydraulics",
+    "subtopic": "Young's Modulus",
+    "difficulty": "hard",
+    "question": "A solid cylindrical rod of **Titanium alloy** has an initial length of 2.5 m and a circular diameter of 4.0 mm. A tensile load of 4000 N is applied axially along the rod. Given Young's modulus K = 110 GPa (110.0 \u00d7 10\u2079 Pa), calculate the extension (\u0394L) produced in the rod:",
+    "correct_answer": "7.234 mm",
+    "wrong_answers_pool": [
+      "28.937 mm (used diameter instead of radius for area)",
+      "0.00723 mm (unit conversion error)",
+      "14.469 mm",
+      "3.617 mm",
+      "0.014 mm",
+      "7.734 mm",
+      "10.851 mm"
+    ],
+    "explanation": "1. Cross-sectional area: A = \u03c0 \u00d7 r\u00b2 = \u03c0 \u00d7 (2.00 \u00d7 10\u207b\u00b3 m)\u00b2 = 1.257e-05 m\u00b2. 2. K = (F \u00d7 L_0) / (A \u00d7 \u0394L) => \u0394L = (F \u00d7 L_0) / (A \u00d7 K) = (4000 \u00d7 2.5) / (1.257e-05 \u00d7 1.10e+11) = 7.2343e-03 m = 7.234 mm.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Elasticity & Hydraulics",
+      "subtopic": "Young's Modulus",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate extension using Young's modulus for Titanium alloy"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_43"
+  },
+  {
+    "id": "TS_P1_NEWT_0901",
     "topic": "Newton's Laws",
     "subtopic": "Inclined Plane Calculations",
     "difficulty": "hard",
-    "question": "A block of mass 15 kg slides down an incline angled at 25\u00b0 to the horizontal. The coefficient of kinetic friction between the block and the incline is \u03bc_k = 0.10. Taking g = 9.8 m\u00b7s\u207b\u00b2, calculate the acceleration of the block down the incline:",
+    "question": "A block of mass 20 kg slides down an incline angled at 25\u00b0 to the horizontal. The coefficient of kinetic friction between the block and the incline is \u03bc_k = 0.10. Taking g = 9.8 m\u00b7s\u207b\u00b2, calculate the acceleration of the block down the incline:",
     "correct_answer": "3.25 m\u00b7s\u207b\u00b2",
     "wrong_answers_pool": [
       "4.14 m\u00b7s\u207b\u00b2 (ignored friction on incline)",
@@ -1134,7 +1216,7 @@
       "4.75 m\u00b7s\u207b\u00b2",
       "4.88 m\u00b7s\u207b\u00b2"
     ],
-    "explanation": "1. Parallel weight component: F_g\u2225 = m \u00d7 g \u00d7 sin(25\u00b0) = 15 \u00d7 9.8 \u00d7 0.4226 = 62.1 N. 2. Normal force: N = m \u00d7 g \u00d7 cos(25\u00b0) = 15 \u00d7 9.8 \u00d7 0.9063 = 133.2 N. 3. Kinetic friction: f_k = \u03bc_k \u00d7 N = 0.10 \u00d7 133.2 = 13.3 N. 4. F_net = F_g\u2225 - f_k = 62.1 - 13.3 = 48.8 N. a = F_net / m = 48.8 / 15 = 3.25 m\u00b7s\u207b\u00b2.",
+    "explanation": "1. Parallel weight component: F_g\u2225 = m \u00d7 g \u00d7 sin(25\u00b0) = 20 \u00d7 9.8 \u00d7 0.4226 = 82.8 N. 2. Normal force: N = m \u00d7 g \u00d7 cos(25\u00b0) = 20 \u00d7 9.8 \u00d7 0.9063 = 177.6 N. 3. Kinetic friction: f_k = \u03bc_k \u00d7 N = 0.10 \u00d7 177.6 = 17.8 N. 4. F_net = F_g\u2225 - f_k = 82.8 - 17.8 = 65.1 N. a = F_net / m = 65.1 / 20 = 3.25 m\u00b7s\u207b\u00b2.",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
@@ -1144,109 +1226,53 @@
       "difficulty": "hard",
       "learning_outcome": "Calculate acceleration down a rough inclined plane"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_41"
-  },
-  {
-    "id": "TS_P1_ELAST_0909",
-    "topic": "Elasticity & Hydraulics",
-    "subtopic": "Young's Modulus",
-    "difficulty": "hard",
-    "question": "A solid cylindrical rod of **Wrought iron** has an initial length of 3.0 m and a circular diameter of 4.0 mm. A tensile load of 1000 N is applied axially along the rod. Given Young's modulus K = 190 GPa (190.0 \u00d7 10\u2079 Pa), calculate the extension (\u0394L) produced in the rod:",
-    "correct_answer": "1.256 mm",
-    "wrong_answers_pool": [
-      "5.026 mm (used diameter instead of radius for area)",
-      "0.00126 mm (unit conversion error)",
-      "2.513 mm",
-      "0.628 mm",
-      "0.007 mm",
-      "1.756 mm",
-      "1.885 mm"
-    ],
-    "explanation": "1. Cross-sectional area: A = \u03c0 \u00d7 r\u00b2 = \u03c0 \u00d7 (2.00 \u00d7 10\u207b\u00b3 m)\u00b2 = 1.257e-05 m\u00b2. 2. K = (F \u00d7 L_0) / (A \u00d7 \u0394L) => \u0394L = (F \u00d7 L_0) / (A \u00d7 K) = (1000 \u00d7 3.0) / (1.257e-05 \u00d7 1.90e+11) = 1.2565e-03 m = 1.256 mm.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Elasticity & Hydraulics",
-      "subtopic": "Young's Modulus",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate extension using Young's modulus for Wrought iron"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_42"
-  },
-  {
-    "id": "TS_P1_WAV_0947",
-    "topic": "Waves, Sound & Light",
-    "subtopic": "Wavelength in Optical Media",
-    "difficulty": "hard",
-    "question": "A beam of yellow helium-neon laser light has a wavelength of 700 nm in vacuum. As this light beam enters a slab of **Water** (refractive index n = 1.33), what is the new wavelength of the light INSIDE the Water?",
-    "correct_answer": "526.3 nm",
-    "wrong_answers_pool": [
-      "931.0 nm (multiplied wavelength by n instead of dividing)",
-      "700.0 nm (assumed wavelength does not change across boundary)",
-      "1052.6 nm",
-      "263.2 nm",
-      "601.3 nm",
-      "133.0 nm",
-      "789.5 nm"
-    ],
-    "explanation": "Light slows down in an optical medium: v = c / n. Frequency f remains constant. Therefore \u03bb_medium = v / f = (c / n) / f = \u03bb_vacuum / n = 700 nm / 1.33 = 526.3 nm.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Waves, Sound & Light",
-      "subtopic": "Wavelength in Optical Media",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate compressed wavelength inside Water"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_43"
-  },
-  {
-    "id": "TS_P1_ELAST_0556",
-    "topic": "Elasticity & Hydraulics",
-    "subtopic": "Hooke's Law Calculations",
-    "difficulty": "medium",
-    "question": "A tensile force of 48.0 N is applied to an elastic spring, resulting in an extension of 6.0 cm. Determine the spring constant (k) of this spring:",
-    "correct_answer": "800.0 N\u00b7m\u207b\u00b9",
-    "wrong_answers_pool": [
-      "8.0 N\u00b7m\u207b\u00b9 (omitted cm to meter conversion)",
-      "2.88 N\u00b7m\u207b\u00b9 (multiplied force by extension)",
-      "1600.0 N\u00b7m\u207b\u00b9",
-      "400.0 N\u00b7m\u207b\u00b9",
-      "850.0 N\u00b7m\u207b\u00b9",
-      "0.0013 N\u00b7m\u207b\u00b9",
-      "1120.0 N\u00b7m\u207b\u00b9"
-    ],
-    "explanation": "k = F / \u0394x = 48.0 N / (6.0 \u00d7 10\u207b\u00b2 m) = 48.0 / 0.060 = 800.0 N\u00b7m\u207b\u00b9.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Elasticity & Hydraulics",
-      "subtopic": "Hooke's Law Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate spring constant from force and extension"
-    },
     "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_44"
   },
   {
-    "id": "TS_P1_WEP_0318",
+    "id": "TS_P1_MOM_0989",
+    "topic": "Momentum & Impulse",
+    "subtopic": "Rebounding Vectors",
+    "difficulty": "hard",
+    "question": "A ball of mass 0.50 kg moves horizontally rightwards at 15.0 m\u00b7s\u207b\u00b9 and strikes a vertical concrete wall. It rebounds horizontally to the left at a speed of 12.0 m\u00b7s\u207b\u00b9. Taking rightwards as the positive direction, calculate the magnitude and direction of the change in momentum (\u0394p) of the ball:",
+    "correct_answer": "13.50 N\u00b7s away from the wall (opposite to initial motion)",
+    "wrong_answers_pool": [
+      "1.50 N\u00b7s (failed to treat rebound velocity as a negative vector: vf - vi)",
+      "7.50 N\u00b7s (calculated initial momentum only)",
+      "6.00 N\u00b7s (calculated rebound momentum only)",
+      "27.00 N\u00b7s",
+      "6.75 N\u00b7s",
+      "18.50 N\u00b7s",
+      "18.90 N\u00b7s"
+    ],
+    "explanation": "Assign directions: Right = (+), Left = (-). v_i = +15.0 m\u00b7s\u207b\u00b9, v_f = -12.0 m\u00b7s\u207b\u00b9. \u0394p = m \u00d7 (v_f - v_i) = 0.50 \u00d7 [(-12.0) - (+15.0)] = 0.50 \u00d7 (-27.0) = -13.50 kg\u00b7m\u00b7s\u207b\u00b9 (magnitude = 13.50 N\u00b7s away from the wall (opposite to initial motion)).",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Sciences",
+      "topic": "Momentum & Impulse",
+      "subtopic": "Rebounding Vectors",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate change in momentum for rebounding object using vector signs"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_45"
+  },
+  {
+    "id": "TS_P1_WEP_0425",
     "topic": "Work, Energy & Power",
     "subtopic": "Work Calculations",
     "difficulty": "medium",
-    "question": "A mechanical pulling force of 50 N is exerted on an industrial trolley, moving it through a displacement of 6.0 m along a flat track. The force acts at an angle of 45\u00b0 above the horizontal. Calculate the work done by this force:",
-    "correct_answer": "212.1 J",
+    "question": "A mechanical pulling force of 150 N is exerted on an industrial trolley, moving it through a displacement of 5.0 m along a flat track. The force acts horizontally opposing the motion (friction). Calculate the work done by this force:",
+    "correct_answer": "-750.0 J",
     "wrong_answers_pool": [
-      "300.0 J (omitted cos \u03b8 factor)",
-      "8.3 J (divided force by distance)",
-      "424.3 J",
-      "106.1 J",
-      "362.1 J",
-      "-212.1 J",
-      "318.2 J"
+      "750.0 J (omitted cos \u03b8 factor)",
+      "30.0 J (divided force by distance)",
+      "-1500.0 J",
+      "-375.0 J",
+      "-600.0 J",
+      "750.0 J",
+      "-1125.0 J"
     ],
-    "explanation": "W = F \u00d7 \u0394x \u00d7 cos \u03b8 = 50 N \u00d7 6.0 m \u00d7 cos(45\u00b0) = 300.0 \u00d7 0.7071 = 212.1 J.",
+    "explanation": "W = F \u00d7 \u0394x \u00d7 cos \u03b8 = 150 N \u00d7 5.0 m \u00d7 cos(180\u00b0) = 750.0 \u00d7 -1.0000 = -750.0 J.",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
@@ -1256,25 +1282,25 @@
       "difficulty": "medium",
       "learning_outcome": "Calculate work done by force at an angle"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_45"
+    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_46"
   },
   {
-    "id": "TS_P1_MOM_0543",
+    "id": "TS_P1_MOM_0527",
     "topic": "Momentum & Impulse",
     "subtopic": "Momentum Calculations",
     "difficulty": "medium",
-    "question": "A technical object of mass 5.00 kg travels at a constant velocity of 8.0 m\u00b7s\u207b\u00b9 eastwards. Calculate its linear momentum:",
-    "correct_answer": "40.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward",
+    "question": "A technical object of mass 2.00 kg travels at a constant velocity of 18.0 m\u00b7s\u207b\u00b9 eastwards. Calculate its linear momentum:",
+    "correct_answer": "36.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward",
     "wrong_answers_pool": [
-      "320.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward (used v\u00b2 instead of v)",
-      "160.00 J (calculated kinetic energy instead of momentum)",
-      "80.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward",
-      "20.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward",
-      "1.60 kg\u00b7m\u00b7s\u207b\u00b9 eastward",
-      "50.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward",
-      "60.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward"
+      "648.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward (used v\u00b2 instead of v)",
+      "324.00 J (calculated kinetic energy instead of momentum)",
+      "72.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward",
+      "18.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward",
+      "9.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward",
+      "46.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward",
+      "54.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward"
     ],
-    "explanation": "Linear momentum: p = m \u00d7 v = 5.00 kg \u00d7 8.0 m\u00b7s\u207b\u00b9 = 40.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward.",
+    "explanation": "Linear momentum: p = m \u00d7 v = 2.00 kg \u00d7 18.0 m\u00b7s\u207b\u00b9 = 36.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward.",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
@@ -1284,117 +1310,89 @@
       "difficulty": "medium",
       "learning_outcome": "Calculate linear momentum from mass and velocity"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_46"
-  },
-  {
-    "id": "TS_P1_NEWT_0579",
-    "topic": "Newton's Laws",
-    "subtopic": "Newton Second Law Calculations",
-    "difficulty": "medium",
-    "question": "A mechanical crate of mass 10.0 kg is pulled across a rough horizontal concrete floor where the coefficient of kinetic friction is \u03bc_k = 0.15. What horizontal applied force (F_app) is required to accelerate the crate at 2.0 m\u00b7s\u207b\u00b2 (g = 9.8 m\u00b7s\u207b\u00b2)?",
-    "correct_answer": "34.7 N",
-    "wrong_answers_pool": [
-      "20.0 N (neglected kinetic friction fk)",
-      "14.7 N (applied force equals friction, zero acceleration)",
-      "69.4 N",
-      "17.4 N",
-      "79.7 N",
-      "5.3 N (subtracted friction from net force)",
-      "52.1 N"
-    ],
-    "explanation": "1. Normal force: N = m \u00d7 g = 10.0 \u00d7 9.8 = 98.0 N. 2. Friction: f_k = \u03bc_k \u00d7 N = 0.15 \u00d7 98.0 = 14.7 N. 3. Newton's 2nd Law: F_net = F_app - f_k = m \u00d7 a => F_app = m \u00d7 a + f_k = (10.0 \u00d7 2.0) + 14.7 = 20.0 + 14.7 = 34.7 N.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Sciences",
-      "topic": "Newton's Laws",
-      "subtopic": "Newton Second Law Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate horizontal applied force with friction"
-    },
     "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_47"
   },
   {
-    "id": "TS_P1_WAV_0897",
-    "topic": "Waves, Sound & Light",
-    "subtopic": "Lens Magnification",
-    "difficulty": "hard",
-    "question": "An arrow of height h_o = 8.0 cm is placed upright at a distance of d_o = 40.0 cm from a thin CONVEX lens having a focal length of f = +20.0 cm. Calculate the HEIGHT (h_i) of the resulting image:",
-    "correct_answer": "8.00 cm (Inverted real image)",
+    "id": "TS_P1_MOM_0533",
+    "topic": "Momentum & Impulse",
+    "subtopic": "Momentum Calculations",
+    "difficulty": "medium",
+    "question": "A technical object of mass 2.00 kg travels at a constant velocity of 30.0 m\u00b7s\u207b\u00b9 eastwards. Calculate its linear momentum:",
+    "correct_answer": "60.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward",
     "wrong_answers_pool": [
-      "8.00 cm (assumed no magnification)",
-      "8.00 cm",
-      "16.00 cm",
-      "4.00 cm",
-      "40.00 cm (confused image distance with image height)",
-      "10.50 cm",
-      "11.20 cm"
+      "1800.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward (used v\u00b2 instead of v)",
+      "900.00 J (calculated kinetic energy instead of momentum)",
+      "120.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward",
+      "30.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward",
+      "15.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward",
+      "70.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward",
+      "90.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward"
     ],
-    "explanation": "1. Image distance: 1/d_i = 1/f - 1/d_o = 1/20.0 - 1/40.0 => d_i = (800.0) / (20.0) = 40.00 cm. 2. Magnification: |m| = d_i / d_o = 40.00 / 40.0 = 1.000. 3. Image height: h_i = |m| \u00d7 h_o = 1.000 \u00d7 8.0 cm = 8.00 cm (Inverted real image).",
+    "explanation": "Linear momentum: p = m \u00d7 v = 2.00 kg \u00d7 30.0 m\u00b7s\u207b\u00b9 = 60.00 kg\u00b7m\u00b7s\u207b\u00b9 eastward.",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
-      "topic": "Waves, Sound & Light",
-      "subtopic": "Lens Magnification",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate image height from multi-step lens equation"
+      "topic": "Momentum & Impulse",
+      "subtopic": "Momentum Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate linear momentum from mass and velocity"
     },
     "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_48"
   },
   {
-    "id": "TS_P1_ELEC_0828",
-    "topic": "Electricity",
-    "subtopic": "Terminal Voltage Calculations",
+    "id": "TS_P1_WAV_0978",
+    "topic": "Waves, Sound & Light",
+    "subtopic": "Wavelength in Optical Media",
     "difficulty": "hard",
-    "question": "A power supply of EMF \u03b5 = 6.0 V and internal resistance r = 0.40 \u03a9 is connected to a circuit drawing a current of 0.71 A. Calculate the operating TERMINAL VOLTAGE (V_terminal) available to the external circuit:",
-    "correct_answer": "5.71 V",
+    "question": "A beam of yellow helium-neon laser light has a wavelength of 550 nm in vacuum. As this light beam enters a slab of **Perspex (acrylic)** (refractive index n = 1.49), what is the new wavelength of the light INSIDE the Perspex (acrylic)?",
+    "correct_answer": "369.1 nm",
     "wrong_answers_pool": [
-      "6.0 V (neglected internal resistance: assumed zero lost volts)",
-      "0.29 V (calculated lost volts instead of terminal voltage)",
-      "6.29 V (added lost volts to EMF)",
-      "8.57 V",
-      "2.86 V",
-      "8.21 V",
-      "0.00 V"
+      "819.5 nm (multiplied wavelength by n instead of dividing)",
+      "550.0 nm (assumed wavelength does not change across boundary)",
+      "738.3 nm",
+      "184.6 nm",
+      "444.1 nm",
+      "149.0 nm",
+      "553.7 nm"
     ],
-    "explanation": "V_terminal = \u03b5 - I \u00d7 r = 6.0 V - (0.71 A \u00d7 0.40 \u03a9) = 6.0 V - 0.29 V = 5.71 V.",
+    "explanation": "Light slows down in an optical medium: v = c / n. Frequency f remains constant. Therefore \u03bb_medium = v / f = (c / n) / f = \u03bb_vacuum / n = 550 nm / 1.49 = 369.1 nm.",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
-      "topic": "Electricity",
-      "subtopic": "Terminal Voltage Calculations",
+      "topic": "Waves, Sound & Light",
+      "subtopic": "Wavelength in Optical Media",
       "cognitive_level": "Evaluating",
       "difficulty": "hard",
-      "learning_outcome": "Calculate terminal voltage taking internal resistance into account"
+      "learning_outcome": "Calculate compressed wavelength inside Perspex (acrylic)"
     },
     "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_49"
   },
   {
-    "id": "TS_P1_WEP_0910",
-    "topic": "Work, Energy & Power",
-    "subtopic": "Work-Energy Theorem",
-    "difficulty": "hard",
-    "question": "A stationary equipment trolley of mass 10 kg is pulled across a rough horizontal concrete floor by an applied horizontal force of 800 N through a displacement of 30.0 m. The coefficient of kinetic friction is \u03bc_k = 0.20. Using the Work-Energy Theorem (W_net = \u0394E_k), calculate the final velocity of the trolley (g = 9.8 m\u00b7s\u207b\u00b2):",
-    "correct_answer": "68.43 m\u00b7s\u207b\u00b9",
+    "id": "TS_P1_NEWT_0412",
+    "topic": "Newton's Laws",
+    "subtopic": "Acceleration Calculations",
+    "difficulty": "medium",
+    "question": "A horizontal pulling force of 44.6 N acts on a 5.0 kg trolley resting on a horizontal track. A constant kinetic friction force of 19.6 N opposes the motion. Determine the acceleration (a) of the trolley:",
+    "correct_answer": "5.00 m\u00b7s\u207b\u00b2",
     "wrong_answers_pool": [
-      "69.28 m\u00b7s\u207b\u00b9 (neglected friction work W_f)",
-      "4682.40 m\u00b7s\u207b\u00b9 (forgot to take square root of vf\u00b2)",
-      "136.86 m\u00b7s\u207b\u00b9",
-      "34.21 m\u00b7s\u207b\u00b9",
-      "48.39 m\u00b7s\u207b\u00b9 (omitted factor of 2 in kinetic energy)",
-      "71.93 m\u00b7s\u207b\u00b9",
-      "102.64 m\u00b7s\u207b\u00b9"
+      "8.92 m\u00b7s\u207b\u00b2 (ignored friction force fk)",
+      "10.00 m\u00b7s\u207b\u00b2",
+      "2.50 m\u00b7s\u207b\u00b2",
+      "3.92 m\u00b7s\u207b\u00b2",
+      "6.25 m\u00b7s\u207b\u00b2",
+      "7.00 m\u00b7s\u207b\u00b2",
+      "0.00 m\u00b7s\u207b\u00b2 (assumed constant velocity)"
     ],
-    "explanation": "1. Friction: f_k = \u03bc_k \u00d7 m \u00d7 g = 0.20 \u00d7 10 \u00d7 9.8 = 19.6 N. 2. Net force: F_net = F_app - f_k = 800 - 19.6 = 780.4 N. 3. W_net = F_net \u00d7 \u0394x = 780.4 \u00d7 30.0 = 23412.0 J. 4. Work-Energy Theorem: W_net = 1/2 \u00d7 m \u00d7 vf\u00b2 => vf = \u221a(2 \u00d7 W_net / m) = \u221a(2 \u00d7 23412.0 / 10) = 68.43 m\u00b7s\u207b\u00b9.",
+    "explanation": "F_net = F_app - f_k = 44.6 N - 19.6 N = 25.0 N. a = F_net / m = 25.0 N / 5.0 kg = 5.00 m\u00b7s\u207b\u00b2.",
     "tags": {
       "grade": "12",
       "subject": "Technical Sciences",
-      "topic": "Work, Energy & Power",
-      "subtopic": "Work-Energy Theorem",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate final velocity using work-energy theorem with friction"
+      "topic": "Newton's Laws",
+      "subtopic": "Acceleration Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate acceleration from applied force and friction"
     },
     "exam_id": "EXAM_2026-W46_grade12_technical_sciences_paper1_50"
   }

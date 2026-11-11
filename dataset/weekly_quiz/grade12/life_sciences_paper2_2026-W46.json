@@ -1,70 +1,45 @@
 [
   {
-    "id": "LIFE_P2_GENETICS_0865",
-    "topic": "Genetics and Inheritance",
-    "question": "Pedigree analysis problem 37: A man who has hemophilia (XhY) marries a woman who does not have hemophilia and has no family history of hemophilia (XHXH). What are the chances of their daughters and sons having hemophilia?",
-    "correct_answer": "0% of sons have hemophilia, and 100% of daughters are carriers (XHXh)",
+    "id": "Microscopic Examination Scenario: _0361",
+    "topic": "Meiosis",
+    "question": "Chromosome calculation 29: In the species Garden pea (Pisum sativum), the diploid somatic chromosome number is 2n = 14. How many chromosomes will be found in a normal mature gamete after meiosis?",
+    "correct_answer": "7",
     "wrong_answers_pool": [
-      "50% of sons have hemophilia, and 50% of daughters are carriers",
-      "100% of sons have hemophilia, and 0% of daughters are affected",
-      "50% of both sons and daughters have hemophilia",
-      "100% of both sons and daughters have hemophilia",
-      "25% of sons have hemophilia, and 75% of daughters are affected",
-      "All children are completely unaffected and none are carriers"
+      "14",
+      "28",
+      "3",
+      "9",
+      "5",
+      "15",
+      "21"
     ],
-    "explanation": "The father passes Y to all sons (who receive XH from mother, so normal) and Xh to all daughters (who receive XH from mother, making 100% carriers).",
-    "difficulty": "hard",
+    "explanation": "The gamete is haploid (n): 14 / 2 = 7 chromosomes.",
+    "difficulty": "medium",
     "tags": {
       "grade": "12",
       "subject": "Life Sciences",
-      "topic": "Genetics and Inheritance",
-      "subtopic": "Pedigree Analysis",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
+      "topic": "Meiosis",
+      "subtopic": "Chromosome Numbers",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
     },
     "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_1"
   },
   {
-    "id": "LIFE_P2_GENETICS_0919",
-    "topic": "Genetics and Inheritance",
-    "question": "Pedigree analysis problem 91: In a pedigree chart, two affected parents have an unaffected child. What is the definitive genetic explanation?",
-    "correct_answer": "The condition is caused by a dominant allele, and both parents are heterozygous (Aa x Aa)",
-    "wrong_answers_pool": [
-      "The condition is recessive, and both parents are homozygous recessive",
-      "The child has undergone a back-mutation restoring the wild type",
-      "The condition is sex-linked recessive inherited from the mother",
-      "The father is hemizygous dominant and the mother is carrier",
-      "The condition is caused by trisomy 21",
-      "The condition is polygenic and environmental only",
-      "The child is homozygous dominant"
-    ],
-    "explanation": "If two affected parents have an unaffected child, the condition must be dominant; the parents are heterozygous (Aa), producing an aa unaffected child.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Life Sciences",
-      "topic": "Genetics and Inheritance",
-      "subtopic": "Pedigree Analysis",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_2"
-  },
-  {
-    "id": "LIFE_P2_DNA_0341",
+    "id": "LIFE_P2_DNA_0333",
     "topic": "DNA: The Code of Life",
-    "question": "Chemical analysis of double-stranded DNA reveals that 35% of the nitrogenous bases are adenine. What is the expected percentage of cytosine?",
-    "correct_answer": "15%",
+    "question": "Chemical analysis of double-stranded DNA reveals that 32% of the nitrogenous bases are adenine. What is the expected percentage of cytosine?",
+    "correct_answer": "18%",
     "wrong_answers_pool": [
-      "35%",
-      "19%",
-      "11%",
-      "70%",
-      "65%",
-      "30%",
+      "32%",
+      "22%",
+      "14%",
+      "64%",
+      "68%",
+      "36%",
       "25%"
     ],
-    "explanation": "A = 35% implies T = 35%. Remaining 30% is equally divided between C and G, giving Cytosine = 15%.",
+    "explanation": "A = 32% implies T = 32%. Remaining 36% is equally divided between C and G, giving Cytosine = 18%.",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
@@ -74,12 +49,38 @@
       "cognitive_level": "Application",
       "difficulty": "medium"
     },
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_2"
+  },
+  {
+    "id": "LIFE_P2_DNA_0962",
+    "topic": "DNA: The Code of Life",
+    "question": "Molecular evaluation case 130: A patient's gene sequence is sequenced and reveals the following mutation: Base 21 replaced: UGG -> UGA (Tryptophan -> Stop codon). What is the biological consequence on the synthesized protein?",
+    "correct_answer": "Nonsense mutation causing premature translation termination and loss of enzyme function",
+    "wrong_answers_pool": [
+      "The protein's primary structure is completely unaffected despite the altered reading frame",
+      "The ribosome bypasses the mutated codon and skips directly to the 3' poly-A tail",
+      "DNA polymerase fails to transcribe the mRNA during interphase",
+      "The cell initiates immediate mitosis to compensate for the missing enzyme",
+      "The mutation converts the DNA from double-stranded into single-stranded RNA",
+      "Mitochondrial DNA takes over the expression of the nuclear protein",
+      "The mutated codon binds to ribosomal RNA instead of transfer RNA"
+    ],
+    "explanation": "The specific consequence of Base 21 replaced: UGG -> UGA (Tryptophan -> Stop codon) is: Nonsense mutation causing premature translation termination and loss of enzyme function.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Life Sciences",
+      "topic": "DNA: The Code of Life",
+      "subtopic": "Protein Synthesis - Translation",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
     "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_3"
   },
   {
-    "id": "Karyotype Diagnostic Problem: _0866",
+    "id": "Chromosomal Aberration Evaluation: _0803",
     "topic": "Meiosis",
-    "question": "Cytogenetic case investigation 132: What is the precise cytogenetic mechanism of non-disjunction, and what is its immediate chromosomal consequence?",
+    "question": "Chromosomal Aberration Evaluation: What is the precise cytogenetic mechanism of non-disjunction, and what is its immediate chromosomal consequence?",
     "correct_answer": "Homologous chromosomes fail to separate in Anaphase I or sister chromatids fail to separate in Anaphase II, producing gametes with an abnormal chromosome number (n + 1 or n - 1)",
     "wrong_answers_pool": [
       "Centromeres split prematurely in Prophase I, doubling the total autosome number",
@@ -102,276 +103,45 @@
     "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_4"
   },
   {
-    "id": "LIFE_P2_GENETICS_0837",
+    "id": "LIFE_P2_GENETICS_0435",
     "topic": "Genetics and Inheritance",
-    "question": "Pedigree analysis problem 9: Which genetic mechanism best explains why two dark-skinned parents can have children with varying shades of skin colour, ranging from light brown to very dark brown?",
-    "correct_answer": "Polygenic inheritance with additive effects from multiple gene loci and independent assortment",
+    "question": "Pedigree/Paternity scenario 79: In a family, a cross occurs between Father ii (Group O) x Mother ii (Group O). What are the expected phenotypes of their biological offspring?",
+    "correct_answer": "100% Blood Group O (genotype ii)",
     "wrong_answers_pool": [
-      "Complete dominance at a single autosomal gene locus",
-      "A single sex-linked recessive allele on the X chromosome",
-      "Non-disjunction of chromosome 21 during oogenesis",
-      "Incomplete dominance at a single gene locus with only three phenotypes",
-      "Mitochondrial mutations inherited strictly from the mother",
-      "Environmental tanning without any genetic contribution",
-      "Epistatic masking of melanin by ribosomal RNA"
+      "50% Group O and 50% Group A",
+      "100% Group AB",
+      "100% Group A",
+      "100% Group B",
+      "25% Group O and 75% Group A",
+      "Any blood group is possible"
     ],
-    "explanation": "Skin pigmentation in humans is controlled by at least three or more polygenes (e.g. A, B, C) where each dominant allele contributes incrementally to melanin synthesis.",
-    "difficulty": "hard",
+    "explanation": "Crossing Father ii (Group O) x Mother ii (Group O) yields 100% Blood Group O (genotype ii).",
+    "difficulty": "medium",
     "tags": {
       "grade": "12",
       "subject": "Life Sciences",
       "topic": "Genetics and Inheritance",
-      "subtopic": "Pedigree Analysis",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
+      "subtopic": "Multiple Alleles",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
     },
     "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_5"
   },
   {
-    "id": "LIFE_P2_EVO_0949",
-    "topic": "Evolution",
-    "question": "Hominin evolution case 117: Which hominin was the first to use fire, manufacture Acheulean teardrop handaxes, and be the first hominin species to migrate out of Africa into Europe and Asia?",
-    "correct_answer": "Homo erectus ('Turkana Boy')",
-    "wrong_answers_pool": [
-      "Homo habilis ('Handy Man')",
-      "Australopithecus afarensis ('Lucy')",
-      "Australopithecus africanus",
-      "Homo naledi",
-      "Ardipithecus ramidus",
-      "Paranthropus boisei"
-    ],
-    "explanation": "Homo erectus exhibited a larger brain (~900-1100 cm3), perfected Acheulean stone tools, mastered fire, and successfully migrated across Eurasia.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Life Sciences",
-      "topic": "Evolution",
-      "subtopic": "Hominin Fossil Record",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_6"
-  },
-  {
-    "id": "LIFE_P2_EVO_0809",
-    "topic": "Evolution",
-    "question": "What remarkable hominin fossil specimen, discovered by Professor Lee Berger at Malapa in 2008, exhibits a transitional combination of Australopithecus and Homo features and was named 'Karabo'?",
-    "correct_answer": "Australopithecus sediba",
-    "wrong_answers_pool": [
-      "Australopithecus afarensis",
-      "Australopithecus africanus",
-      "Homo naledi",
-      "Homo habilis",
-      "Ardipithecus ramidus",
-      "Paranthropus robustus"
-    ],
-    "explanation": "Australopithecus sediba ('Karabo') shows small brain size like Australopithecus combined with modern pelvis and hand structures resembling genus Homo.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Life Sciences",
-      "topic": "Evolution",
-      "subtopic": "Hominin Fossil Record",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_7"
-  },
-  {
-    "id": "LIFE_P2_EVO_0508",
-    "topic": "Evolution",
-    "question": "Anatomical contrast 192: How does the anatomical feature 'Brow ridges (supraorbital tori)' compare between modern humans (Homo sapiens) and African apes?",
-    "correct_answer": "Greatly reduced or absent in modern humans; heavily developed and prominent in African apes",
-    "wrong_answers_pool": [
-      "Prominent in humans; absent in apes",
-      "Equally massive in both humans and apes",
-      "Only found in female humans and male apes",
-      "Absent in both humans and apes",
-      "Developed only in human infants",
-      "Found exclusively in modern Homo sapiens",
-      "Continuous across the forehead in humans but absent in gorillas",
-      "Replaced by horns in adult chimpanzees"
-    ],
-    "explanation": "In terms of Brow ridges (supraorbital tori): Greatly reduced or absent in modern humans; heavily developed and prominent in African apes.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Life Sciences",
-      "topic": "Evolution",
-      "subtopic": "Comparative Anatomy",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_8"
-  },
-  {
-    "id": "Microscopic Examination Scenario: _0426",
-    "topic": "Meiosis",
-    "question": "Chromosome calculation 94: In the species Horse (Equus caballus), the diploid somatic chromosome number is 2n = 64. How many chromosomes will be found in a normal mature gamete after meiosis?",
-    "correct_answer": "32",
-    "wrong_answers_pool": [
-      "64",
-      "128",
-      "16",
-      "34",
-      "30",
-      "65",
-      "96"
-    ],
-    "explanation": "The gamete is haploid (n): 64 / 2 = 32 chromosomes.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Life Sciences",
-      "topic": "Meiosis",
-      "subtopic": "Chromosome Numbers",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_9"
-  },
-  {
-    "id": "LIFE_P2_EVO_0310",
-    "topic": "Evolution",
-    "question": "CAPS Comparative Analysis: Two species of closely related frogs live in the identical pond habitat. One species breeds in early spring, while the other breeds in late summer. What type of reproductive isolating mechanism prevents them from interbreeding?",
-    "correct_answer": "Temporal (seasonal) isolation",
-    "wrong_answers_pool": [
-      "Behavioral isolation",
-      "Mechanical isolation",
-      "Gametic isolation",
-      "Geographic isolation",
-      "Hybrid sterility",
-      "Ecological niche isolation"
-    ],
-    "explanation": "Different breeding seasons or times of year represent temporal isolation.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Life Sciences",
-      "topic": "Evolution",
-      "subtopic": "Comparative Anatomy",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_10"
-  },
-  {
-    "id": "Karyotype Diagnostic Problem: _0816",
-    "topic": "Meiosis",
-    "question": "Cytogenetic case investigation 8: A human child is born with Down Syndrome (Trisomy 21). Which karyotype description accurately identifies this condition?",
-    "correct_answer": "47, XX, +21 (female) or 47, XY, +21 (male), exhibiting an extra third copy of chromosome 21",
-    "wrong_answers_pool": [
-      "45, XO, lacking one X chromosome (Turner syndrome)",
-      "47, XXY, exhibiting an extra X chromosome in a male",
-      "46, XY, with a deletion on chromosome 5 (Cri-du-chat)",
-      "48, XXXX, having two extra sex chromosomes",
-      "46, XX, with normal 23 homologous pairs",
-      "47, XX, +18 (Edwards syndrome)"
-    ],
-    "explanation": "Down syndrome is trisomy of chromosome 21, resulting in 47 total chromosomes with three number 21 chromosomes.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Life Sciences",
-      "topic": "Meiosis",
-      "subtopic": "Abnormal Meiosis",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_11"
-  },
-  {
-    "id": "LIFE_P2_DNA_0402",
-    "topic": "DNA: The Code of Life",
-    "question": "A cell is treated with a chemical agent that inhibits the enzyme RNA polymerase. Which cellular process will be directly halted?",
-    "correct_answer": "Transcription of mRNA in the nucleus",
-    "wrong_answers_pool": [
-      "Translation of mRNA at ribosomes",
-      "Replication of nuclear DNA",
-      "Transportation of amino acids by tRNA",
-      "Formation of peptide bonds",
-      "Crossing over in prophase I",
-      "Attachment of spindle fibers to centromeres",
-      "Replication of mitochondrial DNA"
-    ],
-    "explanation": "RNA polymerase is the enzyme that synthesizes mRNA from the DNA template during transcription.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Life Sciences",
-      "topic": "DNA: The Code of Life",
-      "subtopic": "DNA Profiling",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_12"
-  },
-  {
-    "id": "Microscopic Examination Scenario: _0534",
-    "topic": "Meiosis",
-    "question": "Chromosome calculation 202: In the species Maize (Zea mays), the diploid somatic chromosome number is 2n = 20. How many chromosomes will be found in a normal mature gamete after meiosis?",
-    "correct_answer": "10",
-    "wrong_answers_pool": [
-      "20",
-      "40",
-      "5",
-      "12",
-      "8",
-      "21",
-      "30"
-    ],
-    "explanation": "The gamete is haploid (n): 20 / 2 = 10 chromosomes.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Life Sciences",
-      "topic": "Meiosis",
-      "subtopic": "Chromosome Numbers",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_13"
-  },
-  {
-    "id": "Microscopic Examination Scenario: _0454",
-    "topic": "Meiosis",
-    "question": "Chromosome calculation 122: In the species Maize (Zea mays), the diploid somatic chromosome number is 2n = 20. How many chromosomes will be found in a normal mature gamete after meiosis?",
-    "correct_answer": "10",
-    "wrong_answers_pool": [
-      "20",
-      "40",
-      "5",
-      "12",
-      "8",
-      "21",
-      "30"
-    ],
-    "explanation": "The gamete is haploid (n): 20 / 2 = 10 chromosomes.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Life Sciences",
-      "topic": "Meiosis",
-      "subtopic": "Chromosome Numbers",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_14"
-  },
-  {
-    "id": "LIFE_P2_GENETICS_0815",
+    "id": "LIFE_P2_GENETICS_0966",
     "topic": "Genetics and Inheritance",
-    "question": "Complex Pedigree Analysis: A male with red-green colour blindness (XrY) and a female with normal vision whose father was colour-blind (XRXr) have children. What proportion of their total offspring is expected to be colour-blind?",
-    "correct_answer": "50% (half of all offspring: 50% of daughters and 50% of sons)",
+    "question": "Pedigree analysis problem 138: In a family pedigree tracing an inherited genetic condition, two unaffected (normal) parents have a child with the disorder. What does this conclusively indicate about the mode of inheritance?",
+    "correct_answer": "The condition is caused by a recessive allele, and both parents are heterozygous carriers",
     "wrong_answers_pool": [
-      "25% (only sons are colour-blind)",
-      "75% of all offspring",
-      "0% of daughters and 100% of sons",
-      "100% of all offspring",
-      "33.3% of offspring",
-      "12.5% of offspring"
+      "The condition is caused by a dominant allele that mutated spontaneously",
+      "The father cannot be the biological parent of the child",
+      "The condition is sex-linked dominant inherited exclusively from the father",
+      "The condition is caused by non-disjunction of all autosomes",
+      "The condition is mitochondrial and inherited from the father",
+      "Both parents must be homozygous recessive for the condition",
+      "The child must be an identical twin"
     ],
-    "explanation": "Cross: XrY x XRXr -> Daughters: 1 XRXr (carrier), 1 XrXr (colour-blind); Sons: 1 XRY (normal), 1 XrY (colour-blind). Overall, 2 out of 4 = 50% are colour-blind.",
+    "explanation": "If unaffected parents produce an affected offspring, the disorder must be recessive and both parents must carry the hidden recessive allele (e.g. Nn x Nn -> nn).",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
@@ -381,59 +151,7 @@
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_15"
-  },
-  {
-    "id": "LIFE_P2_DNA_0675",
-    "topic": "DNA: The Code of Life",
-    "question": "A segment of template DNA has the sequence 3'-TAC-TTT-CCC-AAA-ATT-5' (sample 246). What is the transcribed mRNA molecule produced during transcription?",
-    "correct_answer": "5'-AUG-AAA-GGG-UUU-UAA-3'",
-    "wrong_answers_pool": [
-      "5'-TAC-TTT-CCC-AAA-ATT-3'",
-      "3'-AUG-AAA-GGG-UUU-UAA-5'",
-      "5'-ATG-AAA-GGG-TTT-TAA-3'",
-      "3'-TAC-TTT-CCC-AAA-ATT-5'",
-      "5'-AUG-AAA-UAA-3'",
-      "5'-GGG-CCC-AAA-3'",
-      "5'-UAC-CCC-AAA-3'"
-    ],
-    "explanation": "Template 3'-TAC-TTT-CCC-AAA-ATT-5' produces complementary mRNA 5'-AUG-AAA-GGG-UUU-UAA-3'.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Life Sciences",
-      "topic": "DNA: The Code of Life",
-      "subtopic": "Protein Synthesis - Transcription",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_16"
-  },
-  {
-    "id": "LIFE_P2_DNA_0816",
-    "topic": "DNA: The Code of Life",
-    "question": "Consider the clinical/experimental evidence: Why does a point mutation in the third position of a codon ('wobble base') frequently result in a silent mutation?",
-    "correct_answer": "Due to the degeneracy (redundancy) of the genetic code, multiple different codons specify the same amino acid",
-    "wrong_answers_pool": [
-      "Because the third base is excised by DNA repair enzymes before translation",
-      "Because tRNA anticodons only possess two nitrogenous bases",
-      "Because the ribosome reads codons in pairs rather than triplets",
-      "Because third-position bases cannot form hydrogen bonds",
-      "Because RNA polymerase corrects all third-base errors in the nucleus",
-      "Because amino acids do not rely on codon recognition",
-      "Because only the first base of a codon determines amino acid identity"
-    ],
-    "explanation": "The genetic code is degenerate: 64 codons code for only 20 amino acids, so third-base changes often code for the identical amino acid.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Life Sciences",
-      "topic": "DNA: The Code of Life",
-      "subtopic": "DNA Structure",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_17"
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_6"
   },
   {
     "id": "Karyotype Diagnostic Problem: _0905",
@@ -458,179 +176,50 @@
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_18"
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_7"
   },
   {
-    "id": "Microscopic Examination Scenario: _0460",
-    "topic": "Meiosis",
-    "question": "Chromosome calculation 128: In the species Domestic cat (Felis catus), the diploid somatic chromosome number is 2n = 38. How many chromosomes will be found in a normal mature gamete after meiosis?",
-    "correct_answer": "19",
-    "wrong_answers_pool": [
-      "38",
-      "76",
-      "9",
-      "21",
-      "17",
-      "39",
-      "57"
-    ],
-    "explanation": "The gamete is haploid (n): 38 / 2 = 19 chromosomes.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Life Sciences",
-      "topic": "Meiosis",
-      "subtopic": "Chromosome Numbers",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_19"
-  },
-  {
-    "id": "Karyotype Diagnostic Problem: _0990",
-    "topic": "Meiosis",
-    "question": "Cytogenetic case investigation 387: Why is polyploidy (e.g., 3n, 4n) frequently beneficial and viable in flowering plants (angiosperms), yet uniformly lethal in humans?",
-    "correct_answer": "Plants can reproduce vegetatively (asexually) and often exhibit larger cells, fruits, and enhanced vigor, whereas human development requires strict dosage balance of autosomal gene expression",
-    "wrong_answers_pool": [
-      "Plants do not possess chromosomes or nuclear envelopes",
-      "Human somatic cells divide only through binary fission",
-      "Plants lack cell walls which allows polyploid cells to shrink",
-      "Human gametes are naturally triploid and cannot absorb extra sets",
-      "Plants do not undergo cellular respiration",
-      "Plant chromosomes lack DNA helicase"
-    ],
-    "explanation": "Polyploidy disrupts strict developmental gene-dosage balance in animals, causing embryonic death, while in plants it often increases vigor and cell size.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Life Sciences",
-      "topic": "Meiosis",
-      "subtopic": "Abnormal Meiosis",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_20"
-  },
-  {
-    "id": "Microscopic Examination Scenario: _0699",
-    "topic": "Meiosis",
-    "question": "Chromosome calculation 367: In the species Fruit fly (Drosophila melanogaster), the diploid somatic chromosome number is 2n = 8. How many chromosomes will be found in a normal mature gamete after meiosis?",
-    "correct_answer": "4",
-    "wrong_answers_pool": [
-      "8",
-      "16",
-      "2",
-      "6",
-      "9",
-      "12"
-    ],
-    "explanation": "The gamete is haploid (n): 8 / 2 = 4 chromosomes.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Life Sciences",
-      "topic": "Meiosis",
-      "subtopic": "Chromosome Numbers",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_21"
-  },
-  {
-    "id": "LIFE_P2_EVO_0575",
-    "topic": "Evolution",
-    "question": "Anatomical contrast 259: How does the anatomical feature 'Chin (mental protuberance)' compare between modern humans (Homo sapiens) and African apes?",
-    "correct_answer": "Well-developed and projecting in humans; receding or completely absent in African apes",
-    "wrong_answers_pool": [
-      "Absent in humans; prominent in apes",
-      "Equally developed in both humans and apes",
-      "Only present in quadrupedal primates",
-      "Absent in both humans and apes",
-      "Present only in australopithecines",
-      "Projecting in chimpanzees but receding in modern humans",
-      "Fused to the clavicle in African apes",
-      "Present only in juvenile apes and lost in adults"
-    ],
-    "explanation": "In terms of Chin (mental protuberance): Well-developed and projecting in humans; receding or completely absent in African apes.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Life Sciences",
-      "topic": "Evolution",
-      "subtopic": "Comparative Anatomy",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_22"
-  },
-  {
-    "id": "LIFE_P2_DNA_0934",
+    "id": "LIFE_P2_DNA_0370",
     "topic": "DNA: The Code of Life",
-    "question": "Molecular evaluation case 102: A patient's gene sequence is sequenced and reveals the following mutation: Insertion of single Guanine at position 5. What is the biological consequence on the synthesized protein?",
-    "correct_answer": "Frameshift mutation modifying the entire downstream reading frame and producing a non-functional protein",
+    "question": "A gene on double-stranded DNA consists of 2400 base pairs. What is the number of amino acids coded by the mRNA transcribed from one strand of this gene (excluding stop codon)?",
+    "correct_answer": "1199",
     "wrong_answers_pool": [
-      "The protein's primary structure is completely unaffected despite the altered reading frame",
-      "The ribosome bypasses the mutated codon and skips directly to the 3' poly-A tail",
-      "DNA polymerase fails to transcribe the mRNA during interphase",
-      "The cell initiates immediate mitosis to compensate for the missing enzyme",
-      "The mutation converts the DNA from double-stranded into single-stranded RNA",
-      "Mitochondrial DNA takes over the expression of the nuclear protein",
-      "The mutated codon binds to ribosomal RNA instead of transfer RNA"
+      "2400",
+      "1200",
+      "800",
+      "3600",
+      "1201",
+      "400",
+      "100"
     ],
-    "explanation": "The specific consequence of Insertion of single Guanine at position 5 is: Frameshift mutation modifying the entire downstream reading frame and producing a non-functional protein.",
-    "difficulty": "hard",
+    "explanation": "2400 base pairs means the template strand has 2400 nucleotides, producing mRNA of 2400 bases, coding for 799 = 1199 amino acids.",
+    "difficulty": "medium",
     "tags": {
       "grade": "12",
       "subject": "Life Sciences",
       "topic": "DNA: The Code of Life",
       "subtopic": "Protein Synthesis - Translation",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_23"
-  },
-  {
-    "id": "LIFE_P2_DNA_0800",
-    "topic": "DNA: The Code of Life",
-    "question": "A segment of template DNA has the sequence 3'-TAC-GGG-AAA-TTC-ACT-5' (sample 371). What is the transcribed mRNA molecule produced during transcription?",
-    "correct_answer": "5'-AUG-CCC-UUU-AAG-UGA-3'",
-    "wrong_answers_pool": [
-      "5'-TAC-GGG-AAA-TTC-ACT-3'",
-      "3'-AUG-CCC-UUU-AAG-UGA-5'",
-      "5'-ATG-CCC-TTT-AAG-TGA-3'",
-      "3'-TAC-GGG-AAA-TTC-ACT-5'",
-      "5'-AUG-AAA-UAA-3'",
-      "5'-GGG-CCC-AAA-3'",
-      "5'-UAC-CCC-AAA-3'"
-    ],
-    "explanation": "Template 3'-TAC-GGG-AAA-TTC-ACT-5' produces complementary mRNA 5'-AUG-CCC-UUU-AAG-UGA-3'.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Life Sciences",
-      "topic": "DNA: The Code of Life",
-      "subtopic": "Protein Synthesis - Transcription",
       "cognitive_level": "Application",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_24"
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_8"
   },
   {
-    "id": "LIFE_P2_EVO_0606",
+    "id": "LIFE_P2_EVO_0329",
     "topic": "Evolution",
-    "question": "Anatomical contrast 290: How does the anatomical feature 'Chin (mental protuberance)' compare between modern humans (Homo sapiens) and African apes?",
-    "correct_answer": "Well-developed and projecting in humans; receding or completely absent in African apes",
+    "question": "Anatomical contrast 13: How does the anatomical feature 'Canine teeth and diastema' compare between modern humans (Homo sapiens) and African apes?",
+    "correct_answer": "Humans have small, non-projecting canines with no diastema; apes have large, sharp projecting canines with a diastema",
     "wrong_answers_pool": [
-      "Absent in humans; prominent in apes",
-      "Equally developed in both humans and apes",
-      "Only present in quadrupedal primates",
-      "Absent in both humans and apes",
-      "Present only in australopithecines",
-      "Projecting in chimpanzees but receding in modern humans",
-      "Fused to the clavicle in African apes",
-      "Present only in juvenile apes and lost in adults"
+      "Humans have large canines with a diastema; apes have small canines without diastema",
+      "Both have large projecting canines with diastemas",
+      "Humans lack canines entirely; apes have small canines",
+      "Both have small canines without any diastema",
+      "Apes lack canines while humans have prominent fangs",
+      "Humans have three sets of canines while apes have one",
+      "Apes have blunt molars while humans have sharp slicing canines",
+      "Neither humans nor apes possess canines or premolars"
     ],
-    "explanation": "In terms of Chin (mental protuberance): Well-developed and projecting in humans; receding or completely absent in African apes.",
+    "explanation": "In terms of Canine teeth and diastema: Humans have small, non-projecting canines with no diastema; apes have large, sharp projecting canines with a diastema.",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
@@ -640,12 +229,90 @@
       "cognitive_level": "Application",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_25"
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_9"
   },
   {
-    "id": "LIFE_P2_EVO_0807",
+    "id": "LIFE_P2_GENETICS_0954",
+    "topic": "Genetics and Inheritance",
+    "question": "Pedigree analysis problem 126: In a family pedigree tracing an inherited genetic condition, two unaffected (normal) parents have a child with the disorder. What does this conclusively indicate about the mode of inheritance?",
+    "correct_answer": "The condition is caused by a recessive allele, and both parents are heterozygous carriers",
+    "wrong_answers_pool": [
+      "The condition is caused by a dominant allele that mutated spontaneously",
+      "The father cannot be the biological parent of the child",
+      "The condition is sex-linked dominant inherited exclusively from the father",
+      "The condition is caused by non-disjunction of all autosomes",
+      "The condition is mitochondrial and inherited from the father",
+      "Both parents must be homozygous recessive for the condition",
+      "The child must be an identical twin"
+    ],
+    "explanation": "If unaffected parents produce an affected offspring, the disorder must be recessive and both parents must carry the hidden recessive allele (e.g. Nn x Nn -> nn).",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Life Sciences",
+      "topic": "Genetics and Inheritance",
+      "subtopic": "Pedigree Analysis",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_10"
+  },
+  {
+    "id": "LIFE_P2_EVO_0833",
     "topic": "Evolution",
-    "question": "Evaluation of Hominin Evolution: Which complete adult Australopithecus africanus skull was discovered at Sterkfontein in the Cradle of Humankind by Dr Robert Broom in 1947?",
+    "question": "Hominin evolution case 1: What remarkable hominin fossil specimen, discovered by Professor Lee Berger at Malapa in 2008, exhibits a transitional combination of Australopithecus and Homo features and was named 'Karabo'?",
+    "correct_answer": "Australopithecus sediba",
+    "wrong_answers_pool": [
+      "Australopithecus afarensis",
+      "Australopithecus africanus",
+      "Homo naledi",
+      "Homo habilis",
+      "Ardipithecus ramidus",
+      "Paranthropus robustus"
+    ],
+    "explanation": "Australopithecus sediba ('Karabo') shows small brain size like Australopithecus combined with modern pelvis and hand structures resembling genus Homo.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Life Sciences",
+      "topic": "Evolution",
+      "subtopic": "Hominin Fossil Record",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_11"
+  },
+  {
+    "id": "LIFE_P2_EVO_0648",
+    "topic": "Evolution",
+    "question": "Anatomical contrast 332: How does the anatomical feature 'Cranial capacity' compare between modern humans (Homo sapiens) and African apes?",
+    "correct_answer": "Homo sapiens: ~1400 cm3 vs African apes: ~400-500 cm3",
+    "wrong_answers_pool": [
+      "Homo sapiens: ~400 cm3 vs Apes: ~1400 cm3",
+      "Both have identical ~1000 cm3 capacity",
+      "Homo sapiens: ~2500 cm3 vs Apes: ~100 cm3",
+      "Homo sapiens: ~600 cm3 vs Apes: ~800 cm3",
+      "Apes have twice the cranial capacity of humans",
+      "Homo sapiens: ~800 cm3 vs Apes: ~1800 cm3",
+      "Both have identical ~500 cm3 cranial volumes",
+      "Homo sapiens: ~300 cm3 vs Apes: ~300 cm3"
+    ],
+    "explanation": "In terms of Cranial capacity: Homo sapiens: ~1400 cm3 vs African apes: ~400-500 cm3.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Life Sciences",
+      "topic": "Evolution",
+      "subtopic": "Comparative Anatomy",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_12"
+  },
+  {
+    "id": "LIFE_P2_EVO_0973",
+    "topic": "Evolution",
+    "question": "Hominin evolution case 141: Which complete adult Australopithecus africanus skull was discovered at Sterkfontein in the Cradle of Humankind by Dr Robert Broom in 1947?",
     "correct_answer": "Mrs Ples (StW 53)",
     "wrong_answers_pool": [
       "The Taung Child",
@@ -666,12 +333,193 @@
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_26"
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_13"
   },
   {
-    "id": "Karyotype Diagnostic Problem: _0925",
+    "id": "LIFE_P2_EVO_0748",
+    "topic": "Evolution",
+    "question": "Anatomical contrast 432: How does the anatomical feature 'Brow ridges (supraorbital tori)' compare between modern humans (Homo sapiens) and African apes?",
+    "correct_answer": "Greatly reduced or absent in modern humans; heavily developed and prominent in African apes",
+    "wrong_answers_pool": [
+      "Prominent in humans; absent in apes",
+      "Equally massive in both humans and apes",
+      "Only found in female humans and male apes",
+      "Absent in both humans and apes",
+      "Developed only in human infants",
+      "Found exclusively in modern Homo sapiens",
+      "Continuous across the forehead in humans but absent in gorillas",
+      "Replaced by horns in adult chimpanzees"
+    ],
+    "explanation": "In terms of Brow ridges (supraorbital tori): Greatly reduced or absent in modern humans; heavily developed and prominent in African apes.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Life Sciences",
+      "topic": "Evolution",
+      "subtopic": "Comparative Anatomy",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_14"
+  },
+  {
+    "id": "LIFE_P2_DNA_0404",
+    "topic": "DNA: The Code of Life",
+    "question": "In a CAPS Life Sciences examination scenario, A cell is treated with a chemical agent that inhibits the enzyme RNA polymerase. Which cellular process will be directly halted?",
+    "correct_answer": "Transcription of mRNA in the nucleus",
+    "wrong_answers_pool": [
+      "Translation of mRNA at ribosomes",
+      "Replication of nuclear DNA",
+      "Transportation of amino acids by tRNA",
+      "Formation of peptide bonds",
+      "Crossing over in prophase I",
+      "Attachment of spindle fibers to centromeres",
+      "Replication of mitochondrial DNA"
+    ],
+    "explanation": "RNA polymerase is the enzyme that synthesizes mRNA from the DNA template during transcription.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Life Sciences",
+      "topic": "DNA: The Code of Life",
+      "subtopic": "DNA Profiling",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_15"
+  },
+  {
+    "id": "LIFE_P2_GENETICS_0942",
+    "topic": "Genetics and Inheritance",
+    "question": "Pedigree analysis problem 114: Which genetic mechanism best explains why two dark-skinned parents can have children with varying shades of skin colour, ranging from light brown to very dark brown?",
+    "correct_answer": "Polygenic inheritance with additive effects from multiple gene loci and independent assortment",
+    "wrong_answers_pool": [
+      "Complete dominance at a single autosomal gene locus",
+      "A single sex-linked recessive allele on the X chromosome",
+      "Non-disjunction of chromosome 21 during oogenesis",
+      "Incomplete dominance at a single gene locus with only three phenotypes",
+      "Mitochondrial mutations inherited strictly from the mother",
+      "Environmental tanning without any genetic contribution",
+      "Epistatic masking of melanin by ribosomal RNA"
+    ],
+    "explanation": "Skin pigmentation in humans is controlled by at least three or more polygenes (e.g. A, B, C) where each dominant allele contributes incrementally to melanin synthesis.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Life Sciences",
+      "topic": "Genetics and Inheritance",
+      "subtopic": "Pedigree Analysis",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_16"
+  },
+  {
+    "id": "Microscopic Examination Scenario: _0574",
     "topic": "Meiosis",
-    "question": "Cytogenetic case investigation 251: What is the precise cytogenetic mechanism of non-disjunction, and what is its immediate chromosomal consequence?",
+    "question": "Chromosome calculation 242: In the species Tomato (Solanum lycopersicum), the diploid somatic chromosome number is 2n = 24. How many chromosomes will be found in a normal mature gamete after meiosis?",
+    "correct_answer": "12",
+    "wrong_answers_pool": [
+      "24",
+      "48",
+      "6",
+      "14",
+      "10",
+      "25",
+      "36"
+    ],
+    "explanation": "The gamete is haploid (n): 24 / 2 = 12 chromosomes.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Life Sciences",
+      "topic": "Meiosis",
+      "subtopic": "Chromosome Numbers",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_17"
+  },
+  {
+    "id": "LIFE_P2_DNA_0538",
+    "topic": "DNA: The Code of Life",
+    "question": "A segment of template DNA has the sequence 3'-TAC-GAC-CTG-AAA-ACT-5' (sample 109). What is the transcribed mRNA molecule produced during transcription?",
+    "correct_answer": "5'-AUG-CUG-GAC-UUU-UGA-3'",
+    "wrong_answers_pool": [
+      "5'-TAC-GAC-CTG-AAA-ACT-3'",
+      "3'-AUG-CUG-GAC-UUU-UGA-5'",
+      "5'-ATG-CTG-GAC-TTT-TGA-3'",
+      "3'-TAC-GAC-CTG-AAA-ACT-5'",
+      "5'-AUG-AAA-UAA-3'",
+      "5'-GGG-CCC-AAA-3'",
+      "5'-UAC-CCC-AAA-3'"
+    ],
+    "explanation": "Template 3'-TAC-GAC-CTG-AAA-ACT-5' produces complementary mRNA 5'-AUG-CUG-GAC-UUU-UGA-3'.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Life Sciences",
+      "topic": "DNA: The Code of Life",
+      "subtopic": "Protein Synthesis - Transcription",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_18"
+  },
+  {
+    "id": "LIFE_P2_GENETICS_0876",
+    "topic": "Genetics and Inheritance",
+    "question": "Pedigree analysis problem 48: A male with red-green colour blindness (XrY) and a female with normal vision whose father was colour-blind (XRXr) have children. What proportion of their total offspring is expected to be colour-blind?",
+    "correct_answer": "50% (half of all offspring: 50% of daughters and 50% of sons)",
+    "wrong_answers_pool": [
+      "25% (only sons are colour-blind)",
+      "75% of all offspring",
+      "0% of daughters and 100% of sons",
+      "100% of all offspring",
+      "33.3% of offspring",
+      "12.5% of offspring"
+    ],
+    "explanation": "Cross: XrY x XRXr -> Daughters: 1 XRXr (carrier), 1 XrXr (colour-blind); Sons: 1 XRY (normal), 1 XrY (colour-blind). Overall, 2 out of 4 = 50% are colour-blind.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Life Sciences",
+      "topic": "Genetics and Inheritance",
+      "subtopic": "Pedigree Analysis",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_19"
+  },
+  {
+    "id": "Microscopic Examination Scenario: _0634",
+    "topic": "Meiosis",
+    "question": "Chromosome calculation 302: In the species Fruit fly (Drosophila melanogaster), the diploid somatic chromosome number is 2n = 8. How many chromosomes will be found in a normal mature gamete after meiosis?",
+    "correct_answer": "4",
+    "wrong_answers_pool": [
+      "8",
+      "16",
+      "2",
+      "6",
+      "9",
+      "12"
+    ],
+    "explanation": "The gamete is haploid (n): 8 / 2 = 4 chromosomes.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Life Sciences",
+      "topic": "Meiosis",
+      "subtopic": "Chromosome Numbers",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_20"
+  },
+  {
+    "id": "Karyotype Diagnostic Problem: _0928",
+    "topic": "Meiosis",
+    "question": "Cytogenetic case investigation 255: What is the precise cytogenetic mechanism of non-disjunction, and what is its immediate chromosomal consequence?",
     "correct_answer": "Homologous chromosomes fail to separate in Anaphase I or sister chromatids fail to separate in Anaphase II, producing gametes with an abnormal chromosome number (n + 1 or n - 1)",
     "wrong_answers_pool": [
       "Centromeres split prematurely in Prophase I, doubling the total autosome number",
@@ -691,65 +539,13 @@
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_27"
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_21"
   },
   {
-    "id": "LIFE_P2_EVO_0516",
-    "topic": "Evolution",
-    "question": "Anatomical contrast 200: How does the anatomical feature 'Canine teeth and diastema' compare between modern humans (Homo sapiens) and African apes?",
-    "correct_answer": "Humans have small, non-projecting canines with no diastema; apes have large, sharp projecting canines with a diastema",
-    "wrong_answers_pool": [
-      "Humans have large canines with a diastema; apes have small canines without diastema",
-      "Both have large projecting canines with diastemas",
-      "Humans lack canines entirely; apes have small canines",
-      "Both have small canines without any diastema",
-      "Apes lack canines while humans have prominent fangs",
-      "Humans have three sets of canines while apes have one",
-      "Apes have blunt molars while humans have sharp slicing canines",
-      "Neither humans nor apes possess canines or premolars"
-    ],
-    "explanation": "In terms of Canine teeth and diastema: Humans have small, non-projecting canines with no diastema; apes have large, sharp projecting canines with a diastema.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Life Sciences",
-      "topic": "Evolution",
-      "subtopic": "Comparative Anatomy",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_28"
-  },
-  {
-    "id": "Karyotype Diagnostic Problem: _0836",
-    "topic": "Meiosis",
-    "question": "Cytogenetic case investigation 56: Why is polyploidy (e.g., 3n, 4n) frequently beneficial and viable in flowering plants (angiosperms), yet uniformly lethal in humans?",
-    "correct_answer": "Plants can reproduce vegetatively (asexually) and often exhibit larger cells, fruits, and enhanced vigor, whereas human development requires strict dosage balance of autosomal gene expression",
-    "wrong_answers_pool": [
-      "Plants do not possess chromosomes or nuclear envelopes",
-      "Human somatic cells divide only through binary fission",
-      "Plants lack cell walls which allows polyploid cells to shrink",
-      "Human gametes are naturally triploid and cannot absorb extra sets",
-      "Plants do not undergo cellular respiration",
-      "Plant chromosomes lack DNA helicase"
-    ],
-    "explanation": "Polyploidy disrupts strict developmental gene-dosage balance in animals, causing embryonic death, while in plants it often increases vigor and cell size.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Life Sciences",
-      "topic": "Meiosis",
-      "subtopic": "Abnormal Meiosis",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_29"
-  },
-  {
-    "id": "LIFE_P2_DNA_0943",
+    "id": "LIFE_P2_DNA_0985",
     "topic": "DNA: The Code of Life",
-    "question": "Molecular evaluation case 111: A patient's gene sequence is sequenced and reveals the following mutation: Base 21 replaced: UGG -> UGA (Tryptophan -> Stop codon). What is the biological consequence on the synthesized protein?",
-    "correct_answer": "Nonsense mutation causing premature translation termination and loss of enzyme function",
+    "question": "Molecular evaluation case 153: A patient's gene sequence is sequenced and reveals the following mutation: Base 14 replaced: GAG -> GTG (Glutamic acid -> Valine). What is the biological consequence on the synthesized protein?",
+    "correct_answer": "Missense mutation altering hemoglobin secondary structure causing red blood cells to sickle",
     "wrong_answers_pool": [
       "The protein's primary structure is completely unaffected despite the altered reading frame",
       "The ribosome bypasses the mutated codon and skips directly to the 3' poly-A tail",
@@ -759,7 +555,7 @@
       "Mitochondrial DNA takes over the expression of the nuclear protein",
       "The mutated codon binds to ribosomal RNA instead of transfer RNA"
     ],
-    "explanation": "The specific consequence of Base 21 replaced: UGG -> UGA (Tryptophan -> Stop codon) is: Nonsense mutation causing premature translation termination and loss of enzyme function.",
+    "explanation": "The specific consequence of Base 14 replaced: GAG -> GTG (Glutamic acid -> Valine) is: Missense mutation altering hemoglobin secondary structure causing red blood cells to sickle.",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
@@ -769,73 +565,22 @@
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_30"
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_22"
   },
   {
-    "id": "LIFE_P2_EVO_0314",
-    "topic": "Evolution",
-    "question": "CAPS Comparative Analysis: Male fireflies of different species flash unique, species-specific light patterns to attract females. Females only respond to the flash pattern of their own species. Which reproductive isolating mechanism is operating?",
-    "correct_answer": "Behavioral isolation",
-    "wrong_answers_pool": [
-      "Temporal isolation",
-      "Mechanical isolation",
-      "Gametic isolation",
-      "Geographic isolation",
-      "Post-zygotic inviability",
-      "Habitat isolation"
-    ],
-    "explanation": "Species-specific courtship rituals, displays, songs, and signals constitute behavioral isolation.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Life Sciences",
-      "topic": "Evolution",
-      "subtopic": "Comparative Anatomy",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_31"
-  },
-  {
-    "id": "LIFE_P2_GENETICS_0510",
+    "id": "LIFE_P2_GENETICS_0830",
     "topic": "Genetics and Inheritance",
-    "question": "Pedigree/Paternity scenario 154: In a family, a cross occurs between Father IAi (Group A) x Mother IBi (Group B). What are the expected phenotypes of their biological offspring?",
-    "correct_answer": "Group A, Group B, Group AB, and Group O (all 4 phenotypes possible)",
+    "question": "Pedigree analysis problem 2: A male with red-green colour blindness (XrY) and a female with normal vision whose father was colour-blind (XRXr) have children. What proportion of their total offspring is expected to be colour-blind?",
+    "correct_answer": "50% (half of all offspring: 50% of daughters and 50% of sons)",
     "wrong_answers_pool": [
-      "Only Group AB",
-      "Only Group A and Group B",
-      "Only Group O",
-      "Only Group AB and Group O",
-      "Group A and Group O only",
-      "Group B and Group O only"
+      "25% (only sons are colour-blind)",
+      "75% of all offspring",
+      "0% of daughters and 100% of sons",
+      "100% of all offspring",
+      "33.3% of offspring",
+      "12.5% of offspring"
     ],
-    "explanation": "Crossing Father IAi (Group A) x Mother IBi (Group B) yields Group A, Group B, Group AB, and Group O (all 4 phenotypes possible).",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Life Sciences",
-      "topic": "Genetics and Inheritance",
-      "subtopic": "Multiple Alleles",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_32"
-  },
-  {
-    "id": "LIFE_P2_GENETICS_0997",
-    "topic": "Genetics and Inheritance",
-    "question": "Pedigree analysis problem 169: Why is embryonic stem cell research subject to greater ethical and legal debate than research utilizing adult (somatic) stem cells or induced pluripotent stem cells (iPSCs)?",
-    "correct_answer": "Harvesting embryonic stem cells requires the destruction of a human blastocyst/embryo, which raises profound moral concerns regarding the beginning of human life",
-    "wrong_answers_pool": [
-      "Embryonic stem cells cannot divide through mitosis in laboratory culture",
-      "Adult stem cells are completely totipotent while embryonic stem cells are unipotent",
-      "Embryonic stem cells only contain mitochondrial DNA without nuclear chromosomes",
-      "Adult stem cells carry zero risk of immunological rejection in allogeneic patients",
-      "Embryonic stem cells produce higher levels of carbon dioxide than somatic cells",
-      "Induced pluripotent stem cells can only be sourced from cloned primates",
-      "Embryonic stem cells lack nitrogenous bases in their genome"
-    ],
-    "explanation": "The core ethical controversy centers on the moral status of the human embryo and its destruction during the harvesting of the inner cell mass.",
+    "explanation": "Cross: XrY x XRXr -> Daughters: 1 XRXr (carrier), 1 XrXr (colour-blind); Sons: 1 XRY (normal), 1 XrY (colour-blind). Overall, 2 out of 4 = 50% are colour-blind.",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
@@ -845,125 +590,22 @@
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_33"
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_23"
   },
   {
-    "id": "LIFE_P2_EVO_0708",
-    "topic": "Evolution",
-    "question": "Anatomical contrast 392: How does the anatomical feature 'Canine teeth and diastema' compare between modern humans (Homo sapiens) and African apes?",
-    "correct_answer": "Humans have small, non-projecting canines with no diastema; apes have large, sharp projecting canines with a diastema",
-    "wrong_answers_pool": [
-      "Humans have large canines with a diastema; apes have small canines without diastema",
-      "Both have large projecting canines with diastemas",
-      "Humans lack canines entirely; apes have small canines",
-      "Both have small canines without any diastema",
-      "Apes lack canines while humans have prominent fangs",
-      "Humans have three sets of canines while apes have one",
-      "Apes have blunt molars while humans have sharp slicing canines",
-      "Neither humans nor apes possess canines or premolars"
-    ],
-    "explanation": "In terms of Canine teeth and diastema: Humans have small, non-projecting canines with no diastema; apes have large, sharp projecting canines with a diastema.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Life Sciences",
-      "topic": "Evolution",
-      "subtopic": "Comparative Anatomy",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_34"
-  },
-  {
-    "id": "LIFE_P2_DNA_0833",
-    "topic": "DNA: The Code of Life",
-    "question": "Molecular evaluation case 1: A patient's gene sequence is sequenced and reveals the following mutation: Deletion of single Adenine at position 12. What is the biological consequence on the synthesized protein?",
-    "correct_answer": "Frameshift mutation altering all amino acids downstream and introducing an early stop codon",
-    "wrong_answers_pool": [
-      "The protein's primary structure is completely unaffected despite the altered reading frame",
-      "The ribosome bypasses the mutated codon and skips directly to the 3' poly-A tail",
-      "DNA polymerase fails to transcribe the mRNA during interphase",
-      "The cell initiates immediate mitosis to compensate for the missing enzyme",
-      "The mutation converts the DNA from double-stranded into single-stranded RNA",
-      "Mitochondrial DNA takes over the expression of the nuclear protein",
-      "The mutated codon binds to ribosomal RNA instead of transfer RNA"
-    ],
-    "explanation": "The specific consequence of Deletion of single Adenine at position 12 is: Frameshift mutation altering all amino acids downstream and introducing an early stop codon.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Life Sciences",
-      "topic": "DNA: The Code of Life",
-      "subtopic": "Protein Synthesis - Translation",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_35"
-  },
-  {
-    "id": "LIFE_P2_EVO_0996",
-    "topic": "Evolution",
-    "question": "Hominin evolution case 164: Why does the observation that modern indigenous African populations possess the greatest genetic diversity of any human population on Earth support the 'Out of Africa' hypothesis?",
-    "correct_answer": "African populations are the oldest extant human populations, having had the longest period of time to accumulate spontaneous genetic mutations and diversity",
-    "wrong_answers_pool": [
-      "African populations have the highest mutation rates due to intense solar radiation",
-      "African populations interbred with dinosaurs during the Pleistocene",
-      "Non-African populations are ancient and have lost all genetic diversity through disease",
-      "Africans were the last group to evolve, so they contain all combined traits",
-      "Genetic diversity only accumulates in tropical rainforest biomes",
-      "It proves that humans evolved simultaneously on all six continents"
-    ],
-    "explanation": "Older populations accumulate greater numbers of neutral mutations over time; migrating populations carried only a subset of alleles (founder effect).",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Life Sciences",
-      "topic": "Evolution",
-      "subtopic": "Hominin Fossil Record",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_36"
-  },
-  {
-    "id": "LIFE_P2_DNA_0374",
-    "topic": "DNA: The Code of Life",
-    "question": "If the triplet on the DNA template strand is 3'-TAC-5', what will be the corresponding codon sequence on the transcribed mRNA molecule?",
-    "correct_answer": "5'-AUG-3'",
-    "wrong_answers_pool": [
-      "5'-UAC-3'",
-      "3'-TAC-5'",
-      "5'-TAC-3'",
-      "3'-AUG-5'",
-      "5'-ATG-3'",
-      "3'-UAC-5'"
-    ],
-    "explanation": "During transcription, complementary bases match: A->U, T->A, C->G, G->C. 3'-TAC-5' pairs with 5'-AUG-3'.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Life Sciences",
-      "topic": "DNA: The Code of Life",
-      "subtopic": "Protein Synthesis - Transcription",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_37"
-  },
-  {
-    "id": "LIFE_P2_GENETICS_0952",
+    "id": "LIFE_P2_GENETICS_0958",
     "topic": "Genetics and Inheritance",
-    "question": "Pedigree analysis problem 124: A man who has hemophilia (XhY) marries a woman who does not have hemophilia and has no family history of hemophilia (XHXH). What are the chances of their daughters and sons having hemophilia?",
-    "correct_answer": "0% of sons have hemophilia, and 100% of daughters are carriers (XHXh)",
+    "question": "Pedigree analysis problem 130: A woman with blood group A gives birth to a child with blood group O. She claims a man with blood group AB is the biological father. As a genetic counselor, what is your expert conclusion?",
+    "correct_answer": "The man is conclusively excluded from being the biological father",
     "wrong_answers_pool": [
-      "50% of sons have hemophilia, and 50% of daughters are carriers",
-      "100% of sons have hemophilia, and 0% of daughters are affected",
-      "50% of both sons and daughters have hemophilia",
-      "100% of both sons and daughters have hemophilia",
-      "25% of sons have hemophilia, and 75% of daughters are affected",
-      "All children are completely unaffected and none are carriers"
+      "The man is confirmed to be the biological father beyond doubt",
+      "The man could be the biological father if he is heterozygous",
+      "Paternity can only be confirmed if the grandmother is tested",
+      "The child must have undergone a gene duplication to have blood group O",
+      "A mother with blood group A cannot give birth to a group O child",
+      "The man is biological father because blood group A is dominant over B"
     ],
-    "explanation": "The father passes Y to all sons (who receive XH from mother, so normal) and Xh to all daughters (who receive XH from mother, making 100% carriers).",
+    "explanation": "A man with blood group AB (IAIB) can only pass IA or IB to his offspring. He cannot pass the recessive allele i required for a child to have blood group O (ii).",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
@@ -973,38 +615,12 @@
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_38"
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_24"
   },
   {
-    "id": "LIFE_P2_DNA_0925",
-    "topic": "DNA: The Code of Life",
-    "question": "Molecular evaluation case 93: A patient's gene sequence is sequenced and reveals the following mutation: Deletion of single Adenine at position 12. What is the biological consequence on the synthesized protein?",
-    "correct_answer": "Frameshift mutation altering all amino acids downstream and introducing an early stop codon",
-    "wrong_answers_pool": [
-      "The protein's primary structure is completely unaffected despite the altered reading frame",
-      "The ribosome bypasses the mutated codon and skips directly to the 3' poly-A tail",
-      "DNA polymerase fails to transcribe the mRNA during interphase",
-      "The cell initiates immediate mitosis to compensate for the missing enzyme",
-      "The mutation converts the DNA from double-stranded into single-stranded RNA",
-      "Mitochondrial DNA takes over the expression of the nuclear protein",
-      "The mutated codon binds to ribosomal RNA instead of transfer RNA"
-    ],
-    "explanation": "The specific consequence of Deletion of single Adenine at position 12 is: Frameshift mutation altering all amino acids downstream and introducing an early stop codon.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Life Sciences",
-      "topic": "DNA: The Code of Life",
-      "subtopic": "Protein Synthesis - Translation",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_39"
-  },
-  {
-    "id": "LIFE_P2_EVO_0824",
+    "id": "LIFE_P2_EVO_0917",
     "topic": "Evolution",
-    "question": "Paleoanthropological Analysis: What genetic evidence derived from Mitochondrial DNA (mtDNA) provides rigorous empirical support for the 'Out of Africa' hypothesis?",
+    "question": "Hominin evolution case 85: What genetic evidence derived from Mitochondrial DNA (mtDNA) provides rigorous empirical support for the 'Out of Africa' hypothesis?",
     "correct_answer": "All modern human mtDNA lineages coalesce to a common ancestral maternal lineage ('Mitochondrial Eve') that lived in Africa approximately 150,000-200,000 years ago",
     "wrong_answers_pool": [
       "Mitochondrial DNA undergoes rapid crossing over in Neanderthal populations",
@@ -1024,12 +640,371 @@
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_40"
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_25"
   },
   {
-    "id": "Microscopic Examination Scenario: _0519",
+    "id": "LIFE_P2_GENETICS_0449",
+    "topic": "Genetics and Inheritance",
+    "question": "Pedigree/Paternity scenario 93: In a family, a cross occurs between Father IBIB (Group B) x Mother IAIA (Group A). What are the expected phenotypes of their biological offspring?",
+    "correct_answer": "100% Blood Group AB (genotype IAIB)",
+    "wrong_answers_pool": [
+      "50% Group A and 50% Group B",
+      "100% Group O",
+      "25% Group AB and 75% Group O",
+      "50% Group AB and 50% Group O",
+      "100% Group A",
+      "100% Group B"
+    ],
+    "explanation": "Crossing Father IBIB (Group B) x Mother IAIA (Group A) yields 100% Blood Group AB (genotype IAIB).",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Life Sciences",
+      "topic": "Genetics and Inheritance",
+      "subtopic": "Multiple Alleles",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_26"
+  },
+  {
+    "id": "Microscopic Examination Scenario: _0567",
     "topic": "Meiosis",
-    "question": "Chromosome calculation 187: In the species Horse (Equus caballus), the diploid somatic chromosome number is 2n = 64. How many chromosomes will be found in a normal mature gamete after meiosis?",
+    "question": "Chromosome calculation 235: In the species Fruit fly (Drosophila melanogaster), the diploid somatic chromosome number is 2n = 8. How many chromosomes will be found in a normal mature gamete after meiosis?",
+    "correct_answer": "4",
+    "wrong_answers_pool": [
+      "8",
+      "16",
+      "2",
+      "6",
+      "9",
+      "12"
+    ],
+    "explanation": "The gamete is haploid (n): 8 / 2 = 4 chromosomes.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Life Sciences",
+      "topic": "Meiosis",
+      "subtopic": "Chromosome Numbers",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_27"
+  },
+  {
+    "id": "LIFE_P2_DNA_0819",
+    "topic": "DNA: The Code of Life",
+    "question": "Evaluate the following molecular mechanism: In the classic Meselson and Stahl experiment, bacteria grown in heavy isotope 15N were transferred to light 14N medium for one generation. The isolated DNA centrifuged in CsCl formed a single intermediate band. Which hypothesis did this result disprove?",
+    "correct_answer": "Conservative replication hypothesis",
+    "wrong_answers_pool": [
+      "Semi-conservative replication hypothesis",
+      "Dispersive replication hypothesis",
+      "The Central Dogma of Molecular Biology",
+      "Chargaff's rules of base pairing",
+      "Mendel's Law of Segregation",
+      "Darwin's theory of gradualism",
+      "The presence of hydrogen bonds in DNA"
+    ],
+    "explanation": "Conservative replication predicted two separate bands (one entirely heavy 15N and one entirely light 14N). A single intermediate hybrid band (15N-14N) disproved conservative replication.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Life Sciences",
+      "topic": "DNA: The Code of Life",
+      "subtopic": "DNA Structure",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_28"
+  },
+  {
+    "id": "Karyotype Diagnostic Problem: _0844",
+    "topic": "Meiosis",
+    "question": "Cytogenetic case investigation 77: A human child is born with Down Syndrome (Trisomy 21). Which karyotype description accurately identifies this condition?",
+    "correct_answer": "47, XX, +21 (female) or 47, XY, +21 (male), exhibiting an extra third copy of chromosome 21",
+    "wrong_answers_pool": [
+      "45, XO, lacking one X chromosome (Turner syndrome)",
+      "47, XXY, exhibiting an extra X chromosome in a male",
+      "46, XY, with a deletion on chromosome 5 (Cri-du-chat)",
+      "48, XXXX, having two extra sex chromosomes",
+      "46, XX, with normal 23 homologous pairs",
+      "47, XX, +18 (Edwards syndrome)"
+    ],
+    "explanation": "Down syndrome is trisomy of chromosome 21, resulting in 47 total chromosomes with three number 21 chromosomes.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Life Sciences",
+      "topic": "Meiosis",
+      "subtopic": "Abnormal Meiosis",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_29"
+  },
+  {
+    "id": "LIFE_P2_EVO_0934",
+    "topic": "Evolution",
+    "question": "Hominin evolution case 102: Which famous fossil hominin skull was discovered in 1924 by Raymond Dart at Taung in South Africa, representing the first recognized specimen of Australopithecus africanus?",
+    "correct_answer": "The Taung Child",
+    "wrong_answers_pool": [
+      "Mrs Ples (StW 53)",
+      "Little Foot (StW 573)",
+      "Karabo",
+      "Lucy (AL 288-1)",
+      "Turkana Boy (WT 15000)",
+      "Handy Man (OH 7)",
+      "Cradle Man"
+    ],
+    "explanation": "Raymond Dart identified the fossilized skull and endocranial cast of a juvenile hominin at Taung, naming it Australopithecus africanus.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Life Sciences",
+      "topic": "Evolution",
+      "subtopic": "Hominin Fossil Record",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_30"
+  },
+  {
+    "id": "LIFE_P2_EVO_0925",
+    "topic": "Evolution",
+    "question": "Hominin evolution case 93: Where were the oldest anatomically modern human (Homo sapiens) fossils discovered, supporting Africa as the evolutionary cradle of our species?",
+    "correct_answer": "Exclusively in Africa (e.g., Florisbad in South Africa, Omo Kibish in Ethiopia, Jebel Irhoud in Morocco)",
+    "wrong_answers_pool": [
+      "Exclusively in the Neander Valley in Germany and caves in France",
+      "Across the Australian outback dating back 10 million years",
+      "In the limestone caves of Beijing, China",
+      "Exclusively in North and South America",
+      "In the Siberian permafrost of Russia",
+      "In Antarctica beneath the polar ice caps"
+    ],
+    "explanation": "The oldest fossil evidence of anatomically modern Homo sapiens is found exclusively in Africa, dating back over 200,000 to 300,000 years.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Life Sciences",
+      "topic": "Evolution",
+      "subtopic": "Hominin Fossil Record",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_31"
+  },
+  {
+    "id": "LIFE_P2_EVO_0595",
+    "topic": "Evolution",
+    "question": "Anatomical contrast 279: How does the anatomical feature 'Cranial capacity' compare between modern humans (Homo sapiens) and African apes?",
+    "correct_answer": "Homo sapiens: ~1400 cm3 vs African apes: ~400-500 cm3",
+    "wrong_answers_pool": [
+      "Homo sapiens: ~400 cm3 vs Apes: ~1400 cm3",
+      "Both have identical ~1000 cm3 capacity",
+      "Homo sapiens: ~2500 cm3 vs Apes: ~100 cm3",
+      "Homo sapiens: ~600 cm3 vs Apes: ~800 cm3",
+      "Apes have twice the cranial capacity of humans",
+      "Homo sapiens: ~800 cm3 vs Apes: ~1800 cm3",
+      "Both have identical ~500 cm3 cranial volumes",
+      "Homo sapiens: ~300 cm3 vs Apes: ~300 cm3"
+    ],
+    "explanation": "In terms of Cranial capacity: Homo sapiens: ~1400 cm3 vs African apes: ~400-500 cm3.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Life Sciences",
+      "topic": "Evolution",
+      "subtopic": "Comparative Anatomy",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_32"
+  },
+  {
+    "id": "LIFE_P2_DNA_0872",
+    "topic": "DNA: The Code of Life",
+    "question": "Molecular evaluation case 40: A patient's gene sequence is sequenced and reveals the following mutation: Base 9 replaced: UUU -> UUC (Both code for Phenylalanine). What is the biological consequence on the synthesized protein?",
+    "correct_answer": "Silent mutation having zero phenotypic consequence on the structure or function of the protein",
+    "wrong_answers_pool": [
+      "The protein's primary structure is completely unaffected despite the altered reading frame",
+      "The ribosome bypasses the mutated codon and skips directly to the 3' poly-A tail",
+      "DNA polymerase fails to transcribe the mRNA during interphase",
+      "The cell initiates immediate mitosis to compensate for the missing enzyme",
+      "The mutation converts the DNA from double-stranded into single-stranded RNA",
+      "Mitochondrial DNA takes over the expression of the nuclear protein",
+      "The mutated codon binds to ribosomal RNA instead of transfer RNA"
+    ],
+    "explanation": "The specific consequence of Base 9 replaced: UUU -> UUC (Both code for Phenylalanine) is: Silent mutation having zero phenotypic consequence on the structure or function of the protein.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Life Sciences",
+      "topic": "DNA: The Code of Life",
+      "subtopic": "Protein Synthesis - Translation",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_33"
+  },
+  {
+    "id": "LIFE_P2_DNA_0992",
+    "topic": "DNA: The Code of Life",
+    "question": "Molecular evaluation case 160: A patient's gene sequence is sequenced and reveals the following mutation: Base 14 replaced: GAG -> GTG (Glutamic acid -> Valine). What is the biological consequence on the synthesized protein?",
+    "correct_answer": "Missense mutation altering hemoglobin secondary structure causing red blood cells to sickle",
+    "wrong_answers_pool": [
+      "The protein's primary structure is completely unaffected despite the altered reading frame",
+      "The ribosome bypasses the mutated codon and skips directly to the 3' poly-A tail",
+      "DNA polymerase fails to transcribe the mRNA during interphase",
+      "The cell initiates immediate mitosis to compensate for the missing enzyme",
+      "The mutation converts the DNA from double-stranded into single-stranded RNA",
+      "Mitochondrial DNA takes over the expression of the nuclear protein",
+      "The mutated codon binds to ribosomal RNA instead of transfer RNA"
+    ],
+    "explanation": "The specific consequence of Base 14 replaced: GAG -> GTG (Glutamic acid -> Valine) is: Missense mutation altering hemoglobin secondary structure causing red blood cells to sickle.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Life Sciences",
+      "topic": "DNA: The Code of Life",
+      "subtopic": "Protein Synthesis - Translation",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_34"
+  },
+  {
+    "id": "LIFE_P2_DNA_0740",
+    "topic": "DNA: The Code of Life",
+    "question": "A segment of template DNA has the sequence 3'-TAC-AAA-TTT-GGG-CCC-5' (sample 311). What is the transcribed mRNA molecule produced during transcription?",
+    "correct_answer": "5'-AUG-UUU-AAA-CCC-GGG-3'",
+    "wrong_answers_pool": [
+      "5'-TAC-AAA-TTT-GGG-CCC-3'",
+      "3'-AUG-UUU-AAA-CCC-GGG-5'",
+      "5'-ATG-TTT-AAA-CCC-GGG-3'",
+      "3'-TAC-AAA-TTT-GGG-CCC-5'",
+      "5'-AUG-AAA-UAA-3'",
+      "5'-GGG-CCC-AAA-3'",
+      "5'-UAC-CCC-AAA-3'"
+    ],
+    "explanation": "Template 3'-TAC-AAA-TTT-GGG-CCC-5' produces complementary mRNA 5'-AUG-UUU-AAA-CCC-GGG-3'.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Life Sciences",
+      "topic": "DNA: The Code of Life",
+      "subtopic": "Protein Synthesis - Transcription",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_35"
+  },
+  {
+    "id": "LIFE_P2_DNA_0418",
+    "topic": "DNA: The Code of Life",
+    "question": "During DNA profiling, what is the role of restriction enzymes (endonucleases)?",
+    "correct_answer": "To cut DNA at specific palindromic base sequences into fragments of varying lengths",
+    "wrong_answers_pool": [
+      "To amplify DNA fragments using heat cycles",
+      "To separate DNA fragments according to size using an electric field",
+      "To dye the DNA bands so they fluoresce under UV light",
+      "To unwind and replicate the DNA strands",
+      "To join Okazaki fragments together",
+      "To synthesize complementary mRNA molecules",
+      "To destroy maternal mitochondrial DNA"
+    ],
+    "explanation": "Restriction enzymes cut long DNA strands into restriction fragments at specific recognition sites.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Life Sciences",
+      "topic": "DNA: The Code of Life",
+      "subtopic": "DNA Profiling",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_36"
+  },
+  {
+    "id": "LIFE_P2_EVO_0309",
+    "topic": "Evolution",
+    "question": "Two species of closely related frogs live in the identical pond habitat. One species breeds in early spring, while the other breeds in late summer. What type of reproductive isolating mechanism prevents them from interbreeding?",
+    "correct_answer": "Temporal (seasonal) isolation",
+    "wrong_answers_pool": [
+      "Behavioral isolation",
+      "Mechanical isolation",
+      "Gametic isolation",
+      "Geographic isolation",
+      "Hybrid sterility",
+      "Ecological niche isolation"
+    ],
+    "explanation": "Different breeding seasons or times of year represent temporal isolation.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Life Sciences",
+      "topic": "Evolution",
+      "subtopic": "Comparative Anatomy",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_37"
+  },
+  {
+    "id": "Karyotype Diagnostic Problem: _0855",
+    "topic": "Meiosis",
+    "question": "Cytogenetic case investigation 101: What is the precise cytogenetic mechanism of non-disjunction, and what is its immediate chromosomal consequence?",
+    "correct_answer": "Homologous chromosomes fail to separate in Anaphase I or sister chromatids fail to separate in Anaphase II, producing gametes with an abnormal chromosome number (n + 1 or n - 1)",
+    "wrong_answers_pool": [
+      "Centromeres split prematurely in Prophase I, doubling the total autosome number",
+      "Crossing over fails to occur, rendering the spindle apparatus completely non-functional",
+      "DNA polymerase inserts uracil instead of thymine during interphase",
+      "The cell divides four times instead of two, producing minute micro-gametes",
+      "Chromatids fuse into circular plasmids resembling bacterial DNA",
+      "Histone proteins dissolve, destroying all nuclear chromatin"
+    ],
+    "explanation": "Non-disjunction is the failure of proper chromosomal segregation during anaphase, generating aneuploid gametes.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Life Sciences",
+      "topic": "Meiosis",
+      "subtopic": "Abnormal Meiosis",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_38"
+  },
+  {
+    "id": "LIFE_P2_DNA_0942",
+    "topic": "DNA: The Code of Life",
+    "question": "Molecular evaluation case 110: A patient's gene sequence is sequenced and reveals the following mutation: Insertion of single Guanine at position 5. What is the biological consequence on the synthesized protein?",
+    "correct_answer": "Frameshift mutation modifying the entire downstream reading frame and producing a non-functional protein",
+    "wrong_answers_pool": [
+      "The protein's primary structure is completely unaffected despite the altered reading frame",
+      "The ribosome bypasses the mutated codon and skips directly to the 3' poly-A tail",
+      "DNA polymerase fails to transcribe the mRNA during interphase",
+      "The cell initiates immediate mitosis to compensate for the missing enzyme",
+      "The mutation converts the DNA from double-stranded into single-stranded RNA",
+      "Mitochondrial DNA takes over the expression of the nuclear protein",
+      "The mutated codon binds to ribosomal RNA instead of transfer RNA"
+    ],
+    "explanation": "The specific consequence of Insertion of single Guanine at position 5 is: Frameshift mutation modifying the entire downstream reading frame and producing a non-functional protein.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Life Sciences",
+      "topic": "DNA: The Code of Life",
+      "subtopic": "Protein Synthesis - Translation",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_39"
+  },
+  {
+    "id": "Microscopic Examination Scenario: _0459",
+    "topic": "Meiosis",
+    "question": "Chromosome calculation 127: In the species Horse (Equus caballus), the diploid somatic chromosome number is 2n = 64. How many chromosomes will be found in a normal mature gamete after meiosis?",
     "correct_answer": "32",
     "wrong_answers_pool": [
       "64",
@@ -1050,87 +1025,90 @@
       "cognitive_level": "Application",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_41"
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_40"
   },
   {
-    "id": "LIFE_P2_GENETICS_0758",
+    "id": "LIFE_P2_GENETICS_0331",
     "topic": "Genetics and Inheritance",
-    "question": "Pedigree/Paternity scenario 402: In a family, a cross occurs between Father IAIA (Group A) x Mother ii (Group O). What are the expected phenotypes of their biological offspring?",
-    "correct_answer": "100% Blood Group A (genotype IAi)",
+    "question": "Genetics Exam Scenario: In shorthorn cattle, coat colour is co-dominant: CRCR produces red, CWCW produces white, and the heterozygote CRCW produces roan (red and white hairs together). If a roan bull is mated with a white cow, what percentage of the calves will be roan?",
+    "correct_answer": "50%",
     "wrong_answers_pool": [
-      "50% Group A and 50% Group O",
-      "100% Group O",
-      "100% Group AB",
-      "25% Group A and 75% Group O",
-      "50% Group AB and 50% Group O",
-      "100% Group B"
+      "25%",
+      "75%",
+      "100%",
+      "0%",
+      "33.3%",
+      "12.5%"
     ],
-    "explanation": "Crossing Father IAIA (Group A) x Mother ii (Group O) yields 100% Blood Group A (genotype IAi).",
+    "explanation": "CRCW x CWCW produces 50% CRCW (roan) and 50% CWCW (white).",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
       "subject": "Life Sciences",
       "topic": "Genetics and Inheritance",
-      "subtopic": "Multiple Alleles",
+      "subtopic": "Genetic Crosses",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_41"
+  },
+  {
+    "id": "Microscopic Examination Scenario: _0508",
+    "topic": "Meiosis",
+    "question": "Chromosome calculation 176: In the species House fly (Musca domestica), the diploid somatic chromosome number is 2n = 12. How many chromosomes will be found in a normal mature gamete after meiosis?",
+    "correct_answer": "6",
+    "wrong_answers_pool": [
+      "12",
+      "24",
+      "3",
+      "8",
+      "4",
+      "13",
+      "18"
+    ],
+    "explanation": "The gamete is haploid (n): 12 / 2 = 6 chromosomes.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Life Sciences",
+      "topic": "Meiosis",
+      "subtopic": "Chromosome Numbers",
       "cognitive_level": "Application",
       "difficulty": "medium"
     },
     "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_42"
   },
   {
-    "id": "LIFE_P2_GENETICS_0695",
-    "topic": "Genetics and Inheritance",
-    "question": "Pedigree/Paternity scenario 339: In a family, a cross occurs between Father IAi (Group A) x Mother IBi (Group B). What are the expected phenotypes of their biological offspring?",
-    "correct_answer": "Group A, Group B, Group AB, and Group O (all 4 phenotypes possible)",
+    "id": "LIFE_P2_EVO_0765",
+    "topic": "Evolution",
+    "question": "Anatomical contrast 449: How does the anatomical feature 'Canine teeth and diastema' compare between modern humans (Homo sapiens) and African apes?",
+    "correct_answer": "Humans have small, non-projecting canines with no diastema; apes have large, sharp projecting canines with a diastema",
     "wrong_answers_pool": [
-      "Only Group AB",
-      "Only Group A and Group B",
-      "Only Group O",
-      "Only Group AB and Group O",
-      "Group A and Group O only",
-      "Group B and Group O only"
+      "Humans have large canines with a diastema; apes have small canines without diastema",
+      "Both have large projecting canines with diastemas",
+      "Humans lack canines entirely; apes have small canines",
+      "Both have small canines without any diastema",
+      "Apes lack canines while humans have prominent fangs",
+      "Humans have three sets of canines while apes have one",
+      "Apes have blunt molars while humans have sharp slicing canines",
+      "Neither humans nor apes possess canines or premolars"
     ],
-    "explanation": "Crossing Father IAi (Group A) x Mother IBi (Group B) yields Group A, Group B, Group AB, and Group O (all 4 phenotypes possible).",
+    "explanation": "In terms of Canine teeth and diastema: Humans have small, non-projecting canines with no diastema; apes have large, sharp projecting canines with a diastema.",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
       "subject": "Life Sciences",
-      "topic": "Genetics and Inheritance",
-      "subtopic": "Multiple Alleles",
+      "topic": "Evolution",
+      "subtopic": "Comparative Anatomy",
       "cognitive_level": "Application",
       "difficulty": "medium"
     },
     "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_43"
   },
   {
-    "id": "LIFE_P2_GENETICS_0756",
-    "topic": "Genetics and Inheritance",
-    "question": "Pedigree/Paternity scenario 400: In a family, a cross occurs between Father ii (Group O) x Mother ii (Group O). What are the expected phenotypes of their biological offspring?",
-    "correct_answer": "100% Blood Group O (genotype ii)",
-    "wrong_answers_pool": [
-      "50% Group O and 50% Group A",
-      "100% Group AB",
-      "100% Group A",
-      "100% Group B",
-      "25% Group O and 75% Group A",
-      "Any blood group is possible"
-    ],
-    "explanation": "Crossing Father ii (Group O) x Mother ii (Group O) yields 100% Blood Group O (genotype ii).",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Life Sciences",
-      "topic": "Genetics and Inheritance",
-      "subtopic": "Multiple Alleles",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_44"
-  },
-  {
-    "id": "Karyotype Diagnostic Problem: _0962",
+    "id": "Karyotype Diagnostic Problem: _0926",
     "topic": "Meiosis",
-    "question": "Cytogenetic case investigation 329: Why is polyploidy (e.g., 3n, 4n) frequently beneficial and viable in flowering plants (angiosperms), yet uniformly lethal in humans?",
+    "question": "Cytogenetic case investigation 253: Why is polyploidy (e.g., 3n, 4n) frequently beneficial and viable in flowering plants (angiosperms), yet uniformly lethal in humans?",
     "correct_answer": "Plants can reproduce vegetatively (asexually) and often exhibit larger cells, fruits, and enhanced vigor, whereas human development requires strict dosage balance of autosomal gene expression",
     "wrong_answers_pool": [
       "Plants do not possess chromosomes or nuclear envelopes",
@@ -1150,47 +1128,22 @@
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_45"
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_44"
   },
   {
-    "id": "Karyotype Diagnostic Problem: _0929",
-    "topic": "Meiosis",
-    "question": "Cytogenetic case investigation 267: What is the precise cytogenetic mechanism of non-disjunction, and what is its immediate chromosomal consequence?",
-    "correct_answer": "Homologous chromosomes fail to separate in Anaphase I or sister chromatids fail to separate in Anaphase II, producing gametes with an abnormal chromosome number (n + 1 or n - 1)",
-    "wrong_answers_pool": [
-      "Centromeres split prematurely in Prophase I, doubling the total autosome number",
-      "Crossing over fails to occur, rendering the spindle apparatus completely non-functional",
-      "DNA polymerase inserts uracil instead of thymine during interphase",
-      "The cell divides four times instead of two, producing minute micro-gametes",
-      "Chromatids fuse into circular plasmids resembling bacterial DNA",
-      "Histone proteins dissolve, destroying all nuclear chromatin"
-    ],
-    "explanation": "Non-disjunction is the failure of proper chromosomal segregation during anaphase, generating aneuploid gametes.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Life Sciences",
-      "topic": "Meiosis",
-      "subtopic": "Abnormal Meiosis",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_46"
-  },
-  {
-    "id": "LIFE_P2_GENETICS_0690",
+    "id": "LIFE_P2_GENETICS_0619",
     "topic": "Genetics and Inheritance",
-    "question": "Pedigree/Paternity scenario 334: In a family, a cross occurs between Father IBIB (Group B) x Mother IAIA (Group A). What are the expected phenotypes of their biological offspring?",
-    "correct_answer": "100% Blood Group AB (genotype IAIB)",
+    "question": "Pedigree/Paternity scenario 263: In a family, a cross occurs between Father IAi (Group A) x Mother IBi (Group B). What are the expected phenotypes of their biological offspring?",
+    "correct_answer": "Group A, Group B, Group AB, and Group O (all 4 phenotypes possible)",
     "wrong_answers_pool": [
-      "50% Group A and 50% Group B",
-      "100% Group O",
-      "25% Group AB and 75% Group O",
-      "50% Group AB and 50% Group O",
-      "100% Group A",
-      "100% Group B"
+      "Only Group AB",
+      "Only Group A and Group B",
+      "Only Group O",
+      "Only Group AB and Group O",
+      "Group A and Group O only",
+      "Group B and Group O only"
     ],
-    "explanation": "Crossing Father IBIB (Group B) x Mother IAIA (Group A) yields 100% Blood Group AB (genotype IAIB).",
+    "explanation": "Crossing Father IAi (Group A) x Mother IBi (Group B) yields Group A, Group B, Group AB, and Group O (all 4 phenotypes possible).",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
@@ -1200,22 +1153,76 @@
       "cognitive_level": "Application",
       "difficulty": "medium"
     },
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_45"
+  },
+  {
+    "id": "LIFE_P2_EVO_0732",
+    "topic": "Evolution",
+    "question": "Anatomical contrast 416: How does the anatomical feature 'Canine teeth and diastema' compare between modern humans (Homo sapiens) and African apes?",
+    "correct_answer": "Humans have small, non-projecting canines with no diastema; apes have large, sharp projecting canines with a diastema",
+    "wrong_answers_pool": [
+      "Humans have large canines with a diastema; apes have small canines without diastema",
+      "Both have large projecting canines with diastemas",
+      "Humans lack canines entirely; apes have small canines",
+      "Both have small canines without any diastema",
+      "Apes lack canines while humans have prominent fangs",
+      "Humans have three sets of canines while apes have one",
+      "Apes have blunt molars while humans have sharp slicing canines",
+      "Neither humans nor apes possess canines or premolars"
+    ],
+    "explanation": "In terms of Canine teeth and diastema: Humans have small, non-projecting canines with no diastema; apes have large, sharp projecting canines with a diastema.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Life Sciences",
+      "topic": "Evolution",
+      "subtopic": "Comparative Anatomy",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_46"
+  },
+  {
+    "id": "LIFE_P2_DNA_0779",
+    "topic": "DNA: The Code of Life",
+    "question": "A segment of template DNA has the sequence 3'-TAC-TTT-CCC-AAA-ATT-5' (sample 350). What is the transcribed mRNA molecule produced during transcription?",
+    "correct_answer": "5'-AUG-AAA-GGG-UUU-UAA-3'",
+    "wrong_answers_pool": [
+      "5'-TAC-TTT-CCC-AAA-ATT-3'",
+      "3'-AUG-AAA-GGG-UUU-UAA-5'",
+      "5'-ATG-AAA-GGG-TTT-TAA-3'",
+      "3'-TAC-TTT-CCC-AAA-ATT-5'",
+      "5'-AUG-AAA-UAA-3'",
+      "5'-GGG-CCC-AAA-3'",
+      "5'-UAC-CCC-AAA-3'"
+    ],
+    "explanation": "Template 3'-TAC-TTT-CCC-AAA-ATT-5' produces complementary mRNA 5'-AUG-AAA-GGG-UUU-UAA-3'.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Life Sciences",
+      "topic": "DNA: The Code of Life",
+      "subtopic": "Protein Synthesis - Transcription",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
     "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_47"
   },
   {
-    "id": "LIFE_P2_GENETICS_0844",
+    "id": "LIFE_P2_GENETICS_0861",
     "topic": "Genetics and Inheritance",
-    "question": "Pedigree analysis problem 16: A man who has hemophilia (XhY) marries a woman who does not have hemophilia and has no family history of hemophilia (XHXH). What are the chances of their daughters and sons having hemophilia?",
-    "correct_answer": "0% of sons have hemophilia, and 100% of daughters are carriers (XHXh)",
+    "question": "Pedigree analysis problem 33: In a family pedigree tracing an inherited genetic condition, two unaffected (normal) parents have a child with the disorder. What does this conclusively indicate about the mode of inheritance?",
+    "correct_answer": "The condition is caused by a recessive allele, and both parents are heterozygous carriers",
     "wrong_answers_pool": [
-      "50% of sons have hemophilia, and 50% of daughters are carriers",
-      "100% of sons have hemophilia, and 0% of daughters are affected",
-      "50% of both sons and daughters have hemophilia",
-      "100% of both sons and daughters have hemophilia",
-      "25% of sons have hemophilia, and 75% of daughters are affected",
-      "All children are completely unaffected and none are carriers"
+      "The condition is caused by a dominant allele that mutated spontaneously",
+      "The father cannot be the biological parent of the child",
+      "The condition is sex-linked dominant inherited exclusively from the father",
+      "The condition is caused by non-disjunction of all autosomes",
+      "The condition is mitochondrial and inherited from the father",
+      "Both parents must be homozygous recessive for the condition",
+      "The child must be an identical twin"
     ],
-    "explanation": "The father passes Y to all sons (who receive XH from mother, so normal) and Xh to all daughters (who receive XH from mother, making 100% carriers).",
+    "explanation": "If unaffected parents produce an affected offspring, the disorder must be recessive and both parents must carry the hidden recessive allele (e.g. Nn x Nn -> nn).",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
@@ -1228,9 +1235,9 @@
     "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_48"
   },
   {
-    "id": "Microscopic Examination Scenario: _0345",
+    "id": "Microscopic Examination Scenario: _0402",
     "topic": "Meiosis",
-    "question": "Chromosome calculation 13: In the species Horse (Equus caballus), the diploid somatic chromosome number is 2n = 64. How many chromosomes will be found in a normal mature gamete after meiosis?",
+    "question": "Chromosome calculation 70: In the species Horse (Equus caballus), the diploid somatic chromosome number is 2n = 64. How many chromosomes will be found in a normal mature gamete after meiosis?",
     "correct_answer": "32",
     "wrong_answers_pool": [
       "64",
@@ -1254,28 +1261,28 @@
     "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_49"
   },
   {
-    "id": "Microscopic Examination Scenario: _0613",
-    "topic": "Meiosis",
-    "question": "Chromosome calculation 281: In the species Chimpanzee (Pan troglodytes), the diploid somatic chromosome number is 2n = 48. How many chromosomes will be found in a normal mature gamete after meiosis?",
-    "correct_answer": "24",
+    "id": "LIFE_P2_GENETICS_0901",
+    "topic": "Genetics and Inheritance",
+    "question": "Pedigree analysis problem 73: Why is embryonic stem cell research subject to greater ethical and legal debate than research utilizing adult (somatic) stem cells or induced pluripotent stem cells (iPSCs)?",
+    "correct_answer": "Harvesting embryonic stem cells requires the destruction of a human blastocyst/embryo, which raises profound moral concerns regarding the beginning of human life",
     "wrong_answers_pool": [
-      "48",
-      "96",
-      "12",
-      "26",
-      "22",
-      "49",
-      "72"
+      "Embryonic stem cells cannot divide through mitosis in laboratory culture",
+      "Adult stem cells are completely totipotent while embryonic stem cells are unipotent",
+      "Embryonic stem cells only contain mitochondrial DNA without nuclear chromosomes",
+      "Adult stem cells carry zero risk of immunological rejection in allogeneic patients",
+      "Embryonic stem cells produce higher levels of carbon dioxide than somatic cells",
+      "Induced pluripotent stem cells can only be sourced from cloned primates",
+      "Embryonic stem cells lack nitrogenous bases in their genome"
     ],
-    "explanation": "The gamete is haploid (n): 48 / 2 = 24 chromosomes.",
-    "difficulty": "medium",
+    "explanation": "The core ethical controversy centers on the moral status of the human embryo and its destruction during the harvesting of the inner cell mass.",
+    "difficulty": "hard",
     "tags": {
       "grade": "12",
       "subject": "Life Sciences",
-      "topic": "Meiosis",
-      "subtopic": "Chromosome Numbers",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
+      "topic": "Genetics and Inheritance",
+      "subtopic": "Pedigree Analysis",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
     },
     "exam_id": "EXAM_2026-W46_grade12_life_sciences_paper2_50"
   }

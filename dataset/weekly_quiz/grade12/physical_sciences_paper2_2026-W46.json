@@ -1,48 +1,48 @@
 [
   {
-    "id": "PS_P2_ELEC_0323",
-    "topic": "Paper 2: Electrochemical Reactions",
-    "subtopic": "Cell Notation",
+    "id": "PS_P2_RATE_0702",
+    "topic": "Paper 2: Reaction Rates",
+    "subtopic": "Energy Profiles",
     "difficulty": "medium",
-    "question": "What is the standard cell notation for the galvanic cell constructed from Li/Li\u207a (E\u00b0 = -3.04 V) and Mn/Mn\u00b2\u207a (E\u00b0 = -1.18 V)?",
-    "correct_answer": "Li(s) | Li+(1 mol\u00b7dm\u207b\u00b3) || Mn2+(1 mol\u00b7dm\u207b\u00b3) | Mn(s)",
+    "question": "For a reaction profile: Reactants = 90 kJ\u00b7mol\u207b\u00b9, Products = 30 kJ\u00b7mol\u207b\u00b9, Uncatalyzed activation energy E_A(forward) = 120 kJ\u00b7mol\u207b\u00b9. A catalyst is added that lowers activation energy by 35 kJ\u00b7mol\u207b\u00b9. What is the activation energy for the CATALYZED forward reaction?",
+    "correct_answer": "85 kJ\u00b7mol\u207b\u00b9",
     "wrong_answers_pool": [
-      "Mn(s) | Mn2+(1 mol\u00b7dm\u207b\u00b3) || Li+(1 mol\u00b7dm\u207b\u00b3) | Li(s)",
-      "Li(s) || Mn(s)",
-      "Mn(s) || Li(s)",
-      "Pt | Li(s) || Mn(s) | Pt",
-      "Li+(aq) | Li(s) || Mn(s) | Mn2+(aq)",
-      "Li(s) | Mn(s) || electrolyte"
+      "155 kJ\u00b7mol\u207b\u00b9",
+      "175 kJ\u00b7mol\u207b\u00b9",
+      "145 kJ\u00b7mol\u207b\u00b9",
+      "35 kJ\u00b7mol\u207b\u00b9",
+      "60 kJ\u00b7mol\u207b\u00b9",
+      "95 kJ\u00b7mol\u207b\u00b9"
     ],
-    "explanation": "Standard cell notation follows: Anode | Anode electrolyte || Cathode electrolyte | Cathode. Therefore: Li(s) | Li+(1 mol\u00b7dm\u207b\u00b3) || Mn2+(1 mol\u00b7dm\u207b\u00b3) | Mn(s).",
+    "explanation": "Catalyzed E_A = Uncatalyzed E_A - drop = 120 - 35 = 85 kJ\u00b7mol\u207b\u00b9.",
     "tags": {
       "grade": "12",
       "subject": "Physical Sciences",
-      "topic": "Paper 2: Electrochemical Reactions",
-      "subtopic": "Cell Notation",
+      "topic": "Paper 2: Reaction Rates",
+      "subtopic": "Energy Profiles",
       "cognitive_level": "Applying",
       "difficulty": "medium",
-      "learning_outcome": "Write standard cell notation"
+      "learning_outcome": "Calculate catalyzed activation energy"
     },
     "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_1"
   },
   {
-    "id": "PS_P2_IND_0963",
+    "id": "PS_P2_IND_0966",
     "topic": "Paper 2: Chemical Industry",
     "subtopic": "NPK Calculations",
     "difficulty": "hard",
-    "question": "A 25 kg bag of commercial fertilizer is labelled **5 : 1 : 2 (24)**. Calculate the exact mass of pure Nitrogen (N) present in this bag:",
-    "correct_answer": "3.75 kg",
+    "question": "In a 25 kg bag of fertilizer marked **5 : 1 : 2 (24)**, what is the total mass of inert filler material (such as gypsum, sand, or limestone)?",
+    "correct_answer": "19.00 kg",
     "wrong_answers_pool": [
-      "15.62 kg (omitted active percentage factor)",
-      "0.75 kg (calculated phosphorus mass instead)",
-      "1.50 kg (calculated potassium mass instead)",
-      "6.00 kg (total active fertilizer mass)",
-      "7.50 kg",
-      "1.88 kg",
-      "6.00 kg"
+      "6.00 kg (active nutrients mass)",
+      "25.00 kg (total bag mass)",
+      "4.50 kg",
+      "9.50 kg",
+      "0.00 kg (bag contains 100% active fertilizer)",
+      "29.00 kg",
+      "15.62 kg"
     ],
-    "explanation": "Total ratio parts = 5 + 1 + 2 = 8. Active mass in 25 kg bag = 25 \u00d7 (24/100) = 6.00 kg. Mass of N = (5/8) \u00d7 6.00 = 3.75 kg.",
+    "explanation": "The active fertilizer content is 24%, so inert filler makes up 100% - 24% = 76%. Mass of filler = 25 \u00d7 (76/100) = 19.00 kg.",
     "tags": {
       "grade": "12",
       "subject": "Physical Sciences",
@@ -50,1014 +50,9 @@
       "subtopic": "NPK Calculations",
       "cognitive_level": "Evaluating",
       "difficulty": "hard",
-      "learning_outcome": "Calculate nitrogen mass in fertilizer bag"
+      "learning_outcome": "Calculate inert filler mass in fertilizer bag"
     },
     "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_2"
-  },
-  {
-    "id": "PS_P2_RATE_0657",
-    "topic": "Paper 2: Reaction Rates",
-    "subtopic": "Energy Profiles",
-    "difficulty": "medium",
-    "question": "Given Reactants = 75 kJ\u00b7mol\u207b\u00b9, Products = 115 kJ\u00b7mol\u207b\u00b9, and Catalyzed Activated Complex = 200 kJ\u00b7mol\u207b\u00b9, calculate the activation energy for the CATALYZED REVERSE reaction:",
-    "correct_answer": "85 kJ\u00b7mol\u207b\u00b9",
-    "wrong_answers_pool": [
-      "125 kJ\u00b7mol\u207b\u00b9",
-      "120 kJ\u00b7mol\u207b\u00b9",
-      "40 kJ\u00b7mol\u207b\u00b9",
-      "200 kJ\u00b7mol\u207b\u00b9",
-      "105 kJ\u00b7mol\u207b\u00b9",
-      "190 kJ\u00b7mol\u207b\u00b9"
-    ],
-    "explanation": "E_A(reverse, catalyzed) = E_complex(cat) - E_products = 200 - 115 = 85 kJ\u00b7mol\u207b\u00b9.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Reaction Rates",
-      "subtopic": "Energy Profiles",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate reverse catalyzed activation energy"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_3"
-  },
-  {
-    "id": "PS_P2_ACID_0502",
-    "topic": "Paper 2: Acids and Bases",
-    "subtopic": "pH Calculations",
-    "difficulty": "medium",
-    "question": "Barium hydroxide, Ba(OH)2, is a strong dibasic base that dissociates completely: Ba(OH)2(s) -> Ba\u00b2\u207a(aq) + 2OH\u207b(aq). Calculate the pH of a **0.160 mol\u00b7dm\u207b\u00b3** Ba(OH)2 solution at 25 \u00b0C:",
-    "correct_answer": "13.51",
-    "wrong_answers_pool": [
-      "13.20 (omitted dibasic factor of 2)",
-      "0.49 (mistaken pOH for pH)",
-      "12.51",
-      "7.00",
-      "14.01",
-      "0.32"
-    ],
-    "explanation": "[OH\u207b] = 2 \u00d7 c(Ba(OH)2) = 2 \u00d7 0.160 = 0.320 mol\u00b7dm\u207b\u00b3. pOH = -log(0.320) = 0.49. pH = 14 - 0.49 = 13.51.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Acids and Bases",
-      "subtopic": "pH Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate pH of dibasic strong base"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_4"
-  },
-  {
-    "id": "PS_P2_ELEC_0319",
-    "topic": "Paper 2: Electrochemical Reactions",
-    "subtopic": "Cell Notation",
-    "difficulty": "medium",
-    "question": "What is the standard cell notation for the galvanic cell constructed from Li/Li\u207a (E\u00b0 = -3.04 V) and Al/Al\u00b3\u207a (E\u00b0 = -1.66 V)?",
-    "correct_answer": "Li(s) | Li+(1 mol\u00b7dm\u207b\u00b3) || Al3+(1 mol\u00b7dm\u207b\u00b3) | Al(s)",
-    "wrong_answers_pool": [
-      "Al(s) | Al3+(1 mol\u00b7dm\u207b\u00b3) || Li+(1 mol\u00b7dm\u207b\u00b3) | Li(s)",
-      "Li(s) || Al(s)",
-      "Al(s) || Li(s)",
-      "Pt | Li(s) || Al(s) | Pt",
-      "Li+(aq) | Li(s) || Al(s) | Al3+(aq)",
-      "Li(s) | Al(s) || electrolyte"
-    ],
-    "explanation": "Standard cell notation follows: Anode | Anode electrolyte || Cathode electrolyte | Cathode. Therefore: Li(s) | Li+(1 mol\u00b7dm\u207b\u00b3) || Al3+(1 mol\u00b7dm\u207b\u00b3) | Al(s).",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Electrochemical Reactions",
-      "subtopic": "Cell Notation",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Write standard cell notation"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_5"
-  },
-  {
-    "id": "PS_P2_ELEC_0658",
-    "topic": "Paper 2: Electrochemical Reactions",
-    "subtopic": "Cell Notation",
-    "difficulty": "medium",
-    "question": "What is the standard cell notation for the galvanic cell constructed from Mn/Mn\u00b2\u207a (E\u00b0 = -1.18 V) and Pt/Pt\u00b2\u207a (E\u00b0 = +1.20 V)?",
-    "correct_answer": "Mn(s) | Mn2+(1 mol\u00b7dm\u207b\u00b3) || Pt2+(1 mol\u00b7dm\u207b\u00b3) | Pt(s)",
-    "wrong_answers_pool": [
-      "Pt(s) | Pt2+(1 mol\u00b7dm\u207b\u00b3) || Mn2+(1 mol\u00b7dm\u207b\u00b3) | Mn(s)",
-      "Mn(s) || Pt(s)",
-      "Pt(s) || Mn(s)",
-      "Pt | Mn(s) || Pt(s) | Pt",
-      "Mn2+(aq) | Mn(s) || Pt(s) | Pt2+(aq)",
-      "Mn(s) | Pt(s) || electrolyte"
-    ],
-    "explanation": "Standard cell notation follows: Anode | Anode electrolyte || Cathode electrolyte | Cathode. Therefore: Mn(s) | Mn2+(1 mol\u00b7dm\u207b\u00b3) || Pt2+(1 mol\u00b7dm\u207b\u00b3) | Pt(s).",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Electrochemical Reactions",
-      "subtopic": "Cell Notation",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Write standard cell notation"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_6"
-  },
-  {
-    "id": "PS_P2_RATE_0497",
-    "topic": "Paper 2: Reaction Rates",
-    "subtopic": "Energy Profiles",
-    "difficulty": "medium",
-    "question": "Given Reactants = 45 kJ\u00b7mol\u207b\u00b9, Products = 105 kJ\u00b7mol\u207b\u00b9, and Catalyzed Activated Complex = 160 kJ\u00b7mol\u207b\u00b9, calculate the activation energy for the CATALYZED REVERSE reaction:",
-    "correct_answer": "55 kJ\u00b7mol\u207b\u00b9",
-    "wrong_answers_pool": [
-      "115 kJ\u00b7mol\u207b\u00b9",
-      "80 kJ\u00b7mol\u207b\u00b9",
-      "60 kJ\u00b7mol\u207b\u00b9",
-      "160 kJ\u00b7mol\u207b\u00b9",
-      "75 kJ\u00b7mol\u207b\u00b9",
-      "150 kJ\u00b7mol\u207b\u00b9"
-    ],
-    "explanation": "E_A(reverse, catalyzed) = E_complex(cat) - E_products = 160 - 105 = 55 kJ\u00b7mol\u207b\u00b9.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Reaction Rates",
-      "subtopic": "Energy Profiles",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate reverse catalyzed activation energy"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_7"
-  },
-  {
-    "id": "PS_P2_ELEC_0531",
-    "topic": "Paper 2: Electrochemical Reactions",
-    "subtopic": "Net Cell Reactions",
-    "difficulty": "medium",
-    "question": "What is the balanced overall (net) cell reaction for the galvanic cell combining Na/Na\u207a (E\u00b0 = -2.71 V) and Au/Au\u00b3\u207a (E\u00b0 = +1.50 V)?",
-    "correct_answer": "3Na(s) + 1Au3+(aq) -> 3Na+(aq) + 1Au(s)",
-    "wrong_answers_pool": [
-      "1Na(s) + 3Au3+(aq) -> 1Na+(aq) + 3Au(s)",
-      "Na(s) + Au(s) -> Na+(aq) + Au3+(aq)",
-      "Au(s) + Na+(aq) -> Au3+(aq) + Na(s)",
-      "Na+(aq) + Au3+(aq) -> Na(s) + Au(s)",
-      "3Na(s) + 1Au(s) -> products",
-      "Na(s) + Au3+(aq) -> Na+(aq) + Au(s)"
-    ],
-    "explanation": "Balancing electron transfer between oxidation (Na -> Na+ + 1e\u207b) and reduction (Au3+ + 3e\u207b -> Au) yields: 3Na(s) + 1Au3+(aq) -> 3Na+(aq) + 1Au(s).",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Electrochemical Reactions",
-      "subtopic": "Net Cell Reactions",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Write balanced overall cell reaction"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_8"
-  },
-  {
-    "id": "PS_P2_ORG_0389",
-    "topic": "Paper 2: Organic Chemistry",
-    "subtopic": "IUPAC Naming",
-    "difficulty": "medium",
-    "question": "Give the systematic IUPAC name for a 4-carbon straight-chain alkane possessing a single iodo substituent attached to carbon 3:",
-    "correct_answer": "3-iodobutane",
-    "wrong_answers_pool": [
-      "4-iodobutane",
-      "iodobutane",
-      "3-iodobutene",
-      "3-iodobutanol",
-      "2-iodobutane",
-      "1,1-diiodobutane"
-    ],
-    "explanation": "Numbering from the nearest end gives locant 3: 3-iodobutane.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Organic Chemistry",
-      "subtopic": "IUPAC Naming",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Name haloalkane"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_9"
-  },
-  {
-    "id": "PS_P2_ELEC_0992",
-    "topic": "Paper 2: Electrochemical Reactions",
-    "subtopic": "Cell Equilibrium & EMF",
-    "difficulty": "hard",
-    "question": "A galvanic cell Zn(s) | Zn\u00b2\u207a(aq, 0.382 mol\u00b7dm\u207b\u00b3) || Cu\u00b2\u207a(aq, 3.95 mol\u00b7dm\u207b\u00b3) | Cu(s) operates under non-standard conditions. Comparing this cell to the standard Daniell cell (where [Cu\u00b2\u207a] = [Zn\u00b2\u207a] = 1.00 mol\u00b7dm\u207b\u00b3), how does the initial cell voltage (EMF) compare and why?",
-    "correct_answer": "The cell voltage is HIGHER than 1.10 V, because higher reactant [Cu\u00b2\u207a] and lower product [Zn\u00b2\u207a] shift the equilibrium in the forward direction according to Le Chatelier's principle.",
-    "wrong_answers_pool": [
-      "The cell voltage is LOWER than 1.10 V, because ion crowding increases internal resistance.",
-      "The cell voltage is exactly EQUAL to 1.10 V, because concentration never affects cell EMF.",
-      "The cell voltage drops immediately to 0.00 V because conditions are non-standard.",
-      "The polarity of the cell terminals is reversed.",
-      "The cell converts into an electrolytic cell requiring external electrical energy.",
-      "The zinc electrode stops dissolving and copper begins to oxidise.",
-      "The internal resistance drops to zero permanently."
-    ],
-    "explanation": "Reactant concentration [Cu\u00b2\u207a] = 3.95 mol\u00b7dm\u207b\u00b3 is higher than standard, and product concentration [Zn\u00b2\u207a] = 0.382 mol\u00b7dm\u207b\u00b3 is lower. By Le Chatelier's principle, the system shifts forward, increasing the driving potential above standard EMF (1.10 V).",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Electrochemical Reactions",
-      "subtopic": "Cell Equilibrium & EMF",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Evaluate non-standard concentration on cell EMF"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_10"
-  },
-  {
-    "id": "PS_P2_RATE_0343",
-    "topic": "Paper 2: Reaction Rates",
-    "subtopic": "Energy Profiles",
-    "difficulty": "medium",
-    "question": "For a reaction profile: Reactants = 30 kJ\u00b7mol\u207b\u00b9, Products = -10 kJ\u00b7mol\u207b\u00b9, Uncatalyzed activation energy E_A(forward) = 100 kJ\u00b7mol\u207b\u00b9. A catalyst is added that lowers activation energy by 25 kJ\u00b7mol\u207b\u00b9. What is the activation energy for the CATALYZED forward reaction?",
-    "correct_answer": "75 kJ\u00b7mol\u207b\u00b9",
-    "wrong_answers_pool": [
-      "125 kJ\u00b7mol\u207b\u00b9",
-      "105 kJ\u00b7mol\u207b\u00b9",
-      "115 kJ\u00b7mol\u207b\u00b9",
-      "25 kJ\u00b7mol\u207b\u00b9",
-      "40 kJ\u00b7mol\u207b\u00b9",
-      "85 kJ\u00b7mol\u207b\u00b9"
-    ],
-    "explanation": "Catalyzed E_A = Uncatalyzed E_A - drop = 100 - 25 = 75 kJ\u00b7mol\u207b\u00b9.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Reaction Rates",
-      "subtopic": "Energy Profiles",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate catalyzed activation energy"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_11"
-  },
-  {
-    "id": "PS_P2_ELEC_0976",
-    "topic": "Paper 2: Electrochemical Reactions",
-    "subtopic": "Cell Equilibrium & EMF",
-    "difficulty": "hard",
-    "question": "A galvanic cell Zn(s) | Zn\u00b2\u207a(aq, 0.414 mol\u00b7dm\u207b\u00b3) || Cu\u00b2\u207a(aq, 3.15 mol\u00b7dm\u207b\u00b3) | Cu(s) operates under non-standard conditions. Comparing this cell to the standard Daniell cell (where [Cu\u00b2\u207a] = [Zn\u00b2\u207a] = 1.00 mol\u00b7dm\u207b\u00b3), how does the initial cell voltage (EMF) compare and why?",
-    "correct_answer": "The cell voltage is HIGHER than 1.10 V, because higher reactant [Cu\u00b2\u207a] and lower product [Zn\u00b2\u207a] shift the equilibrium in the forward direction according to Le Chatelier's principle.",
-    "wrong_answers_pool": [
-      "The cell voltage is LOWER than 1.10 V, because ion crowding increases internal resistance.",
-      "The cell voltage is exactly EQUAL to 1.10 V, because concentration never affects cell EMF.",
-      "The cell voltage drops immediately to 0.00 V because conditions are non-standard.",
-      "The polarity of the cell terminals is reversed.",
-      "The cell converts into an electrolytic cell requiring external electrical energy.",
-      "The zinc electrode stops dissolving and copper begins to oxidise.",
-      "The internal resistance drops to zero permanently."
-    ],
-    "explanation": "Reactant concentration [Cu\u00b2\u207a] = 3.15 mol\u00b7dm\u207b\u00b3 is higher than standard, and product concentration [Zn\u00b2\u207a] = 0.414 mol\u00b7dm\u207b\u00b3 is lower. By Le Chatelier's principle, the system shifts forward, increasing the driving potential above standard EMF (1.10 V).",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Electrochemical Reactions",
-      "subtopic": "Cell Equilibrium & EMF",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Evaluate non-standard concentration on cell EMF"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_12"
-  },
-  {
-    "id": "PS_P2_ORG_0961",
-    "topic": "Paper 2: Organic Chemistry",
-    "subtopic": "Elimination Reactions",
-    "difficulty": "hard",
-    "question": "An analytical laboratory dehydrates an unbranched secondary alcohol with 50 carbon atoms (having the -OH group at carbon 2) using excess concentrated H2SO4 at 180 \u00b0C. What is the IUPAC locant and position of the double bond in the MAJOR alkene formed according to Zaitsev's rule?",
-    "correct_answer": "Between carbon 2 and carbon 3 (the 2-alkene)",
-    "wrong_answers_pool": [
-      "Between carbon 1 and carbon 2 (the 1-alkene)",
-      "Between carbon 3 and carbon 4 (the 3-alkene)",
-      "No double bond forms; an ether is produced exclusively",
-      "Between terminal methyl groups forming a cyclic alkane",
-      "A triple bond forms between carbon 1 and carbon 2",
-      "The molecule cracks into methane and smaller fragments"
-    ],
-    "explanation": "Elimination of the -OH group on C2 and a hydrogen from C3 (having fewer hydrogens than C1) produces the more substituted 2-alkene as the major product.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Organic Chemistry",
-      "subtopic": "Elimination Reactions",
-      "cognitive_level": "Applying",
-      "difficulty": "hard",
-      "learning_outcome": "Predict Zaitsev double bond position"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_13"
-  },
-  {
-    "id": "PS_P2_ELEC_0965",
-    "topic": "Paper 2: Electrochemical Reactions",
-    "subtopic": "Cell Equilibrium & EMF",
-    "difficulty": "hard",
-    "question": "A galvanic cell Zn(s) | Zn\u00b2\u207a(aq, 0.436 mol\u00b7dm\u207b\u00b3) || Cu\u00b2\u207a(aq, 2.60 mol\u00b7dm\u207b\u00b3) | Cu(s) operates under non-standard conditions. Comparing this cell to the standard Daniell cell (where [Cu\u00b2\u207a] = [Zn\u00b2\u207a] = 1.00 mol\u00b7dm\u207b\u00b3), how does the initial cell voltage (EMF) compare and why?",
-    "correct_answer": "The cell voltage is HIGHER than 1.10 V, because higher reactant [Cu\u00b2\u207a] and lower product [Zn\u00b2\u207a] shift the equilibrium in the forward direction according to Le Chatelier's principle.",
-    "wrong_answers_pool": [
-      "The cell voltage is LOWER than 1.10 V, because ion crowding increases internal resistance.",
-      "The cell voltage is exactly EQUAL to 1.10 V, because concentration never affects cell EMF.",
-      "The cell voltage drops immediately to 0.00 V because conditions are non-standard.",
-      "The polarity of the cell terminals is reversed.",
-      "The cell converts into an electrolytic cell requiring external electrical energy.",
-      "The zinc electrode stops dissolving and copper begins to oxidise.",
-      "The internal resistance drops to zero permanently."
-    ],
-    "explanation": "Reactant concentration [Cu\u00b2\u207a] = 2.60 mol\u00b7dm\u207b\u00b3 is higher than standard, and product concentration [Zn\u00b2\u207a] = 0.436 mol\u00b7dm\u207b\u00b3 is lower. By Le Chatelier's principle, the system shifts forward, increasing the driving potential above standard EMF (1.10 V).",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Electrochemical Reactions",
-      "subtopic": "Cell Equilibrium & EMF",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Evaluate non-standard concentration on cell EMF"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_14"
-  },
-  {
-    "id": "PS_P2_ACID_0960",
-    "topic": "Paper 2: Acids and Bases",
-    "subtopic": "Excess Neutralisation",
-    "difficulty": "hard",
-    "question": "After neutralising a strong acid with a strong base, a chemist finds that the solution has an unreacted hydronium ion concentration [H3O\u207a] = 0.0200 mol\u00b7dm\u207b\u00b3 in a total mixture volume of 250 cm\u00b3. Calculate the exact pH of the final solution at 25 \u00b0C:",
-    "correct_answer": "1.70",
-    "wrong_answers_pool": [
-      "2.70",
-      "12.30",
-      "3.40",
-      "7.00",
-      "0.70",
-      "0.02"
-    ],
-    "explanation": "pH = -log[H3O\u207a] = -log(0.0200) = 1.70.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Acids and Bases",
-      "subtopic": "Excess Neutralisation",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate pH from final hydronium concentration"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_15"
-  },
-  {
-    "id": "PS_P2_ELEC_0850",
-    "topic": "Paper 2: Electrochemical Reactions",
-    "subtopic": "Electrolysis Stoichiometry",
-    "difficulty": "hard",
-    "question": "An electroplating cell is operated using a constant electric current of 5.0 A for exactly 30 minutes to deposit silver onto a spoon from an AgNO3 solution. Half-reaction: Ag\u207a(aq) + e\u207b -> Ag(s). Using Faraday's constant (F = 96 500 C\u00b7mol\u207b\u00b9) and molar mass of silver (107.9 g\u00b7mol\u207b\u00b9), calculate the mass of silver plated:",
-    "correct_answer": "10.063 g",
-    "wrong_answers_pool": [
-      "20.126 g (divided by 2 for divalent assumption)",
-      "0.168 g (omitted minute-to-second conversion)",
-      "9000.0 g",
-      "5.032 g",
-      "12.563 g",
-      "1.390 g",
-      "15.095 g"
-    ],
-    "explanation": "Q = I \u00d7 t = 5.0 \u00d7 (30 \u00d7 60) = 9000.0 C. n(e\u207b) = Q / F = 9000.0 / 96500 = 0.09326 mol. Since 1 mol e\u207b deposits 1 mol Ag: n(Ag) = 0.09326 mol. Mass = n \u00d7 M = 0.09326 \u00d7 107.9 = 10.063 g.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Electrochemical Reactions",
-      "subtopic": "Electrolysis Stoichiometry",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate mass deposited by electroplating"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_16"
-  },
-  {
-    "id": "PS_P2_EQ_0869",
-    "topic": "Paper 2: Chemical Equilibrium",
-    "subtopic": "Advanced Le Chatelier",
-    "difficulty": "hard",
-    "question": "In an industrial chemical equilibrium investigation at constant temperature in a 6.8 dm\u00b3 reactor: A(g) + 2B(g) \u21cc C(g). If equilibrium yield produces 2.900 mol of product C, what would be the effect on the equilibrium concentration of C if the reactor volume is halved to 3.40 dm\u00b3?",
-    "correct_answer": "The concentration of C will more than double (it increases both due to the volume halving and due to the equilibrium shifting to the right toward fewer gaseous moles).",
-    "wrong_answers_pool": [
-      "The concentration of C will remain exactly the same.",
-      "The concentration of C will decrease because high pressure decomposes C.",
-      "The concentration of C will exactly double and the equilibrium position will not shift.",
-      "The concentration of C will drop to zero.",
-      "The concentration of C will halve.",
-      "The value of Kc will double."
-    ],
-    "explanation": "Halving volume instantly doubles all concentrations; then, because 3 moles of gas -> 1 mole of gas, the equilibrium shifts to the right, increasing [C] even further.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Chemical Equilibrium",
-      "subtopic": "Advanced Le Chatelier",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Evaluate volume change on non-equimolar gas equilibrium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_17"
-  },
-  {
-    "id": "PS_P2_ORG_1000",
-    "topic": "Paper 2: Organic Chemistry",
-    "subtopic": "Elimination Reactions",
-    "difficulty": "hard",
-    "question": "An analytical laboratory dehydrates an unbranched secondary alcohol with 89 carbon atoms (having the -OH group at carbon 2) using excess concentrated H2SO4 at 180 \u00b0C. What is the IUPAC locant and position of the double bond in the MAJOR alkene formed according to Zaitsev's rule?",
-    "correct_answer": "Between carbon 2 and carbon 3 (the 2-alkene)",
-    "wrong_answers_pool": [
-      "Between carbon 1 and carbon 2 (the 1-alkene)",
-      "Between carbon 3 and carbon 4 (the 3-alkene)",
-      "No double bond forms; an ether is produced exclusively",
-      "Between terminal methyl groups forming a cyclic alkane",
-      "A triple bond forms between carbon 1 and carbon 2",
-      "The molecule cracks into methane and smaller fragments"
-    ],
-    "explanation": "Elimination of the -OH group on C2 and a hydrogen from C3 (having fewer hydrogens than C1) produces the more substituted 2-alkene as the major product.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Organic Chemistry",
-      "subtopic": "Elimination Reactions",
-      "cognitive_level": "Applying",
-      "difficulty": "hard",
-      "learning_outcome": "Predict Zaitsev double bond position"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_18"
-  },
-  {
-    "id": "PS_P2_ACID_0705",
-    "topic": "Paper 2: Acids and Bases",
-    "subtopic": "pH Calculations",
-    "difficulty": "medium",
-    "question": "What is the pH of an aqueous solution of perchloric acid, HClO4 (a strong monoprotic acid), having a concentration of 0.1500 mol\u00b7dm\u207b\u00b3 at 25 \u00b0C?",
-    "correct_answer": "0.82",
-    "wrong_answers_pool": [
-      "1.82",
-      "0.00",
-      "13.18",
-      "1.65",
-      "1.50",
-      "1.12"
-    ],
-    "explanation": "[H3O\u207a] = 0.1500 mol\u00b7dm\u207b\u00b3. pH = -log(0.1500) = 0.82.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Acids and Bases",
-      "subtopic": "pH Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate strong acid pH"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_19"
-  },
-  {
-    "id": "PS_P2_RATE_0604",
-    "topic": "Paper 2: Reaction Rates",
-    "subtopic": "Energy Profiles",
-    "difficulty": "medium",
-    "question": "Given Reactants = 75 kJ\u00b7mol\u207b\u00b9, Products = 15 kJ\u00b7mol\u207b\u00b9, and Catalyzed Activated Complex = 140 kJ\u00b7mol\u207b\u00b9, calculate the activation energy for the CATALYZED REVERSE reaction:",
-    "correct_answer": "125 kJ\u00b7mol\u207b\u00b9",
-    "wrong_answers_pool": [
-      "65 kJ\u00b7mol\u207b\u00b9",
-      "160 kJ\u00b7mol\u207b\u00b9",
-      "60 kJ\u00b7mol\u207b\u00b9",
-      "140 kJ\u00b7mol\u207b\u00b9",
-      "145 kJ\u00b7mol\u207b\u00b9",
-      "90 kJ\u00b7mol\u207b\u00b9"
-    ],
-    "explanation": "E_A(reverse, catalyzed) = E_complex(cat) - E_products = 140 - 15 = 125 kJ\u00b7mol\u207b\u00b9.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Reaction Rates",
-      "subtopic": "Energy Profiles",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate reverse catalyzed activation energy"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_20"
-  },
-  {
-    "id": "PS_P2_ACID_0902",
-    "topic": "Paper 2: Acids and Bases",
-    "subtopic": "Excess Neutralisation",
-    "difficulty": "hard",
-    "question": "A chemistry learner combines 40.0 cm\u00b3 of 0.10 mol\u00b7dm\u207b\u00b3 HCl with 100.0 cm\u00b3 of 0.30 mol\u00b7dm\u207b\u00b3 NaOH at 25 \u00b0C. Calculate the pH of the final solution:",
-    "correct_answer": "13.27",
-    "wrong_answers_pool": [
-      "0.73 (mistaken pOH for pH)",
-      "7.00 (neutral assumption)",
-      "13.48 (based on initial base alone)",
-      "1.59 (omitted total volume)",
-      "11.27",
-      "14.00"
-    ],
-    "explanation": "n(HCl) = 0.0040 mol, n(NaOH) = 0.0300 mol. Excess OH\u207b = 0.0260 mol. Total volume = 0.140 dm\u00b3. [OH\u207b] = 0.0260 / 0.140 = 0.1857 mol\u00b7dm\u207b\u00b3. pOH = -log(0.1857) = 0.73. pH = 14 - 0.73 = 13.27.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Acids and Bases",
-      "subtopic": "Excess Neutralisation",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate pH of mixture with excess base"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_21"
-  },
-  {
-    "id": "PS_P2_RATE_0419",
-    "topic": "Paper 2: Reaction Rates",
-    "subtopic": "Energy Profiles",
-    "difficulty": "medium",
-    "question": "For a reaction profile: Reactants = 45 kJ\u00b7mol\u207b\u00b9, Products = -35 kJ\u00b7mol\u207b\u00b9, Uncatalyzed activation energy E_A(forward) = 140 kJ\u00b7mol\u207b\u00b9. A catalyst is added that lowers activation energy by 45 kJ\u00b7mol\u207b\u00b9. What is the activation energy for the CATALYZED forward reaction?",
-    "correct_answer": "95 kJ\u00b7mol\u207b\u00b9",
-    "wrong_answers_pool": [
-      "185 kJ\u00b7mol\u207b\u00b9",
-      "140 kJ\u00b7mol\u207b\u00b9",
-      "175 kJ\u00b7mol\u207b\u00b9",
-      "45 kJ\u00b7mol\u207b\u00b9",
-      "80 kJ\u00b7mol\u207b\u00b9",
-      "105 kJ\u00b7mol\u207b\u00b9"
-    ],
-    "explanation": "Catalyzed E_A = Uncatalyzed E_A - drop = 140 - 45 = 95 kJ\u00b7mol\u207b\u00b9.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Reaction Rates",
-      "subtopic": "Energy Profiles",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate catalyzed activation energy"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_22"
-  },
-  {
-    "id": "PS_P2_EQ_0711",
-    "topic": "Paper 2: Chemical Equilibrium",
-    "subtopic": "Le Chatelier Shifts",
-    "difficulty": "medium",
-    "question": "An equilibrium mixture of N2(g) + 3H2(g) \u21cc 2NH3(g) is disturbed by injecting an additional 17.1 mol\u00b7dm\u207b\u00b3 of N2 gas at constant temperature and volume. What is the immediate effect on the rate of the forward reaction and how does the system re-establish equilibrium?",
-    "correct_answer": "The rate of the forward reaction immediately increases; the equilibrium shifts to the right, consuming N2 and H2 to produce more NH3 until forward and reverse rates become equal again.",
-    "wrong_answers_pool": [
-      "The rate of the reverse reaction immediately increases, shifting equilibrium to the left.",
-      "The forward rate decreases because N2 molecules crowd out H2 molecules.",
-      "The value of Kc increases proportionally to the added N2.",
-      "Both forward and reverse rates drop to zero.",
-      "The equilibrium does not shift because N2 is an inert gas.",
-      "The reaction reverses completely, decomposing all existing NH3."
-    ],
-    "explanation": "The rate of the forward reaction immediately increases; the equilibrium shifts to the right, consuming N2 and H2 to produce more NH3 until forward and reverse rates become equal again.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Chemical Equilibrium",
-      "subtopic": "Le Chatelier Shifts",
-      "cognitive_level": "Analyzing",
-      "difficulty": "medium",
-      "learning_outcome": "Explain response to reactant injection"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_23"
-  },
-  {
-    "id": "PS_P2_ACID_0957",
-    "topic": "Paper 2: Acids and Bases",
-    "subtopic": "Excess Neutralisation",
-    "difficulty": "hard",
-    "question": "After neutralising a strong acid with a strong base, a chemist finds that the solution has an unreacted hydronium ion concentration [H3O\u207a] = 0.0170 mol\u00b7dm\u207b\u00b3 in a total mixture volume of 250 cm\u00b3. Calculate the exact pH of the final solution at 25 \u00b0C:",
-    "correct_answer": "1.77",
-    "wrong_answers_pool": [
-      "2.77",
-      "12.23",
-      "3.54",
-      "7.00",
-      "0.77",
-      "0.02"
-    ],
-    "explanation": "pH = -log[H3O\u207a] = -log(0.0170) = 1.77.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Acids and Bases",
-      "subtopic": "Excess Neutralisation",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate pH from final hydronium concentration"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_24"
-  },
-  {
-    "id": "PS_P2_ORG_0510",
-    "topic": "Paper 2: Organic Chemistry",
-    "subtopic": "Isomerism",
-    "difficulty": "medium",
-    "question": "What type of structural isomerism is demonstrated by the pair: **1-bromopropane and 2-bromopropane**?",
-    "correct_answer": "Positional isomers",
-    "wrong_answers_pool": [
-      "Chain isomers",
-      "Functional isomers",
-      "Enantiomers",
-      "Homologues",
-      "Diastereomers",
-      "Not isomers"
-    ],
-    "explanation": "Both have formula C3H7Br; the bromine substituent is on C1 in one and on C2 in the other.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Organic Chemistry",
-      "subtopic": "Isomerism",
-      "cognitive_level": "Understanding",
-      "difficulty": "medium",
-      "learning_outcome": "Classify structural isomers"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_25"
-  },
-  {
-    "id": "PS_P2_EQ_0830",
-    "topic": "Paper 2: Chemical Equilibrium",
-    "subtopic": "Advanced Le Chatelier",
-    "difficulty": "hard",
-    "question": "In an industrial chemical equilibrium investigation at constant temperature in a 2.9 dm\u00b3 reactor: A(g) + 2B(g) \u21cc C(g). If equilibrium yield produces 0.950 mol of product C, what would be the effect on the equilibrium concentration of C if the reactor volume is halved to 1.45 dm\u00b3?",
-    "correct_answer": "The concentration of C will more than double (it increases both due to the volume halving and due to the equilibrium shifting to the right toward fewer gaseous moles).",
-    "wrong_answers_pool": [
-      "The concentration of C will remain exactly the same.",
-      "The concentration of C will decrease because high pressure decomposes C.",
-      "The concentration of C will exactly double and the equilibrium position will not shift.",
-      "The concentration of C will drop to zero.",
-      "The concentration of C will halve.",
-      "The value of Kc will double."
-    ],
-    "explanation": "Halving volume instantly doubles all concentrations; then, because 3 moles of gas -> 1 mole of gas, the equilibrium shifts to the right, increasing [C] even further.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Chemical Equilibrium",
-      "subtopic": "Advanced Le Chatelier",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Evaluate volume change on non-equimolar gas equilibrium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_26"
-  },
-  {
-    "id": "PS_P2_EQ_0606",
-    "topic": "Paper 2: Chemical Equilibrium",
-    "subtopic": "Le Chatelier Shifts",
-    "difficulty": "medium",
-    "question": "An equilibrium mixture of N2(g) + 3H2(g) \u21cc 2NH3(g) is disturbed by injecting an additional 6.6 mol\u00b7dm\u207b\u00b3 of N2 gas at constant temperature and volume. What is the immediate effect on the rate of the forward reaction and how does the system re-establish equilibrium?",
-    "correct_answer": "The rate of the forward reaction immediately increases; the equilibrium shifts to the right, consuming N2 and H2 to produce more NH3 until forward and reverse rates become equal again.",
-    "wrong_answers_pool": [
-      "The rate of the reverse reaction immediately increases, shifting equilibrium to the left.",
-      "The forward rate decreases because N2 molecules crowd out H2 molecules.",
-      "The value of Kc increases proportionally to the added N2.",
-      "Both forward and reverse rates drop to zero.",
-      "The equilibrium does not shift because N2 is an inert gas.",
-      "The reaction reverses completely, decomposing all existing NH3."
-    ],
-    "explanation": "The rate of the forward reaction immediately increases; the equilibrium shifts to the right, consuming N2 and H2 to produce more NH3 until forward and reverse rates become equal again.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Chemical Equilibrium",
-      "subtopic": "Le Chatelier Shifts",
-      "cognitive_level": "Analyzing",
-      "difficulty": "medium",
-      "learning_outcome": "Explain response to reactant injection"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_27"
-  },
-  {
-    "id": "PS_P2_RATE_0990",
-    "topic": "Paper 2: Reaction Rates",
-    "subtopic": "Catalyst & Equilibrium",
-    "difficulty": "hard",
-    "question": "An experiment studying the reaction between hydrochloric acid and calcium carbonate at 115 \u00b0C is repeated with identical masses and acid volumes, but with a homogeneous catalyst added. How will the instantaneous rate at t = 10 s and the final volume of CO2 gas compare to the uncatalyzed run?",
-    "correct_answer": "The instantaneous rate at t = 10 s will be higher (steeper slope), while the final volume of CO2 gas will remain exactly the same.",
-    "wrong_answers_pool": [
-      "Both the instantaneous rate and the final volume of CO2 will be double.",
-      "The instantaneous rate will be lower, but the final volume of CO2 will be higher.",
-      "The instantaneous rate will be higher, and the final volume of CO2 will be significantly higher.",
-      "Both the instantaneous rate and the final volume will remain unchanged.",
-      "The final volume of CO2 will be less because catalyst decomposes gas.",
-      "The reaction rate at t = 10 s will be zero because catalyst inhibits the start."
-    ],
-    "explanation": "A catalyst speeds up the rate (higher instantaneous rate) by lowering activation energy, but cannot alter the stoichiometric amount of product formed.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Reaction Rates",
-      "subtopic": "Catalyst & Equilibrium",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Evaluate catalyst effect on rate and yield"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_28"
-  },
-  {
-    "id": "PS_P2_ORG_0437",
-    "topic": "Paper 2: Organic Chemistry",
-    "subtopic": "IUPAC Naming",
-    "difficulty": "medium",
-    "question": "What is the IUPAC name of an unbranched aliphatic alcohol with 8 carbons where the hydroxyl group (-OH) is bonded to carbon 5?",
-    "correct_answer": "octan-5-ol",
-    "wrong_answers_pool": [
-      "octan-6-ol",
-      "octanol",
-      "5-octanol",
-      "octan-5-one",
-      "octan-5-al",
-      "octanoic acid"
-    ],
-    "explanation": "Numbering assigns the hydroxyl carbon locant 5: octan-5-ol.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Organic Chemistry",
-      "subtopic": "IUPAC Naming",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Name alcohol positional isomer"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_29"
-  },
-  {
-    "id": "PS_P2_EQ_0661",
-    "topic": "Paper 2: Chemical Equilibrium",
-    "subtopic": "Le Chatelier Shifts",
-    "difficulty": "medium",
-    "question": "An equilibrium mixture of N2(g) + 3H2(g) \u21cc 2NH3(g) is disturbed by injecting an additional 12.1 mol\u00b7dm\u207b\u00b3 of N2 gas at constant temperature and volume. What is the immediate effect on the rate of the forward reaction and how does the system re-establish equilibrium?",
-    "correct_answer": "The rate of the forward reaction immediately increases; the equilibrium shifts to the right, consuming N2 and H2 to produce more NH3 until forward and reverse rates become equal again.",
-    "wrong_answers_pool": [
-      "The rate of the reverse reaction immediately increases, shifting equilibrium to the left.",
-      "The forward rate decreases because N2 molecules crowd out H2 molecules.",
-      "The value of Kc increases proportionally to the added N2.",
-      "Both forward and reverse rates drop to zero.",
-      "The equilibrium does not shift because N2 is an inert gas.",
-      "The reaction reverses completely, decomposing all existing NH3."
-    ],
-    "explanation": "The rate of the forward reaction immediately increases; the equilibrium shifts to the right, consuming N2 and H2 to produce more NH3 until forward and reverse rates become equal again.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Chemical Equilibrium",
-      "subtopic": "Le Chatelier Shifts",
-      "cognitive_level": "Analyzing",
-      "difficulty": "medium",
-      "learning_outcome": "Explain response to reactant injection"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_30"
-  },
-  {
-    "id": "PS_P2_RATE_0958",
-    "topic": "Paper 2: Reaction Rates",
-    "subtopic": "Catalyst & Equilibrium",
-    "difficulty": "hard",
-    "question": "An experiment studying the reaction between hydrochloric acid and calcium carbonate at 83 \u00b0C is repeated with identical masses and acid volumes, but with a homogeneous catalyst added. How will the instantaneous rate at t = 10 s and the final volume of CO2 gas compare to the uncatalyzed run?",
-    "correct_answer": "The instantaneous rate at t = 10 s will be higher (steeper slope), while the final volume of CO2 gas will remain exactly the same.",
-    "wrong_answers_pool": [
-      "Both the instantaneous rate and the final volume of CO2 will be double.",
-      "The instantaneous rate will be lower, but the final volume of CO2 will be higher.",
-      "The instantaneous rate will be higher, and the final volume of CO2 will be significantly higher.",
-      "Both the instantaneous rate and the final volume will remain unchanged.",
-      "The final volume of CO2 will be less because catalyst decomposes gas.",
-      "The reaction rate at t = 10 s will be zero because catalyst inhibits the start."
-    ],
-    "explanation": "A catalyst speeds up the rate (higher instantaneous rate) by lowering activation energy, but cannot alter the stoichiometric amount of product formed.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Reaction Rates",
-      "subtopic": "Catalyst & Equilibrium",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Evaluate catalyst effect on rate and yield"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_31"
-  },
-  {
-    "id": "PS_P2_EQ_0853",
-    "topic": "Paper 2: Chemical Equilibrium",
-    "subtopic": "Advanced Le Chatelier",
-    "difficulty": "hard",
-    "question": "In an industrial chemical equilibrium investigation at constant temperature in a 5.2 dm\u00b3 reactor: A(g) + 2B(g) \u21cc C(g). If equilibrium yield produces 2.100 mol of product C, what would be the effect on the equilibrium concentration of C if the reactor volume is halved to 2.60 dm\u00b3?",
-    "correct_answer": "The concentration of C will more than double (it increases both due to the volume halving and due to the equilibrium shifting to the right toward fewer gaseous moles).",
-    "wrong_answers_pool": [
-      "The concentration of C will remain exactly the same.",
-      "The concentration of C will decrease because high pressure decomposes C.",
-      "The concentration of C will exactly double and the equilibrium position will not shift.",
-      "The concentration of C will drop to zero.",
-      "The concentration of C will halve.",
-      "The value of Kc will double."
-    ],
-    "explanation": "Halving volume instantly doubles all concentrations; then, because 3 moles of gas -> 1 mole of gas, the equilibrium shifts to the right, increasing [C] even further.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Chemical Equilibrium",
-      "subtopic": "Advanced Le Chatelier",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Evaluate volume change on non-equimolar gas equilibrium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_32"
-  },
-  {
-    "id": "PS_P2_EQ_0489",
-    "topic": "Paper 2: Chemical Equilibrium",
-    "subtopic": "RICE Calculations",
-    "difficulty": "medium",
-    "question": "Initially, 2.0 mol of H2(g) and 1.0 mol of I2(g) are placed in a 1.0 dm\u00b3 sealed container at 450 \u00b0C. The reaction reaches equilibrium: H2(g) + I2(g) \u21cc 2HI(g). At equilibrium, 1.6 mol of HI(g) is present. Calculate the equilibrium constant (Kc) for this reaction at 450 \u00b0C:",
-    "correct_answer": "10.67",
-    "wrong_answers_pool": [
-      "21.33",
-      "5.33",
-      "0.0937",
-      "15.17",
-      "6.67",
-      "16.00"
-    ],
-    "explanation": "Equilibrium moles: H2 = 2.0 - 0.8 = 1.2; I2 = 1.0 - 0.8 = 0.2; HI = 1.6. Since V = 1.0 dm\u00b3, [conc] = moles. Kc = [HI]\u00b2 / ([H2]\u00b7[I2]) = (1.6)\u00b2 / (1.2\u00b70.2) = 10.67.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Chemical Equilibrium",
-      "subtopic": "RICE Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate Kc using RICE table"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_33"
-  },
-  {
-    "id": "PS_P2_ACID_0900",
-    "topic": "Paper 2: Acids and Bases",
-    "subtopic": "Excess Neutralisation",
-    "difficulty": "hard",
-    "question": "A chemistry learner combines 40.0 cm\u00b3 of 0.15 mol\u00b7dm\u207b\u00b3 HCl with 80.0 cm\u00b3 of 0.30 mol\u00b7dm\u207b\u00b3 NaOH at 25 \u00b0C. Calculate the pH of the final solution:",
-    "correct_answer": "13.18",
-    "wrong_answers_pool": [
-      "0.82 (mistaken pOH for pH)",
-      "7.00 (neutral assumption)",
-      "13.48 (based on initial base alone)",
-      "1.74 (omitted total volume)",
-      "11.18",
-      "14.00"
-    ],
-    "explanation": "n(HCl) = 0.0060 mol, n(NaOH) = 0.0240 mol. Excess OH\u207b = 0.0180 mol. Total volume = 0.120 dm\u00b3. [OH\u207b] = 0.0180 / 0.120 = 0.1500 mol\u00b7dm\u207b\u00b3. pOH = -log(0.1500) = 0.82. pH = 14 - 0.82 = 13.18.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Acids and Bases",
-      "subtopic": "Excess Neutralisation",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate pH of mixture with excess base"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_34"
-  },
-  {
-    "id": "PS_P2_ELEC_0628",
-    "topic": "Paper 2: Electrochemical Reactions",
-    "subtopic": "Cell Potential Calculations",
-    "difficulty": "medium",
-    "question": "A standard galvanic cell is constructed using a Mn/Mn\u00b2\u207a half-cell (E\u00b0 = -1.18 V) and a Cr/Cr\u00b3\u207a half-cell (E\u00b0 = -0.74 V). Calculate the standard cell potential (E\u00b0cell):",
-    "correct_answer": "0.44 V",
-    "wrong_answers_pool": [
-      "-0.44 V",
-      "-1.92 V",
-      "0.88 V",
-      "0.22 V",
-      "0.00 V",
-      "0.94 V"
-    ],
-    "explanation": "Anode (Mn) is oxidised (more negative E\u00b0); Cathode (Cr) is reduced. E\u00b0cell = E\u00b0cathode - E\u00b0anode = (-0.74) - (-1.18) = 0.44 V.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Electrochemical Reactions",
-      "subtopic": "Cell Potential Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate standard cell potential"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_35"
-  },
-  {
-    "id": "PS_P2_ELEC_0995",
-    "topic": "Paper 2: Electrochemical Reactions",
-    "subtopic": "Cell Equilibrium & EMF",
-    "difficulty": "hard",
-    "question": "A galvanic cell Zn(s) | Zn\u00b2\u207a(aq, 0.376 mol\u00b7dm\u207b\u00b3) || Cu\u00b2\u207a(aq, 4.10 mol\u00b7dm\u207b\u00b3) | Cu(s) operates under non-standard conditions. Comparing this cell to the standard Daniell cell (where [Cu\u00b2\u207a] = [Zn\u00b2\u207a] = 1.00 mol\u00b7dm\u207b\u00b3), how does the initial cell voltage (EMF) compare and why?",
-    "correct_answer": "The cell voltage is HIGHER than 1.10 V, because higher reactant [Cu\u00b2\u207a] and lower product [Zn\u00b2\u207a] shift the equilibrium in the forward direction according to Le Chatelier's principle.",
-    "wrong_answers_pool": [
-      "The cell voltage is LOWER than 1.10 V, because ion crowding increases internal resistance.",
-      "The cell voltage is exactly EQUAL to 1.10 V, because concentration never affects cell EMF.",
-      "The cell voltage drops immediately to 0.00 V because conditions are non-standard.",
-      "The polarity of the cell terminals is reversed.",
-      "The cell converts into an electrolytic cell requiring external electrical energy.",
-      "The zinc electrode stops dissolving and copper begins to oxidise.",
-      "The internal resistance drops to zero permanently."
-    ],
-    "explanation": "Reactant concentration [Cu\u00b2\u207a] = 4.10 mol\u00b7dm\u207b\u00b3 is higher than standard, and product concentration [Zn\u00b2\u207a] = 0.376 mol\u00b7dm\u207b\u00b3 is lower. By Le Chatelier's principle, the system shifts forward, increasing the driving potential above standard EMF (1.10 V).",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Electrochemical Reactions",
-      "subtopic": "Cell Equilibrium & EMF",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Evaluate non-standard concentration on cell EMF"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_36"
-  },
-  {
-    "id": "PS_P2_ACID_0488",
-    "topic": "Paper 2: Acids and Bases",
-    "subtopic": "pH Calculations",
-    "difficulty": "medium",
-    "question": "Barium hydroxide, Ba(OH)2, is a strong dibasic base that dissociates completely: Ba(OH)2(s) -> Ba\u00b2\u207a(aq) + 2OH\u207b(aq). Calculate the pH of a **0.090 mol\u00b7dm\u207b\u00b3** Ba(OH)2 solution at 25 \u00b0C:",
-    "correct_answer": "13.26",
-    "wrong_answers_pool": [
-      "12.95 (omitted dibasic factor of 2)",
-      "0.74 (mistaken pOH for pH)",
-      "12.26",
-      "7.00",
-      "13.76",
-      "0.18"
-    ],
-    "explanation": "[OH\u207b] = 2 \u00d7 c(Ba(OH)2) = 2 \u00d7 0.090 = 0.180 mol\u00b7dm\u207b\u00b3. pOH = -log(0.180) = 0.74. pH = 14 - 0.74 = 13.26.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Acids and Bases",
-      "subtopic": "pH Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate pH of dibasic strong base"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_37"
-  },
-  {
-    "id": "PS_P2_ELEC_0982",
-    "topic": "Paper 2: Electrochemical Reactions",
-    "subtopic": "Cell Equilibrium & EMF",
-    "difficulty": "hard",
-    "question": "A galvanic cell Zn(s) | Zn\u00b2\u207a(aq, 0.402 mol\u00b7dm\u207b\u00b3) || Cu\u00b2\u207a(aq, 3.45 mol\u00b7dm\u207b\u00b3) | Cu(s) operates under non-standard conditions. Comparing this cell to the standard Daniell cell (where [Cu\u00b2\u207a] = [Zn\u00b2\u207a] = 1.00 mol\u00b7dm\u207b\u00b3), how does the initial cell voltage (EMF) compare and why?",
-    "correct_answer": "The cell voltage is HIGHER than 1.10 V, because higher reactant [Cu\u00b2\u207a] and lower product [Zn\u00b2\u207a] shift the equilibrium in the forward direction according to Le Chatelier's principle.",
-    "wrong_answers_pool": [
-      "The cell voltage is LOWER than 1.10 V, because ion crowding increases internal resistance.",
-      "The cell voltage is exactly EQUAL to 1.10 V, because concentration never affects cell EMF.",
-      "The cell voltage drops immediately to 0.00 V because conditions are non-standard.",
-      "The polarity of the cell terminals is reversed.",
-      "The cell converts into an electrolytic cell requiring external electrical energy.",
-      "The zinc electrode stops dissolving and copper begins to oxidise.",
-      "The internal resistance drops to zero permanently."
-    ],
-    "explanation": "Reactant concentration [Cu\u00b2\u207a] = 3.45 mol\u00b7dm\u207b\u00b3 is higher than standard, and product concentration [Zn\u00b2\u207a] = 0.402 mol\u00b7dm\u207b\u00b3 is lower. By Le Chatelier's principle, the system shifts forward, increasing the driving potential above standard EMF (1.10 V).",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Electrochemical Reactions",
-      "subtopic": "Cell Equilibrium & EMF",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Evaluate non-standard concentration on cell EMF"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_38"
-  },
-  {
-    "id": "PS_P2_RATE_0488",
-    "topic": "Paper 2: Reaction Rates",
-    "subtopic": "Energy Profiles",
-    "difficulty": "medium",
-    "question": "Given Reactants = 45 kJ\u00b7mol\u207b\u00b9, Products = 105 kJ\u00b7mol\u207b\u00b9, and Catalyzed Activated Complex = 120 kJ\u00b7mol\u207b\u00b9, calculate the activation energy for the CATALYZED REVERSE reaction:",
-    "correct_answer": "15 kJ\u00b7mol\u207b\u00b9",
-    "wrong_answers_pool": [
-      "75 kJ\u00b7mol\u207b\u00b9",
-      "40 kJ\u00b7mol\u207b\u00b9",
-      "60 kJ\u00b7mol\u207b\u00b9",
-      "120 kJ\u00b7mol\u207b\u00b9",
-      "35 kJ\u00b7mol\u207b\u00b9",
-      "150 kJ\u00b7mol\u207b\u00b9"
-    ],
-    "explanation": "E_A(reverse, catalyzed) = E_complex(cat) - E_products = 120 - 105 = 15 kJ\u00b7mol\u207b\u00b9.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Reaction Rates",
-      "subtopic": "Energy Profiles",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate reverse catalyzed activation energy"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_39"
   },
   {
     "id": "PS_P2_RATE_0929",
@@ -1084,144 +79,61 @@
       "difficulty": "hard",
       "learning_outcome": "Evaluate catalyst effect on rate and yield"
     },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_40"
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_3"
   },
   {
-    "id": "PS_P2_EQ_0924",
-    "topic": "Paper 2: Chemical Equilibrium",
-    "subtopic": "Advanced Le Chatelier",
-    "difficulty": "hard",
-    "question": "In an industrial chemical equilibrium investigation at constant temperature in a 12.3 dm\u00b3 reactor: A(g) + 2B(g) \u21cc C(g). If equilibrium yield produces 5.650 mol of product C, what would be the effect on the equilibrium concentration of C if the reactor volume is halved to 6.15 dm\u00b3?",
-    "correct_answer": "The concentration of C will more than double (it increases both due to the volume halving and due to the equilibrium shifting to the right toward fewer gaseous moles).",
-    "wrong_answers_pool": [
-      "The concentration of C will remain exactly the same.",
-      "The concentration of C will decrease because high pressure decomposes C.",
-      "The concentration of C will exactly double and the equilibrium position will not shift.",
-      "The concentration of C will drop to zero.",
-      "The concentration of C will halve.",
-      "The value of Kc will double."
-    ],
-    "explanation": "Halving volume instantly doubles all concentrations; then, because 3 moles of gas -> 1 mole of gas, the equilibrium shifts to the right, increasing [C] even further.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Chemical Equilibrium",
-      "subtopic": "Advanced Le Chatelier",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Evaluate volume change on non-equimolar gas equilibrium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_41"
-  },
-  {
-    "id": "PS_P2_ORG_0539",
-    "topic": "Paper 2: Organic Chemistry",
-    "subtopic": "Intermolecular Forces",
-    "difficulty": "medium",
-    "question": "Comparing straight-chain alkane C19H40 and alkane C21H44, which compound has the higher boiling point and what is the scientific justification?",
-    "correct_answer": "alkane C21H44 has the higher boiling point because its longer carbon chain and larger molecular surface area result in stronger London dispersion forces.",
-    "wrong_answers_pool": [
-      "alkane C19H40 has the higher boiling point because smaller molecules pack more tightly.",
-      "Both have identical boiling points because they are both saturated alkanes.",
-      "alkane C19H40 has the higher boiling point because it contains permanent dipole-dipole forces.",
-      "alkane C21H44 has a lower boiling point because longer chains are less stable.",
-      "alkane C19H40 has the higher boiling point because it can form intermolecular hydrogen bonds.",
-      "alkane C21H44 has the higher boiling point because its covalent C-C bonds are much stronger."
-    ],
-    "explanation": "alkane C21H44 has the higher boiling point because its longer carbon chain and larger molecular surface area result in stronger London dispersion forces.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Organic Chemistry",
-      "subtopic": "Intermolecular Forces",
-      "cognitive_level": "Analyzing",
-      "difficulty": "medium",
-      "learning_outcome": "Compare alkane chain length and boiling point"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_42"
-  },
-  {
-    "id": "PS_P2_IND_0576",
-    "topic": "Paper 2: Chemical Industry",
-    "subtopic": "NPK Analysis",
-    "difficulty": "medium",
-    "question": "An agronomist analyzes a commercial fertilizer labelled **1 : 2 : 2 (28)**. Which primary macronutrient is present in the GREATEST proportion by mass, and what is its specific proportion of the active nutrients?",
-    "correct_answer": "Phosphorus, representing 2/5 (40.0%) of total active nutrients.",
-    "wrong_answers_pool": [
-      "Nitrogen, representing 1/5 (20.0%) of active nutrients.",
-      "All three nutrients are present in exactly equal proportions (33.3% each).",
-      "Inert filler, representing 72% of active nutrients.",
-      "Phosphorus, representing 28% of the total bag mass.",
-      "Nitrogen, representing 72% of active nutrients.",
-      "Phosphorus, representing 5% of the bag mass.",
-      "Calcium, representing 10% of the nutrients."
-    ],
-    "explanation": "In the ratio 1:2:2, the highest number corresponds to Phosphorus (2 out of 5 parts, or 40.0% of active nutrients).",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Chemical Industry",
-      "subtopic": "NPK Analysis",
-      "cognitive_level": "Analyzing",
-      "difficulty": "medium",
-      "learning_outcome": "Determine dominant nutrient in NPK ratio"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_43"
-  },
-  {
-    "id": "PS_P2_ELEC_0818",
-    "topic": "Paper 2: Electrochemical Reactions",
-    "subtopic": "Electrolysis Stoichiometry",
-    "difficulty": "hard",
-    "question": "An electroplating cell is operated using a constant electric current of 2.0 A for exactly 30 minutes to deposit silver onto a spoon from an AgNO3 solution. Half-reaction: Ag\u207a(aq) + e\u207b -> Ag(s). Using Faraday's constant (F = 96 500 C\u00b7mol\u207b\u00b9) and molar mass of silver (107.9 g\u00b7mol\u207b\u00b9), calculate the mass of silver plated:",
-    "correct_answer": "4.025 g",
-    "wrong_answers_pool": [
-      "8.051 g (divided by 2 for divalent assumption)",
-      "0.067 g (omitted minute-to-second conversion)",
-      "3600.0 g",
-      "2.013 g",
-      "6.525 g",
-      "0.556 g",
-      "6.038 g"
-    ],
-    "explanation": "Q = I \u00d7 t = 2.0 \u00d7 (30 \u00d7 60) = 3600.0 C. n(e\u207b) = Q / F = 3600.0 / 96500 = 0.03731 mol. Since 1 mol e\u207b deposits 1 mol Ag: n(Ag) = 0.03731 mol. Mass = n \u00d7 M = 0.03731 \u00d7 107.9 = 4.025 g.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 2: Electrochemical Reactions",
-      "subtopic": "Electrolysis Stoichiometry",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate mass deposited by electroplating"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_44"
-  },
-  {
-    "id": "PS_P2_ACID_0813",
+    "id": "PS_P2_ACID_0773",
     "topic": "Paper 2: Acids and Bases",
-    "subtopic": "Excess Neutralisation",
-    "difficulty": "hard",
-    "question": "A student mixes 50.0 cm\u00b3 of 0.20 mol\u00b7dm\u207b\u00b3 HCl with 50.0 cm\u00b3 of 0.10 mol\u00b7dm\u207b\u00b3 NaOH at 25 \u00b0C. Reaction: HCl(aq) + NaOH(aq) -> NaCl(aq) + H2O(l). Calculate the pH of the resulting mixture:",
-    "correct_answer": "1.30",
+    "subtopic": "pH Calculations",
+    "difficulty": "medium",
+    "question": "What is the pH of an aqueous solution of perchloric acid, HClO4 (a strong monoprotic acid), having a concentration of 0.2860 mol\u00b7dm\u207b\u00b3 at 25 \u00b0C?",
+    "correct_answer": "0.54",
     "wrong_answers_pool": [
-      "7.00 (assumed complete neutralisation without checking limiting reactant)",
-      "0.70 (used initial acid concentration)",
-      "12.70 (mistaken for a basic solution)",
-      "2.30 (omitted dividing by total volume)",
-      "2.80",
-      "0.00"
+      "1.54",
+      "0.00",
+      "13.46",
+      "1.09",
+      "2.86",
+      "0.84"
     ],
-    "explanation": "n(HCl) = 0.0100 mol, n(NaOH) = 0.0050 mol. Excess H\u207a = 0.0050 mol. Total volume = 0.100 dm\u00b3. [H3O\u207a] = 0.0050 / 0.100 = 0.0500 mol\u00b7dm\u207b\u00b3. pH = -log(0.0500) = 1.30.",
+    "explanation": "[H3O\u207a] = 0.2860 mol\u00b7dm\u207b\u00b3. pH = -log(0.2860) = 0.54.",
     "tags": {
       "grade": "12",
       "subject": "Physical Sciences",
       "topic": "Paper 2: Acids and Bases",
-      "subtopic": "Excess Neutralisation",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate pH of mixture with excess acid"
+      "subtopic": "pH Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate strong acid pH"
     },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_45"
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_4"
+  },
+  {
+    "id": "PS_P2_EQ_0733",
+    "topic": "Paper 2: Chemical Equilibrium",
+    "subtopic": "Le Chatelier Shifts",
+    "difficulty": "medium",
+    "question": "An equilibrium mixture of N2(g) + 3H2(g) \u21cc 2NH3(g) is disturbed by injecting an additional 19.3 mol\u00b7dm\u207b\u00b3 of N2 gas at constant temperature and volume. What is the immediate effect on the rate of the forward reaction and how does the system re-establish equilibrium?",
+    "correct_answer": "The rate of the forward reaction immediately increases; the equilibrium shifts to the right, consuming N2 and H2 to produce more NH3 until forward and reverse rates become equal again.",
+    "wrong_answers_pool": [
+      "The rate of the reverse reaction immediately increases, shifting equilibrium to the left.",
+      "The forward rate decreases because N2 molecules crowd out H2 molecules.",
+      "The value of Kc increases proportionally to the added N2.",
+      "Both forward and reverse rates drop to zero.",
+      "The equilibrium does not shift because N2 is an inert gas.",
+      "The reaction reverses completely, decomposing all existing NH3."
+    ],
+    "explanation": "The rate of the forward reaction immediately increases; the equilibrium shifts to the right, consuming N2 and H2 to produce more NH3 until forward and reverse rates become equal again.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Chemical Equilibrium",
+      "subtopic": "Le Chatelier Shifts",
+      "cognitive_level": "Analyzing",
+      "difficulty": "medium",
+      "learning_outcome": "Explain response to reactant injection"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_5"
   },
   {
     "id": "PS_P2_EQ_0976",
@@ -1248,24 +160,488 @@
       "difficulty": "hard",
       "learning_outcome": "Evaluate volume change on non-equimolar gas equilibrium"
     },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_46"
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_6"
   },
   {
-    "id": "PS_P2_RATE_0374",
+    "id": "PS_P2_ELEC_0490",
+    "topic": "Paper 2: Electrochemical Reactions",
+    "subtopic": "Cell Notation",
+    "difficulty": "medium",
+    "question": "What is the standard cell notation for the galvanic cell constructed from Na/Na\u207a (E\u00b0 = -2.71 V) and Mn/Mn\u00b2\u207a (E\u00b0 = -1.18 V)?",
+    "correct_answer": "Na(s) | Na+(1 mol\u00b7dm\u207b\u00b3) || Mn2+(1 mol\u00b7dm\u207b\u00b3) | Mn(s)",
+    "wrong_answers_pool": [
+      "Mn(s) | Mn2+(1 mol\u00b7dm\u207b\u00b3) || Na+(1 mol\u00b7dm\u207b\u00b3) | Na(s)",
+      "Na(s) || Mn(s)",
+      "Mn(s) || Na(s)",
+      "Pt | Na(s) || Mn(s) | Pt",
+      "Na+(aq) | Na(s) || Mn(s) | Mn2+(aq)",
+      "Na(s) | Mn(s) || electrolyte"
+    ],
+    "explanation": "Standard cell notation follows: Anode | Anode electrolyte || Cathode electrolyte | Cathode. Therefore: Na(s) | Na+(1 mol\u00b7dm\u207b\u00b3) || Mn2+(1 mol\u00b7dm\u207b\u00b3) | Mn(s).",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Electrochemical Reactions",
+      "subtopic": "Cell Notation",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Write standard cell notation"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_7"
+  },
+  {
+    "id": "PS_P2_IND_0894",
+    "topic": "Paper 2: Chemical Industry",
+    "subtopic": "NPK Calculations",
+    "difficulty": "hard",
+    "question": "A 20 kg bag of commercial fertilizer is labelled **3 : 2 : 1 (30)**. Calculate the exact mass of pure Nitrogen (N) present in this bag:",
+    "correct_answer": "3.00 kg",
+    "wrong_answers_pool": [
+      "10.00 kg (omitted active percentage factor)",
+      "2.00 kg (calculated phosphorus mass instead)",
+      "1.00 kg (calculated potassium mass instead)",
+      "6.00 kg (total active fertilizer mass)",
+      "6.00 kg",
+      "1.50 kg"
+    ],
+    "explanation": "Total ratio parts = 3 + 2 + 1 = 6. Active mass in 20 kg bag = 20 \u00d7 (30/100) = 6.00 kg. Mass of N = (3/6) \u00d7 6.00 = 3.00 kg.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Chemical Industry",
+      "subtopic": "NPK Calculations",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate nitrogen mass in fertilizer bag"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_8"
+  },
+  {
+    "id": "PS_P2_EQ_0375",
+    "topic": "Paper 2: Chemical Equilibrium",
+    "subtopic": "Temperature & Kc",
+    "difficulty": "medium",
+    "question": "The Haber synthesis N2(g) + 3H2(g) \u21cc 2NH3(g) is exothermic (\u0394H = -92 kJ\u00b7mol\u207b\u00b9). At 595 K, Kc = 168.0. If the temperature is increased to 645 K, how will the value of Kc change and why?",
+    "correct_answer": "Kc will decrease below 168.0 because increasing temperature favors the reverse endothermic reaction, decreasing product concentration and increasing reactant concentration.",
+    "wrong_answers_pool": [
+      "Kc will increase above 168.0 because higher temperature speeds up molecules.",
+      "Kc will remain exactly 168.0 because Kc is constant for any given reaction.",
+      "Kc will double because temperature increased.",
+      "Kc will drop to zero because high heat destroys ammonia.",
+      "Kc will become negative because \u0394H is negative.",
+      "Kc will fluctuate randomly."
+    ],
+    "explanation": "For exothermic reactions, increasing temperature shifts equilibrium to the left, decreasing Kc below 168.0.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Chemical Equilibrium",
+      "subtopic": "Temperature & Kc",
+      "cognitive_level": "Analyzing",
+      "difficulty": "medium",
+      "learning_outcome": "Explain Kc decrease for exothermic reaction"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_9"
+  },
+  {
+    "id": "PS_P2_IND_0998",
+    "topic": "Paper 2: Chemical Industry",
+    "subtopic": "NPK Calculations",
+    "difficulty": "hard",
+    "question": "From the same 25 kg bag labelled **1 : 1 : 1 (33)**, calculate the exact mass of pure Phosphorus (P) contained in the bag:",
+    "correct_answer": "2.75 kg",
+    "wrong_answers_pool": [
+      "8.33 kg (omitted active percentage)",
+      "2.75 kg (calculated nitrogen mass instead)",
+      "2.75 kg (calculated potassium mass instead)",
+      "5.50 kg",
+      "1.38 kg",
+      "16.75 kg (filler mass)",
+      "6.25 kg"
+    ],
+    "explanation": "Total ratio parts = 3. Active mass = 25 \u00d7 0.33 = 8.25 kg. Mass of P = (1/3) \u00d7 8.25 = 2.75 kg.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Chemical Industry",
+      "subtopic": "NPK Calculations",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate phosphorus mass in fertilizer bag"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_10"
+  },
+  {
+    "id": "PS_P2_ORG_0923",
+    "topic": "Paper 2: Organic Chemistry",
+    "subtopic": "Elimination Reactions",
+    "difficulty": "hard",
+    "question": "An analytical laboratory dehydrates an unbranched secondary alcohol with 12 carbon atoms (having the -OH group at carbon 2) using excess concentrated H2SO4 at 180 \u00b0C. What is the IUPAC locant and position of the double bond in the MAJOR alkene formed according to Zaitsev's rule?",
+    "correct_answer": "Between carbon 2 and carbon 3 (the 2-alkene)",
+    "wrong_answers_pool": [
+      "Between carbon 1 and carbon 2 (the 1-alkene)",
+      "Between carbon 3 and carbon 4 (the 3-alkene)",
+      "No double bond forms; an ether is produced exclusively",
+      "Between terminal methyl groups forming a cyclic alkane",
+      "A triple bond forms between carbon 1 and carbon 2",
+      "The molecule cracks into methane and smaller fragments"
+    ],
+    "explanation": "Elimination of the -OH group on C2 and a hydrogen from C3 (having fewer hydrogens than C1) produces the more substituted 2-alkene as the major product.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Organic Chemistry",
+      "subtopic": "Elimination Reactions",
+      "cognitive_level": "Applying",
+      "difficulty": "hard",
+      "learning_outcome": "Predict Zaitsev double bond position"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_11"
+  },
+  {
+    "id": "PS_P2_ORG_0742",
+    "topic": "Paper 2: Organic Chemistry",
+    "subtopic": "Intermolecular Forces",
+    "difficulty": "medium",
+    "question": "Between the unbranched primary alcohols C103H207OH and C105H211OH at 25 \u00b0C, which compound has the lower vapor pressure and why?",
+    "correct_answer": "C105H211OH has the lower vapor pressure because its stronger London dispersion forces (due to longer chain) reduce its volatility.",
+    "wrong_answers_pool": [
+      "C103H207OH has the lower vapor pressure because it has weaker forces.",
+      "Both have identical vapor pressures because both have one -OH group.",
+      "C103H207OH has the lower vapor pressure because small molecules cannot vaporise.",
+      "C105H211OH has a higher vapor pressure because heavy molecules repel air.",
+      "Neither has a vapor pressure because alcohols are non-volatile solids.",
+      "C103H207OH has lower vapor pressure because it forms ionic bonds."
+    ],
+    "explanation": "C105H211OH has the lower vapor pressure because its stronger London dispersion forces (due to longer chain) reduce its volatility.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Organic Chemistry",
+      "subtopic": "Intermolecular Forces",
+      "cognitive_level": "Analyzing",
+      "difficulty": "medium",
+      "learning_outcome": "Compare alcohol vapor pressure"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_12"
+  },
+  {
+    "id": "PS_P2_IND_0656",
+    "topic": "Paper 2: Chemical Industry",
+    "subtopic": "NPK Percentage",
+    "difficulty": "medium",
+    "question": "For a commercial fertilizer labelled **1 : 2 : 5 (22)**, what is the exact percentage by mass of pure Nitrogen (N) in the total contents of the bag?",
+    "correct_answer": "2.75%",
+    "wrong_answers_pool": [
+      "12.50% (calculated percentage of active nutrients without multiplying by active content)",
+      "5.50%",
+      "13.75%",
+      "22.00% (total active percentage)",
+      "1.38%",
+      "78.00%"
+    ],
+    "explanation": "% N in bag = (Ratio part of N / Total parts) \u00d7 Active % = (1 / 8) \u00d7 22% = 2.75%.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Chemical Industry",
+      "subtopic": "NPK Percentage",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate percentage of nitrogen in fertilizer bag"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_13"
+  },
+  {
+    "id": "PS_P2_EQ_0878",
+    "topic": "Paper 2: Chemical Equilibrium",
+    "subtopic": "Advanced Le Chatelier",
+    "difficulty": "hard",
+    "question": "In an industrial chemical equilibrium investigation at constant temperature in a 7.7 dm\u00b3 reactor: A(g) + 2B(g) \u21cc C(g). If equilibrium yield produces 3.350 mol of product C, what would be the effect on the equilibrium concentration of C if the reactor volume is halved to 3.85 dm\u00b3?",
+    "correct_answer": "The concentration of C will more than double (it increases both due to the volume halving and due to the equilibrium shifting to the right toward fewer gaseous moles).",
+    "wrong_answers_pool": [
+      "The concentration of C will remain exactly the same.",
+      "The concentration of C will decrease because high pressure decomposes C.",
+      "The concentration of C will exactly double and the equilibrium position will not shift.",
+      "The concentration of C will drop to zero.",
+      "The concentration of C will halve.",
+      "The value of Kc will double."
+    ],
+    "explanation": "Halving volume instantly doubles all concentrations; then, because 3 moles of gas -> 1 mole of gas, the equilibrium shifts to the right, increasing [C] even further.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Chemical Equilibrium",
+      "subtopic": "Advanced Le Chatelier",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Evaluate volume change on non-equimolar gas equilibrium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_14"
+  },
+  {
+    "id": "PS_P2_ACID_0421",
+    "topic": "Paper 2: Acids and Bases",
+    "subtopic": "pH Calculations",
+    "difficulty": "medium",
+    "question": "Sodium hydroxide, NaOH, is a strong base that dissociates completely in water. Calculate the pH of a **0.045 mol\u00b7dm\u207b\u00b3** NaOH solution at 25 \u00b0C:",
+    "correct_answer": "12.65",
+    "wrong_answers_pool": [
+      "1.35 (mistaken pOH for pH)",
+      "11.65",
+      "11.31",
+      "13.15",
+      "7.00",
+      "0.45"
+    ],
+    "explanation": "[OH\u207b] = 0.045 mol\u00b7dm\u207b\u00b3. pOH = -log(0.045) = 1.35. pH = 14 - pOH = 14 - 1.35 = 12.65.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Acids and Bases",
+      "subtopic": "pH Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate pH of strong monoprotic base"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_15"
+  },
+  {
+    "id": "PS_P2_IND_0909",
+    "topic": "Paper 2: Chemical Industry",
+    "subtopic": "NPK Calculations",
+    "difficulty": "hard",
+    "question": "A 20 kg bag of commercial fertilizer is labelled **2 : 1 : 2 (25)**. Calculate the exact mass of pure Nitrogen (N) present in this bag:",
+    "correct_answer": "2.00 kg",
+    "wrong_answers_pool": [
+      "8.00 kg (omitted active percentage factor)",
+      "1.00 kg (calculated phosphorus mass instead)",
+      "2.00 kg (calculated potassium mass instead)",
+      "5.00 kg (total active fertilizer mass)",
+      "4.00 kg",
+      "1.00 kg",
+      "5.00 kg"
+    ],
+    "explanation": "Total ratio parts = 2 + 1 + 2 = 5. Active mass in 20 kg bag = 20 \u00d7 (25/100) = 5.00 kg. Mass of N = (2/5) \u00d7 5.00 = 2.00 kg.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Chemical Industry",
+      "subtopic": "NPK Calculations",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate nitrogen mass in fertilizer bag"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_16"
+  },
+  {
+    "id": "PS_P2_IND_0407",
+    "topic": "Paper 2: Chemical Industry",
+    "subtopic": "NPK Analysis",
+    "difficulty": "medium",
+    "question": "An agronomist analyzes a commercial fertilizer labelled **1 : 1 : 3 (28)**. Which primary macronutrient is present in the GREATEST proportion by mass, and what is its specific proportion of the active nutrients?",
+    "correct_answer": "Potassium, representing 3/5 (60.0%) of total active nutrients.",
+    "wrong_answers_pool": [
+      "Nitrogen, representing 1/5 (20.0%) of active nutrients.",
+      "All three nutrients are present in exactly equal proportions (33.3% each).",
+      "Inert filler, representing 72% of active nutrients.",
+      "Potassium, representing 28% of the total bag mass.",
+      "Nitrogen, representing 72% of active nutrients.",
+      "Phosphorus, representing 5% of the bag mass.",
+      "Calcium, representing 10% of the nutrients."
+    ],
+    "explanation": "In the ratio 1:1:3, the highest number corresponds to Potassium (3 out of 5 parts, or 60.0% of active nutrients).",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Chemical Industry",
+      "subtopic": "NPK Analysis",
+      "cognitive_level": "Analyzing",
+      "difficulty": "medium",
+      "learning_outcome": "Determine dominant nutrient in NPK ratio"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_17"
+  },
+  {
+    "id": "PS_P2_ORG_0397",
+    "topic": "Paper 2: Organic Chemistry",
+    "subtopic": "IUPAC Naming",
+    "difficulty": "medium",
+    "question": "Give the systematic IUPAC name for a 7-carbon straight-chain alkane possessing a single iodo substituent attached to carbon 3:",
+    "correct_answer": "3-iodoheptane",
+    "wrong_answers_pool": [
+      "4-iodoheptane",
+      "iodoheptane",
+      "3-iodoheptene",
+      "3-iodoheptanol",
+      "5-iodoheptane",
+      "1,1-diiodoheptane"
+    ],
+    "explanation": "Numbering from the nearest end gives locant 3: 3-iodoheptane.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Organic Chemistry",
+      "subtopic": "IUPAC Naming",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Name haloalkane"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_18"
+  },
+  {
+    "id": "PS_P2_IND_0832",
+    "topic": "Paper 2: Chemical Industry",
+    "subtopic": "NPK Calculations",
+    "difficulty": "hard",
+    "question": "A 10 kg bag of commercial fertilizer is labelled **1 : 2 : 3 (24)**. Calculate the exact mass of pure Nitrogen (N) present in this bag:",
+    "correct_answer": "0.40 kg",
+    "wrong_answers_pool": [
+      "1.67 kg (omitted active percentage factor)",
+      "0.80 kg (calculated phosphorus mass instead)",
+      "1.20 kg (calculated potassium mass instead)",
+      "2.40 kg (total active fertilizer mass)",
+      "0.80 kg",
+      "0.20 kg",
+      "2.40 kg"
+    ],
+    "explanation": "Total ratio parts = 1 + 2 + 3 = 6. Active mass in 10 kg bag = 10 \u00d7 (24/100) = 2.40 kg. Mass of N = (1/6) \u00d7 2.40 = 0.40 kg.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Chemical Industry",
+      "subtopic": "NPK Calculations",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate nitrogen mass in fertilizer bag"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_19"
+  },
+  {
+    "id": "PS_P2_EQ_0723",
+    "topic": "Paper 2: Chemical Equilibrium",
+    "subtopic": "Le Chatelier Shifts",
+    "difficulty": "medium",
+    "question": "An equilibrium mixture of N2(g) + 3H2(g) \u21cc 2NH3(g) is disturbed by injecting an additional 18.3 mol\u00b7dm\u207b\u00b3 of N2 gas at constant temperature and volume. What is the immediate effect on the rate of the forward reaction and how does the system re-establish equilibrium?",
+    "correct_answer": "The rate of the forward reaction immediately increases; the equilibrium shifts to the right, consuming N2 and H2 to produce more NH3 until forward and reverse rates become equal again.",
+    "wrong_answers_pool": [
+      "The rate of the reverse reaction immediately increases, shifting equilibrium to the left.",
+      "The forward rate decreases because N2 molecules crowd out H2 molecules.",
+      "The value of Kc increases proportionally to the added N2.",
+      "Both forward and reverse rates drop to zero.",
+      "The equilibrium does not shift because N2 is an inert gas.",
+      "The reaction reverses completely, decomposing all existing NH3."
+    ],
+    "explanation": "The rate of the forward reaction immediately increases; the equilibrium shifts to the right, consuming N2 and H2 to produce more NH3 until forward and reverse rates become equal again.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Chemical Equilibrium",
+      "subtopic": "Le Chatelier Shifts",
+      "cognitive_level": "Analyzing",
+      "difficulty": "medium",
+      "learning_outcome": "Explain response to reactant injection"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_20"
+  },
+  {
+    "id": "PS_P2_RATE_0952",
+    "topic": "Paper 2: Reaction Rates",
+    "subtopic": "Catalyst & Equilibrium",
+    "difficulty": "hard",
+    "question": "An experiment studying the reaction between hydrochloric acid and calcium carbonate at 77 \u00b0C is repeated with identical masses and acid volumes, but with a homogeneous catalyst added. How will the instantaneous rate at t = 10 s and the final volume of CO2 gas compare to the uncatalyzed run?",
+    "correct_answer": "The instantaneous rate at t = 10 s will be higher (steeper slope), while the final volume of CO2 gas will remain exactly the same.",
+    "wrong_answers_pool": [
+      "Both the instantaneous rate and the final volume of CO2 will be double.",
+      "The instantaneous rate will be lower, but the final volume of CO2 will be higher.",
+      "The instantaneous rate will be higher, and the final volume of CO2 will be significantly higher.",
+      "Both the instantaneous rate and the final volume will remain unchanged.",
+      "The final volume of CO2 will be less because catalyst decomposes gas.",
+      "The reaction rate at t = 10 s will be zero because catalyst inhibits the start."
+    ],
+    "explanation": "A catalyst speeds up the rate (higher instantaneous rate) by lowering activation energy, but cannot alter the stoichiometric amount of product formed.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Reaction Rates",
+      "subtopic": "Catalyst & Equilibrium",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Evaluate catalyst effect on rate and yield"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_21"
+  },
+  {
+    "id": "PS_P2_RATE_0859",
+    "topic": "Paper 2: Reaction Rates",
+    "subtopic": "Rate Calculations",
+    "difficulty": "hard",
+    "question": "In a closed reaction vessel of volume 1.000 dm\u00b3, 0.040 mol of a reactant A is consumed in 90 seconds. Calculate the average rate of consumption of reactant A in mol\u00b7dm\u207b\u00b3\u00b7s\u207b\u00b9:",
+    "correct_answer": "0.0004 mol\u00b7dm\u207b\u00b3\u00b7s\u207b\u00b9",
+    "wrong_answers_pool": [
+      "0.0009 mol\u00b7dm\u207b\u00b3\u00b7s\u207b\u00b9",
+      "0.0002 mol\u00b7dm\u207b\u00b3\u00b7s\u207b\u00b9",
+      "0.0004 mol\u00b7s\u207b\u00b9",
+      "0.0400 mol\u00b7dm\u207b\u00b3",
+      "0.0044 mol\u00b7dm\u207b\u00b3\u00b7s\u207b\u00b9",
+      "2250.0000 s\u00b7dm\u00b3\u00b7mol\u207b\u00b9"
+    ],
+    "explanation": "\u0394c = n / V = 0.040 / 1.000 = 0.0400 mol\u00b7dm\u207b\u00b3. Rate = \u0394c / \u0394t = 0.0400 / 90 = 0.0004 mol\u00b7dm\u207b\u00b3\u00b7s\u207b\u00b9.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Reaction Rates",
+      "subtopic": "Rate Calculations",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate rate in concentration units"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_22"
+  },
+  {
+    "id": "PS_P2_IND_0937",
+    "topic": "Paper 2: Chemical Industry",
+    "subtopic": "NPK Calculations",
+    "difficulty": "hard",
+    "question": "From the same 20 kg bag labelled **1 : 2 : 1 (20)**, calculate the exact mass of pure Phosphorus (P) contained in the bag:",
+    "correct_answer": "2.00 kg",
+    "wrong_answers_pool": [
+      "10.00 kg (omitted active percentage)",
+      "1.00 kg (calculated nitrogen mass instead)",
+      "1.00 kg (calculated potassium mass instead)",
+      "4.00 kg",
+      "1.00 kg",
+      "16.00 kg (filler mass)",
+      "5.50 kg"
+    ],
+    "explanation": "Total ratio parts = 4. Active mass = 20 \u00d7 0.2 = 4.00 kg. Mass of P = (2/4) \u00d7 4.00 = 2.00 kg.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Chemical Industry",
+      "subtopic": "NPK Calculations",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate phosphorus mass in fertilizer bag"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_23"
+  },
+  {
+    "id": "PS_P2_RATE_0716",
     "topic": "Paper 2: Reaction Rates",
     "subtopic": "Energy Profiles",
     "difficulty": "medium",
-    "question": "For a reaction profile: Reactants = 30 kJ\u00b7mol\u207b\u00b9, Products = 70 kJ\u00b7mol\u207b\u00b9, Uncatalyzed activation energy E_A(forward) = 120 kJ\u00b7mol\u207b\u00b9. A catalyst is added that lowers activation energy by 45 kJ\u00b7mol\u207b\u00b9. What is the activation energy for the CATALYZED forward reaction?",
-    "correct_answer": "75 kJ\u00b7mol\u207b\u00b9",
+    "question": "For a reaction profile: Reactants = 90 kJ\u00b7mol\u207b\u00b9, Products = 50 kJ\u00b7mol\u207b\u00b9, Uncatalyzed activation energy E_A(forward) = 120 kJ\u00b7mol\u207b\u00b9. A catalyst is added that lowers activation energy by 35 kJ\u00b7mol\u207b\u00b9. What is the activation energy for the CATALYZED forward reaction?",
+    "correct_answer": "85 kJ\u00b7mol\u207b\u00b9",
     "wrong_answers_pool": [
-      "165 kJ\u00b7mol\u207b\u00b9",
-      "105 kJ\u00b7mol\u207b\u00b9",
+      "155 kJ\u00b7mol\u207b\u00b9",
+      "175 kJ\u00b7mol\u207b\u00b9",
+      "125 kJ\u00b7mol\u207b\u00b9",
       "35 kJ\u00b7mol\u207b\u00b9",
-      "45 kJ\u00b7mol\u207b\u00b9",
       "40 kJ\u00b7mol\u207b\u00b9",
-      "85 kJ\u00b7mol\u207b\u00b9"
+      "95 kJ\u00b7mol\u207b\u00b9"
     ],
-    "explanation": "Catalyzed E_A = Uncatalyzed E_A - drop = 120 - 45 = 75 kJ\u00b7mol\u207b\u00b9.",
+    "explanation": "Catalyzed E_A = Uncatalyzed E_A - drop = 120 - 35 = 85 kJ\u00b7mol\u207b\u00b9.",
     "tags": {
       "grade": "12",
       "subject": "Physical Sciences",
@@ -1275,24 +651,133 @@
       "difficulty": "medium",
       "learning_outcome": "Calculate catalyzed activation energy"
     },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_47"
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_24"
   },
   {
-    "id": "PS_P2_ORG_0354",
+    "id": "PS_P2_ORG_0826",
+    "topic": "Paper 2: Organic Chemistry",
+    "subtopic": "Esterification Stoichiometry",
+    "difficulty": "hard",
+    "question": "In a school organic preparation, a learner reacts 75.0 g of methanoic acid (molar mass = 46.0 g\u00b7mol\u207b\u00b9) with excess butan-1-ol (molar mass = 74.0 g\u00b7mol\u207b\u00b9) using concentrated H2SO4 catalyst. If the synthesis of butyl methanoate achieves a 85% percentage yield, calculate the actual mass of pure ester recovered:",
+    "correct_answer": "141.36 g",
+    "wrong_answers_pool": [
+      "166.30 g",
+      "70.68 g",
+      "176.70 g",
+      "63.75 g",
+      "153.86 g",
+      "149.67 g"
+    ],
+    "explanation": "Theoretical yield = (75.0 / 46.0) * 102.0 = 166.30 g. Actual yield (85%) = 141.36 g.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Organic Chemistry",
+      "subtopic": "Esterification Stoichiometry",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate actual ester mass"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_25"
+  },
+  {
+    "id": "PS_P2_EQ_0877",
+    "topic": "Paper 2: Chemical Equilibrium",
+    "subtopic": "Advanced Le Chatelier",
+    "difficulty": "hard",
+    "question": "In an industrial chemical equilibrium investigation at constant temperature in a 7.6 dm\u00b3 reactor: A(g) + 2B(g) \u21cc C(g). If equilibrium yield produces 3.300 mol of product C, what would be the effect on the equilibrium concentration of C if the reactor volume is halved to 3.80 dm\u00b3?",
+    "correct_answer": "The concentration of C will more than double (it increases both due to the volume halving and due to the equilibrium shifting to the right toward fewer gaseous moles).",
+    "wrong_answers_pool": [
+      "The concentration of C will remain exactly the same.",
+      "The concentration of C will decrease because high pressure decomposes C.",
+      "The concentration of C will exactly double and the equilibrium position will not shift.",
+      "The concentration of C will drop to zero.",
+      "The concentration of C will halve.",
+      "The value of Kc will double."
+    ],
+    "explanation": "Halving volume instantly doubles all concentrations; then, because 3 moles of gas -> 1 mole of gas, the equilibrium shifts to the right, increasing [C] even further.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Chemical Equilibrium",
+      "subtopic": "Advanced Le Chatelier",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Evaluate volume change on non-equimolar gas equilibrium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_26"
+  },
+  {
+    "id": "PS_P2_ACID_0959",
+    "topic": "Paper 2: Acids and Bases",
+    "subtopic": "Excess Neutralisation",
+    "difficulty": "hard",
+    "question": "After neutralising a strong acid with a strong base, a chemist finds that the solution has an unreacted hydronium ion concentration [H3O\u207a] = 0.0190 mol\u00b7dm\u207b\u00b3 in a total mixture volume of 250 cm\u00b3. Calculate the exact pH of the final solution at 25 \u00b0C:",
+    "correct_answer": "1.72",
+    "wrong_answers_pool": [
+      "2.72",
+      "12.28",
+      "3.44",
+      "7.00",
+      "0.72",
+      "0.02"
+    ],
+    "explanation": "pH = -log[H3O\u207a] = -log(0.0190) = 1.72.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Acids and Bases",
+      "subtopic": "Excess Neutralisation",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate pH from final hydronium concentration"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_27"
+  },
+  {
+    "id": "PS_P2_ELEC_0956",
+    "topic": "Paper 2: Electrochemical Reactions",
+    "subtopic": "Cell Equilibrium & EMF",
+    "difficulty": "hard",
+    "question": "A galvanic cell Zn(s) | Zn\u00b2\u207a(aq, 0.454 mol\u00b7dm\u207b\u00b3) || Cu\u00b2\u207a(aq, 2.15 mol\u00b7dm\u207b\u00b3) | Cu(s) operates under non-standard conditions. Comparing this cell to the standard Daniell cell (where [Cu\u00b2\u207a] = [Zn\u00b2\u207a] = 1.00 mol\u00b7dm\u207b\u00b3), how does the initial cell voltage (EMF) compare and why?",
+    "correct_answer": "The cell voltage is HIGHER than 1.10 V, because higher reactant [Cu\u00b2\u207a] and lower product [Zn\u00b2\u207a] shift the equilibrium in the forward direction according to Le Chatelier's principle.",
+    "wrong_answers_pool": [
+      "The cell voltage is LOWER than 1.10 V, because ion crowding increases internal resistance.",
+      "The cell voltage is exactly EQUAL to 1.10 V, because concentration never affects cell EMF.",
+      "The cell voltage drops immediately to 0.00 V because conditions are non-standard.",
+      "The polarity of the cell terminals is reversed.",
+      "The cell converts into an electrolytic cell requiring external electrical energy.",
+      "The zinc electrode stops dissolving and copper begins to oxidise.",
+      "The internal resistance drops to zero permanently."
+    ],
+    "explanation": "Reactant concentration [Cu\u00b2\u207a] = 2.15 mol\u00b7dm\u207b\u00b3 is higher than standard, and product concentration [Zn\u00b2\u207a] = 0.454 mol\u00b7dm\u207b\u00b3 is lower. By Le Chatelier's principle, the system shifts forward, increasing the driving potential above standard EMF (1.10 V).",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Electrochemical Reactions",
+      "subtopic": "Cell Equilibrium & EMF",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Evaluate non-standard concentration on cell EMF"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_28"
+  },
+  {
+    "id": "PS_P2_ORG_0447",
     "topic": "Paper 2: Organic Chemistry",
     "subtopic": "IUPAC Naming",
     "difficulty": "medium",
-    "question": "Which condensed formula corresponds to the unsaturated hydrocarbon **pent-2-yne**?",
-    "correct_answer": "CH3-C\u2261C-CH2-CH3",
+    "question": "What is the IUPAC name for the carbonyl compound: **CH3-CH2-CO-CH2-CH3**?",
+    "correct_answer": "pentan-3-one",
     "wrong_answers_pool": [
-      "CH2=CH-CH2-CH3",
-      "CH3-CH=CH-CH3",
-      "CH2=C(CH3)-CH3",
-      "CH2=CH-CH2-CH2-CH3",
-      "CH3-CH=CH-CH2-CH3",
-      "CH2=C(CH3)-CH2-CH3"
+      "pentan-2-one",
+      "pentanal",
+      "hexan-3-one",
+      "butan-2-one",
+      "pentan-3-ol",
+      "3-pentanone"
     ],
-    "explanation": "The name pent-2-yne matches structure CH3-C\u2261C-CH2-CH3.",
+    "explanation": "Aldehydes end in -al; ketones end in -one with proper locant: pentan-3-one.",
     "tags": {
       "grade": "12",
       "subject": "Physical Sciences",
@@ -1300,63 +785,577 @@
       "subtopic": "IUPAC Naming",
       "cognitive_level": "Applying",
       "difficulty": "medium",
-      "learning_outcome": "Identify unsaturated structure"
+      "learning_outcome": "Name aldehyde or ketone"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_29"
+  },
+  {
+    "id": "PS_P2_RATE_0898",
+    "topic": "Paper 2: Reaction Rates",
+    "subtopic": "Catalyst & Equilibrium",
+    "difficulty": "hard",
+    "question": "An experiment studying the reaction between hydrochloric acid and calcium carbonate at 23 \u00b0C is repeated with identical masses and acid volumes, but with a homogeneous catalyst added. How will the instantaneous rate at t = 10 s and the final volume of CO2 gas compare to the uncatalyzed run?",
+    "correct_answer": "The instantaneous rate at t = 10 s will be higher (steeper slope), while the final volume of CO2 gas will remain exactly the same.",
+    "wrong_answers_pool": [
+      "Both the instantaneous rate and the final volume of CO2 will be double.",
+      "The instantaneous rate will be lower, but the final volume of CO2 will be higher.",
+      "The instantaneous rate will be higher, and the final volume of CO2 will be significantly higher.",
+      "Both the instantaneous rate and the final volume will remain unchanged.",
+      "The final volume of CO2 will be less because catalyst decomposes gas.",
+      "The reaction rate at t = 10 s will be zero because catalyst inhibits the start."
+    ],
+    "explanation": "A catalyst speeds up the rate (higher instantaneous rate) by lowering activation energy, but cannot alter the stoichiometric amount of product formed.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Reaction Rates",
+      "subtopic": "Catalyst & Equilibrium",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Evaluate catalyst effect on rate and yield"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_30"
+  },
+  {
+    "id": "PS_P2_ACID_0425",
+    "topic": "Paper 2: Acids and Bases",
+    "subtopic": "pH Calculations",
+    "difficulty": "medium",
+    "question": "Sodium hydroxide, NaOH, is a strong base that dissociates completely in water. Calculate the pH of a **0.065 mol\u00b7dm\u207b\u00b3** NaOH solution at 25 \u00b0C:",
+    "correct_answer": "12.81",
+    "wrong_answers_pool": [
+      "1.19 (mistaken pOH for pH)",
+      "11.81",
+      "11.63",
+      "13.31",
+      "7.00",
+      "0.65"
+    ],
+    "explanation": "[OH\u207b] = 0.065 mol\u00b7dm\u207b\u00b3. pOH = -log(0.065) = 1.19. pH = 14 - pOH = 14 - 1.19 = 12.81.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Acids and Bases",
+      "subtopic": "pH Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate pH of strong monoprotic base"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_31"
+  },
+  {
+    "id": "PS_P2_ELEC_0953",
+    "topic": "Paper 2: Electrochemical Reactions",
+    "subtopic": "Cell Equilibrium & EMF",
+    "difficulty": "hard",
+    "question": "A galvanic cell Zn(s) | Zn\u00b2\u207a(aq, 0.460 mol\u00b7dm\u207b\u00b3) || Cu\u00b2\u207a(aq, 2.00 mol\u00b7dm\u207b\u00b3) | Cu(s) operates under non-standard conditions. Comparing this cell to the standard Daniell cell (where [Cu\u00b2\u207a] = [Zn\u00b2\u207a] = 1.00 mol\u00b7dm\u207b\u00b3), how does the initial cell voltage (EMF) compare and why?",
+    "correct_answer": "The cell voltage is HIGHER than 1.10 V, because higher reactant [Cu\u00b2\u207a] and lower product [Zn\u00b2\u207a] shift the equilibrium in the forward direction according to Le Chatelier's principle.",
+    "wrong_answers_pool": [
+      "The cell voltage is LOWER than 1.10 V, because ion crowding increases internal resistance.",
+      "The cell voltage is exactly EQUAL to 1.10 V, because concentration never affects cell EMF.",
+      "The cell voltage drops immediately to 0.00 V because conditions are non-standard.",
+      "The polarity of the cell terminals is reversed.",
+      "The cell converts into an electrolytic cell requiring external electrical energy.",
+      "The zinc electrode stops dissolving and copper begins to oxidise.",
+      "The internal resistance drops to zero permanently."
+    ],
+    "explanation": "Reactant concentration [Cu\u00b2\u207a] = 2.00 mol\u00b7dm\u207b\u00b3 is higher than standard, and product concentration [Zn\u00b2\u207a] = 0.460 mol\u00b7dm\u207b\u00b3 is lower. By Le Chatelier's principle, the system shifts forward, increasing the driving potential above standard EMF (1.10 V).",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Electrochemical Reactions",
+      "subtopic": "Cell Equilibrium & EMF",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Evaluate non-standard concentration on cell EMF"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_32"
+  },
+  {
+    "id": "PS_P2_ORG_0869",
+    "topic": "Paper 2: Organic Chemistry",
+    "subtopic": "Combustion Analysis",
+    "difficulty": "hard",
+    "question": "Elemental combustion analysis reveals that 1.0 mol of an unknown pure alkane produces exactly 2.0 mol of CO2(g) and 3.0 mol of H2O(g) upon complete combustion in excess oxygen. What is the molecular formula of this alkane?",
+    "correct_answer": "C2H6",
+    "wrong_answers_pool": [
+      "C2H4",
+      "C2H2",
+      "C3H8",
+      "C1H4",
+      "C2H5OH",
+      "C2H4O2"
+    ],
+    "explanation": "Moles of CO2 = 2 gives 2 carbon atoms. Moles of H2O = 3 gives 6 hydrogen atoms. Formula is C2H6.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Organic Chemistry",
+      "subtopic": "Combustion Analysis",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Deduce alkane formula from combustion moles"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_33"
+  },
+  {
+    "id": "PS_P2_RATE_0488",
+    "topic": "Paper 2: Reaction Rates",
+    "subtopic": "Energy Profiles",
+    "difficulty": "medium",
+    "question": "Given Reactants = 45 kJ\u00b7mol\u207b\u00b9, Products = 105 kJ\u00b7mol\u207b\u00b9, and Catalyzed Activated Complex = 120 kJ\u00b7mol\u207b\u00b9, calculate the activation energy for the CATALYZED REVERSE reaction:",
+    "correct_answer": "15 kJ\u00b7mol\u207b\u00b9",
+    "wrong_answers_pool": [
+      "75 kJ\u00b7mol\u207b\u00b9",
+      "40 kJ\u00b7mol\u207b\u00b9",
+      "60 kJ\u00b7mol\u207b\u00b9",
+      "120 kJ\u00b7mol\u207b\u00b9",
+      "35 kJ\u00b7mol\u207b\u00b9",
+      "150 kJ\u00b7mol\u207b\u00b9"
+    ],
+    "explanation": "E_A(reverse, catalyzed) = E_complex(cat) - E_products = 120 - 105 = 15 kJ\u00b7mol\u207b\u00b9.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Reaction Rates",
+      "subtopic": "Energy Profiles",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate reverse catalyzed activation energy"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_34"
+  },
+  {
+    "id": "PS_P2_EQ_0607",
+    "topic": "Paper 2: Chemical Equilibrium",
+    "subtopic": "Le Chatelier Shifts",
+    "difficulty": "medium",
+    "question": "An equilibrium mixture of N2(g) + 3H2(g) \u21cc 2NH3(g) is disturbed by injecting an additional 6.7 mol\u00b7dm\u207b\u00b3 of N2 gas at constant temperature and volume. What is the immediate effect on the rate of the forward reaction and how does the system re-establish equilibrium?",
+    "correct_answer": "The rate of the forward reaction immediately increases; the equilibrium shifts to the right, consuming N2 and H2 to produce more NH3 until forward and reverse rates become equal again.",
+    "wrong_answers_pool": [
+      "The rate of the reverse reaction immediately increases, shifting equilibrium to the left.",
+      "The forward rate decreases because N2 molecules crowd out H2 molecules.",
+      "The value of Kc increases proportionally to the added N2.",
+      "Both forward and reverse rates drop to zero.",
+      "The equilibrium does not shift because N2 is an inert gas.",
+      "The reaction reverses completely, decomposing all existing NH3."
+    ],
+    "explanation": "The rate of the forward reaction immediately increases; the equilibrium shifts to the right, consuming N2 and H2 to produce more NH3 until forward and reverse rates become equal again.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Chemical Equilibrium",
+      "subtopic": "Le Chatelier Shifts",
+      "cognitive_level": "Analyzing",
+      "difficulty": "medium",
+      "learning_outcome": "Explain response to reactant injection"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_35"
+  },
+  {
+    "id": "PS_P2_ELEC_0404",
+    "topic": "Paper 2: Electrochemical Reactions",
+    "subtopic": "Net Cell Reactions",
+    "difficulty": "medium",
+    "question": "What is the balanced overall (net) cell reaction for the galvanic cell combining K/K\u207a (E\u00b0 = -2.93 V) and Sn/Sn\u00b2\u207a (E\u00b0 = -0.14 V)?",
+    "correct_answer": "2K(s) + 1Sn2+(aq) -> 2K+(aq) + 1Sn(s)",
+    "wrong_answers_pool": [
+      "1K(s) + 2Sn2+(aq) -> 1K+(aq) + 2Sn(s)",
+      "K(s) + Sn(s) -> K+(aq) + Sn2+(aq)",
+      "Sn(s) + K+(aq) -> Sn2+(aq) + K(s)",
+      "K+(aq) + Sn2+(aq) -> K(s) + Sn(s)",
+      "2K(s) + 1Sn(s) -> products",
+      "K(s) + Sn2+(aq) -> K+(aq) + Sn(s)"
+    ],
+    "explanation": "Balancing electron transfer between oxidation (K -> K+ + 1e\u207b) and reduction (Sn2+ + 2e\u207b -> Sn) yields: 2K(s) + 1Sn2+(aq) -> 2K+(aq) + 1Sn(s).",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Electrochemical Reactions",
+      "subtopic": "Net Cell Reactions",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Write balanced overall cell reaction"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_36"
+  },
+  {
+    "id": "PS_P2_RATE_0348",
+    "topic": "Paper 2: Reaction Rates",
+    "subtopic": "Energy Profiles",
+    "difficulty": "medium",
+    "question": "Given Reactants = 30 kJ\u00b7mol\u207b\u00b9, Products = -10 kJ\u00b7mol\u207b\u00b9, and Catalyzed Activated Complex = 85 kJ\u00b7mol\u207b\u00b9, calculate the activation energy for the CATALYZED REVERSE reaction:",
+    "correct_answer": "95 kJ\u00b7mol\u207b\u00b9",
+    "wrong_answers_pool": [
+      "55 kJ\u00b7mol\u207b\u00b9",
+      "140 kJ\u00b7mol\u207b\u00b9",
+      "40 kJ\u00b7mol\u207b\u00b9",
+      "85 kJ\u00b7mol\u207b\u00b9",
+      "115 kJ\u00b7mol\u207b\u00b9",
+      "20 kJ\u00b7mol\u207b\u00b9"
+    ],
+    "explanation": "E_A(reverse, catalyzed) = E_complex(cat) - E_products = 85 - -10 = 95 kJ\u00b7mol\u207b\u00b9.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Reaction Rates",
+      "subtopic": "Energy Profiles",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate reverse catalyzed activation energy"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_37"
+  },
+  {
+    "id": "PS_P2_ELEC_0916",
+    "topic": "Paper 2: Electrochemical Reactions",
+    "subtopic": "Electrolysis Stoichiometry",
+    "difficulty": "hard",
+    "question": "In a membrane cell for the chlor-alkali process, a steady direct current of 4.0 A is passed through concentrated brine for 60 minutes. Anode half-reaction: 2Cl\u207b(aq) -> Cl2(g) + 2e\u207b. Calculate the volume of chlorine gas produced at STP (molar gas volume at STP = 22.4 dm\u00b3\u00b7mol\u207b\u00b9, F = 96 500 C\u00b7mol\u207b\u00b9):",
+    "correct_answer": "1.671 dm\u00b3",
+    "wrong_answers_pool": [
+      "3.343 dm\u00b3 (omitted 2e\u207b factor)",
+      "0.836 dm\u00b3",
+      "0.028 dm\u00b3 (omitted time conversion)",
+      "14400.0 dm\u00b3",
+      "2.871 dm\u00b3",
+      "10.714 dm\u00b3",
+      "2.507 dm\u00b3"
+    ],
+    "explanation": "Q = I \u00d7 t = 4.0 \u00d7 (60 \u00d7 60) = 14400.0 C. n(e\u207b) = 14400.0 / 96500 = 0.14922 mol. n(Cl2) = n(e\u207b) / 2 = 0.07461 mol. Volume = n \u00d7 22.4 = 1.671 dm\u00b3.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Electrochemical Reactions",
+      "subtopic": "Electrolysis Stoichiometry",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate gas volume from chlor-alkali electrolysis"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_38"
+  },
+  {
+    "id": "PS_P2_EQ_0665",
+    "topic": "Paper 2: Chemical Equilibrium",
+    "subtopic": "Le Chatelier Shifts",
+    "difficulty": "medium",
+    "question": "An equilibrium mixture of N2(g) + 3H2(g) \u21cc 2NH3(g) is disturbed by injecting an additional 12.5 mol\u00b7dm\u207b\u00b3 of N2 gas at constant temperature and volume. What is the immediate effect on the rate of the forward reaction and how does the system re-establish equilibrium?",
+    "correct_answer": "The rate of the forward reaction immediately increases; the equilibrium shifts to the right, consuming N2 and H2 to produce more NH3 until forward and reverse rates become equal again.",
+    "wrong_answers_pool": [
+      "The rate of the reverse reaction immediately increases, shifting equilibrium to the left.",
+      "The forward rate decreases because N2 molecules crowd out H2 molecules.",
+      "The value of Kc increases proportionally to the added N2.",
+      "Both forward and reverse rates drop to zero.",
+      "The equilibrium does not shift because N2 is an inert gas.",
+      "The reaction reverses completely, decomposing all existing NH3."
+    ],
+    "explanation": "The rate of the forward reaction immediately increases; the equilibrium shifts to the right, consuming N2 and H2 to produce more NH3 until forward and reverse rates become equal again.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Chemical Equilibrium",
+      "subtopic": "Le Chatelier Shifts",
+      "cognitive_level": "Analyzing",
+      "difficulty": "medium",
+      "learning_outcome": "Explain response to reactant injection"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_39"
+  },
+  {
+    "id": "PS_P2_EQ_0891",
+    "topic": "Paper 2: Chemical Equilibrium",
+    "subtopic": "Advanced Le Chatelier",
+    "difficulty": "hard",
+    "question": "In an industrial chemical equilibrium investigation at constant temperature in a 9.0 dm\u00b3 reactor: A(g) + 2B(g) \u21cc C(g). If equilibrium yield produces 4.000 mol of product C, what would be the effect on the equilibrium concentration of C if the reactor volume is halved to 4.50 dm\u00b3?",
+    "correct_answer": "The concentration of C will more than double (it increases both due to the volume halving and due to the equilibrium shifting to the right toward fewer gaseous moles).",
+    "wrong_answers_pool": [
+      "The concentration of C will remain exactly the same.",
+      "The concentration of C will decrease because high pressure decomposes C.",
+      "The concentration of C will exactly double and the equilibrium position will not shift.",
+      "The concentration of C will drop to zero.",
+      "The concentration of C will halve.",
+      "The value of Kc will double."
+    ],
+    "explanation": "Halving volume instantly doubles all concentrations; then, because 3 moles of gas -> 1 mole of gas, the equilibrium shifts to the right, increasing [C] even further.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Chemical Equilibrium",
+      "subtopic": "Advanced Le Chatelier",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Evaluate volume change on non-equimolar gas equilibrium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_40"
+  },
+  {
+    "id": "PS_P2_IND_0940",
+    "topic": "Paper 2: Chemical Industry",
+    "subtopic": "NPK Calculations",
+    "difficulty": "hard",
+    "question": "A 20 kg bag of commercial fertilizer is labelled **5 : 2 : 1 (32)**. Calculate the exact mass of pure Nitrogen (N) present in this bag:",
+    "correct_answer": "4.00 kg",
+    "wrong_answers_pool": [
+      "12.50 kg (omitted active percentage factor)",
+      "1.60 kg (calculated phosphorus mass instead)",
+      "0.80 kg (calculated potassium mass instead)",
+      "6.40 kg (total active fertilizer mass)",
+      "8.00 kg",
+      "2.00 kg",
+      "6.40 kg"
+    ],
+    "explanation": "Total ratio parts = 5 + 2 + 1 = 8. Active mass in 20 kg bag = 20 \u00d7 (32/100) = 6.40 kg. Mass of N = (5/8) \u00d7 6.40 = 4.00 kg.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Chemical Industry",
+      "subtopic": "NPK Calculations",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate nitrogen mass in fertilizer bag"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_41"
+  },
+  {
+    "id": "PS_P2_RATE_0593",
+    "topic": "Paper 2: Reaction Rates",
+    "subtopic": "Energy Profiles",
+    "difficulty": "medium",
+    "question": "For a reaction profile: Reactants = 75 kJ\u00b7mol\u207b\u00b9, Products = -5 kJ\u00b7mol\u207b\u00b9, Uncatalyzed activation energy E_A(forward) = 140 kJ\u00b7mol\u207b\u00b9. A catalyst is added that lowers activation energy by 35 kJ\u00b7mol\u207b\u00b9. What is the activation energy for the CATALYZED forward reaction?",
+    "correct_answer": "105 kJ\u00b7mol\u207b\u00b9",
+    "wrong_answers_pool": [
+      "175 kJ\u00b7mol\u207b\u00b9",
+      "180 kJ\u00b7mol\u207b\u00b9",
+      "185 kJ\u00b7mol\u207b\u00b9",
+      "35 kJ\u00b7mol\u207b\u00b9",
+      "80 kJ\u00b7mol\u207b\u00b9",
+      "115 kJ\u00b7mol\u207b\u00b9"
+    ],
+    "explanation": "Catalyzed E_A = Uncatalyzed E_A - drop = 140 - 35 = 105 kJ\u00b7mol\u207b\u00b9.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Reaction Rates",
+      "subtopic": "Energy Profiles",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate catalyzed activation energy"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_42"
+  },
+  {
+    "id": "PS_P2_EQ_0921",
+    "topic": "Paper 2: Chemical Equilibrium",
+    "subtopic": "Advanced Le Chatelier",
+    "difficulty": "hard",
+    "question": "In an industrial chemical equilibrium investigation at constant temperature in a 12.0 dm\u00b3 reactor: A(g) + 2B(g) \u21cc C(g). If equilibrium yield produces 5.500 mol of product C, what would be the effect on the equilibrium concentration of C if the reactor volume is halved to 6.00 dm\u00b3?",
+    "correct_answer": "The concentration of C will more than double (it increases both due to the volume halving and due to the equilibrium shifting to the right toward fewer gaseous moles).",
+    "wrong_answers_pool": [
+      "The concentration of C will remain exactly the same.",
+      "The concentration of C will decrease because high pressure decomposes C.",
+      "The concentration of C will exactly double and the equilibrium position will not shift.",
+      "The concentration of C will drop to zero.",
+      "The concentration of C will halve.",
+      "The value of Kc will double."
+    ],
+    "explanation": "Halving volume instantly doubles all concentrations; then, because 3 moles of gas -> 1 mole of gas, the equilibrium shifts to the right, increasing [C] even further.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Chemical Equilibrium",
+      "subtopic": "Advanced Le Chatelier",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Evaluate volume change on non-equimolar gas equilibrium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_43"
+  },
+  {
+    "id": "PS_P2_EQ_0363",
+    "topic": "Paper 2: Chemical Equilibrium",
+    "subtopic": "Temperature & Kc",
+    "difficulty": "medium",
+    "question": "The Haber synthesis N2(g) + 3H2(g) \u21cc 2NH3(g) is exothermic (\u0394H = -92 kJ\u00b7mol\u207b\u00b9). At 535 K, Kc = 144.0. If the temperature is increased to 585 K, how will the value of Kc change and why?",
+    "correct_answer": "Kc will decrease below 144.0 because increasing temperature favors the reverse endothermic reaction, decreasing product concentration and increasing reactant concentration.",
+    "wrong_answers_pool": [
+      "Kc will increase above 144.0 because higher temperature speeds up molecules.",
+      "Kc will remain exactly 144.0 because Kc is constant for any given reaction.",
+      "Kc will double because temperature increased.",
+      "Kc will drop to zero because high heat destroys ammonia.",
+      "Kc will become negative because \u0394H is negative.",
+      "Kc will fluctuate randomly."
+    ],
+    "explanation": "For exothermic reactions, increasing temperature shifts equilibrium to the left, decreasing Kc below 144.0.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Chemical Equilibrium",
+      "subtopic": "Temperature & Kc",
+      "cognitive_level": "Analyzing",
+      "difficulty": "medium",
+      "learning_outcome": "Explain Kc decrease for exothermic reaction"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_44"
+  },
+  {
+    "id": "PS_P2_EQ_0774",
+    "topic": "Paper 2: Chemical Equilibrium",
+    "subtopic": "Le Chatelier Shifts",
+    "difficulty": "medium",
+    "question": "An equilibrium mixture of N2(g) + 3H2(g) \u21cc 2NH3(g) is disturbed by injecting an additional 23.4 mol\u00b7dm\u207b\u00b3 of N2 gas at constant temperature and volume. What is the immediate effect on the rate of the forward reaction and how does the system re-establish equilibrium?",
+    "correct_answer": "The rate of the forward reaction immediately increases; the equilibrium shifts to the right, consuming N2 and H2 to produce more NH3 until forward and reverse rates become equal again.",
+    "wrong_answers_pool": [
+      "The rate of the reverse reaction immediately increases, shifting equilibrium to the left.",
+      "The forward rate decreases because N2 molecules crowd out H2 molecules.",
+      "The value of Kc increases proportionally to the added N2.",
+      "Both forward and reverse rates drop to zero.",
+      "The equilibrium does not shift because N2 is an inert gas.",
+      "The reaction reverses completely, decomposing all existing NH3."
+    ],
+    "explanation": "The rate of the forward reaction immediately increases; the equilibrium shifts to the right, consuming N2 and H2 to produce more NH3 until forward and reverse rates become equal again.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Chemical Equilibrium",
+      "subtopic": "Le Chatelier Shifts",
+      "cognitive_level": "Analyzing",
+      "difficulty": "medium",
+      "learning_outcome": "Explain response to reactant injection"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_45"
+  },
+  {
+    "id": "PS_P2_EQ_0872",
+    "topic": "Paper 2: Chemical Equilibrium",
+    "subtopic": "Advanced Le Chatelier",
+    "difficulty": "hard",
+    "question": "In an industrial chemical equilibrium investigation at constant temperature in a 7.1 dm\u00b3 reactor: A(g) + 2B(g) \u21cc C(g). If equilibrium yield produces 3.050 mol of product C, what would be the effect on the equilibrium concentration of C if the reactor volume is halved to 3.55 dm\u00b3?",
+    "correct_answer": "The concentration of C will more than double (it increases both due to the volume halving and due to the equilibrium shifting to the right toward fewer gaseous moles).",
+    "wrong_answers_pool": [
+      "The concentration of C will remain exactly the same.",
+      "The concentration of C will decrease because high pressure decomposes C.",
+      "The concentration of C will exactly double and the equilibrium position will not shift.",
+      "The concentration of C will drop to zero.",
+      "The concentration of C will halve.",
+      "The value of Kc will double."
+    ],
+    "explanation": "Halving volume instantly doubles all concentrations; then, because 3 moles of gas -> 1 mole of gas, the equilibrium shifts to the right, increasing [C] even further.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Chemical Equilibrium",
+      "subtopic": "Advanced Le Chatelier",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Evaluate volume change on non-equimolar gas equilibrium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_46"
+  },
+  {
+    "id": "PS_P2_RATE_0909",
+    "topic": "Paper 2: Reaction Rates",
+    "subtopic": "Catalyst & Equilibrium",
+    "difficulty": "hard",
+    "question": "An experiment studying the reaction between hydrochloric acid and calcium carbonate at 34 \u00b0C is repeated with identical masses and acid volumes, but with a homogeneous catalyst added. How will the instantaneous rate at t = 10 s and the final volume of CO2 gas compare to the uncatalyzed run?",
+    "correct_answer": "The instantaneous rate at t = 10 s will be higher (steeper slope), while the final volume of CO2 gas will remain exactly the same.",
+    "wrong_answers_pool": [
+      "Both the instantaneous rate and the final volume of CO2 will be double.",
+      "The instantaneous rate will be lower, but the final volume of CO2 will be higher.",
+      "The instantaneous rate will be higher, and the final volume of CO2 will be significantly higher.",
+      "Both the instantaneous rate and the final volume will remain unchanged.",
+      "The final volume of CO2 will be less because catalyst decomposes gas.",
+      "The reaction rate at t = 10 s will be zero because catalyst inhibits the start."
+    ],
+    "explanation": "A catalyst speeds up the rate (higher instantaneous rate) by lowering activation energy, but cannot alter the stoichiometric amount of product formed.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Reaction Rates",
+      "subtopic": "Catalyst & Equilibrium",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Evaluate catalyst effect on rate and yield"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_47"
+  },
+  {
+    "id": "PS_P2_ORG_0493",
+    "topic": "Paper 2: Organic Chemistry",
+    "subtopic": "IUPAC Naming",
+    "difficulty": "medium",
+    "question": "What is the systematic IUPAC name for the ester formed from the condensation reaction between **butanoic acid** and **butan-1-ol**?",
+    "correct_answer": "butyl butanoate",
+    "wrong_answers_pool": [
+      "butanyl butoate",
+      "butyl pentanoate",
+      "pentyl butanoate",
+      "butyl alcohol",
+      "butanoic acid",
+      "dibutyl ether"
+    ],
+    "explanation": "The alcohol 'butan-1-ol' provides the alkyl prefix 'butyl', and the carboxylic acid 'butanoic acid' provides the carboxylate suffix 'butanoate': butyl butanoate.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 2: Organic Chemistry",
+      "subtopic": "IUPAC Naming",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Name ester from reactants"
     },
     "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_48"
   },
   {
-    "id": "PS_P2_ELEC_0869",
-    "topic": "Paper 2: Electrochemical Reactions",
-    "subtopic": "Electrolysis Stoichiometry",
-    "difficulty": "hard",
-    "question": "An electroplating cell is operated using a constant electric current of 8.0 A for exactly 75 minutes to deposit silver onto a spoon from an AgNO3 solution. Half-reaction: Ag\u207a(aq) + e\u207b -> Ag(s). Using Faraday's constant (F = 96 500 C\u00b7mol\u207b\u00b9) and molar mass of silver (107.9 g\u00b7mol\u207b\u00b9), calculate the mass of silver plated:",
-    "correct_answer": "40.253 g",
+    "id": "PS_P2_ACID_0343",
+    "topic": "Paper 2: Acids and Bases",
+    "subtopic": "pH Calculations",
+    "difficulty": "medium",
+    "question": "Calculate the pH of a **0.225 mol\u00b7dm\u207b\u00b3** solution of nitric acid (HNO3, a strong monoprotic acid) at 25 \u00b0C:",
+    "correct_answer": "0.65",
     "wrong_answers_pool": [
-      "80.506 g (divided by 2 for divalent assumption)",
-      "0.671 g (omitted minute-to-second conversion)",
-      "36000.0 g",
-      "20.126 g",
-      "42.753 g",
-      "5.561 g",
-      "60.379 g"
+      "1.65",
+      "0.00",
+      "13.35",
+      "1.30",
+      "2.25",
+      "1.15"
     ],
-    "explanation": "Q = I \u00d7 t = 8.0 \u00d7 (75 \u00d7 60) = 36000.0 C. n(e\u207b) = Q / F = 36000.0 / 96500 = 0.37306 mol. Since 1 mol e\u207b deposits 1 mol Ag: n(Ag) = 0.37306 mol. Mass = n \u00d7 M = 0.37306 \u00d7 107.9 = 40.253 g.",
+    "explanation": "HNO3 ionises completely: [H3O\u207a] = 0.225 mol\u00b7dm\u207b\u00b3. pH = -log[H3O\u207a] = -log(0.225) = 0.65.",
     "tags": {
       "grade": "12",
       "subject": "Physical Sciences",
-      "topic": "Paper 2: Electrochemical Reactions",
-      "subtopic": "Electrolysis Stoichiometry",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate mass deposited by electroplating"
+      "topic": "Paper 2: Acids and Bases",
+      "subtopic": "pH Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate pH of strong monoprotic acid"
     },
     "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_49"
   },
   {
-    "id": "PS_P2_ELEC_0813",
+    "id": "PS_P2_ELEC_0783",
     "topic": "Paper 2: Electrochemical Reactions",
-    "subtopic": "Electrolysis Stoichiometry",
-    "difficulty": "hard",
-    "question": "An electroplating cell is operated using a constant electric current of 1.5 A for exactly 75 minutes to deposit silver onto a spoon from an AgNO3 solution. Half-reaction: Ag\u207a(aq) + e\u207b -> Ag(s). Using Faraday's constant (F = 96 500 C\u00b7mol\u207b\u00b9) and molar mass of silver (107.9 g\u00b7mol\u207b\u00b9), calculate the mass of silver plated:",
-    "correct_answer": "7.547 g",
+    "subtopic": "Net Cell Reactions",
+    "difficulty": "medium",
+    "question": "What is the balanced overall (net) cell reaction for the galvanic cell combining Ni/Ni\u00b2\u207a (E\u00b0 = -0.25 V) and Au/Au\u00b3\u207a (E\u00b0 = +1.50 V)?",
+    "correct_answer": "3Ni(s) + 2Au3+(aq) -> 3Ni2+(aq) + 2Au(s)",
     "wrong_answers_pool": [
-      "15.095 g (divided by 2 for divalent assumption)",
-      "0.126 g (omitted minute-to-second conversion)",
-      "6750.0 g",
-      "3.774 g",
-      "10.047 g",
-      "1.043 g",
-      "11.321 g"
+      "2Ni(s) + 3Au3+(aq) -> 2Ni2+(aq) + 3Au(s)",
+      "Ni(s) + Au(s) -> Ni2+(aq) + Au3+(aq)",
+      "Au(s) + Ni2+(aq) -> Au3+(aq) + Ni(s)",
+      "Ni2+(aq) + Au3+(aq) -> Ni(s) + Au(s)",
+      "3Ni(s) + 2Au(s) -> products",
+      "Ni(s) + Au3+(aq) -> Ni2+(aq) + Au(s)"
     ],
-    "explanation": "Q = I \u00d7 t = 1.5 \u00d7 (75 \u00d7 60) = 6750.0 C. n(e\u207b) = Q / F = 6750.0 / 96500 = 0.06995 mol. Since 1 mol e\u207b deposits 1 mol Ag: n(Ag) = 0.06995 mol. Mass = n \u00d7 M = 0.06995 \u00d7 107.9 = 7.547 g.",
+    "explanation": "Balancing electron transfer between oxidation (Ni -> Ni2+ + 2e\u207b) and reduction (Au3+ + 3e\u207b -> Au) yields: 3Ni(s) + 2Au3+(aq) -> 3Ni2+(aq) + 2Au(s).",
     "tags": {
       "grade": "12",
       "subject": "Physical Sciences",
       "topic": "Paper 2: Electrochemical Reactions",
-      "subtopic": "Electrolysis Stoichiometry",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate mass deposited by electroplating"
+      "subtopic": "Net Cell Reactions",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Write balanced overall cell reaction"
     },
     "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper2_50"
   }

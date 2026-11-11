@@ -1,18 +1,46 @@
 [
   {
-    "id": "CIRC_965",
+    "id": "TRIG_289",
+    "topic": "Trigonometry (Technical)",
+    "question": "In $\\Delta PQR$, $p = 19$ m, $q = 28$ m and $\\angle R = 60^\\circ$. Calculate the area of the triangle.",
+    "correct_answer": "230.36 m\u00b2",
+    "wrong_answers_pool": [
+      "115.18 m\u00b2",
+      "345.54 m\u00b2",
+      "184.29 m\u00b2",
+      "276.43 m\u00b2",
+      "460.72 m\u00b2",
+      "161.25 m\u00b2",
+      "299.47 m\u00b2",
+      "414.65 m\u00b2"
+    ],
+    "explanation": "Area = $\\frac{1}{2}pq\\sin R = 0.5 \\times 19 \\times 28 \\times \\sin(60^\\circ) = 230.36$ m\u00b2.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Trigonometry (Technical)",
+      "subtopic": "2D/3D Problems",
+      "cognitive_level": "Application",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_1"
+  },
+  {
+    "id": "CIRC_500",
     "topic": "Circle Geometry & Angular Movement",
-    "question": "A gear of radius 11 cm rotates at 60 rpm. Calculate its circumferential (linear) velocity in m/s.",
-    "correct_answer": "0.69 m/s",
+    "question": "A gear of radius 26 cm rotates at 42 rpm. Calculate its circumferential (linear) velocity in m/s.",
+    "correct_answer": "1.14 m/s",
     "wrong_answers_pool": [
       "0.97 m/s",
-      "0.47 m/s",
-      "1.01 m/s",
-      "0.91 m/s",
-      "0.68 m/s",
-      "0.50 m/s"
+      "1.51 m/s",
+      "1.61 m/s",
+      "0.92 m/s",
+      "1.30 m/s",
+      "1.49 m/s"
     ],
-    "explanation": "$v = \\omega r = (2\\pi \\times \\frac{60}{60}) \\times \\frac{11}{100}$",
+    "explanation": "$v = \\omega r = (2\\pi \\times \\frac{42}{60}) \\times \\frac{26}{100}$",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
@@ -23,112 +51,82 @@
       "difficulty": "medium",
       "learning_outcome": "Calculate"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_1"
-  },
-  {
-    "id": "TRIG_417",
-    "topic": "Trigonometry (Technical)",
-    "question": "In $\\Delta ABC$, $a = 25$ cm, $b = 12$ cm and $\\angle C = 120^\\circ$. Calculate the length of side $c$ using the Cosine Rule.",
-    "correct_answer": "32.70 cm",
-    "wrong_answers_pool": [
-      "26.16 cm",
-      "39.24 cm",
-      "29.43 cm",
-      "35.97 cm",
-      "49.05 cm",
-      "22.89 cm",
-      "42.51 cm",
-      "19.62 cm"
-    ],
-    "explanation": "$c^2 = a^2 + b^2 - 2ab\\cos C = 25^2 + 12^2 - 2(25)(12)\\cos(120^\\circ) = 1069.00 \\implies c = 32.70$ cm.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Trigonometry (Technical)",
-      "subtopic": "2D/3D Problems",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate"
-    },
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_2"
   },
   {
-    "id": "TRIG_279",
-    "topic": "Trigonometry (Technical)",
-    "question": "In $\\Delta ABC$, $a = 28$ cm, $b = 13$ cm and $\\angle C = 120^\\circ$. Calculate the length of side $c$ using the Cosine Rule.",
-    "correct_answer": "36.29 cm",
+    "id": "ANALYT_606",
+    "topic": "Analytical Geometry (Technical)",
+    "question": "Determine the gradient of the line passing through $E(-3; -5)$ and $F(0; -4)$.",
+    "correct_answer": "$1/3$",
     "wrong_answers_pool": [
-      "29.03 cm",
-      "43.55 cm",
-      "32.66 cm",
-      "39.92 cm",
-      "54.44 cm",
-      "25.40 cm",
-      "47.18 cm",
-      "21.77 cm"
+      "$-0.666667$",
+      "$1.33333$",
+      "$-0.333333$",
+      "$0.666667$",
+      "$3$",
+      "$3/1$"
     ],
-    "explanation": "$c^2 = a^2 + b^2 - 2ab\\cos C = 28^2 + 13^2 - 2(28)(13)\\cos(120^\\circ) = 1317.00 \\implies c = 36.29$ cm.",
-    "difficulty": "hard",
+    "explanation": "$m = \\frac{y_2-y_1}{x_2-x_1} = \\frac{-4-(-5)}{0-(-3)}$",
+    "difficulty": "medium",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
-      "topic": "Trigonometry (Technical)",
-      "subtopic": "2D/3D Problems",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard",
+      "topic": "Analytical Geometry (Technical)",
+      "subtopic": "Gradient & Inclination",
+      "cognitive_level": "Application",
+      "difficulty": "medium",
       "learning_outcome": "Calculate"
     },
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_3"
   },
   {
-    "id": "TRIG_647",
-    "topic": "Trigonometry (Technical)",
-    "question": "In $\\Delta PQR$, $p = 6$ m, $q = 21$ m and $\\angle R = 135^\\circ$. Calculate the area of the triangle.",
-    "correct_answer": "44.55 m\u00b2",
+    "id": "ANALYT_218",
+    "topic": "Analytical Geometry (Technical)",
+    "question": "Determine the distance between $A(3; -3)$ and $B(2; -2)$. (Leave answer in surd form if necessary)",
+    "correct_answer": "$\\sqrt{2}$",
     "wrong_answers_pool": [
-      "22.27 m\u00b2",
-      "66.82 m\u00b2",
-      "35.64 m\u00b2",
-      "53.46 m\u00b2",
-      "89.10 m\u00b2",
-      "31.18 m\u00b2",
-      "57.91 m\u00b2",
-      "80.19 m\u00b2"
+      "$\\sqrt{5}$",
+      "$\\sqrt{9}$",
+      "$\\sqrt{8}$",
+      "Rand871",
+      "Rand450",
+      "Rand455"
     ],
-    "explanation": "Area = $\\frac{1}{2}pq\\sin R = 0.5 \\times 6 \\times 21 \\times \\sin(135^\\circ) = 44.55$ m\u00b2.",
+    "explanation": "$d = \\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2} = \\sqrt{(2-(3))^2 + (-2-(-3))^2} = \\sqrt{2}$",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Analytical Geometry (Technical)",
+      "subtopic": "Distance",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_4"
+  },
+  {
+    "id": "TRIG_834",
+    "topic": "Trigonometry (Technical)",
+    "question": "In $\\Delta PQR$, $p = 8$ m, $q = 18$ m and $\\angle R = 60^\\circ$. Calculate the area of the triangle.",
+    "correct_answer": "62.35 m\u00b2",
+    "wrong_answers_pool": [
+      "31.18 m\u00b2",
+      "93.53 m\u00b2",
+      "49.88 m\u00b2",
+      "74.82 m\u00b2",
+      "124.70 m\u00b2",
+      "43.64 m\u00b2",
+      "81.06 m\u00b2",
+      "112.23 m\u00b2"
+    ],
+    "explanation": "Area = $\\frac{1}{2}pq\\sin R = 0.5 \\times 8 \\times 18 \\times \\sin(60^\\circ) = 62.35$ m\u00b2.",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
       "topic": "Trigonometry (Technical)",
       "subtopic": "2D/3D Problems",
-      "cognitive_level": "Application",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_4"
-  },
-  {
-    "id": "MENS_856",
-    "topic": "Mensuration (Technical)",
-    "question": "A rectangular prism has dimensions 8m by 10m by 15m. A cylindrical hole of radius 1m is drilled straight through its height (15m). Calculate the remaining volume.",
-    "correct_answer": "1152.88 m\u00b3",
-    "wrong_answers_pool": [
-      "828.58 m\u00b3",
-      "1159.83 m\u00b3",
-      "1189.66 m\u00b3",
-      "1009.10 m\u00b3",
-      "916.68 m\u00b3",
-      "1199.35 m\u00b3"
-    ],
-    "explanation": "V_remaining = V_prism - V_cylinder = (8\\times10\\times15) - (\\pi(1)^2(15))",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Mensuration (Technical)",
-      "subtopic": "Composite Shapes",
       "cognitive_level": "Application",
       "difficulty": "medium",
       "learning_outcome": "Calculate"
@@ -136,25 +134,25 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_5"
   },
   {
-    "id": "ANALYT_205",
-    "topic": "Analytical Geometry (Technical)",
-    "question": "Determine the coordinates of the midpoint of the line segment joining $C(-4; 2)$ and $D(5; 3)$.",
-    "correct_answer": "$(0.5; 2.5)$",
+    "id": "MENS_628",
+    "topic": "Mensuration (Technical)",
+    "question": "A rectangular prism has dimensions 8m by 12m by 11m. A cylindrical hole of radius 1m is drilled straight through its height (11m). Calculate the remaining volume.",
+    "correct_answer": "1021.44 m\u00b3",
     "wrong_answers_pool": [
-      "$(-4.5; -0.5)$",
-      "$(1; 5)$",
-      "$(1.5; 2.5)$",
-      "$(4.5; 0.5)$",
-      "$(2.5; 0.5)$",
-      "$(0.5; 1.5)$"
+      "764.67 m\u00b3",
+      "865.95 m\u00b3",
+      "786.46 m\u00b3",
+      "937.83 m\u00b3",
+      "1285.89 m\u00b3",
+      "1027.53 m\u00b3"
     ],
-    "explanation": "$M(\\frac{x_1+x_2}{2}; \\frac{y_1+y_2}{2}) = M(\\frac{-4+5}{2}; \\frac{2+3}{2})$",
+    "explanation": "V_remaining = V_prism - V_cylinder = (8\\times12\\times11) - (\\pi(1)^2(11))",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
-      "topic": "Analytical Geometry (Technical)",
-      "subtopic": "Midpoint",
+      "topic": "Mensuration (Technical)",
+      "subtopic": "Composite Shapes",
       "cognitive_level": "Analysis",
       "difficulty": "hard",
       "learning_outcome": "Calculate"
@@ -162,19 +160,19 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_6"
   },
   {
-    "id": "CIRC_792",
+    "id": "CIRC_874",
     "topic": "Circle Geometry & Angular Movement",
-    "question": "A gear of radius 21 cm rotates at 116 rpm. Calculate its circumferential (linear) velocity in m/s.",
-    "correct_answer": "2.55 m/s",
+    "question": "A gear of radius 11 cm rotates at 118 rpm. Calculate its circumferential (linear) velocity in m/s.",
+    "correct_answer": "1.36 m/s",
     "wrong_answers_pool": [
-      "1.61 m/s",
-      "3.11 m/s",
-      "1.59 m/s",
-      "3.66 m/s",
-      "3.76 m/s",
-      "3.22 m/s"
+      "0.78 m/s",
+      "1.34 m/s",
+      "2.00 m/s",
+      "0.84 m/s",
+      "0.88 m/s",
+      "1.73 m/s"
     ],
-    "explanation": "$v = \\omega r = (2\\pi \\times \\frac{116}{60}) \\times \\frac{21}{100}$",
+    "explanation": "$v = \\omega r = (2\\pi \\times \\frac{118}{60}) \\times \\frac{11}{100}$",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
@@ -188,45 +186,45 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_7"
   },
   {
-    "id": "MENS_601",
+    "id": "MENS_172",
     "topic": "Mensuration (Technical)",
-    "question": "A rectangular prism has dimensions 6m by 9m by 13m. A cylindrical hole of radius 1m is drilled straight through its height (13m). Calculate the remaining volume.",
-    "correct_answer": "661.16 m\u00b3",
+    "question": "A rectangular prism has dimensions 6m by 8m by 15m. A cylindrical hole of radius 1m is drilled straight through its height (15m). Calculate the remaining volume.",
+    "correct_answer": "672.88 m\u00b3",
     "wrong_answers_pool": [
-      "483.77 m\u00b3",
-      "602.82 m\u00b3",
-      "565.78 m\u00b3",
-      "530.75 m\u00b3",
-      "734.10 m\u00b3",
-      "625.91 m\u00b3"
+      "764.23 m\u00b3",
+      "671.20 m\u00b3",
+      "529.95 m\u00b3",
+      "557.14 m\u00b3",
+      "603.30 m\u00b3",
+      "816.13 m\u00b3"
     ],
-    "explanation": "V_remaining = V_prism - V_cylinder = (6\\times9\\times13) - (\\pi(1)^2(13))",
-    "difficulty": "medium",
+    "explanation": "V_remaining = V_prism - V_cylinder = (6\\times8\\times15) - (\\pi(1)^2(15))",
+    "difficulty": "hard",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
       "topic": "Mensuration (Technical)",
       "subtopic": "Composite Shapes",
-      "cognitive_level": "Application",
-      "difficulty": "medium",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard",
       "learning_outcome": "Calculate"
     },
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_8"
   },
   {
-    "id": "MENS_835",
+    "id": "MENS_820",
     "topic": "Mensuration (Technical)",
-    "question": "A rectangular prism has dimensions 14m by 8m by 6m. A cylindrical hole of radius 1m is drilled straight through its height (6m). Calculate the remaining volume.",
-    "correct_answer": "653.15 m\u00b3",
+    "question": "A rectangular prism has dimensions 11m by 7m by 7m. A cylindrical hole of radius 1m is drilled straight through its height (7m). Calculate the remaining volume.",
+    "correct_answer": "517.01 m\u00b3",
     "wrong_answers_pool": [
-      "538.82 m\u00b3",
-      "770.27 m\u00b3",
-      "469.81 m\u00b3",
-      "563.83 m\u00b3",
-      "602.95 m\u00b3",
-      "538.41 m\u00b3"
+      "422.87 m\u00b3",
+      "446.86 m\u00b3",
+      "661.32 m\u00b3",
+      "462.86 m\u00b3",
+      "486.05 m\u00b3",
+      "581.72 m\u00b3"
     ],
-    "explanation": "V_remaining = V_prism - V_cylinder = (14\\times8\\times6) - (\\pi(1)^2(6))",
+    "explanation": "V_remaining = V_prism - V_cylinder = (11\\times7\\times7) - (\\pi(1)^2(7))",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
@@ -240,19 +238,19 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_9"
   },
   {
-    "id": "CIRC_995",
+    "id": "CIRC_842",
     "topic": "Circle Geometry & Angular Movement",
-    "question": "A gear of radius 44 cm rotates at 47 rpm. Calculate its circumferential (linear) velocity in m/s.",
-    "correct_answer": "2.17 m/s",
+    "question": "A gear of radius 49 cm rotates at 96 rpm. Calculate its circumferential (linear) velocity in m/s.",
+    "correct_answer": "4.93 m/s",
     "wrong_answers_pool": [
-      "1.69 m/s",
-      "2.58 m/s",
-      "2.19 m/s",
-      "1.81 m/s",
-      "2.34 m/s",
-      "2.65 m/s"
+      "6.98 m/s",
+      "4.19 m/s",
+      "6.78 m/s",
+      "6.79 m/s",
+      "4.29 m/s",
+      "5.00 m/s"
     ],
-    "explanation": "$v = \\omega r = (2\\pi \\times \\frac{47}{60}) \\times \\frac{44}{100}$",
+    "explanation": "$v = \\omega r = (2\\pi \\times \\frac{96}{60}) \\times \\frac{49}{100}$",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
@@ -266,51 +264,51 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_10"
   },
   {
-    "id": "MENS_232",
-    "topic": "Mensuration (Technical)",
-    "question": "Calculate the total surface area of a closed cylinder with radius 10 cm and height 16 cm.",
-    "correct_answer": "1633.63 cm\u00b2",
-    "wrong_answers_pool": [
-      "1242.28 cm\u00b2",
-      "1176.31 cm\u00b2",
-      "1499.51 cm\u00b2",
-      "1689.06 cm\u00b2",
-      "1695.98 cm\u00b2",
-      "1805.14 cm\u00b2"
-    ],
-    "explanation": "SA = $2\\pi r^2 + 2\\pi rh = 2\\pi(10)^2 + 2\\pi(10)(16)$",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Mensuration (Technical)",
-      "subtopic": "Surface Area of 3D Shapes",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_11"
-  },
-  {
-    "id": "ANALYT_791",
+    "id": "ANALYT_775",
     "topic": "Analytical Geometry (Technical)",
-    "question": "Determine the coordinates of the midpoint of the line segment joining $C(-1; 4)$ and $D(-4; 1)$.",
-    "correct_answer": "$(-2.5; 2.5)$",
+    "question": "Determine the gradient of the line passing through $E(4; -3)$ and $F(-3; -2)$.",
+    "correct_answer": "$1/-7$",
     "wrong_answers_pool": [
-      "$(1.5; 1.5)$",
-      "$(-2.5; 1.5)$",
-      "$(-1.5; 2.5)$",
-      "$(2.5; -2.5)$",
-      "$(-5; 5)$",
-      "$(-1.5; -1.5)$"
+      "$0.142857$",
+      "$-5$",
+      "$-1.14286$",
+      "$-0.285714$",
+      "$-7/1$",
+      "$0.857143$"
     ],
-    "explanation": "$M(\\frac{x_1+x_2}{2}; \\frac{y_1+y_2}{2}) = M(\\frac{-1+-4}{2}; \\frac{4+1}{2})$",
+    "explanation": "$m = \\frac{y_2-y_1}{x_2-x_1} = \\frac{-2-(-3)}{-3-(4)}$",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
       "topic": "Analytical Geometry (Technical)",
-      "subtopic": "Midpoint",
+      "subtopic": "Gradient & Inclination",
+      "cognitive_level": "Application",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_11"
+  },
+  {
+    "id": "ANALYT_583",
+    "topic": "Analytical Geometry (Technical)",
+    "question": "Determine the equation of the line passing through $G(-2; -5)$ with a gradient of $-1$.",
+    "correct_answer": "$y = -1x - 7$",
+    "wrong_answers_pool": [
+      "$y = -1x$",
+      "$y = -1x - 8$",
+      "$y = -1x - 5$",
+      "$y = 1x - 7$",
+      "$y = -7x - 1$",
+      "$x = -1y - 7$"
+    ],
+    "explanation": "Use $y - y_1 = m(x - x_1) \\implies y - -5 = -1(x - -2)$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Analytical Geometry (Technical)",
+      "subtopic": "Equation of a Line",
       "cognitive_level": "Application",
       "difficulty": "medium",
       "learning_outcome": "Calculate"
@@ -318,25 +316,25 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_12"
   },
   {
-    "id": "MENS_163",
+    "id": "MENS_469",
     "topic": "Mensuration (Technical)",
-    "question": "Calculate the total surface area of a closed cylinder with radius 8 cm and height 12 cm.",
-    "correct_answer": "1005.31 cm\u00b2",
+    "question": "A rectangular prism has dimensions 10m by 12m by 15m. A cylindrical hole of radius 1m is drilled straight through its height (15m). Calculate the remaining volume.",
+    "correct_answer": "1752.88 m\u00b3",
     "wrong_answers_pool": [
-      "776.66 cm\u00b2",
-      "1132.77 cm\u00b2",
-      "1115.51 cm\u00b2",
-      "1301.09 cm\u00b2",
-      "862.30 cm\u00b2",
-      "1084.01 cm\u00b2"
+      "2005.83 m\u00b3",
+      "2186.21 m\u00b3",
+      "1687.06 m\u00b3",
+      "1536.55 m\u00b3",
+      "1574.64 m\u00b3",
+      "2159.31 m\u00b3"
     ],
-    "explanation": "SA = $2\\pi r^2 + 2\\pi rh = 2\\pi(8)^2 + 2\\pi(8)(12)$",
+    "explanation": "V_remaining = V_prism - V_cylinder = (10\\times12\\times15) - (\\pi(1)^2(15))",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
       "topic": "Mensuration (Technical)",
-      "subtopic": "Surface Area of 3D Shapes",
+      "subtopic": "Composite Shapes",
       "cognitive_level": "Analysis",
       "difficulty": "hard",
       "learning_outcome": "Calculate"
@@ -344,25 +342,25 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_13"
   },
   {
-    "id": "ANALYT_110",
+    "id": "ANALYT_419",
     "topic": "Analytical Geometry (Technical)",
-    "question": "Determine the gradient of the line passing through $E(2; 0)$ and $F(4; 2)$.",
-    "correct_answer": "$1$",
+    "question": "Determine the equation of the line passing through $G(-3; -2)$ with a gradient of $4$.",
+    "correct_answer": "$y = 4x + 10$",
     "wrong_answers_pool": [
-      "$0.333333$",
-      "$-1$",
-      "$2/2$",
-      "$0$",
-      "$2$",
-      "Rand836"
+      "$x = 4y + 10$",
+      "$y = 4x + 9$",
+      "$y = 4x$",
+      "$y = -4x + 10$",
+      "$y = 4x + 12$",
+      "$y = 10x + 4$"
     ],
-    "explanation": "$m = \\frac{y_2-y_1}{x_2-x_1} = \\frac{2-(0)}{4-(2)}$",
+    "explanation": "Use $y - y_1 = m(x - x_1) \\implies y - -2 = 4(x - -3)$.",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
       "topic": "Analytical Geometry (Technical)",
-      "subtopic": "Gradient & Inclination",
+      "subtopic": "Equation of a Line",
       "cognitive_level": "Analysis",
       "difficulty": "hard",
       "learning_outcome": "Calculate"
@@ -370,25 +368,25 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_14"
   },
   {
-    "id": "CIRC_285",
+    "id": "CIRC_949",
     "topic": "Circle Geometry & Angular Movement",
-    "question": "A wheel rotates at 98 revolutions per minute (rpm). Convert this to radians per second.",
-    "correct_answer": "10.26 rad/s",
+    "question": "A gear of radius 41 cm rotates at 66 rpm. Calculate its circumferential (linear) velocity in m/s.",
+    "correct_answer": "2.83 m/s",
     "wrong_answers_pool": [
-      "10.23 rad/s",
-      "14.37 rad/s",
-      "7.05 rad/s",
-      "14.95 rad/s",
-      "9.60 rad/s",
-      "7.60 rad/s"
+      "3.06 m/s",
+      "2.08 m/s",
+      "2.16 m/s",
+      "2.00 m/s",
+      "4.23 m/s",
+      "2.06 m/s"
     ],
-    "explanation": "$\\omega = 2\\pi \\times \\frac{98}{60}$",
+    "explanation": "$v = \\omega r = (2\\pi \\times \\frac{66}{60}) \\times \\frac{41}{100}$",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
       "topic": "Circle Geometry & Angular Movement",
-      "subtopic": "Angular Velocity",
+      "subtopic": "Circumferential Velocity",
       "cognitive_level": "Application",
       "difficulty": "medium",
       "learning_outcome": "Calculate"
@@ -396,51 +394,51 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_15"
   },
   {
-    "id": "MENS_512",
-    "topic": "Mensuration (Technical)",
-    "question": "A rectangular prism has dimensions 10m by 15m by 11m. A cylindrical hole of radius 1m is drilled straight through its height (11m). Calculate the remaining volume.",
-    "correct_answer": "1615.44 m\u00b3",
+    "id": "ANALYT_354",
+    "topic": "Analytical Geometry (Technical)",
+    "question": "Determine the coordinates of the midpoint of the line segment joining $C(0; 2)$ and $D(1; 4)$.",
+    "correct_answer": "$(0.5; 3)$",
     "wrong_answers_pool": [
-      "1796.29 m\u00b3",
-      "1291.95 m\u00b3",
-      "2008.55 m\u00b3",
-      "1936.65 m\u00b3",
-      "1845.71 m\u00b3",
-      "1138.63 m\u00b3"
+      "$(3; 0.5)$",
+      "$(1; 6)$",
+      "$(0.5; 1)$",
+      "$(1.5; 3)$",
+      "$(-0.5; -1)$",
+      "$(0.5; 2)$"
     ],
-    "explanation": "V_remaining = V_prism - V_cylinder = (10\\times15\\times11) - (\\pi(1)^2(11))",
-    "difficulty": "medium",
+    "explanation": "$M(\\frac{x_1+x_2}{2}; \\frac{y_1+y_2}{2}) = M(\\frac{0+1}{2}; \\frac{2+4}{2})$",
+    "difficulty": "hard",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
-      "topic": "Mensuration (Technical)",
-      "subtopic": "Composite Shapes",
-      "cognitive_level": "Application",
-      "difficulty": "medium",
+      "topic": "Analytical Geometry (Technical)",
+      "subtopic": "Midpoint",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard",
       "learning_outcome": "Calculate"
     },
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_16"
   },
   {
-    "id": "MENS_316",
-    "topic": "Mensuration (Technical)",
-    "question": "A rectangular prism has dimensions 12m by 7m by 8m. A cylindrical hole of radius 1m is drilled straight through its height (8m). Calculate the remaining volume.",
-    "correct_answer": "646.87 m\u00b3",
+    "id": "ANALYT_155",
+    "topic": "Analytical Geometry (Technical)",
+    "question": "Determine the equation of the line passing through $G(-5; -2)$ with a gradient of $4$.",
+    "correct_answer": "$y = 4x + 18$",
     "wrong_answers_pool": [
-      "573.86 m\u00b3",
-      "594.90 m\u00b3",
-      "793.72 m\u00b3",
-      "700.77 m\u00b3",
-      "600.30 m\u00b3",
-      "536.23 m\u00b3"
+      "$y = 4x$",
+      "$y = 4x + 17$",
+      "$y = -4x + 18$",
+      "$y = 4x + 20$",
+      "$y = 18x + 4$",
+      "$x = 4y + 18$"
     ],
-    "explanation": "V_remaining = V_prism - V_cylinder = (12\\times7\\times8) - (\\pi(1)^2(8))",
+    "explanation": "Use $y - y_1 = m(x - x_1) \\implies y - -2 = 4(x - -5)$.",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
-      "topic": "Mensuration (Technical)",
-      "subtopic": "Composite Shapes",
+      "topic": "Analytical Geometry (Technical)",
+      "subtopic": "Equation of a Line",
       "cognitive_level": "Analysis",
       "difficulty": "hard",
       "learning_outcome": "Calculate"
@@ -448,47 +446,47 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_17"
   },
   {
-    "id": "TRIG_651",
+    "id": "TRIG_680",
     "topic": "Trigonometry (Technical)",
-    "question": "In $\\Delta PQR$, $p = 17$ m, $q = 6$ m and $\\angle R = 60^\\circ$. Calculate the area of the triangle.",
-    "correct_answer": "44.17 m\u00b2",
+    "question": "In $\\Delta ABC$, $a = 20$ cm, $b = 13$ cm and $\\angle C = 90^\\circ$. Calculate the length of side $c$ using the Cosine Rule.",
+    "correct_answer": "23.85 cm",
     "wrong_answers_pool": [
-      "22.09 m\u00b2",
-      "66.25 m\u00b2",
-      "35.34 m\u00b2",
-      "53.00 m\u00b2",
-      "88.34 m\u00b2",
-      "30.92 m\u00b2",
-      "57.42 m\u00b2",
-      "79.51 m\u00b2"
+      "19.08 cm",
+      "28.62 cm",
+      "21.47 cm",
+      "26.24 cm",
+      "35.78 cm",
+      "16.70 cm",
+      "31.01 cm",
+      "14.31 cm"
     ],
-    "explanation": "Area = $\\frac{1}{2}pq\\sin R = 0.5 \\times 17 \\times 6 \\times \\sin(60^\\circ) = 44.17$ m\u00b2.",
-    "difficulty": "medium",
+    "explanation": "$c^2 = a^2 + b^2 - 2ab\\cos C = 20^2 + 13^2 - 2(20)(13)\\cos(90^\\circ) = 569.00 \\implies c = 23.85$ cm.",
+    "difficulty": "hard",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
       "topic": "Trigonometry (Technical)",
       "subtopic": "2D/3D Problems",
-      "cognitive_level": "Application",
-      "difficulty": "medium",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard",
       "learning_outcome": "Calculate"
     },
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_18"
   },
   {
-    "id": "CIRC_524",
+    "id": "CIRC_467",
     "topic": "Circle Geometry & Angular Movement",
-    "question": "A gear of radius 31 cm rotates at 45 rpm. Calculate its circumferential (linear) velocity in m/s.",
-    "correct_answer": "1.46 m/s",
+    "question": "A gear of radius 23 cm rotates at 119 rpm. Calculate its circumferential (linear) velocity in m/s.",
+    "correct_answer": "2.87 m/s",
     "wrong_answers_pool": [
-      "1.48 m/s",
-      "1.52 m/s",
-      "1.58 m/s",
-      "1.66 m/s",
-      "1.05 m/s",
-      "1.70 m/s"
+      "2.58 m/s",
+      "3.62 m/s",
+      "2.10 m/s",
+      "3.15 m/s",
+      "2.50 m/s",
+      "4.01 m/s"
     ],
-    "explanation": "$v = \\omega r = (2\\pi \\times \\frac{45}{60}) \\times \\frac{31}{100}$",
+    "explanation": "$v = \\omega r = (2\\pi \\times \\frac{119}{60}) \\times \\frac{23}{100}$",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
@@ -502,25 +500,27 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_19"
   },
   {
-    "id": "ANALYT_950",
-    "topic": "Analytical Geometry (Technical)",
-    "question": "Determine the coordinates of the midpoint of the line segment joining $C(2; -2)$ and $D(3; 2)$.",
-    "correct_answer": "$(2.5; 0)$",
+    "id": "TRIG_915",
+    "topic": "Trigonometry (Technical)",
+    "question": "In $\\Delta PQR$, $p = 27$ m, $q = 22$ m and $\\angle R = 45^\\circ$. Calculate the area of the triangle.",
+    "correct_answer": "210.01 m\u00b2",
     "wrong_answers_pool": [
-      "$(2.5; -1)$",
-      "$(-0.5; -2)$",
-      "$(5; 0)$",
-      "$(0; 2.5)$",
-      "$(0.5; 2)$",
-      "$(3.5; 0)$"
+      "105.00 m\u00b2",
+      "315.01 m\u00b2",
+      "168.01 m\u00b2",
+      "252.01 m\u00b2",
+      "420.02 m\u00b2",
+      "147.01 m\u00b2",
+      "273.01 m\u00b2",
+      "378.02 m\u00b2"
     ],
-    "explanation": "$M(\\frac{x_1+x_2}{2}; \\frac{y_1+y_2}{2}) = M(\\frac{2+3}{2}; \\frac{-2+2}{2})$",
+    "explanation": "Area = $\\frac{1}{2}pq\\sin R = 0.5 \\times 27 \\times 22 \\times \\sin(45^\\circ) = 210.01$ m\u00b2.",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
-      "topic": "Analytical Geometry (Technical)",
-      "subtopic": "Midpoint",
+      "topic": "Trigonometry (Technical)",
+      "subtopic": "2D/3D Problems",
       "cognitive_level": "Application",
       "difficulty": "medium",
       "learning_outcome": "Calculate"
@@ -528,27 +528,25 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_20"
   },
   {
-    "id": "TRIG_216",
-    "topic": "Trigonometry (Technical)",
-    "question": "In $\\Delta ABC$, $a = 14$ cm, $b = 23$ cm and $\\angle C = 90^\\circ$. Calculate the length of side $c$ using the Cosine Rule.",
-    "correct_answer": "26.93 cm",
+    "id": "CIRC_532",
+    "topic": "Circle Geometry & Angular Movement",
+    "question": "A gear of radius 33 cm rotates at 92 rpm. Calculate its circumferential (linear) velocity in m/s.",
+    "correct_answer": "3.18 m/s",
     "wrong_answers_pool": [
-      "21.54 cm",
-      "32.32 cm",
-      "24.24 cm",
-      "29.62 cm",
-      "40.39 cm",
-      "18.85 cm",
-      "35.01 cm",
-      "16.16 cm"
+      "2.71 m/s",
+      "3.95 m/s",
+      "3.55 m/s",
+      "1.92 m/s",
+      "3.63 m/s",
+      "4.45 m/s"
     ],
-    "explanation": "$c^2 = a^2 + b^2 - 2ab\\cos C = 14^2 + 23^2 - 2(14)(23)\\cos(90^\\circ) = 725.00 \\implies c = 26.93$ cm.",
+    "explanation": "$v = \\omega r = (2\\pi \\times \\frac{92}{60}) \\times \\frac{33}{100}$",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
-      "topic": "Trigonometry (Technical)",
-      "subtopic": "2D/3D Problems",
+      "topic": "Circle Geometry & Angular Movement",
+      "subtopic": "Circumferential Velocity",
       "cognitive_level": "Analysis",
       "difficulty": "hard",
       "learning_outcome": "Calculate"
@@ -556,51 +554,53 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_21"
   },
   {
-    "id": "MENS_286",
-    "topic": "Mensuration (Technical)",
-    "question": "A rectangular prism has dimensions 10m by 9m by 13m. A cylindrical hole of radius 1m is drilled straight through its height (13m). Calculate the remaining volume.",
-    "correct_answer": "1129.16 m\u00b3",
+    "id": "TRIG_873",
+    "topic": "Trigonometry (Technical)",
+    "question": "In $\\Delta PQR$, $p = 17$ m, $q = 27$ m and $\\angle R = 135^\\circ$. Calculate the area of the triangle.",
+    "correct_answer": "162.28 m\u00b2",
     "wrong_answers_pool": [
-      "994.08 m\u00b3",
-      "1089.20 m\u00b3",
-      "1307.04 m\u00b3",
-      "1337.25 m\u00b3",
-      "1227.54 m\u00b3",
-      "1041.44 m\u00b3"
+      "81.14 m\u00b2",
+      "243.42 m\u00b2",
+      "129.82 m\u00b2",
+      "194.74 m\u00b2",
+      "324.56 m\u00b2",
+      "113.60 m\u00b2",
+      "210.96 m\u00b2",
+      "292.10 m\u00b2"
     ],
-    "explanation": "V_remaining = V_prism - V_cylinder = (10\\times9\\times13) - (\\pi(1)^2(13))",
-    "difficulty": "hard",
+    "explanation": "Area = $\\frac{1}{2}pq\\sin R = 0.5 \\times 17 \\times 27 \\times \\sin(135^\\circ) = 162.28$ m\u00b2.",
+    "difficulty": "medium",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
-      "topic": "Mensuration (Technical)",
-      "subtopic": "Composite Shapes",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard",
+      "topic": "Trigonometry (Technical)",
+      "subtopic": "2D/3D Problems",
+      "cognitive_level": "Application",
+      "difficulty": "medium",
       "learning_outcome": "Calculate"
     },
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_22"
   },
   {
-    "id": "ANALYT_977",
-    "topic": "Analytical Geometry (Technical)",
-    "question": "Determine the coordinates of the midpoint of the line segment joining $C(-4; 1)$ and $D(-1; 3)$.",
-    "correct_answer": "$(-2.5; 2)$",
+    "id": "MENS_510",
+    "topic": "Mensuration (Technical)",
+    "question": "A rectangular prism has dimensions 5m by 6m by 6m. A cylindrical hole of radius 1m is drilled straight through its height (6m). Calculate the remaining volume.",
+    "correct_answer": "161.15 m\u00b3",
     "wrong_answers_pool": [
-      "$(-1.5; -1)$",
-      "$(2; -2.5)$",
-      "$(-1.5; 2)$",
-      "$(-5; 4)$",
-      "$(-2.5; 1)$",
-      "$(1.5; 1)$"
+      "127.06 m\u00b3",
+      "117.83 m\u00b3",
+      "142.16 m\u00b3",
+      "182.06 m\u00b3",
+      "208.55 m\u00b3",
+      "112.89 m\u00b3"
     ],
-    "explanation": "$M(\\frac{x_1+x_2}{2}; \\frac{y_1+y_2}{2}) = M(\\frac{-4+-1}{2}; \\frac{1+3}{2})$",
+    "explanation": "V_remaining = V_prism - V_cylinder = (5\\times6\\times6) - (\\pi(1)^2(6))",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
-      "topic": "Analytical Geometry (Technical)",
-      "subtopic": "Midpoint",
+      "topic": "Mensuration (Technical)",
+      "subtopic": "Composite Shapes",
       "cognitive_level": "Application",
       "difficulty": "medium",
       "learning_outcome": "Calculate"
@@ -608,25 +608,25 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_23"
   },
   {
-    "id": "MENS_104",
+    "id": "MENS_190",
     "topic": "Mensuration (Technical)",
-    "question": "Calculate the total surface area of a closed cylinder with radius 6 cm and height 14 cm.",
-    "correct_answer": "753.98 cm\u00b2",
+    "question": "A rectangular prism has dimensions 13m by 9m by 14m. A cylindrical hole of radius 1m is drilled straight through its height (14m). Calculate the remaining volume.",
+    "correct_answer": "1594.02 m\u00b3",
     "wrong_answers_pool": [
-      "591.33 cm\u00b2",
-      "785.02 cm\u00b2",
-      "769.80 cm\u00b2",
-      "669.87 cm\u00b2",
-      "606.68 cm\u00b2",
-      "713.04 cm\u00b2"
+      "1683.14 m\u00b3",
+      "1459.41 m\u00b3",
+      "1366.65 m\u00b3",
+      "1517.08 m\u00b3",
+      "1586.09 m\u00b3",
+      "1201.66 m\u00b3"
     ],
-    "explanation": "SA = $2\\pi r^2 + 2\\pi rh = 2\\pi(6)^2 + 2\\pi(6)(14)$",
+    "explanation": "V_remaining = V_prism - V_cylinder = (13\\times9\\times14) - (\\pi(1)^2(14))",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
       "topic": "Mensuration (Technical)",
-      "subtopic": "Surface Area of 3D Shapes",
+      "subtopic": "Composite Shapes",
       "cognitive_level": "Application",
       "difficulty": "medium",
       "learning_outcome": "Calculate"
@@ -634,73 +634,19 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_24"
   },
   {
-    "id": "CIRC_974",
-    "topic": "Circle Geometry & Angular Movement",
-    "question": "A gear of radius 20 cm rotates at 52 rpm. Calculate its circumferential (linear) velocity in m/s.",
-    "correct_answer": "1.09 m/s",
-    "wrong_answers_pool": [
-      "0.64 m/s",
-      "1.54 m/s",
-      "0.94 m/s",
-      "1.63 m/s",
-      "1.18 m/s",
-      "0.82 m/s"
-    ],
-    "explanation": "$v = \\omega r = (2\\pi \\times \\frac{52}{60}) \\times \\frac{20}{100}$",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Circle Geometry & Angular Movement",
-      "subtopic": "Circumferential Velocity",
-      "cognitive_level": "Application",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_25"
-  },
-  {
-    "id": "TRIG_192",
-    "topic": "Trigonometry (Technical)",
-    "question": "In $\\Delta ABC$, $a = 12$ cm, $b = 12$ cm and $\\angle C = 90^\\circ$. Calculate the length of side $c$ using the Cosine Rule.",
-    "correct_answer": "16.97 cm",
-    "wrong_answers_pool": [
-      "13.58 cm",
-      "20.36 cm",
-      "15.27 cm",
-      "18.67 cm",
-      "25.45 cm",
-      "11.88 cm",
-      "22.06 cm",
-      "10.18 cm"
-    ],
-    "explanation": "$c^2 = a^2 + b^2 - 2ab\\cos C = 12^2 + 12^2 - 2(12)(12)\\cos(90^\\circ) = 288.00 \\implies c = 16.97$ cm.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Trigonometry (Technical)",
-      "subtopic": "2D/3D Problems",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_26"
-  },
-  {
-    "id": "MENS_251",
+    "id": "MENS_196",
     "topic": "Mensuration (Technical)",
-    "question": "A rectangular prism has dimensions 7m by 11m by 9m. A cylindrical hole of radius 1m is drilled straight through its height (9m). Calculate the remaining volume.",
-    "correct_answer": "664.73 m\u00b3",
+    "question": "A rectangular prism has dimensions 15m by 11m by 8m. A cylindrical hole of radius 1m is drilled straight through its height (8m). Calculate the remaining volume.",
+    "correct_answer": "1294.87 m\u00b3",
     "wrong_answers_pool": [
-      "753.74 m\u00b3",
-      "514.60 m\u00b3",
-      "559.35 m\u00b3",
-      "627.76 m\u00b3",
-      "480.43 m\u00b3",
-      "708.94 m\u00b3"
+      "1145.65 m\u00b3",
+      "1498.61 m\u00b3",
+      "1642.51 m\u00b3",
+      "1164.77 m\u00b3",
+      "1600.08 m\u00b3",
+      "1525.90 m\u00b3"
     ],
-    "explanation": "V_remaining = V_prism - V_cylinder = (7\\times11\\times9) - (\\pi(1)^2(9))",
+    "explanation": "V_remaining = V_prism - V_cylinder = (15\\times11\\times8) - (\\pi(1)^2(8))",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
@@ -711,24 +657,76 @@
       "difficulty": "hard",
       "learning_outcome": "Calculate"
     },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_25"
+  },
+  {
+    "id": "ANALYT_258",
+    "topic": "Analytical Geometry (Technical)",
+    "question": "Determine the gradient of the line passing through $E(4; -3)$ and $F(0; 1)$.",
+    "correct_answer": "$-1$",
+    "wrong_answers_pool": [
+      "$1$",
+      "$0$",
+      "$-0.5$",
+      "$-4/4$",
+      "$-2$",
+      "Rand921"
+    ],
+    "explanation": "$m = \\frac{y_2-y_1}{x_2-x_1} = \\frac{1-(-3)}{0-(4)}$",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Analytical Geometry (Technical)",
+      "subtopic": "Gradient & Inclination",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_26"
+  },
+  {
+    "id": "ANALYT_347",
+    "topic": "Analytical Geometry (Technical)",
+    "question": "Determine the gradient of the line passing through $E(0; 5)$ and $F(3; 0)$.",
+    "correct_answer": "$-5/3$",
+    "wrong_answers_pool": [
+      "$1.66667$",
+      "$-2.66667$",
+      "$-0.666667$",
+      "$-3.33333$",
+      "$3/-5$",
+      "Rand495"
+    ],
+    "explanation": "$m = \\frac{y_2-y_1}{x_2-x_1} = \\frac{0-(5)}{3-(0)}$",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Analytical Geometry (Technical)",
+      "subtopic": "Gradient & Inclination",
+      "cognitive_level": "Application",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate"
+    },
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_27"
   },
   {
-    "id": "TRIG_561",
+    "id": "TRIG_646",
     "topic": "Trigonometry (Technical)",
-    "question": "In $\\Delta ABC$, $a = 9$ cm, $b = 23$ cm and $\\angle C = 120^\\circ$. Calculate the length of side $c$ using the Cosine Rule.",
-    "correct_answer": "28.58 cm",
+    "question": "In $\\Delta ABC$, $a = 6$ cm, $b = 13$ cm and $\\angle C = 120^\\circ$. Calculate the length of side $c$ using the Cosine Rule.",
+    "correct_answer": "16.82 cm",
     "wrong_answers_pool": [
-      "22.86 cm",
-      "34.30 cm",
-      "25.72 cm",
-      "31.44 cm",
-      "42.87 cm",
-      "20.01 cm",
-      "37.15 cm",
-      "17.15 cm"
+      "13.46 cm",
+      "20.18 cm",
+      "15.14 cm",
+      "18.50 cm",
+      "25.23 cm",
+      "11.77 cm",
+      "21.87 cm",
+      "10.09 cm"
     ],
-    "explanation": "$c^2 = a^2 + b^2 - 2ab\\cos C = 9^2 + 23^2 - 2(9)(23)\\cos(120^\\circ) = 817.00 \\implies c = 28.58$ cm.",
+    "explanation": "$c^2 = a^2 + b^2 - 2ab\\cos C = 6^2 + 13^2 - 2(6)(13)\\cos(120^\\circ) = 283.00 \\implies c = 16.82$ cm.",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
@@ -742,51 +740,53 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_28"
   },
   {
-    "id": "MENS_489",
-    "topic": "Mensuration (Technical)",
-    "question": "A rectangular prism has dimensions 10m by 14m by 5m. A cylindrical hole of radius 1m is drilled straight through its height (5m). Calculate the remaining volume.",
-    "correct_answer": "684.29 m\u00b3",
+    "id": "TRIG_940",
+    "topic": "Trigonometry (Technical)",
+    "question": "In $\\Delta PQR$, $p = 22$ m, $q = 30$ m and $\\angle R = 120^\\circ$. Calculate the area of the triangle.",
+    "correct_answer": "285.79 m\u00b2",
     "wrong_answers_pool": [
-      "664.94 m\u00b3",
-      "785.31 m\u00b3",
-      "516.16 m\u00b3",
-      "623.65 m\u00b3",
-      "497.15 m\u00b3",
-      "849.03 m\u00b3"
+      "142.90 m\u00b2",
+      "428.69 m\u00b2",
+      "228.63 m\u00b2",
+      "342.95 m\u00b2",
+      "571.58 m\u00b2",
+      "200.05 m\u00b2",
+      "371.53 m\u00b2",
+      "514.42 m\u00b2"
     ],
-    "explanation": "V_remaining = V_prism - V_cylinder = (10\\times14\\times5) - (\\pi(1)^2(5))",
+    "explanation": "Area = $\\frac{1}{2}pq\\sin R = 0.5 \\times 22 \\times 30 \\times \\sin(120^\\circ) = 285.79$ m\u00b2.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Trigonometry (Technical)",
+      "subtopic": "2D/3D Problems",
+      "cognitive_level": "Application",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_29"
+  },
+  {
+    "id": "MENS_315",
+    "topic": "Mensuration (Technical)",
+    "question": "A rectangular prism has dimensions 5m by 10m by 14m. A cylindrical hole of radius 1m is drilled straight through its height (14m). Calculate the remaining volume.",
+    "correct_answer": "656.02 m\u00b3",
+    "wrong_answers_pool": [
+      "515.77 m\u00b3",
+      "836.10 m\u00b3",
+      "592.58 m\u00b3",
+      "504.06 m\u00b3",
+      "739.90 m\u00b3",
+      "571.34 m\u00b3"
+    ],
+    "explanation": "V_remaining = V_prism - V_cylinder = (5\\times10\\times14) - (\\pi(1)^2(14))",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
       "topic": "Mensuration (Technical)",
       "subtopic": "Composite Shapes",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_29"
-  },
-  {
-    "id": "CIRC_147",
-    "topic": "Circle Geometry & Angular Movement",
-    "question": "A gear of radius 36 cm rotates at 94 rpm. Calculate its circumferential (linear) velocity in m/s.",
-    "correct_answer": "3.54 m/s",
-    "wrong_answers_pool": [
-      "5.14 m/s",
-      "3.72 m/s",
-      "2.67 m/s",
-      "1.95 m/s",
-      "4.13 m/s",
-      "5.05 m/s"
-    ],
-    "explanation": "$v = \\omega r = (2\\pi \\times \\frac{94}{60}) \\times \\frac{36}{100}$",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Circle Geometry & Angular Movement",
-      "subtopic": "Circumferential Velocity",
       "cognitive_level": "Analysis",
       "difficulty": "hard",
       "learning_outcome": "Calculate"
@@ -794,25 +794,27 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_30"
   },
   {
-    "id": "MENS_194",
-    "topic": "Mensuration (Technical)",
-    "question": "A rectangular prism has dimensions 9m by 12m by 11m. A cylindrical hole of radius 1m is drilled straight through its height (11m). Calculate the remaining volume.",
-    "correct_answer": "1153.44 m\u00b3",
+    "id": "TRIG_458",
+    "topic": "Trigonometry (Technical)",
+    "question": "In $\\Delta ABC$, $a = 26$ cm, $b = 25$ cm and $\\angle C = 60^\\circ$. Calculate the length of side $c$ using the Cosine Rule.",
+    "correct_answer": "25.51 cm",
     "wrong_answers_pool": [
-      "1160.63 m\u00b3",
-      "1194.80 m\u00b3",
-      "1172.26 m\u00b3",
-      "971.37 m\u00b3",
-      "962.47 m\u00b3",
-      "948.19 m\u00b3"
+      "20.41 cm",
+      "30.61 cm",
+      "22.96 cm",
+      "28.06 cm",
+      "38.27 cm",
+      "17.86 cm",
+      "33.16 cm",
+      "15.31 cm"
     ],
-    "explanation": "V_remaining = V_prism - V_cylinder = (9\\times12\\times11) - (\\pi(1)^2(11))",
+    "explanation": "$c^2 = a^2 + b^2 - 2ab\\cos C = 26^2 + 25^2 - 2(26)(25)\\cos(60^\\circ) = 651.00 \\implies c = 25.51$ cm.",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
-      "topic": "Mensuration (Technical)",
-      "subtopic": "Composite Shapes",
+      "topic": "Trigonometry (Technical)",
+      "subtopic": "2D/3D Problems",
       "cognitive_level": "Analysis",
       "difficulty": "hard",
       "learning_outcome": "Calculate"
@@ -820,19 +822,73 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_31"
   },
   {
-    "id": "CIRC_723",
-    "topic": "Circle Geometry & Angular Movement",
-    "question": "A gear of radius 38 cm rotates at 68 rpm. Calculate its circumferential (linear) velocity in m/s.",
-    "correct_answer": "2.71 m/s",
+    "id": "TRIG_158",
+    "topic": "Trigonometry (Technical)",
+    "question": "In $\\Delta PQR$, $p = 17$ m, $q = 15$ m and $\\angle R = 135^\\circ$. Calculate the area of the triangle.",
+    "correct_answer": "90.16 m\u00b2",
     "wrong_answers_pool": [
-      "1.69 m/s",
-      "3.59 m/s",
-      "3.07 m/s",
-      "1.90 m/s",
-      "2.51 m/s",
-      "2.86 m/s"
+      "45.08 m\u00b2",
+      "135.24 m\u00b2",
+      "72.13 m\u00b2",
+      "108.19 m\u00b2",
+      "180.32 m\u00b2",
+      "63.11 m\u00b2",
+      "117.21 m\u00b2",
+      "162.29 m\u00b2"
     ],
-    "explanation": "$v = \\omega r = (2\\pi \\times \\frac{68}{60}) \\times \\frac{38}{100}$",
+    "explanation": "Area = $\\frac{1}{2}pq\\sin R = 0.5 \\times 17 \\times 15 \\times \\sin(135^\\circ) = 90.16$ m\u00b2.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Trigonometry (Technical)",
+      "subtopic": "2D/3D Problems",
+      "cognitive_level": "Application",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_32"
+  },
+  {
+    "id": "CIRC_158",
+    "topic": "Circle Geometry & Angular Movement",
+    "question": "In a circle, an angle at the circumference subtended by an arc is $46^\\circ$. What is the angle at the centre subtended by the same arc?",
+    "correct_answer": "$92^\\circ$",
+    "wrong_answers_pool": [
+      "$46^\\circ$",
+      "$23.0^\\circ$",
+      "$314^\\circ$",
+      "$88^\\circ$",
+      "$134^\\circ$",
+      "$44^\\circ$"
+    ],
+    "explanation": "The angle at the centre is twice the angle at the circumference.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Circle Geometry & Angular Movement",
+      "subtopic": "Circle Theorems",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_33"
+  },
+  {
+    "id": "CIRC_968",
+    "topic": "Circle Geometry & Angular Movement",
+    "question": "A gear of radius 13 cm rotates at 67 rpm. Calculate its circumferential (linear) velocity in m/s.",
+    "correct_answer": "0.91 m/s",
+    "wrong_answers_pool": [
+      "1.12 m/s",
+      "1.25 m/s",
+      "1.30 m/s",
+      "1.27 m/s",
+      "1.36 m/s",
+      "0.99 m/s"
+    ],
+    "explanation": "$v = \\omega r = (2\\pi \\times \\frac{67}{60}) \\times \\frac{13}{100}$",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
@@ -843,22 +899,48 @@
       "difficulty": "medium",
       "learning_outcome": "Calculate"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_32"
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_34"
   },
   {
-    "id": "ANALYT_827",
+    "id": "ANALYT_498",
     "topic": "Analytical Geometry (Technical)",
-    "question": "Determine the distance between $A(3; -5)$ and $B(1; 4)$. (Leave answer in surd form if necessary)",
-    "correct_answer": "$\\sqrt{85}$",
+    "question": "Determine the distance between $A(4; -5)$ and $B(-5; 4)$. (Leave answer in surd form if necessary)",
+    "correct_answer": "$\\sqrt{162}$",
     "wrong_answers_pool": [
-      "$\\sqrt{86}$",
-      "$\\sqrt{90}$",
-      "$\\sqrt{89}$",
-      "$\\sqrt{95}$",
-      "Rand801",
-      "Rand285"
+      "$\\sqrt{163}$",
+      "$\\sqrt{166}$",
+      "$\\sqrt{172}$",
+      "$\\sqrt{169}$",
+      "$\\sqrt{167}$",
+      "Rand717"
     ],
-    "explanation": "$d = \\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2} = \\sqrt{(1-(3))^2 + (4-(-5))^2} = \\sqrt{85}$",
+    "explanation": "$d = \\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2} = \\sqrt{(-5-(4))^2 + (4-(-5))^2} = \\sqrt{162}$",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Analytical Geometry (Technical)",
+      "subtopic": "Distance",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_35"
+  },
+  {
+    "id": "ANALYT_817",
+    "topic": "Analytical Geometry (Technical)",
+    "question": "Determine the distance between $A(2; -1)$ and $B(-2; 5)$. (Leave answer in surd form if necessary)",
+    "correct_answer": "$\\sqrt{52}$",
+    "wrong_answers_pool": [
+      "$\\sqrt{53}$",
+      "$\\sqrt{61}$",
+      "$\\sqrt{57}$",
+      "$\\sqrt{58}$",
+      "Rand290",
+      "Rand702"
+    ],
+    "explanation": "$d = \\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2} = \\sqrt{(-2-(2))^2 + (5-(-1))^2} = \\sqrt{52}$",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
@@ -869,48 +951,102 @@
       "difficulty": "medium",
       "learning_outcome": "Calculate"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_33"
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_36"
   },
   {
-    "id": "MENS_158",
-    "topic": "Mensuration (Technical)",
-    "question": "Calculate the total surface area of a closed cylinder with radius 10 cm and height 17 cm.",
-    "correct_answer": "1696.46 cm\u00b2",
+    "id": "ANALYT_485",
+    "topic": "Analytical Geometry (Technical)",
+    "question": "Determine the distance between $A(3; -4)$ and $B(4; -1)$. (Leave answer in surd form if necessary)",
+    "correct_answer": "$\\sqrt{10}$",
     "wrong_answers_pool": [
-      "1634.19 cm\u00b2",
-      "2011.06 cm\u00b2",
-      "1937.50 cm\u00b2",
-      "1967.28 cm\u00b2",
-      "2057.32 cm\u00b2",
-      "2036.87 cm\u00b2"
+      "$\\sqrt{18}$",
+      "$\\sqrt{14}$",
+      "$\\sqrt{19}$",
+      "$\\sqrt{15}$",
+      "Rand303",
+      "Rand782"
     ],
-    "explanation": "SA = $2\\pi r^2 + 2\\pi rh = 2\\pi(10)^2 + 2\\pi(10)(17)$",
+    "explanation": "$d = \\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2} = \\sqrt{(4-(3))^2 + (-1-(-4))^2} = \\sqrt{10}$",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Analytical Geometry (Technical)",
+      "subtopic": "Distance",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_37"
+  },
+  {
+    "id": "CIRC_306",
+    "topic": "Circle Geometry & Angular Movement",
+    "question": "A gear of radius 50 cm rotates at 94 rpm. Calculate its circumferential (linear) velocity in m/s.",
+    "correct_answer": "4.92 m/s",
+    "wrong_answers_pool": [
+      "3.00 m/s",
+      "4.97 m/s",
+      "5.36 m/s",
+      "4.07 m/s",
+      "4.75 m/s",
+      "6.51 m/s"
+    ],
+    "explanation": "$v = \\omega r = (2\\pi \\times \\frac{94}{60}) \\times \\frac{50}{100}$",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Circle Geometry & Angular Movement",
+      "subtopic": "Circumferential Velocity",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_38"
+  },
+  {
+    "id": "TRIG_912",
+    "topic": "Trigonometry (Technical)",
+    "question": "In $\\Delta PQR$, $p = 14$ m, $q = 6$ m and $\\angle R = 45^\\circ$. Calculate the area of the triangle.",
+    "correct_answer": "29.70 m\u00b2",
+    "wrong_answers_pool": [
+      "14.85 m\u00b2",
+      "44.55 m\u00b2",
+      "23.76 m\u00b2",
+      "35.64 m\u00b2",
+      "59.40 m\u00b2",
+      "20.79 m\u00b2",
+      "38.61 m\u00b2",
+      "53.46 m\u00b2"
+    ],
+    "explanation": "Area = $\\frac{1}{2}pq\\sin R = 0.5 \\times 14 \\times 6 \\times \\sin(45^\\circ) = 29.70$ m\u00b2.",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
-      "topic": "Mensuration (Technical)",
-      "subtopic": "Surface Area of 3D Shapes",
+      "topic": "Trigonometry (Technical)",
+      "subtopic": "2D/3D Problems",
       "cognitive_level": "Application",
       "difficulty": "medium",
       "learning_outcome": "Calculate"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_34"
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_39"
   },
   {
-    "id": "MENS_311",
+    "id": "MENS_913",
     "topic": "Mensuration (Technical)",
-    "question": "A rectangular prism has dimensions 8m by 10m by 7m. A cylindrical hole of radius 1m is drilled straight through its height (7m). Calculate the remaining volume.",
-    "correct_answer": "538.01 m\u00b3",
+    "question": "A rectangular prism has dimensions 5m by 5m by 6m. A cylindrical hole of radius 1m is drilled straight through its height (6m). Calculate the remaining volume.",
+    "correct_answer": "131.15 m\u00b3",
     "wrong_answers_pool": [
-      "659.10 m\u00b3",
-      "559.13 m\u00b3",
-      "438.85 m\u00b3",
-      "492.58 m\u00b3",
-      "555.18 m\u00b3",
-      "516.55 m\u00b3"
+      "134.15 m\u00b3",
+      "150.66 m\u00b3",
+      "123.90 m\u00b3",
+      "169.44 m\u00b3",
+      "145.04 m\u00b3",
+      "135.72 m\u00b3"
     ],
-    "explanation": "V_remaining = V_prism - V_cylinder = (8\\times10\\times7) - (\\pi(1)^2(7))",
+    "explanation": "V_remaining = V_prism - V_cylinder = (5\\times5\\times6) - (\\pi(1)^2(6))",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
@@ -921,102 +1057,22 @@
       "difficulty": "medium",
       "learning_outcome": "Calculate"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_35"
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_40"
   },
   {
-    "id": "CIRC_189",
-    "topic": "Circle Geometry & Angular Movement",
-    "question": "A gear of radius 22 cm rotates at 58 rpm. Calculate its circumferential (linear) velocity in m/s.",
-    "correct_answer": "1.34 m/s",
-    "wrong_answers_pool": [
-      "0.90 m/s",
-      "0.91 m/s",
-      "0.98 m/s",
-      "1.49 m/s",
-      "1.21 m/s",
-      "0.82 m/s"
-    ],
-    "explanation": "$v = \\omega r = (2\\pi \\times \\frac{58}{60}) \\times \\frac{22}{100}$",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Circle Geometry & Angular Movement",
-      "subtopic": "Circumferential Velocity",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_36"
-  },
-  {
-    "id": "TRIG_402",
-    "topic": "Trigonometry (Technical)",
-    "question": "In $\\Delta ABC$, $a = 14$ cm, $b = 15$ cm and $\\angle C = 120^\\circ$. Calculate the length of side $c$ using the Cosine Rule.",
-    "correct_answer": "25.12 cm",
-    "wrong_answers_pool": [
-      "20.10 cm",
-      "30.14 cm",
-      "22.61 cm",
-      "27.63 cm",
-      "37.68 cm",
-      "17.58 cm",
-      "32.66 cm",
-      "15.07 cm"
-    ],
-    "explanation": "$c^2 = a^2 + b^2 - 2ab\\cos C = 14^2 + 15^2 - 2(14)(15)\\cos(120^\\circ) = 631.00 \\implies c = 25.12$ cm.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Trigonometry (Technical)",
-      "subtopic": "2D/3D Problems",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_37"
-  },
-  {
-    "id": "CIRC_830",
-    "topic": "Circle Geometry & Angular Movement",
-    "question": "A gear of radius 32 cm rotates at 30 rpm. Calculate its circumferential (linear) velocity in m/s.",
-    "correct_answer": "1.01 m/s",
-    "wrong_answers_pool": [
-      "1.02 m/s",
-      "0.86 m/s",
-      "1.07 m/s",
-      "1.33 m/s",
-      "0.69 m/s",
-      "1.37 m/s"
-    ],
-    "explanation": "$v = \\omega r = (2\\pi \\times \\frac{30}{60}) \\times \\frac{32}{100}$",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Circle Geometry & Angular Movement",
-      "subtopic": "Circumferential Velocity",
-      "cognitive_level": "Application",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_38"
-  },
-  {
-    "id": "ANALYT_308",
+    "id": "ANALYT_048",
     "topic": "Analytical Geometry (Technical)",
-    "question": "Determine the gradient of the line passing through $E(-3; 5)$ and $F(3; -1)$.",
-    "correct_answer": "$-1$",
+    "question": "Determine the gradient of the line passing through $E(-2; 0)$ and $F(5; 4)$.",
+    "correct_answer": "$4/7$",
     "wrong_answers_pool": [
-      "$1$",
-      "$-2$",
-      "$6/-6$",
-      "$0$",
-      "Rand916",
-      "Rand919"
+      "$-0.571429$",
+      "$1.33333$",
+      "$1.57143$",
+      "$1.14286$",
+      "$-0.428571$",
+      "$7/4$"
     ],
-    "explanation": "$m = \\frac{y_2-y_1}{x_2-x_1} = \\frac{-1-(5)}{3-(-3)}$",
+    "explanation": "$m = \\frac{y_2-y_1}{x_2-x_1} = \\frac{4-(0)}{5-(-2)}$",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
@@ -1027,84 +1083,28 @@
       "difficulty": "hard",
       "learning_outcome": "Calculate"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_39"
-  },
-  {
-    "id": "TRIG_195",
-    "topic": "Trigonometry (Technical)",
-    "question": "In $\\Delta PQR$, $p = 16$ m, $q = 8$ m and $\\angle R = 135^\\circ$. Calculate the area of the triangle.",
-    "correct_answer": "45.25 m\u00b2",
-    "wrong_answers_pool": [
-      "22.62 m\u00b2",
-      "67.88 m\u00b2",
-      "36.20 m\u00b2",
-      "54.30 m\u00b2",
-      "90.50 m\u00b2",
-      "31.67 m\u00b2",
-      "58.83 m\u00b2",
-      "81.45 m\u00b2"
-    ],
-    "explanation": "Area = $\\frac{1}{2}pq\\sin R = 0.5 \\times 16 \\times 8 \\times \\sin(135^\\circ) = 45.25$ m\u00b2.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Trigonometry (Technical)",
-      "subtopic": "2D/3D Problems",
-      "cognitive_level": "Application",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_40"
-  },
-  {
-    "id": "ANALYT_389",
-    "topic": "Analytical Geometry (Technical)",
-    "question": "Determine the equation of the line passing through $G(0; 5)$ with a gradient of $1$.",
-    "correct_answer": "$y = 1x + 5$",
-    "wrong_answers_pool": [
-      "$y = 1x$",
-      "$y = 5x + 1$",
-      "$x = 1y + 5$",
-      "$y = -1x + 5$",
-      "$y = 1x + 7$",
-      "$y = 1x + 4$"
-    ],
-    "explanation": "Use $y - y_1 = m(x - x_1) \\implies y - 5 = 1(x - 0)$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Analytical Geometry (Technical)",
-      "subtopic": "Equation of a Line",
-      "cognitive_level": "Application",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate"
-    },
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_41"
   },
   {
-    "id": "TRIG_541",
-    "topic": "Trigonometry (Technical)",
-    "question": "In $\\Delta ABC$, $a = 8$ cm, $b = 30$ cm and $\\angle C = 120^\\circ$. Calculate the length of side $c$ using the Cosine Rule.",
-    "correct_answer": "34.70 cm",
+    "id": "CIRC_537",
+    "topic": "Circle Geometry & Angular Movement",
+    "question": "A gear of radius 13 cm rotates at 66 rpm. Calculate its circumferential (linear) velocity in m/s.",
+    "correct_answer": "0.90 m/s",
     "wrong_answers_pool": [
-      "27.76 cm",
-      "41.64 cm",
-      "31.23 cm",
-      "38.17 cm",
-      "52.05 cm",
-      "24.29 cm",
-      "45.11 cm",
-      "20.82 cm"
+      "0.70 m/s",
+      "0.72 m/s",
+      "0.57 m/s",
+      "0.56 m/s",
+      "1.10 m/s",
+      "1.26 m/s"
     ],
-    "explanation": "$c^2 = a^2 + b^2 - 2ab\\cos C = 8^2 + 30^2 - 2(8)(30)\\cos(120^\\circ) = 1204.00 \\implies c = 34.70$ cm.",
+    "explanation": "$v = \\omega r = (2\\pi \\times \\frac{66}{60}) \\times \\frac{13}{100}$",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
-      "topic": "Trigonometry (Technical)",
-      "subtopic": "2D/3D Problems",
+      "topic": "Circle Geometry & Angular Movement",
+      "subtopic": "Circumferential Velocity",
       "cognitive_level": "Analysis",
       "difficulty": "hard",
       "learning_outcome": "Calculate"
@@ -1112,27 +1112,25 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_42"
   },
   {
-    "id": "TRIG_029",
-    "topic": "Trigonometry (Technical)",
-    "question": "Simplify: $\\frac{1 - \\cos^2 B}{\\sin B}$.",
-    "correct_answer": "$\\sin B$",
+    "id": "ANALYT_536",
+    "topic": "Analytical Geometry (Technical)",
+    "question": "Determine the equation of the line passing through $G(4; 0)$ with a gradient of $-1$.",
+    "correct_answer": "$y = -1x + 4$",
     "wrong_answers_pool": [
-      "$\\cos B$",
-      "$1$",
-      "$\\sin^2 B$",
-      "$\\tan B$",
-      "$\\csc B$",
-      "-\\sin B",
-      "$0$",
-      "$\\sec B$"
+      "$y = -1x$",
+      "$y = -1x + 3$",
+      "$x = -1y + 4$",
+      "$y = 4x - 1$",
+      "$y = -1x + 6$",
+      "$y = 1x + 4$"
     ],
-    "explanation": "$\\frac{1 - \\cos^2 B}{\\sin B} = \\frac{\\sin^2 B}{\\sin B} = \\sin B$.",
+    "explanation": "Use $y - y_1 = m(x - x_1) \\implies y - 0 = -1(x - 4)$.",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
-      "topic": "Trigonometry (Technical)",
-      "subtopic": "Identities",
+      "topic": "Analytical Geometry (Technical)",
+      "subtopic": "Equation of a Line",
       "cognitive_level": "Analysis",
       "difficulty": "hard",
       "learning_outcome": "Calculate"
@@ -1140,19 +1138,101 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_43"
   },
   {
-    "id": "MENS_538",
-    "topic": "Mensuration (Technical)",
-    "question": "A rectangular prism has dimensions 11m by 14m by 11m. A cylindrical hole of radius 1m is drilled straight through its height (11m). Calculate the remaining volume.",
-    "correct_answer": "1659.44 m\u00b3",
+    "id": "TRIG_943",
+    "topic": "Trigonometry (Technical)",
+    "question": "In $\\Delta PQR$, $p = 28$ m, $q = 7$ m and $\\angle R = 60^\\circ$. Calculate the area of the triangle.",
+    "correct_answer": "84.87 m\u00b2",
     "wrong_answers_pool": [
-      "2054.53 m\u00b3",
-      "2041.60 m\u00b3",
-      "1743.37 m\u00b3",
-      "2053.74 m\u00b3",
-      "1625.58 m\u00b3",
-      "2094.61 m\u00b3"
+      "42.44 m\u00b2",
+      "127.31 m\u00b2",
+      "67.90 m\u00b2",
+      "101.84 m\u00b2",
+      "169.74 m\u00b2",
+      "59.41 m\u00b2",
+      "110.33 m\u00b2",
+      "152.77 m\u00b2"
     ],
-    "explanation": "V_remaining = V_prism - V_cylinder = (11\\times14\\times11) - (\\pi(1)^2(11))",
+    "explanation": "Area = $\\frac{1}{2}pq\\sin R = 0.5 \\times 28 \\times 7 \\times \\sin(60^\\circ) = 84.87$ m\u00b2.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Trigonometry (Technical)",
+      "subtopic": "2D/3D Problems",
+      "cognitive_level": "Application",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_44"
+  },
+  {
+    "id": "ANALYT_153",
+    "topic": "Analytical Geometry (Technical)",
+    "question": "Determine the distance between $A(0; 3)$ and $B(-4; -3)$. (Leave answer in surd form if necessary)",
+    "correct_answer": "$\\sqrt{52}$",
+    "wrong_answers_pool": [
+      "$\\sqrt{62}$",
+      "$\\sqrt{56}$",
+      "$\\sqrt{58}$",
+      "$\\sqrt{53}$",
+      "$\\sqrt{59}$",
+      "Rand765"
+    ],
+    "explanation": "$d = \\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2} = \\sqrt{(-4-(0))^2 + (-3-(3))^2} = \\sqrt{52}$",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Analytical Geometry (Technical)",
+      "subtopic": "Distance",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_45"
+  },
+  {
+    "id": "TRIG_783",
+    "topic": "Trigonometry (Technical)",
+    "question": "In $\\Delta PQR$, $p = 12$ m, $q = 25$ m and $\\angle R = 45^\\circ$. Calculate the area of the triangle.",
+    "correct_answer": "106.07 m\u00b2",
+    "wrong_answers_pool": [
+      "53.03 m\u00b2",
+      "159.10 m\u00b2",
+      "84.86 m\u00b2",
+      "127.28 m\u00b2",
+      "212.14 m\u00b2",
+      "74.25 m\u00b2",
+      "137.89 m\u00b2",
+      "190.93 m\u00b2"
+    ],
+    "explanation": "Area = $\\frac{1}{2}pq\\sin R = 0.5 \\times 12 \\times 25 \\times \\sin(45^\\circ) = 106.07$ m\u00b2.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Trigonometry (Technical)",
+      "subtopic": "2D/3D Problems",
+      "cognitive_level": "Application",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_46"
+  },
+  {
+    "id": "MENS_229",
+    "topic": "Mensuration (Technical)",
+    "question": "A rectangular prism has dimensions 13m by 8m by 10m. A cylindrical hole of radius 1m is drilled straight through its height (10m). Calculate the remaining volume.",
+    "correct_answer": "1008.58 m\u00b3",
+    "wrong_answers_pool": [
+      "905.17 m\u00b3",
+      "1042.54 m\u00b3",
+      "906.53 m\u00b3",
+      "1253.75 m\u00b3",
+      "808.63 m\u00b3",
+      "908.19 m\u00b3"
+    ],
+    "explanation": "V_remaining = V_prism - V_cylinder = (13\\times8\\times10) - (\\pi(1)^2(10))",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
@@ -1163,22 +1243,22 @@
       "difficulty": "hard",
       "learning_outcome": "Calculate"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_44"
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_47"
   },
   {
-    "id": "CIRC_953",
+    "id": "CIRC_318",
     "topic": "Circle Geometry & Angular Movement",
-    "question": "A gear of radius 18 cm rotates at 49 rpm. Calculate its circumferential (linear) velocity in m/s.",
-    "correct_answer": "0.92 m/s",
+    "question": "A gear of radius 21 cm rotates at 36 rpm. Calculate its circumferential (linear) velocity in m/s.",
+    "correct_answer": "0.79 m/s",
     "wrong_answers_pool": [
-      "0.64 m/s",
-      "0.97 m/s",
-      "0.78 m/s",
-      "0.84 m/s",
-      "0.88 m/s",
-      "0.73 m/s"
+      "0.96 m/s",
+      "0.66 m/s",
+      "1.16 m/s",
+      "0.69 m/s",
+      "0.60 m/s",
+      "0.82 m/s"
     ],
-    "explanation": "$v = \\omega r = (2\\pi \\times \\frac{49}{60}) \\times \\frac{18}{100}$",
+    "explanation": "$v = \\omega r = (2\\pi \\times \\frac{36}{60}) \\times \\frac{21}{100}$",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
@@ -1187,130 +1267,50 @@
       "subtopic": "Circumferential Velocity",
       "cognitive_level": "Application",
       "difficulty": "medium",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_45"
-  },
-  {
-    "id": "ANALYT_825",
-    "topic": "Analytical Geometry (Technical)",
-    "question": "Determine the coordinates of the midpoint of the line segment joining $C(1; -1)$ and $D(2; -1)$.",
-    "correct_answer": "$(1.5; -1)$",
-    "wrong_answers_pool": [
-      "$(-1; 1.5)$",
-      "$(3; -2)$",
-      "$(0.5; 0)$",
-      "$(1.5; -2)$",
-      "$(-0.5; 0)$",
-      "$(2.5; -1)$"
-    ],
-    "explanation": "$M(\\frac{x_1+x_2}{2}; \\frac{y_1+y_2}{2}) = M(\\frac{1+2}{2}; \\frac{-1+-1}{2})$",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Analytical Geometry (Technical)",
-      "subtopic": "Midpoint",
-      "cognitive_level": "Application",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_46"
-  },
-  {
-    "id": "MENS_171",
-    "topic": "Mensuration (Technical)",
-    "question": "Calculate the total surface area of a closed cylinder with radius 2 cm and height 19 cm.",
-    "correct_answer": "263.89 cm\u00b2",
-    "wrong_answers_pool": [
-      "254.64 cm\u00b2",
-      "195.86 cm\u00b2",
-      "224.60 cm\u00b2",
-      "334.60 cm\u00b2",
-      "299.10 cm\u00b2",
-      "292.99 cm\u00b2"
-    ],
-    "explanation": "SA = $2\\pi r^2 + 2\\pi rh = 2\\pi(2)^2 + 2\\pi(2)(19)$",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Mensuration (Technical)",
-      "subtopic": "Surface Area of 3D Shapes",
-      "cognitive_level": "Application",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_47"
-  },
-  {
-    "id": "TRIG_560",
-    "topic": "Trigonometry (Technical)",
-    "question": "In $\\Delta ABC$, $a = 15$ cm, $b = 12$ cm and $\\angle C = 120^\\circ$. Calculate the length of side $c$ using the Cosine Rule.",
-    "correct_answer": "23.43 cm",
-    "wrong_answers_pool": [
-      "18.74 cm",
-      "28.12 cm",
-      "21.09 cm",
-      "25.77 cm",
-      "35.14 cm",
-      "16.40 cm",
-      "30.46 cm",
-      "14.06 cm"
-    ],
-    "explanation": "$c^2 = a^2 + b^2 - 2ab\\cos C = 15^2 + 12^2 - 2(15)(12)\\cos(120^\\circ) = 549.00 \\implies c = 23.43$ cm.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Trigonometry (Technical)",
-      "subtopic": "2D/3D Problems",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard",
       "learning_outcome": "Calculate"
     },
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_48"
   },
   {
-    "id": "CIRC_448",
-    "topic": "Circle Geometry & Angular Movement",
-    "question": "A gear of radius 38 cm rotates at 102 rpm. Calculate its circumferential (linear) velocity in m/s.",
-    "correct_answer": "4.06 m/s",
+    "id": "MENS_832",
+    "topic": "Mensuration (Technical)",
+    "question": "A rectangular prism has dimensions 14m by 15m by 5m. A cylindrical hole of radius 1m is drilled straight through its height (5m). Calculate the remaining volume.",
+    "correct_answer": "1034.29 m\u00b3",
     "wrong_answers_pool": [
-      "3.06 m/s",
-      "4.81 m/s",
-      "5.25 m/s",
-      "4.67 m/s",
-      "4.82 m/s",
-      "3.92 m/s"
+      "1300.28 m\u00b3",
+      "979.75 m\u00b3",
+      "1233.51 m\u00b3",
+      "859.65 m\u00b3",
+      "858.16 m\u00b3",
+      "779.53 m\u00b3"
     ],
-    "explanation": "$v = \\omega r = (2\\pi \\times \\frac{102}{60}) \\times \\frac{38}{100}$",
-    "difficulty": "hard",
+    "explanation": "V_remaining = V_prism - V_cylinder = (14\\times15\\times5) - (\\pi(1)^2(5))",
+    "difficulty": "medium",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
-      "topic": "Circle Geometry & Angular Movement",
-      "subtopic": "Circumferential Velocity",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard",
+      "topic": "Mensuration (Technical)",
+      "subtopic": "Composite Shapes",
+      "cognitive_level": "Application",
+      "difficulty": "medium",
       "learning_outcome": "Calculate"
     },
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_49"
   },
   {
-    "id": "CIRC_493",
+    "id": "CIRC_275",
     "topic": "Circle Geometry & Angular Movement",
-    "question": "A gear of radius 30 cm rotates at 56 rpm. Calculate its circumferential (linear) velocity in m/s.",
-    "correct_answer": "1.76 m/s",
+    "question": "A gear of radius 20 cm rotates at 117 rpm. Calculate its circumferential (linear) velocity in m/s.",
+    "correct_answer": "2.45 m/s",
     "wrong_answers_pool": [
-      "1.00 m/s",
-      "1.83 m/s",
-      "1.57 m/s",
-      "0.92 m/s",
-      "2.40 m/s",
-      "1.47 m/s"
+      "3.05 m/s",
+      "3.10 m/s",
+      "2.71 m/s",
+      "1.90 m/s",
+      "1.37 m/s",
+      "1.53 m/s"
     ],
-    "explanation": "$v = \\omega r = (2\\pi \\times \\frac{56}{60}) \\times \\frac{30}{100}$",
+    "explanation": "$v = \\omega r = (2\\pi \\times \\frac{117}{60}) \\times \\frac{20}{100}$",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
