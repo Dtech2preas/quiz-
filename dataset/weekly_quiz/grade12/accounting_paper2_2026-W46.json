@@ -1,21 +1,75 @@
 [
   {
-    "id": "ACC_P2_INV_0877",
+    "id": "ACC_P2_BUD_0606",
+    "topic": "Budgeting",
+    "subtopic": "Creditors Payment Schedule",
+    "difficulty": "medium",
+    "question": "Referring to **Bloemfontein Meats Ltd**: Credit purchases are: October **R605,000.00**, November **R710,000.00**, December **R855,000.00**.\nCreditors are paid: 70% in 30 days less 2.5% discount, and 30% in 60 days. Calculate the **total cash payments to creditors in December**:",
+    "correct_answer": "R666,075.00",
+    "wrong_answers_pool": [
+      "R678,500.00 (omitted 2.5% discount)",
+      "R855,000.00 (used December purchases)",
+      "R710,000.00 (used November purchases)",
+      "R765,986.25",
+      "R566,163.75",
+      "R701,075.00",
+      "R636,075.00"
+    ],
+    "explanation": "December Payments to Creditors:\n- From Nov purchases: 70% of R710,000.00 x 97.5% = R484,575.00\n- From Oct purchases: 30% of R605,000.00 = R181,500.00\nTotal Payments in December = R484,575.00 + R181,500.00 = R666,075.00.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Budgeting",
+      "subtopic": "Creditors Payment Schedule",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate December creditors payments for Bloemfontein Meats Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_1"
+  },
+  {
+    "id": "ACC_P2_MFG_0991",
+    "topic": "Cost Accounting (Manufacturing)",
+    "subtopic": "Make-or-Buy Decision Analysis",
+    "difficulty": "hard",
+    "question": "**Decision-Making Analysis \u2014 Make vs Buy for Paarl Wine Oak Ltd**:\nThe factory requires **3,800 units** of *Galvanized Hoop Steel* annually. Internal variable costs per unit are: Direct Materials R52.00, Direct Labour R30.00, Variable Factory Overheads R18.00. Fixed factory overheads will continue unchanged whether made or bought. An outside supplier offers to supply the component at **R88.00** per unit. Evaluate the **financial wisdom** of whether Paarl Wine Oak Ltd should **make or buy** the component:",
+    "correct_answer": "Buy from supplier: External quote of R88.00 is cheaper than internal variable cost of R100.00, saving R45,600.00",
+    "wrong_answers_pool": [
+      "Make in-house regardless of cost to keep factory workers busy",
+      "Buy from supplier only if external supplier purchases company shares",
+      "Outsourcing is strictly illegal under the South African Companies Act",
+      "Make in-house: Internal variable cost of R100.00 is superior to external supply",
+      "Buy from supplier: Cost saving is R54,720.00",
+      "Decision should be made solely based on the managing director personal preference"
+    ],
+    "explanation": "Internal Variable Cost to Make = DM (R52.00) + DL (R30.00) + Variable FOH (R18.00) = R100.00 per unit.\nOutside Supplier Price = R88.00 per unit.\nDecision: Buy from supplier: External quote of R88.00 is cheaper than internal variable cost of R100.00, saving R45,600.00. Fixed overheads are unavoidable and sunk.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Cost Accounting (Manufacturing)",
+      "subtopic": "Make-or-Buy Decision Analysis",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Make or buy evaluation for Paarl Wine Oak Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_2"
+  },
+  {
+    "id": "ACC_P2_INV_0934",
     "topic": "Inventory & Asset Control",
     "subtopic": "Trading Stock Deficit & Shrinkage",
     "difficulty": "hard",
-    "question": "The stock records of **Makhanda Scholastic Supplies Ltd** for *Scientific Graphing Calculators* indicate that **2,300 units** were available for sale and **1,950 units** were sold. The year-end physical inventory count revealed only **290 units** on hand. The inventory is valued under FIFO at **R950.00** per unit. Calculate the **financial value of the Trading Stock Deficit (theft/shrinkage)**:",
-    "correct_answer": "R57,000.00 (60 units missing/stolen)",
+    "question": "Refer to the stock deficit at **Ladysmith Fashion Mart Ltd** on *Silk Evening Scarves* (70 units missing, value R29,400.00). Provide the most professional internal control evaluation and management recommendation under CAPS Accounting:",
+    "correct_answer": "Internal Control Failure: Scarves concealed under customer jackets during busy weekend seasonal clearance sales. Management must enforce physical access controls, CCTV monitoring, segregation of duties, and unannounced stock audits.",
     "wrong_answers_pool": [
-      "R332,500.00 (valued total theoretical closing stock)",
-      "R275,500.00 (valued actual physical count)",
-      "R60.00 (omitted unit cost)",
-      "R68,400.00",
-      "R45,600.00",
-      "R82,000.00",
-      "R37,000.00"
+      "Ignore the stock loss because inventory theft of 10% to 20% is normal in retail commerce",
+      "Increase retail selling prices by 35% immediately to force paying customers to cover the theft",
+      "Cease conducting physical stock counts at year-end to prevent detecting future deficits",
+      "Dismiss all warehouse workers instantly and close down trading operations permanently",
+      "Transfer missing stock balances directly to Ordinary Share Capital as a dividend",
+      "Stop buying inventory on credit from commercial suppliers"
     ],
-    "explanation": "Theoretical Closing Stock = Available (2,300) - Sold (1,950) = 350 units\nActual Physical Count = 290 units\nDeficit (Missing Units) = 350 - 290 = 60 units\nValue of Deficit = 60 units x R950.00 = R57,000.00 (60 units missing/stolen).\nThis is debited to Trading Stock Deficit (operating expense in Income Statement).",
+    "explanation": "Evaluation: **Internal Control Failure: Scarves concealed under customer jackets during busy weekend seasonal clearance sales. Management must enforce physical access controls, CCTV monitoring, segregation of duties, and unannounced stock audits.**.",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
@@ -23,138 +77,81 @@
       "subtopic": "Trading Stock Deficit & Shrinkage",
       "cognitive_level": "Evaluating",
       "difficulty": "hard",
-      "learning_outcome": "Calculate stock deficit for Makhanda Scholastic Supplies Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_1"
-  },
-  {
-    "id": "ACC_P2_BUD_0985",
-    "topic": "Budgeting",
-    "subtopic": "Cash Deficit Remedial Strategies",
-    "difficulty": "hard",
-    "question": "The Cash Budget of **Algoa Furnishers Ltd** projects an alarming **cash deficit of R195,000.00** at the end of next month. Which set of remedial management actions represents the most responsible, effective strategy to resolve this cash crisis?",
-    "correct_answer": "Lease delivery trucks instead of purchasing for cash, introduce strict credit limits, require 20% deposits on custom orders, and curtail executive travel expenses",
-    "wrong_answers_pool": [
-      "Declare immediate corporate bankruptcy and auction off all inventory for 5% of cost",
-      "Stop paying factory and store employee wages for three consecutive months without notice",
-      "Alter cash receipts journal entries to falsely show R1 million in non-existent cash sales",
-      "Borrow money from unregistered loan sharks at 50% monthly compound interest",
-      "Cease keeping accounting records until the bank account returns to a positive balance",
-      "Dismiss the external auditors and conceal all financial statements from company directors"
-    ],
-    "explanation": "Strategy: **Lease delivery trucks instead of purchasing for cash, introduce strict credit limits, require 20% deposits on custom orders, and curtail executive travel expenses**. Proactive cash management is essential to prevent business failure.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Budgeting",
-      "subtopic": "Cash Deficit Remedial Strategies",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Cash deficit strategy for Algoa Furnishers Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_2"
-  },
-  {
-    "id": "ACC_P2_BUD_0487",
-    "topic": "Budgeting",
-    "subtopic": "Rent Income Escalation",
-    "difficulty": "medium",
-    "question": "**Vaal Triangle Chem Ltd** sublets unused storeroom space at a rental of **R43,800.00** per month until 31 October. The lease agreement stipulates an **8% annual rental escalation** effective from **1 November**. Calculate the budgeted **Rent Income** for the month of **November** in the Cash Budget:",
-    "correct_answer": "R47,304.00",
-    "wrong_answers_pool": [
-      "R43,800.00 (used unescalated rent)",
-      "R50,808.00 (applied double escalation)",
-      "R56,764.80",
-      "R37,843.20",
-      "R52,304.00",
-      "R43,304.00",
-      "R44,600.00"
-    ],
-    "explanation": "Escalated Rent Income = Current Rent x 108% = R43,800.00 x 1.08 = R47,304.00.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Budgeting",
-      "subtopic": "Rent Income Escalation",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate escalated rent for Vaal Triangle Chem Ltd"
+      "learning_outcome": "Internal control for stock deficit in Ladysmith Fashion Mart Ltd"
     },
     "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_3"
   },
   {
-    "id": "ACC_P2_BUD_0829",
-    "topic": "Budgeting",
-    "subtopic": "Variance Analysis (Budgeted vs Actual)",
-    "difficulty": "hard",
-    "question": "The Budget Variance Report of **Namaqua Diamond Jewelers Ltd** for the quarter indicates the following for **Directors Fees**:\n- Budgeted expenditure: **R120,000.00**\n- Actual expenditure incurred: **R180,000.00**\nCalculate the **variance amount and percentage variance**:",
-    "correct_answer": "R60,000.00 over budget (50.0% overspending)",
-    "wrong_answers_pool": [
-      "R60,000.00 under budget (50.0% saving)",
-      "R120,000.00 over budget",
-      "R180,000.00 over budget",
-      "R72,000.00 over budget",
-      "R48,000.00 over budget",
-      "R75,000.00 over budget",
-      "R50,000.00 over budget"
-    ],
-    "explanation": "Variance = Actual (R180,000.00) - Budget (R120,000.00) = R60,000.00 overspent.\nPercentage Variance = (R60,000.00 / R120,000.00) x 100 = 50.0% over budget.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Budgeting",
-      "subtopic": "Variance Analysis (Budgeted vs Actual)",
-      "cognitive_level": "Analyzing",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate variance for Directors Fees in Namaqua Diamond Jewelers Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_4"
-  },
-  {
-    "id": "ACC_P2_MFG_0495",
+    "id": "ACC_P2_MFG_0729",
     "topic": "Cost Accounting (Manufacturing)",
-    "subtopic": "Factory Overhead Allocation",
+    "subtopic": "Break-Even Analysis",
     "difficulty": "medium",
-    "question": "**Stellenbosch Oak Ltd** pays total rent of **R249,600.00** for the combined business premises. The premises have a total floor area of 2,000 square metres, occupied as follows:\n- Factory production floor: 1,500 m\u00b2 (75%)\n- Administrative offices: 300 m\u00b2 (15%)\n- Sales showroom: 200 m\u00b2 (10%)\nCalculate the amount of rent to be allocated to **Factory Overheads** (Note 3):",
-    "correct_answer": "R187,200.00",
+    "question": "**Upington Sun Agro Ltd** produced and sold **26,000 units** of *Dried Sultanas (Cartons)*, while its break-even point was calculated as **13,250 units**. Which statement best evaluates the **operational viability** of the enterprise?",
+    "correct_answer": "The business is operating profitably and safely because actual production exceeds the break-even point",
     "wrong_answers_pool": [
-      "R249,600.00 (allocated 100% of rent to factory)",
-      "R37,440.00 (allocated administrative share of rent)",
-      "R24,960.00 (allocated sales share of rent)",
-      "R224,640.00",
-      "R149,760.00",
-      "R212,200.00",
-      "R167,200.00"
+      "The business should immediately cease operations because the break-even point is greater than zero",
+      "The business should reduce selling price by 50% to increase production volume",
+      "Break-even analysis has no relevance to operational viability under King IV",
+      "The business is breaking even exactly with zero margin of safety",
+      "Fixed costs should be transferred to trade debtors to artificially increase profitability",
+      "The business must double variable cost per unit to achieve financial equilibrium"
     ],
-    "explanation": "Factory Overhead Rent = Total Rent x (Factory Area / Total Area) = R249,600.00 x 75% = R187,200.00.\nOnly costs incurred directly in the manufacturing section form part of factory overheads.",
+    "explanation": "Evaluation: **The business is operating profitably and safely because actual production exceeds the break-even point**. With actual production of 26,000 units vs BEP of 13,250 units, Margin of Safety is 12,750 units.",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
       "topic": "Cost Accounting (Manufacturing)",
-      "subtopic": "Factory Overhead Allocation",
+      "subtopic": "Break-Even Analysis",
+      "cognitive_level": "Analyzing",
+      "difficulty": "medium",
+      "learning_outcome": "Evaluate break-even viability for Upington Sun Agro Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_4"
+  },
+  {
+    "id": "ACC_P2_REC_0656",
+    "topic": "Reconciliations & Internal Control",
+    "subtopic": "Creditors Reconciliation Adjustments",
+    "difficulty": "medium",
+    "question": "**Secunda Safety & Industrial Ltd** deducted an early settlement discount of **R1,580.00** in the CPJ when paying supplier Kavango Supplies. However, the payment was made after the 30-day deadline, and the creditor disallowed the discount on the monthly statement. How must this disallowed discount be recorded in the Creditors Ledger?",
+    "correct_answer": "Credit the Creditors Ledger account with R1,580.00 to reverse the discount",
+    "wrong_answers_pool": [
+      "Debit the Creditors Ledger account with R1,580.00",
+      "Enter on the Creditors Reconciliation Statement as a credit note",
+      "Deduct R1,580.00 from the opening bank balance in the Cash Budget",
+      "Transfer R1,580.00 to Discount Received income",
+      "Ignore the creditor's refusal and maintain the deduction",
+      "Deduct R1,580.00 from Value-Added Tax payable to SARS"
+    ],
+    "explanation": "Correction: Credit the Creditors Ledger account with R1,580.00 to reverse the discount. When a discount is cancelled by a supplier, the liability must be reinstated by crediting the Creditors Ledger.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Reconciliations & Internal Control",
+      "subtopic": "Creditors Reconciliation Adjustments",
       "cognitive_level": "Applying",
       "difficulty": "medium",
-      "learning_outcome": "Calculate factory rent allocation for Stellenbosch Oak Ltd"
+      "learning_outcome": "Correct disallowed discount for Secunda Safety & Industrial Ltd"
     },
     "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_5"
   },
   {
-    "id": "ACC_P2_REC_0886",
+    "id": "ACC_P2_REC_0933",
     "topic": "Reconciliations & Internal Control",
     "subtopic": "Complex Bank Reconciliation Calculations",
     "difficulty": "hard",
-    "question": "The Bank Account of **Welkom Mine Supply Ltd** had an unadjusted debit balance of **R108,000.00** on 30 November. The Bank Statement showed the following:\n- Interest on favourable balance: **R2,120.00**\n- Direct credit transfer from debtor: **R7,500.00**\n- Bank service fees and transaction charges: **R3,050.00**\n- Debit order for monthly insurance: **R2,540.00**\nCalculate the **Adjusted Bank Account balance** to be reflected in the Balance Sheet:",
-    "correct_answer": "R112,030.00",
+    "question": "The adjusted Bank Account of **Centurion Office Machines Ltd** reflects a favourable balance of **R91,270.00**. The Bank Reconciliation Statement lists an outstanding deposit of **R42,000.00** and unpresented cheques totaling **R35,300.00**. There were no bank errors. Reverse-engineer and calculate the **Balance as per Bank Statement** at month-end:",
+    "correct_answer": "R84,570.00 (Credit/Favourable)",
     "wrong_answers_pool": [
-      "R108,000.00 (unadjusted opening balance)",
-      "R117,620.00 (omitted CPJ deductions)",
-      "R102,410.00 (omitted CRJ additions)",
-      "R128,834.50",
-      "R95,225.50",
-      "R130,030.00",
-      "R97,030.00"
+      "R97,970.00 (added deposit and deducted cheques)",
+      "R91,270.00 (used adjusted bank account balance)",
+      "R97,255.50",
+      "R71,884.50",
+      "R106,570.00",
+      "R66,570.00",
+      "R6,700.00"
     ],
-    "explanation": "CRJ Additions = Bank Interest (R2,120.00) + Direct Deposit (R7,500.00) = R9,620.00\nCPJ Deductions = Bank Fees (R3,050.00) + Debit Order (R2,540.00) = R5,590.00\nAdjusted Bank Balance = R108,000.00 + R9,620.00 - R5,590.00 = R112,030.00.",
+    "explanation": "Reconciliation Formula: Bank Statement Balance + Outstanding Deposit - Unpresented Cheques = Adjusted Bank Balance\nBank Statement Balance = Adjusted Bank Balance (R91,270.00) - Outstanding Deposit (R42,000.00) + Unpresented Cheques (R35,300.00)\n= R84,570.00 (Credit/Favourable).",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
@@ -162,63 +159,230 @@
       "subtopic": "Complex Bank Reconciliation Calculations",
       "cognitive_level": "Applying",
       "difficulty": "hard",
-      "learning_outcome": "Calculate adjusted balance for Welkom Mine Supply Ltd"
+      "learning_outcome": "Reverse engineer bank statement for Centurion Office Machines Ltd"
     },
     "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_6"
   },
   {
-    "id": "ACC_P2_INV_0969",
-    "topic": "Inventory & Asset Control",
-    "subtopic": "Inventory Internal Control & Governance",
-    "difficulty": "hard",
-    "question": "**Inventory Control & Corporate Governance Dilemma**:\n\n*\"The receiving clerk at an electronics distributor routinely signs Goods Received Notes (GRN) without opening sealed shipping containers or verifying serial numbers, allowing short-shipments of high-end laptops to pass undetected.\"*\n\nProvide the most professional evaluation under CAPS Accounting standards and the King IV Code:",
-    "correct_answer": "Critical failure of receiving internal controls: Neglecting physical verification exposes the company to massive unrecorded supplier short-shipments and fraud. Management must enforce mandatory carton opening and serial barcode scanning.",
+    "id": "ACC_P2_REC_0622",
+    "topic": "Reconciliations & Internal Control",
+    "subtopic": "Bank Reconciliation Structure",
+    "difficulty": "medium",
+    "question": "The Bank Statement of **Klerksdorp Tile Direct Ltd** reflects a debit of **R2,380.00** for a cheque drawn by another business. The bank acknowledged the error and promised to correct it next month. How must this bank error be reflected in the **Bank Reconciliation Statement** at month-end?",
+    "correct_answer": "Credit R2,380.00 on the Bank Reconciliation Statement",
     "wrong_answers_pool": [
-      "Acceptable practice because shipping container seals guarantee that suppliers never make shipping errors",
-      "A time-saving logistical procedure that speeds up inventory receiving turnaround times",
-      "Permissible provided the supplier is an established corporate enterprise with a good credit rating",
-      "Lawful under CAPS because receiving clerks have no legal duty to inspect delivery contents",
-      "A minor administrative delay that has zero impact on Cost of Sales or gross profit",
-      "Acceptable provided the receiving clerk receives a monthly productivity bonus from the supplier"
+      "Debit R2,380.00 on the Bank Reconciliation Statement",
+      "Enter R2,380.00 in the Cash Payments Journal (CPJ)",
+      "Enter R2,380.00 in the Cash Receipts Journal (CRJ)",
+      "Deduct R2,380.00 from Trade Creditors",
+      "Write off R2,380.00 as a Bad Debt in the Income Statement",
+      "Do nothing because banks never make mistakes on bank statements"
     ],
-    "explanation": "Evaluation: **Critical failure of receiving internal controls: Neglecting physical verification exposes the company to massive unrecorded supplier short-shipments and fraud. Management must enforce mandatory carton opening and serial barcode scanning.**.",
+    "explanation": "Correction: Credit R2,380.00 on the Bank Reconciliation Statement. Because the bank erroneously subtracted (debited) money from the business account, the Bank Reconciliation Statement must credit the amount to show what the bank balance should be.",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
-      "topic": "Inventory & Asset Control",
-      "subtopic": "Inventory Internal Control & Governance",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Evaluate inventory governance dilemma"
+      "topic": "Reconciliations & Internal Control",
+      "subtopic": "Bank Reconciliation Structure",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Correct bank error for Klerksdorp Tile Direct Ltd"
     },
     "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_7"
   },
   {
-    "id": "ACC_P2_BUD_0932",
-    "topic": "Budgeting",
-    "subtopic": "Debtors Collection Period Analysis",
+    "id": "ACC_P2_REC_0863",
+    "topic": "Reconciliations & Internal Control",
+    "subtopic": "Complex Bank Reconciliation Calculations",
     "difficulty": "hard",
-    "question": "Evaluate the **Debtors Collection Period** of **Blyde Timber Merchants Ltd** (52.6 days vs 30-day terms) and recommend appropriate internal control strategies:",
-    "correct_answer": "Debtors Collection Period is 52.6 days. Timber merchants are using the company as an interest-free bank. Remedial step: Hand over defaulting accounts for legal collection.",
+    "question": "The adjusted Bank Account of **Kimberley Mining Gear Ltd** reflects a favourable balance of **R105,750.00**. The Bank Reconciliation Statement lists an outstanding deposit of **R48,000.00** and unpresented cheques totaling **R40,400.00**. There were no bank errors. Reverse-engineer and calculate the **Balance as per Bank Statement** at month-end:",
+    "correct_answer": "R98,150.00 (Credit/Favourable)",
     "wrong_answers_pool": [
-      "Exceptional performance: Debtors taking longer to pay proves customer loyalty and satisfaction",
-      "Neutral: The collection period has zero impact on company bank liquidity or bad debt risks",
-      "The business should immediately cancel all cash sales and sell merchandise 100% on credit",
-      "The credit manager should be rewarded with a 50% bonus for keeping money in debtors accounts",
-      "Credit terms should be extended to 180 days to encourage debtors to delay payment even further",
-      "Debtors collection periods cannot be evaluated without knowing the authorized share capital"
+      "R113,350.00 (added deposit and deducted cheques)",
+      "R105,750.00 (used adjusted bank account balance)",
+      "R112,872.50",
+      "R83,427.50",
+      "R120,150.00",
+      "R80,150.00",
+      "R7,600.00"
     ],
-    "explanation": "Evaluation: **Debtors Collection Period is 52.6 days. Timber merchants are using the company as an interest-free bank. Remedial step: Hand over defaulting accounts for legal collection.**.",
+    "explanation": "Reconciliation Formula: Bank Statement Balance + Outstanding Deposit - Unpresented Cheques = Adjusted Bank Balance\nBank Statement Balance = Adjusted Bank Balance (R105,750.00) - Outstanding Deposit (R48,000.00) + Unpresented Cheques (R40,400.00)\n= R98,150.00 (Credit/Favourable).",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
-      "topic": "Budgeting",
-      "subtopic": "Debtors Collection Period Analysis",
-      "cognitive_level": "Evaluating",
+      "topic": "Reconciliations & Internal Control",
+      "subtopic": "Complex Bank Reconciliation Calculations",
+      "cognitive_level": "Applying",
       "difficulty": "hard",
-      "learning_outcome": "Evaluate debtors collection for Blyde Timber Merchants Ltd"
+      "learning_outcome": "Reverse engineer bank statement for Kimberley Mining Gear Ltd"
     },
     "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_8"
+  },
+  {
+    "id": "ACC_P2_INV_0920",
+    "topic": "Inventory & Asset Control",
+    "subtopic": "Trading Stock Deficit & Shrinkage",
+    "difficulty": "hard",
+    "question": "Refer to the stock deficit at **Welkom Mine Supply Ltd** on *Underground Cap Lamp Batteries* (50 units missing, value R57,500.00). Provide the most professional internal control evaluation and management recommendation under CAPS Accounting:",
+    "correct_answer": "Internal Control Failure: Batteries removed from battery charging racks without supervisor sign-out forms. Management must enforce physical access controls, CCTV monitoring, segregation of duties, and unannounced stock audits.",
+    "wrong_answers_pool": [
+      "Ignore the stock loss because inventory theft of 10% to 20% is normal in retail commerce",
+      "Increase retail selling prices by 35% immediately to force paying customers to cover the theft",
+      "Cease conducting physical stock counts at year-end to prevent detecting future deficits",
+      "Dismiss all warehouse workers instantly and close down trading operations permanently",
+      "Transfer missing stock balances directly to Ordinary Share Capital as a dividend",
+      "Stop buying inventory on credit from commercial suppliers"
+    ],
+    "explanation": "Evaluation: **Internal Control Failure: Batteries removed from battery charging racks without supervisor sign-out forms. Management must enforce physical access controls, CCTV monitoring, segregation of duties, and unannounced stock audits.**.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Inventory & Asset Control",
+      "subtopic": "Trading Stock Deficit & Shrinkage",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Internal control for stock deficit in Welkom Mine Supply Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_9"
+  },
+  {
+    "id": "ACC_P2_MFG_0493",
+    "topic": "Cost Accounting (Manufacturing)",
+    "subtopic": "Break-Even Analysis",
+    "difficulty": "medium",
+    "question": "**Stellenbosch Oak Ltd** sells *Wine Storage Casks* at a selling price of **R1250.00** per unit. Variable costs are **R710.00** per unit and Total Fixed Costs amount to **R570,000.00**. Calculate the **Break-Even Point in units**:",
+    "correct_answer": "1,056 units",
+    "wrong_answers_pool": [
+      "456 units (divided fixed costs by selling price only: omitted variable costs)",
+      "803 units (divided fixed costs by variable costs only)",
+      "2,046 units",
+      "1,267 units",
+      "844 units",
+      "2,256 units",
+      "256 units"
+    ],
+    "explanation": "Break-Even Point = Total Fixed Costs / (Selling Price - Variable Cost per unit)\n= R570,000.00 / (R1250.00 - R710.00)\n= R570,000.00 / R540.00 = 1,056 units.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Cost Accounting (Manufacturing)",
+      "subtopic": "Break-Even Analysis",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate break-even units for Stellenbosch Oak Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_10"
+  },
+  {
+    "id": "ACC_P2_REC_0864",
+    "topic": "Reconciliations & Internal Control",
+    "subtopic": "Complex Bank Reconciliation Calculations",
+    "difficulty": "hard",
+    "question": "The Bank Account of **Durban Fashion House Ltd** had an unadjusted debit balance of **R88,000.00** on 30 November. The Bank Statement showed the following:\n- Interest on favourable balance: **R1,700.00**\n- Direct credit transfer from debtor: **R6,100.00**\n- Bank service fees and transaction charges: **R2,450.00**\n- Debit order for monthly insurance: **R2,050.00**\nCalculate the **Adjusted Bank Account balance** to be reflected in the Balance Sheet:",
+    "correct_answer": "R91,300.00",
+    "wrong_answers_pool": [
+      "R88,000.00 (unadjusted opening balance)",
+      "R95,800.00 (omitted CPJ deductions)",
+      "R83,500.00 (omitted CRJ additions)",
+      "R104,995.00",
+      "R77,605.00",
+      "R109,300.00",
+      "R76,300.00"
+    ],
+    "explanation": "CRJ Additions = Bank Interest (R1,700.00) + Direct Deposit (R6,100.00) = R7,800.00\nCPJ Deductions = Bank Fees (R2,450.00) + Debit Order (R2,050.00) = R4,500.00\nAdjusted Bank Balance = R88,000.00 + R7,800.00 - R4,500.00 = R91,300.00.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Reconciliations & Internal Control",
+      "subtopic": "Complex Bank Reconciliation Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate adjusted balance for Durban Fashion House Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_11"
+  },
+  {
+    "id": "ACC_P2_INV_0505",
+    "topic": "Inventory & Asset Control",
+    "subtopic": "Weighted Average Inventory Valuation",
+    "difficulty": "medium",
+    "question": "Referring to **Tshwane Auto Spares Ltd**: The weighted average cost per unit is **R2109.47** and there are **410 units** on hand at year-end. Calculate the **value of Closing Inventory under the Weighted Average method**:",
+    "correct_answer": "R864,882.30",
+    "wrong_answers_pool": [
+      "R949,150.00 (calculated closing stock under FIFO instead of weighted average)",
+      "R717,500.00 (valued closing stock at opening price)",
+      "R949,150.00 (valued closing stock at latest purchase price)",
+      "R994,614.65",
+      "R735,149.96",
+      "R904,882.30",
+      "R829,882.30"
+    ],
+    "explanation": "Closing Stock Value = Closing Units x Weighted Average Cost per Unit\n= 410 units x R2109.47 = R864,882.30.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Inventory & Asset Control",
+      "subtopic": "Weighted Average Inventory Valuation",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate weighted average closing stock for Tshwane Auto Spares Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_12"
+  },
+  {
+    "id": "ACC_P2_INV_0869",
+    "topic": "Inventory & Asset Control",
+    "subtopic": "Trading Stock Deficit & Shrinkage",
+    "difficulty": "hard",
+    "question": "The stock records of **Vryheid Timber Depot Ltd** for *Cordless Circular Saws* indicate that **1,550 units** were available for sale and **1,310 units** were sold. The year-end physical inventory count revealed only **195 units** on hand. The inventory is valued under FIFO at **R1650.00** per unit. Calculate the **financial value of the Trading Stock Deficit (theft/shrinkage)**:",
+    "correct_answer": "R74,250.00 (45 units missing/stolen)",
+    "wrong_answers_pool": [
+      "R396,000.00 (valued total theoretical closing stock)",
+      "R321,750.00 (valued actual physical count)",
+      "R45.00 (omitted unit cost)",
+      "R89,100.00",
+      "R59,400.00",
+      "R99,250.00",
+      "R54,250.00"
+    ],
+    "explanation": "Theoretical Closing Stock = Available (1,550) - Sold (1,310) = 240 units\nActual Physical Count = 195 units\nDeficit (Missing Units) = 240 - 195 = 45 units\nValue of Deficit = 45 units x R1650.00 = R74,250.00 (45 units missing/stolen).\nThis is debited to Trading Stock Deficit (operating expense in Income Statement).",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Inventory & Asset Control",
+      "subtopic": "Trading Stock Deficit & Shrinkage",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate stock deficit for Vryheid Timber Depot Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_13"
+  },
+  {
+    "id": "ACC_P2_INV_0427",
+    "topic": "Inventory & Asset Control",
+    "subtopic": "Inventory Method Comparison",
+    "difficulty": "medium",
+    "question": "Compare the profitability of **Gauteng Health & Beauty Ltd** under the two stock valuation methods:\n- Gross Profit under FIFO: **R2,204,450.00**\n- Gross Profit under Weighted Average: **R2,138,574.29**\nWhich statement correctly compares the results?",
+    "correct_answer": "FIFO Gross Profit is R65,875.71 higher than Weighted Average",
+    "wrong_answers_pool": [
+      "Weighted Average Gross Profit is R65,875.71 higher than FIFO",
+      "Both methods produce identical Gross Profit because units sold are equal",
+      "FIFO Gross Profit is R2,204,450.00 higher",
+      "Difference is R98,813.57",
+      "Difference is R32,937.86",
+      "Weighted Average Gross Profit is R2,138,574.29 lower"
+    ],
+    "explanation": "Comparison: FIFO Gross Profit is R65,875.71 higher than Weighted Average. In times of rising purchase prices (inflation), FIFO assigns older, cheaper costs to Cost of Sales, resulting in higher Gross Profit and higher closing stock on the balance sheet.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Inventory & Asset Control",
+      "subtopic": "Inventory Method Comparison",
+      "cognitive_level": "Analyzing",
+      "difficulty": "medium",
+      "learning_outcome": "Compare FIFO vs weighted average profit for Gauteng Health & Beauty Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_14"
   },
   {
     "id": "ACC_P2_BUD_0931",
@@ -246,606 +410,53 @@
       "difficulty": "hard",
       "learning_outcome": "Calculate debtors collection period for Blyde Timber Merchants Ltd"
     },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_9"
-  },
-  {
-    "id": "ACC_P2_MFG_0506",
-    "topic": "Cost Accounting (Manufacturing)",
-    "subtopic": "Cost of Finished Goods Sold",
-    "difficulty": "medium",
-    "question": "Calculate the **Cost of Finished Goods Sold** for **Tshwane Radiators Ltd**:\n- Finished Goods at beginning: **R430,800.00**\n- Cost of Production of Finished Goods for the year: **R3,590,000.00**\n- Finished Goods at end of year: **R538,500.00**",
-    "correct_answer": "R3,482,300.00",
-    "wrong_answers_pool": [
-      "R3,590,000.00 (used cost of production without finished goods inventory adjustments)",
-      "R4,559,300.00 (added closing finished goods instead of deducting)",
-      "R3,697,700.00",
-      "R4,004,645.00",
-      "R2,959,955.00",
-      "R3,562,300.00",
-      "R3,412,300.00"
-    ],
-    "explanation": "Cost of Finished Goods Sold = Opening Finished Goods + Cost of Production - Closing Finished Goods\n= R430,800.00 + R3,590,000.00 - R538,500.00 = R3,482,300.00.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Cost Accounting (Manufacturing)",
-      "subtopic": "Cost of Finished Goods Sold",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate cost of finished goods sold for Tshwane Radiators Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_10"
-  },
-  {
-    "id": "ACC_P2_REC_0696",
-    "topic": "Reconciliations & Internal Control",
-    "subtopic": "Creditors Reconciliation Adjustments",
-    "difficulty": "medium",
-    "question": "**Newcastle Tool Warehouse Ltd** deducted an early settlement discount of **R1,520.00** in the CPJ when paying supplier Kavango Supplies. However, the payment was made after the 30-day deadline, and the creditor disallowed the discount on the monthly statement. How must this disallowed discount be recorded in the Creditors Ledger?",
-    "correct_answer": "Credit the Creditors Ledger account with R1,520.00 to reverse the discount",
-    "wrong_answers_pool": [
-      "Debit the Creditors Ledger account with R1,520.00",
-      "Enter on the Creditors Reconciliation Statement as a credit note",
-      "Deduct R1,520.00 from the opening bank balance in the Cash Budget",
-      "Transfer R1,520.00 to Discount Received income",
-      "Ignore the creditor's refusal and maintain the deduction",
-      "Deduct R1,520.00 from Value-Added Tax payable to SARS"
-    ],
-    "explanation": "Correction: Credit the Creditors Ledger account with R1,520.00 to reverse the discount. When a discount is cancelled by a supplier, the liability must be reinstated by crediting the Creditors Ledger.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Reconciliations & Internal Control",
-      "subtopic": "Creditors Reconciliation Adjustments",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Correct disallowed discount for Newcastle Tool Warehouse Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_11"
-  },
-  {
-    "id": "ACC_P2_BUD_0949",
-    "topic": "Budgeting",
-    "subtopic": "Debtors Collection Period Analysis",
-    "difficulty": "hard",
-    "question": "The records of **George Hardwood Depot Ltd** reflect average Debtors of **R720,000.00** and Total Credit Sales of **R5,100,000.00** for the year. The official credit terms granted to customers are **30 days**. Calculate the **Debtors Collection Period** (in days, rounded to one decimal place):",
-    "correct_answer": "51.5 days",
-    "wrong_answers_pool": [
-      "77.3 days",
-      "25.8 days",
-      "4.2 days (multiplied by 30 days instead of 365)",
-      "30.0 days (stated credit term rather than actual period)",
-      "66.5 days",
-      "39.5 days",
-      "7.1 days (calculated debtors turnover rate instead of collection period)"
-    ],
-    "explanation": "Debtors Collection Period = (Average Debtors / Total Credit Sales) x 365\n= (R720,000.00 / R5,100,000.00) x 365 = 51.5 days.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Budgeting",
-      "subtopic": "Debtors Collection Period Analysis",
-      "cognitive_level": "Applying",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate debtors collection period for George Hardwood Depot Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_12"
-  },
-  {
-    "id": "ACC_P2_BUD_0718",
-    "topic": "Budgeting",
-    "subtopic": "Salaries & Wages Budgeting",
-    "difficulty": "medium",
-    "question": "The monthly salaries and wages budget of **Mthatha Wholesale Hub Ltd** stands at **R131,600.00** up to 30 November. In accordance with the collective bargaining agreement, all staff receive a **7% salary increase** effective from **1 December**. Calculate the budgeted **Salaries and Wages** cash payment for the month of **December**:",
-    "correct_answer": "R140,812.00",
-    "wrong_answers_pool": [
-      "R131,600.00 (omitted annual wage increment)",
-      "R150,024.00 (applied double increment)",
-      "R168,974.40",
-      "R112,649.60",
-      "R152,812.00",
-      "R130,812.00",
-      "R138,600.00"
-    ],
-    "explanation": "Budgeted Salaries for December = Pre-increase Salaries x 107% = R131,600.00 x 1.07 = R140,812.00.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Budgeting",
-      "subtopic": "Salaries & Wages Budgeting",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate December salaries for Mthatha Wholesale Hub Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_13"
-  },
-  {
-    "id": "ACC_P2_BUD_0403",
-    "topic": "Budgeting",
-    "subtopic": "Debtors Collection Schedule",
-    "difficulty": "medium",
-    "question": "In **Limpopo Farm Supplies Ltd**, debtors who settle in the month of sale receive a **5% cash discount**. November credit sales are projected at **R780,000.00**, of which **20%** take advantage of the discount. Calculate the **Discount Allowed** for November to be reflected in the Projected Income Statement:",
-    "correct_answer": "R7,800.00",
-    "wrong_answers_pool": [
-      "R39,000.00 (calculated 5% on total November sales)",
-      "R32,770.00 (calculated 5% on total collections from all months)",
-      "R11,700.00",
-      "R3,900.00",
-      "R12,800.00",
-      "R4,800.00",
-      "R15,600.00"
-    ],
-    "explanation": "Discount Allowed = Credit Sales x Early Settlement % x Discount %\n= R780,000.00 x 20% x 5% = R7,800.00. This is an operating expense in the Projected Income Statement.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Budgeting",
-      "subtopic": "Debtors Collection Schedule",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate discount allowed for Limpopo Farm Supplies Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_14"
-  },
-  {
-    "id": "ACC_P2_INV_0901",
-    "topic": "Inventory & Asset Control",
-    "subtopic": "Trading Stock Deficit & Shrinkage",
-    "difficulty": "hard",
-    "question": "The stock records of **Paarl Valley Beverages Ltd** for *Stainless Keg Couplers* indicate that **1,250 units** were available for sale and **1,050 units** were sold. The year-end physical inventory count revealed only **160 units** on hand. The inventory is valued under FIFO at **R1250.00** per unit. Calculate the **financial value of the Trading Stock Deficit (theft/shrinkage)**:",
-    "correct_answer": "R50,000.00 (40 units missing/stolen)",
-    "wrong_answers_pool": [
-      "R250,000.00 (valued total theoretical closing stock)",
-      "R200,000.00 (valued actual physical count)",
-      "R40.00 (omitted unit cost)",
-      "R60,000.00",
-      "R40,000.00",
-      "R75,000.00",
-      "R30,000.00"
-    ],
-    "explanation": "Theoretical Closing Stock = Available (1,250) - Sold (1,050) = 200 units\nActual Physical Count = 160 units\nDeficit (Missing Units) = 200 - 160 = 40 units\nValue of Deficit = 40 units x R1250.00 = R50,000.00 (40 units missing/stolen).\nThis is debited to Trading Stock Deficit (operating expense in Income Statement).",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Inventory & Asset Control",
-      "subtopic": "Trading Stock Deficit & Shrinkage",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate stock deficit for Paarl Valley Beverages Ltd"
-    },
     "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_15"
   },
   {
-    "id": "ACC_P2_INV_0512",
-    "topic": "Inventory & Asset Control",
-    "subtopic": "FIFO Inventory Valuation",
+    "id": "ACC_P2_BUD_0665",
+    "topic": "Budgeting",
+    "subtopic": "Creditors Payment Schedule",
     "difficulty": "medium",
-    "question": "Referring to **Richards Bay Tools Ltd** (*Heavy Duty Bench Grinders*): Total cost of goods available for sale was **R3,522,400.00** and the FIFO value of closing stock was calculated as **R717,800.00**. Calculate the **Cost of Sales under FIFO** for the Income Statement:",
-    "correct_answer": "R2,804,600.00",
+    "question": "**Vereeniging Steel Goods Ltd** settles creditors on the following terms:\n- 70% paid in the month following purchase (30 days), taking advantage of a 2.5% early payment discount\n- 30% paid in the second month following purchase (60 days)\nCredit purchases: September **R680,000.00**, October **R750,000.00**, November **R885,000.00**.\nCalculate the **total cash payments to creditors in November**:",
+    "correct_answer": "R715,875.00",
     "wrong_answers_pool": [
-      "R3,522,400.00 (omitted closing inventory deduction: total available cost)",
-      "R2,870,756.00 (calculated Cost of Sales under weighted average method)",
-      "R2,363,500.00 (multiplied sold units by opening cost price only)",
-      "R3,225,290.00",
-      "R2,383,910.00",
-      "R2,874,600.00",
-      "R2,744,600.00"
+      "R729,000.00 (omitted 2.5% discount on 30-day purchases)",
+      "R885,000.00 (used November purchases total)",
+      "R750,000.00 (used October purchases total)",
+      "R823,256.25",
+      "R608,493.75",
+      "R745,875.00",
+      "R690,875.00"
     ],
-    "explanation": "Cost of Sales = Total Cost of Available Goods - Closing Stock Value (FIFO)\n= R3,522,400.00 - R717,800.00 = R2,804,600.00.",
+    "explanation": "November Payments to Creditors:\n- From Oct purchases: 70% of R750,000.00 x 97.5% = R511,875.00\n- From Sep purchases: 30% of R680,000.00 = R204,000.00\nTotal Payments in November = R511,875.00 + R204,000.00 = R715,875.00.",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
-      "topic": "Inventory & Asset Control",
-      "subtopic": "FIFO Inventory Valuation",
+      "topic": "Budgeting",
+      "subtopic": "Creditors Payment Schedule",
       "cognitive_level": "Applying",
       "difficulty": "medium",
-      "learning_outcome": "Calculate FIFO cost of sales for Richards Bay Tools Ltd"
+      "learning_outcome": "Calculate November creditors payments for Vereeniging Steel Goods Ltd"
     },
     "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_16"
   },
   {
-    "id": "ACC_P2_REC_0422",
-    "topic": "Reconciliations & Internal Control",
-    "subtopic": "Bank Reconciliation Structure",
-    "difficulty": "medium",
-    "question": "The Bank Statement of **Gauteng Health Stores Ltd** reflects a debit of **R3,100.00** for a cheque drawn by another business. The bank acknowledged the error and promised to correct it next month. How must this bank error be reflected in the **Bank Reconciliation Statement** at month-end?",
-    "correct_answer": "Credit R3,100.00 on the Bank Reconciliation Statement",
-    "wrong_answers_pool": [
-      "Debit R3,100.00 on the Bank Reconciliation Statement",
-      "Enter R3,100.00 in the Cash Payments Journal (CPJ)",
-      "Enter R3,100.00 in the Cash Receipts Journal (CRJ)",
-      "Deduct R3,100.00 from Trade Creditors",
-      "Write off R3,100.00 as a Bad Debt in the Income Statement",
-      "Do nothing because banks never make mistakes on bank statements"
-    ],
-    "explanation": "Correction: Credit R3,100.00 on the Bank Reconciliation Statement. Because the bank erroneously subtracted (debited) money from the business account, the Bank Reconciliation Statement must credit the amount to show what the bank balance should be.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Reconciliations & Internal Control",
-      "subtopic": "Bank Reconciliation Structure",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Correct bank error for Gauteng Health Stores Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_17"
-  },
-  {
-    "id": "ACC_P2_BUD_0814",
-    "topic": "Budgeting",
-    "subtopic": "Variance Analysis (Budgeted vs Actual)",
-    "difficulty": "hard",
-    "question": "Refer to the overspending on **Security Services** at **Highveld Tech World Ltd** (budget R28,000.00 vs actual R48,000.00). Provide the most accurate professional evaluation and managerial recommendation under CAPS Cost Accounting:",
-    "correct_answer": "Evaluation: Emergency deployment of armed response guards following a series of weekend burglary attempts at the retail shopping complex. Management must enforce strict budget caps, review authorization thresholds, and require pre-approval for expenditure variances.",
-    "wrong_answers_pool": [
-      "Disregard the variance because budget figures are purely decorative estimates that have no operational bearing",
-      "Dismiss all accounting personnel immediately and cease preparing future quarterly budgets",
-      "Double the selling price of merchandise to ensure all expense variances are absorbed by customers",
-      "Transfer the variance to Trade Debtors to conceal the overspending from the external auditors",
-      "Borrow R5 million on bank overdraft to cover all future expense overruns without investigation",
-      "Eliminate all internal controls and allow department heads to spend company funds without receipts"
-    ],
-    "explanation": "Evaluation: **Evaluation: Emergency deployment of armed response guards following a series of weekend burglary attempts at the retail shopping complex. Management must enforce strict budget caps, review authorization thresholds, and require pre-approval for expenditure variances.**.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Budgeting",
-      "subtopic": "Variance Analysis (Budgeted vs Actual)",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Evaluate variance for Security Services in Highveld Tech World Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_18"
-  },
-  {
-    "id": "ACC_P2_BUD_0916",
-    "topic": "Budgeting",
-    "subtopic": "Debtors Collection Period Analysis",
-    "difficulty": "hard",
-    "question": "Evaluate the **Debtors Collection Period** of **Soweto Megastore Ltd** (46.6 days vs 30-day terms) and recommend appropriate internal control strategies:",
-    "correct_answer": "Debtors Collection Period is 46.6 days vs 30 days allowed. The firm should hire an external debt collection agency for accounts over 90 days and require credit bureau checks on all new accounts.",
-    "wrong_answers_pool": [
-      "Exceptional performance: Debtors taking longer to pay proves customer loyalty and satisfaction",
-      "Neutral: The collection period has zero impact on company bank liquidity or bad debt risks",
-      "The business should immediately cancel all cash sales and sell merchandise 100% on credit",
-      "The credit manager should be rewarded with a 50% bonus for keeping money in debtors accounts",
-      "Credit terms should be extended to 180 days to encourage debtors to delay payment even further",
-      "Debtors collection periods cannot be evaluated without knowing the authorized share capital"
-    ],
-    "explanation": "Evaluation: **Debtors Collection Period is 46.6 days vs 30 days allowed. The firm should hire an external debt collection agency for accounts over 90 days and require credit bureau checks on all new accounts.**.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Budgeting",
-      "subtopic": "Debtors Collection Period Analysis",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Evaluate debtors collection for Soweto Megastore Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_19"
-  },
-  {
-    "id": "ACC_P2_REC_0871",
-    "topic": "Reconciliations & Internal Control",
-    "subtopic": "Complex Bank Reconciliation Calculations",
-    "difficulty": "hard",
-    "question": "The adjusted Bank Account of **Centurion Sports Emporium Ltd** reflects a favourable balance of **R80,880.00**. The Bank Reconciliation Statement lists an outstanding deposit of **R39,000.00** and unpresented cheques totaling **R32,700.00**. There were no bank errors. Reverse-engineer and calculate the **Balance as per Bank Statement** at month-end:",
-    "correct_answer": "R74,580.00 (Credit/Favourable)",
-    "wrong_answers_pool": [
-      "R87,180.00 (added deposit and deducted cheques)",
-      "R80,880.00 (used adjusted bank account balance)",
-      "R85,767.00",
-      "R63,393.00",
-      "R96,580.00",
-      "R56,580.00",
-      "R6,300.00"
-    ],
-    "explanation": "Reconciliation Formula: Bank Statement Balance + Outstanding Deposit - Unpresented Cheques = Adjusted Bank Balance\nBank Statement Balance = Adjusted Bank Balance (R80,880.00) - Outstanding Deposit (R39,000.00) + Unpresented Cheques (R32,700.00)\n= R74,580.00 (Credit/Favourable).",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Reconciliations & Internal Control",
-      "subtopic": "Complex Bank Reconciliation Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "hard",
-      "learning_outcome": "Reverse engineer bank statement for Centurion Sports Emporium Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_20"
-  },
-  {
-    "id": "ACC_P2_MFG_0987",
-    "topic": "Cost Accounting (Manufacturing)",
-    "subtopic": "Make-or-Buy Decision Analysis",
-    "difficulty": "hard",
-    "question": "**Decision-Making Analysis \u2014 Make vs Buy for Saldanha Shiprepair Ltd**:\nThe factory requires **2,800 units** of *Zinc Sacrificial Anodes* annually. Internal variable costs per unit are: Direct Materials R95.00, Direct Labour R55.00, Variable Factory Overheads R35.00. Fixed factory overheads will continue unchanged whether made or bought. An outside supplier offers to supply the component at **R165.00** per unit. Evaluate the **financial wisdom** of whether Saldanha Shiprepair Ltd should **make or buy** the component:",
-    "correct_answer": "Buy from supplier: External quote of R165.00 is cheaper than internal variable cost of R185.00, saving R56,000.00",
-    "wrong_answers_pool": [
-      "Make in-house regardless of cost to keep factory workers busy",
-      "Buy from supplier only if external supplier purchases company shares",
-      "Outsourcing is strictly illegal under the South African Companies Act",
-      "Make in-house: Internal variable cost of R185.00 is superior to external supply",
-      "Buy from supplier: Cost saving is R67,200.00",
-      "Decision should be made solely based on the managing director personal preference"
-    ],
-    "explanation": "Internal Variable Cost to Make = DM (R95.00) + DL (R55.00) + Variable FOH (R35.00) = R185.00 per unit.\nOutside Supplier Price = R165.00 per unit.\nDecision: Buy from supplier: External quote of R165.00 is cheaper than internal variable cost of R185.00, saving R56,000.00. Fixed overheads are unavoidable and sunk.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Cost Accounting (Manufacturing)",
-      "subtopic": "Make-or-Buy Decision Analysis",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Make or buy evaluation for Saldanha Shiprepair Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_21"
-  },
-  {
-    "id": "ACC_P2_BUD_0630",
-    "topic": "Budgeting",
-    "subtopic": "Cash Budget Summary",
-    "difficulty": "medium",
-    "question": "The November Cash Budget summary of **Klerksdorp Tile Direct Ltd** reflects total budgeted cash receipts of **R1,127,800.00** and total budgeted cash payments of **R794,310.00**. Calculate the **Net Cash Flow** for November:",
-    "correct_answer": "R333,490.00 (Surplus)",
-    "wrong_answers_pool": [
-      "R1,127,800.00 (total receipts only)",
-      "R794,310.00 (total payments only)",
-      "R-333,490.00 (inverted surplus and deficit)",
-      "R400,188.00",
-      "R266,792.00",
-      "R358,490.00",
-      "R313,490.00"
-    ],
-    "explanation": "Net Cash Flow = Total Cash Receipts - Total Cash Payments = R1,127,800.00 - R794,310.00 = R333,490.00 (Surplus).",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Budgeting",
-      "subtopic": "Cash Budget Summary",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate net cash flow for Klerksdorp Tile Direct Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_22"
-  },
-  {
-    "id": "ACC_P2_BUD_0440",
-    "topic": "Budgeting",
-    "subtopic": "Cash Budget Summary",
-    "difficulty": "medium",
-    "question": "The November Cash Budget summary of **Free State Grain Mart Ltd** reflects total budgeted cash receipts of **R859,312.00** and total budgeted cash payments of **R625,812.50**. Calculate the **Net Cash Flow** for November:",
-    "correct_answer": "R233,499.50 (Surplus)",
-    "wrong_answers_pool": [
-      "R859,312.00 (total receipts only)",
-      "R625,812.50 (total payments only)",
-      "R-233,499.50 (inverted surplus and deficit)",
-      "R280,199.40",
-      "R186,799.60",
-      "R258,499.50",
-      "R213,499.50"
-    ],
-    "explanation": "Net Cash Flow = Total Cash Receipts - Total Cash Payments = R859,312.00 - R625,812.50 = R233,499.50 (Surplus).",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Budgeting",
-      "subtopic": "Cash Budget Summary",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate net cash flow for Free State Grain Mart Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_23"
-  },
-  {
-    "id": "ACC_P2_BUD_0520",
-    "topic": "Budgeting",
-    "subtopic": "Cash Budget Summary",
-    "difficulty": "medium",
-    "question": "The November Cash Budget summary of **Richards Bay Tools Ltd** reflects total budgeted cash receipts of **R953,208.00** and total budgeted cash payments of **R682,712.50**. Calculate the **Net Cash Flow** for November:",
-    "correct_answer": "R270,495.50 (Surplus)",
-    "wrong_answers_pool": [
-      "R953,208.00 (total receipts only)",
-      "R682,712.50 (total payments only)",
-      "R-270,495.50 (inverted surplus and deficit)",
-      "R324,594.60",
-      "R216,396.40",
-      "R295,495.50",
-      "R250,495.50"
-    ],
-    "explanation": "Net Cash Flow = Total Cash Receipts - Total Cash Payments = R953,208.00 - R682,712.50 = R270,495.50 (Surplus).",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Budgeting",
-      "subtopic": "Cash Budget Summary",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate net cash flow for Richards Bay Tools Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_24"
-  },
-  {
-    "id": "ACC_P2_REC_0845",
-    "topic": "Reconciliations & Internal Control",
-    "subtopic": "Complex Bank Reconciliation Calculations",
-    "difficulty": "hard",
-    "question": "The adjusted Bank Account of **Namaqua Diamond Jewelers Ltd** reflects a favourable balance of **R181,650.00**. The Bank Reconciliation Statement lists an outstanding deposit of **R76,000.00** and unpresented cheques totaling **R63,800.00**. There were no bank errors. Reverse-engineer and calculate the **Balance as per Bank Statement** at month-end:",
-    "correct_answer": "R169,450.00 (Credit/Favourable)",
-    "wrong_answers_pool": [
-      "R193,850.00 (added deposit and deducted cheques)",
-      "R181,650.00 (used adjusted bank account balance)",
-      "R194,867.50",
-      "R144,032.50",
-      "R191,450.00",
-      "R151,450.00",
-      "R12,200.00"
-    ],
-    "explanation": "Reconciliation Formula: Bank Statement Balance + Outstanding Deposit - Unpresented Cheques = Adjusted Bank Balance\nBank Statement Balance = Adjusted Bank Balance (R181,650.00) - Outstanding Deposit (R76,000.00) + Unpresented Cheques (R63,800.00)\n= R169,450.00 (Credit/Favourable).",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Reconciliations & Internal Control",
-      "subtopic": "Complex Bank Reconciliation Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "hard",
-      "learning_outcome": "Reverse engineer bank statement for Namaqua Diamond Jewelers Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_25"
-  },
-  {
-    "id": "ACC_P2_BUD_0349",
-    "topic": "Budgeting",
-    "subtopic": "Loan & Interest Repayments",
-    "difficulty": "medium",
-    "question": "**Drakensberg Hardware Ltd** has an outstanding commercial mortgage loan of **R525,000.00** at **12% interest p.a.** on 1 November. The company repays **R15,000.00** of the capital loan principal at the end of each month, plus monthly interest. Calculate the **total cash payment for the loan (capital + interest)** in the November Cash Budget:",
-    "correct_answer": "R20,250.00 (Principal: R15,000.00, Interest: R5,250.00)",
-    "wrong_answers_pool": [
-      "R15,000.00 (omitted loan interest: principal repayment only)",
-      "R5,250.00 (omitted principal loan repayment: interest only)",
-      "R78,000.00 (added full annual interest in one month)",
-      "R24,300.00",
-      "R16,200.00",
-      "R28,250.00",
-      "R14,250.00"
-    ],
-    "explanation": "Monthly Interest = Loan Balance x 12% / 12 months = R525,000.00 x 1% = R5,250.00\nTotal Loan Outflow = Capital Repayment (R15,000.00) + Interest (R5,250.00) = R20,250.00 (Principal: R15,000.00, Interest: R5,250.00).",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Budgeting",
-      "subtopic": "Loan & Interest Repayments",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate loan payment for Drakensberg Hardware Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_26"
-  },
-  {
-    "id": "ACC_P2_REC_0487",
-    "topic": "Reconciliations & Internal Control",
-    "subtopic": "Creditors Reconciliation Adjustments",
-    "difficulty": "medium",
-    "question": "The Creditors Ledger balance of **Vaal Triangle Motors Ltd** for supplier Algoa Traders was **R198,000.00**. Adjustments required in the ledger are:\n- Omitted purchase invoice: **R12,400.00**\n- Disallowed early settlement discount: **R2,450.00**\nCalculate the **Adjusted Creditors Ledger balance**:",
-    "correct_answer": "R212,850.00",
-    "wrong_answers_pool": [
-      "R198,000.00 (unadjusted creditors balance)",
-      "R183,150.00 (deducted omitted invoice and discount)",
-      "R207,950.00 (deducted disallowed discount)",
-      "R244,777.50",
-      "R180,922.50",
-      "R230,850.00",
-      "R197,850.00"
-    ],
-    "explanation": "Adjusted Balance = Ledger Balance (R198,000.00) + Omitted Invoice (R12,400.00) + Disallowed Discount (R2,450.00) = R212,850.00.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Reconciliations & Internal Control",
-      "subtopic": "Creditors Reconciliation Adjustments",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate adjusted creditors balance for Vaal Triangle Motors Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_27"
-  },
-  {
-    "id": "ACC_P2_BUD_0805",
-    "topic": "Budgeting",
-    "subtopic": "Variance Analysis (Budgeted vs Actual)",
-    "difficulty": "hard",
-    "question": "The Budget Variance Report of **Algoa Furnishers Ltd** for the quarter indicates the following for **Commission on Sales**:\n- Budgeted expenditure: **R60,000.00**\n- Actual expenditure incurred: **R92,000.00**\nCalculate the **variance amount and percentage variance**:",
-    "correct_answer": "R32,000.00 over budget (53.3% overspending)",
-    "wrong_answers_pool": [
-      "R32,000.00 under budget (53.3% saving)",
-      "R60,000.00 over budget",
-      "R92,000.00 over budget",
-      "R38,400.00 over budget",
-      "R25,600.00 over budget",
-      "R47,000.00 over budget",
-      "R22,000.00 over budget"
-    ],
-    "explanation": "Variance = Actual (R92,000.00) - Budget (R60,000.00) = R32,000.00 overspent.\nPercentage Variance = (R32,000.00 / R60,000.00) x 100 = 53.3% over budget.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Budgeting",
-      "subtopic": "Variance Analysis (Budgeted vs Actual)",
-      "cognitive_level": "Analyzing",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate variance for Commission on Sales in Algoa Furnishers Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_28"
-  },
-  {
-    "id": "ACC_P2_MFG_0992",
-    "topic": "Cost Accounting (Manufacturing)",
-    "subtopic": "Manufacturing Internal Control & Ethics",
-    "difficulty": "hard",
-    "question": "**Manufacturing Internal Control & Ethics Scenario**:\n\n*\"The factory production manager secretly substituted standard grade flame-retardant fabric with cheap, highly flammable synthetic polyester to reduce Direct Material Cost by R450,000 and earn an annual executive cost-saving bonus.\"*\n\nProvide the most professional evaluation under CAPS Cost Accounting and King IV governance:",
-    "correct_answer": "Unethical and unlawful: Endangers customer life and safety, violates the Consumer Protection Act and SABS standards, and breaches King IV ethical leadership principles.",
-    "wrong_answers_pool": [
-      "Fully ethical because minimizing Direct Material Cost maximizes gross profit and dividend payouts",
-      "Acceptable practice provided the safety risk is not detected by provincial labour inspectors",
-      "A legitimate accounting cost-saving technique actively encouraged by the Johannesburg Stock Exchange",
-      "Permissible if the production manager donates 10% of the bonus to the factory employee sports club",
-      "A minor operational detail that does not concern executive directors or the audit committee",
-      "Lawful under the Companies Act because blazers are consumer clothing rather than industrial equipment"
-    ],
-    "explanation": "Evaluation: **Unethical and unlawful: Endangers customer life and safety, violates the Consumer Protection Act and SABS standards, and breaches King IV ethical leadership principles.**.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Cost Accounting (Manufacturing)",
-      "subtopic": "Manufacturing Internal Control & Ethics",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Evaluate manufacturing ethics scenario"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_29"
-  },
-  {
-    "id": "ACC_P2_MFG_0890",
-    "topic": "Cost Accounting (Manufacturing)",
-    "subtopic": "Internal Control in Manufacturing",
-    "difficulty": "hard",
-    "question": "Referring to the raw material wastage at **Oudtshoorn Feathercraft Ltd** on *Feather Dusters*: Which internal control recommendation and corrective managerial action should the Cost Accountant advise?",
-    "correct_answer": "Investigate root cause: Handle socket splitting during automated wooden dowel insertion. Provide operator retraining, recalibrate machinery, and enforce strict material requisition slips.",
-    "wrong_answers_pool": [
-      "Increase selling price by 40% immediately to transfer all wastage losses onto retail customers",
-      "Dismiss all factory workers instantly without labour hearings and cease production",
-      "Transfer the cost of wasted material directly to administrative advertising expenses",
-      "Discontinue recording raw material inventory balances in the general ledger",
-      "Reduce the quality of raw materials purchased to the cheapest grade available on the market",
-      "Ignore the variance because material wastage of 20% to 30% is standard and unavoidable under King IV"
-    ],
-    "explanation": "Correct Internal Control Action: **Investigate root cause: Handle socket splitting during automated wooden dowel insertion. Provide operator retraining, recalibrate machinery, and enforce strict material requisition slips.**. CAPS Cost Accounting requires identification of causes and practical control measures.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Cost Accounting (Manufacturing)",
-      "subtopic": "Internal Control in Manufacturing",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Internal control for wastage in Oudtshoorn Feathercraft Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_30"
-  },
-  {
-    "id": "ACC_P2_MFG_0303",
+    "id": "ACC_P2_MFG_0418",
     "topic": "Cost Accounting (Manufacturing)",
     "subtopic": "Break-Even Analysis",
     "difficulty": "medium",
-    "question": "**Protea Footwear Ltd** sells *Leather School Shoes* at a selling price of **R220.00** per unit. Variable costs are **R110.00** per unit and Total Fixed Costs amount to **R420,000.00**. Calculate the **Break-Even Point in units**:",
-    "correct_answer": "3,818 units",
+    "question": "**Blyde Timber Mills Ltd** sells *Pine Dining Tables* for **R950.00** each, incurring variable manufacturing and selling costs of **R510.00** per unit. Calculate the **Marginal Income (Contribution Margin) per unit**:",
+    "correct_answer": "R440.00",
     "wrong_answers_pool": [
-      "1,909 units (divided fixed costs by selling price only: omitted variable costs)",
-      "3,818 units (divided fixed costs by variable costs only)",
-      "7,909 units",
-      "4,582 units",
-      "3,055 units",
-      "5,018 units",
-      "3,018 units"
+      "R950.00 (selling price only)",
+      "R510.00 (variable cost only)",
+      "R1460.00 (added selling price and variable cost)",
+      "R528.00",
+      "R352.00",
+      "R450.00",
+      "R432.00"
     ],
-    "explanation": "Break-Even Point = Total Fixed Costs / (Selling Price - Variable Cost per unit)\n= R420,000.00 / (R220.00 - R110.00)\n= R420,000.00 / R110.00 = 3,818 units.",
+    "explanation": "Marginal Income per unit = Selling Price per unit - Variable Cost per unit = R950.00 - R510.00 = R440.00.",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
@@ -853,128 +464,72 @@
       "subtopic": "Break-Even Analysis",
       "cognitive_level": "Applying",
       "difficulty": "medium",
-      "learning_outcome": "Calculate break-even units for Protea Footwear Ltd"
+      "learning_outcome": "Calculate contribution margin for Blyde Timber Mills Ltd"
     },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_31"
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_17"
   },
   {
-    "id": "ACC_P2_INV_0730",
+    "id": "ACC_P2_INV_0979",
     "topic": "Inventory & Asset Control",
-    "subtopic": "Inventory Quantity Auditing",
-    "difficulty": "medium",
-    "question": "**Upington Agro Direct Ltd** had **750 total units** of *Solar Water Borehole Pumps* available for sale during the year and recorded sales of **610 units**. How many units should be counted in **closing trading stock** during the year-end physical inventory audit?",
-    "correct_answer": "140 units",
+    "subtopic": "Inventory Internal Control & Governance",
+    "difficulty": "hard",
+    "question": "**Inventory Control & Corporate Governance Dilemma**:\n\n*\"The storekeeper at a hardware emporium routinely accepts damaged paint tins from delivery trucks without noting the dents on the delivery note in exchange for free personal paint supplies from the truck driver.\"*\n\nProvide the most professional evaluation under CAPS Accounting standards and the King IV Code:",
+    "correct_answer": "Employee corruption and breach of internal control: The company is unable to claim credit notes from suppliers for damaged stock, bearing the full financial loss while the employee receives personal kickbacks.",
     "wrong_answers_pool": [
-      "750 units (total units available)",
-      "610 units (units sold)",
-      "85 units (opening stock units only)",
-      "240 units",
-      "60 units",
-      "168 units",
-      "112 units"
+      "Good customer service that fosters cordial relations between storekeepers and transport contractors",
+      "An informal workplace perk recognized under South African retail trade custom",
+      "A minor logistical detail that should be absorbed into Trading Stock Deficit without investigation",
+      "Permissible provided the storekeeper paints company store display fixtures using the free paint",
+      "Lawful practice under the Basic Conditions of Employment Act",
+      "Acceptable provided the supplier eventually replaces the dented tins when convenient"
     ],
-    "explanation": "Closing Stock Units = Total Available Units (750) - Units Sold (610) = 140 units.",
+    "explanation": "Evaluation: **Employee corruption and breach of internal control: The company is unable to claim credit notes from suppliers for damaged stock, bearing the full financial loss while the employee receives personal kickbacks.**.",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
       "topic": "Inventory & Asset Control",
-      "subtopic": "Inventory Quantity Auditing",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate closing stock units for Upington Agro Direct Ltd"
+      "subtopic": "Inventory Internal Control & Governance",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Evaluate inventory governance dilemma"
     },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_32"
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_18"
   },
   {
-    "id": "ACC_P2_INV_0374",
-    "topic": "Inventory & Asset Control",
-    "subtopic": "Weighted Average Inventory Valuation",
+    "id": "ACC_P2_REC_0428",
+    "topic": "Reconciliations & Internal Control",
+    "subtopic": "Creditors Reconciliation Adjustments",
     "difficulty": "medium",
-    "question": "**Karoo Motors Ltd** uses the **Weighted Average Cost method** for *High-Performance Vehicle Batteries*. Total cost of available goods (including carriage) is **R3,760,750.00** across **1,920 units**. Calculate the **weighted average cost per unit** (rounded to two decimal places):",
-    "correct_answer": "R1958.72",
+    "question": "The Statement of Account received from supplier Soweto Traders by **Gauteng Health Stores Ltd** shows a closing balance of **R165,800.00**. A debit note of **R6,250.00** issued by Gauteng Health Stores Ltd for returned damaged goods does not appear on the supplier's statement. Calculate the **Adjusted Statement Balance** on the Creditors Reconciliation Statement:",
+    "correct_answer": "R159,550.00",
     "wrong_answers_pool": [
-      "R1845.00 (simple average of unit prices: ignored quantities and carriage)",
-      "R1650.00 (opening price only)",
-      "R2135.00 (latest batch price only)",
-      "R2252.53",
-      "R1664.92",
-      "R1993.72",
-      "R1933.72"
+      "R165,800.00 (unadjusted statement balance)",
+      "R172,050.00 (added return instead of deducting)",
+      "R183,482.50",
+      "R135,617.50",
+      "R171,550.00",
+      "R149,550.00",
+      "R156,400.00"
     ],
-    "explanation": "Weighted Average Cost per Unit = Total Cost of Goods Available / Total Units Available\n= R3,760,750.00 / 1,920 = R1958.72 per unit.",
+    "explanation": "Adjusted Statement Balance = Statement Balance (R165,800.00) - Goods Returned (R6,250.00) = R159,550.00.",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
-      "topic": "Inventory & Asset Control",
-      "subtopic": "Weighted Average Inventory Valuation",
+      "topic": "Reconciliations & Internal Control",
+      "subtopic": "Creditors Reconciliation Adjustments",
       "cognitive_level": "Applying",
       "difficulty": "medium",
-      "learning_outcome": "Calculate weighted average unit cost for Karoo Motors Ltd"
+      "learning_outcome": "Calculate adjusted statement balance for Gauteng Health Stores Ltd"
     },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_33"
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_19"
   },
   {
-    "id": "ACC_P2_MFG_0551",
-    "topic": "Cost Accounting (Manufacturing)",
-    "subtopic": "Production Cost Statement",
-    "difficulty": "medium",
-    "question": "The following manufacturing costs relate to **Rustenburg Foundry Ltd** for the production of *Cast Iron Manhole Covers*:\n- Direct Material Cost: **R1,925,000.00**\n- Direct Labour Cost: **R1,100,000.00**\n- Factory Overheads: **R742,500.00**\n- Work-in-Process at beginning of year: **R110,000.00**\n- Work-in-Process at end of year: **R85,000.00**\nCalculate the **Cost of Production of Finished Goods** to be transferred to the Trading Statement:",
-    "correct_answer": "R3,792,500.00",
-    "wrong_answers_pool": [
-      "R3,767,500.00 (omitted work-in-process adjustments)",
-      "R3,742,500.00 (deducted opening WIP and added closing WIP)",
-      "R3,050,000.00 (omitted factory overheads)",
-      "R4,361,375.00",
-      "R3,223,625.00",
-      "R3,892,500.00",
-      "R3,692,500.00"
-    ],
-    "explanation": "Cost of Production of Finished Goods = Prime Cost (R3,025,000.00) + Factory Overheads (R742,500.00) + Opening WIP (R110,000.00) - Closing WIP (R85,000.00)\n= R3,767,500.00 + R110,000.00 - R85,000.00 = R3,792,500.00.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Cost Accounting (Manufacturing)",
-      "subtopic": "Production Cost Statement",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate cost of finished goods for Rustenburg Foundry Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_34"
-  },
-  {
-    "id": "ACC_P2_INV_0447",
-    "topic": "Inventory & Asset Control",
-    "subtopic": "Inventory Method Comparison",
-    "difficulty": "medium",
-    "question": "Compare the profitability of **Namaqua Diamond Jewelers Ltd** under the two stock valuation methods:\n- Gross Profit under FIFO: **R2,374,000.00**\n- Gross Profit under Weighted Average: **R2,304,250.00**\nWhich statement correctly compares the results?",
-    "correct_answer": "FIFO Gross Profit is R69,750.00 higher than Weighted Average",
-    "wrong_answers_pool": [
-      "Weighted Average Gross Profit is R69,750.00 higher than FIFO",
-      "Both methods produce identical Gross Profit because units sold are equal",
-      "FIFO Gross Profit is R2,374,000.00 higher",
-      "Difference is R104,625.00",
-      "Difference is R34,875.00",
-      "Weighted Average Gross Profit is R2,304,250.00 lower"
-    ],
-    "explanation": "Comparison: FIFO Gross Profit is R69,750.00 higher than Weighted Average. In times of rising purchase prices (inflation), FIFO assigns older, cheaper costs to Cost of Sales, resulting in higher Gross Profit and higher closing stock on the balance sheet.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Inventory & Asset Control",
-      "subtopic": "Inventory Method Comparison",
-      "cognitive_level": "Analyzing",
-      "difficulty": "medium",
-      "learning_outcome": "Compare FIFO vs weighted average profit for Namaqua Diamond Jewelers Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_35"
-  },
-  {
-    "id": "ACC_P2_BUD_0958",
+    "id": "ACC_P2_BUD_0956",
     "topic": "Budgeting",
     "subtopic": "Debtors Collection Period Analysis",
     "difficulty": "hard",
-    "question": "Evaluate the **Debtors Collection Period** of **Bethlehem Farmers Coop Ltd** (51.9 days vs 30-day terms) and recommend appropriate internal control strategies:",
-    "correct_answer": "Debtors Collection Period is 51.9 days. Working capital locked in grain producer accounts. Strategy: Provide electronic bank debit order incentives.",
+    "question": "Evaluate the **Debtors Collection Period** of **Welkom Shaft Merchants Ltd** (52.3 days vs 30-day terms) and recommend appropriate internal control strategies:",
+    "correct_answer": "Debtors Collection Period is 52.3 days. Gold mine contractors taking excessive credit terms. Recommendation: Enforce mandatory 25% cash deposits on custom equipment orders.",
     "wrong_answers_pool": [
       "Exceptional performance: Debtors taking longer to pay proves customer loyalty and satisfaction",
       "Neutral: The collection period has zero impact on company bank liquidity or bad debt risks",
@@ -983,7 +538,7 @@
       "Credit terms should be extended to 180 days to encourage debtors to delay payment even further",
       "Debtors collection periods cannot be evaluated without knowing the authorized share capital"
     ],
-    "explanation": "Evaluation: **Debtors Collection Period is 51.9 days. Working capital locked in grain producer accounts. Strategy: Provide electronic bank debit order incentives.**.",
+    "explanation": "Evaluation: **Debtors Collection Period is 52.3 days. Gold mine contractors taking excessive credit terms. Recommendation: Enforce mandatory 25% cash deposits on custom equipment orders.**.",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
@@ -991,27 +546,27 @@
       "subtopic": "Debtors Collection Period Analysis",
       "cognitive_level": "Evaluating",
       "difficulty": "hard",
-      "learning_outcome": "Evaluate debtors collection for Bethlehem Farmers Coop Ltd"
+      "learning_outcome": "Evaluate debtors collection for Welkom Shaft Merchants Ltd"
     },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_36"
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_20"
   },
   {
-    "id": "ACC_P2_BUD_0923",
+    "id": "ACC_P2_BUD_0975",
     "topic": "Budgeting",
     "subtopic": "Debtors Collection Period Analysis",
     "difficulty": "hard",
-    "question": "The records of **Karoo Motors Ltd** reflect average Debtors of **R1,250,000.00** and Total Credit Sales of **R8,900,000.00** for the year. The official credit terms granted to customers are **30 days**. Calculate the **Debtors Collection Period** (in days, rounded to one decimal place):",
-    "correct_answer": "51.3 days",
+    "question": "The records of **Makhanda Scholastic Supplies Ltd** reflect average Debtors of **R380,000.00** and Total Credit Sales of **R2,700,000.00** for the year. The official credit terms granted to customers are **30 days**. Calculate the **Debtors Collection Period** (in days, rounded to one decimal place):",
+    "correct_answer": "51.4 days",
     "wrong_answers_pool": [
-      "76.9 days",
-      "25.6 days",
+      "77.1 days",
+      "25.7 days",
       "4.2 days (multiplied by 30 days instead of 365)",
       "30.0 days (stated credit term rather than actual period)",
-      "66.3 days",
-      "39.3 days",
+      "66.4 days",
+      "39.4 days",
       "7.1 days (calculated debtors turnover rate instead of collection period)"
     ],
-    "explanation": "Debtors Collection Period = (Average Debtors / Total Credit Sales) x 365\n= (R1,250,000.00 / R8,900,000.00) x 365 = 51.3 days.",
+    "explanation": "Debtors Collection Period = (Average Debtors / Total Credit Sales) x 365\n= (R380,000.00 / R2,700,000.00) x 365 = 51.4 days.",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
@@ -1019,137 +574,83 @@
       "subtopic": "Debtors Collection Period Analysis",
       "cognitive_level": "Applying",
       "difficulty": "hard",
-      "learning_outcome": "Calculate debtors collection period for Karoo Motors Ltd"
+      "learning_outcome": "Calculate debtors collection period for Makhanda Scholastic Supplies Ltd"
     },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_37"
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_21"
   },
   {
-    "id": "ACC_P2_REC_0725",
-    "topic": "Reconciliations & Internal Control",
-    "subtopic": "Creditors Reconciliation Adjustments",
+    "id": "ACC_P2_BUD_0491",
+    "topic": "Budgeting",
+    "subtopic": "Debtors Collection Schedule",
     "difficulty": "medium",
-    "question": "The monthly statement from supplier Protea Wholesalers received by **Upington Agro Direct Ltd** includes an invoice for **R4,200.00** which was correctly delivered but omitted from the company's Creditors Journal. How must this omission be corrected in the accounting records?",
-    "correct_answer": "Credit the Creditors Ledger account with R4,200.00 (increases liability)",
+    "question": "The Debtors Collection Policy of **Stellenbosch Wine Direct Ltd** reveals the following credit collection pattern:\n- 20% collected in the month of sale, subject to a 5% cash settlement discount\n- 50% collected in the month following the month of sale (30 days)\n- 28% collected in the second month following the sale (60 days)\n- 2% written off as irrecoverable bad debts in the third month\nCredit sales: September **R470,000.00**, October **R515,000.00**, November **R610,000.00**.\nCalculate the **total cash expected to be collected from debtors in November**:",
+    "correct_answer": "R505,000.00",
     "wrong_answers_pool": [
-      "Debit the Creditors Ledger account with R4,200.00 (decreases liability)",
-      "Enter on the Creditors Reconciliation Statement as an outstanding debit note",
-      "Deduct R4,200.00 from Cash Payments Journal",
-      "Ignore the invoice until the creditor sends a final demand letter",
-      "Credit the Debtors Ledger account with R4,200.00",
-      "Write off R4,200.00 to Bad Debts Recovered"
+      "R511,100.00 (omitted 5% discount on current month collections)",
+      "R610,000.00 (assumed 100% of November sales collected)",
+      "R389,100.00 (omitted collections from November sales)",
+      "R580,750.00",
+      "R429,250.00",
+      "R550,000.00",
+      "R470,000.00"
     ],
-    "explanation": "Correction: Credit the Creditors Ledger account with R4,200.00 (increases liability). The business owes the money, so the purchase must be credited to the supplier's account in the Creditors Ledger.",
+    "explanation": "November Debtors Collections:\n- From Nov sales: 20% of R610,000.00 x 95% = R115,900.00\n- From Oct sales: 50% of R515,000.00 = R257,500.00\n- From Sep sales: 28% of R470,000.00 = R131,600.00\nTotal Collections in November = R115,900.00 + R257,500.00 + R131,600.00 = R505,000.00.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Budgeting",
+      "subtopic": "Debtors Collection Schedule",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate November debtors collection for Stellenbosch Wine Direct Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_22"
+  },
+  {
+    "id": "ACC_P2_REC_0994",
+    "topic": "Reconciliations & Internal Control",
+    "subtopic": "Complex Bank Reconciliation Calculations",
+    "difficulty": "hard",
+    "question": "The Bank Account of **Cradock Livestock Supplies Ltd** had an unadjusted debit balance of **R75,000.00** on 30 November. The Bank Statement showed the following:\n- Interest on favourable balance: **R1,460.00**\n- Direct credit transfer from debtor: **R5,200.00**\n- Bank service fees and transaction charges: **R2,100.00**\n- Debit order for monthly insurance: **R1,770.00**\nCalculate the **Adjusted Bank Account balance** to be reflected in the Balance Sheet:",
+    "correct_answer": "R77,790.00",
+    "wrong_answers_pool": [
+      "R75,000.00 (unadjusted opening balance)",
+      "R81,660.00 (omitted CPJ deductions)",
+      "R71,130.00 (omitted CRJ additions)",
+      "R89,458.50",
+      "R66,121.50",
+      "R95,790.00",
+      "R62,790.00"
+    ],
+    "explanation": "CRJ Additions = Bank Interest (R1,460.00) + Direct Deposit (R5,200.00) = R6,660.00\nCPJ Deductions = Bank Fees (R2,100.00) + Debit Order (R1,770.00) = R3,870.00\nAdjusted Bank Balance = R75,000.00 + R6,660.00 - R3,870.00 = R77,790.00.",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
       "topic": "Reconciliations & Internal Control",
-      "subtopic": "Creditors Reconciliation Adjustments",
+      "subtopic": "Complex Bank Reconciliation Calculations",
       "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Correct omitted invoice for Upington Agro Direct Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_38"
-  },
-  {
-    "id": "ACC_P2_MFG_0791",
-    "topic": "Cost Accounting (Manufacturing)",
-    "subtopic": "Production Cost Statement",
-    "difficulty": "medium",
-    "question": "The following manufacturing costs relate to **Knysna Fine Yachts Ltd** for the production of *Rowing Skiffs*:\n- Direct Material Cost: **R1,530,000.00**\n- Direct Labour Cost: **R884,000.00**\n- Factory Overheads: **R595,000.00**\n- Work-in-Process at beginning of year: **R120,000.00**\n- Work-in-Process at end of year: **R92,000.00**\nCalculate the **Cost of Production of Finished Goods** to be transferred to the Trading Statement:",
-    "correct_answer": "R3,037,000.00",
-    "wrong_answers_pool": [
-      "R3,009,000.00 (omitted work-in-process adjustments)",
-      "R2,981,000.00 (deducted opening WIP and added closing WIP)",
-      "R2,442,000.00 (omitted factory overheads)",
-      "R3,492,550.00",
-      "R2,581,450.00",
-      "R3,137,000.00",
-      "R2,937,000.00"
-    ],
-    "explanation": "Cost of Production of Finished Goods = Prime Cost (R2,414,000.00) + Factory Overheads (R595,000.00) + Opening WIP (R120,000.00) - Closing WIP (R92,000.00)\n= R3,009,000.00 + R120,000.00 - R92,000.00 = R3,037,000.00.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Cost Accounting (Manufacturing)",
-      "subtopic": "Production Cost Statement",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate cost of finished goods for Knysna Fine Yachts Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_39"
-  },
-  {
-    "id": "ACC_P2_MFG_0888",
-    "topic": "Cost Accounting (Manufacturing)",
-    "subtopic": "Internal Control in Manufacturing",
-    "difficulty": "hard",
-    "question": "Referring to the raw material wastage at **Makhanda Bookbinding Ltd** on *Hardcover School Atlases*: Which internal control recommendation and corrective managerial action should the Cost Accountant advise?",
-    "correct_answer": "Investigate root cause: Guillotine blade dulling tearing coated paper folios during three-knife trimming. Provide operator retraining, recalibrate machinery, and enforce strict material requisition slips.",
-    "wrong_answers_pool": [
-      "Increase selling price by 40% immediately to transfer all wastage losses onto retail customers",
-      "Dismiss all factory workers instantly without labour hearings and cease production",
-      "Transfer the cost of wasted material directly to administrative advertising expenses",
-      "Discontinue recording raw material inventory balances in the general ledger",
-      "Reduce the quality of raw materials purchased to the cheapest grade available on the market",
-      "Ignore the variance because material wastage of 20% to 30% is standard and unavoidable under King IV"
-    ],
-    "explanation": "Correct Internal Control Action: **Investigate root cause: Guillotine blade dulling tearing coated paper folios during three-knife trimming. Provide operator retraining, recalibrate machinery, and enforce strict material requisition slips.**. CAPS Cost Accounting requires identification of causes and practical control measures.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Cost Accounting (Manufacturing)",
-      "subtopic": "Internal Control in Manufacturing",
-      "cognitive_level": "Evaluating",
       "difficulty": "hard",
-      "learning_outcome": "Internal control for wastage in Makhanda Bookbinding Ltd"
+      "learning_outcome": "Calculate adjusted balance for Cradock Livestock Supplies Ltd"
     },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_40"
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_23"
   },
   {
-    "id": "ACC_P2_INV_0646",
-    "topic": "Inventory & Asset Control",
-    "subtopic": "Weighted Average Inventory Valuation",
-    "difficulty": "medium",
-    "question": "For **George Home Living Ltd** (*Ceiling Fans with Remote*), total available cost is **R4,127,200.00** and weighted average closing stock value is **R699,525.42**. Calculate the **Cost of Sales under the Weighted Average method**:",
-    "correct_answer": "R3,427,674.58",
-    "wrong_answers_pool": [
-      "R3,354,700.00 (calculated Cost of Sales under FIFO)",
-      "R4,127,200.00 (total available cost)",
-      "R2,817,500.00",
-      "R3,941,825.76",
-      "R2,913,523.39",
-      "R3,487,674.58",
-      "R3,377,674.58"
-    ],
-    "explanation": "Cost of Sales = Total Available Cost - Closing Stock Value (Weighted Average)\n= R4,127,200.00 - R699,525.42 = R3,427,674.58.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Inventory & Asset Control",
-      "subtopic": "Weighted Average Inventory Valuation",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate weighted average cost of sales for George Home Living Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_41"
-  },
-  {
-    "id": "ACC_P2_INV_0769",
+    "id": "ACC_P2_INV_0619",
     "topic": "Inventory & Asset Control",
     "subtopic": "Lower of Cost or NRV",
     "difficulty": "medium",
-    "question": "At year-end, **Cradock Livestock Hub Ltd** discovered that **50 units** of *Cattle Weighing Crates* (from Batch 3, cost **R11540.00** each) suffered water damage. They can only be sold for a Net Realizable Value of **R6924.00** each. In terms of IAS 2 (Lower of Cost or Net Realizable Value), calculate the **inventory write-down expense**:",
-    "correct_answer": "R230,800.00 write-down (operating expense in Income Statement)",
+    "question": "At year-end, **East London Marine Spares Ltd** discovered that **50 units** of *Boat Bilge Pumps (Submersible)* (from Batch 3, cost **R1235.00** each) suffered water damage. They can only be sold for a Net Realizable Value of **R741.00** each. In terms of IAS 2 (Lower of Cost or Net Realizable Value), calculate the **inventory write-down expense**:",
+    "correct_answer": "R24,700.00 write-down (operating expense in Income Statement)",
     "wrong_answers_pool": [
-      "R577,000.00 (wrote off entire cost of damaged units without considering NRV)",
-      "R346,200.00 (used net realizable value as the write-down amount)",
-      "R346,200.00",
-      "R115,400.00",
-      "R245,800.00",
-      "R220,800.00",
+      "R61,750.00 (wrote off entire cost of damaged units without considering NRV)",
+      "R37,050.00 (used net realizable value as the write-down amount)",
+      "R37,050.00",
+      "R12,350.00",
+      "R39,700.00",
+      "R14,700.00",
       "Zero write-down because IFRS allows all inventory to remain at historical cost indefinitely"
     ],
-    "explanation": "Write-down per unit = Cost (R11540.00) - Net Realizable Value (R6924.00) = R4616.00\nTotal Inventory Write-Down = 50 units x R4616.00 = R230,800.00 write-down (operating expense in Income Statement).",
+    "explanation": "Write-down per unit = Cost (R1235.00) - Net Realizable Value (R741.00) = R494.00\nTotal Inventory Write-Down = 50 units x R494.00 = R24,700.00 write-down (operating expense in Income Statement).",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
@@ -1157,17 +658,184 @@
       "subtopic": "Lower of Cost or NRV",
       "cognitive_level": "Applying",
       "difficulty": "medium",
-      "learning_outcome": "Calculate NRV write-down for Cradock Livestock Hub Ltd"
+      "learning_outcome": "Calculate NRV write-down for East London Marine Spares Ltd"
     },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_42"
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_24"
   },
   {
-    "id": "ACC_P2_BUD_0822",
+    "id": "ACC_P2_INV_0345",
+    "topic": "Inventory & Asset Control",
+    "subtopic": "Weighted Average Inventory Valuation",
+    "difficulty": "medium",
+    "question": "Referring to **Drakensberg Hardware Ltd**: The weighted average cost per unit is **R1150.80** and there are **400 units** on hand at year-end. Calculate the **value of Closing Inventory under the Weighted Average method**:",
+    "correct_answer": "R460,318.18",
+    "wrong_answers_pool": [
+      "R502,000.00 (calculated closing stock under FIFO instead of weighted average)",
+      "R380,000.00 (valued closing stock at opening price)",
+      "R502,000.00 (valued closing stock at latest purchase price)",
+      "R529,365.91",
+      "R391,270.45",
+      "R500,318.18",
+      "R425,318.18"
+    ],
+    "explanation": "Closing Stock Value = Closing Units x Weighted Average Cost per Unit\n= 400 units x R1150.80 = R460,318.18.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Inventory & Asset Control",
+      "subtopic": "Weighted Average Inventory Valuation",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate weighted average closing stock for Drakensberg Hardware Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_25"
+  },
+  {
+    "id": "ACC_P2_BUD_0463",
+    "topic": "Budgeting",
+    "subtopic": "Debtors Collection Schedule",
+    "difficulty": "medium",
+    "question": "In **Mpumalanga Tile Center Ltd**, debtors who settle in the month of sale receive a **5% cash discount**. November credit sales are projected at **R850,000.00**, of which **20%** take advantage of the discount. Calculate the **Discount Allowed** for November to be reflected in the Projected Income Statement:",
+    "correct_answer": "R8,500.00",
+    "wrong_answers_pool": [
+      "R42,500.00 (calculated 5% on total November sales)",
+      "R35,440.00 (calculated 5% on total collections from all months)",
+      "R12,750.00",
+      "R4,250.00",
+      "R13,500.00",
+      "R5,500.00",
+      "R17,000.00"
+    ],
+    "explanation": "Discount Allowed = Credit Sales x Early Settlement % x Discount %\n= R850,000.00 x 20% x 5% = R8,500.00. This is an operating expense in the Projected Income Statement.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Budgeting",
+      "subtopic": "Debtors Collection Schedule",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate discount allowed for Mpumalanga Tile Center Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_26"
+  },
+  {
+    "id": "ACC_P2_INV_0500",
+    "topic": "Inventory & Asset Control",
+    "subtopic": "Inventory Quantity Auditing",
+    "difficulty": "medium",
+    "question": "**Stellenbosch Cellars Ltd** had **1,000 total units** of *Temperature-Controlled Wine Fridges* available for sale during the year and recorded sales of **830 units**. How many units should be counted in **closing trading stock** during the year-end physical inventory audit?",
+    "correct_answer": "170 units",
+    "wrong_answers_pool": [
+      "1,000 units (total units available)",
+      "830 units (units sold)",
+      "110 units (opening stock units only)",
+      "270 units",
+      "90 units",
+      "204 units",
+      "136 units"
+    ],
+    "explanation": "Closing Stock Units = Total Available Units (1,000) - Units Sold (830) = 170 units.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Inventory & Asset Control",
+      "subtopic": "Inventory Quantity Auditing",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate closing stock units for Stellenbosch Cellars Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_27"
+  },
+  {
+    "id": "ACC_P2_MFG_0460",
+    "topic": "Cost Accounting (Manufacturing)",
+    "subtopic": "Factory Overhead Allocation",
+    "difficulty": "medium",
+    "question": "Calculate the **Indirect Materials (Factory Consumables) consumed** for **Outeniqua Crafts Ltd**:\n- Opening stock of consumables: **R30,800.00**\n- Purchases of factory consumables: **R77,000.00**\n- Closing stock of consumables: **R23,100.00**",
+    "correct_answer": "R84,700.00",
+    "wrong_answers_pool": [
+      "R77,000.00 (used purchases only without inventory adjustments)",
+      "R130,900.00 (added closing stock)",
+      "R101,640.00",
+      "R67,760.00",
+      "R99,700.00",
+      "R72,700.00",
+      "R107,800.00"
+    ],
+    "explanation": "Factory Consumables Used = Opening Stock + Purchases - Closing Stock\n= R30,800.00 + R77,000.00 - R23,100.00 = R84,700.00. This forms part of Factory Overhead Cost.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Cost Accounting (Manufacturing)",
+      "subtopic": "Factory Overhead Allocation",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate consumables used for Outeniqua Crafts Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_28"
+  },
+  {
+    "id": "ACC_P2_BUD_0849",
     "topic": "Budgeting",
     "subtopic": "Variance Analysis (Budgeted vs Actual)",
     "difficulty": "hard",
-    "question": "Refer to the overspending on **Water & Electricity** at **Limpopo Farm Supplies Ltd** (budget R35,000.00 vs actual R58,000.00). Provide the most accurate professional evaluation and managerial recommendation under CAPS Cost Accounting:",
-    "correct_answer": "Evaluation: Unrepaired underground irrigation pipe leaks and municipal tariff hikes of 18.5% that were omitted during annual budget preparation. Management must enforce strict budget caps, review authorization thresholds, and require pre-approval for expenditure variances.",
+    "question": "The Budget Variance Report of **Potchefstroom Feeds Mart Ltd** for the quarter indicates the following for **Forklift Fuel & Maintenance**:\n- Budgeted expenditure: **R26,000.00**\n- Actual expenditure incurred: **R48,000.00**\nCalculate the **variance amount and percentage variance**:",
+    "correct_answer": "R22,000.00 over budget (84.6% overspending)",
+    "wrong_answers_pool": [
+      "R22,000.00 under budget (84.6% saving)",
+      "R26,000.00 over budget",
+      "R48,000.00 over budget",
+      "R26,400.00 over budget",
+      "R17,600.00 over budget",
+      "R37,000.00 over budget",
+      "R12,000.00 over budget"
+    ],
+    "explanation": "Variance = Actual (R48,000.00) - Budget (R26,000.00) = R22,000.00 overspent.\nPercentage Variance = (R22,000.00 / R26,000.00) x 100 = 84.6% over budget.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Budgeting",
+      "subtopic": "Variance Analysis (Budgeted vs Actual)",
+      "cognitive_level": "Analyzing",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate variance for Forklift Fuel & Maintenance in Potchefstroom Feeds Mart Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_29"
+  },
+  {
+    "id": "ACC_P2_BUD_0926",
+    "topic": "Budgeting",
+    "subtopic": "Debtors Collection Period Analysis",
+    "difficulty": "hard",
+    "question": "Evaluate the **Debtors Collection Period** of **Table Mountain Books Ltd** (51.4 days vs 30-day terms) and recommend appropriate internal control strategies:",
+    "correct_answer": "Debtors Collection Period is 51.4 days. Overdue accounts threaten cash flow. Action: Halt deliveries to bookstores with outstanding balances over 45 days.",
+    "wrong_answers_pool": [
+      "Exceptional performance: Debtors taking longer to pay proves customer loyalty and satisfaction",
+      "Neutral: The collection period has zero impact on company bank liquidity or bad debt risks",
+      "The business should immediately cancel all cash sales and sell merchandise 100% on credit",
+      "The credit manager should be rewarded with a 50% bonus for keeping money in debtors accounts",
+      "Credit terms should be extended to 180 days to encourage debtors to delay payment even further",
+      "Debtors collection periods cannot be evaluated without knowing the authorized share capital"
+    ],
+    "explanation": "Evaluation: **Debtors Collection Period is 51.4 days. Overdue accounts threaten cash flow. Action: Halt deliveries to bookstores with outstanding balances over 45 days.**.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Budgeting",
+      "subtopic": "Debtors Collection Period Analysis",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Evaluate debtors collection for Table Mountain Books Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_30"
+  },
+  {
+    "id": "ACC_P2_BUD_0836",
+    "topic": "Budgeting",
+    "subtopic": "Variance Analysis (Budgeted vs Actual)",
+    "difficulty": "hard",
+    "question": "Refer to the overspending on **Discount Allowed** at **Ezulwini Furnishing Ltd** (budget R28,000.00 vs actual R52,000.00). Provide the most accurate professional evaluation and managerial recommendation under CAPS Cost Accounting:",
+    "correct_answer": "Evaluation: Sales staff offered unauthorized 10% cash settlement discounts to slow-paying debtors who were already 60 days overdue. Management must enforce strict budget caps, review authorization thresholds, and require pre-approval for expenditure variances.",
     "wrong_answers_pool": [
       "Disregard the variance because budget figures are purely decorative estimates that have no operational bearing",
       "Dismiss all accounting personnel immediately and cease preparing future quarterly budgets",
@@ -1176,7 +844,7 @@
       "Borrow R5 million on bank overdraft to cover all future expense overruns without investigation",
       "Eliminate all internal controls and allow department heads to spend company funds without receipts"
     ],
-    "explanation": "Evaluation: **Evaluation: Unrepaired underground irrigation pipe leaks and municipal tariff hikes of 18.5% that were omitted during annual budget preparation. Management must enforce strict budget caps, review authorization thresholds, and require pre-approval for expenditure variances.**.",
+    "explanation": "Evaluation: **Evaluation: Sales staff offered unauthorized 10% cash settlement discounts to slow-paying debtors who were already 60 days overdue. Management must enforce strict budget caps, review authorization thresholds, and require pre-approval for expenditure variances.**.",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
@@ -1184,44 +852,100 @@
       "subtopic": "Variance Analysis (Budgeted vs Actual)",
       "cognitive_level": "Evaluating",
       "difficulty": "hard",
-      "learning_outcome": "Evaluate variance for Water & Electricity in Limpopo Farm Supplies Ltd"
+      "learning_outcome": "Evaluate variance for Discount Allowed in Ezulwini Furnishing Ltd"
     },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_43"
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_31"
   },
   {
-    "id": "ACC_P2_MFG_0962",
+    "id": "ACC_P2_MFG_0835",
     "topic": "Cost Accounting (Manufacturing)",
-    "subtopic": "Make-or-Buy Decision Analysis",
+    "subtopic": "Material Wastage & Variance Analysis",
     "difficulty": "hard",
-    "question": "**Decision-Making Analysis \u2014 Make vs Buy for Bloemfontein Milling Hub Ltd**:\nThe factory requires **28,000 units** of *Polypropylene Grain Sacks* annually. Internal variable costs per unit are: Direct Materials R6.50, Direct Labour R3.80, Variable Factory Overheads R2.20. Fixed factory overheads will continue unchanged whether made or bought. An outside supplier offers to supply the component at **R11.20** per unit. Evaluate the **financial wisdom** of whether Bloemfontein Milling Hub Ltd should **make or buy** the component:",
-    "correct_answer": "Buy from supplier: External quote of R11.20 is cheaper than internal variable cost of R12.50, saving R36,400.00",
+    "question": "The standard specification for **Ezulwini Glass Ltd** indicates that each unit of *Tumbler Glass Sets* requires **1.40 metres/kg** of raw material at a standard cost of **R50.00** per metre/kg. During the year, the factory produced **11,000 units** and actually used **19,800.0 metres/kg** (an average of **1.80 metres/kg** per unit). Calculate the **financial cost of raw material wastage**:",
+    "correct_answer": "R220,000.00 (4,400.0 units of material wasted)",
     "wrong_answers_pool": [
-      "Make in-house regardless of cost to keep factory workers busy",
-      "Buy from supplier only if external supplier purchases company shares",
-      "Outsourcing is strictly illegal under the South African Companies Act",
-      "Make in-house: Internal variable cost of R12.50 is superior to external supply",
-      "Buy from supplier: Cost saving is R43,680.00",
-      "Decision should be made solely based on the managing director personal preference"
+      "R990,000.00 (calculated total actual material cost)",
+      "R770,000.00 (calculated standard material cost)",
+      "R4,400.00 (omitted cost per unit of material)",
+      "R264,000.00",
+      "R176,000.00",
+      "R260,000.00",
+      "R190,000.00"
     ],
-    "explanation": "Internal Variable Cost to Make = DM (R6.50) + DL (R3.80) + Variable FOH (R2.20) = R12.50 per unit.\nOutside Supplier Price = R11.20 per unit.\nDecision: Buy from supplier: External quote of R11.20 is cheaper than internal variable cost of R12.50, saving R36,400.00. Fixed overheads are unavoidable and sunk.",
+    "explanation": "Standard Material Required = 11,000 x 1.40 = 15,400.0\nActual Material Used = 19,800.0\nMaterial Wastage = 19,800.0 - 15,400.0 = 4,400.0\nCost of Wastage = 4,400.0 x R50.00 = R220,000.00 (4,400.0 units of material wasted).",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
       "topic": "Cost Accounting (Manufacturing)",
-      "subtopic": "Make-or-Buy Decision Analysis",
+      "subtopic": "Material Wastage & Variance Analysis",
       "cognitive_level": "Evaluating",
       "difficulty": "hard",
-      "learning_outcome": "Make or buy evaluation for Bloemfontein Milling Hub Ltd"
+      "learning_outcome": "Calculate material wastage cost for Ezulwini Glass Ltd"
     },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_44"
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_32"
   },
   {
-    "id": "ACC_P2_MFG_0922",
+    "id": "ACC_P2_REC_0904",
+    "topic": "Reconciliations & Internal Control",
+    "subtopic": "Complex Bank Reconciliation Calculations",
+    "difficulty": "hard",
+    "question": "The Bank Account of **Cradock Livestock Hub Ltd** had an unadjusted debit balance of **R80,000.00** on 30 November. The Bank Statement showed the following:\n- Interest on favourable balance: **R1,600.00**\n- Direct credit transfer from debtor: **R5,600.00**\n- Bank service fees and transaction charges: **R2,300.00**\n- Debit order for monthly insurance: **R1,900.00**\nCalculate the **Adjusted Bank Account balance** to be reflected in the Balance Sheet:",
+    "correct_answer": "R83,000.00",
+    "wrong_answers_pool": [
+      "R80,000.00 (unadjusted opening balance)",
+      "R87,200.00 (omitted CPJ deductions)",
+      "R75,800.00 (omitted CRJ additions)",
+      "R95,450.00",
+      "R70,550.00",
+      "R101,000.00",
+      "R68,000.00"
+    ],
+    "explanation": "CRJ Additions = Bank Interest (R1,600.00) + Direct Deposit (R5,600.00) = R7,200.00\nCPJ Deductions = Bank Fees (R2,300.00) + Debit Order (R1,900.00) = R4,200.00\nAdjusted Bank Balance = R80,000.00 + R7,200.00 - R4,200.00 = R83,000.00.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Reconciliations & Internal Control",
+      "subtopic": "Complex Bank Reconciliation Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate adjusted balance for Cradock Livestock Hub Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_33"
+  },
+  {
+    "id": "ACC_P2_INV_0922",
+    "topic": "Inventory & Asset Control",
+    "subtopic": "Trading Stock Deficit & Shrinkage",
+    "difficulty": "hard",
+    "question": "Refer to the stock deficit at **Bethlehem Grain Traders Ltd** on *Grain Moisture Calibration Samples* (35 units missing, value R28,700.00). Provide the most professional internal control evaluation and management recommendation under CAPS Accounting:",
+    "correct_answer": "Internal Control Failure: Sealed calibration vials broken during warehouse shelf restacking and swept away. Management must enforce physical access controls, CCTV monitoring, segregation of duties, and unannounced stock audits.",
+    "wrong_answers_pool": [
+      "Ignore the stock loss because inventory theft of 10% to 20% is normal in retail commerce",
+      "Increase retail selling prices by 35% immediately to force paying customers to cover the theft",
+      "Cease conducting physical stock counts at year-end to prevent detecting future deficits",
+      "Dismiss all warehouse workers instantly and close down trading operations permanently",
+      "Transfer missing stock balances directly to Ordinary Share Capital as a dividend",
+      "Stop buying inventory on credit from commercial suppliers"
+    ],
+    "explanation": "Evaluation: **Internal Control Failure: Sealed calibration vials broken during warehouse shelf restacking and swept away. Management must enforce physical access controls, CCTV monitoring, segregation of duties, and unannounced stock audits.**.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Inventory & Asset Control",
+      "subtopic": "Trading Stock Deficit & Shrinkage",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Internal control for stock deficit in Bethlehem Grain Traders Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_34"
+  },
+  {
+    "id": "ACC_P2_MFG_0912",
     "topic": "Cost Accounting (Manufacturing)",
     "subtopic": "Labour Efficiency & Productivity",
     "difficulty": "hard",
-    "question": "Evaluate the **labour productivity performance** at **Limpopo Pottery Ltd** and provide the most sound managerial conclusion:",
-    "correct_answer": "Unfavourable labour variance: Excessive manual handling between glazing stations and firing kilns. Management must install backup generators, implement biometric attendance, and introduce production incentive bonuses.",
+    "question": "Evaluate the **labour productivity performance** at **Zululand Pack Ltd** and provide the most sound managerial conclusion:",
+    "correct_answer": "Unfavourable labour variance: Shortage of forklift operators in raw material storage causing machine waiting time. Management must install backup generators, implement biometric attendance, and introduce production incentive bonuses.",
     "wrong_answers_pool": [
       "Favourable labour variance because employees were paid more hours than budgeted",
       "Dismiss the production manager and replace all machinery with manual hand tools",
@@ -1230,7 +954,7 @@
       "Direct labour productivity has zero impact on cost of production in modern manufacturing",
       "Increase standard hours to match actual hours to conceal the inefficiency"
     ],
-    "explanation": "Evaluation: **Unfavourable labour variance: Excessive manual handling between glazing stations and firing kilns. Management must install backup generators, implement biometric attendance, and introduce production incentive bonuses.**. Direct labour productivity and management response to idle time are key exam evaluation topics.",
+    "explanation": "Evaluation: **Unfavourable labour variance: Shortage of forklift operators in raw material storage causing machine waiting time. Management must install backup generators, implement biometric attendance, and introduce production incentive bonuses.**. Direct labour productivity and management response to idle time are key exam evaluation topics.",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
@@ -1238,55 +962,275 @@
       "subtopic": "Labour Efficiency & Productivity",
       "cognitive_level": "Evaluating",
       "difficulty": "hard",
-      "learning_outcome": "Evaluate labour productivity for Limpopo Pottery Ltd"
+      "learning_outcome": "Evaluate labour productivity for Zululand Pack Ltd"
     },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_45"
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_35"
   },
   {
-    "id": "ACC_P2_MFG_0483",
-    "topic": "Cost Accounting (Manufacturing)",
-    "subtopic": "Break-Even Analysis",
-    "difficulty": "medium",
-    "question": "**Vaal Polymer Pipes Ltd** sells *Irrigation Piping (Coils)* at a selling price of **R340.00** per unit. Variable costs are **R215.00** per unit and Total Fixed Costs amount to **R660,000.00**. Calculate the **Break-Even Point in units**:",
-    "correct_answer": "5,280 units",
+    "id": "ACC_P2_REC_0977",
+    "topic": "Reconciliations & Internal Control",
+    "subtopic": "Complex Bank Reconciliation Calculations",
+    "difficulty": "hard",
+    "question": "The adjusted Bank Account of **Welkom Shaft Merchants Ltd** reflects a favourable balance of **R112,030.00**. The Bank Reconciliation Statement lists an outstanding deposit of **R50,000.00** and unpresented cheques totaling **R42,000.00**. There were no bank errors. Reverse-engineer and calculate the **Balance as per Bank Statement** at month-end:",
+    "correct_answer": "R104,030.00 (Credit/Favourable)",
     "wrong_answers_pool": [
-      "1,941 units (divided fixed costs by selling price only: omitted variable costs)",
-      "3,070 units (divided fixed costs by variable costs only)",
-      "8,897 units",
-      "6,336 units",
-      "4,224 units",
-      "6,480 units",
-      "4,480 units"
+      "R120,030.00 (added deposit and deducted cheques)",
+      "R112,030.00 (used adjusted bank account balance)",
+      "R119,634.50",
+      "R88,425.50",
+      "R126,030.00",
+      "R86,030.00",
+      "R8,000.00"
     ],
-    "explanation": "Break-Even Point = Total Fixed Costs / (Selling Price - Variable Cost per unit)\n= R660,000.00 / (R340.00 - R215.00)\n= R660,000.00 / R125.00 = 5,280 units.",
+    "explanation": "Reconciliation Formula: Bank Statement Balance + Outstanding Deposit - Unpresented Cheques = Adjusted Bank Balance\nBank Statement Balance = Adjusted Bank Balance (R112,030.00) - Outstanding Deposit (R50,000.00) + Unpresented Cheques (R42,000.00)\n= R104,030.00 (Credit/Favourable).",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Reconciliations & Internal Control",
+      "subtopic": "Complex Bank Reconciliation Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "hard",
+      "learning_outcome": "Reverse engineer bank statement for Welkom Shaft Merchants Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_36"
+  },
+  {
+    "id": "ACC_P2_INV_0978",
+    "topic": "Inventory & Asset Control",
+    "subtopic": "Inventory Internal Control & Governance",
+    "difficulty": "hard",
+    "question": "Identify the primary internal control measure required to prevent the following inventory malpractice:\n\n*\"An automotive spare parts manager discovered that 400 imported brake pad sets were counterfeit and failed SABS friction heat tests. The manager refused to scrap them, ordering counter staff to sell them as genuine OEM components.\"*",
+    "correct_answer": "Enforce segregation of duties, mandatory physical verification, independent surprise audits, and strict conflict of interest declarations as required by King IV.",
+    "wrong_answers_pool": [
+      "Abolish all inventory counting procedures and rely solely on supplier invoice estimates",
+      "Triple the selling price of goods to ensure all inventory losses are recovered from customers",
+      "Prohibit employees from taking annual leave or communicating with external auditors",
+      "Cease using pre-numbered Goods Received Notes and purchase requisitions",
+      "Allow department managers to destroy accounting records after 30 days",
+      "Eliminate internal audit committees and transfer oversight to casual workers"
+    ],
+    "explanation": "Correct Control Measure: **Enforce segregation of duties, mandatory physical verification, independent surprise audits, and strict conflict of interest declarations as required by King IV.**.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Inventory & Asset Control",
+      "subtopic": "Inventory Internal Control & Governance",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Identify internal control measure for inventory"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_37"
+  },
+  {
+    "id": "ACC_P2_REC_0756",
+    "topic": "Reconciliations & Internal Control",
+    "subtopic": "Creditors Reconciliation Adjustments",
+    "difficulty": "medium",
+    "question": "**Bredasdorp Grain Store Ltd** deducted an early settlement discount of **R1,360.00** in the CPJ when paying supplier Kavango Supplies. However, the payment was made after the 30-day deadline, and the creditor disallowed the discount on the monthly statement. How must this disallowed discount be recorded in the Creditors Ledger?",
+    "correct_answer": "Credit the Creditors Ledger account with R1,360.00 to reverse the discount",
+    "wrong_answers_pool": [
+      "Debit the Creditors Ledger account with R1,360.00",
+      "Enter on the Creditors Reconciliation Statement as a credit note",
+      "Deduct R1,360.00 from the opening bank balance in the Cash Budget",
+      "Transfer R1,360.00 to Discount Received income",
+      "Ignore the creditor's refusal and maintain the deduction",
+      "Deduct R1,360.00 from Value-Added Tax payable to SARS"
+    ],
+    "explanation": "Correction: Credit the Creditors Ledger account with R1,360.00 to reverse the discount. When a discount is cancelled by a supplier, the liability must be reinstated by crediting the Creditors Ledger.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Reconciliations & Internal Control",
+      "subtopic": "Creditors Reconciliation Adjustments",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Correct disallowed discount for Bredasdorp Grain Store Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_38"
+  },
+  {
+    "id": "ACC_P2_INV_0364",
+    "topic": "Inventory & Asset Control",
+    "subtopic": "Weighted Average Inventory Valuation",
+    "difficulty": "medium",
+    "question": "**Highveld Computech Ltd** uses the **Weighted Average Cost method** for *Gaming Monitors (27-inch)*. Total cost of available goods (including carriage) is **R4,936,600.00** across **1,500 units**. Calculate the **weighted average cost per unit** (rounded to two decimal places):",
+    "correct_answer": "R3291.07",
+    "wrong_answers_pool": [
+      "R3112.50 (simple average of unit prices: ignored quantities and carriage)",
+      "R2800.00 (opening price only)",
+      "R3580.00 (latest batch price only)",
+      "R3784.73",
+      "R2797.41",
+      "R3326.07",
+      "R3266.07"
+    ],
+    "explanation": "Weighted Average Cost per Unit = Total Cost of Goods Available / Total Units Available\n= R4,936,600.00 / 1,500 = R3291.07 per unit.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Inventory & Asset Control",
+      "subtopic": "Weighted Average Inventory Valuation",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate weighted average unit cost for Highveld Computech Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_39"
+  },
+  {
+    "id": "ACC_P2_INV_0434",
+    "topic": "Inventory & Asset Control",
+    "subtopic": "Weighted Average Inventory Valuation",
+    "difficulty": "medium",
+    "question": "**Free State Grain Mart Ltd** uses the **Weighted Average Cost method** for *Moisture Meter Kits*. Total cost of available goods (including carriage) is **R3,750,500.00** across **1,300 units**. Calculate the **weighted average cost per unit** (rounded to two decimal places):",
+    "correct_answer": "R2885.00",
+    "wrong_answers_pool": [
+      "R2712.50 (simple average of unit prices: ignored quantities and carriage)",
+      "R2400.00 (opening price only)",
+      "R3170.00 (latest batch price only)",
+      "R3317.75",
+      "R2452.25",
+      "R2920.00",
+      "R2860.00"
+    ],
+    "explanation": "Weighted Average Cost per Unit = Total Cost of Goods Available / Total Units Available\n= R3,750,500.00 / 1,300 = R2885.00 per unit.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Inventory & Asset Control",
+      "subtopic": "Weighted Average Inventory Valuation",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate weighted average unit cost for Free State Grain Mart Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_40"
+  },
+  {
+    "id": "ACC_P2_REC_0767",
+    "topic": "Reconciliations & Internal Control",
+    "subtopic": "Creditors Reconciliation Adjustments",
+    "difficulty": "medium",
+    "question": "The Creditors Ledger balance of **Cradock Livestock Hub Ltd** for supplier Algoa Traders was **R85,000.00**. Adjustments required in the ledger are:\n- Omitted purchase invoice: **R5,300.00**\n- Disallowed early settlement discount: **R1,060.00**\nCalculate the **Adjusted Creditors Ledger balance**:",
+    "correct_answer": "R91,360.00",
+    "wrong_answers_pool": [
+      "R85,000.00 (unadjusted creditors balance)",
+      "R78,640.00 (deducted omitted invoice and discount)",
+      "R89,240.00 (deducted disallowed discount)",
+      "R105,064.00",
+      "R77,656.00",
+      "R109,360.00",
+      "R76,360.00"
+    ],
+    "explanation": "Adjusted Balance = Ledger Balance (R85,000.00) + Omitted Invoice (R5,300.00) + Disallowed Discount (R1,060.00) = R91,360.00.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Reconciliations & Internal Control",
+      "subtopic": "Creditors Reconciliation Adjustments",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate adjusted creditors balance for Cradock Livestock Hub Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_41"
+  },
+  {
+    "id": "ACC_P2_BUD_0460",
+    "topic": "Budgeting",
+    "subtopic": "Cash Budget Summary",
+    "difficulty": "medium",
+    "question": "The November Cash Budget summary of **Outeniqua Garden World Ltd** reflects total budgeted cash receipts of **R475,488.00** and total budgeted cash payments of **R380,287.50**. Calculate the **Net Cash Flow** for November:",
+    "correct_answer": "R95,200.50 (Surplus)",
+    "wrong_answers_pool": [
+      "R475,488.00 (total receipts only)",
+      "R380,287.50 (total payments only)",
+      "R-95,200.50 (inverted surplus and deficit)",
+      "R114,240.60",
+      "R76,160.40",
+      "R120,200.50",
+      "R75,200.50"
+    ],
+    "explanation": "Net Cash Flow = Total Cash Receipts - Total Cash Payments = R475,488.00 - R380,287.50 = R95,200.50 (Surplus).",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Budgeting",
+      "subtopic": "Cash Budget Summary",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate net cash flow for Outeniqua Garden World Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_42"
+  },
+  {
+    "id": "ACC_P2_MFG_0845",
+    "topic": "Cost Accounting (Manufacturing)",
+    "subtopic": "Material Wastage & Variance Analysis",
+    "difficulty": "hard",
+    "question": "The standard specification for **Polokwane Agri Feeds Ltd** indicates that each unit of *Dairy Cattle Feed (Bags)* requires **50.00 metres/kg** of raw material at a standard cost of **R22.00** per metre/kg. During the year, the factory produced **21,000 units** and actually used **1,134,000.0 metres/kg** (an average of **54.00 metres/kg** per unit). Calculate the **financial cost of raw material wastage**:",
+    "correct_answer": "R1,848,000.00 (84,000.0 units of material wasted)",
+    "wrong_answers_pool": [
+      "R24,948,000.00 (calculated total actual material cost)",
+      "R23,100,000.00 (calculated standard material cost)",
+      "R84,000.00 (omitted cost per unit of material)",
+      "R2,217,600.00",
+      "R1,478,400.00",
+      "R1,888,000.00",
+      "R1,818,000.00"
+    ],
+    "explanation": "Standard Material Required = 21,000 x 50.00 = 1,050,000.0\nActual Material Used = 1,134,000.0\nMaterial Wastage = 1,134,000.0 - 1,050,000.0 = 84,000.0\nCost of Wastage = 84,000.0 x R22.00 = R1,848,000.00 (84,000.0 units of material wasted).",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
       "topic": "Cost Accounting (Manufacturing)",
-      "subtopic": "Break-Even Analysis",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate break-even units for Vaal Polymer Pipes Ltd"
+      "subtopic": "Material Wastage & Variance Analysis",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate material wastage cost for Polokwane Agri Feeds Ltd"
     },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_46"
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_43"
   },
   {
-    "id": "ACC_P2_INV_0925",
+    "id": "ACC_P2_REC_0790",
+    "topic": "Reconciliations & Internal Control",
+    "subtopic": "Creditors Reconciliation Adjustments",
+    "difficulty": "medium",
+    "question": "What is the primary internal control and business governance reason for preparing a **Creditors Reconciliation** in **Oudtshoorn Leathercraft Ltd**?",
+    "correct_answer": "To verify external supplier claims, prevent overpayments, detect unrecorded credit notes, and maintain good supplier credit ratings",
+    "wrong_answers_pool": [
+      "To calculate corporate income tax deductions for the South African Revenue Service",
+      "To determine how many ordinary shares the company should issue to suppliers",
+      "To calculate annual factory machinery depreciation on the diminishing balance method",
+      "To evaluate whether retail selling prices of consumer goods should be increased by 20%",
+      "To replace the need for conducting annual physical inventory counts in the warehouse",
+      "To enable company directors to borrow corporate cash without paying interest"
+    ],
+    "explanation": "Reason: **To verify external supplier claims, prevent overpayments, detect unrecorded credit notes, and maintain good supplier credit ratings**. Reconciliations are essential internal control checks in financial accounting.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Reconciliations & Internal Control",
+      "subtopic": "Creditors Reconciliation Adjustments",
+      "cognitive_level": "Understanding",
+      "difficulty": "medium",
+      "learning_outcome": "Explain reason for creditors reconciliation in Oudtshoorn Leathercraft Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_44"
+  },
+  {
+    "id": "ACC_P2_INV_0814",
     "topic": "Inventory & Asset Control",
     "subtopic": "Trading Stock Deficit & Shrinkage",
     "difficulty": "hard",
-    "question": "The stock records of **Mossel Bay Marine Traders Ltd** for *Marine EPIRB Distress Beacons* indicate that **540 units** were available for sale and **450 units** were sold. The year-end physical inventory count revealed only **70 units** on hand. The inventory is valued under FIFO at **R6500.00** per unit. Calculate the **financial value of the Trading Stock Deficit (theft/shrinkage)**:",
-    "correct_answer": "R130,000.00 (20 units missing/stolen)",
+    "question": "Refer to the stock deficit at **Highveld Computech Ltd** on *Solid State Hard Drives (1TB)* (65 units missing, value R94,250.00). Provide the most professional internal control evaluation and management recommendation under CAPS Accounting:",
+    "correct_answer": "Internal Control Failure: Pocket theft of high-value compact electronics due to lack of metal detectors and CCTV camera blind spots in the packing aisle. Management must enforce physical access controls, CCTV monitoring, segregation of duties, and unannounced stock audits.",
     "wrong_answers_pool": [
-      "R585,000.00 (valued total theoretical closing stock)",
-      "R455,000.00 (valued actual physical count)",
-      "R20.00 (omitted unit cost)",
-      "R156,000.00",
-      "R104,000.00",
-      "R155,000.00",
-      "R110,000.00"
+      "Ignore the stock loss because inventory theft of 10% to 20% is normal in retail commerce",
+      "Increase retail selling prices by 35% immediately to force paying customers to cover the theft",
+      "Cease conducting physical stock counts at year-end to prevent detecting future deficits",
+      "Dismiss all warehouse workers instantly and close down trading operations permanently",
+      "Transfer missing stock balances directly to Ordinary Share Capital as a dividend",
+      "Stop buying inventory on credit from commercial suppliers"
     ],
-    "explanation": "Theoretical Closing Stock = Available (540) - Sold (450) = 90 units\nActual Physical Count = 70 units\nDeficit (Missing Units) = 90 - 70 = 20 units\nValue of Deficit = 20 units x R6500.00 = R130,000.00 (20 units missing/stolen).\nThis is debited to Trading Stock Deficit (operating expense in Income Statement).",
+    "explanation": "Evaluation: **Internal Control Failure: Pocket theft of high-value compact electronics due to lack of metal detectors and CCTV camera blind spots in the packing aisle. Management must enforce physical access controls, CCTV monitoring, segregation of duties, and unannounced stock audits.**.",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
@@ -1294,90 +1238,145 @@
       "subtopic": "Trading Stock Deficit & Shrinkage",
       "cognitive_level": "Evaluating",
       "difficulty": "hard",
-      "learning_outcome": "Calculate stock deficit for Mossel Bay Marine Traders Ltd"
+      "learning_outcome": "Internal control for stock deficit in Highveld Computech Ltd"
     },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_47"
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_45"
   },
   {
-    "id": "ACC_P2_BUD_0922",
-    "topic": "Budgeting",
-    "subtopic": "Debtors Collection Period Analysis",
-    "difficulty": "hard",
-    "question": "Evaluate the **Debtors Collection Period** of **Highveld Tech World Ltd** (50.8 days vs 30-day terms) and recommend appropriate internal control strategies:",
-    "correct_answer": "Debtors Collection Period is 50.8 days. Credit policy is too lenient. Immediate remedial step: Charge prime + 2% interest on accounts overdue past 30 days.",
+    "id": "ACC_P2_REC_0710",
+    "topic": "Reconciliations & Internal Control",
+    "subtopic": "Creditors Reconciliation Adjustments",
+    "difficulty": "medium",
+    "question": "What is the primary internal control and business governance reason for preparing a **Creditors Reconciliation** in **Mossel Bay Marine Traders Ltd**?",
+    "correct_answer": "To verify external supplier claims, prevent overpayments, detect unrecorded credit notes, and maintain good supplier credit ratings",
     "wrong_answers_pool": [
-      "Exceptional performance: Debtors taking longer to pay proves customer loyalty and satisfaction",
-      "Neutral: The collection period has zero impact on company bank liquidity or bad debt risks",
-      "The business should immediately cancel all cash sales and sell merchandise 100% on credit",
-      "The credit manager should be rewarded with a 50% bonus for keeping money in debtors accounts",
-      "Credit terms should be extended to 180 days to encourage debtors to delay payment even further",
-      "Debtors collection periods cannot be evaluated without knowing the authorized share capital"
+      "To calculate corporate income tax deductions for the South African Revenue Service",
+      "To determine how many ordinary shares the company should issue to suppliers",
+      "To calculate annual factory machinery depreciation on the diminishing balance method",
+      "To evaluate whether retail selling prices of consumer goods should be increased by 20%",
+      "To replace the need for conducting annual physical inventory counts in the warehouse",
+      "To enable company directors to borrow corporate cash without paying interest"
     ],
-    "explanation": "Evaluation: **Debtors Collection Period is 50.8 days. Credit policy is too lenient. Immediate remedial step: Charge prime + 2% interest on accounts overdue past 30 days.**.",
+    "explanation": "Reason: **To verify external supplier claims, prevent overpayments, detect unrecorded credit notes, and maintain good supplier credit ratings**. Reconciliations are essential internal control checks in financial accounting.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Reconciliations & Internal Control",
+      "subtopic": "Creditors Reconciliation Adjustments",
+      "cognitive_level": "Understanding",
+      "difficulty": "medium",
+      "learning_outcome": "Explain reason for creditors reconciliation in Mossel Bay Marine Traders Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_46"
+  },
+  {
+    "id": "ACC_P2_BUD_0319",
+    "topic": "Budgeting",
+    "subtopic": "Loan & Interest Repayments",
+    "difficulty": "medium",
+    "question": "**Kavango Emporium Ltd** has an outstanding commercial mortgage loan of **R620,000.00** at **12% interest p.a.** on 1 November. The company repays **R15,000.00** of the capital loan principal at the end of each month, plus monthly interest. Calculate the **total cash payment for the loan (capital + interest)** in the November Cash Budget:",
+    "correct_answer": "R21,200.00 (Principal: R15,000.00, Interest: R6,200.00)",
+    "wrong_answers_pool": [
+      "R15,000.00 (omitted loan interest: principal repayment only)",
+      "R6,200.00 (omitted principal loan repayment: interest only)",
+      "R89,400.00 (added full annual interest in one month)",
+      "R25,440.00",
+      "R16,960.00",
+      "R29,200.00",
+      "R15,200.00"
+    ],
+    "explanation": "Monthly Interest = Loan Balance x 12% / 12 months = R620,000.00 x 1% = R6,200.00\nTotal Loan Outflow = Capital Repayment (R15,000.00) + Interest (R6,200.00) = R21,200.00 (Principal: R15,000.00, Interest: R6,200.00).",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
       "topic": "Budgeting",
-      "subtopic": "Debtors Collection Period Analysis",
+      "subtopic": "Loan & Interest Repayments",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate loan payment for Kavango Emporium Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_47"
+  },
+  {
+    "id": "ACC_P2_INV_0883",
+    "topic": "Inventory & Asset Control",
+    "subtopic": "Trading Stock Deficit & Shrinkage",
+    "difficulty": "hard",
+    "question": "The stock records of **Standerton Milking Systems Ltd** for *Pulsator Valves* indicate that **1,650 units** were available for sale and **1,390 units** were sold. The year-end physical inventory count revealed only **215 units** on hand. The inventory is valued under FIFO at **R1120.00** per unit. Calculate the **financial value of the Trading Stock Deficit (theft/shrinkage)**:",
+    "correct_answer": "R50,400.00 (45 units missing/stolen)",
+    "wrong_answers_pool": [
+      "R291,200.00 (valued total theoretical closing stock)",
+      "R240,800.00 (valued actual physical count)",
+      "R45.00 (omitted unit cost)",
+      "R60,480.00",
+      "R40,320.00",
+      "R75,400.00",
+      "R30,400.00"
+    ],
+    "explanation": "Theoretical Closing Stock = Available (1,650) - Sold (1,390) = 260 units\nActual Physical Count = 215 units\nDeficit (Missing Units) = 260 - 215 = 45 units\nValue of Deficit = 45 units x R1120.00 = R50,400.00 (45 units missing/stolen).\nThis is debited to Trading Stock Deficit (operating expense in Income Statement).",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Inventory & Asset Control",
+      "subtopic": "Trading Stock Deficit & Shrinkage",
       "cognitive_level": "Evaluating",
       "difficulty": "hard",
-      "learning_outcome": "Evaluate debtors collection for Highveld Tech World Ltd"
+      "learning_outcome": "Calculate stock deficit for Standerton Milking Systems Ltd"
     },
     "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_48"
   },
   {
-    "id": "ACC_P2_MFG_0402",
+    "id": "ACC_P2_MFG_0389",
     "topic": "Cost Accounting (Manufacturing)",
-    "subtopic": "Production Cost Statement",
+    "subtopic": "Break-Even Analysis",
     "difficulty": "medium",
-    "question": "**Limpopo Brickworks Ltd** completed **22,000 units** of *Facing Bricks (Packs of 100)*. The Cost of Production of Finished Goods was **R1,820,000.00**. Calculate the **unit cost of production** per finished unit:",
-    "correct_answer": "R82.73",
+    "question": "**Table Mountain Teas Ltd** produced and sold **40,000 units** of *Herbal Tea Cartons*, while its break-even point was calculated as **15,455 units**. Which statement best evaluates the **operational viability** of the enterprise?",
+    "correct_answer": "The business is operating profitably and safely because actual production exceeds the break-even point",
     "wrong_answers_pool": [
-      "R82.27 (calculated without WIP adjustment)",
-      "R65.00 (unit prime cost only)",
-      "R40.00 (unit direct materials only)",
-      "R103.41",
-      "R62.05",
-      "R107.73",
-      "R64.73"
+      "The business should immediately cease operations because the break-even point is greater than zero",
+      "The business should reduce selling price by 50% to increase production volume",
+      "Break-even analysis has no relevance to operational viability under King IV",
+      "The business is breaking even exactly with zero margin of safety",
+      "Fixed costs should be transferred to trade debtors to artificially increase profitability",
+      "The business must double variable cost per unit to achieve financial equilibrium"
     ],
-    "explanation": "Unit Cost of Production = Cost of Production of Finished Goods / Units Produced = R1,820,000.00 / 22,000 = R82.73 per unit.",
+    "explanation": "Evaluation: **The business is operating profitably and safely because actual production exceeds the break-even point**. With actual production of 40,000 units vs BEP of 15,455 units, Margin of Safety is 24,545 units.",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
       "topic": "Cost Accounting (Manufacturing)",
-      "subtopic": "Production Cost Statement",
-      "cognitive_level": "Applying",
+      "subtopic": "Break-Even Analysis",
+      "cognitive_level": "Analyzing",
       "difficulty": "medium",
-      "learning_outcome": "Calculate unit cost of finished goods for Limpopo Brickworks Ltd"
+      "learning_outcome": "Evaluate break-even viability for Table Mountain Teas Ltd"
     },
     "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_49"
   },
   {
-    "id": "ACC_P2_MFG_0576",
-    "topic": "Cost Accounting (Manufacturing)",
-    "subtopic": "Cost of Finished Goods Sold",
-    "difficulty": "medium",
-    "question": "Calculate the **Cost of Finished Goods Sold** for **Paarl Preserves Ltd**:\n- Finished Goods at beginning: **R254,880.00**\n- Cost of Production of Finished Goods for the year: **R2,124,000.00**\n- Finished Goods at end of year: **R318,600.00**",
-    "correct_answer": "R2,060,280.00",
+    "id": "ACC_P2_REC_0829",
+    "topic": "Reconciliations & Internal Control",
+    "subtopic": "Complex Bank Reconciliation Calculations",
+    "difficulty": "hard",
+    "question": "The adjusted Bank Account of **Highveld Computech Ltd** reflects a favourable balance of **R108,900.00**. The Bank Reconciliation Statement lists an outstanding deposit of **R49,000.00** and unpresented cheques totaling **R41,200.00**. There were no bank errors. Reverse-engineer and calculate the **Balance as per Bank Statement** at month-end:",
+    "correct_answer": "R101,100.00 (Credit/Favourable)",
     "wrong_answers_pool": [
-      "R2,124,000.00 (used cost of production without finished goods inventory adjustments)",
-      "R2,697,480.00 (added closing finished goods instead of deducting)",
-      "R2,187,720.00",
-      "R2,369,322.00",
-      "R1,751,238.00",
-      "R2,140,280.00",
-      "R1,990,280.00"
+      "R116,700.00 (added deposit and deducted cheques)",
+      "R108,900.00 (used adjusted bank account balance)",
+      "R116,265.00",
+      "R85,935.00",
+      "R123,100.00",
+      "R83,100.00",
+      "R7,800.00"
     ],
-    "explanation": "Cost of Finished Goods Sold = Opening Finished Goods + Cost of Production - Closing Finished Goods\n= R254,880.00 + R2,124,000.00 - R318,600.00 = R2,060,280.00.",
+    "explanation": "Reconciliation Formula: Bank Statement Balance + Outstanding Deposit - Unpresented Cheques = Adjusted Bank Balance\nBank Statement Balance = Adjusted Bank Balance (R108,900.00) - Outstanding Deposit (R49,000.00) + Unpresented Cheques (R41,200.00)\n= R101,100.00 (Credit/Favourable).",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
-      "topic": "Cost Accounting (Manufacturing)",
-      "subtopic": "Cost of Finished Goods Sold",
+      "topic": "Reconciliations & Internal Control",
+      "subtopic": "Complex Bank Reconciliation Calculations",
       "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate cost of finished goods sold for Paarl Preserves Ltd"
+      "difficulty": "hard",
+      "learning_outcome": "Reverse engineer bank statement for Highveld Computech Ltd"
     },
     "exam_id": "EXAM_2026-W46_grade12_accounting_paper2_50"
   }

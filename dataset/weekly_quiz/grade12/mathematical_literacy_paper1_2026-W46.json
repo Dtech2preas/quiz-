@@ -1,349 +1,71 @@
 [
   {
-    "id": "ML12_P1_FIN_0996",
-    "topic": "Finance",
-    "subtopic": "Break-Even Analysis",
+    "id": "ML12_P1_DATA_0403",
+    "topic": "Data Handling",
+    "subtopic": "Five-Number Summary & Quartiles",
     "paper": "paper1",
-    "difficulty": "hard",
-    "question": "An enterprise incurs fixed monthly overheads of R16,524.00. Direct variable costs per item are R82.00 and each item sells for R153.00. Calculate the break-even sales volume.",
-    "correct_answer": "233 units",
+    "difficulty": "medium",
+    "question": "Using the quartiles determined from the dataset for the mass (kg) of 13 Grade 12 rugby squad players (where Q\u2081 = 76.5 and Q\u2083 = 102.0): Calculate the Interquartile Range (IQR).",
+    "correct_answer": "25.5",
     "wrong_answers_pool": [
-      "108 units",
-      "201 units",
-      "248 units",
-      "218 units",
-      "260 units",
-      "205 units",
-      "263 units"
+      "46",
+      "12.75",
+      "178.5",
+      "29.5",
+      "21.5",
+      "88",
+      "29.3"
     ],
-    "explanation": "Contribution margin = R153.00 - R82.00 = R71.00. Break-even volume = R16,524.00 \u00f7 R71.00 = 232.73 \u2248 233 units.",
+    "explanation": "IQR = Q\u2083 - Q\u2081 = 102.0 - 76.5 = 25.5.",
     "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_1"
   },
   {
-    "id": "ML12_P1_DATA_0653",
-    "topic": "Data Handling",
-    "subtopic": "Five-Number Summary & Quartiles",
+    "id": "ML12_P1_FIN_0627",
+    "topic": "Finance",
+    "subtopic": "Simple & Compound Interest",
     "paper": "paper1",
     "difficulty": "medium",
-    "question": "Given the ordered dataset of 9 learner marks: 41, 43, 48, 53, 55, 75, 79, 86, 86. Calculate the Interquartile Range (IQR).",
-    "correct_answer": "37.0",
+    "question": "Kagiso deposits R69,546.00 into an investment fund earning 9.5% compound interest compounded annually. Calculate the total interest earned over 4 years.",
+    "correct_answer": "R30,437.57",
     "wrong_answers_pool": [
-      "45",
-      "55",
-      "18.5",
-      "42.0",
-      "32.0",
-      "45.5",
-      "82.5"
+      "R99,983.57",
+      "R26,427.48",
+      "R35,003.21",
+      "R25,871.93",
+      "R31,237.57",
+      "R29,637.57",
+      "R32,872.58"
     ],
-    "explanation": "Q\u2081 = 45.5, Q\u2083 = 82.5. IQR = Q\u2083 - Q\u2081 = 82.5 - 45.5 = 37.0.",
+    "explanation": "A = R69,546.00(1 + 0.095)^4 = R99,983.57. Total Interest = A - P = R99,983.57 - R69,546.00 = R30,437.57.",
     "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_2"
   },
   {
-    "id": "ML12_P1_DATA_0716",
+    "id": "ML12_P1_DATA_0884",
     "topic": "Data Handling",
-    "subtopic": "Five-Number Summary & Quartiles",
+    "subtopic": "Scatter Plots & Correlation Analysis",
     "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Given the ordered dataset of 9 learner marks: 32, 40, 59, 66, 72, 75, 76, 92, 94. Calculate the Interquartile Range (IQR).",
-    "correct_answer": "34.5",
+    "difficulty": "hard",
+    "question": "In an environmental study, river water acidity (y) is modeled against industrial distance (x km) by the regression line y = 2.2x + 19.5. Calculate the predicted acidity when x = 20 km.",
+    "correct_answer": "63.5",
     "wrong_answers_pool": [
-      "62",
-      "72",
-      "17.2",
+      "44.0",
       "39.5",
-      "29.5",
-      "49.5",
-      "84.0"
+      "68.7",
+      "58.3",
+      "71.1",
+      "55.9",
+      "21.7"
     ],
-    "explanation": "Q\u2081 = 49.5, Q\u2083 = 84.0. IQR = Q\u2083 - Q\u2081 = 84.0 - 49.5 = 34.5.",
+    "explanation": "Substitute x = 20: y = (2.2 \u00d7 20) + 19.5 = 44.0 + 19.5 = 63.5.",
     "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_3"
   },
   {
-    "id": "ML12_P1_FIN_0814",
-    "topic": "Finance",
-    "subtopic": "Hire Purchase & Loans",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "Continuing with Nolwazi's home loan of R850,000.00 at 9.0% per annum with a monthly payment of R7,650.00: In Month 1, simple monthly interest is charged on the full opening balance. Calculate the amount of the first monthly installment that goes towards reducing the actual loan capital balance.",
-    "correct_answer": "R1,275.00",
-    "wrong_answers_pool": [
-      "R6,375.00",
-      "R7,650.00",
-      "R3,825.00",
-      "R1,530.00",
-      "R1,020.00",
-      "R3,541.67",
-      "R848,725.00"
-    ],
-    "explanation": "Month 1 Interest = R850,000.00 \u00d7 (9.0% \u00f7 12) = R6,375.00. Capital reduction = Monthly Payment - Interest = R7,650.00 - R6,375.00 = R1,275.00.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_4"
-  },
-  {
-    "id": "ML12_P1_PROB_0892",
-    "topic": "Probability",
-    "subtopic": "Medical Diagnostic Testing & Risk Analysis",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "In a public health surveillance programme involving soil pathogen testing across 2,200 agricultural fields (sample size: 4,400):\n\u2022 Exactly 220 individuals actually have the condition.\n\u2022 The screening test correctly identifies 198 of these infected individuals (True Positives).\n\u2022 The test also incorrectly gives positive results to 88 healthy individuals (False Positives).\nCalculate the Positive Predictive Value (probability that a person testing positive actually has the condition), expressed as a percentage. (Round to 2 decimal places).",
-    "correct_answer": "69.23%",
-    "wrong_answers_pool": [
-      "90.0%",
-      "30.77%",
-      "6.5%",
-      "79.61%",
-      "58.85%",
-      "77.73%",
-      "60.73%"
-    ],
-    "explanation": "Total Positive Tests = True Positives + False Positives = 198 + 88 = 286. Positive Predictive Value = True Positives \u00f7 Total Positive Tests = 198 \u00f7 286 \u00d7 100% = 69.23%.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_5"
-  },
-  {
-    "id": "ML12_P1_FIN_0636",
-    "topic": "Finance",
-    "subtopic": "Simple & Compound Interest",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Aisha deposits R85,066.00 into an investment fund earning 8.75% compound interest compounded annually. Calculate the total interest earned over 4 years.",
-    "correct_answer": "R33,913.76",
-    "wrong_answers_pool": [
-      "R118,979.76",
-      "R29,773.10",
-      "R39,000.82",
-      "R28,826.70",
-      "R34,713.76",
-      "R33,113.76",
-      "R36,626.86"
-    ],
-    "explanation": "A = R85,066.00(1 + 0.0875)^4 = R118,979.76. Total Interest = A - P = R118,979.76 - R85,066.00 = R33,913.76.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_6"
-  },
-  {
-    "id": "ML12_P1_PROB_0779",
-    "topic": "Probability",
-    "subtopic": "Tree Diagrams (Independent & Dependent)",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Using the tree diagram parameters for Courier delivery on-time guarantee (P(Event 1) = 0.80, P(Event 2) = 0.80): Determine the probability that AT LEAST ONE of the two events occurs, expressed as a percentage.",
-    "correct_answer": "96.0%",
-    "wrong_answers_pool": [
-      "64.0%",
-      "4.0%",
-      "68.0%",
-      "105.6%",
-      "86.4%",
-      "80.0%"
-    ],
-    "explanation": "P(At least one) = 1 - P(Neither) = 1 - ((1 - 0.80) \u00d7 (1 - 0.80)) = 1 - (0.20 \u00d7 0.20) = 1 - 0.0400 = 96.0%.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_7"
-  },
-  {
-    "id": "ML12_P1_PROB_0335",
-    "topic": "Probability",
-    "subtopic": "Two-Way Contingency Tables",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "The two-way contingency table below summarizes survey data for Commuter Transport Mode Preference (Grand Total = 2500):\n\u2022 Urban: Public Transit = 900, Private Vehicle = 350 (Row Total = 1250)\n\u2022 Rural: Public Transit = 1050, Private Vehicle = 200 (Row Total = 1250)\nDetermine the probability that a randomly chosen respondent is 'Urban', expressed as a percentage. (Round to 1 decimal place).",
-    "correct_answer": "50.0%",
-    "wrong_answers_pool": [
-      "36.0%",
-      "78.0%",
-      "57.5%",
-      "42.5%",
-      "62.0%",
-      "38.0%"
-    ],
-    "explanation": "P(Urban) = Row Total \u00f7 Grand Total = 1250 \u00f7 2500 \u00d7 100% = 50.0%.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_8"
-  },
-  {
-    "id": "ML12_P1_DATA_0945",
-    "topic": "Data Handling",
-    "subtopic": "Scatter Plots & Correlation Analysis",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "In an environmental study, river water acidity (y) is modeled against industrial distance (x km) by the regression line y = 2.7x + 15.6. Calculate the predicted acidity when x = 42 km.",
-    "correct_answer": "129.0",
-    "wrong_answers_pool": [
-      "113.4",
-      "57.6",
-      "134.2",
-      "123.8",
-      "144.5",
-      "113.5",
-      "18.3"
-    ],
-    "explanation": "Substitute x = 42: y = (2.7 \u00d7 42) + 15.6 = 113.4 + 15.6 = 129.0.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_9"
-  },
-  {
-    "id": "ML12_P1_FIN_0991",
-    "topic": "Finance",
-    "subtopic": "Break-Even Analysis",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "An enterprise incurs fixed monthly overheads of R18,563.00. Direct variable costs per item are R91.00 and each item sells for R149.00. Calculate the break-even sales volume.",
-    "correct_answer": "321 units",
-    "wrong_answers_pool": [
-      "124 units",
-      "203 units",
-      "336 units",
-      "306 units",
-      "359 units",
-      "282 units",
-      "351 units"
-    ],
-    "explanation": "Contribution margin = R149.00 - R91.00 = R58.00. Break-even volume = R18,563.00 \u00f7 R58.00 = 320.05 \u2248 321 units.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_10"
-  },
-  {
-    "id": "ML12_P1_FIN_0751",
-    "topic": "Finance",
-    "subtopic": "Simple & Compound Interest",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Pieter deposits R65,684.00 into an investment fund earning 8.0% compound interest compounded annually. Calculate the total interest earned over 2 years.",
-    "correct_answer": "R10,929.82",
-    "wrong_answers_pool": [
-      "R76,613.82",
-      "R10,509.44",
-      "R12,569.29",
-      "R9,290.35",
-      "R11,729.82",
-      "R10,129.82",
-      "R11,804.21"
-    ],
-    "explanation": "A = R65,684.00(1 + 0.08)^2 = R76,613.82. Total Interest = A - P = R76,613.82 - R65,684.00 = R10,929.82.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_11"
-  },
-  {
-    "id": "ML12_P1_DATA_0551",
-    "topic": "Data Handling",
-    "subtopic": "Five-Number Summary & Quartiles",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Using the quartiles determined from the dataset for the running times (seconds) of 13 athletes in the 400m race (where Q\u2081 = 71.0 and Q\u2083 = 82.0): Calculate the Interquartile Range (IQR).",
-    "correct_answer": "11.0",
-    "wrong_answers_pool": [
-      "22",
-      "5.5",
-      "153.0",
-      "15.0",
-      "7.0",
-      "76",
-      "12.6"
-    ],
-    "explanation": "IQR = Q\u2083 - Q\u2081 = 82.0 - 71.0 = 11.0.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_12"
-  },
-  {
-    "id": "ML12_P1_PROB_0985",
-    "topic": "Probability",
-    "subtopic": "Tree Diagrams (Independent & Dependent)",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "An inspector examines a hospital supply crate of 25 digital thermometers (total 25 items, of which exactly 4 are non-compliant). If 2 items are selected at random ONE AFTER THE OTHER WITHOUT REPLACEMENT: Calculate the probability that BOTH selected items are non-compliant, expressed as a percentage. (Round to 2 decimal places).",
-    "correct_answer": "2.0%",
-    "wrong_answers_pool": [
-      "2.56%",
-      "16.0%",
-      "12.5%",
-      "2.5%",
-      "1.5%",
-      "5.5%",
-      "3.5%"
-    ],
-    "explanation": "P(Both Non-compliant) = P(1st Non-compliant) \u00d7 P(2nd Non-compliant | 1st Non-compliant) = (4/25) \u00d7 (3/24) = 12/600 \u2248 2.0%.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_13"
-  },
-  {
-    "id": "ML12_P1_PROB_0878",
-    "topic": "Probability",
-    "subtopic": "Medical Diagnostic Testing & Risk Analysis",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "In a public health surveillance programme involving routine neonatal jaundice screening of 1,200 newborns (sample size: 7,200):\n\u2022 Exactly 360 individuals actually have the condition.\n\u2022 The screening test correctly identifies 324 of these infected individuals (True Positives).\n\u2022 The test also incorrectly gives positive results to 156 healthy individuals (False Positives).\nCalculate the Positive Predictive Value (probability that a person testing positive actually has the condition), expressed as a percentage. (Round to 2 decimal places).",
-    "correct_answer": "67.5%",
-    "wrong_answers_pool": [
-      "90.0%",
-      "32.5%",
-      "6.67%",
-      "77.62%",
-      "57.38%",
-      "76.0%",
-      "59.0%"
-    ],
-    "explanation": "Total Positive Tests = True Positives + False Positives = 324 + 156 = 480. Positive Predictive Value = True Positives \u00f7 Total Positive Tests = 324 \u00f7 480 \u00d7 100% = 67.5%.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_14"
-  },
-  {
-    "id": "ML12_P1_PROB_0900",
-    "topic": "Probability",
-    "subtopic": "Medical Diagnostic Testing & Risk Analysis",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "An underwriter calculates policy premiums for commercial courier delivery fleet. The maximum insured value is R427,500.00, and statistical analysis indicates a 4.0% probability of a claim occurring during the annual policy term. Fixed administrative costs are R8,075.00 per policy. Calculate the minimum annual break-even premium required to cover the expected claim payout and administrative costs.",
-    "correct_answer": "R25,175.00",
-    "wrong_answers_pool": [
-      "R17,100.00",
-      "R42,750.00",
-      "R28,951.25",
-      "R21,398.75",
-      "R26,675.00",
-      "R23,675.00",
-      "R35,625.00"
-    ],
-    "explanation": "Expected Claim Payout = Insured Value \u00d7 Probability = R427,500.00 \u00d7 0.04 = R17,100.00. Break-even Premium = Expected Claim + Admin Fee = R17,100.00 + R8,075.00 = R25,175.00.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_15"
-  },
-  {
-    "id": "ML12_P1_FIN_0435",
-    "topic": "Finance",
-    "subtopic": "Municipal Tariffs (Water & Electricity)",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "A household in City of Johannesburg consumes 18 k\u2113 of domestic water in a 30-day billing cycle. The stepped tariff table (excluding VAT) is:\n\u2022 Block 1 (0 \u2013 6 k\u2113): R15.50 per k\u2113\n\u2022 Block 2 (>6 \u2013 15 k\u2113): R22.40 per k\u2113\n\u2022 Block 3 (>15 \u2013 30 k\u2113): R31.80 per k\u2113\n\u2022 Block 4 (>30 \u2013 45 k\u2113): R42.50 per k\u2113\nCalculate the total water bill payable including 15% VAT.",
-    "correct_answer": "R448.50",
-    "wrong_answers_pool": [
-      "R390.00",
-      "R658.26",
-      "R879.75",
-      "R463.68",
-      "R493.35",
-      "R403.65",
-      "R669.00"
-    ],
-    "explanation": "Calculations:\nBlock 1: 6 kl \u00d7 R15.50 = R93.00\nBlock 2: 9 kl \u00d7 R22.40 = R201.60\nBlock 3 (>15-30 kl): 3 kl \u00d7 R31.80 = R95.40\nTotal excluding VAT = R390.00. Adding 15% VAT: R390.00 \u00d7 1.15 = R448.50.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_16"
-  },
-  {
-    "id": "ML12_P1_DATA_0979",
-    "topic": "Data Handling",
-    "subtopic": "Scatter Plots & Correlation Analysis",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "In an environmental study, river water acidity (y) is modeled against industrial distance (x km) by the regression line y = 4.3x + 17.4. Calculate the predicted acidity when x = 19 km.",
-    "correct_answer": "99.1",
-    "wrong_answers_pool": [
-      "81.7",
-      "36.4",
-      "104.3",
-      "93.9",
-      "111.0",
-      "87.2",
-      "21.7"
-    ],
-    "explanation": "Substitute x = 19: y = (4.3 \u00d7 19) + 17.4 = 81.7 + 17.4 = 99.1.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_17"
-  },
-  {
-    "id": "ML12_P1_DATA_0562",
+    "id": "ML12_P1_DATA_0566",
     "topic": "Data Handling",
     "subtopic": "Five-Number Summary & Box-and-Whisker Plots",
     "paper": "paper1",
     "difficulty": "medium",
-    "question": "In the box-and-whisker plot for Daily hospital triage emergency waiting times (min) (Min = 15, Q\u2081 = 30, Median = 48, Q\u2083 = 70, Max = 120): What percentage of the data lies between the first quartile (Q\u2081 = 30) and the third quartile (Q\u2083 = 70)?",
+    "question": "In the box-and-whisker plot for Ages of registered blood donors at a community clinic (Min = 18, Q\u2081 = 24, Median = 32, Q\u2083 = 46, Max = 68): What percentage of the data lies between the first quartile (Q\u2081 = 24) and the third quartile (Q\u2083 = 46)?",
     "correct_answer": "50%",
     "wrong_answers_pool": [
       "25%",
@@ -355,127 +77,166 @@
       "15%"
     ],
     "explanation": "By definition of quartiles in a box-and-whisker plot, exactly 50% of the dataset lies within the interquartile range (between Q\u2081 and Q\u2083).",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_18"
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_4"
   },
   {
-    "id": "ML12_P1_DATA_0760",
+    "id": "ML12_P1_DATA_0313",
     "topic": "Data Handling",
     "subtopic": "Five-Number Summary & Quartiles",
     "paper": "paper1",
     "difficulty": "medium",
-    "question": "Given the ordered dataset of 9 learner marks: 47, 54, 58, 60, 66, 69, 87, 88, 88. Calculate the Interquartile Range (IQR).",
-    "correct_answer": "31.5",
+    "question": "The ordered dataset below represents the Mathematics Paper 1 trial exam scores (%) of 11 learners:\n42, 48, 52, 56, 60, 64, 70, 74, 80, 84, 92\nDetermine the first quartile (Q\u2081) for this dataset.",
+    "correct_answer": "52",
     "wrong_answers_pool": [
-      "41",
-      "66",
-      "15.8",
-      "36.5",
-      "26.5",
+      "64",
+      "80",
+      "42",
       "56.0",
-      "87.5"
+      "48.0",
+      "28",
+      "14.0"
     ],
-    "explanation": "Q\u2081 = 56.0, Q\u2083 = 87.5. IQR = Q\u2083 - Q\u2081 = 87.5 - 56.0 = 31.5.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_19"
+    "explanation": "Lower half of data: 42, 48, 52, 56, 60. The median of the lower half gives Q\u2081 = 52.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_5"
   },
   {
-    "id": "ML12_P1_FIN_0935",
-    "topic": "Finance",
-    "subtopic": "Break-Even Analysis",
+    "id": "ML12_P1_PROB_0359",
+    "topic": "Probability",
+    "subtopic": "Two-Way Contingency Tables",
     "paper": "paper1",
-    "difficulty": "hard",
-    "question": "An enterprise incurs fixed monthly overheads of R22,905.00. Direct variable costs per item are R56.00 and each item sells for R107.00. Calculate the break-even sales volume.",
-    "correct_answer": "450 units",
+    "difficulty": "medium",
+    "question": "Using the contingency table for Community Clinic Hypertension Screening (Grand Total = 1600):\nDetermine the probability that a randomly selected person is BOTH 'Under 45' AND 'Hypertensive', expressed as a percentage.",
+    "correct_answer": "8.8%",
     "wrong_answers_pool": [
-      "214 units",
-      "409 units",
-      "465 units",
-      "435 units",
-      "504 units",
-      "396 units",
-      "480 units"
+      "50.0%",
+      "32.5%",
+      "41.2%",
+      "23.8%",
+      "10.6%",
+      "7.0%",
+      "17.3%"
     ],
-    "explanation": "Contribution margin = R107.00 - R56.00 = R51.00. Break-even volume = R22,905.00 \u00f7 R51.00 = 449.12 \u2248 450 units.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_20"
+    "explanation": "P(Under 45 and Hypertensive) = Cell count \u00f7 Grand Total = 140 \u00f7 1600 \u00d7 100% = 8.8%.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_6"
   },
   {
-    "id": "ML12_P1_DATA_0864",
+    "id": "ML12_P1_PROB_0341",
+    "topic": "Probability",
+    "subtopic": "Two-Way Contingency Tables",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "The two-way contingency table below summarizes survey data for Commuter Transport Mode Preference (Grand Total = 4000):\n\u2022 Urban: Public Transit = 1440, Private Vehicle = 560 (Row Total = 2000)\n\u2022 Rural: Public Transit = 1680, Private Vehicle = 320 (Row Total = 2000)\nDetermine the probability that a randomly chosen respondent is 'Urban', expressed as a percentage. (Round to 1 decimal place).",
+    "correct_answer": "50.0%",
+    "wrong_answers_pool": [
+      "36.0%",
+      "78.0%",
+      "57.5%",
+      "42.5%",
+      "62.0%",
+      "38.0%"
+    ],
+    "explanation": "P(Urban) = Row Total \u00f7 Grand Total = 2000 \u00f7 4000 \u00d7 100% = 50.0%.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_7"
+  },
+  {
+    "id": "ML12_P1_DATA_0897",
     "topic": "Data Handling",
     "subtopic": "Scatter Plots & Correlation Analysis",
     "paper": "paper1",
     "difficulty": "hard",
-    "question": "In an environmental study, river water acidity (y) is modeled against industrial distance (x km) by the regression line y = 2.3x + 28.7. Calculate the predicted acidity when x = 19 km.",
-    "correct_answer": "72.4",
+    "question": "In an environmental study, river water acidity (y) is modeled against industrial distance (x km) by the regression line y = 3.9x + 28.4. Calculate the predicted acidity when x = 30 km.",
+    "correct_answer": "145.4",
     "wrong_answers_pool": [
-      "43.7",
-      "47.7",
-      "77.6",
-      "67.2",
-      "81.1",
-      "63.7",
-      "31.0"
+      "117.0",
+      "58.4",
+      "150.6",
+      "140.2",
+      "162.8",
+      "128.0",
+      "32.3"
     ],
-    "explanation": "Substitute x = 19: y = (2.3 \u00d7 19) + 28.7 = 43.7 + 28.7 = 72.4.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_21"
+    "explanation": "Substitute x = 30: y = (3.9 \u00d7 30) + 28.4 = 117.0 + 28.4 = 145.4.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_8"
   },
   {
-    "id": "ML12_P1_PROB_0943",
-    "topic": "Probability",
-    "subtopic": "Medical Diagnostic Testing & Risk Analysis",
+    "id": "ML12_P1_DATA_0978",
+    "topic": "Data Handling",
+    "subtopic": "Scatter Plots & Correlation Analysis",
     "paper": "paper1",
     "difficulty": "hard",
-    "question": "An underwriter calculates policy premiums for heavy mining earthmover equipment warranty. The maximum insured value is R1,020,000.00, and statistical analysis indicates a 5.0% probability of a claim occurring during the annual policy term. Fixed administrative costs are R16,800.00 per policy. Calculate the minimum annual break-even premium required to cover the expected claim payout and administrative costs.",
-    "correct_answer": "R67,800.00",
+    "question": "In an environmental study, river water acidity (y) is modeled against industrial distance (x km) by the regression line y = 1.5x + 20.9. Calculate the predicted acidity when x = 33 km.",
+    "correct_answer": "70.4",
     "wrong_answers_pool": [
-      "R51,000.00",
-      "R102,000.00",
-      "R77,970.00",
-      "R57,630.00",
-      "R69,300.00",
-      "R66,300.00",
-      "R85,000.00"
+      "49.5",
+      "53.9",
+      "75.6",
+      "65.2",
+      "78.8",
+      "62.0",
+      "22.4"
     ],
-    "explanation": "Expected Claim Payout = Insured Value \u00d7 Probability = R1,020,000.00 \u00d7 0.05 = R51,000.00. Break-even Premium = Expected Claim + Admin Fee = R51,000.00 + R16,800.00 = R67,800.00.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_22"
+    "explanation": "Substitute x = 33: y = (1.5 \u00d7 33) + 20.9 = 49.5 + 20.9 = 70.4.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_9"
   },
   {
-    "id": "ML12_P1_FIN_0778",
-    "topic": "Finance",
-    "subtopic": "Simple & Compound Interest",
+    "id": "ML12_P1_PROB_0671",
+    "topic": "Probability",
+    "subtopic": "Tree Diagrams (Independent & Dependent)",
     "paper": "paper1",
     "difficulty": "medium",
-    "question": "Fatima deposits R31,701.00 into an investment fund earning 9.5% compound interest compounded annually. Calculate the total interest earned over 2 years.",
-    "correct_answer": "R6,309.29",
+    "question": "A two-stage tree diagram models Manufacturing quality stages. The probability of Passing Stage 1 Inspection is 0.85 (85%), and the independent probability of Passing Stage 2 Inspection is 0.75 (75%). Calculate the probability that BOTH events occur, expressed as a percentage.",
+    "correct_answer": "63.75%",
     "wrong_answers_pool": [
-      "R38,010.29",
-      "R6,023.19",
-      "R7,255.68",
-      "R5,362.90",
-      "R7,109.29",
-      "R5,509.29",
-      "R6,814.03"
+      "160.0%",
+      "3.75%",
+      "96.25%",
+      "79.69%",
+      "47.81%",
+      "85.0%",
+      "75.0%"
     ],
-    "explanation": "A = R31,701.00(1 + 0.095)^2 = R38,010.29. Total Interest = A - P = R38,010.29 - R31,701.00 = R6,309.29.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_23"
+    "explanation": "P(Both) = P(Event 1) \u00d7 P(Event 2) = 0.85 \u00d7 0.75 = 0.6375 = 63.75%.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_10"
   },
   {
-    "id": "ML12_P1_PROB_0895",
-    "topic": "Probability",
-    "subtopic": "Medical Diagnostic Testing & Risk Analysis",
+    "id": "ML12_P1_FIN_0958",
+    "topic": "Finance",
+    "subtopic": "Break-Even Analysis",
     "paper": "paper1",
     "difficulty": "hard",
-    "question": "In a public health surveillance programme involving soil pathogen testing across 2,200 agricultural fields (sample size: 11,000):\n\u2022 Exactly 550 individuals actually have the condition.\n\u2022 The screening test correctly identifies 495 of these infected individuals (True Positives).\n\u2022 The test also incorrectly gives positive results to 220 healthy individuals (False Positives).\nCalculate the Positive Predictive Value (probability that a person testing positive actually has the condition), expressed as a percentage. (Round to 2 decimal places).",
-    "correct_answer": "69.23%",
+    "question": "An enterprise incurs fixed monthly overheads of R9,987.00. Direct variable costs per item are R90.00 and each item sells for R206.00. Calculate the break-even sales volume.",
+    "correct_answer": "87 units",
     "wrong_answers_pool": [
-      "90.0%",
-      "30.77%",
-      "6.5%",
-      "79.61%",
-      "58.85%",
-      "77.73%",
-      "60.73%"
+      "48 units",
+      "110 units",
+      "102 units",
+      "72 units",
+      "97 units",
+      "76 units",
+      "117 units"
     ],
-    "explanation": "Total Positive Tests = True Positives + False Positives = 495 + 220 = 715. Positive Predictive Value = True Positives \u00f7 Total Positive Tests = 495 \u00f7 715 \u00d7 100% = 69.23%.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_24"
+    "explanation": "Contribution margin = R206.00 - R90.00 = R116.00. Break-even volume = R9,987.00 \u00f7 R116.00 = 86.09 \u2248 87 units.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_11"
+  },
+  {
+    "id": "ML12_P1_DATA_0797",
+    "topic": "Data Handling",
+    "subtopic": "Five-Number Summary & Quartiles",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Given the ordered dataset of 9 learner marks: 33, 40, 49, 64, 65, 65, 68, 76, 79. Calculate the Interquartile Range (IQR).",
+    "correct_answer": "27.5",
+    "wrong_answers_pool": [
+      "46",
+      "65",
+      "13.8",
+      "32.5",
+      "22.5",
+      "44.5",
+      "72.0"
+    ],
+    "explanation": "Q\u2081 = 44.5, Q\u2083 = 72.0. IQR = Q\u2083 - Q\u2081 = 72.0 - 44.5 = 27.5.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_12"
   },
   {
     "id": "ML12_P1_FIN_0567",
@@ -483,7 +244,7 @@
     "subtopic": "Simple & Compound Interest",
     "paper": "paper1",
     "difficulty": "medium",
-    "question": "Nolwazi invests R60,000.00 in a bank fixed deposit for 4 years at 7.0% per annum compound interest, compounded annually. Calculate the accumulated maturity value at the end of the investment term.",
+    "question": "Keitumetse invests R60,000.00 in a bank fixed deposit for 4 years at 7.0% per annum compound interest, compounded annually. Calculate the accumulated maturity value at the end of the investment term.",
     "correct_answer": "R78,647.76",
     "wrong_answers_pool": [
       "R76,800.00",
@@ -495,445 +256,66 @@
       "R77,147.76"
     ],
     "explanation": "A = P(1 + i)^n = R60,000.00(1 + 0.07)^4 = R78,647.76.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_25"
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_13"
   },
   {
-    "id": "ML12_P1_DATA_0847",
+    "id": "ML12_P1_PROB_0685",
+    "topic": "Probability",
+    "subtopic": "Tree Diagrams (Independent & Dependent)",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A two-stage tree diagram models Manufacturing quality stages. The probability of Passing Stage 1 Inspection is 0.90 (90%), and the independent probability of Passing Stage 2 Inspection is 0.90 (90%). Calculate the probability that BOTH events occur, expressed as a percentage.",
+    "correct_answer": "81.0%",
+    "wrong_answers_pool": [
+      "180.0%",
+      "1.0%",
+      "99.0%",
+      "101.25%",
+      "60.75%",
+      "90.0%"
+    ],
+    "explanation": "P(Both) = P(Event 1) \u00d7 P(Event 2) = 0.90 \u00d7 0.90 = 0.8100 = 81.0%.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_14"
+  },
+  {
+    "id": "ML12_P1_DATA_0920",
     "topic": "Data Handling",
     "subtopic": "Scatter Plots & Correlation Analysis",
     "paper": "paper1",
     "difficulty": "hard",
-    "question": "In an environmental study, river water acidity (y) is modeled against industrial distance (x km) by the regression line y = 3.1x + 26.4. Calculate the predicted acidity when x = 41 km.",
-    "correct_answer": "153.5",
+    "question": "In an environmental study, river water acidity (y) is modeled against industrial distance (x km) by the regression line y = 1.9x + 26.3. Calculate the predicted acidity when x = 16 km.",
+    "correct_answer": "56.7",
     "wrong_answers_pool": [
-      "127.1",
-      "67.4",
-      "158.7",
-      "148.3",
-      "171.9",
-      "135.1",
-      "29.5"
+      "30.4",
+      "42.3",
+      "61.9",
+      "51.5",
+      "63.5",
+      "49.9",
+      "28.2"
     ],
-    "explanation": "Substitute x = 41: y = (3.1 \u00d7 41) + 26.4 = 127.1 + 26.4 = 153.5.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_26"
+    "explanation": "Substitute x = 16: y = (1.9 \u00d7 16) + 26.3 = 30.4 + 26.3 = 56.7.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_15"
   },
   {
-    "id": "ML12_P1_DATA_0569",
+    "id": "ML12_P1_DATA_0894",
     "topic": "Data Handling",
-    "subtopic": "Pie Charts & Frequency Polygons",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "In a survey of municipal budget expenditure (Total = 100):\nThe 'Water infrastructure' category accounts for 35 of the total. Calculate the size of the sector angle (in degrees) representing 'Water infrastructure' on a pie chart. (Round to 1 decimal place).",
-    "correct_answer": "126.0\u00b0",
-    "wrong_answers_pool": [
-      "35.0\u00b0",
-      "141.0\u00b0",
-      "111.0\u00b0",
-      "144.9\u00b0",
-      "107.1\u00b0",
-      "63.0\u00b0",
-      "156.0\u00b0"
-    ],
-    "explanation": "Sector Angle = (Category Value \u00f7 Total Value) \u00d7 360\u00b0 = (35 \u00f7 100) \u00d7 360\u00b0 = 126.0\u00b0.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_27"
-  },
-  {
-    "id": "ML12_P1_FIN_0972",
-    "topic": "Finance",
-    "subtopic": "Break-Even Analysis",
+    "subtopic": "Scatter Plots & Correlation Analysis",
     "paper": "paper1",
     "difficulty": "hard",
-    "question": "An enterprise incurs fixed monthly overheads of R16,300.00. Direct variable costs per item are R109.00 and each item sells for R156.00. Calculate the break-even sales volume.",
-    "correct_answer": "347 units",
+    "question": "In an environmental study, river water acidity (y) is modeled against industrial distance (x km) by the regression line y = 2.6x + 24.1. Calculate the predicted acidity when x = 25 km.",
+    "correct_answer": "89.1",
     "wrong_answers_pool": [
-      "104 units",
-      "149 units",
-      "362 units",
-      "332 units",
-      "388 units",
-      "305 units",
-      "377 units"
+      "65.0",
+      "49.1",
+      "94.3",
+      "83.9",
+      "99.8",
+      "78.4",
+      "26.7"
     ],
-    "explanation": "Contribution margin = R156.00 - R109.00 = R47.00. Break-even volume = R16,300.00 \u00f7 R47.00 = 346.81 \u2248 347 units.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_28"
-  },
-  {
-    "id": "ML12_P1_FIN_0389",
-    "topic": "Finance",
-    "subtopic": "Personal Income Tax & Rebates",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Devan, aged 40, has an annual taxable income of R502,000.00 for the 2023/2024 tax year. According to the SARS tax table, Bracket 3 applies: 'R77,362 + 31% of taxable income above R370,500'. Eligible rebates: Primary rebate of R17,235. They belong to a registered medical aid scheme with 3 dependent(s), qualifying for an annual Medical Scheme Fees Tax Credit of R14,640.00. Calculate Devan's total annual income tax payable.",
-    "correct_answer": "R86,252.00",
-    "wrong_answers_pool": [
-      "R118,127.00",
-      "R100,892.00",
-      "R91,252.00",
-      "R81,252.00",
-      "R94,877.20",
-      "R77,626.80",
-      "R7,187.67"
-    ],
-    "explanation": "Step 1: Tax before rebate = R77,362.00 + (31% \u00d7 (R502,000.00 - R370,500.00)) = R118,127.00. Step 2: Total rebates = R17,235.00. Step 3: Annual MTC = R14,640.00. Step 4: Tax payable = R118,127.00 - R17,235.00 - R14,640.00 = R86,252.00.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_29"
-  },
-  {
-    "id": "ML12_P1_DATA_0427",
-    "topic": "Data Handling",
-    "subtopic": "Five-Number Summary & Quartiles",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Using the quartiles determined from the dataset for the mass (kg) of 13 Grade 12 rugby squad players (where Q\u2081 = 106.5 and Q\u2083 = 132.0): Calculate the Interquartile Range (IQR).",
-    "correct_answer": "25.5",
-    "wrong_answers_pool": [
-      "46",
-      "12.75",
-      "238.5",
-      "29.5",
-      "21.5",
-      "118",
-      "29.3"
-    ],
-    "explanation": "IQR = Q\u2083 - Q\u2081 = 132.0 - 106.5 = 25.5.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_30"
-  },
-  {
-    "id": "ML12_P1_DATA_0533",
-    "topic": "Data Handling",
-    "subtopic": "Five-Number Summary & Quartiles",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "The ordered dataset below represents the running times (seconds) of 13 athletes in the 400m race:\n47, 49, 50, 52, 53, 55, 56, 58, 60, 61, 63, 66, 69\nDetermine the first quartile (Q\u2081) for this dataset.",
-    "correct_answer": "51.0",
-    "wrong_answers_pool": [
-      "56",
-      "62.0",
-      "47",
-      "55.0",
-      "47.0",
-      "11.0",
-      "5.5"
-    ],
-    "explanation": "Lower half of data: 47, 49, 50, 52, 53, 55. The median of the lower half gives Q\u2081 = 51.0.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_31"
-  },
-  {
-    "id": "ML12_P1_PROB_0820",
-    "topic": "Probability",
-    "subtopic": "Relative Frequency vs Theoretical Probability",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "A scientific study investigates factory light bulb life testing 2,000 bulbs (scaled trial 2\u00d7, total 4,000 observations). The outcome 'Defective bulbs' was recorded exactly 96 times. Calculate the experimental relative frequency of this outcome (as a decimal rounded to 3 decimal places).",
-    "correct_answer": "0.024",
-    "wrong_answers_pool": [
-      "0.020",
-      "0.025",
-      "0.028",
-      "0.074",
-      "-0.026",
-      "0.976"
-    ],
-    "explanation": "Relative Frequency = Observed frequency \u00f7 Total trials = 96 \u00f7 4000 = 0.024. The experimental relative frequency (0.024) matches within allowable 2.5% quality tolerance limits.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_32"
-  },
-  {
-    "id": "ML12_P1_FIN_0554",
-    "topic": "Finance",
-    "subtopic": "Simple & Compound Interest",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Johan invests R45,000.00 in a bank fixed deposit for 3 years at 7.0% per annum compound interest, compounded annually. Calculate the accumulated maturity value at the end of the investment term.",
-    "correct_answer": "R55,126.94",
-    "wrong_answers_pool": [
-      "R54,450.00",
-      "R55,481.65",
-      "R10,126.94",
-      "R60,639.63",
-      "R49,614.25",
-      "R56,626.94",
-      "R53,626.94"
-    ],
-    "explanation": "A = P(1 + i)^n = R45,000.00(1 + 0.07)^3 = R55,126.94.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_33"
-  },
-  {
-    "id": "ML12_P1_PROB_0948",
-    "topic": "Probability",
-    "subtopic": "Medical Diagnostic Testing & Risk Analysis",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "An underwriter calculates policy premiums for solar farm hail damage insurance policy. The maximum insured value is R390,000.00, and statistical analysis indicates a 3.5% probability of a claim occurring during the annual policy term. Fixed administrative costs are R6,900.00 per policy. Calculate the minimum annual break-even premium required to cover the expected claim payout and administrative costs.",
-    "correct_answer": "R20,550.00",
-    "wrong_answers_pool": [
-      "R13,650.00",
-      "R39,000.00",
-      "R23,632.50",
-      "R17,467.50",
-      "R22,050.00",
-      "R19,050.00",
-      "R32,500.00"
-    ],
-    "explanation": "Expected Claim Payout = Insured Value \u00d7 Probability = R390,000.00 \u00d7 0.035 = R13,650.00. Break-even Premium = Expected Claim + Admin Fee = R13,650.00 + R6,900.00 = R20,550.00.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_34"
-  },
-  {
-    "id": "ML12_P1_FIN_0880",
-    "topic": "Finance",
-    "subtopic": "Break-Even Analysis",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "Using the same cost structure for the custom t-shirt printing enterprise (Fixed costs: R8,500.00, Variable cost: R65.00, Selling price: R140.00): Determine the number of units the entrepreneur must sell in a month to achieve a targeted net monthly profit of R12,000.00.",
-    "correct_answer": "274 units",
-    "wrong_answers_pool": [
-      "114 units",
-      "160 units",
-      "146 units",
-      "304 units",
-      "244 units",
-      "301 units",
-      "246 units"
-    ],
-    "explanation": "Required Units = (Fixed Costs + Target Profit) \u00f7 Contribution Margin = (R8,500.00 + R12,000.00) \u00f7 R75.00 = R20,500.00 \u00f7 R75.00 = 273.33 \u2248 274 units.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_35"
-  },
-  {
-    "id": "ML12_P1_PROB_0991",
-    "topic": "Probability",
-    "subtopic": "Tree Diagrams (Independent & Dependent)",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "An inspector examines a hospital supply crate of 25 digital thermometers (total 31 items, of which exactly 7 are non-compliant). If 2 items are selected at random ONE AFTER THE OTHER WITHOUT REPLACEMENT: Calculate the probability that BOTH selected items are non-compliant, expressed as a percentage. (Round to 2 decimal places).",
-    "correct_answer": "4.52%",
-    "wrong_answers_pool": [
-      "5.1%",
-      "22.58%",
-      "20.0%",
-      "5.65%",
-      "3.39%",
-      "8.02%",
-      "1.02%"
-    ],
-    "explanation": "P(Both Non-compliant) = P(1st Non-compliant) \u00d7 P(2nd Non-compliant | 1st Non-compliant) = (7/31) \u00d7 (6/30) = 42/930 \u2248 4.52%.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_36"
-  },
-  {
-    "id": "ML12_P1_PROB_0963",
-    "topic": "Probability",
-    "subtopic": "Medical Diagnostic Testing & Risk Analysis",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "An underwriter calculates policy premiums for refrigerated perishable goods transport policy. The maximum insured value is R456,000.00, and statistical analysis indicates a 4.5% probability of a claim occurring during the annual policy term. Fixed administrative costs are R9,360.00 per policy. Calculate the minimum annual break-even premium required to cover the expected claim payout and administrative costs.",
-    "correct_answer": "R29,880.00",
-    "wrong_answers_pool": [
-      "R20,520.00",
-      "R45,600.00",
-      "R34,362.00",
-      "R25,398.00",
-      "R31,380.00",
-      "R28,380.00",
-      "R38,000.00"
-    ],
-    "explanation": "Expected Claim Payout = Insured Value \u00d7 Probability = R456,000.00 \u00d7 0.045 = R20,520.00. Break-even Premium = Expected Claim + Admin Fee = R20,520.00 + R9,360.00 = R29,880.00.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_37"
-  },
-  {
-    "id": "ML12_P1_PROB_0579",
-    "topic": "Probability",
-    "subtopic": "Two-Way Contingency Tables",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Using the contingency table for Local Supermarket Payment Method (Grand Total = 1000):\nDetermine the probability that a randomly selected person is BOTH 'Morning' AND 'Card/Contactless', expressed as a percentage.",
-    "correct_answer": "28.0%",
-    "wrong_answers_pool": [
-      "40.0%",
-      "64.0%",
-      "12.0%",
-      "36.0%",
-      "33.6%",
-      "22.4%",
-      "36.5%"
-    ],
-    "explanation": "P(Morning and Card/Contactless) = Cell count \u00f7 Grand Total = 280 \u00f7 1000 \u00d7 100% = 28.0%.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_38"
-  },
-  {
-    "id": "ML12_P1_PROB_0833",
-    "topic": "Probability",
-    "subtopic": "Relative Frequency vs Theoretical Probability",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "A scientific study investigates quality audit of 2,400 solar panels (scaled trial 3\u00d7, total 7,200 observations). The outcome 'Output efficiency below 90%' was recorded exactly 216 times. Calculate the experimental relative frequency of this outcome (as a decimal rounded to 3 decimal places).",
-    "correct_answer": "0.030",
-    "wrong_answers_pool": [
-      "0.025",
-      "0.031",
-      "0.034",
-      "0.080",
-      "-0.020",
-      "0.970"
-    ],
-    "explanation": "Relative Frequency = Observed frequency \u00f7 Total trials = 216 \u00f7 7200 = 0.030. The relative defect frequency (0.030) exceeds acceptable factory quality benchmarks.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_39"
-  },
-  {
-    "id": "ML12_P1_FIN_0810",
-    "topic": "Finance",
-    "subtopic": "Hire Purchase & Loans",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "Continuing with Mpho's home loan of R650,000.00 at 11.0% per annum with a monthly payment of R6,708.00: In Month 1, simple monthly interest is charged on the full opening balance. Calculate the amount of the first monthly installment that goes towards reducing the actual loan capital balance.",
-    "correct_answer": "R749.67",
-    "wrong_answers_pool": [
-      "R5,958.33",
-      "R6,708.00",
-      "R3,354.00",
-      "R899.60",
-      "R599.74",
-      "R2,708.33",
-      "R649,250.33"
-    ],
-    "explanation": "Month 1 Interest = R650,000.00 \u00d7 (11.0% \u00f7 12) = R5,958.33. Capital reduction = Monthly Payment - Interest = R6,708.00 - R5,958.33 = R749.67.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_40"
-  },
-  {
-    "id": "ML12_P1_PROB_0402",
-    "topic": "Probability",
-    "subtopic": "Two-Way Contingency Tables",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Using the contingency table for Matric Examination Distinctions (Grand Total = 500):\nDetermine the probability that a randomly selected person is BOTH 'Maths Lit' AND 'Distinction', expressed as a percentage.",
-    "correct_answer": "17.0%",
-    "wrong_answers_pool": [
-      "60.0%",
-      "29.0%",
-      "43.0%",
-      "12.0%",
-      "20.4%",
-      "13.6%",
-      "25.5%"
-    ],
-    "explanation": "P(Maths Lit and Distinction) = Cell count \u00f7 Grand Total = 85 \u00f7 500 \u00d7 100% = 17.0%.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_41"
-  },
-  {
-    "id": "ML12_P1_DATA_0689",
-    "topic": "Data Handling",
-    "subtopic": "Five-Number Summary & Quartiles",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Given the ordered dataset of 9 learner marks: 30, 33, 44, 45, 71, 73, 76, 77, 86. Calculate the Interquartile Range (IQR).",
-    "correct_answer": "38.0",
-    "wrong_answers_pool": [
-      "56",
-      "71",
-      "19.0",
-      "43.0",
-      "33.0",
-      "38.5",
-      "76.5"
-    ],
-    "explanation": "Q\u2081 = 38.5, Q\u2083 = 76.5. IQR = Q\u2083 - Q\u2081 = 76.5 - 38.5 = 38.0.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_42"
-  },
-  {
-    "id": "ML12_P1_PROB_0885",
-    "topic": "Probability",
-    "subtopic": "Medical Diagnostic Testing & Risk Analysis",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "In a public health surveillance programme involving cholesterol diagnostic clinic evaluating 1,800 patients (sample size: 1,800):\n\u2022 Exactly 90 individuals actually have the condition.\n\u2022 The screening test correctly identifies 81 of these infected individuals (True Positives).\n\u2022 The test also incorrectly gives positive results to 35 healthy individuals (False Positives).\nCalculate the Positive Predictive Value (probability that a person testing positive actually has the condition), expressed as a percentage. (Round to 2 decimal places).",
-    "correct_answer": "69.83%",
-    "wrong_answers_pool": [
-      "90.0%",
-      "30.17%",
-      "6.44%",
-      "80.3%",
-      "59.36%",
-      "78.33%",
-      "61.33%"
-    ],
-    "explanation": "Total Positive Tests = True Positives + False Positives = 81 + 35 = 116. Positive Predictive Value = True Positives \u00f7 Total Positive Tests = 81 \u00f7 116 \u00d7 100% = 69.83%.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_43"
-  },
-  {
-    "id": "ML12_P1_DATA_0709",
-    "topic": "Data Handling",
-    "subtopic": "Five-Number Summary & Quartiles",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Given the ordered dataset of 9 learner marks: 33, 36, 41, 46, 47, 69, 71, 72, 94. Calculate the Interquartile Range (IQR).",
-    "correct_answer": "33.0",
-    "wrong_answers_pool": [
-      "61",
-      "47",
-      "16.5",
-      "38.0",
-      "28.0",
-      "38.5",
-      "71.5"
-    ],
-    "explanation": "Q\u2081 = 38.5, Q\u2083 = 71.5. IQR = Q\u2083 - Q\u2081 = 71.5 - 38.5 = 33.0.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_44"
-  },
-  {
-    "id": "ML12_P1_FIN_0666",
-    "topic": "Finance",
-    "subtopic": "Simple & Compound Interest",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Johan deposits R43,966.00 into an investment fund earning 9.5% compound interest compounded annually. Calculate the total interest earned over 4 years.",
-    "correct_answer": "R19,242.20",
-    "wrong_answers_pool": [
-      "R63,208.20",
-      "R16,707.08",
-      "R22,128.53",
-      "R16,355.87",
-      "R20,042.20",
-      "R18,442.20",
-      "R20,781.58"
-    ],
-    "explanation": "A = R43,966.00(1 + 0.095)^4 = R63,208.20. Total Interest = A - P = R63,208.20 - R43,966.00 = R19,242.20.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_45"
-  },
-  {
-    "id": "ML12_P1_PROB_0647",
-    "topic": "Probability",
-    "subtopic": "Tree Diagrams (Independent & Dependent)",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Using the tree diagram parameters for Driver testing exam passes (P(Event 1) = 0.70, P(Event 2) = 0.65): Determine the probability that AT LEAST ONE of the two events occurs, expressed as a percentage.",
-    "correct_answer": "89.5%",
-    "wrong_answers_pool": [
-      "45.5%",
-      "10.5%",
-      "56.0%",
-      "98.45%",
-      "80.55%",
-      "70.0%",
-      "67.5%"
-    ],
-    "explanation": "P(At least one) = 1 - P(Neither) = 1 - ((1 - 0.70) \u00d7 (1 - 0.65)) = 1 - (0.30 \u00d7 0.35) = 1 - 0.1050 = 89.5%.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_46"
-  },
-  {
-    "id": "ML12_P1_PROB_0981",
-    "topic": "Probability",
-    "subtopic": "Tree Diagrams (Independent & Dependent)",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "An inspector examines a quality assurance box of 20 circuit breakers (total 24 items, of which exactly 7 are non-compliant). If 2 items are selected at random ONE AFTER THE OTHER WITHOUT REPLACEMENT: Calculate the probability that BOTH selected items are non-compliant, expressed as a percentage. (Round to 2 decimal places).",
-    "correct_answer": "7.61%",
-    "wrong_answers_pool": [
-      "8.51%",
-      "29.17%",
-      "26.09%",
-      "9.51%",
-      "5.71%",
-      "11.11%",
-      "4.11%"
-    ],
-    "explanation": "P(Both Non-compliant) = P(1st Non-compliant) \u00d7 P(2nd Non-compliant | 1st Non-compliant) = (7/24) \u00d7 (6/23) = 42/552 \u2248 7.61%.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_47"
+    "explanation": "Substitute x = 25: y = (2.6 \u00d7 25) + 24.1 = 65.0 + 24.1 = 89.1.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_16"
   },
   {
     "id": "ML12_P1_PROB_0429",
@@ -953,45 +335,662 @@
       "45.5%"
     ],
     "explanation": "P(Smartphones) = Row Total \u00f7 Grand Total = 460 \u00f7 800 \u00d7 100% = 57.5%.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_48"
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_17"
   },
   {
-    "id": "ML12_P1_DATA_0895",
+    "id": "ML12_P1_DATA_0961",
     "topic": "Data Handling",
     "subtopic": "Scatter Plots & Correlation Analysis",
     "paper": "paper1",
     "difficulty": "hard",
-    "question": "In an environmental study, river water acidity (y) is modeled against industrial distance (x km) by the regression line y = 4.2x + 19.7. Calculate the predicted acidity when x = 14 km.",
-    "correct_answer": "78.5",
+    "question": "In an environmental study, river water acidity (y) is modeled against industrial distance (x km) by the regression line y = 1.9x + 15.3. Calculate the predicted acidity when x = 30 km.",
+    "correct_answer": "72.3",
     "wrong_answers_pool": [
-      "58.8",
-      "33.7",
-      "83.7",
-      "73.3",
-      "87.9",
-      "69.1",
-      "23.9"
+      "57.0",
+      "45.3",
+      "77.5",
+      "67.1",
+      "81.0",
+      "63.6",
+      "17.2"
     ],
-    "explanation": "Substitute x = 14: y = (4.2 \u00d7 14) + 19.7 = 58.8 + 19.7 = 78.5.",
-    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_49"
+    "explanation": "Substitute x = 30: y = (1.9 \u00d7 30) + 15.3 = 57.0 + 15.3 = 72.3.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_18"
   },
   {
-    "id": "ML12_P1_PROB_0364",
+    "id": "ML12_P1_DATA_0675",
+    "topic": "Data Handling",
+    "subtopic": "Five-Number Summary & Quartiles",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Given the ordered dataset of 9 learner marks: 36, 47, 78, 79, 81, 84, 91, 93, 95. Calculate the Interquartile Range (IQR).",
+    "correct_answer": "29.5",
+    "wrong_answers_pool": [
+      "59",
+      "81",
+      "14.8",
+      "34.5",
+      "24.5",
+      "62.5",
+      "92.0"
+    ],
+    "explanation": "Q\u2081 = 62.5, Q\u2083 = 92.0. IQR = Q\u2083 - Q\u2081 = 92.0 - 62.5 = 29.5.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_19"
+  },
+  {
+    "id": "ML12_P1_DATA_0543",
+    "topic": "Data Handling",
+    "subtopic": "Five-Number Summary & Quartiles",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Using the quartiles determined from the dataset for the running times (seconds) of 13 athletes in the 400m race (where Q\u2081 = 61.0 and Q\u2083 = 72.0): Calculate the Interquartile Range (IQR).",
+    "correct_answer": "11.0",
+    "wrong_answers_pool": [
+      "22",
+      "5.5",
+      "133.0",
+      "15.0",
+      "7.0",
+      "66",
+      "12.6"
+    ],
+    "explanation": "IQR = Q\u2083 - Q\u2081 = 72.0 - 61.0 = 11.0.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_20"
+  },
+  {
+    "id": "ML12_P1_PROB_0970",
+    "topic": "Probability",
+    "subtopic": "Medical Diagnostic Testing & Risk Analysis",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "An underwriter calculates policy premiums for coastal storm surge maritime vessel cover. The maximum insured value is R712,500.00, and statistical analysis indicates a 2.8% probability of a claim occurring during the annual policy term. Fixed administrative costs are R11,875.00 per policy. Calculate the minimum annual break-even premium required to cover the expected claim payout and administrative costs.",
+    "correct_answer": "R31,825.00",
+    "wrong_answers_pool": [
+      "R19,950.00",
+      "R71,250.00",
+      "R36,598.75",
+      "R27,051.25",
+      "R33,325.00",
+      "R30,325.00",
+      "R59,375.00"
+    ],
+    "explanation": "Expected Claim Payout = Insured Value \u00d7 Probability = R712,500.00 \u00d7 0.028 = R19,950.00. Break-even Premium = Expected Claim + Admin Fee = R19,950.00 + R11,875.00 = R31,825.00.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_21"
+  },
+  {
+    "id": "ML12_P1_FIN_0977",
+    "topic": "Finance",
+    "subtopic": "Break-Even Analysis",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "An enterprise incurs fixed monthly overheads of R24,215.00. Direct variable costs per item are R40.00 and each item sells for R130.00. Calculate the break-even sales volume.",
+    "correct_answer": "270 units",
+    "wrong_answers_pool": [
+      "186 units",
+      "605 units",
+      "285 units",
+      "255 units",
+      "302 units",
+      "237 units",
+      "300 units"
+    ],
+    "explanation": "Contribution margin = R130.00 - R40.00 = R90.00. Break-even volume = R24,215.00 \u00f7 R90.00 = 269.06 \u2248 270 units.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_22"
+  },
+  {
+    "id": "ML12_P1_FIN_0944",
+    "topic": "Finance",
+    "subtopic": "Break-Even Analysis",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "An enterprise incurs fixed monthly overheads of R9,170.00. Direct variable costs per item are R147.00 and each item sells for R191.00. Calculate the break-even sales volume.",
+    "correct_answer": "209 units",
+    "wrong_answers_pool": [
+      "48 units",
+      "62 units",
+      "224 units",
+      "194 units",
+      "234 units",
+      "183 units",
+      "239 units"
+    ],
+    "explanation": "Contribution margin = R191.00 - R147.00 = R44.00. Break-even volume = R9,170.00 \u00f7 R44.00 = 208.41 \u2248 209 units.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_23"
+  },
+  {
+    "id": "ML12_P1_DATA_0863",
+    "topic": "Data Handling",
+    "subtopic": "Scatter Plots & Correlation Analysis",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "In an environmental study, river water acidity (y) is modeled against industrial distance (x km) by the regression line y = 4.4x + 20.1. Calculate the predicted acidity when x = 42 km.",
+    "correct_answer": "204.9",
+    "wrong_answers_pool": [
+      "184.8",
+      "62.1",
+      "210.1",
+      "199.7",
+      "229.5",
+      "180.3",
+      "24.5"
+    ],
+    "explanation": "Substitute x = 42: y = (4.4 \u00d7 42) + 20.1 = 184.8 + 20.1 = 204.9.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_24"
+  },
+  {
+    "id": "ML12_P1_PROB_0773",
+    "topic": "Probability",
+    "subtopic": "Tree Diagrams (Independent & Dependent)",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A two-stage tree diagram models Courier delivery on-time guarantee. The probability of Arriving on time at Sorting Hub is 0.80 (80%), and the independent probability of Arriving on time to Customer is 0.65 (65%). Calculate the probability that BOTH events occur, expressed as a percentage.",
+    "correct_answer": "52.0%",
+    "wrong_answers_pool": [
+      "145.0%",
+      "7.0%",
+      "93.0%",
+      "65.0%",
+      "39.0%",
+      "80.0%"
+    ],
+    "explanation": "P(Both) = P(Event 1) \u00d7 P(Event 2) = 0.80 \u00d7 0.65 = 0.5200 = 52.0%.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_25"
+  },
+  {
+    "id": "ML12_P1_PROB_0889",
+    "topic": "Probability",
+    "subtopic": "Medical Diagnostic Testing & Risk Analysis",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "In a public health surveillance programme involving cholesterol diagnostic clinic evaluating 1,800 patients (sample size: 9,000):\n\u2022 Exactly 450 individuals actually have the condition.\n\u2022 The screening test correctly identifies 405 of these infected individuals (True Positives).\n\u2022 The test also incorrectly gives positive results to 175 healthy individuals (False Positives).\nCalculate the Positive Predictive Value (probability that a person testing positive actually has the condition), expressed as a percentage. (Round to 2 decimal places).",
+    "correct_answer": "69.83%",
+    "wrong_answers_pool": [
+      "90.0%",
+      "30.17%",
+      "6.44%",
+      "80.3%",
+      "59.36%",
+      "78.33%",
+      "61.33%"
+    ],
+    "explanation": "Total Positive Tests = True Positives + False Positives = 405 + 175 = 580. Positive Predictive Value = True Positives \u00f7 Total Positive Tests = 405 \u00f7 580 \u00d7 100% = 69.83%.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_26"
+  },
+  {
+    "id": "ML12_P1_DATA_0936",
+    "topic": "Data Handling",
+    "subtopic": "Scatter Plots & Correlation Analysis",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "In an environmental study, river water acidity (y) is modeled against industrial distance (x km) by the regression line y = 1.8x + 32.1. Calculate the predicted acidity when x = 22 km.",
+    "correct_answer": "71.7",
+    "wrong_answers_pool": [
+      "39.6",
+      "54.1",
+      "76.9",
+      "66.5",
+      "80.3",
+      "63.1",
+      "33.9"
+    ],
+    "explanation": "Substitute x = 22: y = (1.8 \u00d7 22) + 32.1 = 39.6 + 32.1 = 71.7.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_27"
+  },
+  {
+    "id": "ML12_P1_FIN_0859",
+    "topic": "Finance",
+    "subtopic": "Hire Purchase & Loans",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "Zanele purchases a residential house by securing a 20-year mortgage bond of R1,500,000.00 from a commercial bank at an interest rate of 11.5% per annum. The bank loan factor table specifies a monthly installment of R10.66 per R1,000 borrowed. Calculate the total interest Zanele will pay to the bank over the entire 20-year loan term.",
+    "correct_answer": "R2,337,600.00",
+    "wrong_answers_pool": [
+      "R3,837,600.00",
+      "R3,450,000.00",
+      "R191,880.00",
+      "R2,571,360.00",
+      "R2,103,840.00",
+      "R2,387,600.00",
+      "R2,287,600.00"
+    ],
+    "explanation": "Step 1: Monthly repayment = (R1,500,000.00 \u00f7 1,000) \u00d7 R10.66 = R15,990.00. Step 2: Total paid over 20 years (240 months) = R15,990.00 \u00d7 240 = R3,837,600.00. Step 3: Total Interest = Total Paid - Capital Loan = R3,837,600.00 - R1,500,000.00 = R2,337,600.00.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_28"
+  },
+  {
+    "id": "ML12_P1_FIN_0972",
+    "topic": "Finance",
+    "subtopic": "Break-Even Analysis",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "An enterprise incurs fixed monthly overheads of R17,385.00. Direct variable costs per item are R121.00 and each item sells for R207.00. Calculate the break-even sales volume.",
+    "correct_answer": "203 units",
+    "wrong_answers_pool": [
+      "83 units",
+      "143 units",
+      "218 units",
+      "188 units",
+      "227 units",
+      "178 units",
+      "233 units"
+    ],
+    "explanation": "Contribution margin = R207.00 - R121.00 = R86.00. Break-even volume = R17,385.00 \u00f7 R86.00 = 202.15 \u2248 203 units.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_29"
+  },
+  {
+    "id": "ML12_P1_DATA_0343",
+    "topic": "Data Handling",
+    "subtopic": "Five-Number Summary & Quartiles",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Using the quartiles determined from the dataset for the daily customer counts at a community pharmacy over 13 weekdays (where Q\u2081 = 122.5 and Q\u2083 = 162.0): Calculate the Interquartile Range (IQR).",
+    "correct_answer": "39.5",
+    "wrong_answers_pool": [
+      "73",
+      "19.75",
+      "284.5",
+      "43.5",
+      "35.5",
+      "140",
+      "45.4"
+    ],
+    "explanation": "IQR = Q\u2083 - Q\u2081 = 162.0 - 122.5 = 39.5.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_30"
+  },
+  {
+    "id": "ML12_P1_DATA_0855",
+    "topic": "Data Handling",
+    "subtopic": "Scatter Plots & Correlation Analysis",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "In an environmental study, river water acidity (y) is modeled against industrial distance (x km) by the regression line y = 2.6x + 33.1. Calculate the predicted acidity when x = 13 km.",
+    "correct_answer": "66.9",
+    "wrong_answers_pool": [
+      "33.8",
+      "46.1",
+      "72.1",
+      "61.7",
+      "74.9",
+      "58.9",
+      "35.7"
+    ],
+    "explanation": "Substitute x = 13: y = (2.6 \u00d7 13) + 33.1 = 33.8 + 33.1 = 66.9.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_31"
+  },
+  {
+    "id": "ML12_P1_FIN_0518",
+    "topic": "Finance",
+    "subtopic": "Hire Purchase & Loans",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Sipho buys a solar power backup system on a Hire Purchase (HP) agreement. Cash price: R34,500.00. Required deposit: 20%. The remaining balance attracts simple interest at 16.5% per annum over 36 months. A monthly insurance/admin fee of R65.00 is added to each payment. Calculate the total monthly payment (Sipho's total monthly installment).",
+    "correct_answer": "R1,211.17",
+    "wrong_answers_pool": [
+      "R1,146.17",
+      "R958.33",
+      "R1,289.92",
+      "R1,392.85",
+      "R1,029.49",
+      "R1,311.17",
+      "R1,111.17"
+    ],
+    "explanation": "Deposit = 20% of R34,500.00 = R6,900.00. Balance = R34,500.00 - R6,900.00 = R27,600.00. Interest = R27,600.00 \u00d7 0.165 \u00d7 3.0 years = R13,662.00. Amount to repay = R41,262.00. Monthly loan payment = R41,262.00 \u00f7 36 = R1,146.17. Total monthly installment = R1,146.17 + R65.00 = R1,211.17.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_32"
+  },
+  {
+    "id": "ML12_P1_PROB_0537",
     "topic": "Probability",
     "subtopic": "Two-Way Contingency Tables",
     "paper": "paper1",
     "difficulty": "medium",
-    "question": "The two-way contingency table below summarizes survey data for Community Clinic Hypertension Screening (Grand Total = 2800):\n\u2022 Under 45: Hypertensive = 245, Normal BP = 1155 (Row Total = 1400)\n\u2022 45 and Older: Hypertensive = 665, Normal BP = 735 (Row Total = 1400)\nDetermine the probability that a randomly chosen respondent is 'Under 45', expressed as a percentage. (Round to 1 decimal place).",
+    "question": "Using the contingency table for Commercial Banking Channel Usage (Grand Total = 3000):\nDetermine the probability that a randomly selected person is BOTH '18-35 Years' AND 'Mobile Banking App', expressed as a percentage.",
+    "correct_answer": "44.0%",
+    "wrong_answers_pool": [
+      "52.0%",
+      "62.0%",
+      "8.0%",
+      "18.0%",
+      "52.8%",
+      "35.2%",
+      "52.5%"
+    ],
+    "explanation": "P(18-35 Years and Mobile Banking App) = Cell count \u00f7 Grand Total = 1320 \u00f7 3000 \u00d7 100% = 44.0%.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_33"
+  },
+  {
+    "id": "ML12_P1_PROB_0303",
+    "topic": "Probability",
+    "subtopic": "Two-Way Contingency Tables",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "From the contingency table for Grade 12 Driver's License Status:\nGIVEN that a selected individual is 'Male', calculate the conditional probability that they have 'Has License', expressed as a percentage.",
+    "correct_answer": "43.3%",
+    "wrong_answers_pool": [
+      "21.7%",
+      "59.1%",
+      "56.7%",
+      "49.8%",
+      "36.8%",
+      "53.3%",
+      "33.3%"
+    ],
+    "explanation": "P(Has License | Male) = Cell count \u00f7 Row Total = 65 \u00f7 150 \u00d7 100% = 43.3%.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_34"
+  },
+  {
+    "id": "ML12_P1_DATA_0367",
+    "topic": "Data Handling",
+    "subtopic": "Five-Number Summary & Quartiles",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Using the quartiles determined from the dataset for the weekly diesel consumption (litres) of a delivery bakkie over 11 weeks (where Q\u2081 = 59 and Q\u2083 = 83): Calculate the Interquartile Range (IQR).",
+    "correct_answer": "24",
+    "wrong_answers_pool": [
+      "47",
+      "12.0",
+      "142",
+      "28.0",
+      "20.0",
+      "70",
+      "27.6"
+    ],
+    "explanation": "IQR = Q\u2083 - Q\u2081 = 83 - 59 = 24.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_35"
+  },
+  {
+    "id": "ML12_P1_DATA_0593",
+    "topic": "Data Handling",
+    "subtopic": "Five-Number Summary & Quartiles",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Given the ordered dataset of 9 learner marks: 30, 32, 33, 43, 51, 57, 67, 75, 95. Calculate the Interquartile Range (IQR).",
+    "correct_answer": "38.5",
+    "wrong_answers_pool": [
+      "65",
+      "51",
+      "19.2",
+      "43.5",
+      "33.5",
+      "32.5",
+      "71.0"
+    ],
+    "explanation": "Q\u2081 = 32.5, Q\u2083 = 71.0. IQR = Q\u2083 - Q\u2081 = 71.0 - 32.5 = 38.5.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_36"
+  },
+  {
+    "id": "ML12_P1_PROB_0805",
+    "topic": "Probability",
+    "subtopic": "Relative Frequency vs Theoretical Probability",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A scientific study investigates tossing a coin 600 times (scaled trial 5\u00d7, total 3,000 observations). The outcome 'Heads' was recorded exactly 1,860 times. Calculate the experimental relative frequency of this outcome (as a decimal rounded to 3 decimal places).",
+    "correct_answer": "0.620",
+    "wrong_answers_pool": [
+      "0.500",
+      "1.632",
+      "0.713",
+      "0.527",
+      "0.670",
+      "0.570",
+      "0.380"
+    ],
+    "explanation": "Relative Frequency = Observed frequency \u00f7 Total trials = 1860 \u00f7 3000 = 0.620. The relative frequency (0.62) is substantially higher than the theoretical probability (0.50), indicating the coin is likely biased or loaded.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_37"
+  },
+  {
+    "id": "ML12_P1_PROB_0825",
+    "topic": "Probability",
+    "subtopic": "Relative Frequency vs Theoretical Probability",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A scientific study investigates road safety breathalyzer testing of 1,500 motorists (scaled trial 1\u00d7, total 1,500 observations). The outcome 'Over the legal alcohol limit' was recorded exactly 105 times. Calculate the experimental relative frequency of this outcome (as a decimal rounded to 3 decimal places).",
+    "correct_answer": "0.070",
+    "wrong_answers_pool": [
+      "0.050",
+      "0.075",
+      "0.081",
+      "0.060",
+      "0.120",
+      "0.020",
+      "0.930"
+    ],
+    "explanation": "Relative Frequency = Observed frequency \u00f7 Total trials = 105 \u00f7 1500 = 0.070. The relative rate (0.070) exceeds the national target baseline (0.050).",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_38"
+  },
+  {
+    "id": "ML12_P1_PROB_0911",
+    "topic": "Probability",
+    "subtopic": "Medical Diagnostic Testing & Risk Analysis",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "An underwriter calculates policy premiums for agricultural greenhouse crop insurance. The maximum insured value is R320,000.00, and statistical analysis indicates a 6.0% probability of a claim occurring during the annual policy term. Fixed administrative costs are R6,200.00 per policy. Calculate the minimum annual break-even premium required to cover the expected claim payout and administrative costs.",
+    "correct_answer": "R25,400.00",
+    "wrong_answers_pool": [
+      "R19,200.00",
+      "R32,000.00",
+      "R29,210.00",
+      "R21,590.00",
+      "R26,900.00",
+      "R23,900.00",
+      "R26,666.67"
+    ],
+    "explanation": "Expected Claim Payout = Insured Value \u00d7 Probability = R320,000.00 \u00d7 0.06 = R19,200.00. Break-even Premium = Expected Claim + Admin Fee = R19,200.00 + R6,200.00 = R25,400.00.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_39"
+  },
+  {
+    "id": "ML12_P1_DATA_0325",
+    "topic": "Data Handling",
+    "subtopic": "Five-Number Summary & Quartiles",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "The ordered dataset below represents the Mathematics Paper 1 trial exam scores (%) of 11 learners:\n57, 63, 67, 71, 75, 79, 85, 89, 95, 99, 107\nDetermine the first quartile (Q\u2081) for this dataset.",
+    "correct_answer": "67",
+    "wrong_answers_pool": [
+      "79",
+      "95",
+      "57",
+      "71.0",
+      "63.0",
+      "28",
+      "14.0"
+    ],
+    "explanation": "Lower half of data: 57, 63, 67, 71, 75. The median of the lower half gives Q\u2081 = 67.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_40"
+  },
+  {
+    "id": "ML12_P1_PROB_0575",
+    "topic": "Probability",
+    "subtopic": "Two-Way Contingency Tables",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "The two-way contingency table below summarizes survey data for Local Supermarket Payment Method (Grand Total = 500):\n\u2022 Morning: Card/Contactless = 140, Cash = 60 (Row Total = 200)\n\u2022 Evening: Card/Contactless = 180, Cash = 120 (Row Total = 300)\nDetermine the probability that a randomly chosen respondent is 'Morning', expressed as a percentage. (Round to 1 decimal place).",
+    "correct_answer": "40.0%",
+    "wrong_answers_pool": [
+      "60.0%",
+      "28.0%",
+      "64.0%",
+      "46.0%",
+      "34.0%",
+      "52.0%"
+    ],
+    "explanation": "P(Morning) = Row Total \u00f7 Grand Total = 200 \u00f7 500 \u00d7 100% = 40.0%.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_41"
+  },
+  {
+    "id": "ML12_P1_PROB_0894",
+    "topic": "Probability",
+    "subtopic": "Medical Diagnostic Testing & Risk Analysis",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "In a public health surveillance programme involving soil pathogen testing across 2,200 agricultural fields (sample size: 8,800):\n\u2022 Exactly 440 individuals actually have the condition.\n\u2022 The screening test correctly identifies 396 of these infected individuals (True Positives).\n\u2022 The test also incorrectly gives positive results to 176 healthy individuals (False Positives).\nCalculate the Positive Predictive Value (probability that a person testing positive actually has the condition), expressed as a percentage. (Round to 2 decimal places).",
+    "correct_answer": "69.23%",
+    "wrong_answers_pool": [
+      "90.0%",
+      "30.77%",
+      "6.5%",
+      "79.61%",
+      "58.85%",
+      "77.73%",
+      "60.73%"
+    ],
+    "explanation": "Total Positive Tests = True Positives + False Positives = 396 + 176 = 572. Positive Predictive Value = True Positives \u00f7 Total Positive Tests = 396 \u00f7 572 \u00d7 100% = 69.23%.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_42"
+  },
+  {
+    "id": "ML12_P1_PROB_0567",
+    "topic": "Probability",
+    "subtopic": "Two-Way Contingency Tables",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "The two-way contingency table below summarizes survey data for Public Library Membership (Grand Total = 3960):\n\u2022 Learners: Digital Borrower = 1575, Physical Only = 585 (Row Total = 2160)\n\u2022 Adults: Digital Borrower = 765, Physical Only = 1035 (Row Total = 1800)\nDetermine the probability that a randomly chosen respondent is 'Learners', expressed as a percentage. (Round to 1 decimal place).",
+    "correct_answer": "54.5%",
+    "wrong_answers_pool": [
+      "45.5%",
+      "39.8%",
+      "59.1%",
+      "62.7%",
+      "46.3%",
+      "66.5%",
+      "42.5%"
+    ],
+    "explanation": "P(Learners) = Row Total \u00f7 Grand Total = 2160 \u00f7 3960 \u00d7 100% = 54.5%.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_43"
+  },
+  {
+    "id": "ML12_P1_PROB_0333",
+    "topic": "Probability",
+    "subtopic": "Two-Way Contingency Tables",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "The two-way contingency table below summarizes survey data for Commuter Transport Mode Preference (Grand Total = 2000):\n\u2022 Urban: Public Transit = 720, Private Vehicle = 280 (Row Total = 1000)\n\u2022 Rural: Public Transit = 840, Private Vehicle = 160 (Row Total = 1000)\nDetermine the probability that a randomly chosen respondent is 'Urban', expressed as a percentage. (Round to 1 decimal place).",
     "correct_answer": "50.0%",
     "wrong_answers_pool": [
-      "8.8%",
-      "32.5%",
+      "36.0%",
+      "78.0%",
       "57.5%",
       "42.5%",
       "62.0%",
       "38.0%"
     ],
-    "explanation": "P(Under 45) = Row Total \u00f7 Grand Total = 1400 \u00f7 2800 \u00d7 100% = 50.0%.",
+    "explanation": "P(Urban) = Row Total \u00f7 Grand Total = 1000 \u00f7 2000 \u00d7 100% = 50.0%.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_44"
+  },
+  {
+    "id": "ML12_P1_FIN_0864",
+    "topic": "Finance",
+    "subtopic": "Hire Purchase & Loans",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "Continuing with Tshepo's home loan of R1,850,000.00 at 9.5% per annum with a monthly payment of R17,242.00: In Month 1, simple monthly interest is charged on the full opening balance. Calculate the amount of the first monthly installment that goes towards reducing the actual loan capital balance.",
+    "correct_answer": "R2,596.17",
+    "wrong_answers_pool": [
+      "R14,645.83",
+      "R17,242.00",
+      "R8,621.00",
+      "R3,115.40",
+      "R2,076.94",
+      "R7,708.33",
+      "R1,847,403.83"
+    ],
+    "explanation": "Month 1 Interest = R1,850,000.00 \u00d7 (9.5% \u00f7 12) = R14,645.83. Capital reduction = Monthly Payment - Interest = R17,242.00 - R14,645.83 = R2,596.17.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_45"
+  },
+  {
+    "id": "ML12_P1_PROB_0903",
+    "topic": "Probability",
+    "subtopic": "Medical Diagnostic Testing & Risk Analysis",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "An underwriter calculates policy premiums for commercial courier delivery fleet. The maximum insured value is R540,000.00, and statistical analysis indicates a 4.0% probability of a claim occurring during the annual policy term. Fixed administrative costs are R10,200.00 per policy. Calculate the minimum annual break-even premium required to cover the expected claim payout and administrative costs.",
+    "correct_answer": "R31,800.00",
+    "wrong_answers_pool": [
+      "R21,600.00",
+      "R54,000.00",
+      "R36,570.00",
+      "R27,030.00",
+      "R33,300.00",
+      "R30,300.00",
+      "R45,000.00"
+    ],
+    "explanation": "Expected Claim Payout = Insured Value \u00d7 Probability = R540,000.00 \u00d7 0.04 = R21,600.00. Break-even Premium = Expected Claim + Admin Fee = R21,600.00 + R10,200.00 = R31,800.00.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_46"
+  },
+  {
+    "id": "ML12_P1_PROB_0821",
+    "topic": "Probability",
+    "subtopic": "Relative Frequency vs Theoretical Probability",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A scientific study investigates factory light bulb life testing 2,000 bulbs (scaled trial 3\u00d7, total 6,000 observations). The outcome 'Defective bulbs' was recorded exactly 144 times. Calculate the experimental relative frequency of this outcome (as a decimal rounded to 3 decimal places).",
+    "correct_answer": "0.024",
+    "wrong_answers_pool": [
+      "0.020",
+      "0.025",
+      "0.028",
+      "0.074",
+      "-0.026",
+      "0.976"
+    ],
+    "explanation": "Relative Frequency = Observed frequency \u00f7 Total trials = 144 \u00f7 6000 = 0.024. The experimental relative frequency (0.024) matches within allowable 2.5% quality tolerance limits.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_47"
+  },
+  {
+    "id": "ML12_P1_FIN_0945",
+    "topic": "Finance",
+    "subtopic": "Break-Even Analysis",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "An enterprise incurs fixed monthly overheads of R8,877.00. Direct variable costs per item are R93.00 and each item sells for R188.00. Calculate the break-even sales volume.",
+    "correct_answer": "94 units",
+    "wrong_answers_pool": [
+      "47 units",
+      "95 units",
+      "109 units",
+      "79 units",
+      "105 units",
+      "82 units",
+      "124 units"
+    ],
+    "explanation": "Contribution margin = R188.00 - R93.00 = R95.00. Break-even volume = R8,877.00 \u00f7 R95.00 = 93.44 \u2248 94 units.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_48"
+  },
+  {
+    "id": "ML12_P1_FIN_0378",
+    "topic": "Finance",
+    "subtopic": "Personal Income Tax & Rebates",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "From the tax calculation where Khanyisile's total annual tax payable is R70,312.00, determine the monthly PAYE (Pay-As-You-Earn) deduction that must be reflected on Khanyisile's monthly payslip.",
+    "correct_answer": "R5,859.33",
+    "wrong_answers_pool": [
+      "R8,810.58",
+      "R8,082.58",
+      "R6,738.23",
+      "R4,980.43",
+      "R6,109.33",
+      "R5,609.33",
+      "R7,031.20"
+    ],
+    "explanation": "Monthly PAYE = Annual Tax Payable \u00f7 12 = R70,312.00 \u00f7 12 = R5,859.33.",
+    "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_49"
+  },
+  {
+    "id": "ML12_P1_DATA_0931",
+    "topic": "Data Handling",
+    "subtopic": "Scatter Plots & Correlation Analysis",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "In an environmental study, river water acidity (y) is modeled against industrial distance (x km) by the regression line y = 2.6x + 16.1. Calculate the predicted acidity when x = 33 km.",
+    "correct_answer": "101.9",
+    "wrong_answers_pool": [
+      "85.8",
+      "49.1",
+      "107.1",
+      "96.7",
+      "114.1",
+      "89.7",
+      "18.7"
+    ],
+    "explanation": "Substitute x = 33: y = (2.6 \u00d7 33) + 16.1 = 85.8 + 16.1 = 101.9.",
     "exam_id": "EXAM_2026-W46_grade12_mathematical_literacy_paper1_50"
   }
 ]
