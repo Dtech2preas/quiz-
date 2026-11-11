@@ -80,6 +80,13 @@
                 <marker id="dtech-arrow-yellow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
                     <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="${c.yellow}"/>
                 </marker>
+                <linearGradient id="dtech-spectrum-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#3b82f6"/>
+                    <stop offset="25%" stop-color="#06b6d4"/>
+                    <stop offset="50%" stop-color="#10b981"/>
+                    <stop offset="75%" stop-color="#f59e0b"/>
+                    <stop offset="100%" stop-color="#ef4444"/>
+                </linearGradient>
             </defs>`;
         },
 
@@ -299,40 +306,50 @@
 
             /**
              * 4. FREE BODY DIAGRAM (FBD)
-             * Config: { fn: true, fg: true, fk: true, fapp: true, angle: 0 }
+             * Config: { fn: true, fg: true, fk: true, fapp: 40, angle: 30, mass: 8 }
              */
             free_body(cfg) {
                 const c = this.getColors();
-                const width = 280;
+                const width = 300;
                 const height = 220;
-                const cx = 140;
-                const cy = 110;
+                const cx = 130;
+                const cy = 115;
+                const angle = cfg.angle || 0;
+                const rad = (angle * Math.PI) / 180;
+                const fLen = 85;
+                const fx = cx + fLen * Math.cos(rad);
+                const fy = cy - fLen * Math.sin(rad);
 
                 return `
                 <svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" class="dtech-svg">
                     ${this.getDefs()}
                     <!-- Coordinate Axes (Dashed) -->
-                    <line x1="30" y1="${cy}" x2="250" y2="${cy}" stroke="${c.border}" stroke-width="1.5" stroke-dasharray="3,3"/>
-                    <line x1="${cx}" y1="20" x2="${cx}" y2="200" stroke="${c.border}" stroke-width="1.5" stroke-dasharray="3,3"/>
+                    <line x1="20" y1="${cy}" x2="270" y2="${cy}" stroke="${c.border}" stroke-width="1.5" stroke-dasharray="3,3"/>
+                    <line x1="${cx}" y1="20" x2="${cx}" y2="205" stroke="${c.border}" stroke-width="1.5" stroke-dasharray="3,3"/>
 
                     <!-- Central Point of Mass -->
                     <circle cx="${cx}" cy="${cy}" r="6" fill="${c.blue}" stroke="#ffffff" stroke-width="2"/>
+                    ${cfg.mass ? `<text x="${cx - 10}" y="${cy - 10}" fill="${c.muted}" font-size="10">${cfg.mass} kg</text>` : ''}
 
                     <!-- Normal Force (Up) -->
                     <line x1="${cx}" y1="${cy}" x2="${cx}" y2="35" stroke="${c.green}" stroke-width="2.5" marker-end="url(#dtech-arrow-green)"/>
                     <text x="${cx + 8}" y="35" fill="${c.green}" font-size="12" font-weight="bold">F_N</text>
 
                     <!-- Gravity Force (Down) -->
-                    <line x1="${cx}" y1="${cy}" x2="${cx}" y2="185" stroke="${c.red}" stroke-width="2.5" marker-end="url(#dtech-arrow-red)"/>
-                    <text x="${cx + 8}" y="185" fill="${c.red}" font-size="12" font-weight="bold">F_g (w)</text>
+                    <line x1="${cx}" y1="${cy}" x2="${cx}" y2="190" stroke="${c.red}" stroke-width="2.5" marker-end="url(#dtech-arrow-red)"/>
+                    <text x="${cx + 8}" y="190" fill="${c.red}" font-size="12" font-weight="bold">F_g = mg</text>
 
-                    <!-- Applied Force (Right) -->
-                    <line x1="${cx}" y1="${cy}" x2="225" y2="${cy}" stroke="${c.yellow}" stroke-width="2.5" marker-end="url(#dtech-arrow-yellow)"/>
-                    <text x="228" y="${cy - 8}" fill="${c.yellow}" font-size="12" font-weight="bold">F_app</text>
+                    <!-- Applied Force (At Angle theta if specified) -->
+                    <line x1="${cx}" y1="${cy}" x2="${fx}" y2="${fy}" stroke="${c.yellow}" stroke-width="2.5" marker-end="url(#dtech-arrow-yellow)"/>
+                    <text x="${fx + 5}" y="${fy}" fill="${c.yellow}" font-size="11" font-weight="bold">F_app${cfg.fapp ? ` = ${cfg.fapp}N` : ''}</text>
+                    ${angle > 0 ? `
+                    <path d="M ${cx + 35} ${cy} A 35 35 0 0 0 ${cx + 35 * Math.cos(rad)} ${cy - 35 * Math.sin(rad)}" fill="none" stroke="${c.yellow}" stroke-width="1.5"/>
+                    <text x="${cx + 42}" y="${cy - 8}" fill="${c.yellow}" font-size="10">${angle}°</text>
+                    ` : ''}
 
                     <!-- Frictional Force (Left) -->
-                    <line x1="${cx}" y1="${cy}" x2="55" y2="${cy}" stroke="${c.cyan}" stroke-width="2.5" marker-end="url(#dtech-arrow-main)"/>
-                    <text x="45" y="${cy - 8}" fill="${c.cyan}" font-size="12" font-weight="bold">f_k</text>
+                    <line x1="${cx}" y1="${cy}" x2="45" y2="${cy}" stroke="${c.cyan}" stroke-width="2.5" marker-end="url(#dtech-arrow-main)"/>
+                    <text x="35" y="${cy - 8}" fill="${c.cyan}" font-size="12" font-weight="bold">f_k</text>
                 </svg>`;
             },
 
@@ -630,7 +647,424 @@
                     <circle cx="255" cy="${cy}" r="3.5" fill="${c.green}"/>
                     <circle cx="${cx}" cy="90" r="3.5" fill="${c.red}"/>
                 </svg>`;
+            },
+            /**
+             * 11. PUNNETT SQUARE (Monohybrid & Dihybrid Crosses)
+             * Config: { p1: ['I^A', 'i'], p2: ['I^B', 'i'], cross_label: 'Father (IAi) × Mother (IBi)', phenotype: 'Blood Groups: AB, A, B, O' }
+             */
+            punnett_square(cfg) {
+                const c = this.getColors();
+                const width = 340;
+                const height = 230;
+                const p1 = cfg.p1 || ['B', 'b'];
+                const p2 = cfg.p2 || ['B', 'b'];
+                const label = cfg.cross_label || `${p1.join('')} × ${p2.join('')}`;
+
+                const c00 = `${p1[0]}${p2[0]}`;
+                const c01 = `${p1[1]}${p2[0]}`;
+                const c10 = `${p1[0]}${p2[1]}`;
+                const c11 = `${p1[1]}${p2[1]}`;
+
+                return `
+                <svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" class="dtech-svg">
+                    ${this.getDefs()}
+                    <text x="170" y="22" fill="${c.cyan}" font-size="12" font-weight="bold" text-anchor="middle">Punnett Square: ${label}</text>
+                    
+                    <!-- Gametes Parent 1 (Top / Male) -->
+                    <text x="160" y="50" fill="${c.yellow}" font-size="12" font-weight="bold" text-anchor="middle">${p1[0]}</text>
+                    <text x="250" y="50" fill="${c.yellow}" font-size="12" font-weight="bold" text-anchor="middle">${p1[1]}</text>
+                    <text x="70" y="50" fill="${c.muted}" font-size="10" text-anchor="middle">Gametes ♂</text>
+
+                    <!-- Gametes Parent 2 (Left / Female) -->
+                    <text x="85" y="100" fill="${c.green}" font-size="12" font-weight="bold" text-anchor="middle">${p2[0]}</text>
+                    <text x="85" y="160" fill="${c.green}" font-size="12" font-weight="bold" text-anchor="middle">${p2[1]}</text>
+                    <text x="85" y="190" fill="${c.muted}" font-size="9" text-anchor="middle">Gametes ♀</text>
+
+                    <!-- 2x2 Offspring Grid -->
+                    <rect x="115" y="65" width="90" height="60" rx="4" fill="rgba(59, 130, 246, 0.15)" stroke="${c.border}" stroke-width="1.5"/>
+                    <text x="160" y="102" fill="${c.text}" font-size="13" font-weight="bold" text-anchor="middle">${c00}</text>
+
+                    <rect x="205" y="65" width="90" height="60" rx="4" fill="rgba(59, 130, 246, 0.1)" stroke="${c.border}" stroke-width="1.5"/>
+                    <text x="250" y="102" fill="${c.text}" font-size="13" font-weight="bold" text-anchor="middle">${c01}</text>
+
+                    <rect x="115" y="125" width="90" height="60" rx="4" fill="rgba(59, 130, 246, 0.1)" stroke="${c.border}" stroke-width="1.5"/>
+                    <text x="160" y="162" fill="${c.text}" font-size="13" font-weight="bold" text-anchor="middle">${c10}</text>
+
+                    <rect x="205" y="125" width="90" height="60" rx="4" fill="rgba(59, 130, 246, 0.2)" stroke="${c.border}" stroke-width="1.5"/>
+                    <text x="250" y="162" fill="${c.text}" font-size="13" font-weight="bold" text-anchor="middle">${c11}</text>
+
+                    ${cfg.phenotype ? `<text x="170" y="215" fill="${c.muted}" font-size="10" text-anchor="middle">${cfg.phenotype}</text>` : ''}
+                </svg>`;
+            },
+
+            /**
+             * 12. REDSHIFT / BLUESHIFT SPECTRAL ABSORPTION LINES
+             * Config: { shift: 'red'|'blue' }
+             */
+            red_blue_shift(cfg) {
+                const c = this.getColors();
+                const width = 360;
+                const height = 190;
+                const isRed = cfg.shift !== 'blue';
+                const shiftDx = isRed ? 22 : -22;
+                const shiftLabel = isRed ? 'Redshift (Receding Galaxy, λ increases)' : 'Blueshift (Approaching, λ decreases)';
+
+                return `
+                <svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" class="dtech-svg">
+                    ${this.getDefs()}
+                    <text x="180" y="20" fill="${c.text}" font-size="12" font-weight="bold" text-anchor="middle">Spectral Lines: ${shiftLabel}</text>
+                    
+                    <!-- Laboratory Reference Spectrum -->
+                    <text x="40" y="42" fill="${c.muted}" font-size="10">Laboratory Standard (Stationary):</text>
+                    <rect x="40" y="48" width="280" height="32" rx="4" fill="url(#dtech-spectrum-grad)" stroke="${c.border}" stroke-width="1.5"/>
+                    <line x1="90" y1="48" x2="90" y2="80" stroke="#000000" stroke-width="2.5"/>
+                    <line x1="150" y1="48" x2="150" y2="80" stroke="#000000" stroke-width="2.5"/>
+                    <line x1="215" y1="48" x2="215" y2="80" stroke="#000000" stroke-width="2.5"/>
+                    <line x1="270" y1="48" x2="270" y2="80" stroke="#000000" stroke-width="2.5"/>
+                    
+                    <!-- Observed Star / Galaxy Spectrum -->
+                    <text x="40" y="108" fill="${c.muted}" font-size="10">Observed Star/Galaxy Spectrum:</text>
+                    <rect x="40" y="114" width="280" height="32" rx="4" fill="url(#dtech-spectrum-grad)" stroke="${c.border}" stroke-width="1.5"/>
+                    <line x1="${90 + shiftDx}" y1="114" x2="${90 + shiftDx}" y2="146" stroke="#000000" stroke-width="2.5"/>
+                    <line x1="${150 + shiftDx}" y1="114" x2="${150 + shiftDx}" y2="146" stroke="#000000" stroke-width="2.5"/>
+                    <line x1="${215 + shiftDx}" y1="114" x2="${215 + shiftDx}" y2="146" stroke="#000000" stroke-width="2.5"/>
+                    <line x1="${270 + shiftDx}" y1="114" x2="${270 + shiftDx}" y2="146" stroke="#000000" stroke-width="2.5"/>
+
+                    <!-- Shift Arrow -->
+                    <line x1="215" y1="97" x2="${215 + shiftDx}" y2="97" stroke="${isRed ? c.red : c.blue}" stroke-width="2" marker-end="${isRed ? 'url(#dtech-arrow-red)' : 'url(#dtech-arrow-blue)'}"/>
+                    
+                    <text x="45" y="165" fill="#60a5fa" font-size="10">Blue (400 nm)</text>
+                    <text x="315" y="165" fill="#ef4444" font-size="10" text-anchor="end">Red (700 nm)</text>
+                    <text x="180" y="180" fill="${isRed ? c.red : c.blue}" font-size="10" font-weight="bold" text-anchor="middle">${isRed ? 'Shifted towards longer wavelength (Red)' : 'Shifted towards shorter wavelength (Blue)'}</text>
+                </svg>`;
+            },
+
+            /**
+             * 13. VERTICAL PROJECTILE MOTION (Velocity-Time Graph)
+             * Config: { v0: 20, t_top: 2.04 }
+             */
+            kinematics_graph(cfg) {
+                const c = this.getColors();
+                const width = 340;
+                const height = 210;
+                const v0 = cfg.v0 || 20;
+                const tTop = cfg.t_top || (v0 / 9.8).toFixed(1);
+                const tTotal = (tTop * 2).toFixed(1);
+
+                return `
+                <svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" class="dtech-svg">
+                    ${this.getDefs()}
+                    <line x1="45" y1="110" x2="315" y2="110" stroke="${c.text}" stroke-width="1.8" marker-end="url(#dtech-arrow-main)"/>
+                    <line x1="55" y1="195" x2="55" y2="25" stroke="${c.text}" stroke-width="1.8" marker-end="url(#dtech-arrow-main)"/>
+                    <text x="310" y="102" fill="${c.text}" font-size="11" font-weight="bold">t (s)</text>
+                    <text x="65" y="30" fill="${c.text}" font-size="11" font-weight="bold">v (m/s)</text>
+                    <text x="45" y="122" fill="${c.muted}" font-size="10">0</text>
+
+                    <!-- Initial velocity +v0 -->
+                    <circle cx="55" cy="50" r="3.5" fill="${c.green}"/>
+                    <text x="42" y="54" fill="${c.green}" font-size="11" font-weight="bold" text-anchor="end">+${v0}</text>
+
+                    <!-- Velocity-time curve -->
+                    <line x1="55" y1="50" x2="265" y2="170" stroke="${c.blue}" stroke-width="2.5"/>
+
+                    <!-- Apex (v = 0) -->
+                    <circle cx="160" cy="110" r="4" fill="${c.yellow}"/>
+                    <line x1="160" y1="110" x2="160" y2="125" stroke="${c.yellow}" stroke-width="1"/>
+                    <text x="160" y="138" fill="${c.yellow}" font-size="10" font-weight="bold" text-anchor="middle">${tTop} s (Apex)</text>
+
+                    <!-- Return to ground -v0 -->
+                    <circle cx="265" cy="170" r="3.5" fill="${c.red}"/>
+                    <line x1="265" y1="110" x2="265" y2="170" stroke="${c.muted}" stroke-width="1" stroke-dasharray="2,2"/>
+                    <text x="265" y="102" fill="${c.muted}" font-size="10" text-anchor="middle">${tTotal} s</text>
+                    <text x="42" y="174" fill="${c.red}" font-size="11" font-weight="bold" text-anchor="end">-${v0}</text>
+                    <line x1="55" y1="170" x2="265" y2="170" stroke="${c.muted}" stroke-width="1" stroke-dasharray="2,2"/>
+
+                    <text x="210" y="60" fill="${c.cyan}" font-size="10" font-weight="bold">Slope = a = -9.8 m/s²</text>
+                </svg>`;
+            },
+
+            /**
+             * 14. TWO CONNECTED BODIES ON HORIZONTAL SURFACE
+             * Config: { m1: 3, m2: 5, force: 30 }
+             */
+            two_body_horizontal(cfg) {
+                const c = this.getColors();
+                const width = 360;
+                const height = 180;
+                const m1 = cfg.m1 || 3;
+                const m2 = cfg.m2 || 5;
+                const f = cfg.force || 30;
+
+                return `
+                <svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" class="dtech-svg">
+                    ${this.getDefs()}
+                    <line x1="25" y1="130" x2="335" y2="130" stroke="${c.text}" stroke-width="2.5"/>
+                    <line x1="25" y1="135" x2="335" y2="135" stroke="${c.muted}" stroke-width="1" stroke-dasharray="4,4"/>
+
+                    <!-- Block 1 (Left) -->
+                    <rect x="55" y="82" width="55" height="48" rx="4" fill="${c.blue}" stroke="#60a5fa" stroke-width="2"/>
+                    <text x="82" y="111" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">${m1} kg</text>
+
+                    <!-- Connecting String with Tension -->
+                    <line x1="110" y1="106" x2="180" y2="106" stroke="${c.text}" stroke-width="2.5"/>
+                    <line x1="120" y1="106" x2="138" y2="106" stroke="${c.green}" stroke-width="2" marker-end="url(#dtech-arrow-green)"/>
+                    <line x1="170" y1="106" x2="152" y2="106" stroke="${c.green}" stroke-width="2" marker-end="url(#dtech-arrow-green)"/>
+                    <text x="145" y="98" fill="${c.green}" font-size="11" font-weight="bold" text-anchor="middle">T</text>
+
+                    <!-- Block 2 (Right) -->
+                    <rect x="180" y="74" width="65" height="56" rx="4" fill="${c.yellow}" stroke="#fbbf24" stroke-width="2"/>
+                    <text x="212" y="107" fill="#000000" font-size="13" font-weight="bold" text-anchor="middle">${m2} kg</text>
+
+                    <!-- Pulling Force -->
+                    <line x1="245" y1="102" x2="315" y2="102" stroke="${c.yellow}" stroke-width="3" marker-end="url(#dtech-arrow-yellow)"/>
+                    <text x="280" y="90" fill="${c.yellow}" font-size="12" font-weight="bold" text-anchor="middle">F = ${f} N</text>
+
+                    <!-- Normal & Weight -->
+                    <line x1="82" y1="82" x2="82" y2="45" stroke="${c.green}" stroke-width="2" marker-end="url(#dtech-arrow-green)"/>
+                    <line x1="82" y1="130" x2="82" y2="165" stroke="${c.red}" stroke-width="2" marker-end="url(#dtech-arrow-red)"/>
+                </svg>`;
+            },
+
+            /**
+             * 15. COULOMB'S LAW (Point Charges)
+             * Config: { q1: '+4 µC', q2: '-2 µC', distance: '0.3 m' }
+             */
+            coulomb_charges(cfg) {
+                const c = this.getColors();
+                const width = 340;
+                const height = 180;
+                const q1 = String(cfg.q1 || '+4 µC');
+                const q2 = String(cfg.q2 || '-2 µC');
+                const dist = cfg.distance || '0.3 m';
+                const isAttract = cfg.force_dir !== 'repel' && (!q1.startsWith('+') || !q2.startsWith('+')) && (!q1.startsWith('-') || !q2.startsWith('-'));
+
+                const q1Color = q1.includes('-') ? c.blue : c.red;
+                const q2Color = q2.includes('-') ? c.blue : c.red;
+
+                return `
+                <svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" class="dtech-svg">
+                    ${this.getDefs()}
+                    <circle cx="80" cy="80" r="24" fill="${q1Color}" opacity="0.2" stroke="${q1Color}" stroke-width="2.5"/>
+                    <text x="80" y="86" fill="${c.text}" font-size="14" font-weight="bold" text-anchor="middle">${q1.includes('-') ? '−' : '+'}</text>
+                    <text x="80" y="46" fill="${q1Color}" font-size="11" font-weight="bold" text-anchor="middle">q₁ = ${q1}</text>
+
+                    <circle cx="260" cy="80" r="24" fill="${q2Color}" opacity="0.2" stroke="${q2Color}" stroke-width="2.5"/>
+                    <text x="260" y="86" fill="${c.text}" font-size="14" font-weight="bold" text-anchor="middle">${q2.includes('-') ? '−' : '+'}</text>
+                    <text x="260" y="46" fill="${q2Color}" font-size="11" font-weight="bold" text-anchor="middle">q₂ = ${q2}</text>
+
+                    ${isAttract ? `
+                    <line x1="105" y1="80" x2="150" y2="80" stroke="${c.yellow}" stroke-width="2.5" marker-end="url(#dtech-arrow-yellow)"/>
+                    <text x="125" y="72" fill="${c.yellow}" font-size="10" font-weight="bold" text-anchor="middle">F₁₂</text>
+                    <line x1="235" y1="80" x2="190" y2="80" stroke="${c.yellow}" stroke-width="2.5" marker-end="url(#dtech-arrow-yellow)"/>
+                    <text x="215" y="72" fill="${c.yellow}" font-size="10" font-weight="bold" text-anchor="middle">F₂₁</text>
+                    ` : `
+                    <line x1="55" y1="80" x2="20" y2="80" stroke="${c.yellow}" stroke-width="2.5" marker-end="url(#dtech-arrow-yellow)"/>
+                    <text x="35" y="72" fill="${c.yellow}" font-size="10" font-weight="bold" text-anchor="middle">F₁₂</text>
+                    <line x1="285" y1="80" x2="320" y2="80" stroke="${c.yellow}" stroke-width="2.5" marker-end="url(#dtech-arrow-yellow)"/>
+                    <text x="305" y="72" fill="${c.yellow}" font-size="10" font-weight="bold" text-anchor="middle">F₂₁</text>
+                    `}
+
+                    <line x1="80" y1="120" x2="260" y2="120" stroke="${c.muted}" stroke-width="1.5" stroke-dasharray="3,3"/>
+                    <line x1="80" y1="112" x2="80" y2="128" stroke="${c.muted}" stroke-width="1.5"/>
+                    <line x1="260" y1="112" x2="260" y2="128" stroke="${c.muted}" stroke-width="1.5"/>
+                    <text x="170" y="140" fill="${c.muted}" font-size="11" font-weight="bold" text-anchor="middle">r = ${dist}</text>
+                    <text x="170" y="162" fill="${c.cyan}" font-size="10" text-anchor="middle">Coulomb's Law: F = k|q₁q₂| / r²</text>
+                </svg>`;
+            },
+
+            /**
+             * 16. BATTERY INTERNAL RESISTANCE (V vs I Graph)
+             * Config: { emf: 12, r: 1.5 }
+             */
+            internal_resistance_graph(cfg) {
+                const c = this.getColors();
+                const width = 340;
+                const height = 210;
+                const emf = cfg.emf || 12;
+                const r = cfg.r || 1.5;
+
+                return `
+                <svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" class="dtech-svg">
+                    ${this.getDefs()}
+                    <line x1="45" y1="180" x2="315" y2="180" stroke="${c.text}" stroke-width="1.8" marker-end="url(#dtech-arrow-main)"/>
+                    <line x1="55" y1="190" x2="55" y2="25" stroke="${c.text}" stroke-width="1.8" marker-end="url(#dtech-arrow-main)"/>
+                    <text x="310" y="198" fill="${c.text}" font-size="11" font-weight="bold">I (A)</text>
+                    <text x="65" y="30" fill="${c.text}" font-size="11" font-weight="bold">V (Volts)</text>
+
+                    <!-- Emf Intercept -->
+                    <circle cx="55" cy="45" r="4" fill="${c.yellow}"/>
+                    <text x="42" y="49" fill="${c.yellow}" font-size="11" font-weight="bold" text-anchor="end">E = ${emf}V</text>
+
+                    <!-- Terminal Voltage Line -->
+                    <line x1="55" y1="45" x2="265" y2="165" stroke="${c.blue}" stroke-width="2.5"/>
+
+                    <!-- Slope / r Indicator -->
+                    <polygon points="140,94 200,94 200,128" fill="rgba(59, 130, 246, 0.15)" stroke="${c.muted}" stroke-width="1" stroke-dasharray="2,2"/>
+                    <text x="215" y="115" fill="${c.cyan}" font-size="11" font-weight="bold">Slope = -r (${r} Ω)</text>
+
+                    <text x="180" y="45" fill="${c.green}" font-size="11" font-weight="bold">V_load = E - Ir</text>
+                </svg>`;
+            },
+
+            /**
+             * 17. PHOTOELECTRIC EFFECT (Ek vs Frequency Graph)
+             * Config: { metal: 'Cesium', f0: '4.8 × 10¹⁴' }
+             */
+            photoelectric_graph(cfg) {
+                const c = this.getColors();
+                const width = 340;
+                const height = 210;
+                const metal = cfg.metal || 'Potassium';
+                const f0 = cfg.f0 || '5.5';
+
+                return `
+                <svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" class="dtech-svg">
+                    ${this.getDefs()}
+                    <line x1="40" y1="140" x2="315" y2="140" stroke="${c.text}" stroke-width="1.8" marker-end="url(#dtech-arrow-main)"/>
+                    <line x1="90" y1="195" x2="90" y2="25" stroke="${c.text}" stroke-width="1.8" marker-end="url(#dtech-arrow-main)"/>
+                    <text x="310" y="132" fill="${c.text}" font-size="11" font-weight="bold">f (Hz)</text>
+                    <text x="100" y="30" fill="${c.text}" font-size="11" font-weight="bold">E_k(max) (J)</text>
+
+                    <!-- Work function -W0 -->
+                    <line x1="90" y1="140" x2="90" y2="185" stroke="${c.muted}" stroke-width="1.5" stroke-dasharray="3,3"/>
+                    <circle cx="90" cy="185" r="3.5" fill="${c.red}"/>
+                    <text x="80" y="188" fill="${c.red}" font-size="11" font-weight="bold" text-anchor="end">-W₀</text>
+                    <line x1="90" y1="185" x2="165" y2="140" stroke="${c.muted}" stroke-width="1.5" stroke-dasharray="3,3"/>
+
+                    <!-- Threshold freq f0 -->
+                    <circle cx="165" cy="140" r="4" fill="${c.yellow}"/>
+                    <text x="165" y="158" fill="${c.yellow}" font-size="11" font-weight="bold" text-anchor="middle">f₀ (${f0})</text>
+
+                    <!-- Line with slope h -->
+                    <line x1="165" y1="140" x2="285" y2="45" stroke="${c.blue}" stroke-width="2.5"/>
+                    <text x="240" y="40" fill="${c.cyan}" font-size="11" font-weight="bold">Slope = h (Planck)</text>
+                    <text x="240" y="55" fill="${c.muted}" font-size="10">${metal}</text>
+                </svg>`;
+            },
+
+            /**
+             * 18. ACID-BASE TITRATION CURVE
+             * Config: { eq_ph: '7.0', eq_vol: 25 }
+             */
+            titration_curve(cfg) {
+                const c = this.getColors();
+                const width = 340;
+                const height = 210;
+                const eqPh = cfg.eq_ph || '7.0';
+                const eqVol = cfg.eq_vol || 25;
+
+                return `
+                <svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" class="dtech-svg">
+                    ${this.getDefs()}
+                    <line x1="45" y1="180" x2="315" y2="180" stroke="${c.text}" stroke-width="1.8" marker-end="url(#dtech-arrow-main)"/>
+                    <line x1="55" y1="190" x2="55" y2="20" stroke="${c.text}" stroke-width="1.8" marker-end="url(#dtech-arrow-main)"/>
+                    <text x="310" y="195" fill="${c.text}" font-size="11" font-weight="bold">V_base (cm³)</text>
+                    <text x="65" y="25" fill="${c.text}" font-size="11" font-weight="bold">pH</text>
+
+                    <text x="45" y="183" fill="${c.muted}" font-size="10" text-anchor="end">0</text>
+                    <line x1="50" y1="105" x2="55" y2="105" stroke="${c.muted}" stroke-width="1"/>
+                    <text x="45" y="108" fill="${c.muted}" font-size="10" text-anchor="end">7</text>
+                    <line x1="50" y1="35" x2="55" y2="35" stroke="${c.muted}" stroke-width="1"/>
+                    <text x="45" y="38" fill="${c.muted}" font-size="10" text-anchor="end">14</text>
+                    <line x1="55" y1="105" x2="300" y2="105" stroke="${c.muted}" stroke-width="1" stroke-dasharray="3,3" opacity="0.5"/>
+
+                    <!-- Sigmoidal Curve -->
+                    <path d="M 55 168 C 100 165, 145 155, 165 140 C 172 130, 175 80, 185 70 C 205 55, 250 48, 295 45" fill="none" stroke="${c.green}" stroke-width="2.5"/>
+
+                    <!-- Equivalence Point -->
+                    <circle cx="175" cy="105" r="4.5" fill="${c.yellow}"/>
+                    <line x1="175" y1="105" x2="175" y2="180" stroke="${c.yellow}" stroke-width="1" stroke-dasharray="2,2"/>
+                    <text x="175" y="195" fill="${c.yellow}" font-size="10" font-weight="bold" text-anchor="middle">${eqVol} cm³</text>
+                    <text x="190" y="102" fill="${c.yellow}" font-size="11" font-weight="bold">Equivalence Pt (pH=${eqPh})</text>
+                </svg>`;
+            },
+
+            /**
+             * 19. ELECTROLYTIC CELL (Electroplating & Refining)
+             * Config: { anode: 'Copper (Cu)', cathode: 'Object to plate', electrolyte: 'CuSO₄ (aq)' }
+             */
+            electrolytic_cell(cfg) {
+                const c = this.getColors();
+                const width = 360;
+                const height = 210;
+                const anode = cfg.anode || 'Copper (Cu)';
+                const cathode = cfg.cathode || 'Object to plate';
+                const electrolyte = cfg.electrolyte || 'CuSO₄ (aq)';
+
+                return `
+                <svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" class="dtech-svg">
+                    ${this.getDefs()}
+                    <rect x="60" y="75" width="240" height="105" rx="4" fill="rgba(59, 130, 246, 0.15)" stroke="${c.border}" stroke-width="2"/>
+                    <text x="180" y="170" fill="${c.blue}" font-size="11" font-weight="bold" text-anchor="middle">${electrolyte}</text>
+
+                    <!-- Anode (+) -->
+                    <rect x="95" y="50" width="18" height="95" fill="#d97706" stroke="#f59e0b" stroke-width="1.5"/>
+                    <text x="104" y="42" fill="${c.yellow}" font-size="11" font-weight="bold" text-anchor="middle">Anode (+)</text>
+                    <text x="104" y="195" fill="${c.muted}" font-size="10" text-anchor="middle">${anode}</text>
+
+                    <!-- Cathode (-) -->
+                    <rect x="245" y="50" width="18" height="95" fill="#94a3b8" stroke="#cbd5e1" stroke-width="1.5"/>
+                    <text x="254" y="42" fill="${c.green}" font-size="11" font-weight="bold" text-anchor="middle">Cathode (-)</text>
+                    <text x="254" y="195" fill="${c.muted}" font-size="10" text-anchor="middle">${cathode}</text>
+
+                    <!-- Circuit to DC Power -->
+                    <line x1="104" y1="50" x2="104" y2="22" stroke="${c.text}" stroke-width="2"/>
+                    <line x1="254" y1="50" x2="254" y2="22" stroke="${c.text}" stroke-width="2"/>
+                    <line x1="104" y1="22" x2="165" y2="22" stroke="${c.text}" stroke-width="2"/>
+                    <line x1="195" y1="22" x2="254" y2="22" stroke="${c.text}" stroke-width="2"/>
+
+                    <line x1="165" y1="12" x2="165" y2="32" stroke="${c.yellow}" stroke-width="3"/>
+                    <line x1="173" y1="16" x2="173" y2="28" stroke="${c.text}" stroke-width="4"/>
+                    <line x1="187" y1="12" x2="187" y2="32" stroke="${c.yellow}" stroke-width="3"/>
+                    <line x1="195" y1="16" x2="195" y2="28" stroke="${c.text}" stroke-width="4"/>
+                    <text x="180" y="42" fill="${c.yellow}" font-size="10" font-weight="bold" text-anchor="middle">DC Power</text>
+
+                    <line x1="135" y1="115" x2="215" y2="115" stroke="${c.cyan}" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#dtech-arrow-main)"/>
+                    <text x="175" y="108" fill="${c.cyan}" font-size="10" text-anchor="middle">Cu²⁺ migration</text>
+                </svg>`;
+            },
+
+            /**
+             * 20. HYPERBOLA GRAPH (Asymptotes & Branches)
+             * Config: { p: 2, q: 1, title: 'f(x) = 3/(x - 2) + 1' }
+             */
+            hyperbola_graph(cfg) {
+                const c = this.getColors();
+                const width = 340;
+                const height = 210;
+                const p = cfg.p !== undefined ? cfg.p : 2;
+                const q = cfg.q !== undefined ? cfg.q : 1;
+                const title = cfg.title || `y = a/(x - ${p}) + ${q}`;
+
+                const cx = 130;
+                const cy = 110;
+                const asymX = cx + Math.min(80, Math.max(-80, p * 18));
+                const asymY = cy - Math.min(80, Math.max(-80, q * 18));
+
+                return `
+                <svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" class="dtech-svg">
+                    ${this.getDefs()}
+                    <line x1="20" y1="${cy}" x2="320" y2="${cy}" stroke="${c.text}" stroke-width="1.8" marker-end="url(#dtech-arrow-main)"/>
+                    <line x1="${cx}" y1="195" x2="${cx}" y2="20" stroke="${c.text}" stroke-width="1.8" marker-end="url(#dtech-arrow-main)"/>
+                    <text x="315" y="${cy - 8}" fill="${c.text}" font-size="11" font-weight="bold">x</text>
+                    <text x="${cx + 8}" y="25" fill="${c.text}" font-size="11" font-weight="bold">y</text>
+                    <text x="${cx - 12}" y="${cy + 15}" fill="${c.muted}" font-size="11">0</text>
+
+                    <!-- Asymptotes -->
+                    <line x1="${asymX}" y1="20" x2="${asymX}" y2="195" stroke="${c.yellow}" stroke-width="1.5" stroke-dasharray="4,4"/>
+                    <text x="${asymX + 4}" y="35" fill="${c.yellow}" font-size="10" font-weight="bold">x = ${p}</text>
+
+                    <line x1="20" y1="${asymY}" x2="320" y2="${asymY}" stroke="${c.yellow}" stroke-width="1.5" stroke-dasharray="4,4"/>
+                    <text x="295" y="${asymY - 6}" fill="${c.yellow}" font-size="10" font-weight="bold">y = ${q}</text>
+
+                    <!-- Branches -->
+                    <path d="M ${asymX + 12} ${asymY - 65} Q ${asymX + 22} ${asymY - 22} ${asymX + 65} ${asymY - 12}" fill="none" stroke="${c.blue}" stroke-width="2.5"/>
+                    <path d="M ${asymX - 12} ${asymY + 65} Q ${asymX - 22} ${asymY + 22} ${asymX - 65} ${asymY + 12}" fill="none" stroke="${c.blue}" stroke-width="2.5"/>
+
+                    <text x="240" y="22" fill="${c.cyan}" font-size="11" font-weight="bold">${title}</text>
+                </svg>`;
             }
+
         }
     };
 
