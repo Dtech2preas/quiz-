@@ -70,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="dtech_diagrams.js"></script>
     <style>
         :root {
             --bg-dark: #0f172a;
@@ -177,6 +178,43 @@ document.addEventListener('DOMContentLoaded', () => {
         .back-btn:hover { background: var(--option-hover); }
 
         #loading { text-align: center; font-size: 1.2rem; padding: 2rem; color: var(--text-muted); }
+
+        /* Diagram Visual Container */
+        .diagram-container {
+            width: 100%;
+            max-width: 440px;
+            margin: 0 auto 1.5rem auto;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.65);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1rem;
+            box-sizing: border-box;
+            overflow: hidden;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.25);
+        }
+        .diagram-container svg, .review-diagram-container svg {
+            width: 100%;
+            height: auto;
+            max-height: 240px;
+            display: block;
+        }
+        .review-diagram-container {
+            width: 100%;
+            max-width: 380px;
+            margin: 0.5rem auto 1rem auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.75rem;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
 
         /* Review Styles */
         #review-container { max-height: 70vh; overflow-y: auto; padding-right: 0.5rem; margin-top: 1.5rem; scrollbar-width: thin; box-sizing: border-box; }
@@ -335,6 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <span id="progress-text">Question 1 of 50</span>
         </div>
 
+        <div id="question-diagram-container" class="diagram-container" style="display: none;"></div>
         <div class="question-text" id="question-text"></div>
         <div class="options" id="options-container"></div>
 
@@ -697,6 +736,17 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
 
         document.getElementById("progress-text").textContent = `Question ${currentQuestionIndex + 1} of ${currentExamData.length}`;
 
+        // Render diagram if present
+        const diagContainer = document.getElementById("question-diagram-container");
+        if (diagContainer && window.DTechDiagrams) {
+            if (q.diagram) {
+                DTechDiagrams.render(q.diagram, diagContainer);
+            } else {
+                diagContainer.innerHTML = "";
+                diagContainer.style.display = "none";
+            }
+        }
+
         const qText = document.getElementById("question-text");
         qText.innerHTML = formatLatexOption(cleanQuestionText(q.question));
 
@@ -771,7 +821,8 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
             correctAnswer: formatLatexOption(q.correct_answer),
             selectedAnswer: selectedText,
             isCorrect: isCorrect,
-            explanation: formatLatexOption(cleanQuestionText(q.explanation)) || `The correct answer is: ${formatLatexOption(q.correct_answer)}`
+            explanation: formatLatexOption(cleanQuestionText(q.explanation)) || `The correct answer is: ${formatLatexOption(q.correct_answer)}`,
+            diagram: q.diagram || null
         });
 
         if (isCorrect) {
@@ -1012,6 +1063,14 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
             const item = document.createElement("div");
             item.className = "review-item";
 
+            let diagramHtml = "";
+            if (ans.diagram && window.DTechDiagrams) {
+                const svgCode = DTechDiagrams.getSVG(ans.diagram);
+                if (svgCode) {
+                    diagramHtml = `<div class="review-diagram-container">${svgCode}</div>`;
+                }
+            }
+
             let explanationHtml = "";
             if (!ans.isCorrect) {
                 explanationHtml = `
@@ -1025,6 +1084,7 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
 
             item.innerHTML = `
                 <div class="review-q-text">${idx + 1}. ${ans.question}</div>
+                ${diagramHtml}
                 <div class="review-options">
                     <div class="review-opt ${ans.isCorrect ? 'r-correct' : 'r-wrong'}">
                         Your Answer: ${ans.selectedAnswer}

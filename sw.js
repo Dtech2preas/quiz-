@@ -25,6 +25,7 @@ const ASSETS_TO_CACHE = [
   '/privacy.html',
   '/terms.html',
   '/dtech_cosmetics.js',
+  '/dtech_diagrams.js',
   '/security.js',
   '/offline_engine.js',
   '/firebase_config.js',
