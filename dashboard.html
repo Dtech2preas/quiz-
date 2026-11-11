@@ -16,7 +16,17 @@
             --border-color: #334155;
             --header-bg: #0b1120;
         }
-        body { overflow-x: hidden;  display: flex; flex-direction: column; min-height: 100vh; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-dark); color: var(--text-main); }
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        body { display: flex; flex-direction: column; min-height: 100vh; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-dark); color: var(--text-main); }
 
         /* Compact Header / Nav */
         header { background: var(--header-bg); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
@@ -710,7 +720,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     <!-- Report Card Template (Hidden) -->
-    <div id="report-card-template" style="position: absolute; top: -9999px; left: -9999px; width: 800px; min-height: 600px; background: white; color: black; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; box-sizing: border-box; text-align: center; border: 15px solid #3b82f6; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; z-index: 1;">
+    <div id="report-card-template" style="position: fixed; top: 0; left: -99999px; width: 800px; min-height: 600px; background: white; color: black; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; box-sizing: border-box; text-align: center; border: 15px solid #3b82f6; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; z-index: -9999; opacity: 0; pointer-events: none;">
 
         <!-- Watermark -->
         <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: -1; display: flex; justify-content: center; align-items: center; pointer-events: none; overflow: hidden;">

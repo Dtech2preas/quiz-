@@ -6,15 +6,43 @@
     <title>Detailed Stats - Quiz Platform</title>
     <!-- Load MathJax for rendering math formulas -->
     <script>
+        let isMathJaxReady = false;
+        let mathJaxQueue = Promise.resolve();
+
         window.MathJax = {
             tex: {
                 inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
             },
-            svg: {
-                fontCache: 'global'
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            startup: {
+                ready: () => {
+                    MathJax.startup.defaultReady();
+                    isMathJaxReady = true;
+                    MathJax.startup.promise.then(() => {
+                        renderMath();
+                    });
+                }
             }
         };
+
+        function renderMath(targetEl) {
+            if (window.MathJax && typeof MathJax.typesetPromise === 'function') {
+                mathJaxQueue = mathJaxQueue
+                    .then(() => targetEl ? MathJax.typesetPromise([targetEl]) : MathJax.typesetPromise())
+                    .catch(err => console.warn('MathJax typesetting error:', err));
+                return mathJaxQueue;
+            } else if (window.MathJax && MathJax.startup && MathJax.startup.promise) {
+                MathJax.startup.promise.then(() => {
+                    if (typeof MathJax.typesetPromise === 'function') {
+                        targetEl ? MathJax.typesetPromise([targetEl]) : MathJax.typesetPromise();
+                    }
+                });
+            }
+        }
     </script>
 <script>
 // Hamburger Menu Logic
@@ -51,7 +79,17 @@ document.addEventListener('DOMContentLoaded', () => {
             --header-bg: #0b1120;
             --table-hover: #1e293b;
         }
-        body { overflow-x: hidden;  display: flex; flex-direction: column; min-height: 100vh; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-dark); color: var(--text-main); }
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        body { display: flex; flex-direction: column; min-height: 100vh; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-dark); color: var(--text-main); }
 
         /* Compact Header / Nav */
         header { background: var(--header-bg); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
@@ -66,17 +104,27 @@ document.addEventListener('DOMContentLoaded', () => {
             nav { width: 100%; justify-content: center; flex-wrap: wrap; gap: 1rem; }
         }
 
-        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+        .container { width: 100%; max-width: 1000px; margin: 2rem auto; padding: 0 1rem; box-sizing: border-box; }
         h2 { margin-bottom: 1.5rem; font-weight: 600; color: var(--text-main); }
 
-        .stat-group { background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 2rem; overflow-x: auto; }
+        .stat-group { background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 2rem; overflow-x: auto; width: 100%; max-width: 100%; box-sizing: border-box; }
         .stat-group h3 { border-bottom: 1px solid var(--border-color); padding-bottom: 0.8rem; margin-top: 0; margin-bottom: 1rem; color: var(--text-main); font-weight: 600; }
 
-        .table { width: 100%; border-collapse: collapse; min-width: 600px; }
-        .table th, .table td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--border-color); color: var(--text-main); }
+        .table { width: 100%; border-collapse: collapse; max-width: 100%; }
+        .table th, .table td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--border-color); color: var(--text-main); word-break: break-word; }
         .table th { background-color: rgba(0,0,0,0.2); font-weight: 600; color: var(--text-muted); }
         .table tr:last-child td { border-bottom: none; }
         .table tr:hover td { background-color: rgba(255,255,255,0.02); }
+
+        /* MathJax Responsive Container Styles */
+        mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            vertical-align: middle !important;
+            box-sizing: border-box !important;
+            scrollbar-width: thin;
+        }
 
         #loading { text-align: center; font-size: 1.2rem; margin-top: 3rem; color: var(--text-muted); }
         #stats-content { display: none; }
@@ -448,6 +496,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             document.getElementById("loading").style.display = "none";
             document.getElementById("stats-content").style.display = "block";
+            renderMath();
 
         } catch (error) {
             console.error("Error fetching user stats:", error);

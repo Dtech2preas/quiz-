@@ -22,7 +22,17 @@
             --theme-diamond: linear-gradient(135deg, #60a5fa, #3b82f6);
             --theme-neon: linear-gradient(135deg, #f472b6, #db2777);
         }
-        body { overflow-x: hidden;  display: flex; flex-direction: column; min-height: 100vh; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-dark); color: var(--text-main); }
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        body { display: flex; flex-direction: column; min-height: 100vh; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-dark); color: var(--text-main); }
 
         /* Compact Header / Nav */
         header { background: var(--header-bg); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
@@ -37,7 +47,7 @@
             nav { width: 100%; justify-content: center; flex-wrap: wrap; gap: 1rem; }
         }
 
-        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+        .container { width: 100%; max-width: 1000px; margin: 2rem auto; padding: 0 1rem; box-sizing: border-box; }
 
         .points-banner {
             background: linear-gradient(135deg, #8b5cf6, #6d28d9);

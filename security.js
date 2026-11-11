@@ -44,8 +44,8 @@
             user-select: auto !important;
         }
 
-        /* Watermark overlay */
-        .security-watermark {
+        /* Watermark overlay container - strictly clipped to prevent horizontal or infinite scroll */
+        .security-watermark-container {
             position: fixed;
             top: 0;
             left: 0;
@@ -53,13 +53,20 @@
             height: 100vh;
             pointer-events: none; /* Let clicks pass through */
             z-index: 9999;
+            overflow: hidden;
+            contain: strict;
+        }
+
+        .security-watermark {
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
             opacity: 0.05;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             align-content: center;
-            overflow: hidden;
-            transform: rotate(-30deg) scale(2);
+            transform: rotate(-30deg) scale(1.4);
         }
 
         .security-watermark-text {
@@ -85,7 +92,9 @@
             padding: 30px;
             border-radius: 10px;
             text-align: center;
+            width: 90%;
             max-width: 400px;
+            box-sizing: border-box;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
         #security-warning-modal h2 { margin-top: 0; color: #d32f2f; }
@@ -118,6 +127,8 @@
             console.warn("Could not retrieve user info for watermark.");
         }
 
+        const watermarkContainer = document.createElement('div');
+        watermarkContainer.className = 'security-watermark-container';
         const watermarkDiv = document.createElement('div');
         watermarkDiv.className = 'security-watermark';
 
@@ -128,7 +139,8 @@
             span.innerText = watermarkString;
             watermarkDiv.appendChild(span);
         }
-        document.body.appendChild(watermarkDiv);
+        watermarkContainer.appendChild(watermarkDiv);
+        document.body.appendChild(watermarkContainer);
 
         // Add warning modal to DOM
         const warningModal = document.createElement('div');

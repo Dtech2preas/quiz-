@@ -96,7 +96,17 @@
             --header-bg: #0b1120;
         }
 
-        body { overflow-x: hidden;
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             display: flex;
             flex-direction: column;

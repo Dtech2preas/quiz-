@@ -10,15 +10,43 @@
 
     <!-- Load MathJax for rendering math formulas -->
     <script>
+        let isMathJaxReady = false;
+        let mathJaxQueue = Promise.resolve();
+
         window.MathJax = {
             tex: {
                 inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
             },
-            svg: {
-                fontCache: 'global'
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            startup: {
+                ready: () => {
+                    MathJax.startup.defaultReady();
+                    isMathJaxReady = true;
+                    MathJax.startup.promise.then(() => {
+                        renderMath();
+                    });
+                }
             }
         };
+
+        function renderMath(targetEl) {
+            if (window.MathJax && typeof MathJax.typesetPromise === 'function') {
+                mathJaxQueue = mathJaxQueue
+                    .then(() => targetEl ? MathJax.typesetPromise([targetEl]) : MathJax.typesetPromise())
+                    .catch(err => console.warn('MathJax typesetting error:', err));
+                return mathJaxQueue;
+            } else if (window.MathJax && MathJax.startup && MathJax.startup.promise) {
+                MathJax.startup.promise.then(() => {
+                    if (typeof MathJax.typesetPromise === 'function') {
+                        targetEl ? MathJax.typesetPromise([targetEl]) : MathJax.typesetPromise();
+                    }
+                });
+            }
+        }
     </script>
 <script>
 // Hamburger Menu Logic
@@ -61,7 +89,17 @@ document.addEventListener('DOMContentLoaded', () => {
             --option-wrong: rgba(239, 68, 68, 0.2);
             --accent-yellow: #f59e0b;
         }
-        body { overflow-x: hidden;  display: flex; flex-direction: column; min-height: 100vh; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-dark); color: var(--text-main); }
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        body { display: flex; flex-direction: column; min-height: 100vh; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-dark); color: var(--text-main); }
 
         /* Compact Header / Nav */
         header { background: var(--header-bg); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
@@ -76,13 +114,13 @@ document.addEventListener('DOMContentLoaded', () => {
             nav { width: 100%; justify-content: center; flex-wrap: wrap; gap: 1rem; }
         }
 
-        .container { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+        .container { width: 100%; max-width: 800px; margin: 2rem auto; padding: 0 1rem; box-sizing: border-box; overflow-wrap: break-word; word-wrap: break-word; }
 
-        .setup-section, .quiz-section, .result-section { background: var(--bg-card); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 2rem; border: 1px solid var(--border-color); }
+        .setup-section, .quiz-section, .result-section { width: 100%; max-width: 100%; box-sizing: border-box; background: var(--bg-card); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 2rem; border: 1px solid var(--border-color); overflow-wrap: break-word; word-wrap: break-word; }
 
-        select, input[type="number"] { padding: 0.8rem; font-size: 1rem; margin-right: 1rem; border: 1px solid var(--border-color); border-radius: 6px; background: var(--bg-dark); color: var(--text-main); outline: none; transition: border-color 0.2s; }
+        select, input[type="number"] { padding: 0.8rem; font-size: 1rem; margin-right: 1rem; border: 1px solid var(--border-color); border-radius: 6px; background: var(--bg-dark); color: var(--text-main); outline: none; transition: border-color 0.2s; max-width: 100%; box-sizing: border-box; }
         select:focus, input[type="number"]:focus { border-color: var(--accent-blue); }
-        button { padding: 0.8rem 1.5rem; background: var(--accent-green); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 1.05rem; font-weight: 500; transition: background-color 0.2s, transform 0.1s; }
+        button { padding: 0.8rem 1.5rem; background: var(--accent-green); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 1.05rem; font-weight: 500; transition: background-color 0.2s, transform 0.1s; box-sizing: border-box; }
         button:hover { background: var(--accent-hover); transform: translateY(-1px); }
         button:active { transform: translateY(0); }
 
@@ -118,9 +156,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         @keyframes popIn { 0% { opacity: 0; transform: scale(0.95); } 100% { opacity: 1; transform: scale(1); } }
 
-        .question-text { font-size: 1.3rem; margin-bottom: 1.5rem; font-weight: 600; line-height: 1.5; color: var(--text-main); opacity: 0; }
-        .options { display: flex; flex-direction: column; gap: 1rem; }
-        .option-btn { padding: 1.2rem; background: var(--option-bg); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 1.1rem; color: var(--text-main); transition: all 0.2s; line-height: 1.4; opacity: 0; }
+        .question-text { width: 100%; max-width: 100%; font-size: 1.3rem; margin-bottom: 1.5rem; font-weight: 600; line-height: 1.5; color: var(--text-main); opacity: 0; white-space: normal; word-break: break-word; overflow-wrap: break-word; hyphens: auto; box-sizing: border-box; }
+        .options { width: 100%; max-width: 100%; display: flex; flex-direction: column; gap: 1rem; box-sizing: border-box; }
+        .option-btn { width: 100%; max-width: 100%; padding: 1.2rem; background: var(--option-bg); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: left; font-size: 1.1rem; color: var(--text-main); transition: all 0.2s; line-height: 1.4; opacity: 0; white-space: normal; word-break: break-word; overflow-wrap: break-word; box-sizing: border-box; }
         .option-btn:hover { background: var(--option-hover); border-color: #64748b; }
 
         .option-btn.selected { background: var(--option-selected); border-color: #60a5fa; color: white; transform: scale(1.02); }
@@ -129,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .option-btn.correct { background: var(--option-correct); border-color: var(--accent-green); color: var(--accent-green); }
         .option-btn.wrong { background: var(--option-wrong); border-color: var(--accent-red); color: var(--accent-red); }
 
-        .explanation { margin-top: 1rem; padding: 1rem; background: rgba(0,0,0,0.2); border-left: 4px solid var(--accent-blue); border-radius: 4px; display: none; color: var(--text-main); font-size: 0.95rem; }
+        .explanation { width: 100%; max-width: 100%; margin-top: 1rem; padding: 1rem; background: rgba(0,0,0,0.2); border-left: 4px solid var(--accent-blue); border-radius: 4px; display: none; color: var(--text-main); font-size: 0.95rem; white-space: normal; word-break: break-word; overflow-wrap: break-word; box-sizing: border-box; }
 
         .quiz-footer { margin-top: 2rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-color); padding-top: 1.5rem; }
         #next-btn { background: var(--accent-blue); width: 100%; max-width: 200px; }
@@ -141,15 +179,39 @@ document.addEventListener('DOMContentLoaded', () => {
         #loading { text-align: center; font-size: 1.2rem; padding: 2rem; color: var(--text-muted); }
 
         /* Review Styles */
-        .review-item { margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; }
+        #review-container { max-height: 70vh; overflow-y: auto; padding-right: 0.5rem; margin-top: 1.5rem; scrollbar-width: thin; box-sizing: border-box; }
+        .review-item { width: 100%; max-width: 100%; margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; box-sizing: border-box; }
         .review-item:last-child { border-bottom: none; }
-        .review-q-text { font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; color: var(--text-main); }
-        .review-options { display: flex; flex-direction: column; gap: 0.5rem; }
-        .review-opt { padding: 0.8rem; border-radius: 6px; border: 1px solid var(--border-color); background: var(--option-bg); font-size: 1rem; color: var(--text-main); }
+        .review-q-text { width: 100%; max-width: 100%; font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; color: var(--text-main); white-space: normal; word-break: break-word; overflow-wrap: break-word; box-sizing: border-box; }
+        .review-options { width: 100%; max-width: 100%; display: flex; flex-direction: column; gap: 0.5rem; box-sizing: border-box; }
+        .review-opt { width: 100%; max-width: 100%; padding: 0.8rem; border-radius: 6px; border: 1px solid var(--border-color); background: var(--option-bg); font-size: 1rem; color: var(--text-main); white-space: normal; word-break: break-word; overflow-wrap: break-word; box-sizing: border-box; }
         .review-opt.r-correct { background: var(--option-correct); border-color: var(--accent-green); color: #34d399; }
         .review-opt.r-wrong { background: var(--option-wrong); border-color: var(--accent-red); color: #f87171; }
         .explain-btn { margin-top: 1rem; background: transparent; border: 1px solid var(--accent-blue); color: var(--accent-blue); padding: 0.5rem 1rem; font-size: 0.9rem; }
         .explain-btn:hover { background: rgba(59, 130, 246, 0.1); }
+
+        /* MathJax Responsive Container Styles */
+        mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            vertical-align: middle !important;
+            box-sizing: border-box !important;
+            scrollbar-width: thin;
+        }
+
+        mjx-container[jax="CHTML"][display="true"] {
+            display: block !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            max-width: 100% !important;
+            margin: 0.5rem 0 !important;
+            padding: 0.25rem 0 !important;
+        }
+
+        mjx-math {
+            white-space: normal !important;
+        }
 
         /* Hamburger Menu Styles */
         .hamburger {
@@ -321,26 +383,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     function formatLatexOption(text) {
-        if (!text) return text;
+        if (!text) return "";
+        let str = String(text);
 
-        // Ensure text is a string
-        text = String(text);
+        // Normalize \( \) and \[ \] to $
+        str = str.replace(/\\\((.*?)\\\)/g, "$$$1$$");
+        str = str.replace(/\\\[(.*?)\\\]/g, "$$$$$1$$$$");
 
-        // If it already contains inline math or display math delimiters, return as is
-        if (text.includes('$') || text.includes('\\(') || text.includes('\\[')) {
-            return text;
+        // Common LaTeX tokens that require math mode
+        const macroRegex = /\\(?:frac|sqrt|left|right|leq|geq|times|cdot|pm|approx|neq|ne|circ|Delta|Omega|pi|theta|mu|alpha|beta|lambda|degree|text)\b/;
+
+        if (!macroRegex.test(str)) {
+            return str;
         }
 
-        // Common LaTeX indicators
-        const latexIndicators = ['\\', '^', '_', '{', '}'];
-        const hasLatex = latexIndicators.some(indicator => text.includes(indicator));
+        // Strip LaTeX commands to evaluate plain English words count
+        const plainText = str.replace(/\\[a-zA-Z]+(?:\{[^}]*\})?/g, " ");
+        const words = plainText.match(/[a-zA-Z]{3,}/g) || [];
 
-        if (hasLatex) {
-            // If it has latex indicators but no wrapping, wrap it in \( ... \)
-            return '\\(' + text + '\\)';
+        // Short isolated formula or option:
+        if (!str.includes("$") && words.length < 2) {
+            return `$${str.trim()}$`;
         }
 
-        return text;
+        // Single-pass replacement for text outside $...$
+        const parts = str.split(/(\$[^\$]+\$)/g);
+        const pattern = /(\\frac\{[^{}]*\}\{[^{}]*\}|\\sqrt\{[^{}]*\}|\\left\(.*?\\right\)|[0-9a-zA-Z\.\+\-\*\/\^]+\s*~?\s*\\(?:text\{[^{}]*\}|Omega|Delta|pi|theta|mu|alpha|beta|lambda|degree|circ)(?:\^[a-zA-Z0-9]+)?|[0-9a-zA-Z\.\+\-\*\/\^]+\s*\\(?:leq|geq|times|cdot|pm|approx|neq|ne)\s*[0-9a-zA-Z\.\+\-\*\/\^]+|\\[a-zA-Z]+(?:\^[a-zA-Z0-9]+)?)/g;
+
+        for (let i = 0; i < parts.length; i++) {
+            if (i % 2 === 0 && macroRegex.test(parts[i])) {
+                parts[i] = parts[i].replace(pattern, (m) => `$${m}$`);
+            }
+        }
+        return parts.join("");
     }
 
     function cleanQuestionText(text) {
@@ -670,9 +745,7 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
         }
 
         // Tell MathJax to typeset the new math content
-        if (window.MathJax) {
-            MathJax.typesetPromise();
-        }
+        renderMath();
     }
 
     function selectOption(btn) {
@@ -963,9 +1036,7 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
             reviewContainer.appendChild(item);
         });
 
-        if (window.MathJax) {
-            MathJax.typesetPromise([document.getElementById("review-container")]);
-        }
+        renderMath(document.getElementById("review-container"));
     }
 
     function goBackToList() {
@@ -1120,7 +1191,7 @@ var API_URL = "https://billowing-hall-4748.nakiaklocko57.workers.dev";
 </script>
 
     <!-- Certificate Template (Hidden) -->
-    <div id="certificate-template" style="position: absolute; top: -9999px; left: -9999px; width: 600px; height: 800px; background: linear-gradient(135deg, #f0f8ff, #ffffff); color: black; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; box-sizing: border-box; text-align: center; border: 15px solid #111; outline: 4px solid #fff; outline-offset: -10px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; z-index: 1; box-shadow: inset 0 0 20px rgba(59, 130, 246, 0.1);">
+    <div id="certificate-template" style="position: fixed; top: 0; left: -99999px; width: 600px; height: 800px; background: linear-gradient(135deg, #f0f8ff, #ffffff); color: black; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; box-sizing: border-box; text-align: center; border: 15px solid #111; outline: 4px solid #fff; outline-offset: -10px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; z-index: -9999; opacity: 0; pointer-events: none; box-shadow: inset 0 0 20px rgba(59, 130, 246, 0.1);">
 
         <!-- Watermark -->
         <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: -1; display: flex; justify-content: center; align-items: center; pointer-events: none; overflow: hidden;">

@@ -91,8 +91,10 @@ self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
   const url = new URL(event.request.url);
 
-  // We only cache same-origin requests, except datasets/APIs
-  if (url.origin !== location.origin) return;
+  const isCdnAsset = url.origin === 'https://cdn.jsdelivr.net' || url.origin === 'https://cdnjs.cloudflare.com';
+
+  // We only cache same-origin requests and whitelisted CDNs, except datasets/APIs
+  if (url.origin !== location.origin && !isCdnAsset) return;
   if (url.pathname.startsWith('/api/')) return;
   if (url.pathname.startsWith('/dataset/')) return;
 
@@ -108,8 +110,8 @@ self.addEventListener('fetch', (event) => {
 
       // If NOT in cache, attempt network
       return fetch(event.request).then((networkResponse) => {
-        // 1. Cache immediately on success (Never lose a page)
-        if (networkResponse && networkResponse.status === 200 && networkResponse.type === 'basic') {
+        // 1. Cache immediately on success (Never lose a page / asset)
+        if (networkResponse && networkResponse.status === 200 && (networkResponse.type === 'basic' || networkResponse.type === 'cors')) {
           const responseToCache = networkResponse.clone();
           caches.open(activeCacheName).then((cache) => {
             cache.put(event.request, responseToCache);
