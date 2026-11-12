@@ -502,6 +502,318 @@ def enrich_weekly_quizzes():
 
     print(f"Grade 12 Weekly Quizzes: {total_added} diagrams enriched, {total_sanitized} sanitized.")
 
+def enrich_transformers():
+    path = os.path.join(BASE_DIR, 'dataset/grade12/physical_sciences/paper1_electrodynamics.json')
+    if not os.path.exists(path):
+        return
+    with open(path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+    added = 0
+    for q in data:
+        if q.get('diagram'):
+            continue
+        q_text = q.get('question', '')
+        if 'transformer' in q_text.lower():
+            np_match = re.search(r'(\d+)\s*turns on its primary', q_text, re.IGNORECASE)
+            ns_match = re.search(r'(\d+)\s*turns on its secondary', q_text, re.IGNORECASE)
+            v_match = re.search(r'stepping voltage from\s*(\d+)\s*V to\s*(\d+)\s*V', q_text, re.IGNORECASE)
+
+            np_val = int(np_match.group(1)) if np_match else 2400
+            ns_val = int(ns_match.group(1)) if ns_match else 120
+            vp_val = int(v_match.group(1)) if v_match else (240 if np_val > ns_val else 12)
+            vs_val = int(v_match.group(2)) if v_match else (12 if np_val > ns_val else 240)
+
+            is_step_down = np_val > ns_val or vp_val > vs_val
+            q['diagram'] = {
+                'type': 'transformer_circuit',
+                'transformer_type': 'step_down' if is_step_down else 'step_up',
+                'vp': vp_val,
+                'vs': vs_val,
+                'np': np_val,
+                'ns': ns_val
+            }
+            added += 1
+
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+    print(f"Electrodynamics Transformers: {added} diagrams enriched.")
+
+def enrich_momentum_impulse():
+    path = os.path.join(BASE_DIR, 'dataset/grade12/physical_sciences/paper1_momentum_impulse.json')
+    if not os.path.exists(path):
+        return
+    with open(path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+    added = 0
+    for q in data:
+        if q.get('diagram'):
+            continue
+        q_text = q.get('question', '')
+        if 'impulse' in q_text.lower() or 'vertical wall' in q_text.lower():
+            q['diagram'] = {
+                'type': 'impulse_force_time',
+                'fmax': 500,
+                'dt': '0.04'
+            }
+            added += 1
+
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+    print(f"Momentum Impulse Force-Time: {added} diagrams enriched.")
+
+def enrich_electrostatics_field_lines():
+    path = os.path.join(BASE_DIR, 'dataset/grade12/physical_sciences/paper1_electrostatics.json')
+    if not os.path.exists(path):
+        return
+    with open(path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+    added = 0
+    for q in data:
+        if q.get('diagram'):
+            continue
+        q_text = q.get('question', '')
+        ql = q_text.lower()
+        if 'parallel' in ql and ('plate' in ql or 'field' in ql):
+            q['diagram'] = {
+                'type': 'electric_field_lines',
+                'setup': 'parallel_plates'
+            }
+            added += 1
+        elif 'field line' in ql or 'electric field' in ql or 'point charge' in ql:
+            q['diagram'] = {
+                'type': 'electric_field_lines',
+                'setup': 'dipole'
+            }
+            added += 1
+
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+    print(f"Electrostatics Field Lines: {added} diagrams enriched.")
+
+def enrich_organic_chemistry():
+    path = os.path.join(BASE_DIR, 'dataset/grade12/physical_sciences/paper2_organic_chemistry.json')
+    if not os.path.exists(path):
+        return
+    with open(path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+    added = 0
+    for q in data:
+        if q.get('diagram'):
+            continue
+        q_text = q.get('question', '')
+        subtopic = q.get('tags', {}).get('subtopic', '')
+        ql = q_text.lower()
+
+        if 'esterification' in ql or 'esterification' in subtopic.lower():
+            q['diagram'] = {
+                'type': 'esterification_reaction',
+                'acid': 'Ethanoic acid',
+                'alcohol': 'Ethanol',
+                'ester': 'Ethyl ethanoate'
+            }
+            added += 1
+        elif 'alcohol' in subtopic.lower() or 'ethanol' in ql or 'hydroxyl' in ql:
+            q['diagram'] = {
+                'type': 'organic_structural',
+                'series': 'alcohol',
+                'molecule': 'Ethanol'
+            }
+            added += 1
+        elif 'ester' in subtopic.lower() or 'ethanoate' in ql:
+            q['diagram'] = {
+                'type': 'organic_structural',
+                'series': 'ester',
+                'molecule': 'Ethyl ethanoate'
+            }
+            added += 1
+        elif 'alkene' in subtopic.lower() or 'ethene' in ql or 'propene' in ql or 'double bond' in ql:
+            q['diagram'] = {
+                'type': 'organic_structural',
+                'series': 'alkene',
+                'molecule': 'Ethene'
+            }
+            added += 1
+        elif 'haloalkane' in ql or 'bromo' in ql or 'chloro' in ql:
+            q['diagram'] = {
+                'type': 'organic_structural',
+                'series': 'haloalkane',
+                'molecule': 'Bromoethane'
+            }
+            added += 1
+        elif 'carboxylic' in ql or 'functional group' in ql or 'carboxyl' in ql:
+            q['diagram'] = {
+                'type': 'organic_structural',
+                'series': 'carboxylic_acid',
+                'molecule': 'Ethanoic acid'
+            }
+            added += 1
+
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+    print(f"Organic Chemistry: {added} diagrams enriched.")
+
+def enrich_chemical_equilibrium():
+    path = os.path.join(BASE_DIR, 'dataset/grade12/physical_sciences/paper2_chemical_equilibrium.json')
+    if not os.path.exists(path):
+        return
+    with open(path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+    added = 0
+    for q in data:
+        if q.get('diagram'):
+            continue
+        q_text = q.get('question', '')
+        subtopic = q.get('tags', {}).get('subtopic', '')
+        ql = q_text.lower()
+
+        if 'le chatelier' in subtopic.lower() or 'shift' in ql or 'temperature' in ql or 'pressure' in ql:
+            q['diagram'] = {
+                'type': 'chemical_equilibrium_graph',
+                'disturbance': 'Concentration'
+            }
+            added += 1
+        elif 'closed system' in ql or 'dynamic equilibrium' in ql or 'reversible' in ql or 'equilibrium' in subtopic.lower():
+            q['diagram'] = {
+                'type': 'dynamic_equilibrium_box',
+                'reaction': 'N₂(g) + 3H₂(g) ⇌ 2NH₃(g)'
+            }
+            added += 1
+
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+    print(f"Chemical Equilibrium: {added} diagrams enriched.")
+
+def enrich_reaction_rates_gas():
+    path = os.path.join(BASE_DIR, 'dataset/grade12/physical_sciences/paper2_reaction_rates.json')
+    if not os.path.exists(path):
+        return
+    with open(path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+    added = 0
+    for q in data:
+        if q.get('diagram'):
+            continue
+        q_text = q.get('question', '')
+        if 'collected' in q_text.lower() or 'marble chips' in q_text.lower() or 'co2 gas' in q_text.lower():
+            q['diagram'] = {
+                'type': 'gas_syringe_rate',
+                'gas': 'CO₂ gas'
+            }
+            added += 1
+
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+    print(f"Reaction Rates Gas Syringe: {added} diagrams enriched.")
+
+def enrich_geometry():
+    path = os.path.join(BASE_DIR, 'dataset/grade12/mathematics/paper2_geometry.json')
+    if not os.path.exists(path):
+        return
+    with open(path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+    added = 0
+    for q in data:
+        if q.get('diagram'):
+            continue
+        subtopic = q.get('tags', {}).get('subtopic', '')
+        ql = subtopic.lower()
+
+        if 'cyclic' in ql:
+            q['diagram'] = {
+                'type': 'euclidean_circle_geometry',
+                'theorem': 'cyclic_quad'
+            }
+            added += 1
+        elif 'centre' in ql or 'semi-circle' in ql or 'tangent' in ql or 'chord' in ql or 'segment' in ql:
+            q['diagram'] = {
+                'type': 'euclidean_circle_geometry',
+                'theorem': 'angle_at_centre'
+            }
+            added += 1
+
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+    print(f"Euclidean Geometry: {added} diagrams enriched.")
+
+def enrich_statistics():
+    path = os.path.join(BASE_DIR, 'dataset/grade12/mathematics/paper2_statistics.json')
+    if not os.path.exists(path):
+        return
+    with open(path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+    added = 0
+    for q in data:
+        if q.get('diagram'):
+            continue
+        q_text = q.get('question', '')
+        subtopic = q.get('tags', {}).get('subtopic', '')
+
+        if 'Five Number' in subtopic or 'Outliers' in subtopic or 'Min' in q_text:
+            m_min = re.search(r'Min\s*=\s*(\d+)', q_text)
+            m_q1 = re.search(r'Q_1\s*=\s*(\d+)', q_text)
+            m_med = re.search(r'Median\s*=\s*(\d+)', q_text)
+            m_q3 = re.search(r'Q_3\s*=\s*(\d+)', q_text)
+            m_max = re.search(r'Max\s*=\s*(\d+)', q_text)
+
+            min_v = int(m_min.group(1)) if m_min else 20
+            q1_v = int(m_q1.group(1)) if m_q1 else 40
+            med_v = int(m_med.group(1)) if m_med else 55
+            q3_v = int(m_q3.group(1)) if m_q3 else 70
+            max_v = int(m_max.group(1)) if m_max else 90
+
+            q['diagram'] = {
+                'type': 'box_and_whisker',
+                'min': min_v,
+                'q1': q1_v,
+                'med': med_v,
+                'q3': q3_v,
+                'max': max_v
+            }
+            added += 1
+        elif 'Skewness' in subtopic or 'Correlation' in subtopic or 'Measures of Central' in subtopic:
+            q['diagram'] = {
+                'type': 'histogram_frequency',
+                'title': 'Frequency Distribution'
+            }
+            added += 1
+
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+    print(f"Statistics: {added} diagrams enriched.")
+
+def enrich_math_functions_exp():
+    path = os.path.join(BASE_DIR, 'dataset/grade12/mathematics/paper1_functions.json')
+    if not os.path.exists(path):
+        return
+    with open(path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+    added = 0
+    for q in data:
+        if q.get('diagram'):
+            continue
+        q_text = q.get('question', '')
+        ql = q_text.lower()
+        if 'exponential' in ql or 'inverse function' in ql or '2^x' in ql or 'log' in ql:
+            q['diagram'] = {
+                'type': 'exponential_log_graph',
+                'base': 2,
+                'hide_inverse': True
+            }
+            added += 1
+
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+    print(f"Functions Exponential/Log: {added} diagrams enriched.")
+
 if __name__ == '__main__':
     print("Beginning Grade 12 curriculum diagram enrichment...")
     enrich_human_reproduction()
@@ -514,4 +826,14 @@ if __name__ == '__main__':
     enrich_dna_code()
     sanitize_math_functions()
     enrich_weekly_quizzes()
+    # New engines enrichment
+    enrich_transformers()
+    enrich_momentum_impulse()
+    enrich_electrostatics_field_lines()
+    enrich_organic_chemistry()
+    enrich_chemical_equilibrium()
+    enrich_reaction_rates_gas()
+    enrich_geometry()
+    enrich_statistics()
+    enrich_math_functions_exp()
     print("Done!")

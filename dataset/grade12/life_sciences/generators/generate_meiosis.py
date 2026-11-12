@@ -14,7 +14,21 @@ def generate_meiosis():
         questions = []
         seen_texts = set()
 
-        def add_q(difficulty, subtopic, q_text, correct, wrongs, explanation, cognitive="Knowledge"):
+        def get_meiosis_diag(text):
+            tl = text.lower()
+            if 'crossing over' in tl or 'prophase i' in tl or 'chiasm' in tl or 'bivalent' in tl or 'synapsis' in tl:
+                return {'type': 'meiosis_stages', 'stage': 'prophase_1'}
+            elif 'metaphase i' in tl or 'equator' in tl or 'double row' in tl:
+                return {'type': 'meiosis_stages', 'stage': 'metaphase_1'}
+            elif 'anaphase i' in tl or 'opposite poles' in tl:
+                return {'type': 'meiosis_stages', 'stage': 'anaphase_1'}
+            elif 'down syndrome' in tl or 'trisomy 21' in tl or 'non-disjunction' in tl or 'aneuploid' in tl:
+                return {'type': 'karyotype_chart', 'condition': 'down_syndrome', 'sex': 'male'}
+            elif 'diploid somatic' in tl or 'chromosome calculation' in tl or 'karyotype' in tl or '46 chromosomes' in tl:
+                return {'type': 'karyotype_chart', 'condition': 'normal', 'sex': 'female'}
+            return None
+
+        def add_q(difficulty, subtopic, q_text, correct, wrongs, explanation, cognitive="Knowledge", diagram=None):
             nonlocal questions, seen_texts, prefix
             q_text = q_text.strip()
             if q_text in seen_texts:
@@ -30,7 +44,9 @@ def generate_meiosis():
 
             seen_texts.add(q_text)
             q_id = f"{prefix}_{len(questions)+1:04d}"
-            questions.append({
+            if diagram is None:
+                diagram = get_meiosis_diag(q_text)
+            q_obj = {
                 "id": q_id,
                 "topic": "Meiosis",
                 "question": q_text,
@@ -46,7 +62,10 @@ def generate_meiosis():
                     "cognitive_level": cognitive,
                     "difficulty": difficulty
                 }
-            })
+            }
+            if diagram:
+                q_obj["diagram"] = diagram
+            questions.append(q_obj)
             return True
 
         # ----------------------------------------------------
