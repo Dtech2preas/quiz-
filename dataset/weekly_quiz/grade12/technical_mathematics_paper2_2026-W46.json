@@ -1,133 +1,49 @@
 [
   {
-    "id": "TM12_P2_TRIG_0550",
-    "topic": "Trigonometry",
-    "subtopic": "Trigonometric Identities",
+    "id": "TM12_P2_ANA_0340",
+    "topic": "Analytical Geometry",
+    "subtopic": "Equation of a Circle & Tangents",
     "paper": "paper2",
     "difficulty": "medium",
-    "question": "Express $\\sec^2 x - \\tan^2 x$ in its simplest standard form.",
-    "correct_answer": "$1$",
+    "question": "Determine the equation of the tangent to the circle $x^2 + y^2 = 100$ at the point $T(-6; -8)$. (Round values to 2 decimal places).",
+    "correct_answer": "$y = -0.75x - 12.5$",
     "wrong_answers_pool": [
-      "$0$",
-      "$2$",
-      "$-1$",
-      "$\\cos^2 x$",
-      "$\\sin^2 x$",
-      "$\\cot^2 x$",
-      "$\\operatorname{cosec}^2 x$"
+      "$y = 0.75x - 12.5$",
+      "$y = 1.33x - 12.5$",
+      "$y = -0.75x 12.5$",
+      "$y = 0.75x + 10$",
+      "$y = -0.75x$",
+      "$y = x + 100$",
+      "$y = -1.5x - 12.5$"
     ],
-    "explanation": "By the Pythagorean identity: $\\sec^2 x - \\tan^2 x = 1$.",
+    "explanation": "Step 1: Gradient of radius $OT$: $m_{OT} = \\frac{-8 - 0}{-6 - 0} = \\frac{-8}{-6}$.\nStep 2: Tangent is perpendicular to radius: $m_{\\text{tan}} = -\\frac{1}{m_{OT}} = -\\frac{-6}{-8} = -0.75$.\nStep 3: Equation: $y - (-8) = -0.75(x - (-6)) \\implies $y = -0.75x - 12.5$$.",
     "tags": {
       "grade": "12",
       "subject": "Technical Mathematics",
-      "topic": "Trigonometry",
-      "subtopic": "Trigonometric Identities",
+      "topic": "Analytical Geometry",
+      "subtopic": "Equation of a Circle & Tangents",
       "cognitive_level": "Routine Procedures",
       "difficulty": "medium"
     },
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_1"
   },
   {
-    "id": "TM12_P2_ANG_0862",
-    "topic": "Circle Geometry & Angular Movement",
-    "subtopic": "Belt Drives & Pulleys",
-    "paper": "paper2",
-    "difficulty": "hard",
-    "question": "A motor pulley of diameter $D_1 = 180$ mm rotating at $n_1 = 1200$ rpm is connected via a flat belt to a driven machine pulley of diameter $D_2 = 360$ mm. Assuming no belt slippage, calculate the rotational speed $n_2$ of the driven pulley in rpm.",
-    "correct_answer": "600.0 rpm",
-    "wrong_answers_pool": [
-      "2400.0 rpm",
-      "1200 rpm",
-      "900.0 rpm",
-      "300.0 rpm",
-      "750.0 rpm",
-      "450.0 rpm",
-      "1080 rpm"
-    ],
-    "explanation": "Since the linear speed of the belt is constant across both pulleys: $v_1 = v_2 \\implies \\pi D_1 n_1 = \\pi D_2 n_2$.\n$D_1 n_1 = D_2 n_2 \\implies n_2 = \\frac{D_1 \\times n_1}{D_2} = \\frac{180 \\times 1200}{360} = 600.0\\text{ rpm}$.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Circle Geometry & Angular Movement",
-      "subtopic": "Belt Drives & Pulleys",
-      "cognitive_level": "Complex Procedures",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_2"
-  },
-  {
-    "id": "TM12_P2_MEN_0639",
-    "topic": "Mensuration & Mid-Ordinate Rule",
-    "subtopic": "Pyramids & Prisms",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "A hopper is shaped as an inverted square-based pyramid with base edge $b = 10$ cm and perpendicular height $h = 8$ cm. Calculate the capacity (volume) of the hopper.",
-    "correct_answer": "266.67 cm^3",
-    "wrong_answers_pool": [
-      "800.01 cm^3",
-      "133.34 cm^3",
-      "80 cm^3",
-      "296.67 cm^3",
-      "236.67 cm^3",
-      "100 cm^3",
-      "400.0 cm^3"
-    ],
-    "explanation": "Pyramid volume: $V = \\frac{1}{3} \\times \\text{Base Area} \\times h = \\frac{1}{3}(10)^2(8) = 266.67\\text{ cm}^3$.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Mensuration & Mid-Ordinate Rule",
-      "subtopic": "Pyramids & Prisms",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_3"
-  },
-  {
-    "id": "TM12_P2_TRIG_0672",
-    "topic": "Trigonometry",
-    "subtopic": "Sine & Cosine Rules",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "In $\\triangle ABC$, $a = 10$ cm, $\\hat{A} = 30^\\circ$, and $\\hat{B} = 70^\\circ$. Calculate the length of side $b$ using the Sine Rule. (Round to 2 decimal places).",
-    "correct_answer": "18.79 cm",
-    "wrong_answers_pool": [
-      "21.99 cm",
-      "15.59 cm",
-      "22.55 cm",
-      "15.03 cm",
-      "5.32 cm",
-      "10 cm",
-      "28.79 cm"
-    ],
-    "explanation": "Apply the Sine Rule: $\\frac{b}{\\sin B} = \\frac{a}{\\sin A} \\implies b = \\frac{10 \\times \\sin(70^\\circ)}{\\sin(30^\\circ)} = 18.79\\text{ cm}$.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Trigonometry",
-      "subtopic": "Sine & Cosine Rules",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_4"
-  },
-  {
-    "id": "TM12_P2_TRIG_0415",
+    "id": "TM12_P2_TRIG_0333",
     "topic": "Trigonometry",
     "subtopic": "Reduction Formulas",
     "paper": "paper2",
     "difficulty": "medium",
-    "question": "Find the value of $\\cos(360^\\circ - x)$ as a primary ratio.",
-    "correct_answer": "$\\cos x$",
+    "question": "Reduce $\\tan(180^\\circ - x)$ to a single ratio of an acute angle $x$.",
+    "correct_answer": "$-\\tan x$",
     "wrong_answers_pool": [
-      "$-\\cos x$",
+      "$\\tan x$",
+      "$\\cot x$",
+      "$-\\cot x$",
       "$\\sin x$",
-      "$-\\sin x$",
-      "$\\sec x$",
       "$0$",
       "$1$"
     ],
-    "explanation": "Using reduction formulas: $\\cos(360^\\circ - x) = \\cos x$.",
+    "explanation": "Using reduction formulas: $\\tan(180^\\circ - x) = -\\tan x$.",
     "tags": {
       "grade": "12",
       "subject": "Technical Mathematics",
@@ -136,54 +52,137 @@
       "cognitive_level": "Routine Procedures",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_5"
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_2"
   },
   {
-    "id": "TM12_P2_TRIG_0909",
-    "topic": "Trigonometry",
-    "subtopic": "Sine & Cosine Rules",
+    "id": "TM12_P2_ANA_0828",
+    "topic": "Analytical Geometry",
+    "subtopic": "Properties of Quadrilaterals",
     "paper": "paper2",
     "difficulty": "hard",
-    "question": "Calculate the area of a triangular structural brace with side lengths $a = 8$ cm, $b = 9$ cm, and included angle $\\hat{C} = 60^\\circ$ using the Area Rule. (Round to 2 decimal places).",
-    "correct_answer": "31.18 cm^2",
+    "question": "Points $A(1; 4)$, $B(3; 7)$, and $C(6; 1)$ are three consecutive vertices of parallelogram $ABCD$. Determine the coordinates of vertex $D$.",
+    "correct_answer": "$(4; -2)$",
     "wrong_answers_pool": [
-      "62.35 cm^2",
-      "18.0 cm^2",
-      "46.77 cm^2",
-      "15.59 cm^2",
-      "41.18 cm^2",
-      "21.18 cm^2",
-      "36.0 cm^2"
+      "$(-4; -2)$",
+      "$(4; 2)$",
+      "$(-2; 4)$",
+      "$(6; -4)$",
+      "$(-2; 10)$",
+      "$(8; 4)$",
+      "$(0; 0)$"
     ],
-    "explanation": "Apply Area Rule: $\\text{Area} = \\frac{1}{2}ab\\sin C = \\frac{1}{2}(8)(9)\\sin(60^\\circ) = 36.0 \\times 0.866 = 31.18\\text{ cm}^2$.",
+    "explanation": "The diagonals of a parallelogram bisect each other, so midpoint of $AC$ = midpoint of $BD$:\n$\\left(\\frac{1 + 6}{2}; \\frac{4 + 1}{2}\\right) = \\left(\\frac{3 + x_D}{2}; \\frac{7 + y_D}{2}\\right)$.\n$x_D = 1 + 6 - 3 = 4$. $y_D = 4 + 1 - 7 = -2$. Vertex $D$ is $(4; -2)$.",
     "tags": {
       "grade": "12",
       "subject": "Technical Mathematics",
-      "topic": "Trigonometry",
-      "subtopic": "Sine & Cosine Rules",
+      "topic": "Analytical Geometry",
+      "subtopic": "Properties of Quadrilaterals",
       "cognitive_level": "Complex Procedures",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_6"
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_3"
   },
   {
-    "id": "TM12_P2_MEN_0346",
+    "id": "TM12_P2_MEN_0505",
     "topic": "Mensuration & Mid-Ordinate Rule",
     "subtopic": "Mid-Ordinate Rule",
     "paper": "paper2",
     "difficulty": "medium",
-    "question": "The irregular cross-section of an excavation trench has mid-ordinates of: 4.37 m, 5.82 m, 6.66 m, 6.14 m, 4.99 m, 3.33 m. The distance between consecutive ordinates is $h = 1.4$ m. Calculate the cross-sectional area using the Mid-Ordinate Rule.",
-    "correct_answer": "43.83 m^2",
+    "question": "The irregular cross-section of an excavation trench has mid-ordinates of: 3.3 m, 4.13 m, 4.84 m, 5.43 m, 4.96 m, 4.37 m. The distance between consecutive ordinates is $h = 2.8$ m. Calculate the cross-sectional area using the Mid-Ordinate Rule.",
+    "correct_answer": "75.68 m^2",
     "wrong_answers_pool": [
-      "87.66 m^2",
-      "21.91 m^2",
-      "31.31 m^2",
-      "52.33 m^2",
-      "35.33 m^2",
-      "10.78 m^2",
-      "65.75 m^2"
+      "151.36 m^2",
+      "37.84 m^2",
+      "27.03 m^2",
+      "84.18 m^2",
+      "67.18 m^2",
+      "21.48 m^2",
+      "113.52 m^2"
     ],
-    "explanation": "Apply the Mid-Ordinate Rule: $\\text{Area} = h(m_1 + m_2 + \\dots + m_n)$\nSum of mid-ordinates $= 4.37 + 5.82 + 6.66 + 6.14 + 4.99 + 3.33 = 31.31\\text{ m}$.\n$\\text{Area} = 1.4 \\times 31.31 = 43.83\\text{ m}^2$.",
+    "explanation": "Apply the Mid-Ordinate Rule: $\\text{Area} = h(m_1 + m_2 + \\dots + m_n)$\nSum of mid-ordinates $= 3.3 + 4.13 + 4.84 + 5.43 + 4.96 + 4.37 = 27.03\\text{ m}$.\n$\\text{Area} = 2.8 \\times 27.03 = 75.68\\text{ m}^2$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Mensuration & Mid-Ordinate Rule",
+      "subtopic": "Mid-Ordinate Rule",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_4"
+  },
+  {
+    "id": "TM12_P2_ANA_0564",
+    "topic": "Analytical Geometry",
+    "subtopic": "Gradient & Angle of Inclination",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "Calculate the gradient $m$ of the line segment joining $A(-6; 0)$ and $B(-10; 4)$.",
+    "correct_answer": "-1",
+    "wrong_answers_pool": [
+      "1.0",
+      "-1.0",
+      "0.0",
+      "-2.0",
+      "4",
+      "-4"
+    ],
+    "explanation": "Gradient formula: $m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{4 - (0)}{-10 - (-6)} = \\frac{4}{-4} = -1$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Analytical Geometry",
+      "subtopic": "Gradient & Angle of Inclination",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_5"
+  },
+  {
+    "id": "TM12_P2_TRIG_0799",
+    "topic": "Trigonometry",
+    "subtopic": "Reciprocal Ratios",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "If point $P(3; -4)$ lies on the terminal arm of angle $\\theta$ in standard position, determine the value of $\\sec \\theta$.",
+    "correct_answer": "$\\frac{5}{3}$",
+    "wrong_answers_pool": [
+      "$\\frac{3}{5}$",
+      "$\\frac{-4}{5}$",
+      "$\\frac{5}{-4}$",
+      "$\\frac{-4}{3}$",
+      "$-\\frac{5}{-4}$",
+      "$\\frac{6}{3}$",
+      "1"
+    ],
+    "explanation": "Radius $r = \\sqrt{(3)^2 + (-4)^2} = 5$. By definition: $\\sec \\theta = \\frac{r}{x} = \\frac{5}{3} = \\frac{5}{3}$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Trigonometry",
+      "subtopic": "Reciprocal Ratios",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_6"
+  },
+  {
+    "id": "TM12_P2_MEN_0441",
+    "topic": "Mensuration & Mid-Ordinate Rule",
+    "subtopic": "Mid-Ordinate Rule",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "The irregular cross-section of an excavation trench has mid-ordinates of: 3.58 m, 5.04 m, 5.71 m, 5.38 m, 4.03 m. The distance between consecutive ordinates is $h = 2.2$ m. Calculate the cross-sectional area using the Mid-Ordinate Rule.",
+    "correct_answer": "52.23 m^2",
+    "wrong_answers_pool": [
+      "104.46 m^2",
+      "26.11 m^2",
+      "23.74 m^2",
+      "60.73 m^2",
+      "43.73 m^2",
+      "16.74 m^2",
+      "78.34 m^2"
+    ],
+    "explanation": "Apply the Mid-Ordinate Rule: $\\text{Area} = h(m_1 + m_2 + \\dots + m_n)$\nSum of mid-ordinates $= 3.58 + 5.04 + 5.71 + 5.38 + 4.03 = 23.74\\text{ m}$.\n$\\text{Area} = 2.2 \\times 23.74 = 52.23\\text{ m}^2$.",
     "tags": {
       "grade": "12",
       "subject": "Technical Mathematics",
@@ -195,274 +194,23 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_7"
   },
   {
-    "id": "TM12_P2_ANA_0863",
-    "topic": "Analytical Geometry",
-    "subtopic": "Properties of Quadrilaterals",
-    "paper": "paper2",
-    "difficulty": "hard",
-    "question": "Points $A(0; 5)$, $B(3; 7)$, and $C(5; 0)$ are three consecutive vertices of parallelogram $ABCD$. Determine the coordinates of vertex $D$.",
-    "correct_answer": "$(2; -2)$",
-    "wrong_answers_pool": [
-      "$(-2; -2)$",
-      "$(2; 2)$",
-      "$(-2; 2)$",
-      "$(4; -4)$",
-      "$(-2; 12)$",
-      "$(8; 2)$",
-      "$(0; 0)$"
-    ],
-    "explanation": "The diagonals of a parallelogram bisect each other, so midpoint of $AC$ = midpoint of $BD$:\n$\\left(\\frac{0 + 5}{2}; \\frac{5 + 0}{2}\\right) = \\left(\\frac{3 + x_D}{2}; \\frac{7 + y_D}{2}\\right)$.\n$x_D = 0 + 5 - 3 = 2$. $y_D = 5 + 0 - 7 = -2$. Vertex $D$ is $(2; -2)$.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Analytical Geometry",
-      "subtopic": "Properties of Quadrilaterals",
-      "cognitive_level": "Complex Procedures",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_8"
-  },
-  {
-    "id": "TM12_P2_ANG_0334",
-    "topic": "Circle Geometry & Angular Movement",
-    "subtopic": "Arc Length & Sector Area",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "A rotating machine spindle of radius $r = 5$ cm turns through a central angle of $160^\\circ$. Calculate the length of the arc $s$ traversed by a point on the rim. (Round to 2 decimal places).",
-    "correct_answer": "13.96 cm",
-    "wrong_answers_pool": [
-      "800 cm",
-      "27.92 cm",
-      "6.98 cm",
-      "19.46 cm",
-      "8.46 cm",
-      "15.71 cm",
-      "31.42 cm"
-    ],
-    "explanation": "Step 1: Convert angle to radians: $\\theta = 160^\\circ \\times \\frac{\\pi}{180^\\circ} = 2.7925\\text{ rad}$.\nStep 2: Calculate arc length: $s = r\\theta = 5 \\times 2.7925 = 13.96\\text{ cm}$.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Circle Geometry & Angular Movement",
-      "subtopic": "Arc Length & Sector Area",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_9"
-  },
-  {
-    "id": "TM12_P2_ANA_0768",
-    "topic": "Analytical Geometry",
-    "subtopic": "Gradient & Angle of Inclination",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "Calculate the gradient $m$ of the line segment joining $A(-4; -2)$ and $B(0; 4)$.",
-    "correct_answer": "1.5",
-    "wrong_answers_pool": [
-      "-1.5",
-      "0.67",
-      "2.5",
-      "0.5",
-      "3.0",
-      "6",
-      "4"
-    ],
-    "explanation": "Gradient formula: $m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{4 - (-2)}{0 - (-4)} = \\frac{6}{4} = 1.5$.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Analytical Geometry",
-      "subtopic": "Gradient & Angle of Inclination",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_10"
-  },
-  {
-    "id": "TM12_P2_TRIG_0853",
-    "topic": "Trigonometry",
-    "subtopic": "General Solutions",
-    "paper": "paper2",
-    "difficulty": "hard",
-    "question": "Calculate the general solution of the trigonometric equation $\\sec x = \\sqrt{2}$.",
-    "correct_answer": "$x = \\pm 45^\\circ + k \\cdot 360^\\circ$",
-    "wrong_answers_pool": [
-      "$x = \\pm 45^\\circ + k \\cdot 180^\\circ$",
-      "$x = \\pm 45^\\circ - k \\cdot 360^\\circ$",
-      "$x = \\pm 45^\\circ + k \\cdot 330^\\circ$",
-      "$x = \\pm 135^\\circ + k \\cdot 360^\\circ$",
-      "$x = \\pm 45^\\circ + k \\cdot 360^\\circ \\text{ or } x = 0^\\circ$",
-      "$x = k \\cdot 360^\\circ$",
-      "$x = k \\cdot 180^\\circ$"
-    ],
-    "explanation": "Step 1: Simplify to standard ratio: $\\cos x = \\frac{1}{\\sqrt{2}}$.\nStep 2: Reference angle and quadrant general solution: $x = \\pm 45^\\circ + k \\cdot 360^\\circ$ ($k \\in \\mathbb{Z}$).",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Trigonometry",
-      "subtopic": "General Solutions",
-      "cognitive_level": "Complex Procedures",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_11"
-  },
-  {
-    "id": "TM12_P2_ANG_0418",
-    "topic": "Circle Geometry & Angular Movement",
-    "subtopic": "Arc Length & Sector Area",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "A rotating machine spindle of radius $r = 14$ cm turns through a central angle of $150^\\circ$. Calculate the length of the arc $s$ traversed by a point on the rim. (Round to 2 decimal places).",
-    "correct_answer": "36.65 cm",
-    "wrong_answers_pool": [
-      "2100 cm",
-      "73.3 cm",
-      "18.32 cm",
-      "42.15 cm",
-      "31.15 cm",
-      "43.98 cm",
-      "87.96 cm"
-    ],
-    "explanation": "Step 1: Convert angle to radians: $\\theta = 150^\\circ \\times \\frac{\\pi}{180^\\circ} = 2.618\\text{ rad}$.\nStep 2: Calculate arc length: $s = r\\theta = 14 \\times 2.618 = 36.65\\text{ cm}$.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Circle Geometry & Angular Movement",
-      "subtopic": "Arc Length & Sector Area",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_12"
-  },
-  {
-    "id": "TM12_P2_ANG_0953",
-    "topic": "Circle Geometry & Angular Movement",
-    "subtopic": "Gear Systems",
-    "paper": "paper2",
-    "difficulty": "hard",
-    "question": "A driver gear with $T_1 = 18$ teeth rotates at $N_1 = 600$ rpm and meshes with a driven gear having $T_2 = 36$ teeth. Calculate the rotational speed $N_2$ of the driven gear in rpm.",
-    "correct_answer": "300.0 rpm",
-    "wrong_answers_pool": [
-      "1200.0 rpm",
-      "600 rpm",
-      "450.0 rpm",
-      "150.0 rpm",
-      "380.0 rpm",
-      "220.0 rpm",
-      "54 rpm"
-    ],
-    "explanation": "Use the gear ratio formula: $N_1 T_1 = N_2 T_2 \\implies N_2 = \\frac{N_1 \\times T_1}{T_2} = \\frac{600 \\times 18}{36} = 300.0\\text{ rpm}$.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Circle Geometry & Angular Movement",
-      "subtopic": "Gear Systems",
-      "cognitive_level": "Complex Procedures",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_13"
-  },
-  {
-    "id": "TM12_P2_MEN_0712",
-    "topic": "Mensuration & Mid-Ordinate Rule",
-    "subtopic": "Right Circular Cylinders",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "A cylindrical rainwater tank has a storage volume of $V = 301.59$ cm^3 and a base radius of $r = 4$ cm. Calculate the height $h$ of the tank. (Round to 2 decimal places).",
-    "correct_answer": "6 cm",
-    "wrong_answers_pool": [
-      "8 cm",
-      "4 cm",
-      "9.0 cm",
-      "3.0 cm",
-      "18.85 cm",
-      "12 cm"
-    ],
-    "explanation": "Formula: $V = \\pi r^2 h \\implies h = \\frac{V}{\\pi r^2} = \\frac{301.59}{\\pi(4)^2} = 6\\text{ cm}$.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Mensuration & Mid-Ordinate Rule",
-      "subtopic": "Right Circular Cylinders",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_14"
-  },
-  {
-    "id": "TM12_P2_ANG_0312",
-    "topic": "Circle Geometry & Angular Movement",
-    "subtopic": "Arc Length & Sector Area",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "A rotating machine spindle of radius $r = 4$ cm turns through a central angle of $110^\\circ$. Calculate the length of the arc $s$ traversed by a point on the rim. (Round to 2 decimal places).",
-    "correct_answer": "7.68 cm",
-    "wrong_answers_pool": [
-      "440 cm",
-      "15.36 cm",
-      "3.84 cm",
-      "13.18 cm",
-      "2.18 cm",
-      "12.57 cm",
-      "25.13 cm"
-    ],
-    "explanation": "Step 1: Convert angle to radians: $\\theta = 110^\\circ \\times \\frac{\\pi}{180^\\circ} = 1.9199\\text{ rad}$.\nStep 2: Calculate arc length: $s = r\\theta = 4 \\times 1.9199 = 7.68\\text{ cm}$.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Circle Geometry & Angular Movement",
-      "subtopic": "Arc Length & Sector Area",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_15"
-  },
-  {
-    "id": "TM12_P2_TRIG_0598",
-    "topic": "Trigonometry",
-    "subtopic": "Sine & Cosine Rules",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "In $\\triangle ABC$, $b = 10$ cm, $c = 5$ cm, and $\\hat{A} = 30^\\circ$. Calculate the length of side $a$ using the Cosine Rule. (Round to 2 decimal places).",
-    "correct_answer": "6.2 cm",
-    "wrong_answers_pool": [
-      "8.7 cm",
-      "3.7 cm",
-      "11.18 cm",
-      "7.75 cm",
-      "4.96 cm",
-      "15 cm",
-      "38.4 cm"
-    ],
-    "explanation": "Apply Cosine Rule: $a^2 = b^2 + c^2 - 2bc\\cos A$\n$a^2 = (10)^2 + (5)^2 - 2(10)(5)\\cos(30^\\circ) = 125 - 86.6 = 38.4$.\n$a = \\sqrt{38.4} = 6.2\\text{ cm}$.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Trigonometry",
-      "subtopic": "Sine & Cosine Rules",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_16"
-  },
-  {
-    "id": "TM12_P2_MEN_0388",
+    "id": "TM12_P2_MEN_0544",
     "topic": "Mensuration & Mid-Ordinate Rule",
     "subtopic": "Mid-Ordinate Rule",
     "paper": "paper2",
     "difficulty": "medium",
-    "question": "The irregular cross-section of an excavation trench has mid-ordinates of: 3.82 m, 5.09 m, 5.83 m, 5.41 m, 4.24 m. The distance between consecutive ordinates is $h = 1.6$ m. Calculate the cross-sectional area using the Mid-Ordinate Rule.",
-    "correct_answer": "39.02 m^2",
+    "question": "The irregular cross-section of an excavation trench has mid-ordinates of: 6.22 m, 7.81 m, 8.78 m, 8.3 m, 6.71 m. The distance between consecutive ordinates is $h = 3.2$ m. Calculate the cross-sectional area using the Mid-Ordinate Rule.",
+    "correct_answer": "121.02 m^2",
     "wrong_answers_pool": [
-      "78.04 m^2",
-      "19.51 m^2",
-      "24.39 m^2",
-      "47.52 m^2",
-      "30.52 m^2",
-      "12.9 m^2",
-      "58.53 m^2"
+      "242.04 m^2",
+      "60.51 m^2",
+      "37.82 m^2",
+      "129.52 m^2",
+      "112.52 m^2",
+      "41.38 m^2",
+      "181.53 m^2"
     ],
-    "explanation": "Apply the Mid-Ordinate Rule: $\\text{Area} = h(m_1 + m_2 + \\dots + m_n)$\nSum of mid-ordinates $= 3.82 + 5.09 + 5.83 + 5.41 + 4.24 = 24.39\\text{ m}$.\n$\\text{Area} = 1.6 \\times 24.39 = 39.02\\text{ m}^2$.",
+    "explanation": "Apply the Mid-Ordinate Rule: $\\text{Area} = h(m_1 + m_2 + \\dots + m_n)$\nSum of mid-ordinates $= 6.22 + 7.81 + 8.78 + 8.3 + 6.71 = 37.82\\text{ m}$.\n$\\text{Area} = 3.2 \\times 37.82 = 121.02\\text{ m}^2$.",
     "tags": {
       "grade": "12",
       "subject": "Technical Mathematics",
@@ -471,221 +219,53 @@
       "cognitive_level": "Routine Procedures",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_17"
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_8"
   },
   {
-    "id": "TM12_P2_MEN_0829",
-    "topic": "Mensuration & Mid-Ordinate Rule",
-    "subtopic": "Frustums of Cones & Pyramids",
+    "id": "TM12_P2_TRIG_0838",
+    "topic": "Trigonometry",
+    "subtopic": "General Solutions",
     "paper": "paper2",
     "difficulty": "hard",
-    "question": "A metallurgical casting ladle is in the shape of a frustum of a cone with top radius $R = 11$ cm, bottom radius $r = 5$ cm, and perpendicular height $h = 14$ cm. Calculate the volume of the ladle. (Round to 2 decimal places).",
-    "correct_answer": "2946.81 cm^3",
+    "question": "Solve algebraically for $x$: $\\cot x = 1$ for all $k \\in \\mathbb{Z}$.",
+    "correct_answer": "$x = 45^\\circ + k \\cdot 180^\\circ$",
     "wrong_answers_pool": [
-      "4420.22 cm^3",
-      "1473.4 cm^3",
-      "5321.86 cm^3",
-      "2996.81 cm^3",
-      "2896.81 cm^3",
-      "2814.87 cm^3",
-      "5893.62 cm^3"
+      "$x = 45^\\circ + k \\cdot 360^\\circ$",
+      "$x = 45^\\circ - k \\cdot 180^\\circ$",
+      "$x = 135^\\circ + k \\cdot 180^\\circ$",
+      "$x = 45^\\circ + k \\cdot 180^\\circ \\text{ or } x = 0^\\circ$",
+      "$x = k \\cdot 360^\\circ$",
+      "$x = k \\cdot 180^\\circ$"
     ],
-    "explanation": "Formula for the volume of a frustum of a cone:\n$V = \\frac{1}{3}\\pi h(R^2 + Rr + r^2) = \\frac{1}{3}\\pi(14)[(11)^2 + (11)(5) + (5)^2]$\n$V = \\frac{14\\pi}{3}[121 + 55 + 25] = \\frac{14\\pi}{3}(201) = 2946.81\\text{ cm}^3$.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Mensuration & Mid-Ordinate Rule",
-      "subtopic": "Frustums of Cones & Pyramids",
-      "cognitive_level": "Complex Procedures",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_18"
-  },
-  {
-    "id": "TM12_P2_TRIG_0715",
-    "topic": "Trigonometry",
-    "subtopic": "Sine & Cosine Rules",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "In $\\triangle ABC$, $a = 15$ cm, $\\hat{A} = 60^\\circ$, and $\\hat{B} = 50^\\circ$. Calculate the length of side $b$ using the Sine Rule. (Round to 2 decimal places).",
-    "correct_answer": "13.27 cm",
-    "wrong_answers_pool": [
-      "16.47 cm",
-      "10.07 cm",
-      "15.92 cm",
-      "10.62 cm",
-      "16.96 cm",
-      "15 cm",
-      "23.27 cm"
-    ],
-    "explanation": "Apply the Sine Rule: $\\frac{b}{\\sin B} = \\frac{a}{\\sin A} \\implies b = \\frac{15 \\times \\sin(50^\\circ)}{\\sin(60^\\circ)} = 13.27\\text{ cm}$.",
+    "explanation": "Step 1: Simplify to standard ratio: $\\tan x = 1$.\nStep 2: Reference angle and quadrant general solution: $x = 45^\\circ + k \\cdot 180^\\circ$ ($k \\in \\mathbb{Z}$).",
     "tags": {
       "grade": "12",
       "subject": "Technical Mathematics",
       "topic": "Trigonometry",
-      "subtopic": "Sine & Cosine Rules",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_19"
-  },
-  {
-    "id": "TM12_P2_ANA_0414",
-    "topic": "Analytical Geometry",
-    "subtopic": "Equation of a Circle & Tangents",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "Determine the coordinates of the centre and radius of the circle $(x - 3)^2 + (y + 1)^2 = 9$.",
-    "correct_answer": "Centre $(3; -1)$, Radius $r = 3$",
-    "wrong_answers_pool": [
-      "Centre $(-3; -1)$, Radius $r = 3$",
-      "Centre $(3; 1)$, Radius $r = 3$",
-      "Centre $(-3; 1)$, Radius $r = 3$",
-      "Centre $(3; -1)$, Radius $r = 9$",
-      "Centre $(-1; 3)$, Radius $r = 3$",
-      "Centre $(0; 0)$, Radius $r = 3$",
-      "Centre $(3; -1)$, Radius $r = 6$"
-    ],
-    "explanation": "Compare with standard form $(x - a)^2 + (y - b)^2 = r^2$:\nCentre is $(a; b) = (3; -1)$ and radius is $r = \\sqrt{9} = 3$.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Analytical Geometry",
-      "subtopic": "Equation of a Circle & Tangents",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_20"
-  },
-  {
-    "id": "TM12_P2_TRIG_0948",
-    "topic": "Trigonometry",
-    "subtopic": "Sine & Cosine Rules",
-    "paper": "paper2",
-    "difficulty": "hard",
-    "question": "Calculate the area of a triangular structural brace with side lengths $a = 10$ cm, $b = 11$ cm, and included angle $\\hat{C} = 150^\\circ$ using the Area Rule. (Round to 2 decimal places).",
-    "correct_answer": "27.5 cm^2",
-    "wrong_answers_pool": [
-      "55.0 cm^2",
-      "-47.63 cm^2",
-      "41.25 cm^2",
-      "13.75 cm^2",
-      "37.5 cm^2",
-      "17.5 cm^2"
-    ],
-    "explanation": "Apply Area Rule: $\\text{Area} = \\frac{1}{2}ab\\sin C = \\frac{1}{2}(10)(11)\\sin(150^\\circ) = 55.0 \\times 0.5 = 27.5\\text{ cm}^2$.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Trigonometry",
-      "subtopic": "Sine & Cosine Rules",
+      "subtopic": "General Solutions",
       "cognitive_level": "Complex Procedures",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_21"
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_9"
   },
   {
-    "id": "TM12_P2_TRIG_0564",
-    "topic": "Trigonometry",
-    "subtopic": "Trigonometric Identities",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "Reduce the identity: $\\operatorname{cosec}^2 x - \\cot^2 x$.",
-    "correct_answer": "$1$",
-    "wrong_answers_pool": [
-      "$0$",
-      "$2$",
-      "$-1$",
-      "$\\sin^2 x$",
-      "$\\cos^2 x$",
-      "$\\tan^2 x$",
-      "$\\sec^2 x$"
-    ],
-    "explanation": "By the Pythagorean identity: $\\operatorname{cosec}^2 x - \\cot^2 x = 1$.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Trigonometry",
-      "subtopic": "Trigonometric Identities",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_22"
-  },
-  {
-    "id": "TM12_P2_ANA_0499",
-    "topic": "Analytical Geometry",
-    "subtopic": "Gradient & Angle of Inclination",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "Calculate the gradient $m$ of the line segment joining $A(-6; -5)$ and $B(-3; 1)$.",
-    "correct_answer": "2",
-    "wrong_answers_pool": [
-      "-2.0",
-      "0.5",
-      "3.0",
-      "1.0",
-      "4.0",
-      "6",
-      "3"
-    ],
-    "explanation": "Gradient formula: $m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{1 - (-5)}{-3 - (-6)} = \\frac{6}{3} = 2$.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Analytical Geometry",
-      "subtopic": "Gradient & Angle of Inclination",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_23"
-  },
-  {
-    "id": "TM12_P2_MEN_0909",
-    "topic": "Mensuration & Mid-Ordinate Rule",
-    "subtopic": "Composite Engineering Solids",
-    "paper": "paper2",
-    "difficulty": "hard",
-    "question": "An industrial storage silo consists of a vertical right cylinder of radius $r = 9$ m and height $h = 12$ m, topped with a hemispherical roof of the same radius. Calculate the total storage volume of the silo. (Round to 2 decimal places).",
-    "correct_answer": "4580.44 m^3",
-    "wrong_answers_pool": [
-      "3053.63 m^3",
-      "6870.66 m^3",
-      "2290.22 m^3",
-      "6107.26 m^3",
-      "4700.44 m^3",
-      "4460.44 m^3",
-      "5343.85 m^3"
-    ],
-    "explanation": "Step 1: Cylinder volume: $V_{1} = \\pi r^2 h = \\pi(9)^2(12) = 3053.63\\text{ m}^3$.\nStep 2: Hemisphere volume: $V_{2} = \\frac{2}{3}\\pi r^3 = \\frac{2}{3}\\pi(9)^3 = 1526.81\\text{ m}^3$.\nStep 3: Total volume $= V_1 + V_2 = 3053.63 + 1526.81 = 4580.44\\text{ m}^3$.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Mensuration & Mid-Ordinate Rule",
-      "subtopic": "Composite Engineering Solids",
-      "cognitive_level": "Complex Procedures",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_24"
-  },
-  {
-    "id": "TM12_P2_ANA_0911",
+    "id": "TM12_P2_ANA_0941",
     "topic": "Analytical Geometry",
     "subtopic": "Properties of Quadrilaterals",
     "paper": "paper2",
     "difficulty": "hard",
-    "question": "A triangular roof truss has vertices at $A(-2; 0)$, $B(4; 0)$, and $C(2; 4)$. Calculate the area of $\\triangle ABC$.",
-    "correct_answer": "12.0 square units",
+    "question": "A triangular roof truss has vertices at $A(2; 0)$, $B(4; 0)$, and $C(2; 4)$. Calculate the area of $\\triangle ABC$.",
+    "correct_answer": "4.0 square units",
     "wrong_answers_pool": [
-      "24.0 square units",
-      "6.0 square units",
-      "24 square units",
-      "16.5 square units",
-      "7.5 square units",
-      "6 square units",
+      "8.0 square units",
+      "2.0 square units",
+      "8 square units",
+      "8.5 square units",
+      "12.0 square units",
+      "2 square units",
       "4 square units"
     ],
-    "explanation": "Base $AB$ lies on the horizontal axis with length $d = 4 - (-2) = 6$.\nThe perpendicular height from vertex $C$ to base $AB$ is $h = |4 - 0| = 4$.\nArea $= \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(6)(4) = 12.0\\text{ square units}$.",
+    "explanation": "Base $AB$ lies on the horizontal axis with length $d = 4 - (2) = 2$.\nThe perpendicular height from vertex $C$ to base $AB$ is $h = |4 - 0| = 4$.\nArea $= \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(2)(4) = 4.0\\text{ square units}$.",
     "tags": {
       "grade": "12",
       "subject": "Technical Mathematics",
@@ -694,119 +274,35 @@
       "cognitive_level": "Complex Procedures",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_25"
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_10"
   },
   {
-    "id": "TM12_P2_TRIG_0934",
-    "topic": "Trigonometry",
-    "subtopic": "Sine & Cosine Rules",
-    "paper": "paper2",
-    "difficulty": "hard",
-    "question": "Calculate the area of a triangular structural brace with side lengths $a = 10$ cm, $b = 7$ cm, and included angle $\\hat{C} = 120^\\circ$ using the Area Rule. (Round to 2 decimal places).",
-    "correct_answer": "30.31 cm^2",
-    "wrong_answers_pool": [
-      "60.62 cm^2",
-      "-17.5 cm^2",
-      "45.46 cm^2",
-      "15.15 cm^2",
-      "40.31 cm^2",
-      "20.31 cm^2",
-      "35.0 cm^2"
-    ],
-    "explanation": "Apply Area Rule: $\\text{Area} = \\frac{1}{2}ab\\sin C = \\frac{1}{2}(10)(7)\\sin(120^\\circ) = 35.0 \\times 0.866 = 30.31\\text{ cm}^2$.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Trigonometry",
-      "subtopic": "Sine & Cosine Rules",
-      "cognitive_level": "Complex Procedures",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_26"
-  },
-  {
-    "id": "TM12_P2_ANA_0741",
-    "topic": "Analytical Geometry",
-    "subtopic": "Gradient & Angle of Inclination",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "Calculate the gradient $m$ of the line segment joining $A(-4; -2)$ and $B(-8; 4)$.",
-    "correct_answer": "-1.5",
-    "wrong_answers_pool": [
-      "1.5",
-      "-0.67",
-      "-0.5",
-      "-2.5",
-      "-3.0",
-      "6",
-      "-4"
-    ],
-    "explanation": "Gradient formula: $m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{4 - (-2)}{-8 - (-4)} = \\frac{6}{-4} = -1.5$.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Analytical Geometry",
-      "subtopic": "Gradient & Angle of Inclination",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_27"
-  },
-  {
-    "id": "TM12_P2_ANG_0895",
+    "id": "TM12_P2_ANG_0943",
     "topic": "Circle Geometry & Angular Movement",
-    "subtopic": "Belt Drives & Pulleys",
+    "subtopic": "Gear Systems",
     "paper": "paper2",
     "difficulty": "hard",
-    "question": "A motor pulley of diameter $D_1 = 240$ mm rotating at $n_1 = 900$ rpm is connected via a flat belt to a driven machine pulley of diameter $D_2 = 480$ mm. Assuming no belt slippage, calculate the rotational speed $n_2$ of the driven pulley in rpm.",
-    "correct_answer": "450.0 rpm",
+    "question": "A driver gear with $T_1 = 16$ teeth rotates at $N_1 = 450$ rpm and meshes with a driven gear having $T_2 = 60$ teeth. Calculate the rotational speed $N_2$ of the driven gear in rpm.",
+    "correct_answer": "120.0 rpm",
     "wrong_answers_pool": [
-      "1800.0 rpm",
-      "900 rpm",
-      "675.0 rpm",
-      "225.0 rpm",
-      "600.0 rpm",
-      "300.0 rpm",
-      "1440 rpm"
+      "1687.5 rpm",
+      "450 rpm",
+      "180.0 rpm",
+      "60.0 rpm",
+      "200.0 rpm",
+      "40.0 rpm",
+      "76 rpm"
     ],
-    "explanation": "Since the linear speed of the belt is constant across both pulleys: $v_1 = v_2 \\implies \\pi D_1 n_1 = \\pi D_2 n_2$.\n$D_1 n_1 = D_2 n_2 \\implies n_2 = \\frac{D_1 \\times n_1}{D_2} = \\frac{240 \\times 900}{480} = 450.0\\text{ rpm}$.",
+    "explanation": "Use the gear ratio formula: $N_1 T_1 = N_2 T_2 \\implies N_2 = \\frac{N_1 \\times T_1}{T_2} = \\frac{450 \\times 16}{60} = 120.0\\text{ rpm}$.",
     "tags": {
       "grade": "12",
       "subject": "Technical Mathematics",
       "topic": "Circle Geometry & Angular Movement",
-      "subtopic": "Belt Drives & Pulleys",
+      "subtopic": "Gear Systems",
       "cognitive_level": "Complex Procedures",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_28"
-  },
-  {
-    "id": "TM12_P2_ANA_0480",
-    "topic": "Analytical Geometry",
-    "subtopic": "Gradient & Angle of Inclination",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "Calculate the gradient $m$ of the line segment joining $A(-6; -5)$ and $B(-9; -7)$.",
-    "correct_answer": "0.67",
-    "wrong_answers_pool": [
-      "-0.67",
-      "1.5",
-      "1.67",
-      "-0.33",
-      "1.34",
-      "-2",
-      "-3"
-    ],
-    "explanation": "Gradient formula: $m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{-7 - (-5)}{-9 - (-6)} = \\frac{-2}{-3} = 0.67$.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Analytical Geometry",
-      "subtopic": "Gradient & Angle of Inclination",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_29"
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_11"
   },
   {
     "id": "TM12_P2_MEN_0954",
@@ -834,26 +330,523 @@
       "cognitive_level": "Complex Procedures",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_30"
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_12"
   },
   {
-    "id": "TM12_P2_MEN_0960",
+    "id": "TM12_P2_ANA_0364",
+    "topic": "Analytical Geometry",
+    "subtopic": "Equation of a Circle & Tangents",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "Determine the coordinates of the centre and radius of the circle $(x + 4)^2 + (y - 4)^2 = 9$.",
+    "correct_answer": "Centre $(-4; 4)$, Radius $r = 3$",
+    "wrong_answers_pool": [
+      "Centre $(4; 4)$, Radius $r = 3$",
+      "Centre $(-4; -4)$, Radius $r = 3$",
+      "Centre $(4; -4)$, Radius $r = 3$",
+      "Centre $(-4; 4)$, Radius $r = 9$",
+      "Centre $(0; 0)$, Radius $r = 3$",
+      "Centre $(-4; 4)$, Radius $r = 6$"
+    ],
+    "explanation": "Compare with standard form $(x - a)^2 + (y - b)^2 = r^2$:\nCentre is $(a; b) = (-4; 4)$ and radius is $r = \\sqrt{9} = 3$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Analytical Geometry",
+      "subtopic": "Equation of a Circle & Tangents",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_13"
+  },
+  {
+    "id": "TM12_P2_ANG_0365",
+    "topic": "Circle Geometry & Angular Movement",
+    "subtopic": "Arc Length & Sector Area",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "A rotating machine spindle of radius $r = 8$ cm turns through a central angle of $135^\\circ$. Calculate the length of the arc $s$ traversed by a point on the rim. (Round to 2 decimal places).",
+    "correct_answer": "18.85 cm",
+    "wrong_answers_pool": [
+      "1080 cm",
+      "37.7 cm",
+      "9.43 cm",
+      "24.35 cm",
+      "13.35 cm",
+      "25.13 cm",
+      "50.27 cm"
+    ],
+    "explanation": "Step 1: Convert angle to radians: $\\theta = 135^\\circ \\times \\frac{\\pi}{180^\\circ} = 2.3562\\text{ rad}$.\nStep 2: Calculate arc length: $s = r\\theta = 8 \\times 2.3562 = 18.85\\text{ cm}$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Circle Geometry & Angular Movement",
+      "subtopic": "Arc Length & Sector Area",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_14"
+  },
+  {
+    "id": "TM12_P2_ANG_0928",
+    "topic": "Circle Geometry & Angular Movement",
+    "subtopic": "Gear Systems",
+    "paper": "paper2",
+    "difficulty": "hard",
+    "question": "A driver gear with $T_1 = 16$ teeth rotates at $N_1 = 450$ rpm and meshes with a driven gear having $T_2 = 36$ teeth. Calculate the rotational speed $N_2$ of the driven gear in rpm.",
+    "correct_answer": "200.0 rpm",
+    "wrong_answers_pool": [
+      "1012.5 rpm",
+      "450 rpm",
+      "300.0 rpm",
+      "100.0 rpm",
+      "280.0 rpm",
+      "120.0 rpm",
+      "52 rpm"
+    ],
+    "explanation": "Use the gear ratio formula: $N_1 T_1 = N_2 T_2 \\implies N_2 = \\frac{N_1 \\times T_1}{T_2} = \\frac{450 \\times 16}{36} = 200.0\\text{ rpm}$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Circle Geometry & Angular Movement",
+      "subtopic": "Gear Systems",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_15"
+  },
+  {
+    "id": "TM12_P2_MEN_0906",
     "topic": "Mensuration & Mid-Ordinate Rule",
     "subtopic": "Composite Engineering Solids",
     "paper": "paper2",
     "difficulty": "hard",
-    "question": "A bronze cylindrical bearing sleeve has an outer radius $R = 10$ cm, an inner bore radius $r = 8$ cm, and a length $h = 10$ cm. Calculate the volume of metal in the sleeve. (Round to 2 decimal places).",
-    "correct_answer": "1130.97 cm^3",
+    "question": "An industrial storage silo consists of a vertical right cylinder of radius $r = 9$ m and height $h = 6$ m, topped with a hemispherical roof of the same radius. Calculate the total storage volume of the silo. (Round to 2 decimal places).",
+    "correct_answer": "3053.63 m^3",
     "wrong_answers_pool": [
-      "3141.59 cm^3",
-      "2010.62 cm^3",
-      "1696.45 cm^3",
-      "565.49 cm^3",
-      "1230.97 cm^3",
-      "1030.97 cm^3",
-      "125.66 cm^3"
+      "1526.81 m^3",
+      "4580.44 m^3",
+      "1526.82 m^3",
+      "3173.63 m^3",
+      "2933.63 m^3",
+      "3817.04 m^3"
     ],
-    "explanation": "Volume of hollow cylinder: $V = \\pi(R^2 - r^2)h = \\pi((10)^2 - (8)^2)(10) = \\pi(100 - 64)(10) = \\pi(36)(10) = 1130.97\\text{ cm}^3$.",
+    "explanation": "Step 1: Cylinder volume: $V_{1} = \\pi r^2 h = \\pi(9)^2(6) = 1526.81\\text{ m}^3$.\nStep 2: Hemisphere volume: $V_{2} = \\frac{2}{3}\\pi r^3 = \\frac{2}{3}\\pi(9)^3 = 1526.81\\text{ m}^3$.\nStep 3: Total volume $= V_1 + V_2 = 1526.81 + 1526.81 = 3053.63\\text{ m}^3$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Mensuration & Mid-Ordinate Rule",
+      "subtopic": "Composite Engineering Solids",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_16"
+  },
+  {
+    "id": "TM12_P2_ANG_0882",
+    "topic": "Circle Geometry & Angular Movement",
+    "subtopic": "Belt Drives & Pulleys",
+    "paper": "paper2",
+    "difficulty": "hard",
+    "question": "A motor pulley of diameter $D_1 = 200$ mm rotating at $n_1 = 1200$ rpm is connected via a flat belt to a driven machine pulley of diameter $D_2 = 600$ mm. Assuming no belt slippage, calculate the rotational speed $n_2$ of the driven pulley in rpm.",
+    "correct_answer": "400.0 rpm",
+    "wrong_answers_pool": [
+      "3600.0 rpm",
+      "1200 rpm",
+      "600.0 rpm",
+      "200.0 rpm",
+      "550.0 rpm",
+      "250.0 rpm",
+      "1600 rpm"
+    ],
+    "explanation": "Since the linear speed of the belt is constant across both pulleys: $v_1 = v_2 \\implies \\pi D_1 n_1 = \\pi D_2 n_2$.\n$D_1 n_1 = D_2 n_2 \\implies n_2 = \\frac{D_1 \\times n_1}{D_2} = \\frac{200 \\times 1200}{600} = 400.0\\text{ rpm}$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Circle Geometry & Angular Movement",
+      "subtopic": "Belt Drives & Pulleys",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_17"
+  },
+  {
+    "id": "TM12_P2_ANG_0716",
+    "topic": "Circle Geometry & Angular Movement",
+    "subtopic": "Arc Length & Sector Area",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "Calculate the area of a circular sector of radius $r = 9$ cm subtending a central angle of $135^\\circ$. (Round to 2 decimal places).",
+    "correct_answer": "95.43 cm^2",
+    "wrong_answers_pool": [
+      "190.86 cm^2",
+      "47.72 cm^2",
+      "254.47 cm^2",
+      "107.93 cm^2",
+      "82.93 cm^2",
+      "21.21 cm^2",
+      "607.5 cm^2"
+    ],
+    "explanation": "Step 1: Angle in radians: $\\theta = 135^\\circ \\times \\frac{\\pi}{180^\\circ} = 2.3562\\text{ rad}$.\nStep 2: Area $= \\frac{1}{2}r^2\\theta = \\frac{1}{2}(9)^2(2.3562) = 95.43\\text{ cm}^2$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Circle Geometry & Angular Movement",
+      "subtopic": "Arc Length & Sector Area",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_18"
+  },
+  {
+    "id": "TM12_P2_TRIG_0396",
+    "topic": "Trigonometry",
+    "subtopic": "Reduction Formulas",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "Simplify the angle reduction expression: $\\sin(360^\\circ - x)$.",
+    "correct_answer": "$-\\sin x$",
+    "wrong_answers_pool": [
+      "$\\sin x$",
+      "$\\cos x$",
+      "$-\\cos x$",
+      "$-\\operatorname{cosec} x$",
+      "$0$",
+      "$1$"
+    ],
+    "explanation": "Using reduction formulas: $\\sin(360^\\circ - x) = -\\sin x$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Trigonometry",
+      "subtopic": "Reduction Formulas",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_19"
+  },
+  {
+    "id": "TM12_P2_MEN_0861",
+    "topic": "Mensuration & Mid-Ordinate Rule",
+    "subtopic": "Composite Engineering Solids",
+    "paper": "paper2",
+    "difficulty": "hard",
+    "question": "An industrial storage silo consists of a vertical right cylinder of radius $r = 2$ m and height $h = 15$ m, topped with a hemispherical roof of the same radius. Calculate the total storage volume of the silo. (Round to 2 decimal places).",
+    "correct_answer": "205.25 m^3",
+    "wrong_answers_pool": [
+      "188.5 m^3",
+      "307.88 m^3",
+      "102.62 m^3",
+      "222.01 m^3",
+      "325.25 m^3",
+      "85.25 m^3",
+      "213.63 m^3"
+    ],
+    "explanation": "Step 1: Cylinder volume: $V_{1} = \\pi r^2 h = \\pi(2)^2(15) = 188.5\\text{ m}^3$.\nStep 2: Hemisphere volume: $V_{2} = \\frac{2}{3}\\pi r^3 = \\frac{2}{3}\\pi(2)^3 = 16.76\\text{ m}^3$.\nStep 3: Total volume $= V_1 + V_2 = 188.5 + 16.76 = 205.25\\text{ m}^3$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Mensuration & Mid-Ordinate Rule",
+      "subtopic": "Composite Engineering Solids",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_20"
+  },
+  {
+    "id": "TM12_P2_ANA_0496",
+    "topic": "Analytical Geometry",
+    "subtopic": "Gradient & Angle of Inclination",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "Calculate the gradient $m$ of the line segment joining $A(-6; -5)$ and $B(-3; -7)$.",
+    "correct_answer": "-0.67",
+    "wrong_answers_pool": [
+      "0.67",
+      "-1.5",
+      "0.33",
+      "-1.67",
+      "-1.34",
+      "-2",
+      "3"
+    ],
+    "explanation": "Gradient formula: $m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{-7 - (-5)}{-3 - (-6)} = \\frac{-2}{3} = -0.67$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Analytical Geometry",
+      "subtopic": "Gradient & Angle of Inclination",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_21"
+  },
+  {
+    "id": "TM12_P2_TRIG_0954",
+    "topic": "Trigonometry",
+    "subtopic": "Sine & Cosine Rules",
+    "paper": "paper2",
+    "difficulty": "hard",
+    "question": "Calculate the area of a triangular structural brace with side lengths $a = 10$ cm, $b = 14$ cm, and included angle $\\hat{C} = 150^\\circ$ using the Area Rule. (Round to 2 decimal places).",
+    "correct_answer": "35.0 cm^2",
+    "wrong_answers_pool": [
+      "70.0 cm^2",
+      "-60.62 cm^2",
+      "52.5 cm^2",
+      "17.5 cm^2",
+      "45.0 cm^2",
+      "25.0 cm^2"
+    ],
+    "explanation": "Apply Area Rule: $\\text{Area} = \\frac{1}{2}ab\\sin C = \\frac{1}{2}(10)(14)\\sin(150^\\circ) = 70.0 \\times 0.5 = 35.0\\text{ cm}^2$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Trigonometry",
+      "subtopic": "Sine & Cosine Rules",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_22"
+  },
+  {
+    "id": "TM12_P2_ANA_0342",
+    "topic": "Analytical Geometry",
+    "subtopic": "Equation of a Circle & Tangents",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "Determine the equation of the tangent to the circle $x^2 + y^2 = 100$ at the point $T(8; -6)$. (Round values to 2 decimal places).",
+    "correct_answer": "$y = 1.33x - 16.67$",
+    "wrong_answers_pool": [
+      "$y = -1.33x - 16.67$",
+      "$y = -0.75x - 16.67$",
+      "$y = 1.33x 16.67$",
+      "$y = -1.33x + 10$",
+      "$y = 1.33x$",
+      "$y = x + 100$",
+      "$y = 2.66x - 16.67$"
+    ],
+    "explanation": "Step 1: Gradient of radius $OT$: $m_{OT} = \\frac{-6 - 0}{8 - 0} = \\frac{-6}{8}$.\nStep 2: Tangent is perpendicular to radius: $m_{\\text{tan}} = -\\frac{1}{m_{OT}} = -\\frac{8}{-6} = 1.33$.\nStep 3: Equation: $y - (-6) = 1.33(x - (8)) \\implies $y = 1.33x - 16.67$$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Analytical Geometry",
+      "subtopic": "Equation of a Circle & Tangents",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_23"
+  },
+  {
+    "id": "TM12_P2_MEN_0970",
+    "topic": "Mensuration & Mid-Ordinate Rule",
+    "subtopic": "Composite Engineering Solids",
+    "paper": "paper2",
+    "difficulty": "hard",
+    "question": "A bronze cylindrical bearing sleeve has an outer radius $R = 12$ cm, an inner bore radius $r = 4$ cm, and a length $h = 10$ cm. Calculate the volume of metal in the sleeve. (Round to 2 decimal places).",
+    "correct_answer": "4021.24 cm^3",
+    "wrong_answers_pool": [
+      "4523.89 cm^3",
+      "502.65 cm^3",
+      "6031.86 cm^3",
+      "2010.62 cm^3",
+      "4121.24 cm^3",
+      "3921.24 cm^3"
+    ],
+    "explanation": "Volume of hollow cylinder: $V = \\pi(R^2 - r^2)h = \\pi((12)^2 - (4)^2)(10) = \\pi(144 - 16)(10) = \\pi(128)(10) = 4021.24\\text{ cm}^3$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Mensuration & Mid-Ordinate Rule",
+      "subtopic": "Composite Engineering Solids",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_24"
+  },
+  {
+    "id": "TM12_P2_MEN_0821",
+    "topic": "Mensuration & Mid-Ordinate Rule",
+    "subtopic": "Frustums of Cones & Pyramids",
+    "paper": "paper2",
+    "difficulty": "hard",
+    "question": "A metallurgical casting ladle is in the shape of a frustum of a cone with top radius $R = 15$ cm, bottom radius $r = 9$ cm, and perpendicular height $h = 16$ cm. Calculate the volume of the ladle. (Round to 2 decimal places).",
+    "correct_answer": "7389.03 cm^3",
+    "wrong_answers_pool": [
+      "11083.55 cm^3",
+      "3694.51 cm^3",
+      "11309.73 cm^3",
+      "7439.03 cm^3",
+      "7339.03 cm^3",
+      "7238.23 cm^3",
+      "14778.06 cm^3"
+    ],
+    "explanation": "Formula for the volume of a frustum of a cone:\n$V = \\frac{1}{3}\\pi h(R^2 + Rr + r^2) = \\frac{1}{3}\\pi(16)[(15)^2 + (15)(9) + (9)^2]$\n$V = \\frac{16\\pi}{3}[225 + 135 + 81] = \\frac{16\\pi}{3}(441) = 7389.03\\text{ cm}^3$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Mensuration & Mid-Ordinate Rule",
+      "subtopic": "Frustums of Cones & Pyramids",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_25"
+  },
+  {
+    "id": "TM12_P2_ANA_0795",
+    "topic": "Analytical Geometry",
+    "subtopic": "Gradient & Angle of Inclination",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "Calculate the gradient $m$ of the line segment joining $A(-4; 0)$ and $B(-6; 4)$.",
+    "correct_answer": "-2",
+    "wrong_answers_pool": [
+      "2.0",
+      "-0.5",
+      "-1.0",
+      "-3.0",
+      "-4.0",
+      "4"
+    ],
+    "explanation": "Gradient formula: $m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{4 - (0)}{-6 - (-4)} = \\frac{4}{-2} = -2$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Analytical Geometry",
+      "subtopic": "Gradient & Angle of Inclination",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_26"
+  },
+  {
+    "id": "TM12_P2_MEN_0858",
+    "topic": "Mensuration & Mid-Ordinate Rule",
+    "subtopic": "Composite Engineering Solids",
+    "paper": "paper2",
+    "difficulty": "hard",
+    "question": "An industrial storage silo consists of a vertical right cylinder of radius $r = 2$ m and height $h = 8$ m, topped with a hemispherical roof of the same radius. Calculate the total storage volume of the silo. (Round to 2 decimal places).",
+    "correct_answer": "117.29 m^3",
+    "wrong_answers_pool": [
+      "100.53 m^3",
+      "175.94 m^3",
+      "58.65 m^3",
+      "134.04 m^3",
+      "237.29 m^3",
+      "317.29 m^3",
+      "125.66 m^3"
+    ],
+    "explanation": "Step 1: Cylinder volume: $V_{1} = \\pi r^2 h = \\pi(2)^2(8) = 100.53\\text{ m}^3$.\nStep 2: Hemisphere volume: $V_{2} = \\frac{2}{3}\\pi r^3 = \\frac{2}{3}\\pi(2)^3 = 16.76\\text{ m}^3$.\nStep 3: Total volume $= V_1 + V_2 = 100.53 + 16.76 = 117.29\\text{ m}^3$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Mensuration & Mid-Ordinate Rule",
+      "subtopic": "Composite Engineering Solids",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_27"
+  },
+  {
+    "id": "TM12_P2_TRIG_0827",
+    "topic": "Trigonometry",
+    "subtopic": "General Solutions",
+    "paper": "paper2",
+    "difficulty": "hard",
+    "question": "Find all angles $x$ satisfying $\\operatorname{cosec} x = 2$, expressed as a general solution ($k \\in \\mathbb{Z}$).",
+    "correct_answer": "$x = 30^\\circ + k \\cdot 360^\\circ \\text{ or } x = 150^\\circ + k \\cdot 360^\\circ$",
+    "wrong_answers_pool": [
+      "$x = 30^\\circ + k \\cdot 180^\\circ \\text{ or } x = 150^\\circ + k \\cdot 180^\\circ$",
+      "$x = 30^\\circ - k \\cdot 360^\\circ \\text{ or } x = 150^\\circ - k \\cdot 360^\\circ$",
+      "$x = 30^\\circ + k \\cdot 330^\\circ \\text{ or } x = 150^\\circ + k \\cdot 330^\\circ$",
+      "$x = 30^\\circ + k \\cdot 360^\\circ \\text{ or } x = 30^\\circ + k \\cdot 360^\\circ$",
+      "$x = 30^\\circ + k \\cdot 360^\\circ \\text{$",
+      "$x = k \\cdot 360^\\circ$",
+      "$x = k \\cdot 180^\\circ$"
+    ],
+    "explanation": "Step 1: Simplify to standard ratio: $\\sin x = \\frac{1}{2}$.\nStep 2: Reference angle and quadrant general solution: $x = 30^\\circ + k \\cdot 360^\\circ \\text{ or } x = 150^\\circ + k \\cdot 360^\\circ$ ($k \\in \\mathbb{Z}$).",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Trigonometry",
+      "subtopic": "General Solutions",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_28"
+  },
+  {
+    "id": "TM12_P2_ANG_0434",
+    "topic": "Circle Geometry & Angular Movement",
+    "subtopic": "Arc Length & Sector Area",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "A rotating machine spindle of radius $r = 15$ cm turns through a central angle of $140^\\circ$. Calculate the length of the arc $s$ traversed by a point on the rim. (Round to 2 decimal places).",
+    "correct_answer": "36.65 cm",
+    "wrong_answers_pool": [
+      "2100 cm",
+      "73.3 cm",
+      "18.32 cm",
+      "42.15 cm",
+      "31.15 cm",
+      "47.12 cm",
+      "94.25 cm"
+    ],
+    "explanation": "Step 1: Convert angle to radians: $\\theta = 140^\\circ \\times \\frac{\\pi}{180^\\circ} = 2.4435\\text{ rad}$.\nStep 2: Calculate arc length: $s = r\\theta = 15 \\times 2.4435 = 36.65\\text{ cm}$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Circle Geometry & Angular Movement",
+      "subtopic": "Arc Length & Sector Area",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_29"
+  },
+  {
+    "id": "TM12_P2_ANA_0757",
+    "topic": "Analytical Geometry",
+    "subtopic": "Gradient & Angle of Inclination",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "Calculate the gradient $m$ of the line segment joining $A(-4; -2)$ and $B(-2; 4)$.",
+    "correct_answer": "3",
+    "wrong_answers_pool": [
+      "-3.0",
+      "0.33",
+      "4.0",
+      "2.0",
+      "6.0",
+      "6",
+      "2"
+    ],
+    "explanation": "Gradient formula: $m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{4 - (-2)}{-2 - (-4)} = \\frac{6}{2} = 3$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Analytical Geometry",
+      "subtopic": "Gradient & Angle of Inclination",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_30"
+  },
+  {
+    "id": "TM12_P2_MEN_0936",
+    "topic": "Mensuration & Mid-Ordinate Rule",
+    "subtopic": "Composite Engineering Solids",
+    "paper": "paper2",
+    "difficulty": "hard",
+    "question": "A bronze cylindrical bearing sleeve has an outer radius $R = 8$ cm, an inner bore radius $r = 4$ cm, and a length $h = 20$ cm. Calculate the volume of metal in the sleeve. (Round to 2 decimal places).",
+    "correct_answer": "3015.93 cm^3",
+    "wrong_answers_pool": [
+      "4021.24 cm^3",
+      "1005.31 cm^3",
+      "4523.89 cm^3",
+      "1507.96 cm^3",
+      "3115.93 cm^3",
+      "2915.93 cm^3"
+    ],
+    "explanation": "Volume of hollow cylinder: $V = \\pi(R^2 - r^2)h = \\pi((8)^2 - (4)^2)(20) = \\pi(64 - 16)(20) = \\pi(48)(20) = 3015.93\\text{ cm}^3$.",
     "tags": {
       "grade": "12",
       "subject": "Technical Mathematics",
@@ -865,79 +858,78 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_31"
   },
   {
-    "id": "TM12_P2_ANA_0934",
-    "topic": "Analytical Geometry",
-    "subtopic": "Properties of Quadrilaterals",
-    "paper": "paper2",
-    "difficulty": "hard",
-    "question": "A triangular roof truss has vertices at $A(0; 0)$, $B(8; 0)$, and $C(3; 7)$. Calculate the area of $\\triangle ABC$.",
-    "correct_answer": "28.0 square units",
-    "wrong_answers_pool": [
-      "56.0 square units",
-      "14.0 square units",
-      "56 square units",
-      "32.5 square units",
-      "23.5 square units",
-      "8 square units",
-      "7 square units"
-    ],
-    "explanation": "Base $AB$ lies on the horizontal axis with length $d = 8 - (0) = 8$.\nThe perpendicular height from vertex $C$ to base $AB$ is $h = |7 - 0| = 7$.\nArea $= \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(8)(7) = 28.0\\text{ square units}$.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Analytical Geometry",
-      "subtopic": "Properties of Quadrilaterals",
-      "cognitive_level": "Complex Procedures",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_32"
-  },
-  {
-    "id": "TM12_P2_ANG_0874",
+    "id": "TM12_P2_ANG_0435",
     "topic": "Circle Geometry & Angular Movement",
-    "subtopic": "Belt Drives & Pulleys",
+    "subtopic": "Arc Length & Sector Area",
     "paper": "paper2",
-    "difficulty": "hard",
-    "question": "A motor pulley of diameter $D_1 = 200$ mm rotating at $n_1 = 600$ rpm is connected via a flat belt to a driven machine pulley of diameter $D_2 = 500$ mm. Assuming no belt slippage, calculate the rotational speed $n_2$ of the driven pulley in rpm.",
-    "correct_answer": "240.0 rpm",
+    "difficulty": "medium",
+    "question": "A rotating machine spindle of radius $r = 15$ cm turns through a central angle of $150^\\circ$. Calculate the length of the arc $s$ traversed by a point on the rim. (Round to 2 decimal places).",
+    "correct_answer": "39.27 cm",
     "wrong_answers_pool": [
-      "1500.0 rpm",
-      "600 rpm",
-      "360.0 rpm",
-      "120.0 rpm",
-      "390.0 rpm",
-      "90.0 rpm",
-      "1400 rpm"
+      "2250 cm",
+      "78.54 cm",
+      "19.64 cm",
+      "44.77 cm",
+      "33.77 cm",
+      "47.12 cm",
+      "94.25 cm"
     ],
-    "explanation": "Since the linear speed of the belt is constant across both pulleys: $v_1 = v_2 \\implies \\pi D_1 n_1 = \\pi D_2 n_2$.\n$D_1 n_1 = D_2 n_2 \\implies n_2 = \\frac{D_1 \\times n_1}{D_2} = \\frac{200 \\times 600}{500} = 240.0\\text{ rpm}$.",
+    "explanation": "Step 1: Convert angle to radians: $\\theta = 150^\\circ \\times \\frac{\\pi}{180^\\circ} = 2.618\\text{ rad}$.\nStep 2: Calculate arc length: $s = r\\theta = 15 \\times 2.618 = 39.27\\text{ cm}$.",
     "tags": {
       "grade": "12",
       "subject": "Technical Mathematics",
       "topic": "Circle Geometry & Angular Movement",
-      "subtopic": "Belt Drives & Pulleys",
-      "cognitive_level": "Complex Procedures",
-      "difficulty": "hard"
+      "subtopic": "Arc Length & Sector Area",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_32"
+  },
+  {
+    "id": "TM12_P2_ANG_0594",
+    "topic": "Circle Geometry & Angular Movement",
+    "subtopic": "Arc Length & Sector Area",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "A rotating machine spindle of radius $r = 40$ cm turns through a central angle of $50^\\circ$. Calculate the length of the arc $s$ traversed by a point on the rim. (Round to 2 decimal places).",
+    "correct_answer": "34.91 cm",
+    "wrong_answers_pool": [
+      "2000 cm",
+      "69.82 cm",
+      "17.45 cm",
+      "40.41 cm",
+      "29.41 cm",
+      "125.66 cm",
+      "251.33 cm"
+    ],
+    "explanation": "Step 1: Convert angle to radians: $\\theta = 50^\\circ \\times \\frac{\\pi}{180^\\circ} = 0.8727\\text{ rad}$.\nStep 2: Calculate arc length: $s = r\\theta = 40 \\times 0.8727 = 34.91\\text{ cm}$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Circle Geometry & Angular Movement",
+      "subtopic": "Arc Length & Sector Area",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
     },
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_33"
   },
   {
-    "id": "TM12_P2_MEN_0551",
+    "id": "TM12_P2_MEN_0436",
     "topic": "Mensuration & Mid-Ordinate Rule",
     "subtopic": "Mid-Ordinate Rule",
     "paper": "paper2",
     "difficulty": "medium",
-    "question": "The irregular cross-section of an excavation trench has mid-ordinates of: 3.78 m, 4.88 m, 5.73 m, 5.49 m, 4.64 m, 3.54 m. The distance between consecutive ordinates is $h = 3.2$ m. Calculate the cross-sectional area using the Mid-Ordinate Rule.",
-    "correct_answer": "89.79 m^2",
+    "question": "The irregular cross-section of an excavation trench has mid-ordinates of: 4.18 m, 5.5 m, 6.49 m, 6.16 m, 4.95 m, 3.52 m. The distance between consecutive ordinates is $h = 2.0$ m. Calculate the cross-sectional area using the Mid-Ordinate Rule.",
+    "correct_answer": "61.6 m^2",
     "wrong_answers_pool": [
-      "179.58 m^2",
-      "44.9 m^2",
-      "28.06 m^2",
-      "98.29 m^2",
-      "81.29 m^2",
-      "23.42 m^2",
-      "134.69 m^2"
+      "123.2 m^2",
+      "30.8 m^2",
+      "70.1 m^2",
+      "53.1 m^2",
+      "15.4 m^2",
+      "92.4 m^2"
     ],
-    "explanation": "Apply the Mid-Ordinate Rule: $\\text{Area} = h(m_1 + m_2 + \\dots + m_n)$\nSum of mid-ordinates $= 3.78 + 4.88 + 5.73 + 5.49 + 4.64 + 3.54 = 28.06\\text{ m}$.\n$\\text{Area} = 3.2 \\times 28.06 = 89.79\\text{ m}^2$.",
+    "explanation": "Apply the Mid-Ordinate Rule: $\\text{Area} = h(m_1 + m_2 + \\dots + m_n)$\nSum of mid-ordinates $= 4.18 + 5.5 + 6.49 + 6.16 + 4.95 + 3.52 = 30.8\\text{ m}$.\n$\\text{Area} = 2.0 \\times 30.8 = 61.6\\text{ m}^2$.",
     "tags": {
       "grade": "12",
       "subject": "Technical Mathematics",
@@ -949,22 +941,23 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_34"
   },
   {
-    "id": "TM12_P2_ANG_0406",
+    "id": "TM12_P2_ANG_0680",
     "topic": "Circle Geometry & Angular Movement",
     "subtopic": "Arc Length & Sector Area",
     "paper": "paper2",
     "difficulty": "medium",
-    "question": "A rotating machine spindle of radius $r = 14$ cm turns through a central angle of $45^\\circ$. Calculate the length of the arc $s$ traversed by a point on the rim. (Round to 2 decimal places).",
-    "correct_answer": "11.0 cm",
+    "question": "Calculate the area of a circular sector of radius $r = 7$ cm subtending a central angle of $90^\\circ$. (Round to 2 decimal places).",
+    "correct_answer": "38.48 cm^2",
     "wrong_answers_pool": [
-      "630 cm",
-      "22.0 cm",
-      "5.5 cm",
-      "16.5 cm",
-      "43.98 cm",
-      "87.96 cm"
+      "76.96 cm^2",
+      "19.24 cm^2",
+      "153.94 cm^2",
+      "50.98 cm^2",
+      "25.98 cm^2",
+      "11.0 cm^2",
+      "315.0 cm^2"
     ],
-    "explanation": "Step 1: Convert angle to radians: $\\theta = 45^\\circ \\times \\frac{\\pi}{180^\\circ} = 0.7854\\text{ rad}$.\nStep 2: Calculate arc length: $s = r\\theta = 14 \\times 0.7854 = 11.0\\text{ cm}$.",
+    "explanation": "Step 1: Angle in radians: $\\theta = 90^\\circ \\times \\frac{\\pi}{180^\\circ} = 1.5708\\text{ rad}$.\nStep 2: Area $= \\frac{1}{2}r^2\\theta = \\frac{1}{2}(7)^2(1.5708) = 38.48\\text{ cm}^2$.",
     "tags": {
       "grade": "12",
       "subject": "Technical Mathematics",
@@ -976,216 +969,106 @@
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_35"
   },
   {
-    "id": "TM12_P2_TRIG_0580",
-    "topic": "Trigonometry",
-    "subtopic": "Sine & Cosine Rules",
+    "id": "TM12_P2_MEN_0917",
+    "topic": "Mensuration & Mid-Ordinate Rule",
+    "subtopic": "Composite Engineering Solids",
     "paper": "paper2",
-    "difficulty": "medium",
-    "question": "In $\\triangle ABC$, $b = 6$ cm, $c = 13$ cm, and $\\hat{A} = 30^\\circ$. Calculate the length of side $a$ using the Cosine Rule. (Round to 2 decimal places).",
-    "correct_answer": "8.36 cm",
+    "difficulty": "hard",
+    "question": "An industrial storage silo consists of a vertical right cylinder of radius $r = 10$ m and height $h = 15$ m, topped with a hemispherical roof of the same radius. Calculate the total storage volume of the silo. (Round to 2 decimal places).",
+    "correct_answer": "6806.78 m^3",
     "wrong_answers_pool": [
-      "10.86 cm",
-      "5.86 cm",
-      "14.32 cm",
-      "10.45 cm",
-      "6.69 cm",
-      "19 cm",
-      "69.9 cm"
+      "4712.39 m^3",
+      "10210.17 m^3",
+      "3403.39 m^3",
+      "8901.18 m^3",
+      "6926.78 m^3",
+      "6686.78 m^3",
+      "7853.98 m^3"
     ],
-    "explanation": "Apply Cosine Rule: $a^2 = b^2 + c^2 - 2bc\\cos A$\n$a^2 = (6)^2 + (13)^2 - 2(6)(13)\\cos(30^\\circ) = 205 - 135.1 = 69.9$.\n$a = \\sqrt{69.9} = 8.36\\text{ cm}$.",
+    "explanation": "Step 1: Cylinder volume: $V_{1} = \\pi r^2 h = \\pi(10)^2(15) = 4712.39\\text{ m}^3$.\nStep 2: Hemisphere volume: $V_{2} = \\frac{2}{3}\\pi r^3 = \\frac{2}{3}\\pi(10)^3 = 2094.4\\text{ m}^3$.\nStep 3: Total volume $= V_1 + V_2 = 4712.39 + 2094.4 = 6806.78\\text{ m}^3$.",
     "tags": {
       "grade": "12",
       "subject": "Technical Mathematics",
-      "topic": "Trigonometry",
-      "subtopic": "Sine & Cosine Rules",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
+      "topic": "Mensuration & Mid-Ordinate Rule",
+      "subtopic": "Composite Engineering Solids",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
     },
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_36"
   },
   {
-    "id": "TM12_P2_ANA_0818",
-    "topic": "Analytical Geometry",
-    "subtopic": "Properties of Quadrilaterals",
+    "id": "TM12_P2_TRIG_0312",
+    "topic": "Trigonometry",
+    "subtopic": "Reduction Formulas",
     "paper": "paper2",
-    "difficulty": "hard",
-    "question": "Points $A(1; 4)$, $B(4; 5)$, and $C(8; -2)$ are three consecutive vertices of parallelogram $ABCD$. Determine the coordinates of vertex $D$.",
-    "correct_answer": "$(5; -3)$",
+    "difficulty": "medium",
+    "question": "Using quadrant reduction rules, simplify: $\\sin(180^\\circ - x)$.",
+    "correct_answer": "$\\sin x$",
     "wrong_answers_pool": [
-      "$(-5; -3)$",
-      "$(5; 3)$",
-      "$(-3; 5)$",
-      "$(7; -5)$",
-      "$(-3; 11)$",
-      "$(11; -1)$",
-      "$(0; 0)$"
+      "$-\\sin x$",
+      "$\\cos x$",
+      "$-\\cos x$",
+      "$\\sec x$",
+      "$\\tan x$",
+      "$1$"
     ],
-    "explanation": "The diagonals of a parallelogram bisect each other, so midpoint of $AC$ = midpoint of $BD$:\n$\\left(\\frac{1 + 8}{2}; \\frac{4 + -2}{2}\\right) = \\left(\\frac{4 + x_D}{2}; \\frac{5 + y_D}{2}\\right)$.\n$x_D = 1 + 8 - 4 = 5$. $y_D = 4 + -2 - 5 = -3$. Vertex $D$ is $(5; -3)$.",
+    "explanation": "Using reduction formulas: $\\sin(180^\\circ - x) = \\sin x$.",
     "tags": {
       "grade": "12",
       "subject": "Technical Mathematics",
-      "topic": "Analytical Geometry",
-      "subtopic": "Properties of Quadrilaterals",
-      "cognitive_level": "Complex Procedures",
-      "difficulty": "hard"
+      "topic": "Trigonometry",
+      "subtopic": "Reduction Formulas",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
     },
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_37"
   },
   {
-    "id": "TM12_P2_TRIG_0729",
-    "topic": "Trigonometry",
-    "subtopic": "Sine & Cosine Rules",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "In $\\triangle ABC$, $a = 16$ cm, $\\hat{A} = 60^\\circ$, and $\\hat{B} = 75^\\circ$. Calculate the length of side $b$ using the Sine Rule. (Round to 2 decimal places).",
-    "correct_answer": "17.85 cm",
-    "wrong_answers_pool": [
-      "21.05 cm",
-      "14.65 cm",
-      "21.42 cm",
-      "14.28 cm",
-      "14.35 cm",
-      "16 cm",
-      "27.85 cm"
-    ],
-    "explanation": "Apply the Sine Rule: $\\frac{b}{\\sin B} = \\frac{a}{\\sin A} \\implies b = \\frac{16 \\times \\sin(75^\\circ)}{\\sin(60^\\circ)} = 17.85\\text{ cm}$.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Trigonometry",
-      "subtopic": "Sine & Cosine Rules",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_38"
-  },
-  {
-    "id": "TM12_P2_ANA_0766",
-    "topic": "Analytical Geometry",
-    "subtopic": "Gradient & Angle of Inclination",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "Calculate the gradient $m$ of the line segment joining $A(-4; -2)$ and $B(0; -4)$.",
-    "correct_answer": "-0.5",
-    "wrong_answers_pool": [
-      "0.5",
-      "-2.0",
-      "-1.5",
-      "-1.0",
-      "-2",
-      "4"
-    ],
-    "explanation": "Gradient formula: $m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{-4 - (-2)}{0 - (-4)} = \\frac{-2}{4} = -0.5$.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Analytical Geometry",
-      "subtopic": "Gradient & Angle of Inclination",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_39"
-  },
-  {
-    "id": "TM12_P2_ANG_0920",
+    "id": "TM12_P2_ANG_0981",
     "topic": "Circle Geometry & Angular Movement",
-    "subtopic": "Belt Drives & Pulleys",
+    "subtopic": "Gear Systems",
     "paper": "paper2",
     "difficulty": "hard",
-    "question": "A motor pulley of diameter $D_1 = 300$ mm rotating at $n_1 = 1440$ rpm is connected via a flat belt to a driven machine pulley of diameter $D_2 = 600$ mm. Assuming no belt slippage, calculate the rotational speed $n_2$ of the driven pulley in rpm.",
-    "correct_answer": "720.0 rpm",
+    "question": "A driver gear with $T_1 = 20$ teeth rotates at $N_1 = 300$ rpm and meshes with a driven gear having $T_2 = 40$ teeth. Calculate the rotational speed $N_2$ of the driven gear in rpm.",
+    "correct_answer": "150.0 rpm",
     "wrong_answers_pool": [
-      "2880.0 rpm",
-      "1440 rpm",
-      "1080.0 rpm",
-      "360.0 rpm",
-      "870.0 rpm",
-      "570.0 rpm",
-      "1800 rpm"
+      "600.0 rpm",
+      "300 rpm",
+      "225.0 rpm",
+      "75.0 rpm",
+      "230.0 rpm",
+      "70.0 rpm",
+      "60 rpm"
     ],
-    "explanation": "Since the linear speed of the belt is constant across both pulleys: $v_1 = v_2 \\implies \\pi D_1 n_1 = \\pi D_2 n_2$.\n$D_1 n_1 = D_2 n_2 \\implies n_2 = \\frac{D_1 \\times n_1}{D_2} = \\frac{300 \\times 1440}{600} = 720.0\\text{ rpm}$.",
+    "explanation": "Use the gear ratio formula: $N_1 T_1 = N_2 T_2 \\implies N_2 = \\frac{N_1 \\times T_1}{T_2} = \\frac{300 \\times 20}{40} = 150.0\\text{ rpm}$.",
     "tags": {
       "grade": "12",
       "subject": "Technical Mathematics",
       "topic": "Circle Geometry & Angular Movement",
-      "subtopic": "Belt Drives & Pulleys",
+      "subtopic": "Gear Systems",
       "cognitive_level": "Complex Procedures",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_40"
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_38"
   },
   {
-    "id": "TM12_P2_ANA_0975",
-    "topic": "Analytical Geometry",
-    "subtopic": "Gradient & Angle of Inclination",
-    "paper": "paper2",
-    "difficulty": "hard",
-    "question": "Points $A(-3; 0)$, $B(-1; -4)$, and $C(1; k)$ are collinear. Calculate the value of the unknown coordinate $k$.",
-    "correct_answer": "-8",
-    "wrong_answers_pool": [
-      "8",
-      "-6",
-      "-10",
-      "-4",
-      "0",
-      "-16"
-    ],
-    "explanation": "For collinear points, gradient $m_{AB} = m_{BC}$:\n$m_{AB} = \\frac{-4 - (0)}{-1 - (-3)} = -2$.\nThen $\\frac{k - (-4)}{1 - (-1)} = -2 \\implies k - (-4) = -2(2) = -4 \\implies k = -8$.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Analytical Geometry",
-      "subtopic": "Gradient & Angle of Inclination",
-      "cognitive_level": "Complex Procedures",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_41"
-  },
-  {
-    "id": "TM12_P2_TRIG_0963",
-    "topic": "Trigonometry",
-    "subtopic": "Sine & Cosine Rules",
-    "paper": "paper2",
-    "difficulty": "hard",
-    "question": "Calculate the area of a triangular structural brace with side lengths $a = 12$ cm, $b = 7$ cm, and included angle $\\hat{C} = 60^\\circ$ using the Area Rule. (Round to 2 decimal places).",
-    "correct_answer": "36.37 cm^2",
-    "wrong_answers_pool": [
-      "72.75 cm^2",
-      "21.0 cm^2",
-      "54.55 cm^2",
-      "18.18 cm^2",
-      "46.37 cm^2",
-      "26.37 cm^2",
-      "42.0 cm^2"
-    ],
-    "explanation": "Apply Area Rule: $\\text{Area} = \\frac{1}{2}ab\\sin C = \\frac{1}{2}(12)(7)\\sin(60^\\circ) = 42.0 \\times 0.866 = 36.37\\text{ cm}^2$.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Trigonometry",
-      "subtopic": "Sine & Cosine Rules",
-      "cognitive_level": "Complex Procedures",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_42"
-  },
-  {
-    "id": "TM12_P2_TRIG_0814",
+    "id": "TM12_P2_TRIG_0850",
     "topic": "Trigonometry",
     "subtopic": "General Solutions",
     "paper": "paper2",
     "difficulty": "hard",
-    "question": "Solve algebraically for $x$: $2\\sin x = \\sqrt{3}$ for all $k \\in \\mathbb{Z}$.",
-    "correct_answer": "$x = 60^\\circ + k \\cdot 360^\\circ \\text{ or } x = 120^\\circ + k \\cdot 360^\\circ$",
+    "question": "Solve for the general solution of $\\sec x = \\sqrt{2}$, with $k \\in \\mathbb{Z}$.",
+    "correct_answer": "$x = \\pm 45^\\circ + k \\cdot 360^\\circ$",
     "wrong_answers_pool": [
-      "$x = 60^\\circ + k \\cdot 180^\\circ \\text{ or } x = 120^\\circ + k \\cdot 180^\\circ$",
-      "$x = 60^\\circ - k \\cdot 360^\\circ \\text{ or } x = 120^\\circ - k \\cdot 360^\\circ$",
-      "$x = 30^\\circ + k \\cdot 330^\\circ \\text{ or } x = 120^\\circ + k \\cdot 330^\\circ$",
-      "$x = 60^\\circ + k \\cdot 360^\\circ \\text{$",
+      "$x = \\pm 45^\\circ + k \\cdot 180^\\circ$",
+      "$x = \\pm 45^\\circ - k \\cdot 360^\\circ$",
+      "$x = \\pm 45^\\circ + k \\cdot 330^\\circ$",
+      "$x = \\pm 135^\\circ + k \\cdot 360^\\circ$",
+      "$x = \\pm 45^\\circ + k \\cdot 360^\\circ \\text{ or } x = 0^\\circ$",
       "$x = k \\cdot 360^\\circ$",
       "$x = k \\cdot 180^\\circ$"
     ],
-    "explanation": "Step 1: Simplify to standard ratio: $\\sin x = \\frac{\\sqrt{3}}{2}$.\nStep 2: Reference angle and quadrant general solution: $x = 60^\\circ + k \\cdot 360^\\circ \\text{ or } x = 120^\\circ + k \\cdot 360^\\circ$ ($k \\in \\mathbb{Z}$).",
+    "explanation": "Step 1: Simplify to standard ratio: $\\cos x = \\frac{1}{\\sqrt{2}}$.\nStep 2: Reference angle and quadrant general solution: $x = \\pm 45^\\circ + k \\cdot 360^\\circ$ ($k \\in \\mathbb{Z}$).",
     "tags": {
       "grade": "12",
       "subject": "Technical Mathematics",
@@ -1194,54 +1077,26 @@
       "cognitive_level": "Complex Procedures",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_43"
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_39"
   },
   {
-    "id": "TM12_P2_ANG_0881",
-    "topic": "Circle Geometry & Angular Movement",
-    "subtopic": "Belt Drives & Pulleys",
-    "paper": "paper2",
-    "difficulty": "hard",
-    "question": "A motor pulley of diameter $D_1 = 200$ mm rotating at $n_1 = 1200$ rpm is connected via a flat belt to a driven machine pulley of diameter $D_2 = 500$ mm. Assuming no belt slippage, calculate the rotational speed $n_2$ of the driven pulley in rpm.",
-    "correct_answer": "480.0 rpm",
-    "wrong_answers_pool": [
-      "3000.0 rpm",
-      "1200 rpm",
-      "720.0 rpm",
-      "240.0 rpm",
-      "630.0 rpm",
-      "330.0 rpm",
-      "1400 rpm"
-    ],
-    "explanation": "Since the linear speed of the belt is constant across both pulleys: $v_1 = v_2 \\implies \\pi D_1 n_1 = \\pi D_2 n_2$.\n$D_1 n_1 = D_2 n_2 \\implies n_2 = \\frac{D_1 \\times n_1}{D_2} = \\frac{200 \\times 1200}{500} = 480.0\\text{ rpm}$.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Circle Geometry & Angular Movement",
-      "subtopic": "Belt Drives & Pulleys",
-      "cognitive_level": "Complex Procedures",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_44"
-  },
-  {
-    "id": "TM12_P2_ANA_0998",
+    "id": "TM12_P2_ANA_0976",
     "topic": "Analytical Geometry",
     "subtopic": "Gradient & Angle of Inclination",
     "paper": "paper2",
     "difficulty": "hard",
-    "question": "Points $A(1; -1)$, $B(3; 1)$, and $C(6; k)$ are collinear. Calculate the value of the unknown coordinate $k$.",
-    "correct_answer": "4",
+    "question": "Points $A(-3; 0)$, $B(-1; -4)$, and $C(2; k)$ are collinear. Calculate the value of the unknown coordinate $k$.",
+    "correct_answer": "-10",
     "wrong_answers_pool": [
+      "10",
+      "-8",
+      "-12",
+      "-7",
       "-4",
-      "6",
-      "2",
-      "7",
-      "1",
-      "-1",
-      "8"
+      "0",
+      "-20"
     ],
-    "explanation": "For collinear points, gradient $m_{AB} = m_{BC}$:\n$m_{AB} = \\frac{1 - (-1)}{3 - (1)} = 1$.\nThen $\\frac{k - (1)}{6 - (3)} = 1 \\implies k - (1) = 1(3) = 3 \\implies k = 4$.",
+    "explanation": "For collinear points, gradient $m_{AB} = m_{BC}$:\n$m_{AB} = \\frac{-4 - (0)}{-1 - (-3)} = -2$.\nThen $\\frac{k - (-4)}{2 - (-1)} = -2 \\implies k - (-4) = -2(3) = -6 \\implies k = -10$.",
     "tags": {
       "grade": "12",
       "subject": "Technical Mathematics",
@@ -1250,25 +1105,221 @@
       "cognitive_level": "Complex Procedures",
       "difficulty": "hard"
     },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_40"
+  },
+  {
+    "id": "TM12_P2_ANG_0546",
+    "topic": "Circle Geometry & Angular Movement",
+    "subtopic": "Arc Length & Sector Area",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "A rotating machine spindle of radius $r = 28$ cm turns through a central angle of $75^\\circ$. Calculate the length of the arc $s$ traversed by a point on the rim. (Round to 2 decimal places).",
+    "correct_answer": "36.65 cm",
+    "wrong_answers_pool": [
+      "2100 cm",
+      "73.3 cm",
+      "18.32 cm",
+      "42.15 cm",
+      "31.15 cm",
+      "87.96 cm",
+      "175.93 cm"
+    ],
+    "explanation": "Step 1: Convert angle to radians: $\\theta = 75^\\circ \\times \\frac{\\pi}{180^\\circ} = 1.309\\text{ rad}$.\nStep 2: Calculate arc length: $s = r\\theta = 28 \\times 1.309 = 36.65\\text{ cm}$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Circle Geometry & Angular Movement",
+      "subtopic": "Arc Length & Sector Area",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_41"
+  },
+  {
+    "id": "TM12_P2_ANA_0812",
+    "topic": "Analytical Geometry",
+    "subtopic": "Properties of Quadrilaterals",
+    "paper": "paper2",
+    "difficulty": "hard",
+    "question": "Points $A(-2; 3)$, $B(5; 6)$, and $C(5; 0)$ are three consecutive vertices of parallelogram $ABCD$. Determine the coordinates of vertex $D$.",
+    "correct_answer": "$(-2; -3)$",
+    "wrong_answers_pool": [
+      "$(2; -3)$",
+      "$(-2; 3)$",
+      "$(-3; -2)$",
+      "$(0; -5)$",
+      "$(-2; 9)$",
+      "$(12; 3)$",
+      "$(0; 0)$"
+    ],
+    "explanation": "The diagonals of a parallelogram bisect each other, so midpoint of $AC$ = midpoint of $BD$:\n$\\left(\\frac{-2 + 5}{2}; \\frac{3 + 0}{2}\\right) = \\left(\\frac{5 + x_D}{2}; \\frac{6 + y_D}{2}\\right)$.\n$x_D = -2 + 5 - 5 = -2$. $y_D = 3 + 0 - 6 = -3$. Vertex $D$ is $(-2; -3)$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Analytical Geometry",
+      "subtopic": "Properties of Quadrilaterals",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_42"
+  },
+  {
+    "id": "TM12_P2_ANA_0936",
+    "topic": "Analytical Geometry",
+    "subtopic": "Properties of Quadrilaterals",
+    "paper": "paper2",
+    "difficulty": "hard",
+    "question": "A triangular roof truss has vertices at $A(0; 0)$, $B(8; 0)$, and $C(2; 4)$. Calculate the area of $\\triangle ABC$.",
+    "correct_answer": "16.0 square units",
+    "wrong_answers_pool": [
+      "32.0 square units",
+      "8.0 square units",
+      "32 square units",
+      "20.5 square units",
+      "11.5 square units",
+      "8 square units",
+      "4 square units"
+    ],
+    "explanation": "Base $AB$ lies on the horizontal axis with length $d = 8 - (0) = 8$.\nThe perpendicular height from vertex $C$ to base $AB$ is $h = |4 - 0| = 4$.\nArea $= \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(8)(4) = 16.0\\text{ square units}$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Analytical Geometry",
+      "subtopic": "Properties of Quadrilaterals",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_43"
+  },
+  {
+    "id": "TM12_P2_MEN_0922",
+    "topic": "Mensuration & Mid-Ordinate Rule",
+    "subtopic": "Composite Engineering Solids",
+    "paper": "paper2",
+    "difficulty": "hard",
+    "question": "A bronze cylindrical bearing sleeve has an outer radius $R = 6$ cm, an inner bore radius $r = 3$ cm, and a length $h = 30$ cm. Calculate the volume of metal in the sleeve. (Round to 2 decimal places).",
+    "correct_answer": "2544.69 cm^3",
+    "wrong_answers_pool": [
+      "3392.92 cm^3",
+      "848.23 cm^3",
+      "3817.03 cm^3",
+      "1272.35 cm^3",
+      "2644.69 cm^3",
+      "2444.69 cm^3"
+    ],
+    "explanation": "Volume of hollow cylinder: $V = \\pi(R^2 - r^2)h = \\pi((6)^2 - (3)^2)(30) = \\pi(36 - 9)(30) = \\pi(27)(30) = 2544.69\\text{ cm}^3$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Mensuration & Mid-Ordinate Rule",
+      "subtopic": "Composite Engineering Solids",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_44"
+  },
+  {
+    "id": "TM12_P2_ANA_0927",
+    "topic": "Analytical Geometry",
+    "subtopic": "Properties of Quadrilaterals",
+    "paper": "paper2",
+    "difficulty": "hard",
+    "question": "A triangular roof truss has vertices at $A(0; 0)$, $B(6; 0)$, and $C(1; 5)$. Calculate the area of $\\triangle ABC$.",
+    "correct_answer": "15.0 square units",
+    "wrong_answers_pool": [
+      "30.0 square units",
+      "7.5 square units",
+      "30 square units",
+      "19.5 square units",
+      "10.5 square units",
+      "6 square units",
+      "5 square units"
+    ],
+    "explanation": "Base $AB$ lies on the horizontal axis with length $d = 6 - (0) = 6$.\nThe perpendicular height from vertex $C$ to base $AB$ is $h = |5 - 0| = 5$.\nArea $= \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(6)(5) = 15.0\\text{ square units}$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Analytical Geometry",
+      "subtopic": "Properties of Quadrilaterals",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_45"
   },
   {
-    "id": "TM12_P2_ANA_0750",
+    "id": "TM12_P2_MEN_0503",
+    "topic": "Mensuration & Mid-Ordinate Rule",
+    "subtopic": "Mid-Ordinate Rule",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "The irregular cross-section of an excavation trench has mid-ordinates of: 4.72 m, 6.14 m, 7.2 m, 6.84 m, 5.43 m. The distance between consecutive ordinates is $h = 2.8$ m. Calculate the cross-sectional area using the Mid-Ordinate Rule.",
+    "correct_answer": "84.92 m^2",
+    "wrong_answers_pool": [
+      "169.84 m^2",
+      "42.46 m^2",
+      "30.33 m^2",
+      "93.42 m^2",
+      "76.42 m^2",
+      "28.42 m^2",
+      "127.38 m^2"
+    ],
+    "explanation": "Apply the Mid-Ordinate Rule: $\\text{Area} = h(m_1 + m_2 + \\dots + m_n)$\nSum of mid-ordinates $= 4.72 + 6.14 + 7.2 + 6.84 + 5.43 = 30.33\\text{ m}$.\n$\\text{Area} = 2.8 \\times 30.33 = 84.92\\text{ m}^2$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Mensuration & Mid-Ordinate Rule",
+      "subtopic": "Mid-Ordinate Rule",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_46"
+  },
+  {
+    "id": "TM12_P2_ANA_0930",
+    "topic": "Analytical Geometry",
+    "subtopic": "Properties of Quadrilaterals",
+    "paper": "paper2",
+    "difficulty": "hard",
+    "question": "A triangular roof truss has vertices at $A(0; 0)$, $B(6; 0)$, and $C(4; 8)$. Calculate the area of $\\triangle ABC$.",
+    "correct_answer": "24.0 square units",
+    "wrong_answers_pool": [
+      "48.0 square units",
+      "12.0 square units",
+      "48 square units",
+      "28.5 square units",
+      "19.5 square units",
+      "6 square units",
+      "8 square units"
+    ],
+    "explanation": "Base $AB$ lies on the horizontal axis with length $d = 6 - (0) = 6$.\nThe perpendicular height from vertex $C$ to base $AB$ is $h = |8 - 0| = 8$.\nArea $= \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(6)(8) = 24.0\\text{ square units}$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Analytical Geometry",
+      "subtopic": "Properties of Quadrilaterals",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_47"
+  },
+  {
+    "id": "TM12_P2_ANA_0595",
     "topic": "Analytical Geometry",
     "subtopic": "Gradient & Angle of Inclination",
     "paper": "paper2",
     "difficulty": "medium",
-    "question": "Calculate the gradient $m$ of the line segment joining $A(-4; -2)$ and $B(-6; 0)$.",
-    "correct_answer": "-1",
+    "question": "Calculate the gradient $m$ of the line segment joining $A(-6; 0)$ and $B(-1; -2)$.",
+    "correct_answer": "-0.4",
     "wrong_answers_pool": [
-      "1.0",
-      "-1.0",
-      "0.0",
-      "-2.0",
-      "2",
-      "-2"
+      "0.4",
+      "-2.5",
+      "0.6",
+      "-1.4",
+      "-0.8",
+      "-2",
+      "5"
     ],
-    "explanation": "Gradient formula: $m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{0 - (-2)}{-6 - (-4)} = \\frac{2}{-2} = -1$.",
+    "explanation": "Gradient formula: $m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{-2 - (0)}{-1 - (-6)} = \\frac{-2}{5} = -0.4$.",
     "tags": {
       "grade": "12",
       "subject": "Technical Mathematics",
@@ -1277,26 +1328,54 @@
       "cognitive_level": "Routine Procedures",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_46"
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_48"
   },
   {
-    "id": "TM12_P2_MEN_0814",
+    "id": "TM12_P2_ANG_0343",
+    "topic": "Circle Geometry & Angular Movement",
+    "subtopic": "Arc Length & Sector Area",
+    "paper": "paper2",
+    "difficulty": "medium",
+    "question": "A rotating machine spindle of radius $r = 6$ cm turns through a central angle of $80^\\circ$. Calculate the length of the arc $s$ traversed by a point on the rim. (Round to 2 decimal places).",
+    "correct_answer": "8.38 cm",
+    "wrong_answers_pool": [
+      "480 cm",
+      "16.76 cm",
+      "4.19 cm",
+      "13.88 cm",
+      "2.88 cm",
+      "18.85 cm",
+      "37.7 cm"
+    ],
+    "explanation": "Step 1: Convert angle to radians: $\\theta = 80^\\circ \\times \\frac{\\pi}{180^\\circ} = 1.3963\\text{ rad}$.\nStep 2: Calculate arc length: $s = r\\theta = 6 \\times 1.3963 = 8.38\\text{ cm}$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Circle Geometry & Angular Movement",
+      "subtopic": "Arc Length & Sector Area",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_49"
+  },
+  {
+    "id": "TM12_P2_MEN_0801",
     "topic": "Mensuration & Mid-Ordinate Rule",
     "subtopic": "Frustums of Cones & Pyramids",
     "paper": "paper2",
     "difficulty": "hard",
-    "question": "For the frustum of a cone with radii $R = 12$ cm, $r = 6$ cm, and height $h = 15$ cm, calculate the curved (lateral) surface area. (Round to 2 decimal places).",
-    "correct_answer": "913.83 cm^2",
+    "question": "A metallurgical casting ladle is in the shape of a frustum of a cone with top radius $R = 6$ cm, bottom radius $r = 3$ cm, and perpendicular height $h = 8$ cm. Calculate the volume of the ladle. (Round to 2 decimal places).",
+    "correct_answer": "527.79 cm^3",
     "wrong_answers_pool": [
-      "1370.75 cm^2",
-      "456.92 cm^2",
-      "848.23 cm^2",
-      "943.83 cm^2",
-      "883.83 cm^2",
-      "1130.97 cm^2",
-      "1827.66 cm^2"
+      "791.68 cm^3",
+      "263.89 cm^3",
+      "904.78 cm^3",
+      "577.79 cm^3",
+      "477.79 cm^3",
+      "508.94 cm^3",
+      "1055.58 cm^3"
     ],
-    "explanation": "Step 1: Slant height $l = \\sqrt{h^2 + (R - r)^2} = \\sqrt{15^2 + (12 - 6)^2} = \\sqrt{225 + 36} = 16.16\\text{ cm}$.\nStep 2: Curved area $= \\pi(R + r)l = \\pi(12 + 6)(16.16) = \\pi(18)(16.16) = 913.83\\text{ cm}^2$.",
+    "explanation": "Formula for the volume of a frustum of a cone:\n$V = \\frac{1}{3}\\pi h(R^2 + Rr + r^2) = \\frac{1}{3}\\pi(8)[(6)^2 + (6)(3) + (3)^2]$\n$V = \\frac{8\\pi}{3}[36 + 18 + 9] = \\frac{8\\pi}{3}(63) = 527.79\\text{ cm}^3$.",
     "tags": {
       "grade": "12",
       "subject": "Technical Mathematics",
@@ -1304,88 +1383,6 @@
       "subtopic": "Frustums of Cones & Pyramids",
       "cognitive_level": "Complex Procedures",
       "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_47"
-  },
-  {
-    "id": "TM12_P2_TRIG_0983",
-    "topic": "Trigonometry",
-    "subtopic": "Sine & Cosine Rules",
-    "paper": "paper2",
-    "difficulty": "hard",
-    "question": "Calculate the area of a triangular structural brace with side lengths $a = 12$ cm, $b = 14$ cm, and included angle $\\hat{C} = 135^\\circ$ using the Area Rule. (Round to 2 decimal places).",
-    "correct_answer": "59.4 cm^2",
-    "wrong_answers_pool": [
-      "118.79 cm^2",
-      "-59.4 cm^2",
-      "89.1 cm^2",
-      "29.7 cm^2",
-      "69.4 cm^2",
-      "49.4 cm^2",
-      "84.0 cm^2"
-    ],
-    "explanation": "Apply Area Rule: $\\text{Area} = \\frac{1}{2}ab\\sin C = \\frac{1}{2}(12)(14)\\sin(135^\\circ) = 84.0 \\times 0.7071 = 59.4\\text{ cm}^2$.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Trigonometry",
-      "subtopic": "Sine & Cosine Rules",
-      "cognitive_level": "Complex Procedures",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_48"
-  },
-  {
-    "id": "TM12_P2_TRIG_0986",
-    "topic": "Trigonometry",
-    "subtopic": "Sine & Cosine Rules",
-    "paper": "paper2",
-    "difficulty": "hard",
-    "question": "Calculate the area of a triangular structural brace with side lengths $a = 12$ cm, $b = 16$ cm, and included angle $\\hat{C} = 45^\\circ$ using the Area Rule. (Round to 2 decimal places).",
-    "correct_answer": "67.88 cm^2",
-    "wrong_answers_pool": [
-      "135.76 cm^2",
-      "101.82 cm^2",
-      "33.94 cm^2",
-      "77.88 cm^2",
-      "57.88 cm^2",
-      "96.0 cm^2"
-    ],
-    "explanation": "Apply Area Rule: $\\text{Area} = \\frac{1}{2}ab\\sin C = \\frac{1}{2}(12)(16)\\sin(45^\\circ) = 96.0 \\times 0.7071 = 67.88\\text{ cm}^2$.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Trigonometry",
-      "subtopic": "Sine & Cosine Rules",
-      "cognitive_level": "Complex Procedures",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_49"
-  },
-  {
-    "id": "TM12_P2_TRIG_0437",
-    "topic": "Trigonometry",
-    "subtopic": "Reduction Formulas",
-    "paper": "paper2",
-    "difficulty": "medium",
-    "question": "Evaluate the trigonometric reduction: $\\sin(90^\\circ + x)$.",
-    "correct_answer": "$\\cos x$",
-    "wrong_answers_pool": [
-      "$-\\cos x$",
-      "$\\sin x$",
-      "$-\\sin x$",
-      "$\\cot x$",
-      "$0$",
-      "$1$"
-    ],
-    "explanation": "Using reduction formulas: $\\sin(90^\\circ + x) = \\cos x$.",
-    "tags": {
-      "grade": "12",
-      "subject": "Technical Mathematics",
-      "topic": "Trigonometry",
-      "subtopic": "Reduction Formulas",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
     },
     "exam_id": "EXAM_2026-W46_grade12_technical_mathematics_paper2_50"
   }

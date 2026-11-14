@@ -1,350 +1,20 @@
 [
   {
-    "id": "PS12_P1_EC_0934",
-    "topic": "Electric Circuits",
-    "subtopic": "Simultaneous Emf & Internal Resistance",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "A battery delivers a current of 2.50 A through a 2.5 Ω load and 1.33 A through a 6.0 Ω load. Calculate the electromotive force (emf) of the battery.",
-    "correct_answer": "10 V",
-    "wrong_answers_pool": [
-      "15.00 V",
-      "5.00 V",
-      "6.25 V",
-      "8.00 V",
-      "14.00 V",
-      "20.00 V"
-    ],
-    "explanation": "From simultaneous equations: r = 1.50 Ω. ε = I1*(R1 + r) = 2.50*(2.5 + 1.50) = 10 V.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Electric Circuits",
-      "subtopic": "Simultaneous Emf & Internal Resistance",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_1"
-  },
-  {
-    "id": "PS12_P1_ES_0643",
-    "topic": "Electrostatics",
-    "subtopic": "Coulomb's Law Calculations",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Two small point charges, q1 = +8 µC and q2 = +4 µC, are placed 60 cm apart in a vacuum. Calculate the magnitude of the electrostatic force exerted between them. (k = 9.0 x 10^9 N·m²·C⁻²)",
-    "correct_answer": "0.80 N",
-    "wrong_answers_pool": [
-      "0.48 N",
-      "8.00e-05 N",
-      "8.00e+11 N",
-      "1.60 N",
-      "0.40 N",
-      "3.20 N"
-    ],
-    "explanation": "Coulomb's Law: F = k * |q1| * |q2| / r² = (9.0 x 10^9 * 8 x 10^-6 * 4 x 10^-6) / (0.6²) = 0.80 N.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Electrostatics",
-      "subtopic": "Coulomb's Law Calculations",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_2",
-    "diagram": {
-      "type": "coulomb_charges",
-      "q1": "+8 µC",
-      "q2": "+4 µC",
-      "distance": "60 cm"
-    }
-  },
-  {
-    "id": "PS12_P1_NL_0845",
-    "topic": "Newton's Laws and Gravitation",
-    "subtopic": "Atwood Machine Systems",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "An Atwood machine consists of two masses m1 = 3.5 kg and m2 = 6.5 kg suspended vertically over a light, frictionless pulley by an inextensible string. When released from rest, what is the acceleration of the system?",
-    "correct_answer": "2.94 m/s²",
-    "wrong_answers_pool": [
-      "9.80 m/s²",
-      "18.20 m/s²",
-      "4.41 m/s²",
-      "1.47 m/s²",
-      "29.40 m/s²",
-      "4.94 m/s²"
-    ],
-    "explanation": "a = (m2 - m1)/(m1 + m2) * g = (6.5 - 3.5)/(3.5 + 6.5) * 9.8 = 2.94 m/s².",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Newton's Laws and Gravitation",
-      "subtopic": "Atwood Machine Systems",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_3",
-    "diagram": {
-      "type": "pulley_atwood",
-      "m1": 3.5,
-      "m2": 6.5
-    }
-  },
-  {
-    "id": "PS_P1_OPT_0837",
-    "topic": "Paper 1: Optical Phenomena and Properties of Matter",
-    "subtopic": "Maximum Velocity",
-    "difficulty": "hard",
-    "question": "Ultraviolet radiation of frequency 12.21 × 10¹⁴ Hz strikes the surface of a Potassium (K) plate (work function W_0 = 3.68 × 10⁻¹⁹ J). Using h = 6.63 × 10⁻³⁴ J·s and mass of an electron m_e = 9.11 × 10⁻³¹ kg, calculate the MAXIMUM SPEED (v_max) of the ejected photoelectrons:",
-    "correct_answer": "9.85 × 10⁵ m·s⁻¹",
-    "wrong_answers_pool": [
-      "19.69 × 10⁵ m·s⁻¹",
-      "4.92 × 10⁵ m·s⁻¹",
-      "6.96 × 10⁵ m·s⁻¹ (omitted factor of 2 under square root)",
-      "9.69 × 10⁵ m·s⁻¹ (forgot to take square root)",
-      "12.35 × 10⁵ m·s⁻¹",
-      "14.77 × 10⁵ m·s⁻¹",
-      "3.00 × 10⁵ m·s⁻¹ (speed of light)"
-    ],
-    "explanation": "1. E = h × f = (6.63 × 10⁻³⁴) × (12.21 × 10¹⁴) = 8.10 × 10⁻¹⁹ J. 2. E_k(max) = E - W_0 = 8.10 × 10⁻¹⁹ - 3.68 × 10⁻¹⁹ = 4.42 × 10⁻¹⁹ J. 3. v_max = √(2 × E_k / m_e) = √(2 × 4.416e-19 / 9.11 × 10⁻³¹) = 9.85 × 10⁵ m·s⁻¹.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 1: Optical Phenomena and Properties of Matter",
-      "subtopic": "Maximum Velocity",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate maximum photoelectron speed for Potassium (K)"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_4"
-  },
-  {
-    "id": "PS12_P1_EC_0697",
-    "topic": "Electric Circuits",
-    "subtopic": "Internal Resistance Circuits",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "A battery (emf = 18.0 V, r = 0.5 Ω) powers a circuit with an external load of 15.0 Ω. Determine the terminal potential difference across the battery.",
-    "correct_answer": "17.42 V",
-    "wrong_answers_pool": [
-      "18.00 V",
-      "0.58 V",
-      "21.77 V",
-      "13.06 V",
-      "18.58 V",
-      "7.50 V"
-    ],
-    "explanation": "I = 18.0/(15.0+0.5) = 1.16 A. V_term = I * R_ext = 1.16 * 15.0 = 17.42 V (or V = ε - Ir).",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Electric Circuits",
-      "subtopic": "Internal Resistance Circuits",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_5"
-  },
-  {
-    "id": "PS12_P1_MOM_1000",
-    "topic": "Momentum and Impulse",
-    "subtopic": "Recoil and Explosions",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "A cannon of mass 581 kg fires a 18 kg artillery shell horizontally at a muzzle speed of 350 m/s. Assuming the system is isolated, calculate the recoil speed of the cannon immediately upon firing.",
-    "correct_answer": "10.84 m/s",
-    "wrong_answers_pool": [
-      "175.0 m/s",
-      "11297.22 m/s",
-      "16.26 m/s",
-      "5.42 m/s",
-      "14.34 m/s",
-      "0.00 m/s"
-    ],
-    "explanation": "p_total = 0 => m_gun * v_recoil = m_shell * v_shell => v_recoil = (18 * 350) / 581 = 10.84 m/s.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Momentum and Impulse",
-      "subtopic": "Recoil and Explosions",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_6"
-  },
-  {
-    "id": "PS_P1_DOP_0823",
-    "topic": "Paper 1: Doppler Effect",
-    "subtopic": "Source Speed Calculations",
-    "difficulty": "hard",
-    "question": "A stationary listener hears the siren of an approaching emergency vehicle at a frequency of 531.2 Hz. The true frequency of the siren at rest is 500 Hz. Taking the speed of sound in air as 340 m·s⁻¹, calculate the speed at which the vehicle is approaching:",
-    "correct_answer": "20.0 m·s⁻¹",
-    "wrong_answers_pool": [
-      "21.2 m·s⁻¹ (algebraic error in isolating v_s)",
-      "40.0 m·s⁻¹",
-      "10.0 m·s⁻¹",
-      "30.0 m·s⁻¹",
-      "15.6 m·s⁻¹",
-      "21.2 m·s⁻¹"
-    ],
-    "explanation": "From f_L = (v / (v - v_s)) × f_s: (v - v_s) = v × (f_s / f_L). Therefore v_s = v × (1 - f_s / f_L) = 340 × (1 - 500 / 531.2) = 20.0 m·s⁻¹.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 1: Doppler Effect",
-      "subtopic": "Source Speed Calculations",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate source speed for approaching vehicle"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_7"
-  },
-  {
-    "id": "PS12_P1_ED_0402",
-    "topic": "Electrodynamics",
-    "subtopic": "Average AC Power",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "An AC circuit dissipates an average power of 330.0 W. What is the peak maximum instantaneous power (P_max) dissipated in the circuit?",
-    "correct_answer": "660 W",
-    "wrong_answers_pool": [
-      "330.0 W",
-      "1320.0 W",
-      "165.0 W",
-      "990.0 W",
-      "495.0 W",
-      "220.0 W"
-    ],
-    "explanation": "P_max = V_max * I_max = 2 * P_ave = 2 * 330.0 = 660 W.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Electrodynamics",
-      "subtopic": "Average AC Power",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_8"
-  },
-  {
-    "id": "PS_P1_DOP_0467",
-    "topic": "Paper 1: Doppler Effect",
-    "subtopic": "Approaching Source Calculations",
-    "difficulty": "medium",
-    "question": "An ambulance with its siren sounding at a frequency of 900 Hz moves at a constant speed of 40.0 m·s⁻¹ TOWARDS a stationary pedestrian. Taking the speed of sound in air as 340 m·s⁻¹, calculate the frequency detected by the pedestrian:",
-    "correct_answer": "1020.0 Hz",
-    "wrong_answers_pool": [
-      "805.3 Hz (used (v + v_s) in denominator for approaching source)",
-      "794.1 Hz (inverted Doppler fraction)",
-      "1005.9 Hz",
-      "900.0 Hz (assumed zero frequency change)",
-      "1530.0 Hz",
-      "920.0 Hz",
-      "1140.0 Hz"
-    ],
-    "explanation": "Formula: f_L = (v / (v - v_s)) × f_s. Here v = 340 m·s⁻¹, v_s = 40.0 m·s⁻¹, f_s = 900 Hz. f_L = (340 / (340 - 40.0)) × 900 = (340 / 300.0) × 900 = 1020.0 Hz.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 1: Doppler Effect",
-      "subtopic": "Approaching Source Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate observed frequency for approaching source"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_9"
-  },
-  {
-    "id": "PS12_P1_VP_0868",
-    "topic": "Vertical Projectile Motion",
-    "subtopic": "Cliff Projection and Quadratic Kinematics",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "A lead weight is thrown vertically upwards from a vertical scaffold 71.8 m above the ground with an initial speed of 24.9 m/s. Calculate the magnitude of its velocity as it strikes the ground at the bottom.",
-    "correct_answer": "45.03 m/s",
-    "wrong_answers_pool": [
-      "24.9 m/s",
-      "37.51 m/s",
-      "56.29 m/s",
-      "33.77 m/s",
-      "59.23 m/s",
-      "35.43 m/s"
-    ],
-    "explanation": "v_f = sqrt(v_i^2 + 2gh) = sqrt(24.9^2 + 2*9.8*71.8) = 45.03 m/s.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Vertical Projectile Motion",
-      "subtopic": "Cliff Projection and Quadratic Kinematics",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_10",
-    "diagram": {
-      "type": "kinematics_graph",
-      "v0": 24.9,
-      "t_top": 2.54
-    }
-  },
-  {
-    "id": "PS12_P1_WEP_0999",
-    "topic": "Work, Energy and Power",
-    "subtopic": "Conservation of Mechanical Energy",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "A 427 kg roller coaster cart starts from rest at the top of a frictionless track at height h = 6.52 m above ground level. Using the principle of conservation of mechanical energy, calculate the speed of the cart at the bottom of the track.",
-    "correct_answer": "11.3 m/s",
-    "wrong_answers_pool": [
-      "7.99 m/s",
-      "15.82 m/s",
-      "6.78 m/s",
-      "127.79 m/s",
-      "15.8 m/s",
-      "63.9 m/s"
-    ],
-    "explanation": "E_mech(top) = E_mech(bottom) => m*g*h = 0.5*m*v^2 => v = sqrt(2 * g * h) = sqrt(2 * 9.8 * 6.52) = 11.3 m/s.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Work, Energy and Power",
-      "subtopic": "Conservation of Mechanical Energy",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_11",
-    "diagram": {
-      "type": "work_energy_track",
-      "mass": 427,
-      "h1": 6.52,
-      "h2": 3.9
-    }
-  },
-  {
-    "id": "PS_P1_OPT_0391",
+    "id": "PS_P1_OPT_0507",
     "topic": "Paper 1: Optical Phenomena and Properties of Matter",
     "subtopic": "Kinetic Energy Calculations",
     "difficulty": "medium",
-    "question": "Light of frequency 8.81 × 10¹⁴ Hz shines on a clean plate of Sodium (Na) (work function W_0 = 3.65 × 10⁻¹⁹ J). Using h = 6.63 × 10⁻³⁴ J·s, calculate the maximum kinetic energy (E_k(max)) of the ejected photoelectrons:",
-    "correct_answer": "2.19 × 10⁻¹⁹ J",
+    "question": "Light of frequency 18.46 \u00d7 10\u00b9\u2074 Hz shines on a clean plate of Gold (Au) (work function W_0 = 8.16 \u00d7 10\u207b\u00b9\u2079 J). Using h = 6.63 \u00d7 10\u207b\u00b3\u2074 J\u00b7s, calculate the maximum kinetic energy (E_k(max)) of the ejected photoelectrons:",
+    "correct_answer": "4.08 \u00d7 10\u207b\u00b9\u2079 J",
     "wrong_answers_pool": [
-      "5.84 × 10⁻¹⁹ J (calculated total photon energy without subtracting W_0)",
-      "9.49 × 10⁻¹⁹ J (added work function instead of subtracting)",
-      "4.38 × 10⁻¹⁹ J",
-      "1.10 × 10⁻¹⁹ J",
-      "3.65 × 10⁻¹⁹ J",
-      "3.44 × 10⁻¹⁹ J",
-      "3.29 × 10⁻¹⁹ J"
+      "12.24 \u00d7 10\u207b\u00b9\u2079 J (calculated total photon energy without subtracting W_0)",
+      "20.40 \u00d7 10\u207b\u00b9\u2079 J (added work function instead of subtracting)",
+      "8.16 \u00d7 10\u207b\u00b9\u2079 J",
+      "2.04 \u00d7 10\u207b\u00b9\u2079 J",
+      "5.33 \u00d7 10\u207b\u00b9\u2079 J",
+      "6.12 \u00d7 10\u207b\u00b9\u2079 J"
     ],
-    "explanation": "Photoelectric equation: E = W_0 + E_k(max) => E_k(max) = h × f - W_0 = (6.63 × 10⁻³⁴ × 8.81 × 10¹⁴) - 3.65 × 10⁻¹⁹ J = 5.84 × 10⁻¹⁹ - 3.65 × 10⁻¹⁹ = 2.19 × 10⁻¹⁹ J.",
+    "explanation": "Photoelectric equation: E = W_0 + E_k(max) => E_k(max) = h \u00d7 f - W_0 = (6.63 \u00d7 10\u207b\u00b3\u2074 \u00d7 18.46 \u00d7 10\u00b9\u2074) - 8.16 \u00d7 10\u207b\u00b9\u2079 J = 12.24 \u00d7 10\u207b\u00b9\u2079 - 8.16 \u00d7 10\u207b\u00b9\u2079 = 4.08 \u00d7 10\u207b\u00b9\u2079 J.",
     "tags": {
       "grade": "12",
       "subject": "Physical Sciences",
@@ -352,441 +22,27 @@
       "subtopic": "Kinetic Energy Calculations",
       "cognitive_level": "Applying",
       "difficulty": "medium",
-      "learning_outcome": "Calculate maximum photoelectron kinetic energy for Sodium (Na)"
+      "learning_outcome": "Calculate maximum photoelectron kinetic energy for Gold (Au)"
     },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_12"
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_1"
   },
   {
-    "id": "PS12_P1_NL_0743",
-    "topic": "Newton's Laws and Gravitation",
-    "subtopic": "Angled Pulling Forces",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "A worker pulls a 25 kg crate across a level warehouse floor with an applied force of 150 N directed at an angle of 30° above the horizontal. The coefficient of kinetic friction between crate and floor is 0.20. Calculate the acceleration of the crate.",
-    "correct_answer": "3.84 m/s²",
-    "wrong_answers_pool": [
-      "5.20 m/s²",
-      "6.00 m/s²",
-      "5.75 m/s²",
-      "1.92 m/s²",
-      "3.24 m/s²",
-      "5.64 m/s²"
-    ],
-    "explanation": "N = mg - F*sin(30°) = 245.0 - 75.00 = 170.00 N. f_k = 0.2 * 170.00 = 34.00 N. F_net = F*cos(30°) - f_k = 129.90 - 34.00 = 95.90 N. a = F_net / m = 3.84 m/s².",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Newton's Laws and Gravitation",
-      "subtopic": "Angled Pulling Forces",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_13"
-  },
-  {
-    "id": "PS12_P1_NL_0437",
-    "topic": "Newton's Laws and Gravitation",
-    "subtopic": "Inclined Plane Dynamics",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "A 20 kg wooden crate rests on a rough ramp inclined at 40° to the horizontal. Calculate the magnitude of the normal force exerted by the ramp on the crate.",
-    "correct_answer": "150.14 N",
-    "wrong_answers_pool": [
-      "125.99 N",
-      "196.00 N",
-      "225.22 N",
-      "112.61 N",
-      "180.17 N",
-      "276.13 N"
-    ],
-    "explanation": "N = mg * cos(theta) = 20 * 9.8 * cos(40°) = 150.14 N.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Newton's Laws and Gravitation",
-      "subtopic": "Inclined Plane Dynamics",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_14"
-  },
-  {
-    "id": "PS12_P1_ES_0348",
-    "topic": "Electrostatics",
-    "subtopic": "Coulomb's Law Calculations",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Two small point charges, q1 = +2 µC and q2 = +10 µC, are placed 80 cm apart in a vacuum. Calculate the magnitude of the electrostatic force exerted between them. (k = 9.0 x 10^9 N·m²·C⁻²)",
-    "correct_answer": "0.28 N",
-    "wrong_answers_pool": [
-      "0.22 N",
-      "2.81e-05 N",
-      "2.81e+11 N",
-      "0.56 N",
-      "0.14 N",
-      "1.12 N"
-    ],
-    "explanation": "Coulomb's Law: F = k * |q1| * |q2| / r² = (9.0 x 10^9 * 2 x 10^-6 * 10 x 10^-6) / (0.8²) = 0.28 N.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Electrostatics",
-      "subtopic": "Coulomb's Law Calculations",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_15",
-    "diagram": {
-      "type": "coulomb_charges",
-      "q1": "+2 µC",
-      "q2": "+10 µC",
-      "distance": "80 cm"
-    }
-  },
-  {
-    "id": "PS12_P1_NL_0355",
-    "topic": "Newton's Laws and Gravitation",
-    "subtopic": "Inclined Plane Dynamics",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "A 8 kg block slides down an incline of 35° where the coefficient of kinetic friction is 0.28. Calculate the kinetic frictional force acting on the block.",
-    "correct_answer": "17.98 N",
-    "wrong_answers_pool": [
-      "21.95 N",
-      "12.59 N",
-      "35.96 N",
-      "8.99 N",
-      "64.22 N",
-      "32.98 N"
-    ],
-    "explanation": "f_k = mu_k * N = 0.28 * (8 * 9.8 * cos(35°)) = 17.98 N.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Newton's Laws and Gravitation",
-      "subtopic": "Inclined Plane Dynamics",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_16"
-  },
-  {
-    "id": "PS12_P1_NL_0802",
-    "topic": "Newton's Laws and Gravitation",
-    "subtopic": "Atwood Machine Systems",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "Two masses m1 = 1.5 kg and m2 = 2.0 kg are connected by a light inextensible cord over a frictionless pulley in an Atwood machine. Calculate the tension in the cord while the masses are in motion.",
-    "correct_answer": "16.80 N",
-    "wrong_answers_pool": [
-      "14.70 N",
-      "19.60 N",
-      "34.30 N",
-      "21.84 N",
-      "11.76 N",
-      "4.90 N"
-    ],
-    "explanation": "T = 2*m1*m2*g / (m1 + m2) = 2*1.5*2.0*9.8 / (1.5 + 2.0) = 16.80 N.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Newton's Laws and Gravitation",
-      "subtopic": "Atwood Machine Systems",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_17",
-    "diagram": {
-      "type": "pulley_atwood",
-      "m1": 1.5,
-      "m2": 2.0
-    }
-  },
-  {
-    "id": "PS12_P1_VP_0967",
-    "topic": "Vertical Projectile Motion",
-    "subtopic": "Cliff Projection and Quadratic Kinematics",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "A baseball is thrown vertically upwards from a observation deck 66.7 m above the ground with an initial speed of 33.5 m/s. Calculate the magnitude of its velocity as it strikes the ground at the bottom.",
-    "correct_answer": "49.29 m/s",
-    "wrong_answers_pool": [
-      "33.5 m/s",
-      "36.16 m/s",
-      "61.61 m/s",
-      "36.97 m/s",
-      "63.49 m/s",
-      "39.69 m/s"
-    ],
-    "explanation": "v_f = sqrt(v_i^2 + 2gh) = sqrt(33.5^2 + 2*9.8*66.7) = 49.29 m/s.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Vertical Projectile Motion",
-      "subtopic": "Cliff Projection and Quadratic Kinematics",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_18",
-    "diagram": {
-      "type": "kinematics_graph",
-      "v0": 33.5,
-      "t_top": 3.42
-    }
-  },
-  {
-    "id": "PS_P1_OPT_0608",
-    "topic": "Paper 1: Optical Phenomena and Properties of Matter",
-    "subtopic": "Work Function Calculations",
-    "difficulty": "medium",
-    "question": "A certain photosensitive metallic alloy has an experimentally determined threshold frequency of f_0 = 5.55 × 10¹⁴ Hz. Taking Planck's constant as h = 6.63 × 10⁻³⁴ J·s, calculate the work function (W_0) of this alloy:",
-    "correct_answer": "3.68 × 10⁻¹⁹ J",
-    "wrong_answers_pool": [
-      "7.36 × 10⁻¹⁹ J",
-      "1.84 × 10⁻¹⁹ J",
-      "2.30 × 10⁻¹⁹ J (omitted conversion to Joules)",
-      "1.19 × 10⁻¹⁹ J",
-      "5.68 × 10⁻¹⁹ J",
-      "5.52 × 10⁻¹⁹ J",
-      "5.55 × 10⁻¹⁹ J"
-    ],
-    "explanation": "W_0 = h × f_0 = (6.63 × 10⁻³⁴ J·s) × (5.55 × 10¹⁴ s⁻¹) = 3.68 × 10⁻¹⁹ J.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 1: Optical Phenomena and Properties of Matter",
-      "subtopic": "Work Function Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate work function from threshold frequency"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_19"
-  },
-  {
-    "id": "PS_P1_DOP_0976",
-    "topic": "Paper 1: Doppler Effect",
-    "subtopic": "Source Speed Calculations",
-    "difficulty": "hard",
-    "question": "An observer standing beside a straight railway track detects a frequency of 891.8 Hz from the whistle of a train as it travels directly away from them. The stationary whistle frequency is 960 Hz. Given that sound travels at 340 m·s⁻¹ in air, determine the speed of the receding train:",
-    "correct_answer": "26.0 m·s⁻¹",
-    "wrong_answers_pool": [
-      "24.2 m·s⁻¹ (used approaching formula instead of receding)",
-      "52.0 m·s⁻¹",
-      "13.0 m·s⁻¹",
-      "34.5 m·s⁻¹",
-      "68.2 m·s⁻¹",
-      "36.4 m·s⁻¹",
-      "21.0 m·s⁻¹"
-    ],
-    "explanation": "From f_L = (v / (v + v_s)) × f_s: (v + v_s) = v × (f_s / f_L) => v_s = v × (f_s / f_L - 1) = 340 × (960 / 891.8 - 1) = 26.0 m·s⁻¹.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 1: Doppler Effect",
-      "subtopic": "Source Speed Calculations",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate source speed for receding train"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_20"
-  },
-  {
-    "id": "PS12_P1_VP_0316",
-    "topic": "Vertical Projectile Motion",
-    "subtopic": "Dropped Objects",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "How long does it take for a stone dropped from rest from a bridge 15 m tall to hit the ground below?",
-    "correct_answer": "1.75 s",
-    "wrong_answers_pool": [
-      "3.5 s",
-      "0.88 s",
-      "1.53 s",
-      "3.25 s",
-      "3.06 s",
-      "2.19 s"
-    ],
-    "explanation": "t = sqrt(2 * h / g) = sqrt(2 * 15 / 9.8) = 1.75 s.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Vertical Projectile Motion",
-      "subtopic": "Dropped Objects",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_21"
-  },
-  {
-    "id": "PS12_P1_ES_0923",
+    "id": "PS12_P1_ES_0874",
     "topic": "Electrostatics",
     "subtopic": "2D Electrostatic Forces",
     "paper": "paper1",
     "difficulty": "hard",
-    "question": "Charge Q_A = +4 µC is placed at the origin (0, 0). Charge Q_B = +6 µC is located at (10 cm, 0) on the x-axis, and Charge Q_C = +3 µC is located at (0, 20 cm) on the y-axis. Calculate the magnitude of the net electrostatic force exerted on charge Q_A.",
-    "correct_answer": "21.77 N",
+    "question": "Charge Q_A = +4 \u00b5C is placed at the origin (0, 0). Charge Q_B = +2 \u00b5C is located at (10 cm, 0) on the x-axis, and Charge Q_C = +5 \u00b5C is located at (0, 10 cm) on the y-axis. Calculate the magnitude of the net electrostatic force exerted on charge Q_A.",
+    "correct_answer": "19.39 N",
     "wrong_answers_pool": [
-      "24.30 N",
-      "18.90 N",
-      "32.65 N",
-      "21.60 N",
-      "2.70 N",
-      "10.88 N"
-    ],
-    "explanation": "F_x = k*|QA|*|QB|/(0.1²) = 21.60 N. F_y = k*|QA|*|QC|/(0.2²) = 2.70 N. Resultant at 90°: F_net = sqrt(F_x² + F_y²) = sqrt(21.60² + 2.70²) = 21.77 N.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Electrostatics",
-      "subtopic": "2D Electrostatic Forces",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_22"
-  },
-  {
-    "id": "PS12_P1_EC_0815",
-    "topic": "Electric Circuits",
-    "subtopic": "Simultaneous Emf & Internal Resistance",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "A battery delivers a current of 2.61 A through a 1.5 Ω load and 1.13 A through a 4.5 Ω load. Calculate the electromotive force (emf) of the battery.",
-    "correct_answer": "6 V",
-    "wrong_answers_pool": [
-      "9.00 V",
-      "3.00 V",
-      "3.91 V",
-      "5.09 V",
-      "10.00 V",
-      "12.00 V"
-    ],
-    "explanation": "From simultaneous equations: r = 0.80 Ω. ε = I1*(R1 + r) = 2.61*(1.5 + 0.80) = 6 V.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Electric Circuits",
-      "subtopic": "Simultaneous Emf & Internal Resistance",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_23"
-  },
-  {
-    "id": "PS12_P1_ED_0471",
-    "topic": "Electrodynamics",
-    "subtopic": "Average AC Power",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "An AC circuit dissipates an average power of 1380.0 W. What is the peak maximum instantaneous power (P_max) dissipated in the circuit?",
-    "correct_answer": "2760 W",
-    "wrong_answers_pool": [
-      "1380.0 W",
-      "5520.0 W",
-      "690.0 W",
-      "4140.0 W",
-      "2070.0 W",
-      "460.0 W"
-    ],
-    "explanation": "P_max = V_max * I_max = 2 * P_ave = 2 * 1380.0 = 2760 W.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Electrodynamics",
-      "subtopic": "Average AC Power",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_24"
-  },
-  {
-    "id": "PS12_P1_ES_0654",
-    "topic": "Electrostatics",
-    "subtopic": "Coulomb's Law Calculations",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Two small point charges, q1 = +8 µC and q2 = +8 µC, are placed 15 cm apart in a vacuum. Calculate the magnitude of the electrostatic force exerted between them. (k = 9.0 x 10^9 N·m²·C⁻²)",
-    "correct_answer": "25.60 N",
-    "wrong_answers_pool": [
-      "3.84 N",
-      "0.00 N",
-      "2.56e+13 N",
-      "51.20 N",
-      "12.80 N",
-      "102.40 N"
-    ],
-    "explanation": "Coulomb's Law: F = k * |q1| * |q2| / r² = (9.0 x 10^9 * 8 x 10^-6 * 8 x 10^-6) / (0.15²) = 25.60 N.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Electrostatics",
-      "subtopic": "Coulomb's Law Calculations",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_25",
-    "diagram": {
-      "type": "coulomb_charges",
-      "q1": "+8 µC",
-      "q2": "+8 µC",
-      "distance": "15 cm"
-    }
-  },
-  {
-    "id": "PS12_P1_MOM_0885",
-    "topic": "Momentum and Impulse",
-    "subtopic": "Impact Forces and Contact Time",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "A 0.79 kg golf ball travelling at 26.6 m/s hits a wall and rebounds in the opposite direction at 38.9 m/s. The contact duration is 0.0291 s. Calculate the magnitude of the average net force exerted on the ball by the wall.",
-    "correct_answer": "1778.2 N",
-    "wrong_answers_pool": [
-      "333.9 N",
-      "3556.4 N",
-      "889.1 N",
-      "7.7 N",
-      "2278.2 N",
-      "51.7 N"
-    ],
-    "explanation": "F_net = delta p / delta t = 0.79 * (38.9 - (-26.6)) / 0.0291 = 1778.2 N.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Momentum and Impulse",
-      "subtopic": "Impact Forces and Contact Time",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_26"
-  },
-  {
-    "id": "PS12_P1_ES_0972",
-    "topic": "Electrostatics",
-    "subtopic": "2D Electrostatic Forces",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "Charge Q_A = +4 µC is placed at the origin (0, 0). Charge Q_B = +6 µC is located at (15 cm, 0) on the x-axis, and Charge Q_C = +5 µC is located at (0, 10 cm) on the y-axis. Calculate the magnitude of the net electrostatic force exerted on charge Q_A.",
-    "correct_answer": "20.40 N",
-    "wrong_answers_pool": [
-      "27.60 N",
-      "8.40 N",
-      "30.60 N",
-      "9.60 N",
+      "25.20 N",
+      "10.80 N",
+      "29.08 N",
+      "7.20 N",
       "18.00 N",
-      "10.20 N"
+      "9.69 N"
     ],
-    "explanation": "F_x = k*|QA|*|QB|/(0.15²) = 9.60 N. F_y = k*|QA|*|QC|/(0.1²) = 18.00 N. Resultant at 90°: F_net = sqrt(F_x² + F_y²) = sqrt(9.60² + 18.00²) = 20.40 N.",
+    "explanation": "F_x = k*|QA|*|QB|/(0.1\u00b2) = 7.20 N. F_y = k*|QA|*|QC|/(0.1\u00b2) = 18.00 N. Resultant at 90\u00b0: F_net = sqrt(F_x\u00b2 + F_y\u00b2) = sqrt(7.20\u00b2 + 18.00\u00b2) = 19.39 N.",
     "tags": {
       "grade": "12",
       "subject": "Physical Sciences",
@@ -796,114 +52,25 @@
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_27"
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_2"
   },
   {
-    "id": "PS12_P1_NL_0817",
-    "topic": "Newton's Laws and Gravitation",
-    "subtopic": "Atwood Machine Systems",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "An Atwood machine consists of two masses m1 = 2.0 kg and m2 = 5.0 kg suspended vertically over a light, frictionless pulley by an inextensible string. When released from rest, what is the acceleration of the system?",
-    "correct_answer": "4.20 m/s²",
-    "wrong_answers_pool": [
-      "9.80 m/s²",
-      "24.50 m/s²",
-      "6.30 m/s²",
-      "2.10 m/s²",
-      "29.40 m/s²",
-      "6.20 m/s²"
-    ],
-    "explanation": "a = (m2 - m1)/(m1 + m2) * g = (5.0 - 2.0)/(2.0 + 5.0) * 9.8 = 4.20 m/s².",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Newton's Laws and Gravitation",
-      "subtopic": "Atwood Machine Systems",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_28",
-    "diagram": {
-      "type": "pulley_atwood",
-      "m1": 2.0,
-      "m2": 5.0
-    }
-  },
-  {
-    "id": "PS12_P1_EC_0991",
-    "topic": "Electric Circuits",
-    "subtopic": "Simultaneous Emf & Internal Resistance",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "When a battery is connected to a 3.0 Ω resistor, a current of 4.29 A flows. When connected instead to a 7.0 Ω resistor, the current is 2.00 A. Calculate the internal resistance (r) of the battery.",
-    "correct_answer": "0.50 Ω",
-    "wrong_answers_pool": [
-      "1.00 Ω",
-      "0.25 Ω",
-      "1.50 Ω",
-      "3.00 Ω",
-      "7.00 Ω",
-      "0.00 Ω"
-    ],
-    "explanation": "ε = 4.29*(3.0 + r) and ε = 2.00*(7.0 + r). Setting equal: 4.29*(3.0 + r) = 2.00*(7.0 + r) => r = 0.50 Ω.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Electric Circuits",
-      "subtopic": "Simultaneous Emf & Internal Resistance",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_29"
-  },
-  {
-    "id": "PS_P1_DOP_0784",
-    "topic": "Paper 1: Doppler Effect",
-    "subtopic": "Moving Listener Calculations",
-    "difficulty": "medium",
-    "question": "A motor car drives at a constant speed of 25.0 m·s⁻¹ TOWARDS a stationary factory whistle sounding at 500 Hz. If the speed of sound in air is 340 m·s⁻¹, determine the frequency detected by the driver of the car:",
-    "correct_answer": "536.8 Hz",
-    "wrong_answers_pool": [
-      "463.2 Hz (subtracted listener speed instead of adding)",
-      "465.8 Hz (treated moving listener as moving source)",
-      "500.0 Hz",
-      "697.8 Hz",
-      "486.8 Hz",
-      "626.8 Hz",
-      "268.4 Hz"
-    ],
-    "explanation": "Formula: f_L = ((v + v_L) / v) × f_s. Here v = 340 m·s⁻¹, v_L = 25.0 m·s⁻¹, f_s = 500 Hz. f_L = ((340 + 25.0) / 340) × 500 = (365.0 / 340) × 500 = 536.8 Hz.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 1: Doppler Effect",
-      "subtopic": "Moving Listener Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate frequency for moving listener approaching stationary source"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_30"
-  },
-  {
-    "id": "PS_P1_OPT_0974",
+    "id": "PS_P1_OPT_0942",
     "topic": "Paper 1: Optical Phenomena and Properties of Matter",
     "subtopic": "Stopping Potential",
     "difficulty": "hard",
-    "question": "In a photoelectric experiment using a Iron (Fe) cathode (work function W_0 = 7.20 × 10⁻¹⁹ J), incident light has frequency 19.55 × 10¹⁴ Hz. What minimum STOPPING POTENTIAL (V_s) must be applied across the photocell to reduce the photocurrent to zero (electron charge e = 1.6 × 10⁻¹⁹ C, h = 6.63 × 10⁻³⁴ J·s)?",
-    "correct_answer": "3.60 V",
+    "question": "In a photoelectric experiment using a Zinc (Zn) cathode (work function W_0 = 6.88 \u00d7 10\u207b\u00b9\u2079 J), incident light has frequency 11.93 \u00d7 10\u00b9\u2074 Hz. What minimum STOPPING POTENTIAL (V_s) must be applied across the photocell to reduce the photocurrent to zero (electron charge e = 1.6 \u00d7 10\u207b\u00b9\u2079 C, h = 6.63 \u00d7 10\u207b\u00b3\u2074 J\u00b7s)?",
+    "correct_answer": "0.64 V",
     "wrong_answers_pool": [
-      "7.20 V",
-      "1.80 V",
-      "8.10 V (omitted work function subtraction)",
-      "4.50 V (work function in eV)",
-      "4.80 V",
-      "5.40 V",
+      "1.29 V",
+      "0.32 V",
+      "4.94 V (omitted work function subtraction)",
+      "4.30 V (work function in eV)",
+      "1.84 V",
+      "0.97 V",
       "0.00 V"
     ],
-    "explanation": "E_k(max) = h × f - W_0 = 5.76 × 10⁻¹⁹ J. Work done by stopping potential: e × V_s = E_k(max) => V_s = E_k(max) / e = (5.76 × 10⁻¹⁹ J) / (1.6 × 10⁻¹⁹ C) = 3.60 V.",
+    "explanation": "E_k(max) = h \u00d7 f - W_0 = 1.03 \u00d7 10\u207b\u00b9\u2079 J. Work done by stopping potential: e \u00d7 V_s = E_k(max) => V_s = E_k(max) / e = (1.03 \u00d7 10\u207b\u00b9\u2079 J) / (1.6 \u00d7 10\u207b\u00b9\u2079 C) = 0.64 V.",
     "tags": {
       "grade": "12",
       "subject": "Physical Sciences",
@@ -911,150 +78,27 @@
       "subtopic": "Stopping Potential",
       "cognitive_level": "Evaluating",
       "difficulty": "hard",
-      "learning_outcome": "Calculate stopping potential for Iron (Fe)"
+      "learning_outcome": "Calculate stopping potential for Zinc (Zn)"
     },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_31"
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_3"
   },
   {
-    "id": "PS_P1_DOP_0975",
-    "topic": "Paper 1: Doppler Effect",
-    "subtopic": "Source Speed Calculations",
-    "difficulty": "hard",
-    "question": "An observer standing beside a straight railway track detects a frequency of 896.7 Hz from the whistle of a train as it travels directly away from them. The stationary whistle frequency is 960 Hz. Given that sound travels at 340 m·s⁻¹ in air, determine the speed of the receding train:",
-    "correct_answer": "24.0 m·s⁻¹",
-    "wrong_answers_pool": [
-      "22.4 m·s⁻¹ (used approaching formula instead of receding)",
-      "48.0 m·s⁻¹",
-      "12.0 m·s⁻¹",
-      "32.5 m·s⁻¹",
-      "63.3 m·s⁻¹",
-      "33.6 m·s⁻¹",
-      "19.0 m·s⁻¹"
-    ],
-    "explanation": "From f_L = (v / (v + v_s)) × f_s: (v + v_s) = v × (f_s / f_L) => v_s = v × (f_s / f_L - 1) = 340 × (960 / 896.7 - 1) = 24.0 m·s⁻¹.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 1: Doppler Effect",
-      "subtopic": "Source Speed Calculations",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate source speed for receding train"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_32"
-  },
-  {
-    "id": "PS12_P1_ES_0423",
-    "topic": "Electrostatics",
-    "subtopic": "Coulomb's Law Calculations",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Two small point charges, q1 = +3 µC and q2 = +20 µC, are placed 20 cm apart in a vacuum. Calculate the magnitude of the electrostatic force exerted between them. (k = 9.0 x 10^9 N·m²·C⁻²)",
-    "correct_answer": "13.50 N",
-    "wrong_answers_pool": [
-      "2.70 N",
-      "0.00 N",
-      "1.35e+13 N",
-      "27.00 N",
-      "6.75 N",
-      "54.00 N"
-    ],
-    "explanation": "Coulomb's Law: F = k * |q1| * |q2| / r² = (9.0 x 10^9 * 3 x 10^-6 * 20 x 10^-6) / (0.2²) = 13.50 N.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Electrostatics",
-      "subtopic": "Coulomb's Law Calculations",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_33",
-    "diagram": {
-      "type": "coulomb_charges",
-      "q1": "+3 µC",
-      "q2": "+20 µC",
-      "distance": "20 cm"
-    }
-  },
-  {
-    "id": "PS12_P1_ED_0492",
-    "topic": "Electrodynamics",
-    "subtopic": "Average AC Power",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "An electric motor operates on an AC supply of 240 V (rms) and draws a root-mean-square current of 10.0 A. Calculate the average electrical power consumed by the motor.",
-    "correct_answer": "2400 W",
-    "wrong_answers_pool": [
-      "4800.0 W",
-      "1200.0 W",
-      "3394.1 W",
-      "1697.1 W",
-      "24.0 W",
-      "2500.0 W"
-    ],
-    "explanation": "P_ave = V_rms * I_rms = 240 * 10.0 = 2400 W.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Electrodynamics",
-      "subtopic": "Average AC Power",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_34"
-  },
-  {
-    "id": "PS12_P1_VP_0935",
-    "topic": "Vertical Projectile Motion",
-    "subtopic": "Cliff Projection and Quadratic Kinematics",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "A tennis ball is thrown vertically upwards from a observation deck 76.4 m above the ground with an initial speed of 33.4 m/s. Calculate the magnitude of its velocity as it strikes the ground at the bottom.",
-    "correct_answer": "51.12 m/s",
-    "wrong_answers_pool": [
-      "33.4 m/s",
-      "38.7 m/s",
-      "63.9 m/s",
-      "38.34 m/s",
-      "65.32 m/s",
-      "41.52 m/s"
-    ],
-    "explanation": "v_f = sqrt(v_i^2 + 2gh) = sqrt(33.4^2 + 2*9.8*76.4) = 51.12 m/s.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Vertical Projectile Motion",
-      "subtopic": "Cliff Projection and Quadratic Kinematics",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_35",
-    "diagram": {
-      "type": "kinematics_graph",
-      "v0": 33.4,
-      "t_top": 3.41
-    }
-  },
-  {
-    "id": "PS12_P1_MOM_0737",
+    "id": "PS12_P1_MOM_0545",
     "topic": "Momentum and Impulse",
     "subtopic": "Impulse and Rebounds",
     "paper": "paper1",
     "difficulty": "medium",
-    "question": "A 0.24 kg cricket ball moving horizontally to the left at 25.8 m/s strikes a rigid vertical wall and rebounds to the right at 17.4 m/s. Calculate the magnitude of the impulse delivered to the ball.",
-    "correct_answer": "10.37 N·s",
+    "question": "A 0.43 kg golf ball moving horizontally to the left at 25.6 m/s strikes a rigid vertical wall and rebounds to the right at 18.5 m/s. Calculate the magnitude of the impulse delivered to the ball.",
+    "correct_answer": "18.96 N\u00b7s",
     "wrong_answers_pool": [
-      "2.02 N·s",
-      "20.74 N·s",
-      "5.18 N·s",
-      "6.19 N·s",
-      "15.37 N·s",
-      "2.35 N·s"
+      "3.05 N\u00b7s",
+      "37.92 N\u00b7s",
+      "9.48 N\u00b7s",
+      "11.01 N\u00b7s",
+      "23.96 N\u00b7s",
+      "4.21 N\u00b7s"
     ],
-    "explanation": "Taking right as positive: J = delta p = m(v_f - v_i) = 0.24 * (17.4 - (-25.8)) = 10.37 N·s.",
+    "explanation": "Taking right as positive: J = delta p = m(v_f - v_i) = 0.43 * (18.5 - (-25.6)) = 18.96 N\u00b7s.",
     "tags": {
       "grade": "12",
       "subject": "Physical Sciences",
@@ -1064,227 +108,119 @@
       "cognitive_level": "Application",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_36"
-  },
-  {
-    "id": "PS12_P1_NL_0953",
-    "topic": "Newton's Laws and Gravitation",
-    "subtopic": "Table and Pulley Systems",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "A 7.0 kg block on a rough horizontal surface (mu_k = 0.20) is accelerated by a 6.0 kg hanging mass connected via a light string over a pulley. Determine the magnitude of the tension in the connecting string.",
-    "correct_answer": "37.99 N",
-    "wrong_answers_pool": [
-      "58.80 N",
-      "68.60 N",
-      "13.72 N",
-      "47.49 N",
-      "28.50 N",
-      "45.08 N"
-    ],
-    "explanation": "For hanging mass: m_hang*g - T = m_hang*a => T = m_hang*(g - a) = 6.0 * (9.8 - 3.47) = 37.99 N.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Newton's Laws and Gravitation",
-      "subtopic": "Table and Pulley Systems",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_37"
-  },
-  {
-    "id": "PS12_P1_WEP_0808",
-    "topic": "Work, Energy and Power",
-    "subtopic": "Work-Energy Theorem Applications",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "A vehicle of mass 1028 kg travelling at 20 m/s applies its brakes and slows down to 4 m/s over a stopping distance of 53.0 m on a level road. Calculate the magnitude of the average net braking force acting on the vehicle.",
-    "correct_answer": "3724.1 N",
-    "wrong_answers_pool": [
-      "5586.1 N",
-      "1862.0 N",
-      "16448 N",
-      "20140.4 N",
-      "4924.1 N",
-      "10074.4 N"
-    ],
-    "explanation": "W_net = Delta E_k => F_net * d = 0.5 * 1028 * (20^2 - 4^2) = 197376.0 J. F_net = 197376.0 / 53.0 = 3724.1 N.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Work, Energy and Power",
-      "subtopic": "Work-Energy Theorem Applications",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_38"
-  },
-  {
-    "id": "PS12_P1_WEP_0881",
-    "topic": "Work, Energy and Power",
-    "subtopic": "Work-Energy Theorem Applications",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "A vehicle of mass 851 kg travelling at 16 m/s applies its brakes and slows down to 1 m/s over a stopping distance of 26.2 m on a level road. Calculate the magnitude of the average net braking force acting on the vehicle.",
-    "correct_answer": "4141.3 N",
-    "wrong_answers_pool": [
-      "6212.0 N",
-      "2070.7 N",
-      "12765 N",
-      "11071.7 N",
-      "5341.3 N",
-      "8339.8 N"
-    ],
-    "explanation": "W_net = Delta E_k => F_net * d = 0.5 * 851 * (16^2 - 1^2) = 108502.5 J. F_net = 108502.5 / 26.2 = 4141.3 N.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Work, Energy and Power",
-      "subtopic": "Work-Energy Theorem Applications",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_39"
-  },
-  {
-    "id": "PS12_P1_NL_0961",
-    "topic": "Newton's Laws and Gravitation",
-    "subtopic": "Table and Pulley Systems",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "A 8.0 kg block on a rough horizontal surface (mu_k = 0.15) is accelerated by a 5.0 kg hanging mass connected via a light string over a pulley. Determine the magnitude of the tension in the connecting string.",
-    "correct_answer": "34.68 N",
-    "wrong_answers_pool": [
-      "49.00 N",
-      "78.40 N",
-      "11.76 N",
-      "43.35 N",
-      "26.01 N",
-      "37.24 N"
-    ],
-    "explanation": "For hanging mass: m_hang*g - T = m_hang*a => T = m_hang*(g - a) = 5.0 * (9.8 - 2.86) = 34.68 N.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Newton's Laws and Gravitation",
-      "subtopic": "Table and Pulley Systems",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_40"
-  },
-  {
-    "id": "PS12_P1_ES_0370",
-    "topic": "Electrostatics",
-    "subtopic": "Coulomb's Law Calculations",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Two small point charges, q1 = +3 µC and q2 = +2 µC, are placed 40 cm apart in a vacuum. Calculate the magnitude of the electrostatic force exerted between them. (k = 9.0 x 10^9 N·m²·C⁻²)",
-    "correct_answer": "0.34 N",
-    "wrong_answers_pool": [
-      "0.13 N",
-      "3.38e-05 N",
-      "3.37e+11 N",
-      "0.67 N",
-      "0.17 N",
-      "1.35 N"
-    ],
-    "explanation": "Coulomb's Law: F = k * |q1| * |q2| / r² = (9.0 x 10^9 * 3 x 10^-6 * 2 x 10^-6) / (0.4²) = 0.34 N.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Electrostatics",
-      "subtopic": "Coulomb's Law Calculations",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_41",
     "diagram": {
-      "type": "coulomb_charges",
-      "q1": "+3 µC",
-      "q2": "+2 µC",
-      "distance": "40 cm"
-    }
-  },
-  {
-    "id": "PS_P1_DOP_0491",
-    "topic": "Paper 1: Doppler Effect",
-    "subtopic": "Approaching Source Calculations",
-    "difficulty": "medium",
-    "question": "An ambulance with its siren sounding at a frequency of 1000 Hz moves at a constant speed of 35.0 m·s⁻¹ TOWARDS a stationary pedestrian. Taking the speed of sound in air as 340 m·s⁻¹, calculate the frequency detected by the pedestrian:",
-    "correct_answer": "1114.8 Hz",
-    "wrong_answers_pool": [
-      "906.7 Hz (used (v + v_s) in denominator for approaching source)",
-      "897.1 Hz (inverted Doppler fraction)",
-      "1102.9 Hz",
-      "1000.0 Hz (assumed zero frequency change)",
-      "1672.1 Hz",
-      "1014.8 Hz",
-      "1234.8 Hz"
-    ],
-    "explanation": "Formula: f_L = (v / (v - v_s)) × f_s. Here v = 340 m·s⁻¹, v_s = 35.0 m·s⁻¹, f_s = 1000 Hz. f_L = (340 / (340 - 35.0)) × 1000 = (340 / 305.0) × 1000 = 1114.8 Hz.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "topic": "Paper 1: Doppler Effect",
-      "subtopic": "Approaching Source Calculations",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate observed frequency for approaching source"
+      "type": "impulse_force_time",
+      "fmax": 500,
+      "dt": "0.04"
     },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_42"
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_4"
   },
   {
-    "id": "PS12_P1_EC_0575",
+    "id": "PS12_P1_EC_0920",
     "topic": "Electric Circuits",
-    "subtopic": "Internal Resistance Circuits",
+    "subtopic": "Simultaneous Emf & Internal Resistance",
     "paper": "paper1",
-    "difficulty": "medium",
-    "question": "A battery (emf = 12.0 V, r = 0.5 Ω) powers a circuit with an external load of 15.0 Ω. Determine the terminal potential difference across the battery.",
-    "correct_answer": "11.61 V",
+    "difficulty": "hard",
+    "question": "A battery delivers a current of 3.12 A through a 2.0 \u03a9 load and 1.61 A through a 5.0 \u03a9 load. Calculate the electromotive force (emf) of the battery.",
+    "correct_answer": "10 V",
     "wrong_answers_pool": [
-      "12.00 V",
-      "0.39 V",
-      "14.52 V",
-      "8.71 V",
-      "12.39 V",
-      "7.50 V"
+      "15.00 V",
+      "5.00 V",
+      "6.25 V",
+      "8.06 V",
+      "14.00 V",
+      "20.00 V"
     ],
-    "explanation": "I = 12.0/(15.0+0.5) = 0.77 A. V_term = I * R_ext = 0.77 * 15.0 = 11.61 V (or V = ε - Ir).",
+    "explanation": "From simultaneous equations: r = 1.20 \u03a9. \u03b5 = I1*(R1 + r) = 3.12*(2.0 + 1.20) = 10 V.",
     "tags": {
       "grade": "12",
       "subject": "Physical Sciences",
       "paper": "paper1",
       "topic": "Electric Circuits",
-      "subtopic": "Internal Resistance Circuits",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
+      "subtopic": "Simultaneous Emf & Internal Resistance",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_43"
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_5"
   },
   {
-    "id": "PS12_P1_VP_0606",
+    "id": "PS12_P1_VP_0943",
+    "topic": "Vertical Projectile Motion",
+    "subtopic": "Cliff Projection and Quadratic Kinematics",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A tennis ball is thrown vertically upwards from a construction crane 44.4 m above the ground with an initial speed of 17.7 m/s. Calculate the magnitude of its velocity as it strikes the ground at the bottom.",
+    "correct_answer": "34.4 m/s",
+    "wrong_answers_pool": [
+      "17.7 m/s",
+      "29.5 m/s",
+      "43.0 m/s",
+      "25.8 m/s",
+      "48.6 m/s",
+      "24.8 m/s"
+    ],
+    "explanation": "v_f = sqrt(v_i^2 + 2gh) = sqrt(17.7^2 + 2*9.8*44.4) = 34.4 m/s.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Vertical Projectile Motion",
+      "subtopic": "Cliff Projection and Quadratic Kinematics",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "diagram": {
+      "type": "kinematics_graph",
+      "v0": 17.7,
+      "t_top": 1.81
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_6"
+  },
+  {
+    "id": "PS_P1_OPT_0866",
+    "topic": "Paper 1: Optical Phenomena and Properties of Matter",
+    "subtopic": "Stopping Potential",
+    "difficulty": "hard",
+    "question": "In a photoelectric experiment using a Lithium (Li) cathode (work function W_0 = 4.00 \u00d7 10\u207b\u00b9\u2079 J), incident light has frequency 8.14 \u00d7 10\u00b9\u2074 Hz. What minimum STOPPING POTENTIAL (V_s) must be applied across the photocell to reduce the photocurrent to zero (electron charge e = 1.6 \u00d7 10\u207b\u00b9\u2079 C, h = 6.63 \u00d7 10\u207b\u00b3\u2074 J\u00b7s)?",
+    "correct_answer": "0.88 V",
+    "wrong_answers_pool": [
+      "1.75 V",
+      "0.44 V",
+      "3.38 V (omitted work function subtraction)",
+      "2.50 V (work function in eV)",
+      "2.08 V",
+      "1.31 V",
+      "0.00 V"
+    ],
+    "explanation": "E_k(max) = h \u00d7 f - W_0 = 1.40 \u00d7 10\u207b\u00b9\u2079 J. Work done by stopping potential: e \u00d7 V_s = E_k(max) => V_s = E_k(max) / e = (1.40 \u00d7 10\u207b\u00b9\u2079 J) / (1.6 \u00d7 10\u207b\u00b9\u2079 C) = 0.88 V.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 1: Optical Phenomena and Properties of Matter",
+      "subtopic": "Stopping Potential",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate stopping potential for Lithium (Li)"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_7"
+  },
+  {
+    "id": "PS12_P1_VP_0616",
     "topic": "Vertical Projectile Motion",
     "subtopic": "Maximum Height",
     "paper": "paper1",
     "difficulty": "medium",
-    "question": "A metal sphere is launched vertically upwards at ground level with an initial velocity of 53.5 m/s. Determine the maximum height reached above the launch position.",
-    "correct_answer": "146.03 m",
+    "question": "A arrow is launched vertically upwards during a physics practical with an initial velocity of 28.1 m/s. Determine the maximum height reached above the launch position.",
+    "correct_answer": "40.29 m",
     "wrong_answers_pool": [
-      "73.02 m",
-      "292.06 m",
-      "524.3 m",
-      "292.07 m",
-      "160.53 m",
-      "136.83 m"
+      "20.14 m",
+      "80.58 m",
+      "275.38 m",
+      "80.57 m",
+      "54.79 m",
+      "31.09 m"
     ],
-    "explanation": "h = v_i^2 / (2g) = 53.5^2 / (2 * 9.8) = 146.03 m.",
+    "explanation": "h = v_i^2 / (2g) = 28.1^2 / (2 * 9.8) = 40.29 m.",
     "tags": {
       "grade": "12",
       "subject": "Physical Sciences",
@@ -1294,137 +230,89 @@
       "cognitive_level": "Application",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_44"
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_8"
   },
   {
-    "id": "PS12_P1_ED_0766",
-    "topic": "Electrodynamics",
-    "subtopic": "Faraday's Law Calculations",
+    "id": "PS12_P1_VP_0315",
+    "topic": "Vertical Projectile Motion",
+    "subtopic": "Dropped Objects",
     "paper": "paper1",
     "difficulty": "medium",
-    "question": "A coil with 300 turns is placed in a magnetic field. The magnetic flux linkage changes by 0.25 Wb over a time interval of 0.01 s. Calculate the magnitude of the average induced electromotive force across the coil.",
-    "correct_answer": "7500 V",
+    "question": "A stone is released from rest from a bridge 15 m above the ground. Calculate its speed immediately before hitting the ground.",
+    "correct_answer": "17.15 m/s",
     "wrong_answers_pool": [
-      "0.8 V",
-      "25.0 V",
-      "15000.0 V",
-      "3750.0 V",
-      "75000.0 V",
-      "30000.0 V"
+      "8.57 m/s",
+      "25.72 m/s",
+      "294.0 m/s",
+      "1.53 m/s",
+      "25.65 m/s",
+      "147.0 m/s"
     ],
-    "explanation": "emf = N * (Delta Phi / Delta t) = 300 * (0.25 / 0.01) = 7500 V.",
+    "explanation": "v_f = sqrt(2 * g * h) = sqrt(2 * 9.8 * 15) = 17.15 m/s.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Vertical Projectile Motion",
+      "subtopic": "Dropped Objects",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_9"
+  },
+  {
+    "id": "PS12_P1_ED_0928",
+    "topic": "Electrodynamics",
+    "subtopic": "Transformer Stepping Analysis",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "An ideal electrical transformer has 2500 turns on its primary coil and 26 turns on its secondary coil. If an AC voltage of 22000 V is applied across the primary coil, calculate the voltage output across the secondary coil.",
+    "correct_answer": "230 V",
+    "wrong_answers_pool": [
+      "22000 V",
+      "460 V",
+      "115.0 V",
+      "44000.0 V",
+      "22230 V",
+      "0 V"
+    ],
+    "explanation": "Vs / Vp = Ns / Np => Vs = Vp * (Ns / Np) = 22000 * (26 / 2500) = 230 V.",
     "tags": {
       "grade": "12",
       "subject": "Physical Sciences",
       "paper": "paper1",
       "topic": "Electrodynamics",
-      "subtopic": "Faraday's Law Calculations",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_45"
-  },
-  {
-    "id": "PS12_P1_WEP_0969",
-    "topic": "Work, Energy and Power",
-    "subtopic": "Work-Energy Theorem Applications",
-    "paper": "paper1",
-    "difficulty": "hard",
-    "question": "A vehicle of mass 2162 kg travelling at 21 m/s applies its brakes and slows down to 4 m/s over a stopping distance of 45.9 m on a level road. Calculate the magnitude of the average net braking force acting on the vehicle.",
-    "correct_answer": "10009.3 N",
-    "wrong_answers_pool": [
-      "15013.9 N",
-      "5004.6 N",
-      "36754 N",
-      "46880.1 N",
-      "11209.3 N",
-      "21187.6 N"
-    ],
-    "explanation": "W_net = Delta E_k => F_net * d = 0.5 * 2162 * (21^2 - 4^2) = 459425.0 J. F_net = 459425.0 / 45.9 = 10009.3 N.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Work, Energy and Power",
-      "subtopic": "Work-Energy Theorem Applications",
+      "subtopic": "Transformer Stepping Analysis",
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_46"
-  },
-  {
-    "id": "PS12_P1_ED_0631",
-    "topic": "Electrodynamics",
-    "subtopic": "Faraday's Law Calculations",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "A coil with 150 turns is placed in a magnetic field. The magnetic flux linkage changes by 0.05 Wb over a time interval of 0.2 s. Calculate the magnitude of the average induced electromotive force across the coil.",
-    "correct_answer": "37.5 V",
-    "wrong_answers_pool": [
-      "1.5 V",
-      "0.2 V",
-      "75.0 V",
-      "18.8 V",
-      "375.0 V",
-      "750.0 V"
-    ],
-    "explanation": "emf = N * (Delta Phi / Delta t) = 150 * (0.05 / 0.2) = 37.5 V.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Electrodynamics",
-      "subtopic": "Faraday's Law Calculations",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
+    "diagram": {
+      "type": "transformer_circuit",
+      "transformer_type": "step_down",
+      "vp": 240,
+      "vs": 12,
+      "np": 2500,
+      "ns": 26
     },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_47"
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_10"
   },
   {
-    "id": "PS12_P1_NL_0382",
-    "topic": "Newton's Laws and Gravitation",
-    "subtopic": "Inclined Plane Dynamics",
-    "paper": "paper1",
-    "difficulty": "medium",
-    "question": "Calculate the component of the gravitational force acting parallel to the surface for a 12 kg block on a plane inclined at 20° to the horizontal.",
-    "correct_answer": "40.22 N",
-    "wrong_answers_pool": [
-      "110.51 N",
-      "117.60 N",
-      "56.31 N",
-      "24.13 N",
-      "240.00 N",
-      "70.29 N"
-    ],
-    "explanation": "F_g_parallel = mg * sin(theta) = 12 * 9.8 * sin(20°) = 40.22 N.",
-    "tags": {
-      "grade": "12",
-      "subject": "Physical Sciences",
-      "paper": "paper1",
-      "topic": "Newton's Laws and Gravitation",
-      "subtopic": "Inclined Plane Dynamics",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_48"
-  },
-  {
-    "id": "PS12_P1_NL_0693",
+    "id": "PS12_P1_NL_0513",
     "topic": "Newton's Laws and Gravitation",
     "subtopic": "Angled Pulling Forces",
     "paper": "paper1",
     "difficulty": "medium",
-    "question": "A worker pulls a 20 kg crate across a level warehouse floor with an applied force of 150 N directed at an angle of 25° above the horizontal. The coefficient of kinetic friction between crate and floor is 0.20. Calculate the acceleration of the crate.",
-    "correct_answer": "5.47 m/s²",
+    "question": "A worker pulls a 8 kg crate across a level warehouse floor with an applied force of 60 N directed at an angle of 35\u00b0 above the horizontal. The coefficient of kinetic friction between crate and floor is 0.20. Calculate the acceleration of the crate.",
+    "correct_answer": "5.04 m/s\u00b2",
     "wrong_answers_pool": [
-      "6.80 m/s²",
-      "7.50 m/s²",
-      "8.21 m/s²",
-      "2.74 m/s²",
-      "4.84 m/s²",
-      "7.27 m/s²"
+      "6.14 m/s\u00b2",
+      "7.50 m/s\u00b2",
+      "7.57 m/s\u00b2",
+      "2.52 m/s\u00b2",
+      "4.18 m/s\u00b2",
+      "6.84 m/s\u00b2"
     ],
-    "explanation": "N = mg - F*sin(25°) = 196.0 - 63.39 = 132.61 N. f_k = 0.2 * 132.61 = 26.52 N. F_net = F*cos(25°) - f_k = 135.95 - 26.52 = 109.42 N. a = F_net / m = 5.47 m/s².",
+    "explanation": "N = mg - F*sin(35\u00b0) = 78.4 - 34.41 = 43.99 N. f_k = 0.2 * 43.99 = 8.80 N. F_net = F*cos(35\u00b0) - f_k = 49.15 - 8.80 = 40.35 N. a = F_net / m = 5.04 m/s\u00b2.",
     "tags": {
       "grade": "12",
       "subject": "Physical Sciences",
@@ -1434,25 +322,154 @@
       "cognitive_level": "Application",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_49"
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_11"
   },
   {
-    "id": "PS12_P1_ES_0887",
+    "id": "PS12_P1_WEP_0939",
+    "topic": "Work, Energy and Power",
+    "subtopic": "Conservation of Mechanical Energy",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A 441 kg roller coaster cart starts from rest at the top of a frictionless track at height h = 7.76 m above ground level. Using the principle of conservation of mechanical energy, calculate the speed of the cart at the bottom of the track.",
+    "correct_answer": "12.33 m/s",
+    "wrong_answers_pool": [
+      "8.72 m/s",
+      "17.26 m/s",
+      "7.4 m/s",
+      "152.1 m/s",
+      "16.83 m/s",
+      "76.05 m/s"
+    ],
+    "explanation": "E_mech(top) = E_mech(bottom) => m*g*h = 0.5*m*v^2 => v = sqrt(2 * g * h) = sqrt(2 * 9.8 * 7.76) = 12.33 m/s.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Work, Energy and Power",
+      "subtopic": "Conservation of Mechanical Energy",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "diagram": {
+      "type": "work_energy_track",
+      "mass": 441,
+      "h1": 7.76,
+      "h2": 4.7
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_12"
+  },
+  {
+    "id": "PS12_P1_MOM_0418",
+    "topic": "Momentum and Impulse",
+    "subtopic": "Impulse and Rebounds",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A 0.33 kg golf ball moving horizontally to the left at 15.0 m/s strikes a rigid vertical wall and rebounds to the right at 26.9 m/s. Calculate the magnitude of the impulse delivered to the ball.",
+    "correct_answer": "13.83 N\u00b7s",
+    "wrong_answers_pool": [
+      "3.93 N\u00b7s",
+      "27.66 N\u00b7s",
+      "6.92 N\u00b7s",
+      "4.95 N\u00b7s",
+      "18.83 N\u00b7s",
+      "3.23 N\u00b7s"
+    ],
+    "explanation": "Taking right as positive: J = delta p = m(v_f - v_i) = 0.33 * (26.9 - (-15.0)) = 13.83 N\u00b7s.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Momentum and Impulse",
+      "subtopic": "Impulse and Rebounds",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "diagram": {
+      "type": "impulse_force_time",
+      "fmax": 500,
+      "dt": "0.04"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_13"
+  },
+  {
+    "id": "PS12_P1_WEP_0961",
+    "topic": "Work, Energy and Power",
+    "subtopic": "Work-Energy Theorem Applications",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A vehicle of mass 1105 kg travelling at 35 m/s applies its brakes and slows down to 10 m/s over a stopping distance of 30.9 m on a level road. Calculate the magnitude of the average net braking force acting on the vehicle.",
+    "correct_answer": "20115.3 N",
+    "wrong_answers_pool": [
+      "30172.9 N",
+      "10057.6 N",
+      "27625 N",
+      "63424.7 N",
+      "21315.3 N",
+      "10829.0 N"
+    ],
+    "explanation": "W_net = Delta E_k => F_net * d = 0.5 * 1105 * (35^2 - 10^2) = 621562.5 J. F_net = 621562.5 / 30.9 = 20115.3 N.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Work, Energy and Power",
+      "subtopic": "Work-Energy Theorem Applications",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_14"
+  },
+  {
+    "id": "PS12_P1_ES_0577",
+    "topic": "Electrostatics",
+    "subtopic": "Coulomb's Law Calculations",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Two small point charges, q1 = +6 \u00b5C and q2 = +4 \u00b5C, are placed 30 cm apart in a vacuum. Calculate the magnitude of the electrostatic force exerted between them. (k = 9.0 x 10^9 N\u00b7m\u00b2\u00b7C\u207b\u00b2)",
+    "correct_answer": "2.40 N",
+    "wrong_answers_pool": [
+      "0.72 N",
+      "2.40e-04 N",
+      "2.40e+12 N",
+      "4.80 N",
+      "1.20 N",
+      "9.60 N"
+    ],
+    "explanation": "Coulomb's Law: F = k * |q1| * |q2| / r\u00b2 = (9.0 x 10^9 * 6 x 10^-6 * 4 x 10^-6) / (0.3\u00b2) = 2.40 N.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electrostatics",
+      "subtopic": "Coulomb's Law Calculations",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "diagram": {
+      "type": "coulomb_charges",
+      "q1": "+6 \u00b5C",
+      "q2": "+4 \u00b5C",
+      "distance": "30 cm"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_15"
+  },
+  {
+    "id": "PS12_P1_ES_0943",
     "topic": "Electrostatics",
     "subtopic": "2D Electrostatic Forces",
     "paper": "paper1",
     "difficulty": "hard",
-    "question": "Charge Q_A = +2 µC is placed at the origin (0, 0). Charge Q_B = +6 µC is located at (10 cm, 0) on the x-axis, and Charge Q_C = +3 µC is located at (0, 15 cm) on the y-axis. Calculate the magnitude of the net electrostatic force exerted on charge Q_A.",
-    "correct_answer": "11.06 N",
+    "question": "Charge Q_A = +4 \u00b5C is placed at the origin (0, 0). Charge Q_B = +2 \u00b5C is located at (10 cm, 0) on the x-axis, and Charge Q_C = +3 \u00b5C is located at (0, 25 cm) on the y-axis. Calculate the magnitude of the net electrostatic force exerted on charge Q_A.",
+    "correct_answer": "7.40 N",
     "wrong_answers_pool": [
-      "13.20 N",
-      "8.40 N",
-      "16.60 N",
-      "10.80 N",
-      "2.40 N",
-      "5.53 N"
+      "8.93 N",
+      "5.47 N",
+      "11.11 N",
+      "7.20 N",
+      "1.73 N",
+      "3.70 N"
     ],
-    "explanation": "F_x = k*|QA|*|QB|/(0.1²) = 10.80 N. F_y = k*|QA|*|QC|/(0.15²) = 2.40 N. Resultant at 90°: F_net = sqrt(F_x² + F_y²) = sqrt(10.80² + 2.40²) = 11.06 N.",
+    "explanation": "F_x = k*|QA|*|QB|/(0.1\u00b2) = 7.20 N. F_y = k*|QA|*|QC|/(0.25\u00b2) = 1.73 N. Resultant at 90\u00b0: F_net = sqrt(F_x\u00b2 + F_y\u00b2) = sqrt(7.20\u00b2 + 1.73\u00b2) = 7.40 N.",
     "tags": {
       "grade": "12",
       "subject": "Physical Sciences",
@@ -1461,6 +478,1013 @@
       "subtopic": "2D Electrostatic Forces",
       "cognitive_level": "Analysis",
       "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_16"
+  },
+  {
+    "id": "PS12_P1_EC_0952",
+    "topic": "Electric Circuits",
+    "subtopic": "Simultaneous Emf & Internal Resistance",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A battery delivers a current of 4.29 A through a 2.0 \u03a9 load and 2.07 A through a 5.0 \u03a9 load. Calculate the electromotive force (emf) of the battery.",
+    "correct_answer": "12 V",
+    "wrong_answers_pool": [
+      "18.00 V",
+      "6.00 V",
+      "8.57 V",
+      "10.34 V",
+      "16.00 V",
+      "24.00 V"
+    ],
+    "explanation": "From simultaneous equations: r = 0.80 \u03a9. \u03b5 = I1*(R1 + r) = 4.29*(2.0 + 0.80) = 12 V.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electric Circuits",
+      "subtopic": "Simultaneous Emf & Internal Resistance",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_17"
+  },
+  {
+    "id": "PS12_P1_ED_0818",
+    "topic": "Electrodynamics",
+    "subtopic": "Appliance Resistance & Peak Current",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "An geyser is rated at 1200 W when operated on a 220 V rms alternating current supply. Calculate the electrical resistance of the geyser's element.",
+    "correct_answer": "40.33 \u03a9",
+    "wrong_answers_pool": [
+      "0.18 \u03a9",
+      "5.45 \u03a9",
+      "80.67 \u03a9",
+      "20.17 \u03a9",
+      "60.50 \u03a9",
+      "220.00 \u03a9"
+    ],
+    "explanation": "P_ave = V_rms\u00b2 / R => R = V_rms\u00b2 / P_ave = 220\u00b2 / 1200 = 40.33 \u03a9.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electrodynamics",
+      "subtopic": "Appliance Resistance & Peak Current",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_18"
+  },
+  {
+    "id": "PS12_P1_VP_0636",
+    "topic": "Vertical Projectile Motion",
+    "subtopic": "Thrown Downwards",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A lead weight is thrown vertically downwards from a fire tower 64.2 m high at an initial speed of 7.8 m/s. What is its velocity upon impact?",
+    "correct_answer": "36.32 m/s",
+    "wrong_answers_pool": [
+      "35.47 m/s",
+      "47.22 m/s",
+      "25.42 m/s",
+      "17.6 m/s",
+      "47.52 m/s",
+      "27.82 m/s"
+    ],
+    "explanation": "v_f = sqrt(v_i^2 + 2gh) = sqrt(7.8^2 + 2*9.8*64.2) = 36.32 m/s.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Vertical Projectile Motion",
+      "subtopic": "Thrown Downwards",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "diagram": {
+      "type": "kinematics_graph",
+      "v0": 7.8,
+      "t_top": 0.8
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_19"
+  },
+  {
+    "id": "PS12_P1_VP_0734",
+    "topic": "Vertical Projectile Motion",
+    "subtopic": "Thrown Downwards",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A stone is thrown vertically downwards from a vertical scaffold 45.5 m high at an initial speed of 11.3 m/s. What is its velocity upon impact?",
+    "correct_answer": "31.93 m/s",
+    "wrong_answers_pool": [
+      "29.86 m/s",
+      "41.51 m/s",
+      "22.35 m/s",
+      "21.1 m/s",
+      "43.13 m/s",
+      "23.43 m/s"
+    ],
+    "explanation": "v_f = sqrt(v_i^2 + 2gh) = sqrt(11.3^2 + 2*9.8*45.5) = 31.93 m/s.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Vertical Projectile Motion",
+      "subtopic": "Thrown Downwards",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "diagram": {
+      "type": "kinematics_graph",
+      "v0": 11.3,
+      "t_top": 1.15
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_20"
+  },
+  {
+    "id": "PS12_P1_MOM_0988",
+    "topic": "Momentum and Impulse",
+    "subtopic": "Recoil and Explosions",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A cannon of mass 865 kg fires a 9 kg artillery shell horizontally at a muzzle speed of 531 m/s. Assuming the system is isolated, calculate the recoil speed of the cannon immediately upon firing.",
+    "correct_answer": "5.52 m/s",
+    "wrong_answers_pool": [
+      "265.5 m/s",
+      "51035.0 m/s",
+      "8.28 m/s",
+      "2.76 m/s",
+      "9.02 m/s",
+      "0.00 m/s"
+    ],
+    "explanation": "p_total = 0 => m_gun * v_recoil = m_shell * v_shell => v_recoil = (9 * 531) / 865 = 5.52 m/s.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Momentum and Impulse",
+      "subtopic": "Recoil and Explosions",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_21"
+  },
+  {
+    "id": "PS12_P1_EC_0480",
+    "topic": "Electric Circuits",
+    "subtopic": "Internal Resistance Circuits",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A battery (emf = 9.0 V, r = 1.0 \u03a9) powers a circuit with an external load of 6.0 \u03a9. Determine the terminal potential difference across the battery.",
+    "correct_answer": "7.71 V",
+    "wrong_answers_pool": [
+      "9.00 V",
+      "1.29 V",
+      "9.64 V",
+      "5.79 V",
+      "10.29 V",
+      "6.00 V"
+    ],
+    "explanation": "I = 9.0/(6.0+1.0) = 1.29 A. V_term = I * R_ext = 1.29 * 6.0 = 7.71 V (or V = \u03b5 - Ir).",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electric Circuits",
+      "subtopic": "Internal Resistance Circuits",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "diagram": {
+      "type": "circuit",
+      "config": "series",
+      "battery": 9.0,
+      "internal_r": 1.0,
+      "r1": 4,
+      "r2": 6
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_22"
+  },
+  {
+    "id": "PS_P1_OPT_0914",
+    "topic": "Paper 1: Optical Phenomena and Properties of Matter",
+    "subtopic": "Stopping Potential",
+    "difficulty": "hard",
+    "question": "In a photoelectric experiment using a Magnesium (Mg) cathode (work function W_0 = 5.90 \u00d7 10\u207b\u00b9\u2079 J), incident light has frequency 16.02 \u00d7 10\u00b9\u2074 Hz. What minimum STOPPING POTENTIAL (V_s) must be applied across the photocell to reduce the photocurrent to zero (electron charge e = 1.6 \u00d7 10\u207b\u00b9\u2079 C, h = 6.63 \u00d7 10\u207b\u00b3\u2074 J\u00b7s)?",
+    "correct_answer": "2.95 V",
+    "wrong_answers_pool": [
+      "5.90 V",
+      "1.48 V",
+      "6.64 V (omitted work function subtraction)",
+      "3.68 V (work function in eV)",
+      "4.15 V",
+      "4.43 V",
+      "0.00 V"
+    ],
+    "explanation": "E_k(max) = h \u00d7 f - W_0 = 4.72 \u00d7 10\u207b\u00b9\u2079 J. Work done by stopping potential: e \u00d7 V_s = E_k(max) => V_s = E_k(max) / e = (4.72 \u00d7 10\u207b\u00b9\u2079 J) / (1.6 \u00d7 10\u207b\u00b9\u2079 C) = 2.95 V.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 1: Optical Phenomena and Properties of Matter",
+      "subtopic": "Stopping Potential",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate stopping potential for Magnesium (Mg)"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_23"
+  },
+  {
+    "id": "PS12_P1_EC_0866",
+    "topic": "Electric Circuits",
+    "subtopic": "Simultaneous Emf & Internal Resistance",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A battery delivers a current of 2.73 A through a 2.5 \u03a9 load and 1.32 A through a 6.0 \u03a9 load. Calculate the electromotive force (emf) of the battery.",
+    "correct_answer": "9 V",
+    "wrong_answers_pool": [
+      "13.50 V",
+      "4.50 V",
+      "6.82 V",
+      "7.94 V",
+      "13.00 V",
+      "18.00 V"
+    ],
+    "explanation": "From simultaneous equations: r = 0.80 \u03a9. \u03b5 = I1*(R1 + r) = 2.73*(2.5 + 0.80) = 9 V.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electric Circuits",
+      "subtopic": "Simultaneous Emf & Internal Resistance",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_24"
+  },
+  {
+    "id": "PS12_P1_NL_0362",
+    "topic": "Newton's Laws and Gravitation",
+    "subtopic": "Inclined Plane Dynamics",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Calculate the component of the gravitational force acting parallel to the surface for a 10 kg block on a plane inclined at 20\u00b0 to the horizontal.",
+    "correct_answer": "33.52 N",
+    "wrong_answers_pool": [
+      "92.09 N",
+      "98.00 N",
+      "46.93 N",
+      "20.11 N",
+      "200.00 N",
+      "58.57 N"
+    ],
+    "explanation": "F_g_parallel = mg * sin(theta) = 10 * 9.8 * sin(20\u00b0) = 33.52 N.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Newton's Laws and Gravitation",
+      "subtopic": "Inclined Plane Dynamics",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_25"
+  },
+  {
+    "id": "PS_P1_DOP_0797",
+    "topic": "Paper 1: Doppler Effect",
+    "subtopic": "Moving Listener Calculations",
+    "difficulty": "medium",
+    "question": "A motor car drives at a constant speed of 12.0 m\u00b7s\u207b\u00b9 TOWARDS a stationary factory whistle sounding at 600 Hz. If the speed of sound in air is 340 m\u00b7s\u207b\u00b9, determine the frequency detected by the driver of the car:",
+    "correct_answer": "621.2 Hz",
+    "wrong_answers_pool": [
+      "578.8 Hz (subtracted listener speed instead of adding)",
+      "579.5 Hz (treated moving listener as moving source)",
+      "600.0 Hz",
+      "807.5 Hz",
+      "571.2 Hz",
+      "711.2 Hz",
+      "310.6 Hz"
+    ],
+    "explanation": "Formula: f_L = ((v + v_L) / v) \u00d7 f_s. Here v = 340 m\u00b7s\u207b\u00b9, v_L = 12.0 m\u00b7s\u207b\u00b9, f_s = 600 Hz. f_L = ((340 + 12.0) / 340) \u00d7 600 = (352.0 / 340) \u00d7 600 = 621.2 Hz.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 1: Doppler Effect",
+      "subtopic": "Moving Listener Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate frequency for moving listener approaching stationary source"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_26"
+  },
+  {
+    "id": "PS12_P1_WEP_0965",
+    "topic": "Work, Energy and Power",
+    "subtopic": "Work-Energy Theorem Applications",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A vehicle of mass 2174 kg travelling at 30 m/s applies its brakes and slows down to 4 m/s over a stopping distance of 57.3 m on a level road. Calculate the magnitude of the average net braking force acting on the vehicle.",
+    "correct_answer": "16769.8 N",
+    "wrong_answers_pool": [
+      "25154.7 N",
+      "8384.9 N",
+      "56524 N",
+      "98051.8 N",
+      "17969.8 N",
+      "21305.2 N"
+    ],
+    "explanation": "W_net = Delta E_k => F_net * d = 0.5 * 2174 * (30^2 - 4^2) = 960908.0 J. F_net = 960908.0 / 57.3 = 16769.8 N.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Work, Energy and Power",
+      "subtopic": "Work-Energy Theorem Applications",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_27"
+  },
+  {
+    "id": "PS_P1_OPT_0908",
+    "topic": "Paper 1: Optical Phenomena and Properties of Matter",
+    "subtopic": "Stopping Potential",
+    "difficulty": "hard",
+    "question": "In a photoelectric experiment using a Magnesium (Mg) cathode (work function W_0 = 5.90 \u00d7 10\u207b\u00b9\u2079 J), incident light has frequency 12.90 \u00d7 10\u00b9\u2074 Hz. What minimum STOPPING POTENTIAL (V_s) must be applied across the photocell to reduce the photocurrent to zero (electron charge e = 1.6 \u00d7 10\u207b\u00b9\u2079 C, h = 6.63 \u00d7 10\u207b\u00b3\u2074 J\u00b7s)?",
+    "correct_answer": "1.66 V",
+    "wrong_answers_pool": [
+      "3.32 V",
+      "0.83 V",
+      "5.35 V (omitted work function subtraction)",
+      "3.68 V (work function in eV)",
+      "2.86 V",
+      "2.49 V",
+      "0.00 V"
+    ],
+    "explanation": "E_k(max) = h \u00d7 f - W_0 = 2.66 \u00d7 10\u207b\u00b9\u2079 J. Work done by stopping potential: e \u00d7 V_s = E_k(max) => V_s = E_k(max) / e = (2.66 \u00d7 10\u207b\u00b9\u2079 J) / (1.6 \u00d7 10\u207b\u00b9\u2079 C) = 1.66 V.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 1: Optical Phenomena and Properties of Matter",
+      "subtopic": "Stopping Potential",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate stopping potential for Magnesium (Mg)"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_28"
+  },
+  {
+    "id": "PS12_P1_ED_0835",
+    "topic": "Electrodynamics",
+    "subtopic": "Appliance Resistance & Peak Current",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "An electric boiler is rated at 2200 W when operated on a 230 V rms alternating current supply. Calculate the electrical resistance of the electric boiler's element.",
+    "correct_answer": "24.05 \u03a9",
+    "wrong_answers_pool": [
+      "0.10 \u03a9",
+      "9.57 \u03a9",
+      "48.09 \u03a9",
+      "12.02 \u03a9",
+      "36.07 \u03a9",
+      "230.00 \u03a9"
+    ],
+    "explanation": "P_ave = V_rms\u00b2 / R => R = V_rms\u00b2 / P_ave = 230\u00b2 / 2200 = 24.05 \u03a9.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electrodynamics",
+      "subtopic": "Appliance Resistance & Peak Current",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_29"
+  },
+  {
+    "id": "PS12_P1_ED_0390",
+    "topic": "Electrodynamics",
+    "subtopic": "RMS Current Calculations",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "An AC ammeter measures a root-mean-square current of 20.0 A through an appliance. Calculate the peak maximum current (I_max) reached during each AC cycle.",
+    "correct_answer": "28.28 A",
+    "wrong_answers_pool": [
+      "14.14 A",
+      "40.00 A",
+      "10.00 A",
+      "20.00 A",
+      "36.77 A",
+      "19.80 A"
+    ],
+    "explanation": "I_max = I_rms * sqrt(2) = 20.0 * 1.414 = 28.28 A.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electrodynamics",
+      "subtopic": "RMS Current Calculations",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_30"
+  },
+  {
+    "id": "PS12_P1_MOM_0637",
+    "topic": "Momentum and Impulse",
+    "subtopic": "Impulse and Rebounds",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A 0.11 kg cricket ball moving horizontally to the left at 30.5 m/s strikes a rigid vertical wall and rebounds to the right at 19.6 m/s. Calculate the magnitude of the impulse delivered to the ball.",
+    "correct_answer": "5.51 N\u00b7s",
+    "wrong_answers_pool": [
+      "1.2 N\u00b7s",
+      "11.02 N\u00b7s",
+      "2.75 N\u00b7s",
+      "3.35 N\u00b7s",
+      "10.51 N\u00b7s",
+      "1.08 N\u00b7s"
+    ],
+    "explanation": "Taking right as positive: J = delta p = m(v_f - v_i) = 0.11 * (19.6 - (-30.5)) = 5.51 N\u00b7s.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Momentum and Impulse",
+      "subtopic": "Impulse and Rebounds",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "diagram": {
+      "type": "impulse_force_time",
+      "fmax": 500,
+      "dt": "0.04"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_31"
+  },
+  {
+    "id": "PS12_P1_VP_0819",
+    "topic": "Vertical Projectile Motion",
+    "subtopic": "Cliff Projection and Quadratic Kinematics",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A hockey ball is thrown vertically upwards from a cliff 21.0 m above the ground with an initial speed of 33.6 m/s. Calculate the magnitude of its velocity as it strikes the ground at the bottom.",
+    "correct_answer": "39.25 m/s",
+    "wrong_answers_pool": [
+      "33.6 m/s",
+      "20.29 m/s",
+      "49.06 m/s",
+      "29.44 m/s",
+      "53.45 m/s",
+      "29.65 m/s"
+    ],
+    "explanation": "v_f = sqrt(v_i^2 + 2gh) = sqrt(33.6^2 + 2*9.8*21.0) = 39.25 m/s.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Vertical Projectile Motion",
+      "subtopic": "Cliff Projection and Quadratic Kinematics",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "diagram": {
+      "type": "kinematics_graph",
+      "v0": 33.6,
+      "t_top": 3.43
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_32"
+  },
+  {
+    "id": "PS_P1_OPT_0506",
+    "topic": "Paper 1: Optical Phenomena and Properties of Matter",
+    "subtopic": "Kinetic Energy Calculations",
+    "difficulty": "medium",
+    "question": "Light of frequency 17.23 \u00d7 10\u00b9\u2074 Hz shines on a clean plate of Gold (Au) (work function W_0 = 8.16 \u00d7 10\u207b\u00b9\u2079 J). Using h = 6.63 \u00d7 10\u207b\u00b3\u2074 J\u00b7s, calculate the maximum kinetic energy (E_k(max)) of the ejected photoelectrons:",
+    "correct_answer": "3.26 \u00d7 10\u207b\u00b9\u2079 J",
+    "wrong_answers_pool": [
+      "11.42 \u00d7 10\u207b\u00b9\u2079 J (calculated total photon energy without subtracting W_0)",
+      "19.58 \u00d7 10\u207b\u00b9\u2079 J (added work function instead of subtracting)",
+      "6.53 \u00d7 10\u207b\u00b9\u2079 J",
+      "1.63 \u00d7 10\u207b\u00b9\u2079 J",
+      "8.16 \u00d7 10\u207b\u00b9\u2079 J",
+      "4.51 \u00d7 10\u207b\u00b9\u2079 J",
+      "4.90 \u00d7 10\u207b\u00b9\u2079 J"
+    ],
+    "explanation": "Photoelectric equation: E = W_0 + E_k(max) => E_k(max) = h \u00d7 f - W_0 = (6.63 \u00d7 10\u207b\u00b3\u2074 \u00d7 17.23 \u00d7 10\u00b9\u2074) - 8.16 \u00d7 10\u207b\u00b9\u2079 J = 11.42 \u00d7 10\u207b\u00b9\u2079 - 8.16 \u00d7 10\u207b\u00b9\u2079 = 3.26 \u00d7 10\u207b\u00b9\u2079 J.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 1: Optical Phenomena and Properties of Matter",
+      "subtopic": "Kinetic Energy Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate maximum photoelectron kinetic energy for Gold (Au)"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_33"
+  },
+  {
+    "id": "PS_P1_OPT_0998",
+    "topic": "Paper 1: Optical Phenomena and Properties of Matter",
+    "subtopic": "Stopping Potential",
+    "difficulty": "hard",
+    "question": "In a photoelectric experiment using a Copper (Cu) cathode (work function W_0 = 7.52 \u00d7 10\u207b\u00b9\u2079 J), incident light has frequency 24.95 \u00d7 10\u00b9\u2074 Hz. What minimum STOPPING POTENTIAL (V_s) must be applied across the photocell to reduce the photocurrent to zero (electron charge e = 1.6 \u00d7 10\u207b\u00b9\u2079 C, h = 6.63 \u00d7 10\u207b\u00b3\u2074 J\u00b7s)?",
+    "correct_answer": "5.64 V",
+    "wrong_answers_pool": [
+      "11.28 V",
+      "2.82 V",
+      "10.34 V (omitted work function subtraction)",
+      "4.70 V (work function in eV)",
+      "6.84 V",
+      "8.46 V",
+      "0.00 V"
+    ],
+    "explanation": "E_k(max) = h \u00d7 f - W_0 = 9.02 \u00d7 10\u207b\u00b9\u2079 J. Work done by stopping potential: e \u00d7 V_s = E_k(max) => V_s = E_k(max) / e = (9.02 \u00d7 10\u207b\u00b9\u2079 J) / (1.6 \u00d7 10\u207b\u00b9\u2079 C) = 5.64 V.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 1: Optical Phenomena and Properties of Matter",
+      "subtopic": "Stopping Potential",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate stopping potential for Copper (Cu)"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_34"
+  },
+  {
+    "id": "PS12_P1_WEP_0840",
+    "topic": "Work, Energy and Power",
+    "subtopic": "Work-Energy Theorem Applications",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A vehicle of mass 2129 kg travelling at 30 m/s applies its brakes and slows down to 1 m/s over a stopping distance of 44.5 m on a level road. Calculate the magnitude of the average net braking force acting on the vehicle.",
+    "correct_answer": "21505.3 N",
+    "wrong_answers_pool": [
+      "32257.9 N",
+      "10752.6 N",
+      "61741 N",
+      "97651.6 N",
+      "22705.3 N",
+      "20864.2 N"
+    ],
+    "explanation": "W_net = Delta E_k => F_net * d = 0.5 * 2129 * (30^2 - 1^2) = 956985.5 J. F_net = 956985.5 / 44.5 = 21505.3 N.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Work, Energy and Power",
+      "subtopic": "Work-Energy Theorem Applications",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_35"
+  },
+  {
+    "id": "PS12_P1_ES_0721",
+    "topic": "Electrostatics",
+    "subtopic": "Coulomb's Law Calculations",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Two small point charges, q1 = +10 \u00b5C and q2 = +8 \u00b5C, are placed 30 cm apart in a vacuum. Calculate the magnitude of the electrostatic force exerted between them. (k = 9.0 x 10^9 N\u00b7m\u00b2\u00b7C\u207b\u00b2)",
+    "correct_answer": "8.00 N",
+    "wrong_answers_pool": [
+      "2.40 N",
+      "8.00e-04 N",
+      "8.00e+12 N",
+      "16.00 N",
+      "4.00 N",
+      "32.00 N"
+    ],
+    "explanation": "Coulomb's Law: F = k * |q1| * |q2| / r\u00b2 = (9.0 x 10^9 * 10 x 10^-6 * 8 x 10^-6) / (0.3\u00b2) = 8.00 N.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electrostatics",
+      "subtopic": "Coulomb's Law Calculations",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "diagram": {
+      "type": "coulomb_charges",
+      "q1": "+10 \u00b5C",
+      "q2": "+8 \u00b5C",
+      "distance": "30 cm"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_36"
+  },
+  {
+    "id": "PS12_P1_EC_0514",
+    "topic": "Electric Circuits",
+    "subtopic": "Internal Resistance Circuits",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A battery with an emf of 9.0 V and internal resistance r = 1.2 \u03a9 is connected to an external resistor of R = 15.0 \u03a9. Calculate the current in the circuit.",
+    "correct_answer": "0.56 A",
+    "wrong_answers_pool": [
+      "0.60 A",
+      "7.50 A",
+      "0.83 A",
+      "0.28 A",
+      "145.80 A",
+      "1.76 A"
+    ],
+    "explanation": "I = \u03b5 / (R_ext + r) = 9.0 / (15.0 + 1.2) = 9.0 / 16.2 = 0.56 A.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electric Circuits",
+      "subtopic": "Internal Resistance Circuits",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_37"
+  },
+  {
+    "id": "PS_P1_DOP_0848",
+    "topic": "Paper 1: Doppler Effect",
+    "subtopic": "Source Speed Calculations",
+    "difficulty": "hard",
+    "question": "A stationary listener hears the siren of an approaching emergency vehicle at a frequency of 662.3 Hz. The true frequency of the siren at rest is 600 Hz. Taking the speed of sound in air as 340 m\u00b7s\u207b\u00b9, calculate the speed at which the vehicle is approaching:",
+    "correct_answer": "32.0 m\u00b7s\u207b\u00b9",
+    "wrong_answers_pool": [
+      "35.3 m\u00b7s\u207b\u00b9 (algebraic error in isolating v_s)",
+      "64.0 m\u00b7s\u207b\u00b9",
+      "16.0 m\u00b7s\u207b\u00b9",
+      "42.0 m\u00b7s\u207b\u00b9",
+      "31.1 m\u00b7s\u207b\u00b9",
+      "48.0 m\u00b7s\u207b\u00b9",
+      "35.3 m\u00b7s\u207b\u00b9"
+    ],
+    "explanation": "From f_L = (v / (v - v_s)) \u00d7 f_s: (v - v_s) = v \u00d7 (f_s / f_L). Therefore v_s = v \u00d7 (1 - f_s / f_L) = 340 \u00d7 (1 - 600 / 662.3) = 32.0 m\u00b7s\u207b\u00b9.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 1: Doppler Effect",
+      "subtopic": "Source Speed Calculations",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate source speed for approaching vehicle"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_38"
+  },
+  {
+    "id": "PS12_P1_WEP_0959",
+    "topic": "Work, Energy and Power",
+    "subtopic": "Conservation of Mechanical Energy",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A 296 kg roller coaster cart starts from rest at the top of a frictionless track at height h = 6.03 m above ground level. Using the principle of conservation of mechanical energy, calculate the speed of the cart at the bottom of the track.",
+    "correct_answer": "10.87 m/s",
+    "wrong_answers_pool": [
+      "7.69 m/s",
+      "15.22 m/s",
+      "6.52 m/s",
+      "118.19 m/s",
+      "15.37 m/s",
+      "59.09 m/s"
+    ],
+    "explanation": "E_mech(top) = E_mech(bottom) => m*g*h = 0.5*m*v^2 => v = sqrt(2 * g * h) = sqrt(2 * 9.8 * 6.03) = 10.87 m/s.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Work, Energy and Power",
+      "subtopic": "Conservation of Mechanical Energy",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "diagram": {
+      "type": "work_energy_track",
+      "mass": 296,
+      "h1": 6.03,
+      "h2": 3.6
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_39"
+  },
+  {
+    "id": "PS12_P1_VP_0852",
+    "topic": "Vertical Projectile Motion",
+    "subtopic": "Cliff Projection and Quadratic Kinematics",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A stone is projected vertically upwards from the edge of a fire tower 40.0 m high at an initial velocity of 14.1 m/s. It travels upward, misses the edge on its descent, and strikes the ground below. Calculate the total time of flight.",
+    "correct_answer": "4.64 s",
+    "wrong_answers_pool": [
+      "1.44 s",
+      "2.86 s",
+      "6.5 s",
+      "2.78 s",
+      "7.14 s",
+      "2.84 s"
+    ],
+    "explanation": "Using Delta y = v_i*t - 0.5*g*t^2: -40.0 = 14.1*t - 4.9*t^2. Solving quadratic yields t = 4.64 s.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Vertical Projectile Motion",
+      "subtopic": "Cliff Projection and Quadratic Kinematics",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_40"
+  },
+  {
+    "id": "PS12_P1_WEP_0747",
+    "topic": "Work, Energy and Power",
+    "subtopic": "Work done by Gravity",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A 58 kg sled falls vertically from rest through a height of 18.9 m. Calculate the work done by the gravitational force on the sled.",
+    "correct_answer": "10742.8 J",
+    "wrong_answers_pool": [
+      "1096.2 J",
+      "16114.2 J",
+      "5371.4 J",
+      "10942.8 J",
+      "568.4 J",
+      "0.0 J"
+    ],
+    "explanation": "W_g = m * g * h = 58 * 9.8 * 18.9 = 10742.8 J.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Work, Energy and Power",
+      "subtopic": "Work done by Gravity",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_41"
+  },
+  {
+    "id": "PS12_P1_VP_0786",
+    "topic": "Vertical Projectile Motion",
+    "subtopic": "Maximum Height",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A golf ball is launched vertically upwards during a physics practical with an initial velocity of 52.8 m/s. Determine the maximum height reached above the launch position.",
+    "correct_answer": "142.24 m",
+    "wrong_answers_pool": [
+      "71.12 m",
+      "284.48 m",
+      "517.44 m",
+      "284.47 m",
+      "156.74 m",
+      "133.04 m"
+    ],
+    "explanation": "h = v_i^2 / (2g) = 52.8^2 / (2 * 9.8) = 142.24 m.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Vertical Projectile Motion",
+      "subtopic": "Maximum Height",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_42"
+  },
+  {
+    "id": "PS12_P1_MOM_0628",
+    "topic": "Momentum and Impulse",
+    "subtopic": "Impulse and Rebounds",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A 0.38 kg tennis ball moving horizontally to the left at 18.8 m/s strikes a rigid vertical wall and rebounds to the right at 27.2 m/s. Calculate the magnitude of the impulse delivered to the ball.",
+    "correct_answer": "17.48 N\u00b7s",
+    "wrong_answers_pool": [
+      "3.19 N\u00b7s",
+      "34.96 N\u00b7s",
+      "8.74 N\u00b7s",
+      "7.14 N\u00b7s",
+      "22.48 N\u00b7s",
+      "3.72 N\u00b7s"
+    ],
+    "explanation": "Taking right as positive: J = delta p = m(v_f - v_i) = 0.38 * (27.2 - (-18.8)) = 17.48 N\u00b7s.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Momentum and Impulse",
+      "subtopic": "Impulse and Rebounds",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "diagram": {
+      "type": "impulse_force_time",
+      "fmax": 500,
+      "dt": "0.04"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_43"
+  },
+  {
+    "id": "PS12_P1_MOM_0478",
+    "topic": "Momentum and Impulse",
+    "subtopic": "Impulse and Rebounds",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A 0.48 kg cricket ball moving horizontally to the left at 32.2 m/s strikes a rigid vertical wall and rebounds to the right at 22.1 m/s. Calculate the magnitude of the impulse delivered to the ball.",
+    "correct_answer": "26.06 N\u00b7s",
+    "wrong_answers_pool": [
+      "4.85 N\u00b7s",
+      "52.12 N\u00b7s",
+      "13.03 N\u00b7s",
+      "15.46 N\u00b7s",
+      "31.06 N\u00b7s",
+      "4.7 N\u00b7s"
+    ],
+    "explanation": "Taking right as positive: J = delta p = m(v_f - v_i) = 0.48 * (22.1 - (-32.2)) = 26.06 N\u00b7s.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Momentum and Impulse",
+      "subtopic": "Impulse and Rebounds",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "diagram": {
+      "type": "impulse_force_time",
+      "fmax": 500,
+      "dt": "0.04"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_44"
+  },
+  {
+    "id": "PS12_P1_WEP_0852",
+    "topic": "Work, Energy and Power",
+    "subtopic": "Work-Energy Theorem Applications",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A vehicle of mass 2082 kg travelling at 31 m/s applies its brakes and slows down to 6 m/s over a stopping distance of 49.6 m on a level road. Calculate the magnitude of the average net braking force acting on the vehicle.",
+    "correct_answer": "19413.8 N",
+    "wrong_answers_pool": [
+      "29120.7 N",
+      "9706.9 N",
+      "52050 N",
+      "98257.7 N",
+      "20613.8 N",
+      "20403.6 N"
+    ],
+    "explanation": "W_net = Delta E_k => F_net * d = 0.5 * 2082 * (31^2 - 6^2) = 962925.0 J. F_net = 962925.0 / 49.6 = 19413.8 N.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Work, Energy and Power",
+      "subtopic": "Work-Energy Theorem Applications",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_45"
+  },
+  {
+    "id": "PS12_P1_ED_0737",
+    "topic": "Electrodynamics",
+    "subtopic": "Faraday's Law Calculations",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A coil with 300 turns is placed in a magnetic field. The magnetic flux linkage changes by 0.02 Wb over a time interval of 0.02 s. Calculate the magnitude of the average induced electromotive force across the coil.",
+    "correct_answer": "300 V",
+    "wrong_answers_pool": [
+      "0.1 V",
+      "1.0 V",
+      "600.0 V",
+      "150.0 V",
+      "3000.0 V",
+      "15000.0 V"
+    ],
+    "explanation": "emf = N * (Delta Phi / Delta t) = 300 * (0.02 / 0.02) = 300 V.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electrodynamics",
+      "subtopic": "Faraday's Law Calculations",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_46"
+  },
+  {
+    "id": "PS12_P1_EC_0550",
+    "topic": "Electric Circuits",
+    "subtopic": "Internal Resistance Circuits",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A cell with an emf of 9.0 V and internal resistance 2.0 \u03a9 delivers current to a 12.0 \u03a9 resistor. Calculate the lost volts in the cell.",
+    "correct_answer": "1.29 V",
+    "wrong_answers_pool": [
+      "9.00 V",
+      "7.71 V",
+      "2.57 V",
+      "0.64 V",
+      "6.43 V",
+      "19.60 V"
+    ],
+    "explanation": "V_lost = I * r = 0.64 * 2.0 = 1.29 V.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electric Circuits",
+      "subtopic": "Internal Resistance Circuits",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_47"
+  },
+  {
+    "id": "PS12_P1_EC_0835",
+    "topic": "Electric Circuits",
+    "subtopic": "Simultaneous Emf & Internal Resistance",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "When a battery is connected to a 2.0 \u03a9 resistor, a current of 1.71 A flows. When connected instead to a 5.0 \u03a9 resistor, the current is 0.92 A. Calculate the internal resistance (r) of the battery.",
+    "correct_answer": "1.50 \u03a9",
+    "wrong_answers_pool": [
+      "3.00 \u03a9",
+      "0.75 \u03a9",
+      "2.50 \u03a9",
+      "2.00 \u03a9",
+      "5.00 \u03a9",
+      "0.00 \u03a9"
+    ],
+    "explanation": "\u03b5 = 1.71*(2.0 + r) and \u03b5 = 0.92*(5.0 + r). Setting equal: 1.71*(2.0 + r) = 0.92*(5.0 + r) => r = 1.50 \u03a9.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electric Circuits",
+      "subtopic": "Simultaneous Emf & Internal Resistance",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_48"
+  },
+  {
+    "id": "PS_P1_DOP_0676",
+    "topic": "Paper 1: Doppler Effect",
+    "subtopic": "Receding Source Calculations",
+    "difficulty": "medium",
+    "question": "A train sounding its whistle at a frequency of 850 Hz travels at a constant velocity of 42.0 m\u00b7s\u207b\u00b9 directly AWAY FROM a stationary observer on a station platform. If sound travels at 340 m\u00b7s\u207b\u00b9 in air, calculate the frequency heard by the observer:",
+    "correct_answer": "756.5 Hz",
+    "wrong_answers_pool": [
+      "969.8 Hz (used (v - v_s) in denominator for receding source)",
+      "955.0 Hz (inverted Doppler equation)",
+      "745.0 Hz",
+      "850.0 Hz (no frequency shift)",
+      "567.4 Hz",
+      "831.5 Hz",
+      "676.5 Hz"
+    ],
+    "explanation": "Formula: f_L = (v / (v + v_s)) \u00d7 f_s. Here v = 340 m\u00b7s\u207b\u00b9, v_s = 42.0 m\u00b7s\u207b\u00b9, f_s = 850 Hz. f_L = (340 / (340 + 42.0)) \u00d7 850 = (340 / 382.0) \u00d7 850 = 756.5 Hz.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 1: Doppler Effect",
+      "subtopic": "Receding Source Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate observed frequency for receding source"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_49"
+  },
+  {
+    "id": "PS12_P1_VP_0599",
+    "topic": "Vertical Projectile Motion",
+    "subtopic": "Thrown Downwards",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A baseball is thrown vertically downwards from a construction crane 47.3 m high at an initial speed of 10.2 m/s. What is its velocity upon impact?",
+    "correct_answer": "32.11 m/s",
+    "wrong_answers_pool": [
+      "30.45 m/s",
+      "41.74 m/s",
+      "22.48 m/s",
+      "20.0 m/s",
+      "43.31 m/s",
+      "23.61 m/s"
+    ],
+    "explanation": "v_f = sqrt(v_i^2 + 2gh) = sqrt(10.2^2 + 2*9.8*47.3) = 32.11 m/s.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Vertical Projectile Motion",
+      "subtopic": "Thrown Downwards",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "diagram": {
+      "type": "kinematics_graph",
+      "v0": 10.2,
+      "t_top": 1.04
     },
     "exam_id": "EXAM_2026-W46_grade12_physical_sciences_paper1_50"
   }

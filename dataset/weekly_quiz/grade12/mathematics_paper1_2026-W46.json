@@ -1,8 +1,140 @@
 [
   {
-    "id": "MATH_P1_ALG_0819",
+    "id": "MATH_P1_ALG_0409",
     "topic": "Algebra, Equations and Inequalities",
-    "question": "Solve the advanced equation: For which values of $m$ will the roots of $2x^2 - 4x + m = 0$ be non-real?",
+    "question": "Solve for $x$ (problem 28): $\\log_{2}(x + 1) = 1$",
+    "correct_answer": "1",
+    "wrong_answers_pool": [
+      "7",
+      "-1",
+      "2",
+      "0",
+      "3",
+      "-2",
+      "4",
+      "30"
+    ],
+    "explanation": "$x + 1 = 2^{1} \\implies x = 2 - 1 = 1$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Algebra",
+      "subtopic": "Logarithmic Equations",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_1"
+  },
+  {
+    "id": "MATH_P1_SEQ_0705",
+    "topic": "Patterns, Sequences and Series",
+    "question": "In the arithmetic sequence $8;\\ 12;\\ 16;\\ \\dots$ (case 237), determine the value of term $n$ if $T_n = 92$.",
+    "correct_answer": "n = 22",
+    "wrong_answers_pool": [
+      "n = 23",
+      "n = 21",
+      "n = 25",
+      "n = 19",
+      "n = 44",
+      "n = 11",
+      "n = 50"
+    ],
+    "explanation": "$T_n = 8 + 4(n - 1) = 92 \\implies n = 22$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "subtopic": "Arithmetic Sequences",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_2"
+  },
+  {
+    "id": "MATH_P1_PROB_0860",
+    "topic": "Probability",
+    "question": "$10$ people, including Ethan and Lucas, are allocated adjacent desks in a single row for an examination. What is the probability that Ethan and Lucas sit directly adjacent to each other?",
+    "correct_answer": "1/5",
+    "wrong_answers_pool": [
+      "1/6",
+      "1/4",
+      "4/5",
+      "2/5",
+      "1/3",
+      "6/13",
+      "3/5",
+      "2/3"
+    ],
+    "explanation": "Total arrangements $n(S) = 10!$. Favorable arrangements $n(E) = (10-1)! \\times 2!$. Probability $P = \\frac{(10-1)! \\times 2!}{10!} = \\frac{2}{10} = 1/5$.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "subtopic": "Probability with Counting Principle",
+      "cognitive_level": "Problem Solving",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_3"
+  },
+  {
+    "id": "MATH_P1_PROB_0875",
+    "topic": "Probability",
+    "question": "$8$ people, including Chloe and Emma, are allocated adjacent desks in a single row for an examination. What is the probability that Chloe and Emma DO NOT sit next to each other?",
+    "correct_answer": "3/4",
+    "wrong_answers_pool": [
+      "4/4",
+      "1/4",
+      "3/5",
+      "2/4",
+      "3/3",
+      "1/5",
+      "1/2",
+      "1/3"
+    ],
+    "explanation": "Probability of sitting together $= \\frac{2}{8}$. Therefore, probability of NOT sitting together $= 1 - \\frac{2}{8} = \\frac{6}{8} = 3/4$.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "subtopic": "Probability with Counting Principle",
+      "cognitive_level": "Problem Solving",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_4"
+  },
+  {
+    "id": "MATH_P1_ALG_0870",
+    "topic": "Algebra, Equations and Inequalities",
+    "question": "Advanced problem case 58: Solve simultaneously for $x$ and $y$: $y - x = 2$ and $x^2 + y^2 = 20$.",
+    "correct_answer": "(x = -4; y = -2) or (x = 2; y = 4)",
+    "wrong_answers_pool": [
+      "(x = 4; y = 2) or (x = -2; y = -4)",
+      "(x = 2; y = 0) or (x = -4; y = 6)",
+      "(x = 3; y = 5) or (x = -3; y = -1)",
+      "(x = 1; y = 3) or (x = -5; y = -3)",
+      "(x = -2; y = 0) or (x = 4; y = 6)",
+      "(x = 0; y = 2) or (x = -2; y = 4)"
+    ],
+    "explanation": "Substitute $y = x + 2$ into $x^2 + (x + 2)^2 = 20 \\implies 2x^2 + 4x - 16 = 0 \\implies x^2 + 2x - 8 = 0 \\implies (x + 4)(x - 2) = 0$. Thus $x = -4 \\implies y = -2$ or $x = 2 \\implies y = 4$.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Algebra",
+      "subtopic": "Advanced Equations",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_5"
+  },
+  {
+    "id": "MATH_P1_ALG_0948",
+    "topic": "Algebra, Equations and Inequalities",
+    "question": "Advanced problem case 150: For which values of $m$ will the roots of $2x^2 - 4x + m = 0$ be non-real?",
     "correct_answer": "m > 2",
     "wrong_answers_pool": [
       "m < 2",
@@ -22,23 +154,48 @@
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_1"
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_6"
   },
   {
-    "id": "MATH_P1_FUNC_0703",
-    "topic": "Functions and Graphs",
-    "question": "State the range of the exponential function $f(x) = 3^x + 3$ (case 319).",
-    "correct_answer": "y > 3",
+    "id": "MATH_P1_FIN_0881",
+    "topic": "Financial Mathematics",
+    "question": "Advanced financial problem 65: A company purchases a machine for R400 000. It is estimated that the machine will depreciate at 15% p.a. on a reducing-balance basis over 5 years. A replacement machine will increase in cost by 8% p.a. compound inflation. A sinking fund is created where the scrap value of the old machine is used towards the replacement. What amount must the sinking fund accumulate over the 5 years?",
+    "correct_answer": "R406 200,75",
     "wrong_answers_pool": [
-      "y \\ge 3",
-      "y < 3",
-      "y \\le 3",
+      "R587 731,20",
+      "R177 400,00",
+      "R410 330,45",
+      "R350 000,00",
+      "R450 120,00",
+      "R390 000,00"
+    ],
+    "explanation": "Replacement cost: $A = 400000(1 + 0.08)^5 = \\text{R587 731,20}$. Scrap value: $S = 400000(1 - 0.15)^5 = \\text{R177 481,25}$. Sinking fund required: $587 731,20 - 177 481,25 \\approx \\text{R406 200,75}$.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Financial Mathematics",
+      "subtopic": "Advanced Annuity Calculations",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_7"
+  },
+  {
+    "id": "MATH_P1_FUNC_0593",
+    "topic": "Functions and Graphs",
+    "question": "State the range of the exponential function $f(x) = 2^x - 3$ (case 209).",
+    "correct_answer": "y > -3",
+    "wrong_answers_pool": [
+      "y \\ge -3",
+      "y < -3",
+      "y \\le -3",
       "y \\in \\mathbb{R}",
       "y > 0",
-      "y > -3",
-      "x > 3"
+      "y > 3",
+      "x > -3"
     ],
-    "explanation": "Since $3^x > 0$ for all real $x$, the range is $y > 3$.",
+    "explanation": "Since $2^x > 0$ for all real $x$, the range is $y > -3$.",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
@@ -48,175 +205,27 @@
       "cognitive_level": "Application",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_2"
-  },
-  {
-    "id": "MATH_P1_ALG_0568",
-    "topic": "Algebra, Equations and Inequalities",
-    "question": "Solve for $x$ (problem 187): $\\log_{5}(x + 2) = 1$",
-    "correct_answer": "3",
-    "wrong_answers_pool": [
-      "11",
-      "2",
-      "5",
-      "0",
-      "1",
-      "6",
-      "4",
-      "-10"
-    ],
-    "explanation": "$x + 2 = 5^{1} \\implies x = 5 - 2 = 3$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Algebra",
-      "subtopic": "Logarithmic Equations",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_3"
-  },
-  {
-    "id": "MATH_P1_SEQ_0852",
-    "topic": "Patterns, Sequences and Series",
-    "question": "Advanced sequence case 32: In an arithmetic sequence, the 3rd term is 11 and the 10th term is 39. Find the first term ($a$) and the common difference ($d$).",
-    "correct_answer": "a = 3 and d = 4",
-    "wrong_answers_pool": [
-      "a = 4 and d = 3",
-      "a = 2 and d = 5",
-      "a = 1 and d = 4",
-      "a = 5 and d = 2",
-      "a = -3 and d = 4",
-      "a = 3 and d = -4"
-    ],
-    "explanation": "$T_3 = a + 2d = 11$ and $T_{10} = a + 9d = 39$. Subtracting gives $7d = 28 \\implies d = 4$. Then $a + 2(4) = 11 \\implies a = 3$.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Sequences and Series",
-      "subtopic": "Advanced Sequences & Series",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_4"
-  },
-  {
-    "id": "MATH_P1_FIN_0923",
-    "topic": "Financial Mathematics",
-    "question": "Advanced financial problem 107: A borrower repays a loan of R100 000 at 10% p.a. compounded monthly by making regular monthly payments of R2 500. Calculate how many full payments of R2 500 are required to pay off the loan.",
-    "correct_answer": "49 full payments",
-    "wrong_answers_pool": [
-      "40 full payments",
-      "52 full payments",
-      "48 full payments",
-      "45 full payments",
-      "60 full payments",
-      "36 full payments"
-    ],
-    "explanation": "$P_v = \\frac{x[1 - (1+i)^{-n}]}{i} \\implies 1 - \\frac{100000 \\times (0.10/12)}{2500} = (1 + \\frac{0.10}{12})^{-n} \\implies (1.008333)^{-n} = 0.666667 \\implies -n = \\frac{\\log(0.666667)}{\\log(1.008333)} \\approx -48.84 \\implies 49$ full payments.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Financial Mathematics",
-      "subtopic": "Advanced Annuity Calculations",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_5"
-  },
-  {
-    "id": "MATH_P1_ALG_0897",
-    "topic": "Algebra, Equations and Inequalities",
-    "question": "Advanced problem case 88: Solve for $x$: $3^{2x} - 10 \\cdot 3^x + 9 = 0$.",
-    "correct_answer": "x = 0 or x = 2",
-    "wrong_answers_pool": [
-      "x = 1 or x = 9",
-      "x = 1 or x = 3",
-      "x = 0 or x = 9",
-      "x = -1 or x = 2",
-      "x = 2 or x = 3",
-      "x = 3 or x = 9"
-    ],
-    "explanation": "Let $k = 3^x$. $k^2 - 10k + 9 = 0 \\implies (k - 1)(k - 9) = 0 \\implies 3^x = 1 \\implies x = 0$; $3^x = 9 \\implies x = 2$.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Algebra",
-      "subtopic": "Advanced Equations",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_6"
-  },
-  {
-    "id": "MATH_P1_FIN_0406",
-    "topic": "Financial Mathematics",
-    "question": "A student deposits $R500$ at the end of each month into an annuity earning $9.0\\%$ p.a. compounded monthly for $10$ years ($120$ months) (case 10). What will be the future value ($F_v$) of the investment?",
-    "correct_answer": "R96757.14",
-    "wrong_answers_pool": [
-      "R106432.85",
-      "R87081.43",
-      "R60000.00",
-      "R98757.14",
-      "R94757.14",
-      "R116108.57",
-      "R77405.71"
-    ],
-    "explanation": "$F_v = \\frac{x[(1 + i)^n - 1]}{i} = R96757.14$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Financial Mathematics",
-      "subtopic": "Future Value Annuities",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_7"
-  },
-  {
-    "id": "MATH_P1_FIN_0975",
-    "topic": "Financial Mathematics",
-    "question": "Advanced financial problem 159: A person takes out a loan of R300 000 at 12% p.a. compounded monthly. The first payment is made 4 months after the loan was granted. If the loan is to be fully repaid over 5 years (60 total monthly payments), calculate the required monthly repayment.",
-    "correct_answer": "R6 876,21",
-    "wrong_answers_pool": [
-      "R6 673,33",
-      "R7 120,45",
-      "R5 000,00",
-      "R6 450,10",
-      "R7 340,80",
-      "R6 200,00"
-    ],
-    "explanation": "Interest capitalizes for 3 months: $P_3 = 300000(1 + 0.01)^3 = \\text{R309 090,30}$. Then $P_v$ annuity with $n = 60$ payments gives $x = \\frac{309090.30 \\times 0.01}{1 - (1.01)^{-60}} \\approx \\text{R6 876,21}$.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Financial Mathematics",
-      "subtopic": "Advanced Annuity Calculations",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
+    "diagram": {
+      "type": "exponential_log_graph",
+      "base": 2,
+      "hide_inverse": true
     },
     "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_8"
   },
   {
-    "id": "MATH_P1_SEQ_0940",
+    "id": "MATH_P1_SEQ_0911",
     "topic": "Patterns, Sequences and Series",
-    "question": "Advanced sequence case 120: In an arithmetic sequence, the 3rd term is 11 and the 10th term is 39. Find the first term ($a$) and the common difference ($d$).",
-    "correct_answer": "a = 3 and d = 4",
+    "question": "Advanced sequence case 91: Given the series $\\sum_{k=1}^n 2^k = 1022$. Calculate the value of $n$.",
+    "correct_answer": "n = 9",
     "wrong_answers_pool": [
-      "a = 4 and d = 3",
-      "a = 2 and d = 5",
-      "a = 1 and d = 4",
-      "a = 5 and d = 2",
-      "a = -3 and d = 4",
-      "a = 3 and d = -4"
+      "n = 10",
+      "n = 8",
+      "n = 7",
+      "n = 11",
+      "n = 12",
+      "n = 5"
     ],
-    "explanation": "$T_3 = a + 2d = 11$ and $T_{10} = a + 9d = 39$. Subtracting gives $7d = 28 \\implies d = 4$. Then $a + 2(4) = 11 \\implies a = 3$.",
+    "explanation": "This is a geometric series: $a = 2, r = 2$. $S_n = \\frac{a(r^n - 1)}{r - 1} = \\frac{2(2^n - 1)}{2 - 1} = 2(2^n - 1) = 1022 \\implies 2^n - 1 = 511 \\implies 2^n = 512 \\implies n = 9$.",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
@@ -229,123 +238,155 @@
     "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_9"
   },
   {
-    "id": "MATH_P1_FUNC_0874",
-    "topic": "Functions and Graphs",
-    "question": "Advanced function investigation 54: Calculate the average gradient of the function $f(x) = 2x^2 - 3$ between the points where $x = 1$ and $x = 4$.",
-    "correct_answer": "10",
+    "id": "MATH_P1_SEQ_0821",
+    "topic": "Patterns, Sequences and Series",
+    "question": "Advanced sequence case 1: In an arithmetic sequence, the 3rd term is 11 and the 10th term is 39. Find the first term ($a$) and the common difference ($d$).",
+    "correct_answer": "a = 3 and d = 4",
     "wrong_answers_pool": [
-      "8",
-      "12",
-      "6",
-      "14",
-      "5",
-      "9"
+      "a = 4 and d = 3",
+      "a = 2 and d = 5",
+      "a = 1 and d = 4",
+      "a = 5 and d = 2",
+      "a = -3 and d = 4",
+      "a = 3 and d = -4"
     ],
-    "explanation": "Average gradient $= \\frac{f(4) - f(1)}{4 - 1} = \\frac{(2(16) - 3) - (2(1) - 3)}{3} = \\frac{29 - (-1)}{3} = \\frac{30}{3} = 10$.",
+    "explanation": "$T_3 = a + 2d = 11$ and $T_{10} = a + 9d = 39$. Subtracting gives $7d = 28 \\implies d = 4$. Then $a + 2(4) = 11 \\implies a = 3$.",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
       "subject": "Mathematics",
-      "topic": "Functions",
-      "subtopic": "Advanced Graph Interpretation",
+      "topic": "Sequences and Series",
+      "subtopic": "Advanced Sequences & Series",
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
     "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_10"
   },
   {
-    "id": "MATH_P1_PROB_0922",
-    "topic": "Probability",
-    "question": "In a cohort of $100$ Grade 12 learners: $51$ take Mathematics, $42$ take Physical Sciences, and $41$ take Life Sciences. Furthermore, $19$ take Mathematics and Physical Sciences, $13$ take Mathematics and Life Sciences, $18$ take Physical Sciences and Life Sciences, while $11$ learners take none of these three subjects. How many learners take ALL THREE subjects?",
-    "correct_answer": "5",
+    "id": "MATH_P1_CALC_0589",
+    "topic": "Differential Calculus",
+    "question": "Determine the gradient of the tangent to $y = 3x^2 - 3x$ at $x = 3$ (problem 128).",
+    "correct_answer": "15",
     "wrong_answers_pool": [
-      "6",
       "3",
-      "25",
-      "20",
+      "-3",
+      "-2",
+      "11",
+      "2",
+      "-1",
       "1",
-      "7",
-      "4",
-      "10"
+      "-15"
     ],
-    "explanation": "Using the inclusion-exclusion formula: Total learners $= n(M) + n(P) + n(L) - [n(M \\cap P) + n(M \\cap L) + n(P \\cap L)] + x + \\text{neither}$. $100 = 51 + 42 + 41 - (19 + 13 + 18) + x + 11$. Solving for $x$: $x = 5$ learners take all three subjects.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Probability",
-      "subtopic": "Venn Diagrams",
-      "cognitive_level": "Problem Solving",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_11"
-  },
-  {
-    "id": "MATH_P1_PROB_0326",
-    "topic": "Probability",
-    "question": "Calculate the total number of unique permutations of the letters in the word **\"TENNESSEE\"**?",
-    "correct_answer": "3780",
-    "wrong_answers_pool": [
-      "3779",
-      "3790",
-      "3800",
-      "3760",
-      "1890",
-      "756",
-      "3770",
-      "945"
-    ],
-    "explanation": "Using the permutation formula with repeated letters: $\\frac{n!}{n_1! n_2! \\dots} = \\frac{9!}{4! \\times 2! \\times 2!} = \\frac{362880}{96} = 3780$.",
+    "explanation": "$\\frac{dy}{dx} = 6x - 3$. At $x = 3$, $m = 15$.",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
       "subject": "Mathematics",
-      "topic": "Probability",
-      "subtopic": "Counting Principle",
-      "cognitive_level": "Routine Procedures",
+      "topic": "Calculus",
+      "subtopic": "Tangents to Curves",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_11"
+  },
+  {
+    "id": "MATH_P1_CALC_0331",
+    "topic": "Differential Calculus",
+    "question": "Calculate the gradient of the tangent to the cubic curve $f(x) = x^3 + 3x^2 - 6x + 4$ at the point where $x = -2$.",
+    "correct_answer": "-6",
+    "wrong_answers_pool": [
+      "3",
+      "-3",
+      "-2",
+      "6",
+      "-10",
+      "2",
+      "-1",
+      "1"
+    ],
+    "explanation": "$f'(x) = 3x^2 + 6x - 6$. At $x = -2$, $m = f'(-2) = -6$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Calculus",
+      "subtopic": "Tangents to Curves",
+      "cognitive_level": "Application",
       "difficulty": "medium"
     },
     "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_12"
   },
   {
-    "id": "MATH_P1_FUNC_0848",
+    "id": "MATH_P1_FUNC_0333",
     "topic": "Functions and Graphs",
-    "question": "Advanced function investigation 28: Calculate the average gradient of the function $f(x) = 2x^2 - 3$ between the points where $x = 1$ and $x = 4$.",
-    "correct_answer": "10",
+    "question": "Determine the equation of the inverse function $f^{-1}(x)$ for $f(x) = 2x - 4$.",
+    "correct_answer": "$y = \\frac{x + 4}{2}$",
     "wrong_answers_pool": [
-      "8",
-      "12",
-      "6",
-      "14",
-      "5",
-      "9"
+      "$y = \\frac{x - 4}{2}$",
+      "y = 2x + 4",
+      "$y = \\frac{1}{2x - 4}$",
+      "y = -2x + 4",
+      "$y = \\frac{2}{x + 4}$",
+      "$y = \\frac{x}{2} - 4$",
+      "y = x + 4"
     ],
-    "explanation": "Average gradient $= \\frac{f(4) - f(1)}{4 - 1} = \\frac{(2(16) - 3) - (2(1) - 3)}{3} = \\frac{29 - (-1)}{3} = \\frac{30}{3} = 10$.",
-    "difficulty": "hard",
+    "explanation": "Swap $x$ and $y$: $x = 2y - 4 \\implies 2y = x + 4 \\implies y = \\frac{x + 4}{2}$.",
+    "difficulty": "medium",
     "tags": {
       "grade": "12",
       "subject": "Mathematics",
       "topic": "Functions",
-      "subtopic": "Advanced Graph Interpretation",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
+      "subtopic": "Inverse Functions",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "diagram": {
+      "type": "exponential_log_graph",
+      "base": 2,
+      "hide_inverse": true
     },
     "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_13"
   },
   {
-    "id": "MATH_P1_CALC_0892",
-    "topic": "Differential Calculus",
-    "question": "Advanced calculus case 72: A cubic function $f(x) = x^3 - 3x^2 - 9x + 5$ has local turning points at $(-1; 10)$ and $(3; -22)$. For which values of $k$ will the equation $f(x) = k$ have three distinct real roots?",
-    "correct_answer": "-22 < k < 10",
+    "id": "MATH_P1_FIN_0358",
+    "topic": "Financial Mathematics",
+    "question": "A delivery vehicle purchased for $R320000$ depreciates on a reducing-balance basis at $15\\%$ p.a. Calculate its book value after $5$ years.",
+    "correct_answer": "R141985.70",
     "wrong_answers_pool": [
-      "k < -22 or k > 10",
-      "-1 < k < 3",
-      "k = -22 or k = 10",
-      "k > 0",
-      "k <= -22 or k >= 10",
-      "-22 <= k <= 10"
+      "R156184.27",
+      "R127787.13",
+      "R146985.70",
+      "R136985.70",
+      "R80000.00",
+      "R320000.00",
+      "R170382.84"
     ],
-    "explanation": "A horizontal line $y = k$ intersects the cubic in three distinct points when $k$ lies strictly between the local minimum and local maximum: $-22 < k < 10$.",
+    "explanation": "$A = P(1 - i)^n = 320000(1 - 0.15)^{5} = R141985.70$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Financial Mathematics",
+      "subtopic": "Depreciation",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_14"
+  },
+  {
+    "id": "MATH_P1_CALC_0851",
+    "topic": "Differential Calculus",
+    "question": "Advanced calculus case 31: An open rectangular box is formed from a rectangular sheet of metal measuring 30 cm by 16 cm by cutting equal squares of side length $x$ cm from each corner and folding up the sides. What value of $x$ maximizes the volume of the box?",
+    "correct_answer": "x = 3.33 cm (or 10/3 cm)",
+    "wrong_answers_pool": [
+      "x = 5 cm",
+      "x = 4 cm",
+      "x = 2.5 cm",
+      "x = 8 cm",
+      "x = 6 cm",
+      "x = 1.5 cm"
+    ],
+    "explanation": "Volume $V(x) = x(30 - 2x)(16 - 2x) = 4x^3 - 92x^2 + 480x$. $V'(x) = 12x^2 - 184x + 480 = 0 \\implies 3x^2 - 46x + 120 = 0 \\implies (3x - 10)(x - 12) = 0$. Since $x < 8$, $x = \\frac{10}{3} \\approx 3.33$ cm.",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
@@ -355,50 +396,23 @@
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_14"
-  },
-  {
-    "id": "MATH_P1_PROB_0841",
-    "topic": "Probability",
-    "question": "A $4$-digit bank vault access code is formed from the digits $0$ to $9$ with repetition allowed. How many valid codes exist if the first digit cannot be $0$ and the code must end in an ODD digit?",
-    "correct_answer": "4500",
-    "wrong_answers_pool": [
-      "4480",
-      "4520",
-      "4499",
-      "9000",
-      "900",
-      "4510",
-      "4505",
-      "4495"
-    ],
-    "explanation": "First position: $9$ options ($1-9$). Middle $(4-2)$ positions: $10$ options each. Final position: $5$ options ($1, 3, 5, 7, 9$). Total $= 9 \\times 10^{2} \\times 5 = 4500$.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Probability",
-      "subtopic": "Counting Principle",
-      "cognitive_level": "Complex Procedures",
-      "difficulty": "hard"
-    },
     "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_15"
   },
   {
-    "id": "MATH_P1_FIN_0784",
+    "id": "MATH_P1_FIN_0674",
     "topic": "Financial Mathematics",
-    "question": "A student deposits $R500$ at the end of each month into an annuity earning $8.0\\%$ p.a. compounded monthly for $10$ years ($120$ months) (case 388). What will be the future value ($F_v$) of the investment?",
-    "correct_answer": "R91473.02",
+    "question": "A student deposits $R500$ at the end of each month into an annuity earning $9.0\\%$ p.a. compounded monthly for $5$ years ($60$ months) (case 278). What will be the future value ($F_v$) of the investment?",
+    "correct_answer": "R37712.07",
     "wrong_answers_pool": [
-      "R100620.32",
-      "R82325.72",
-      "R60000.00",
-      "R93473.02",
-      "R89473.02",
-      "R109767.62",
-      "R73178.42"
+      "R41483.28",
+      "R33940.86",
+      "R30000.00",
+      "R39712.07",
+      "R35712.07",
+      "R45254.48",
+      "R30169.66"
     ],
-    "explanation": "$F_v = \\frac{x[(1 + i)^n - 1]}{i} = R91473.02$.",
+    "explanation": "$F_v = \\frac{x[(1 + i)^n - 1]}{i} = R37712.07$.",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
@@ -409,32 +423,6 @@
       "difficulty": "medium"
     },
     "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_16"
-  },
-  {
-    "id": "MATH_P1_SEQ_0616",
-    "topic": "Patterns, Sequences and Series",
-    "question": "In the arithmetic sequence $5;\\ 9;\\ 13;\\ \\dots$ (case 148), determine the value of term $n$ if $T_n = 181$.",
-    "correct_answer": "n = 45",
-    "wrong_answers_pool": [
-      "n = 46",
-      "n = 44",
-      "n = 48",
-      "n = 42",
-      "n = 90",
-      "n = 22",
-      "n = 50"
-    ],
-    "explanation": "$T_n = 5 + 4(n - 1) = 181 \\implies n = 45$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Sequences and Series",
-      "subtopic": "Arithmetic Sequences",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_17"
   },
   {
     "id": "MATH_P1_FUNC_0894",
@@ -459,532 +447,39 @@
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_18"
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_17"
   },
   {
-    "id": "MATH_P1_FUNC_0992",
-    "topic": "Functions and Graphs",
-    "question": "Advanced function investigation 172: Given the function $f(x) = 2x^2$. How must the domain of $f$ be restricted so that its inverse $f^{-1}$ is a function?",
-    "correct_answer": "x >= 0 (or x <= 0)",
-    "wrong_answers_pool": [
-      "x in R",
-      "x > 2",
-      "x != 0",
-      "x > -2",
-      "-2 <= x <= 2",
-      "x >= 2"
-    ],
-    "explanation": "A parabola is many-to-one; restricting the domain to $x \\ge 0$ (one half of the parabola) makes it one-to-one, ensuring $f^{-1}$ passes the vertical line test.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Functions",
-      "subtopic": "Advanced Graph Interpretation",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_19"
-  },
-  {
-    "id": "MATH_P1_ALG_0743",
-    "topic": "Algebra, Equations and Inequalities",
-    "question": "Solve for $x$ (problem 362): $\\log_{3}(x + 3) = 1$",
-    "correct_answer": "0",
-    "wrong_answers_pool": [
-      "-3",
-      "-1",
-      "-4",
-      "2",
-      "5",
-      "3",
-      "1",
-      "-2"
-    ],
-    "explanation": "$x + 3 = 3^{1} \\implies x = 3 - 3 = 0$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Algebra",
-      "subtopic": "Logarithmic Equations",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_20"
-  },
-  {
-    "id": "MATH_P1_CALC_0518",
-    "topic": "Differential Calculus",
-    "question": "Determine the gradient of the tangent to $y = 5x^2 + 4x$ at $x = 3$ (problem 57).",
-    "correct_answer": "34",
-    "wrong_answers_pool": [
-      "3",
-      "30",
-      "-3",
-      "-2",
-      "38",
-      "2",
-      "-1",
-      "1"
-    ],
-    "explanation": "$\\frac{dy}{dx} = 10x + 4$. At $x = 3$, $m = 34$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Calculus",
-      "subtopic": "Tangents to Curves",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_21"
-  },
-  {
-    "id": "MATH_P1_FIN_0689",
-    "topic": "Financial Mathematics",
-    "question": "A student deposits $R2000$ at the end of each month into an annuity earning $8.0\\%$ p.a. compounded monthly for $5$ years ($60$ months) (case 293). What will be the future value ($F_v$) of the investment?",
-    "correct_answer": "R146953.71",
-    "wrong_answers_pool": [
-      "R161649.08",
-      "R132258.34",
-      "R120000.00",
-      "R148953.71",
-      "R144953.71",
-      "R176344.45",
-      "R117562.97"
-    ],
-    "explanation": "$F_v = \\frac{x[(1 + i)^n - 1]}{i} = R146953.71$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Financial Mathematics",
-      "subtopic": "Future Value Annuities",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_22"
-  },
-  {
-    "id": "MATH_P1_FUNC_0989",
-    "topic": "Functions and Graphs",
-    "question": "Advanced function investigation 169: Find the points of intersection of the parabola $f(x) = x^2 - 2x - 3$ and the line $g(x) = x + 1$.",
-    "correct_answer": "(-1; 0) and (4; 5)",
-    "wrong_answers_pool": [
-      "(1; 2) and (-4; -3)",
-      "(-1; 2) and (4; 3)",
-      "(0; -3) and (1; 2)",
-      "(-3; 0) and (1; 0)",
-      "(2; -3) and (3; 4)",
-      "(-2; -1) and (3; 4)"
-    ],
-    "explanation": "Set $x^2 - 2x - 3 = x + 1 \\implies x^2 - 3x - 4 = 0 \\implies (x - 4)(x + 1) = 0 \\implies x = 4$ or $x = -1$. Substitute into $g(x)$: $g(4) = 5 \\implies (4; 5)$ and $g(-1) = 0 \\implies (-1; 0)$.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Functions",
-      "subtopic": "Advanced Graph Interpretation",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_23"
-  },
-  {
-    "id": "MATH_P1_ALG_0490",
-    "topic": "Algebra, Equations and Inequalities",
-    "question": "Solve for $x$ (problem 109): $\\log_{3}(x + 1) = 1$",
-    "correct_answer": "2",
-    "wrong_answers_pool": [
-      "-1",
-      "5",
-      "0",
-      "9",
-      "3",
-      "1",
-      "4",
-      "42"
-    ],
-    "explanation": "$x + 1 = 3^{1} \\implies x = 3 - 1 = 2$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Algebra",
-      "subtopic": "Logarithmic Equations",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_24"
-  },
-  {
-    "id": "MATH_P1_CALC_0571",
-    "topic": "Differential Calculus",
-    "question": "Determine the gradient of the tangent to $y = 3x^2 + 4x$ at $x = 3$ (problem 110).",
-    "correct_answer": "22",
-    "wrong_answers_pool": [
-      "3",
-      "-3",
-      "-2",
-      "18",
-      "2",
-      "-1",
-      "-22",
-      "1"
-    ],
-    "explanation": "$\\frac{dy}{dx} = 6x + 4$. At $x = 3$, $m = 22$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Calculus",
-      "subtopic": "Tangents to Curves",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_25"
-  },
-  {
-    "id": "MATH_P1_SEQ_0629",
-    "topic": "Patterns, Sequences and Series",
-    "question": "In the arithmetic sequence $11;\\ 14;\\ 17;\\ \\dots$ (case 161), determine the value of term $n$ if $T_n = 92$.",
-    "correct_answer": "n = 28",
-    "wrong_answers_pool": [
-      "n = 29",
-      "n = 27",
-      "n = 31",
-      "n = 25",
-      "n = 56",
-      "n = 14",
-      "n = 50"
-    ],
-    "explanation": "$T_n = 11 + 3(n - 1) = 92 \\implies n = 28$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Sequences and Series",
-      "subtopic": "Arithmetic Sequences",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_26"
-  },
-  {
-    "id": "MATH_P1_FIN_0654",
-    "topic": "Financial Mathematics",
-    "question": "A student deposits $R1000$ at the end of each month into an annuity earning $9.0\\%$ p.a. compounded monthly for $10$ years ($120$ months) (case 258). What will be the future value ($F_v$) of the investment?",
-    "correct_answer": "R193514.28",
-    "wrong_answers_pool": [
-      "R212865.71",
-      "R174162.85",
-      "R120000.00",
-      "R195514.28",
-      "R191514.28",
-      "R232217.14",
-      "R154811.42"
-    ],
-    "explanation": "$F_v = \\frac{x[(1 + i)^n - 1]}{i} = R193514.28$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Financial Mathematics",
-      "subtopic": "Future Value Annuities",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_27"
-  },
-  {
-    "id": "MATH_P1_ALG_0623",
-    "topic": "Algebra, Equations and Inequalities",
-    "question": "Solve for $x$ (problem 242): $\\log_{2}(x + 2) = 1$",
-    "correct_answer": "0",
-    "wrong_answers_pool": [
-      "-3",
-      "-1",
-      "-4",
-      "2",
-      "5",
-      "3",
-      "1",
-      "-2"
-    ],
-    "explanation": "$x + 2 = 2^{1} \\implies x = 2 - 2 = 0$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Algebra",
-      "subtopic": "Logarithmic Equations",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_28"
-  },
-  {
-    "id": "MATH_P1_PROB_0650",
+    "id": "MATH_P1_PROB_0899",
     "topic": "Probability",
-    "question": "Let $P(A) = 0.59$, $P(B) = 0.33$, and $P(A \\cap B) = 0.1947$. Are events $A$ and $B$ independent?",
-    "correct_answer": "Yes, independent because P(A and B) = P(A) * P(B)",
+    "question": "$6$ people, including Alice and Bob, are allocated adjacent desks in a single row for an examination. What is the probability that Alice and Bob DO NOT sit next to each other?",
+    "correct_answer": "2/3",
     "wrong_answers_pool": [
-      "No, dependent because P(A and B) != P(A) * P(B)",
-      "No, because the events are mutually exclusive",
-      "Yes, because P(A and B) = 0",
-      "Cannot be determined without a Venn diagram",
-      "No, because P(A) + P(B) > 1",
-      "Yes, because P(A or B) = P(A) + P(B)",
-      "No, because P(A) != P(B)"
+      "2/2",
+      "2/4",
+      "1/3",
+      "3/3",
+      "7/11",
+      "1/7",
+      "1/5",
+      "1/6"
     ],
-    "explanation": "Evaluate $P(A) \\times P(B) = 0.59 \\times 0.33 = 0.1947$. Given $P(A \\cap B) = 0.1947$. Since $P(A \\cap B) = P(A) \\times P(B)$, the events are independent.",
-    "difficulty": "medium",
+    "explanation": "Probability of sitting together $= \\frac{2}{6}$. Therefore, probability of NOT sitting together $= 1 - \\frac{2}{6} = \\frac{4}{6} = 2/3$.",
+    "difficulty": "hard",
     "tags": {
       "grade": "12",
       "subject": "Mathematics",
       "topic": "Probability",
-      "subtopic": "Independent Events",
-      "cognitive_level": "Routine Procedures",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_29"
-  },
-  {
-    "id": "MATH_P1_FUNC_0832",
-    "topic": "Functions and Graphs",
-    "question": "Advanced function investigation 12: The parabola $f(x) = -(x - 1)(x - 5)$ and the straight line $g(x) = x - 3$ are sketched. For which values of $x$ is $f(x) \\cdot g(x) \\le 0$ on the interval $x > 0$?",
-    "correct_answer": "1 <= x <= 3 or x >= 5",
-    "wrong_answers_pool": [
-      "x <= 1 or 3 <= x <= 5",
-      "1 < x < 5",
-      "3 <= x <= 5",
-      "x >= 3",
-      "0 < x <= 1",
-      "1 <= x <= 5"
-    ],
-    "explanation": "$f(x) \\ge 0$ on $[1; 5]$ and $g(x) \\ge 0$ for $x \\ge 3$. The product is $\\le 0$ when $f$ and $g$ have opposite signs or are zero: $1 \\le x \\le 3$ (where $f \\ge 0, g \\le 0$) and $x \\ge 5$ (where $f \\le 0, g \\ge 0$).",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Functions",
-      "subtopic": "Advanced Graph Interpretation",
-      "cognitive_level": "Analysis",
+      "subtopic": "Probability with Counting Principle",
+      "cognitive_level": "Problem Solving",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_30"
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_18"
   },
   {
-    "id": "MATH_P1_FIN_0546",
-    "topic": "Financial Mathematics",
-    "question": "A student deposits $R500$ at the end of each month into an annuity earning $8.0\\%$ p.a. compounded monthly for $5$ years ($60$ months) (case 150). What will be the future value ($F_v$) of the investment?",
-    "correct_answer": "R36738.43",
-    "wrong_answers_pool": [
-      "R40412.27",
-      "R33064.59",
-      "R30000.00",
-      "R38738.43",
-      "R34738.43",
-      "R44086.12",
-      "R29390.74"
-    ],
-    "explanation": "$F_v = \\frac{x[(1 + i)^n - 1]}{i} = R36738.43$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Financial Mathematics",
-      "subtopic": "Future Value Annuities",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_31"
-  },
-  {
-    "id": "MATH_P1_ALG_0450",
+    "id": "MATH_P1_ALG_0917",
     "topic": "Algebra, Equations and Inequalities",
-    "question": "Solve for $x$ (problem 69): $\\log_{2}(x + 2) = 1$",
-    "correct_answer": "0",
-    "wrong_answers_pool": [
-      "-3",
-      "-1",
-      "-4",
-      "2",
-      "5",
-      "3",
-      "1",
-      "-2"
-    ],
-    "explanation": "$x + 2 = 2^{1} \\implies x = 2 - 2 = 0$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Algebra",
-      "subtopic": "Logarithmic Equations",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_32"
-  },
-  {
-    "id": "MATH_P1_SEQ_0519",
-    "topic": "Patterns, Sequences and Series",
-    "question": "In the arithmetic sequence $2;\\ 8;\\ 14;\\ \\dots$ (case 51), determine the value of term $n$ if $T_n = 266$.",
-    "correct_answer": "n = 45",
-    "wrong_answers_pool": [
-      "n = 46",
-      "n = 44",
-      "n = 48",
-      "n = 42",
-      "n = 90",
-      "n = 22",
-      "n = 50"
-    ],
-    "explanation": "$T_n = 2 + 6(n - 1) = 266 \\implies n = 45$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Sequences and Series",
-      "subtopic": "Arithmetic Sequences",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_33"
-  },
-  {
-    "id": "MATH_P1_FIN_0704",
-    "topic": "Financial Mathematics",
-    "question": "A student deposits $R2000$ at the end of each month into an annuity earning $11.0\\%$ p.a. compounded monthly for $5$ years ($60$ months) (case 308). What will be the future value ($F_v$) of the investment?",
-    "correct_answer": "R159036.16",
-    "wrong_answers_pool": [
-      "R174939.78",
-      "R143132.54",
-      "R120000.00",
-      "R161036.16",
-      "R157036.16",
-      "R190843.39",
-      "R127228.93"
-    ],
-    "explanation": "$F_v = \\frac{x[(1 + i)^n - 1]}{i} = R159036.16$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Financial Mathematics",
-      "subtopic": "Future Value Annuities",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_34"
-  },
-  {
-    "id": "MATH_P1_SEQ_0854",
-    "topic": "Patterns, Sequences and Series",
-    "question": "Advanced sequence case 34: In an arithmetic sequence, the 3rd term is 11 and the 10th term is 39. Find the first term ($a$) and the common difference ($d$).",
-    "correct_answer": "a = 3 and d = 4",
-    "wrong_answers_pool": [
-      "a = 4 and d = 3",
-      "a = 2 and d = 5",
-      "a = 1 and d = 4",
-      "a = 5 and d = 2",
-      "a = -3 and d = 4",
-      "a = 3 and d = -4"
-    ],
-    "explanation": "$T_3 = a + 2d = 11$ and $T_{10} = a + 9d = 39$. Subtracting gives $7d = 28 \\implies d = 4$. Then $a + 2(4) = 11 \\implies a = 3$.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Sequences and Series",
-      "subtopic": "Advanced Sequences & Series",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_35"
-  },
-  {
-    "id": "MATH_P1_CALC_0896",
-    "topic": "Differential Calculus",
-    "question": "Advanced calculus case 76: A cubic function $f(x) = x^3 - 3x^2 - 9x + 5$ has local turning points at $(-1; 10)$ and $(3; -22)$. For which values of $k$ will the equation $f(x) = k$ have three distinct real roots?",
-    "correct_answer": "-22 < k < 10",
-    "wrong_answers_pool": [
-      "k < -22 or k > 10",
-      "-1 < k < 3",
-      "k = -22 or k = 10",
-      "k > 0",
-      "k <= -22 or k >= 10",
-      "-22 <= k <= 10"
-    ],
-    "explanation": "A horizontal line $y = k$ intersects the cubic in three distinct points when $k$ lies strictly between the local minimum and local maximum: $-22 < k < 10$.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Calculus",
-      "subtopic": "Optimization & Curve Sketching",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_36"
-  },
-  {
-    "id": "MATH_P1_FIN_0943",
-    "topic": "Financial Mathematics",
-    "question": "Advanced financial problem 127: A company purchases a machine for R400 000. It is estimated that the machine will depreciate at 15% p.a. on a reducing-balance basis over 5 years. A replacement machine will increase in cost by 8% p.a. compound inflation. A sinking fund is created where the scrap value of the old machine is used towards the replacement. What amount must the sinking fund accumulate over the 5 years?",
-    "correct_answer": "R406 200,75",
-    "wrong_answers_pool": [
-      "R587 731,20",
-      "R177 400,00",
-      "R410 330,45",
-      "R350 000,00",
-      "R450 120,00",
-      "R390 000,00"
-    ],
-    "explanation": "Replacement cost: $A = 400000(1 + 0.08)^5 = \\text{R587 731,20}$. Scrap value: $S = 400000(1 - 0.15)^5 = \\text{R177 481,25}$. Sinking fund required: $587 731,20 - 177 481,25 \\approx \\text{R406 200,75}$.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Financial Mathematics",
-      "subtopic": "Advanced Annuity Calculations",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_37"
-  },
-  {
-    "id": "MATH_P1_SEQ_0601",
-    "topic": "Patterns, Sequences and Series",
-    "question": "In the arithmetic sequence $2;\\ 8;\\ 14;\\ \\dots$ (case 133), determine the value of term $n$ if $T_n = 164$.",
-    "correct_answer": "n = 28",
-    "wrong_answers_pool": [
-      "n = 29",
-      "n = 27",
-      "n = 31",
-      "n = 25",
-      "n = 56",
-      "n = 14",
-      "n = 50"
-    ],
-    "explanation": "$T_n = 2 + 6(n - 1) = 164 \\implies n = 28$.",
-    "difficulty": "medium",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Sequences and Series",
-      "subtopic": "Arithmetic Sequences",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_38"
-  },
-  {
-    "id": "MATH_P1_ALG_0907",
-    "topic": "Algebra, Equations and Inequalities",
-    "question": "Advanced problem case 101: Solve for $x$: $3^{2x} - 10 \\cdot 3^x + 9 = 0$.",
+    "question": "Advanced problem case 112: Solve for $x$: $3^{2x} - 10 \\cdot 3^x + 9 = 0$.",
     "correct_answer": "x = 0 or x = 2",
     "wrong_answers_pool": [
       "x = 1 or x = 9",
@@ -1004,101 +499,76 @@
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_39"
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_19"
   },
   {
-    "id": "MATH_P1_SEQ_0861",
-    "topic": "Patterns, Sequences and Series",
-    "question": "Advanced sequence case 41: A quadratic sequence has general term $T_n = -2n^2 + 20n - 15$. Which term ($n$) has the maximum value?",
-    "correct_answer": "n = 5",
-    "wrong_answers_pool": [
-      "n = 10",
-      "n = 4",
-      "n = 6",
-      "n = 20",
-      "n = 2",
-      "n = 8"
-    ],
-    "explanation": "The vertex occurs at $n = -\\frac{b}{2a} = -\\frac{20}{2(-2)} = 5$. Since $n$ must be a positive integer, the 5th term yields the maximum value.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Sequences and Series",
-      "subtopic": "Advanced Sequences & Series",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_40"
-  },
-  {
-    "id": "MATH_P1_PROB_0821",
+    "id": "MATH_P1_PROB_0984",
     "topic": "Probability",
-    "question": "A $4$-digit smartphone passcode is generated using digits $0-9$. Repetition of digits IS allowed. If the first digit cannot be $0$ and the final digit must be an EVEN number, how many different codes can be created?",
-    "correct_answer": "4500",
+    "question": "If all letters of the word **\"ARRANGEMENT\"** are randomly arranged, what is the probability that the word starts with 'A' and ends with 'T'?",
+    "correct_answer": "1/55",
     "wrong_answers_pool": [
-      "4480",
-      "4520",
-      "4499",
-      "9000",
-      "900",
-      "4510",
-      "4505",
-      "4495"
+      "1/56",
+      "2/55",
+      "1/54",
+      "54/55",
+      "35/99",
+      "14/33",
+      "47/52",
+      "1/24"
     ],
-    "explanation": "First digit: $9$ possibilities ($1-9$). Intermediate $(4-2)$ digits: $10$ options each. Last digit: $5$ options ($0, 2, 4, 6, 8$). Total $= 9 \\times 10^{2} \\times 5 = 4500$.",
+    "explanation": "Total arrangements $n(S) = \\frac{11!}{\\text{repeats}} = 2494800$. Fixing 'A' at the start and 'T' at the end leaves $(11-2)$ positions, giving $n(E) = 45360$ favorable arrangements. $P = \\frac{45360}{2494800} = 1/55$.",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
       "subject": "Mathematics",
       "topic": "Probability",
-      "subtopic": "Counting Principle",
-      "cognitive_level": "Complex Procedures",
+      "subtopic": "Probability with Counting Principle",
+      "cognitive_level": "Problem Solving",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_41"
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_20"
   },
   {
-    "id": "MATH_P1_SEQ_0463",
-    "topic": "Patterns, Sequences and Series",
-    "question": "Evaluate the sum: $\\sum_{k=1}^{10} (4k - 2)$",
-    "correct_answer": "200",
+    "id": "MATH_P1_PROB_0927",
+    "topic": "Probability",
+    "question": "In a cohort of $104$ Grade 12 learners: $58$ take Mathematics, $35$ take Physical Sciences, and $50$ take Life Sciences. Furthermore, $18$ take Mathematics and Physical Sciences, $20$ take Mathematics and Life Sciences, $12$ take Physical Sciences and Life Sciences, while $6$ learners take none of these three subjects. How many learners take ALL THREE subjects?",
+    "correct_answer": "5",
     "wrong_answers_pool": [
-      "2",
-      "-3",
-      "100",
-      "-1",
-      "1",
+      "6",
       "3",
-      "195",
-      "400"
+      "25",
+      "20",
+      "1",
+      "7",
+      "4",
+      "10"
     ],
-    "explanation": "This is an arithmetic series with $n = 10, a = 2, l = 38$. $S_{10} = \\frac{10}{2}(2 + 38) = 200$.",
-    "difficulty": "medium",
+    "explanation": "Using the inclusion-exclusion formula: Total learners $= n(M) + n(P) + n(L) - [n(M \\cap P) + n(M \\cap L) + n(P \\cap L)] + x + \\text{neither}$. $104 = 58 + 35 + 50 - (18 + 20 + 12) + x + 6$. Solving for $x$: $x = 5$ learners take all three subjects.",
+    "difficulty": "hard",
     "tags": {
       "grade": "12",
       "subject": "Mathematics",
-      "topic": "Sequences and Series",
-      "subtopic": "Sigma Notation",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
+      "topic": "Probability",
+      "subtopic": "Venn Diagrams",
+      "cognitive_level": "Problem Solving",
+      "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_42"
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_21"
   },
   {
-    "id": "MATH_P1_ALG_0847",
+    "id": "MATH_P1_ALG_0819",
     "topic": "Algebra, Equations and Inequalities",
-    "question": "Advanced problem case 32: Determine the values of $k$ for which the equation $x^2 + 2kx + (k + 6) = 0$ has real and unequal roots.",
-    "correct_answer": "k < -2 or k > 3",
+    "question": "Solve the advanced equation: For which values of $m$ will the roots of $2x^2 - 4x + m = 0$ be non-real?",
+    "correct_answer": "m > 2",
     "wrong_answers_pool": [
-      "-2 < k < 3",
-      "-3 < k < 2",
-      "k < -3 or k > 2",
-      "k = -2 or k = 3",
-      "k > 0",
-      "k < 6"
+      "m < 2",
+      "m \\ge 2",
+      "m \\le 2",
+      "m > 4",
+      "m < -2",
+      "m = 2"
     ],
-    "explanation": "Real and unequal roots require $\\Delta > 0$. $\\Delta = (2k)^2 - 4(1)(k + 6) = 4k^2 - 4k - 24 > 0 \\implies k^2 - k - 6 > 0 \\implies (k - 3)(k + 2) > 0 \\implies k < -2$ or $k > 3$.",
+    "explanation": "Non-real roots require $\\Delta < 0$. $(-4)^2 - 4(2)(m) < 0 \\implies 16 - 8m < 0 \\implies -8m < -16 \\implies m > 2$.",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
@@ -1108,73 +578,23 @@
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_43"
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_22"
   },
   {
-    "id": "MATH_P1_ALG_0942",
-    "topic": "Algebra, Equations and Inequalities",
-    "question": "Advanced problem case 143: Solve for $x$: $2^{2x} - 6 \\cdot 2^x + 8 = 0$.",
-    "correct_answer": "x = 1 or x = 2",
-    "wrong_answers_pool": [
-      "x = 2 or x = 4",
-      "x = -1 or x = -2",
-      "x = 0 or x = 3",
-      "x = 1 or x = 8",
-      "x = 3 or x = 4",
-      "$x = \\pm 2$"
-    ],
-    "explanation": "Let $k = 2^x$. Then $k^2 - 6k + 8 = 0 \\implies (k - 2)(k - 4) = 0 \\implies k = 2$ or $k = 4$. Since $2^x = 2 \\implies x = 1$; $2^x = 4 \\implies x = 2$.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Algebra",
-      "subtopic": "Advanced Equations",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_44"
-  },
-  {
-    "id": "MATH_P1_CALC_0840",
-    "topic": "Differential Calculus",
-    "question": "Advanced calculus case 20: A cubic function $f(x) = x^3 - 3x^2 - 9x + 5$ has local turning points at $(-1; 10)$ and $(3; -22)$. For which values of $k$ will the equation $f(x) = k$ have three distinct real roots?",
-    "correct_answer": "-22 < k < 10",
-    "wrong_answers_pool": [
-      "k < -22 or k > 10",
-      "-1 < k < 3",
-      "k = -22 or k = 10",
-      "k > 0",
-      "k <= -22 or k >= 10",
-      "-22 <= k <= 10"
-    ],
-    "explanation": "A horizontal line $y = k$ intersects the cubic in three distinct points when $k$ lies strictly between the local minimum and local maximum: $-22 < k < 10$.",
-    "difficulty": "hard",
-    "tags": {
-      "grade": "12",
-      "subject": "Mathematics",
-      "topic": "Calculus",
-      "subtopic": "Optimization & Curve Sketching",
-      "cognitive_level": "Analysis",
-      "difficulty": "hard"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_45"
-  },
-  {
-    "id": "MATH_P1_FUNC_0546",
+    "id": "MATH_P1_FUNC_0551",
     "topic": "Functions and Graphs",
-    "question": "State the range of the exponential function $f(x) = 3^x - 5$ (case 162).",
-    "correct_answer": "y > -5",
+    "question": "State the range of the exponential function $f(x) = 5^x - 3$ (case 167).",
+    "correct_answer": "y > -3",
     "wrong_answers_pool": [
-      "y \\ge -5",
-      "y < -5",
-      "y \\le -5",
+      "y \\ge -3",
+      "y < -3",
+      "y \\le -3",
       "y \\in \\mathbb{R}",
       "y > 0",
-      "y > 5",
-      "x > -5"
+      "y > 3",
+      "x > -3"
     ],
-    "explanation": "Since $3^x > 0$ for all real $x$, the range is $y > -5$.",
+    "explanation": "Since $5^x > 0$ for all real $x$, the range is $y > -3$.",
     "difficulty": "medium",
     "tags": {
       "grade": "12",
@@ -1184,12 +604,107 @@
       "cognitive_level": "Application",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_46"
+    "diagram": {
+      "type": "exponential_log_graph",
+      "base": 2,
+      "hide_inverse": true
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_23"
   },
   {
-    "id": "MATH_P1_ALG_0488",
+    "id": "MATH_P1_FUNC_0781",
+    "topic": "Functions and Graphs",
+    "question": "State the range of the exponential function $f(x) = 3^x - 3$ (case 397).",
+    "correct_answer": "y > -3",
+    "wrong_answers_pool": [
+      "y \\ge -3",
+      "y < -3",
+      "y \\le -3",
+      "y \\in \\mathbb{R}",
+      "y > 0",
+      "y > 3",
+      "x > -3"
+    ],
+    "explanation": "Since $3^x > 0$ for all real $x$, the range is $y > -3$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Functions",
+      "subtopic": "Function Range",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "diagram": {
+      "type": "exponential_log_graph",
+      "base": 2,
+      "hide_inverse": true
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_24"
+  },
+  {
+    "id": "MATH_P1_FUNC_0315",
+    "topic": "Functions and Graphs",
+    "question": "Calculate the coordinates of the turning point of the parabola $f(x) = -x^2 + 8x - 2$.",
+    "correct_answer": "(4; 14)",
+    "wrong_answers_pool": [
+      "(-4; 14)",
+      "(4; -14)",
+      "(-4; -14)",
+      "(5; 13)",
+      "(3; 15)",
+      "(14; 4)",
+      "(0; -2)"
+    ],
+    "explanation": "$x = -\\frac{b}{2a} = -\\frac{8}{2(-1)} = 4$. Substituting into $f(4) = 14 \\implies (4; 14)$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Functions",
+      "subtopic": "Parabola Turning Point",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "diagram": {
+      "type": "cartesian_graph",
+      "graph_type": "parabola",
+      "turning_point": "(4; 14)",
+      "title": "y = f(x)",
+      "tp_label": "Turning Point P",
+      "show_coords": false
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_25"
+  },
+  {
+    "id": "MATH_P1_ALG_0926",
     "topic": "Algebra, Equations and Inequalities",
-    "question": "Solve for $x$ (problem 107): $\\log_{2}(x + 3) = 1$",
+    "question": "Advanced problem case 123: Solve simultaneously for $x$ and $y$: $y - x = 2$ and $x^2 + y^2 = 20$.",
+    "correct_answer": "(x = -4; y = -2) or (x = 2; y = 4)",
+    "wrong_answers_pool": [
+      "(x = 4; y = 2) or (x = -2; y = -4)",
+      "(x = 2; y = 0) or (x = -4; y = 6)",
+      "(x = 3; y = 5) or (x = -3; y = -1)",
+      "(x = 1; y = 3) or (x = -5; y = -3)",
+      "(x = -2; y = 0) or (x = 4; y = 6)",
+      "(x = 0; y = 2) or (x = -2; y = 4)"
+    ],
+    "explanation": "Substitute $y = x + 2$ into $x^2 + (x + 2)^2 = 20 \\implies 2x^2 + 4x - 16 = 0 \\implies x^2 + 2x - 8 = 0 \\implies (x + 4)(x - 2) = 0$. Thus $x = -4 \\implies y = -2$ or $x = 2 \\implies y = 4$.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Algebra",
+      "subtopic": "Advanced Equations",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_26"
+  },
+  {
+    "id": "MATH_P1_ALG_0620",
+    "topic": "Algebra, Equations and Inequalities",
+    "question": "Solve for $x$ (problem 239): $\\log_{2}(x + 3) = 1$",
     "correct_answer": "-1",
     "wrong_answers_pool": [
       "-3",
@@ -1211,48 +726,47 @@
       "cognitive_level": "Application",
       "difficulty": "medium"
     },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_47"
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_27"
   },
   {
-    "id": "MATH_P1_FUNC_0609",
+    "id": "MATH_P1_FUNC_0809",
     "topic": "Functions and Graphs",
-    "question": "State the range of the exponential function $f(x) = 2^x + 5$ (case 225).",
-    "correct_answer": "y > 5",
+    "question": "The parabola $f(x) = -(x - 1)(x - 5)$ and the straight line $g(x) = x - 3$ are sketched. For which values of $x$ is $f(x) \\cdot g(x) \\le 0$ on the interval $x > 0$?",
+    "correct_answer": "1 <= x <= 3 or x >= 5",
     "wrong_answers_pool": [
-      "y \\ge 5",
-      "y < 5",
-      "y \\le 5",
-      "y \\in \\mathbb{R}",
-      "y > 0",
-      "y > -5",
-      "x > 5"
+      "x <= 1 or 3 <= x <= 5",
+      "1 < x < 5",
+      "3 <= x <= 5",
+      "x >= 3",
+      "0 < x <= 1",
+      "1 <= x <= 5"
     ],
-    "explanation": "Since $2^x > 0$ for all real $x$, the range is $y > 5$.",
-    "difficulty": "medium",
+    "explanation": "$f(x) \\ge 0$ on $[1; 5]$ and $g(x) \\ge 0$ for $x \\ge 3$. The product is $\\le 0$ when $f$ and $g$ have opposite signs or are zero: $1 \\le x \\le 3$ (where $f \\ge 0, g \\le 0$) and $x \\ge 5$ (where $f \\le 0, g \\ge 0$).",
+    "difficulty": "hard",
     "tags": {
       "grade": "12",
       "subject": "Mathematics",
       "topic": "Functions",
-      "subtopic": "Function Range",
-      "cognitive_level": "Application",
-      "difficulty": "medium"
+      "subtopic": "Advanced Graph Interpretation",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
     },
-    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_48"
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_28"
   },
   {
-    "id": "MATH_P1_CALC_0954",
+    "id": "MATH_P1_CALC_0956",
     "topic": "Differential Calculus",
-    "question": "Advanced calculus case 134: A cubic function $f(x) = x^3 - 3x^2 - 9x + 5$ has local turning points at $(-1; 10)$ and $(3; -22)$. For which values of $k$ will the equation $f(x) = k$ have three distinct real roots?",
-    "correct_answer": "-22 < k < 10",
+    "question": "Advanced calculus case 136: An open rectangular box is formed from a rectangular sheet of metal measuring 30 cm by 16 cm by cutting equal squares of side length $x$ cm from each corner and folding up the sides. What value of $x$ maximizes the volume of the box?",
+    "correct_answer": "x = 3.33 cm (or 10/3 cm)",
     "wrong_answers_pool": [
-      "k < -22 or k > 10",
-      "-1 < k < 3",
-      "k = -22 or k = 10",
-      "k > 0",
-      "k <= -22 or k >= 10",
-      "-22 <= k <= 10"
+      "x = 5 cm",
+      "x = 4 cm",
+      "x = 2.5 cm",
+      "x = 8 cm",
+      "x = 6 cm",
+      "x = 1.5 cm"
     ],
-    "explanation": "A horizontal line $y = k$ intersects the cubic in three distinct points when $k$ lies strictly between the local minimum and local maximum: $-22 < k < 10$.",
+    "explanation": "Volume $V(x) = x(30 - 2x)(16 - 2x) = 4x^3 - 92x^2 + 480x$. $V'(x) = 12x^2 - 184x + 480 = 0 \\implies 3x^2 - 46x + 120 = 0 \\implies (3x - 10)(x - 12) = 0$. Since $x < 8$, $x = \\frac{10}{3} \\approx 3.33$ cm.",
     "difficulty": "hard",
     "tags": {
       "grade": "12",
@@ -1262,12 +776,534 @@
       "cognitive_level": "Analysis",
       "difficulty": "hard"
     },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_29"
+  },
+  {
+    "id": "MATH_P1_ALG_0551",
+    "topic": "Algebra, Equations and Inequalities",
+    "question": "Solve for $x$ (problem 170): $\\log_{5}(x + 3) = 1$",
+    "correct_answer": "2",
+    "wrong_answers_pool": [
+      "-1",
+      "5",
+      "0",
+      "9",
+      "3",
+      "1",
+      "4",
+      "18"
+    ],
+    "explanation": "$x + 3 = 5^{1} \\implies x = 5 - 3 = 2$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Algebra",
+      "subtopic": "Logarithmic Equations",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_30"
+  },
+  {
+    "id": "MATH_P1_CALC_0444",
+    "topic": "Differential Calculus",
+    "question": "Find the x-coordinate of the point of inflection of the curve $f(x) = x^3 + 9x^2 + 4x - 1$.",
+    "correct_answer": "-3",
+    "wrong_answers_pool": [
+      "3",
+      "-2",
+      "2",
+      "-1",
+      "-7",
+      "1",
+      "-36",
+      "26"
+    ],
+    "explanation": "$f'(x) = 3x^2 + 18x + 4$, $f''(x) = 6x + 18 = 0 \\implies x = -3$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Calculus",
+      "subtopic": "Points of Inflection",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_31"
+  },
+  {
+    "id": "MATH_P1_PROB_0481",
+    "topic": "Probability",
+    "question": "$7$ learners line up at an executive boardroom table in a row. In how many different ways can they be arranged if Kagiso and Lindiwe refuse to stand next to each other?",
+    "correct_answer": "3600",
+    "wrong_answers_pool": [
+      "7200",
+      "3599",
+      "1200",
+      "900",
+      "10800",
+      "720",
+      "3598",
+      "3590"
+    ],
+    "explanation": "Total arrangements without restrictions $= 7! = 5040$. Arrangements where Kagiso and Lindiwe are together $= (7-1)! \\times 2! = 1440$. Arrangements where they are NOT together $= 5040 - 1440 = 3600$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "subtopic": "Counting Principle",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_32"
+  },
+  {
+    "id": "MATH_P1_CALC_0655",
+    "topic": "Differential Calculus",
+    "question": "Determine the gradient of the tangent to $y = 5x^2 + 4x$ at $x = 1$ (problem 194).",
+    "correct_answer": "14",
+    "wrong_answers_pool": [
+      "3",
+      "-3",
+      "-2",
+      "18",
+      "2",
+      "-1",
+      "-14",
+      "1"
+    ],
+    "explanation": "$\\frac{dy}{dx} = 10x + 4$. At $x = 1$, $m = 14$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Calculus",
+      "subtopic": "Tangents to Curves",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_33"
+  },
+  {
+    "id": "MATH_P1_FIN_0405",
+    "topic": "Financial Mathematics",
+    "question": "A student deposits $R2500$ at the end of each month into an annuity earning $10.0\\%$ p.a. compounded monthly for $5$ years ($60$ months) (case 9). What will be the future value ($F_v$) of the investment?",
+    "correct_answer": "R193592.68",
+    "wrong_answers_pool": [
+      "R212951.95",
+      "R174233.41",
+      "R150000.00",
+      "R195592.68",
+      "R191592.68",
+      "R232311.22",
+      "R154874.14"
+    ],
+    "explanation": "$F_v = \\frac{x[(1 + i)^n - 1]}{i} = R193592.68$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Financial Mathematics",
+      "subtopic": "Future Value Annuities",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_34"
+  },
+  {
+    "id": "MATH_P1_CALC_0934",
+    "topic": "Differential Calculus",
+    "question": "Advanced calculus case 114: For the cubic function $f(x) = 2x^3 - 6x^2 + 4x - 1$, on which interval is the graph concave up?",
+    "correct_answer": "x > 1",
+    "wrong_answers_pool": [
+      "x < 1",
+      "x > 0",
+      "x < 0",
+      "0 < x < 1",
+      "x >= 2",
+      "x in R"
+    ],
+    "explanation": "Concave up where $f''(x) > 0$. $f'(x) = 6x^2 - 12x + 4 \\implies f''(x) = 12x - 12 > 0 \\implies 12x > 12 \\implies x > 1$.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Calculus",
+      "subtopic": "Optimization & Curve Sketching",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_35"
+  },
+  {
+    "id": "MATH_P1_PROB_0320",
+    "topic": "Probability",
+    "question": "Find the total number of distinct words (with or without meaning) formed by rearranging all the letters of **\"EXCELLENT\"**?",
+    "correct_answer": "30240",
+    "wrong_answers_pool": [
+      "30239",
+      "151200",
+      "30220",
+      "30241",
+      "30230",
+      "30238",
+      "6048",
+      "30260"
+    ],
+    "explanation": "Using the permutation formula with repeated letters: $\\frac{n!}{n_1! n_2! \\dots} = \\frac{9!}{3! \\times 2!} = \\frac{362880}{12} = 30240$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "subtopic": "Counting Principle",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_36"
+  },
+  {
+    "id": "MATH_P1_PROB_0937",
+    "topic": "Probability",
+    "question": "In a cohort of $109$ Grade 12 learners: $57$ take Mathematics, $57$ take Physical Sciences, and $39$ take Life Sciences. Furthermore, $24$ take Mathematics and Physical Sciences, $18$ take Mathematics and Life Sciences, $18$ take Physical Sciences and Life Sciences, while $7$ learners take none of these three subjects. How many learners take ALL THREE subjects?",
+    "correct_answer": "9",
+    "wrong_answers_pool": [
+      "45",
+      "19",
+      "14",
+      "36",
+      "18",
+      "29",
+      "8",
+      "11"
+    ],
+    "explanation": "Using the inclusion-exclusion formula: Total learners $= n(M) + n(P) + n(L) - [n(M \\cap P) + n(M \\cap L) + n(P \\cap L)] + x + \\text{neither}$. $109 = 57 + 57 + 39 - (24 + 18 + 18) + x + 7$. Solving for $x$: $x = 9$ learners take all three subjects.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "subtopic": "Venn Diagrams",
+      "cognitive_level": "Problem Solving",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_37"
+  },
+  {
+    "id": "MATH_P1_FUNC_0972",
+    "topic": "Functions and Graphs",
+    "question": "Advanced function investigation 152: Calculate the average gradient of the function $f(x) = 2x^2 - 3$ between the points where $x = 1$ and $x = 4$.",
+    "correct_answer": "10",
+    "wrong_answers_pool": [
+      "8",
+      "12",
+      "6",
+      "14",
+      "5",
+      "9"
+    ],
+    "explanation": "Average gradient $= \\frac{f(4) - f(1)}{4 - 1} = \\frac{(2(16) - 3) - (2(1) - 3)}{3} = \\frac{29 - (-1)}{3} = \\frac{30}{3} = 10$.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Functions",
+      "subtopic": "Advanced Graph Interpretation",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_38"
+  },
+  {
+    "id": "MATH_P1_FIN_0612",
+    "topic": "Financial Mathematics",
+    "question": "A student deposits $R1500$ at the end of each month into an annuity earning $11.0\\%$ p.a. compounded monthly for $5$ years ($60$ months) (case 216). What will be the future value ($F_v$) of the investment?",
+    "correct_answer": "R119277.12",
+    "wrong_answers_pool": [
+      "R131204.83",
+      "R107349.41",
+      "R90000.00",
+      "R121277.12",
+      "R117277.12",
+      "R143132.54",
+      "R95421.70"
+    ],
+    "explanation": "$F_v = \\frac{x[(1 + i)^n - 1]}{i} = R119277.12$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Financial Mathematics",
+      "subtopic": "Future Value Annuities",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_39"
+  },
+  {
+    "id": "MATH_P1_PROB_0341",
+    "topic": "Probability",
+    "question": "Find the total number of distinct words (with or without meaning) formed by rearranging all the letters of **\"POSSESSION\"**?",
+    "correct_answer": "75600",
+    "wrong_answers_pool": [
+      "151200",
+      "75610",
+      "25200",
+      "226800",
+      "302400",
+      "75601",
+      "75598",
+      "75620"
+    ],
+    "explanation": "Using the permutation formula with repeated letters: $\\frac{n!}{n_1! n_2! \\dots} = \\frac{10!}{4! \\times 2!} = \\frac{3628800}{48} = 75600$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "subtopic": "Counting Principle",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_40"
+  },
+  {
+    "id": "MATH_P1_FIN_0769",
+    "topic": "Financial Mathematics",
+    "question": "A student deposits $R2500$ at the end of each month into an annuity earning $9.0\\%$ p.a. compounded monthly for $10$ years ($120$ months) (case 373). What will be the future value ($F_v$) of the investment?",
+    "correct_answer": "R483785.69",
+    "wrong_answers_pool": [
+      "R532164.26",
+      "R435407.12",
+      "R300000.00",
+      "R485785.69",
+      "R481785.69",
+      "R580542.83",
+      "R387028.55"
+    ],
+    "explanation": "$F_v = \\frac{x[(1 + i)^n - 1]}{i} = R483785.69$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Financial Mathematics",
+      "subtopic": "Future Value Annuities",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_41"
+  },
+  {
+    "id": "MATH_P1_FIN_0896",
+    "topic": "Financial Mathematics",
+    "question": "Advanced financial problem 80: A borrower repays a loan of R100 000 at 10% p.a. compounded monthly by making regular monthly payments of R2 500. Calculate how many full payments of R2 500 are required to pay off the loan.",
+    "correct_answer": "49 full payments",
+    "wrong_answers_pool": [
+      "40 full payments",
+      "52 full payments",
+      "48 full payments",
+      "45 full payments",
+      "60 full payments",
+      "36 full payments"
+    ],
+    "explanation": "$P_v = \\frac{x[1 - (1+i)^{-n}]}{i} \\implies 1 - \\frac{100000 \\times (0.10/12)}{2500} = (1 + \\frac{0.10}{12})^{-n} \\implies (1.008333)^{-n} = 0.666667 \\implies -n = \\frac{\\log(0.666667)}{\\log(1.008333)} \\approx -48.84 \\implies 49$ full payments.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Financial Mathematics",
+      "subtopic": "Advanced Annuity Calculations",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_42"
+  },
+  {
+    "id": "MATH_P1_FIN_0600",
+    "topic": "Financial Mathematics",
+    "question": "A student deposits $R1000$ at the end of each month into an annuity earning $11.0\\%$ p.a. compounded monthly for $10$ years ($120$ months) (case 204). What will be the future value ($F_v$) of the investment?",
+    "correct_answer": "R216998.14",
+    "wrong_answers_pool": [
+      "R238697.95",
+      "R195298.33",
+      "R120000.00",
+      "R218998.14",
+      "R214998.14",
+      "R260397.77",
+      "R173598.51"
+    ],
+    "explanation": "$F_v = \\frac{x[(1 + i)^n - 1]}{i} = R216998.14$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Financial Mathematics",
+      "subtopic": "Future Value Annuities",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_43"
+  },
+  {
+    "id": "MATH_P1_FIN_0917",
+    "topic": "Financial Mathematics",
+    "question": "Advanced financial problem 101: A loan of R500 000 is repaid by monthly installments of R5 160,94 at 11% p.a. compounded monthly over 20 years (240 payments). Calculate the outstanding balance immediately after the 100th payment.",
+    "correct_answer": "R393 056,22",
+    "wrong_answers_pool": [
+      "R250 000,00",
+      "R415 200,50",
+      "R362 890,14",
+      "R380 000,00",
+      "R425 110,80",
+      "R310 500,00"
+    ],
+    "explanation": "Balance equals the present value of the remaining $240 - 100 = 140$ payments: $P_v = \\frac{5160.94[1 - (1 + \\frac{0.11}{12})^{-140}]}{\\frac{0.11}{12}} \\approx \\text{R393 056,22}$.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Financial Mathematics",
+      "subtopic": "Advanced Annuity Calculations",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_44"
+  },
+  {
+    "id": "MATH_P1_ALG_0614",
+    "topic": "Algebra, Equations and Inequalities",
+    "question": "Solve for $x$ (problem 233): $\\log_{3}(x + 1) = 1$",
+    "correct_answer": "2",
+    "wrong_answers_pool": [
+      "-1",
+      "5",
+      "0",
+      "9",
+      "3",
+      "1",
+      "4",
+      "15"
+    ],
+    "explanation": "$x + 1 = 3^{1} \\implies x = 3 - 1 = 2$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Algebra",
+      "subtopic": "Logarithmic Equations",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_45"
+  },
+  {
+    "id": "MATH_P1_FUNC_0872",
+    "topic": "Functions and Graphs",
+    "question": "Advanced function investigation 52: The parabola $f(x) = -(x - 1)(x - 5)$ and the straight line $g(x) = x - 3$ are sketched. For which values of $x$ is $f(x) \\cdot g(x) \\le 0$ on the interval $x > 0$?",
+    "correct_answer": "1 <= x <= 3 or x >= 5",
+    "wrong_answers_pool": [
+      "x <= 1 or 3 <= x <= 5",
+      "1 < x < 5",
+      "3 <= x <= 5",
+      "x >= 3",
+      "0 < x <= 1",
+      "1 <= x <= 5"
+    ],
+    "explanation": "$f(x) \\ge 0$ on $[1; 5]$ and $g(x) \\ge 0$ for $x \\ge 3$. The product is $\\le 0$ when $f$ and $g$ have opposite signs or are zero: $1 \\le x \\le 3$ (where $f \\ge 0, g \\le 0$) and $x \\ge 5$ (where $f \\le 0, g \\ge 0$).",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Functions",
+      "subtopic": "Advanced Graph Interpretation",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_46"
+  },
+  {
+    "id": "MATH_P1_PROB_0631",
+    "topic": "Probability",
+    "question": "For events $A$ and $B$, $P(A) = 0.59$, $P(B) = 0.44$, and $P(A \\cup B) = 0.80$. Find $P(A \\cap B)$.",
+    "correct_answer": "0.23",
+    "wrong_answers_pool": [
+      "0.03",
+      "0.15",
+      "0.18",
+      "0.38",
+      "0.31",
+      "0.33",
+      "0.13",
+      "0.08"
+    ],
+    "explanation": "Rearranging the addition rule: $P(A \\cap B) = P(A) + P(B) - P(A \\cup B) = 0.59 + 0.44 - 0.80 = 0.23$.",
+    "difficulty": "medium",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Probability",
+      "subtopic": "Addition Rule",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_47"
+  },
+  {
+    "id": "MATH_P1_SEQ_0943",
+    "topic": "Patterns, Sequences and Series",
+    "question": "Advanced sequence case 123: Given the series $\\sum_{k=1}^n 2^k = 1022$. Calculate the value of $n$.",
+    "correct_answer": "n = 9",
+    "wrong_answers_pool": [
+      "n = 10",
+      "n = 8",
+      "n = 7",
+      "n = 11",
+      "n = 12",
+      "n = 5"
+    ],
+    "explanation": "This is a geometric series: $a = 2, r = 2$. $S_n = \\frac{a(r^n - 1)}{r - 1} = \\frac{2(2^n - 1)}{2 - 1} = 2(2^n - 1) = 1022 \\implies 2^n - 1 = 511 \\implies 2^n = 512 \\implies n = 9$.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Sequences and Series",
+      "subtopic": "Advanced Sequences & Series",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_48"
+  },
+  {
+    "id": "MATH_P1_FUNC_0926",
+    "topic": "Functions and Graphs",
+    "question": "Advanced function investigation 106: Find the points of intersection of the parabola $f(x) = x^2 - 2x - 3$ and the line $g(x) = x + 1$.",
+    "correct_answer": "(-1; 0) and (4; 5)",
+    "wrong_answers_pool": [
+      "(1; 2) and (-4; -3)",
+      "(-1; 2) and (4; 3)",
+      "(0; -3) and (1; 2)",
+      "(-3; 0) and (1; 0)",
+      "(2; -3) and (3; 4)",
+      "(-2; -1) and (3; 4)"
+    ],
+    "explanation": "Set $x^2 - 2x - 3 = x + 1 \\implies x^2 - 3x - 4 = 0 \\implies (x - 4)(x + 1) = 0 \\implies x = 4$ or $x = -1$. Substitute into $g(x)$: $g(4) = 5 \\implies (4; 5)$ and $g(-1) = 0 \\implies (-1; 0)$.",
+    "difficulty": "hard",
+    "tags": {
+      "grade": "12",
+      "subject": "Mathematics",
+      "topic": "Functions",
+      "subtopic": "Advanced Graph Interpretation",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
     "exam_id": "EXAM_2026-W46_grade12_mathematics_paper1_49"
   },
   {
-    "id": "MATH_P1_ALG_0799",
+    "id": "MATH_P1_ALG_0752",
     "topic": "Algebra, Equations and Inequalities",
-    "question": "Solve for $x$ (problem 418): $\\log_{3}(x + 2) = 1$",
+    "question": "Solve for $x$ (problem 371): $\\log_{3}(x + 2) = 1$",
     "correct_answer": "1",
     "wrong_answers_pool": [
       "7",
@@ -1277,7 +1313,7 @@
       "3",
       "-2",
       "4",
-      "-9"
+      "-39"
     ],
     "explanation": "$x + 2 = 3^{1} \\implies x = 3 - 2 = 1$.",
     "difficulty": "medium",

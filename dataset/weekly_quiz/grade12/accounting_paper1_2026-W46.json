@@ -1,469 +1,104 @@
 [
   {
-    "id": "ACC_P1_FIN_0434",
-    "topic": "Financial Statements & Adjustments",
-    "subtopic": "Net Profit Adjustments",
-    "difficulty": "medium",
-    "question": "The preliminary Net Profit before tax for **Protea Ltd** was determined to be **R1,250,000**. Before closing the books, the following two year-end adjustments were omitted: (1) additional interest on loan of **R8,200**, and (2) provision for bad debts increase of **R5,500**. Calculate the finalized, corrected Net Profit before tax:",
-    "correct_answer": "R1,236,300",
+    "id": "ACC_P1_ANA_0966",
+    "topic": "Financial Indicators & Interpretation",
+    "subtopic": "Reverse Ratio Engineering",
+    "difficulty": "hard",
+    "question": "The financial indicators of **Apex Auto Ltd** reflect a **Current Ratio of 1.9 : 1** and an **Acid-Test Ratio of 1.0 : 1**. The Balance Sheet discloses Current Liabilities of **R2,200,000**. Reverse-engineer the exact carrying value of **Trading Inventory**:",
+    "correct_answer": "Trading Inventory = R1,980,000",
     "wrong_answers_pool": [
-      "R1,263,700 (added expenses to profit instead of subtracting)",
-      "R1,241,800 (omitted the second adjustment of R5,500)",
-      "R1,244,500 (omitted the first adjustment of R8,200)",
-      "R1,359,930",
-      "R1,112,670",
-      "R1,261,300",
-      "R1,250,000"
+      "Trading Inventory = R4,180,000 (calculated Total Current Assets instead of inventory)",
+      "Trading Inventory = R2,200,000 (calculated Quick Assets instead of inventory)",
+      "Trading Inventory = R2,970,000",
+      "Trading Inventory = R990,000",
+      "Trading Inventory = R6,380,000",
+      "Trading Inventory = R2,200,000",
+      "Trading Inventory = R2,080,000"
     ],
-    "explanation": "Corrected Profit = Preliminary Profit (R1,250,000) - additional interest on loan (R8,200) - provision for bad debts increase (R5,500) = R1,236,300.",
+    "explanation": "1. Current Assets = Current Ratio \u00d7 CL = 1.9 \u00d7 R2,200,000 = R4,180,000. 2. Quick Assets (CA - Inventory) = Acid-Test \u00d7 CL = 1.0 \u00d7 R2,200,000 = R2,200,000. 3. Trading Inventory = Current Assets - Quick Assets = (Current Ratio - Acid-Test) \u00d7 CL = (1.9 - 1.0) \u00d7 R2,200,000 = 0.9 \u00d7 R2,200,000 = Trading Inventory = R1,980,000.",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
-      "topic": "Financial Statements",
-      "subtopic": "Net Profit Adjustments",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Adjust Net Profit for Protea Ltd"
+      "topic": "Financial Indicators",
+      "subtopic": "Reverse Ratio Engineering",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Reverse calculate Inventory for Apex Auto Ltd"
     },
     "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_1"
   },
   {
-    "id": "ACC_P1_ANA_0976",
-    "topic": "Financial Indicators & Interpretation",
-    "subtopic": "Reverse Ratio Engineering",
+    "id": "ACC_P1_FIN_0832",
+    "topic": "Financial Statements & Adjustments",
+    "subtopic": "Tangible Asset Disposal Calculations",
     "difficulty": "hard",
-    "question": "**Apex Auto Ltd** maintains a **Debt-Equity Ratio of 0.38 : 1**. The Statement of Financial Position reports Shareholders' Equity of **R5,900,000**. Calculate the exact balance of **Non-Current Liabilities (Mortgage Loan)**:",
-    "correct_answer": "Non-Current Liabilities (Loan) = R2,242,000",
+    "question": "In the records of **Laysano Ltd**, determine the **Accumulated Depreciation** to be written off and debited to the Asset Disposal Account for the **Delivery Truck** sold on **30 November** (Cost R420,000, starting accumulated dep R168,000, 20% diminishing balance):",
+    "correct_answer": "R205,800",
     "wrong_answers_pool": [
-      "Non-Current Liabilities = R15,526,316 (inverted: Equity / Gearing)",
-      "Non-Current Liabilities = R5,900,000 (confused debt with equity)",
-      "Non-Current Liabilities = R3,363,000",
-      "Non-Current Liabilities = R1,121,000",
-      "Non-Current Liabilities = R3,102,000 (calculated Total Liabilities instead of loan)",
-      "Non-Current Liabilities = R2,492,000",
-      "Non-Current Liabilities = R8,142,000"
+      "R168,000 (forgot current year depreciation)",
+      "R37,800 (only stated current year depreciation)",
+      "R420,000",
+      "R246,960",
+      "R102,900",
+      "R214,200",
+      "R220,800"
     ],
-    "explanation": "Debt-Equity = Non-Current Liabilities / Equity. Therefore: Non-Current Liabilities = Gearing \u00d7 Equity = 0.38 \u00d7 R5,900,000 = Non-Current Liabilities (Loan) = R2,242,000.",
+    "explanation": "Total Accumulated Depreciation at disposal = Opening Acc Dep (R168,000) + Current year dep (R37,800) = R205,800.",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
-      "topic": "Financial Indicators",
-      "subtopic": "Reverse Ratio Engineering",
+      "topic": "Financial Statements",
+      "subtopic": "Tangible Asset Disposal Calculations",
       "cognitive_level": "Evaluating",
       "difficulty": "hard",
-      "learning_outcome": "Reverse calculate Loan for Apex Auto Ltd"
+      "learning_outcome": "Calculate Accumulated Depreciation for Laysano Ltd"
     },
     "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_2"
   },
   {
-    "id": "ACC_P1_FIN_0778",
-    "topic": "Financial Statements & Adjustments",
-    "subtopic": "Net Profit Adjustments",
+    "id": "ACC_P1_CF_0382",
+    "topic": "Cash Flow Statement",
+    "subtopic": "Working Capital Changes",
     "difficulty": "medium",
-    "question": "The preliminary Net Profit before tax for **Galaxy Ltd** was determined to be **R920,000**. Before closing the books, the following two year-end adjustments were omitted: (1) trading stock deficit of **R12,000**, and (2) increase in provision for bad debts of **R8,500**. Calculate the finalized, corrected Net Profit before tax:",
-    "correct_answer": "R899,500",
+    "question": "In the records of **Orchid Ltd**, **Trade and Other Receivables** had an opening balance of **R510,000** and a closing balance of **R430,000**. Determine the change and its effect on the Cash Flow Statement under Changes in Working Capital:",
+    "correct_answer": "(Decrease of R80,000): Inflow of R80,000",
     "wrong_answers_pool": [
-      "R940,500 (added expenses to profit instead of subtracting)",
-      "R908,000 (omitted the second adjustment of R8,500)",
-      "R911,500 (omitted the first adjustment of R12,000)",
-      "R989,450",
-      "R809,550",
-      "R924,500",
-      "R920,000"
+      "(Decrease of R80,000): Outflow of R80,000 (inverted cash flow direction)",
+      "No effect on cash flow because Trade and Other Receivables is a non-cash balance sheet item",
+      "Investing Activity: Outflow of R80,000",
+      "Financing Activity: Inflow of R80,000",
+      "R430,000 (confused closing balance with cash change)",
+      "R940,000",
+      "Outflow of R160,000"
     ],
-    "explanation": "Corrected Profit = Preliminary Profit (R920,000) - trading stock deficit (R12,000) - increase in provision for bad debts (R8,500) = R899,500.",
+    "explanation": "Trade and Other Receivables changed by R80,000 (decrease). In working capital: For assets (inventory/debtors), an increase consumes cash (outflow) and a decrease frees cash (inflow); for liabilities (creditors), an increase delays cash payment (inflow) and a decrease consumes cash (outflow). Result: (Decrease of R80,000): Inflow of R80,000.",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
-      "topic": "Financial Statements",
-      "subtopic": "Net Profit Adjustments",
+      "topic": "Cash Flow Statement",
+      "subtopic": "Working Capital Changes",
       "cognitive_level": "Applying",
       "difficulty": "medium",
-      "learning_outcome": "Adjust Net Profit for Galaxy Ltd"
+      "learning_outcome": "Determine WC change for Orchid Ltd"
     },
     "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_3"
   },
   {
-    "id": "ACC_P1_FIN_0935",
-    "topic": "Financial Statements & Adjustments",
-    "subtopic": "Tangible Asset Disposal Calculations",
-    "difficulty": "hard",
-    "question": "**Galaxy Ltd** disposed of a **CNC Lathe Machine** on **31 December** (10 months into the financial year ending 28 February). Original cost price: **R500,000**; Accumulated depreciation at the start of the year (1 March): **R200,000**. Depreciation rate: **10% p.a. on straight-line**. The asset was sold for cash for **R240,000**. Calculate the carrying value on the date of disposal and the resulting profit or loss on sale:",
-    "correct_answer": "Carrying Value = R258,333; LOSS on sale = R18,333",
-    "wrong_answers_pool": [
-      "Carrying Value = R300,000; PROFIT on sale = R60,000 (forgot current year depreciation)",
-      "Carrying Value = R500,000; LOSS on sale = R260,000",
-      "Carrying Value = R258,333; PROFIT on sale = R18,333 (inverted profit and loss)",
-      "Carrying Value = R284,167; Profit on sale = R27,500",
-      "Carrying Value = R241,667; Loss on sale = R1,667",
-      "Carrying Value = R258,333; Zero profit or loss",
-      "Carrying Value = R240,000; Profit on sale = R41,667"
-    ],
-    "explanation": "1. Current year depreciation up to sale (31 December, 10 months): R41,667. 2. Total accumulated depreciation at date of disposal: R200,000 + R41,667 = R241,667. 3. Carrying value at date of disposal: Cost (R500,000) - Accumulated Depreciation (R241,667) = R258,333. 4. Profit/Loss on disposal: Selling price (R240,000) - Carrying value (R258,333) = Carrying Value = R258,333; LOSS on sale = R18,333.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Statements",
-      "subtopic": "Tangible Asset Disposal Calculations",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate Asset Disposal for Galaxy Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_4"
-  },
-  {
-    "id": "ACC_P1_FIN_0960",
-    "topic": "Financial Statements & Adjustments",
-    "subtopic": "Tangible Asset Disposal Calculations",
-    "difficulty": "hard",
-    "question": "In the records of **Metro Ltd**, determine the **Accumulated Depreciation** to be written off and debited to the Asset Disposal Account for the **Printing Press** sold on **31 October** (Cost R600,000, starting accumulated dep R240,000, 15% diminishing balance):",
-    "correct_answer": "R276,000",
-    "wrong_answers_pool": [
-      "R240,000 (forgot current year depreciation)",
-      "R36,000 (only stated current year depreciation)",
-      "R600,000",
-      "R331,200",
-      "R138,000",
-      "R324,000",
-      "R291,000"
-    ],
-    "explanation": "Total Accumulated Depreciation at disposal = Opening Acc Dep (R240,000) + Current year dep (R36,000) = R276,000.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Statements",
-      "subtopic": "Tangible Asset Disposal Calculations",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate Accumulated Depreciation for Metro Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_5"
-  },
-  {
-    "id": "ACC_P1_ANA_0800",
-    "topic": "Financial Indicators & Interpretation",
-    "subtopic": "Operating Expenses Analysis",
-    "difficulty": "medium",
-    "question": "The Income Statement of **Port Elizabeth Logistics Ltd** reflects Sales of **R17,820,000** and Net Profit after Tax of **R1,710,720**. Determine the **Net Profit Margin on Sales** (%):",
-    "correct_answer": "9.6%",
-    "wrong_answers_pool": [
-      "24.0% (confused Net Profit Margin with Operating Expenses percentage)",
-      "14.4%",
-      "4.8%",
-      "14.6%",
-      "5.6%",
-      "90.4%",
-      "R1,710,720"
-    ],
-    "explanation": "Net Profit Margin = (Net Profit after Tax / Sales) \u00d7 100 = (R1,710,720 / R17,820,000) \u00d7 100 = 9.6%.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Indicators",
-      "subtopic": "Operating Expenses Analysis",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate Net Profit Margin for Port Elizabeth Logistics Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_6"
-  },
-  {
-    "id": "ACC_P1_ANA_0729",
-    "topic": "Financial Indicators & Interpretation",
-    "subtopic": "Operating Expenses Analysis",
-    "difficulty": "medium",
-    "question": "**Polokwane Supply Ltd** recorded Sales of **R7,830,000** and Operating Expenses of **R1,879,200**. Calculate the **Operating Expenses as a percentage of Sales** (%):",
-    "correct_answer": "24.0%",
-    "wrong_answers_pool": [
-      "9.6% (confused operating expenses percentage with net profit margin)",
-      "36.0%",
-      "12.0%",
-      "76.0%",
-      "32.0%",
-      "18.0%",
-      "R1,879,200"
-    ],
-    "explanation": "% Operating Expenses on Sales = (Operating Expenses / Sales) \u00d7 100 = (R1,879,200 / R7,830,000) \u00d7 100 = 24.0%.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Indicators",
-      "subtopic": "Operating Expenses Analysis",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate Operating Expense % for Polokwane Supply Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_7"
-  },
-  {
-    "id": "ACC_P1_COMP_0384",
-    "topic": "Companies & Corporate Governance",
-    "subtopic": "Ordinary Share Capital Note",
-    "difficulty": "medium",
-    "question": "At the start of the year, **Zululand Agro Ltd** had **750,000** shares. During the year, they issued **200,000** new shares and later bought back **45,000** shares. How many ordinary shares are in issue at the **end of the financial year**?",
-    "correct_answer": "905,000 shares",
-    "wrong_answers_pool": [
-      "950,000 shares (forgot to deduct repurchased shares)",
-      "750,000 shares (used beginning shares only)",
-      "705,000 shares (deducted buyback from opening shares without adding new issue)",
-      "995,000 shares (added repurchased shares)",
-      "955,000 shares",
-      "855,000 shares",
-      "995,500 shares"
-    ],
-    "explanation": "Closing Issued Shares = Opening Shares + New Shares Issued - Shares Repurchased\n= 750,000 + 200,000 - 45,000 = 905,000 shares.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Companies & Corporate Governance",
-      "subtopic": "Ordinary Share Capital Note",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate closing share count for Zululand Agro Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_8"
-  },
-  {
-    "id": "ACC_P1_COMP_0776",
-    "topic": "Companies & Corporate Governance",
-    "subtopic": "Retained Income Note",
-    "difficulty": "medium",
-    "question": "**Klerksdorp Goldfields Ltd** bought back **140,000** ordinary shares at **R17.50** each. The weighted average issue price on the date of repurchase was **R13.63**. Calculate the amount debited to **Retained Income** (Note 8) in respect of this share repurchase:",
-    "correct_answer": "R541,333.33",
-    "wrong_answers_pool": [
-      "R1,908,666.67 (confused with amount debited to share capital)",
-      "R2,450,000.00 (debited total repurchase consideration to retained income)",
-      "R602,000.00 (used opening price instead of weighted average price)",
-      "R676,666.67",
-      "R406,000.00",
-      "R571,333.33",
-      "R521,333.33"
-    ],
-    "explanation": "Amount Debited to Retained Income = Shares Repurchased x (Repurchase Price - Weighted Average Issue Price)\n= 140,000 x (R17.50 - R13.63)\n= 140,000 x R3.87 = R541,333.33.\nThis represents the premium paid over the average issue price, which reduces accumulated retained earnings.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Companies & Corporate Governance",
-      "subtopic": "Retained Income Note",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate retained income buyback debit for Klerksdorp Goldfields Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_9"
-  },
-  {
-    "id": "ACC_P1_ANA_0922",
-    "topic": "Financial Indicators & Interpretation",
-    "subtopic": "Reverse Ratio Engineering",
-    "difficulty": "hard",
-    "question": "**Metro Tech Ltd** maintains a **Debt-Equity Ratio of 0.40 : 1**. The Statement of Financial Position reports Shareholders' Equity of **R5,600,000**. Calculate the exact balance of **Non-Current Liabilities (Mortgage Loan)**:",
-    "correct_answer": "Non-Current Liabilities (Loan) = R2,240,000",
-    "wrong_answers_pool": [
-      "Non-Current Liabilities = R14,000,000 (inverted: Equity / Gearing)",
-      "Non-Current Liabilities = R5,600,000 (confused debt with equity)",
-      "Non-Current Liabilities = R3,360,000",
-      "Non-Current Liabilities = R1,120,000",
-      "Non-Current Liabilities = R2,990,000 (calculated Total Liabilities instead of loan)",
-      "Non-Current Liabilities = R2,490,000",
-      "Non-Current Liabilities = R7,840,000"
-    ],
-    "explanation": "Debt-Equity = Non-Current Liabilities / Equity. Therefore: Non-Current Liabilities = Gearing \u00d7 Equity = 0.40 \u00d7 R5,600,000 = Non-Current Liabilities (Loan) = R2,240,000.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Indicators",
-      "subtopic": "Reverse Ratio Engineering",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Reverse calculate Loan for Metro Tech Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_10"
-  },
-  {
-    "id": "ACC_P1_FIN_0692",
-    "topic": "Financial Statements & Adjustments",
-    "subtopic": "Net Profit Adjustments",
-    "difficulty": "medium",
-    "question": "The preliminary Net Profit before tax for **Apex Ltd** was determined to be **R1,850,000**. Before closing the books, the following two year-end adjustments were omitted: (1) additional interest on loan of **R8,200**, and (2) provision for bad debts increase of **R5,500**. Calculate the finalized, corrected Net Profit before tax:",
-    "correct_answer": "R1,836,300",
-    "wrong_answers_pool": [
-      "R1,863,700 (added expenses to profit instead of subtracting)",
-      "R1,841,800 (omitted the second adjustment of R5,500)",
-      "R1,844,500 (omitted the first adjustment of R8,200)",
-      "R2,019,930",
-      "R1,652,670",
-      "R1,861,300",
-      "R1,850,000"
-    ],
-    "explanation": "Corrected Profit = Preliminary Profit (R1,850,000) - additional interest on loan (R8,200) - provision for bad debts increase (R5,500) = R1,836,300.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Statements",
-      "subtopic": "Net Profit Adjustments",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Adjust Net Profit for Apex Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_11"
-  },
-  {
-    "id": "ACC_P1_FIN_0635",
-    "topic": "Financial Statements & Adjustments",
-    "subtopic": "Net Profit Adjustments",
-    "difficulty": "medium",
-    "question": "The preliminary Net Profit before tax for **Metro Ltd** was determined to be **R2,100,000**. Before closing the books, the following two year-end adjustments were omitted: (1) depreciation omission of **R15,000**, and (2) bad debt written off of **R6,200**. Calculate the finalized, corrected Net Profit before tax:",
-    "correct_answer": "R2,078,800",
-    "wrong_answers_pool": [
-      "R2,121,200 (added expenses to profit instead of subtracting)",
-      "R2,085,000 (omitted the second adjustment of R6,200)",
-      "R2,093,800 (omitted the first adjustment of R15,000)",
-      "R2,286,680",
-      "R1,870,920",
-      "R2,103,800",
-      "R2,100,000"
-    ],
-    "explanation": "Corrected Profit = Preliminary Profit (R2,100,000) - depreciation omission (R15,000) - bad debt written off (R6,200) = R2,078,800.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Statements",
-      "subtopic": "Net Profit Adjustments",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Adjust Net Profit for Metro Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_12"
-  },
-  {
-    "id": "ACC_P1_FIN_0491",
-    "topic": "Financial Statements & Adjustments",
-    "subtopic": "Net Profit Adjustments",
-    "difficulty": "medium",
-    "question": "The preliminary Net Profit before tax for **Kairo Ltd** was determined to be **R1,250,000**. Before closing the books, the following two year-end adjustments were omitted: (1) depreciation omission of **R15,000**, and (2) bad debt written off of **R6,200**. Calculate the finalized, corrected Net Profit before tax:",
-    "correct_answer": "R1,228,800",
-    "wrong_answers_pool": [
-      "R1,271,200 (added expenses to profit instead of subtracting)",
-      "R1,235,000 (omitted the second adjustment of R6,200)",
-      "R1,243,800 (omitted the first adjustment of R15,000)",
-      "R1,351,680",
-      "R1,105,920",
-      "R1,253,800",
-      "R1,250,000"
-    ],
-    "explanation": "Corrected Profit = Preliminary Profit (R1,250,000) - depreciation omission (R15,000) - bad debt written off (R6,200) = R1,228,800.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Statements",
-      "subtopic": "Net Profit Adjustments",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Adjust Net Profit for Kairo Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_13"
-  },
-  {
-    "id": "ACC_P1_CF_0405",
-    "topic": "Cash Flow Statement",
-    "subtopic": "Working Capital Reconciliation",
-    "difficulty": "medium",
-    "question": "In the Cash Flow reconciliation note of **Laysano Ltd**, Net Profit before tax is **R750,000**. Depreciation for the year is **R120,000** and Interest expense on loan is **R62,000**. Calculate the **Operating Profit before Changes in Working Capital**:",
-    "correct_answer": "R932,000",
-    "wrong_answers_pool": [
-      "R568,000 (subtracted depreciation and interest instead of adding back)",
-      "R870,000 (forgot to add back interest expense)",
-      "R812,000 (forgot to add back non-cash depreciation)",
-      "R1,118,400",
-      "R466,000",
-      "R750,000",
-      "R1,032,000"
-    ],
-    "explanation": "Operating Profit before Working Capital = Net Profit before Tax (R750,000) + Depreciation (R120,000) + Interest Expense (R62,000) = R932,000.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Cash Flow Statement",
-      "subtopic": "Working Capital Reconciliation",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate Operating Profit before WC for Laysano Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_14"
-  },
-  {
-    "id": "ACC_P1_CF_0629",
-    "topic": "Cash Flow Statement",
-    "subtopic": "Working Capital Reconciliation",
-    "difficulty": "medium",
-    "question": "In the Cash Flow reconciliation note of **Laysano Ltd**, Net Profit before tax is **R2,450,000**. Depreciation for the year is **R220,000** and Interest expense on loan is **R48,000**. Calculate the **Operating Profit before Changes in Working Capital**:",
-    "correct_answer": "R2,718,000",
-    "wrong_answers_pool": [
-      "R2,182,000 (subtracted depreciation and interest instead of adding back)",
-      "R2,670,000 (forgot to add back interest expense)",
-      "R2,498,000 (forgot to add back non-cash depreciation)",
-      "R3,261,600",
-      "R1,359,000",
-      "R2,450,000",
-      "R2,818,000"
-    ],
-    "explanation": "Operating Profit before Working Capital = Net Profit before Tax (R2,450,000) + Depreciation (R220,000) + Interest Expense (R48,000) = R2,718,000.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Cash Flow Statement",
-      "subtopic": "Working Capital Reconciliation",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate Operating Profit before WC for Laysano Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_15"
-  },
-  {
-    "id": "ACC_P1_FIN_0890",
-    "topic": "Financial Statements & Adjustments",
-    "subtopic": "Tangible Asset Disposal Calculations",
-    "difficulty": "hard",
-    "question": "In the records of **Highveld Ltd**, determine the **Accumulated Depreciation** to be written off and debited to the Asset Disposal Account for the **Executive Sedan** sold on **31 October** (Cost R350,000, starting accumulated dep R140,000, 20% diminishing balance):",
-    "correct_answer": "R168,000",
-    "wrong_answers_pool": [
-      "R140,000 (forgot current year depreciation)",
-      "R28,000 (only stated current year depreciation)",
-      "R350,000",
-      "R201,600",
-      "R84,000",
-      "R182,000",
-      "R183,000"
-    ],
-    "explanation": "Total Accumulated Depreciation at disposal = Opening Acc Dep (R140,000) + Current year dep (R28,000) = R168,000.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Statements",
-      "subtopic": "Tangible Asset Disposal Calculations",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate Accumulated Depreciation for Highveld Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_16"
-  },
-  {
-    "id": "ACC_P1_COMP_0930",
+    "id": "ACC_P1_COMP_0934",
     "topic": "Companies & Corporate Governance",
     "subtopic": "Share Repurchase & Corporate Control",
     "difficulty": "hard",
-    "question": "In **Cradock Merinos Ltd**, director **Erasmus** owned **340,000** shares out of **740,000** total issued shares. The company repurchased **92,000** shares from other discontented shareholders and cancelled them. Erasmus did not participate in the repurchase. Calculate the change in **Erasmus's percentage shareholding**:",
-    "correct_answer": "Increased by 6.52% (from 45.95% to 52.47%)",
+    "question": "Referring to **Makhanda Print Corp Ltd**: The company paid **R17.50** per share for the buyback when the prevailing market price was only **R14.20**. As a result, director Zuma's stake grew from **46.27%** to **52.99%**. Provide the most accurate professional evaluation of this transaction under the **King IV Code of Corporate Governance**:",
+    "correct_answer": "Unethical conflict of interest: Zuma used company cash resources to buy back shares at an inflated price (R17.50 vs market R14.20), effectively consolidating personal voting power (52.99%) at the expense of company liquidity",
     "wrong_answers_pool": [
-      "Decreased by 6.52% (from 52.47% to 45.95%)",
-      "Remained unchanged at 45.95% because Erasmus bought no shares",
-      "Increased by 12.43%",
-      "Increased by 9.78%",
-      "Increased by 3.26%",
-      "Decreased by 14.20%",
-      "Increased by 10.00% exactly"
+      "Completely ethical and commendable: Zuma sacrificed personal wealth to assist other shareholders",
+      "Neutral: Share buybacks have zero impact on voting control or corporate liquidity under King IV",
+      "Illegal under Companies Act: Companies are strictly prohibited from repurchasing shares under any circumstances",
+      "Ethical because all commercial banks require directors to hold over 50% equity before approving overdrafts",
+      "Unethical solely because dividends tax of 20% was not remitted to the Johannesburg Stock Exchange",
+      "Ethical because the Companies Act mandates that founding directors must always gain absolute voting control"
     ],
-    "explanation": "Original Shareholding % = (340,000 / 740,000) x 100 = 45.95%\nNew Total Shares = 740,000 - 92,000 = 648,000 shares\nNew Shareholding % = (340,000 / 648,000) x 100 = 52.47%\nNet Change = 52.47% - 45.95% = Increased by 6.52% (from 45.95% to 52.47%). Notice: Without investing a single cent of personal money, Erasmus's voting power increased significantly!",
+    "explanation": "Evaluation: Unethical conflict of interest: Zuma used company cash resources to buy back shares at an inflated price (R17.50 vs market R14.20), effectively consolidating personal voting power (52.99%) at the expense of company liquidity. Under King IV and Section 75/76 of the Companies Act, directors have a fiduciary duty not to abuse corporate funds for personal control or pay prices well above fair value without independent valuation.",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
@@ -471,16 +106,155 @@
       "subtopic": "Share Repurchase & Corporate Control",
       "cognitive_level": "Evaluating",
       "difficulty": "hard",
-      "learning_outcome": "Evaluate change in shareholding for Erasmus in Cradock Merinos Ltd"
+      "learning_outcome": "Evaluate ethics of share buyback in Makhanda Print Corp Ltd"
     },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_17"
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_4"
   },
   {
-    "id": "ACC_P1_CF_0897",
+    "id": "ACC_P1_CF_0606",
+    "topic": "Cash Flow Statement",
+    "subtopic": "Working Capital Reconciliation",
+    "difficulty": "medium",
+    "question": "In the Cash Flow reconciliation note of **Laysano Ltd**, Net Profit before tax is **R2,100,000**. Depreciation for the year is **R260,000** and Interest expense on loan is **R75,000**. Calculate the **Operating Profit before Changes in Working Capital**:",
+    "correct_answer": "R2,435,000",
+    "wrong_answers_pool": [
+      "R1,765,000 (subtracted depreciation and interest instead of adding back)",
+      "R2,360,000 (forgot to add back interest expense)",
+      "R2,175,000 (forgot to add back non-cash depreciation)",
+      "R2,922,000",
+      "R1,217,500",
+      "R2,100,000",
+      "R2,535,000"
+    ],
+    "explanation": "Operating Profit before Working Capital = Net Profit before Tax (R2,100,000) + Depreciation (R260,000) + Interest Expense (R75,000) = R2,435,000.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Cash Flow Statement",
+      "subtopic": "Working Capital Reconciliation",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate Operating Profit before WC for Laysano Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_5"
+  },
+  {
+    "id": "ACC_P1_ANA_0309",
+    "topic": "Financial Indicators & Interpretation",
+    "subtopic": "Debtors & Creditors Periods",
+    "difficulty": "medium",
+    "question": "The records of **Apex Auto Ltd** reflect: Trade Debtors on 1 March: **R320,000**; Trade Debtors on 28 February: **R360,000**; Total Credit Sales for the year: **R4,100,000**. Calculate the **Debtors Collection Period in days** (using average debtors):",
+    "correct_answer": "30.3 days",
+    "wrong_answers_pool": [
+      "32.0 days (used closing debtors only instead of average debtors)",
+      "28.5 days (used opening debtors only)",
+      "45.4 days",
+      "15.1 days",
+      "12.1 times (confused days with turnover times)",
+      "45.3 days",
+      "20.3 days"
+    ],
+    "explanation": "1. Average Debtors = (R320,000 + R360,000) / 2 = R340,000. 2. Debtors Collection Period = (Average Debtors / Credit Sales) \u00d7 365 = (R340,000 / R4,100,000) \u00d7 365 = 30.3 days.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Financial Indicators",
+      "subtopic": "Debtors & Creditors Periods",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate Debtors Collection Period for Apex Auto Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_6"
+  },
+  {
+    "id": "ACC_P1_ANA_0433",
+    "topic": "Financial Indicators & Interpretation",
+    "subtopic": "Profitability Margins",
+    "difficulty": "medium",
+    "question": "The financial records of **Apex Auto Ltd** show Sales of **R5,760,000**, Gross Profit of **R2,304,000**, and Operating Profit of **R921,600**. Calculate the **Gross Profit Margin** and **Operating Profit Margin** on sales:",
+    "correct_answer": "40.0% Gross Margin; 16.0% Operating Margin",
+    "wrong_answers_pool": [
+      "16.0% Gross Margin; 40.0% Operating Margin (inverted margins)",
+      "60.0% Gross Margin",
+      "8.0% Operating Margin",
+      "60.0% Cost of Sales Margin",
+      "50.0% Gross Margin",
+      "24.0% Operating Margin",
+      "R2,304,000 Margin"
+    ],
+    "explanation": "1. Gross Profit Margin = (Gross Profit / Sales) \u00d7 100 = (R2,304,000 / R5,760,000) \u00d7 100 = 40.0%. 2. Operating Profit Margin = (Operating Profit / Sales) \u00d7 100 = (R921,600 / R5,760,000) \u00d7 100 = 16.0%.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Financial Indicators",
+      "subtopic": "Profitability Margins",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate Profit Margins for Apex Auto Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_7"
+  },
+  {
+    "id": "ACC_P1_COMP_0919",
+    "topic": "Companies & Corporate Governance",
+    "subtopic": "Share Repurchase & Corporate Control",
+    "difficulty": "hard",
+    "question": "Referring to **Upington Sun Agro Ltd**: The company paid **R16.00** per share for the buyback when the prevailing market price was only **R13.20**. As a result, director Bester's stake grew from **46.59%** to **53.25%**. Provide the most accurate professional evaluation of this transaction under the **King IV Code of Corporate Governance**:",
+    "correct_answer": "Unethical conflict of interest: Bester used company cash resources to buy back shares at an inflated price (R16.00 vs market R13.20), effectively consolidating personal voting power (53.25%) at the expense of company liquidity",
+    "wrong_answers_pool": [
+      "Completely ethical and commendable: Bester sacrificed personal wealth to assist other shareholders",
+      "Neutral: Share buybacks have zero impact on voting control or corporate liquidity under King IV",
+      "Illegal under Companies Act: Companies are strictly prohibited from repurchasing shares under any circumstances",
+      "Ethical because all commercial banks require directors to hold over 50% equity before approving overdrafts",
+      "Unethical solely because dividends tax of 20% was not remitted to the Johannesburg Stock Exchange",
+      "Ethical because the Companies Act mandates that founding directors must always gain absolute voting control"
+    ],
+    "explanation": "Evaluation: Unethical conflict of interest: Bester used company cash resources to buy back shares at an inflated price (R16.00 vs market R13.20), effectively consolidating personal voting power (53.25%) at the expense of company liquidity. Under King IV and Section 75/76 of the Companies Act, directors have a fiduciary duty not to abuse corporate funds for personal control or pay prices well above fair value without independent valuation.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Companies & Corporate Governance",
+      "subtopic": "Share Repurchase & Corporate Control",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Evaluate ethics of share buyback in Upington Sun Agro Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_8"
+  },
+  {
+    "id": "ACC_P1_CF_0954",
     "topic": "Cash Flow Statement",
     "subtopic": "Cash Generated from Operations Reconciliation",
     "difficulty": "hard",
-    "question": "The financial records of **Kairo Furnishers Ltd** reflect: Net Profit before tax: **R950,000**; Depreciation: **R180,000**; Interest expense: **R48,000**. Working capital changes: Inventory change: **R25,000**; Debtors/Receivables change: **R-35,000**; Creditors/Payables change: **R-40,000**. Calculate the finalized **Cash Generated from Operations**:",
+    "question": "The financial records of **Cape Coast Ltd** reflect: Net Profit before tax: **R880,000**; Depreciation: **R160,000**; Interest expense: **R42,000**. Working capital changes: Inventory change: **R35,000**; Debtors/Receivables change: **R-40,000**; Creditors/Payables change: **R-50,000**. Calculate the finalized **Cash Generated from Operations**:",
+    "correct_answer": "R1,027,000",
+    "wrong_answers_pool": [
+      "R1,082,000 (stopped before applying working capital changes)",
+      "R880,000 (confused net profit before tax with cash generated)",
+      "R1,232,400",
+      "R513,500",
+      "R1,137,000 (inverted working capital signs)",
+      "R1,277,000",
+      "R825,000 (omitted non-cash adjustments)"
+    ],
+    "explanation": "1. Operating Profit before WC changes = Net Profit before Tax (R880,000) + Depreciation (R160,000) + Interest (R42,000) = R1,082,000. 2. Working Capital changes = R35,000 + R-40,000 + R-50,000 = R-55,000. 3. Cash Generated from Operations = R1,082,000 + (R-55,000) = R1,027,000.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Cash Flow Statement",
+      "subtopic": "Cash Generated from Operations Reconciliation",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate CGO for Cape Coast Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_9"
+  },
+  {
+    "id": "ACC_P1_CF_0925",
+    "topic": "Cash Flow Statement",
+    "subtopic": "Cash Generated from Operations Reconciliation",
+    "difficulty": "hard",
+    "question": "The financial records of **Bakersfield Ltd** reflect: Net Profit before tax: **R950,000**; Depreciation: **R180,000**; Interest expense: **R48,000**. Working capital changes: Inventory change: **R25,000**; Debtors/Receivables change: **R-35,000**; Creditors/Payables change: **R-40,000**. Calculate the finalized **Cash Generated from Operations**:",
     "correct_answer": "R1,128,000",
     "wrong_answers_pool": [
       "R1,178,000 (stopped before applying working capital changes)",
@@ -499,166 +273,27 @@
       "subtopic": "Cash Generated from Operations Reconciliation",
       "cognitive_level": "Evaluating",
       "difficulty": "hard",
-      "learning_outcome": "Calculate CGO for Kairo Furnishers Ltd"
+      "learning_outcome": "Calculate CGO for Bakersfield Ltd"
     },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_18"
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_10"
   },
   {
-    "id": "ACC_P1_FIN_0941",
-    "topic": "Financial Statements & Adjustments",
-    "subtopic": "Tangible Asset Disposal Calculations",
-    "difficulty": "hard",
-    "question": "**Tshwane Ltd** disposed of a **CNC Lathe Machine** on **31 December** (10 months into the financial year ending 28 February). Original cost price: **R500,000**; Accumulated depreciation at the start of the year (1 March): **R200,000**. Depreciation rate: **10% p.a. on straight-line**. The asset was sold for cash for **R240,000**. Calculate the carrying value on the date of disposal and the resulting profit or loss on sale:",
-    "correct_answer": "Carrying Value = R258,333; LOSS on sale = R18,333",
-    "wrong_answers_pool": [
-      "Carrying Value = R300,000; PROFIT on sale = R60,000 (forgot current year depreciation)",
-      "Carrying Value = R500,000; LOSS on sale = R260,000",
-      "Carrying Value = R258,333; PROFIT on sale = R18,333 (inverted profit and loss)",
-      "Carrying Value = R284,167; Profit on sale = R27,500",
-      "Carrying Value = R241,667; Loss on sale = R1,667",
-      "Carrying Value = R258,333; Zero profit or loss",
-      "Carrying Value = R240,000; Profit on sale = R41,667"
-    ],
-    "explanation": "1. Current year depreciation up to sale (31 December, 10 months): R41,667. 2. Total accumulated depreciation at date of disposal: R200,000 + R41,667 = R241,667. 3. Carrying value at date of disposal: Cost (R500,000) - Accumulated Depreciation (R241,667) = R258,333. 4. Profit/Loss on disposal: Selling price (R240,000) - Carrying value (R258,333) = Carrying Value = R258,333; LOSS on sale = R18,333.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Statements",
-      "subtopic": "Tangible Asset Disposal Calculations",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate Asset Disposal for Tshwane Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_19"
-  },
-  {
-    "id": "ACC_P1_COMP_0484",
-    "topic": "Companies & Corporate Governance",
-    "subtopic": "Audit Reports & Corporate Governance",
-    "difficulty": "medium",
-    "question": "Read the audit finding below for **Richards Bay Coal Ltd** and identify the correct audit opinion:\n\n*\"The external auditors of **Richards Bay Coal Ltd** discovered that inventory was overstated by R3.5 million. The directors refused to adjust the books. The misstatement is material but restricted only to inventory and cost of sales, not affecting the rest of the accounts pervasively.\"*",
-    "correct_answer": "Qualified audit opinion",
-    "wrong_answers_pool": [
-      "Unqualified audit opinion ('clean report')",
-      "Adverse audit opinion",
-      "Disclaimer of audit opinion",
-      "Notice of immediate commercial liquidation",
-      "SARS provisional tax compliance certificate",
-      "Internal audit management inquiry"
-    ],
-    "explanation": "Correct Opinion: **Qualified audit opinion**. Under SAICA and DBE CAPS guidelines, 5 million.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Companies & Corporate Governance",
-      "subtopic": "Audit Reports & Corporate Governance",
-      "cognitive_level": "Analyzing",
-      "difficulty": "medium",
-      "learning_outcome": "Identify audit opinion for Richards Bay Coal Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_20"
-  },
-  {
-    "id": "ACC_P1_COMP_0891",
-    "topic": "Companies & Corporate Governance",
-    "subtopic": "Share Repurchase & Corporate Control",
-    "difficulty": "hard",
-    "question": "In **Potchefstroom Grain Trading Ltd**, director **Swanepoel** owned **395,000** shares out of **850,000** total issued shares. The company repurchased **105,000** shares from other discontented shareholders and cancelled them. Swanepoel did not participate in the repurchase. Calculate the change in **Swanepoel's percentage shareholding**:",
-    "correct_answer": "Increased by 6.55% (from 46.47% to 53.02%)",
-    "wrong_answers_pool": [
-      "Decreased by 6.55% (from 53.02% to 46.47%)",
-      "Remained unchanged at 46.47% because Swanepoel bought no shares",
-      "Increased by 12.35%",
-      "Increased by 9.82%",
-      "Increased by 3.27%",
-      "Decreased by 14.09%",
-      "Increased by 10.00% exactly"
-    ],
-    "explanation": "Original Shareholding % = (395,000 / 850,000) x 100 = 46.47%\nNew Total Shares = 850,000 - 105,000 = 745,000 shares\nNew Shareholding % = (395,000 / 745,000) x 100 = 53.02%\nNet Change = 53.02% - 46.47% = Increased by 6.55% (from 46.47% to 53.02%). Notice: Without investing a single cent of personal money, Swanepoel's voting power increased significantly!",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Companies & Corporate Governance",
-      "subtopic": "Share Repurchase & Corporate Control",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Evaluate change in shareholding for Swanepoel in Potchefstroom Grain Trading Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_21"
-  },
-  {
-    "id": "ACC_P1_COMP_0401",
-    "topic": "Companies & Corporate Governance",
-    "subtopic": "Ordinary Share Capital Note",
-    "difficulty": "medium",
-    "question": "**Highveld Brick & Tile Ltd** repurchased **70,000** ordinary shares from an existing shareholder at **R9.10** per share. The weighted average issue price of all shares in issue prior to the buyback was **R6.82**. Calculate the amount by which **Ordinary Share Capital** will be reduced (debited) in Note 7:",
-    "correct_answer": "R477,500.00",
-    "wrong_answers_pool": [
-      "R637,000.00 (debited entire repurchase price to share capital)",
-      "R159,500.00 (confused with amount debited to retained income)",
-      "R455,000.00 (used opening price instead of weighted average)",
-      "R560,000.00 (used new issue price instead of weighted average)",
-      "R573,000.00",
-      "R382,000.00",
-      "R527,500.00"
-    ],
-    "explanation": "Reduction in Share Capital = Shares Repurchased x Weighted Average Issue Price\n= 70,000 x R6.82 = R477,500.00.\nUnder CAPS and the Companies Act, the ordinary share capital account can only be reduced by the average issue price. Any excess paid is debited to Retained Income.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Companies & Corporate Governance",
-      "subtopic": "Ordinary Share Capital Note",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate share capital buyback reduction for Highveld Brick & Tile Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_22"
-  },
-  {
-    "id": "ACC_P1_ANA_0498",
-    "topic": "Financial Indicators & Interpretation",
-    "subtopic": "Operating Expenses Analysis",
-    "difficulty": "medium",
-    "question": "The Income Statement of **Laysano Ltd** reflects Sales of **R10,075,000** and Net Profit after Tax of **R967,200**. Determine the **Net Profit Margin on Sales** (%):",
-    "correct_answer": "9.6%",
-    "wrong_answers_pool": [
-      "24.0% (confused Net Profit Margin with Operating Expenses percentage)",
-      "14.4%",
-      "4.8%",
-      "14.6%",
-      "5.6%",
-      "90.4%",
-      "R967,200"
-    ],
-    "explanation": "Net Profit Margin = (Net Profit after Tax / Sales) \u00d7 100 = (R967,200 / R10,075,000) \u00d7 100 = 9.6%.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Indicators",
-      "subtopic": "Operating Expenses Analysis",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate Net Profit Margin for Laysano Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_23"
-  },
-  {
-    "id": "ACC_P1_FIN_0381",
+    "id": "ACC_P1_FIN_0739",
     "topic": "Financial Statements & Adjustments",
     "subtopic": "Net Profit Adjustments",
     "difficulty": "medium",
-    "question": "The preliminary Net Profit before tax for **Laysano Ltd** was determined to be **R1,400,000**. Before closing the books, the following two year-end adjustments were omitted: (1) depreciation on new vehicle of **R18,000**, and (2) repairs incorrectly capitalized of **R9,200**. Calculate the finalized, corrected Net Profit before tax:",
-    "correct_answer": "R1,372,800",
+    "question": "The preliminary Net Profit before tax for **Orchid Ltd** was determined to be **R1,400,000**. Before closing the books, the following two year-end adjustments were omitted: (1) insurance prepaid reversed of **R14,000**, and (2) trading stock loss of **R7,800**. Calculate the finalized, corrected Net Profit before tax:",
+    "correct_answer": "R1,378,200",
     "wrong_answers_pool": [
-      "R1,427,200 (added expenses to profit instead of subtracting)",
-      "R1,382,000 (omitted the second adjustment of R9,200)",
-      "R1,390,800 (omitted the first adjustment of R18,000)",
-      "R1,510,080",
-      "R1,235,520",
-      "R1,397,800",
+      "R1,421,800 (added expenses to profit instead of subtracting)",
+      "R1,386,000 (omitted the second adjustment of R7,800)",
+      "R1,392,200 (omitted the first adjustment of R14,000)",
+      "R1,516,020",
+      "R1,240,380",
+      "R1,403,200",
       "R1,400,000"
     ],
-    "explanation": "Corrected Profit = Preliminary Profit (R1,400,000) - depreciation on new vehicle (R18,000) - repairs incorrectly capitalized (R9,200) = R1,372,800.",
+    "explanation": "Corrected Profit = Preliminary Profit (R1,400,000) - insurance prepaid reversed (R14,000) - trading stock loss (R7,800) = R1,378,200.",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
@@ -666,9 +301,121 @@
       "subtopic": "Net Profit Adjustments",
       "cognitive_level": "Applying",
       "difficulty": "medium",
-      "learning_outcome": "Adjust Net Profit for Laysano Ltd"
+      "learning_outcome": "Adjust Net Profit for Orchid Ltd"
     },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_24"
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_11"
+  },
+  {
+    "id": "ACC_P1_CF_0876",
+    "topic": "Cash Flow Statement",
+    "subtopic": "Cash Generated from Operations Reconciliation",
+    "difficulty": "hard",
+    "question": "The financial records of **Apex Auto Ltd** reflect: Net Profit before tax: **R1,850,000**; Depreciation: **R340,000**; Interest expense: **R95,000**. Working capital changes: Inventory change: **R-60,000**; Debtors/Receivables change: **R-75,000**; Creditors/Payables change: **R110,000**. Calculate the finalized **Cash Generated from Operations**:",
+    "correct_answer": "R2,260,000",
+    "wrong_answers_pool": [
+      "R2,285,000 (stopped before applying working capital changes)",
+      "R1,850,000 (confused net profit before tax with cash generated)",
+      "R2,712,000",
+      "R1,130,000",
+      "R2,310,000 (inverted working capital signs)",
+      "R2,510,000",
+      "R1,825,000 (omitted non-cash adjustments)"
+    ],
+    "explanation": "1. Operating Profit before WC changes = Net Profit before Tax (R1,850,000) + Depreciation (R340,000) + Interest (R95,000) = R2,285,000. 2. Working Capital changes = R-60,000 + R-75,000 + R110,000 = R-25,000. 3. Cash Generated from Operations = R2,285,000 + (R-25,000) = R2,260,000.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Cash Flow Statement",
+      "subtopic": "Cash Generated from Operations Reconciliation",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate CGO for Apex Auto Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_12"
+  },
+  {
+    "id": "ACC_P1_CF_0832",
+    "topic": "Cash Flow Statement",
+    "subtopic": "Cash Generated from Operations Reconciliation",
+    "difficulty": "hard",
+    "question": "The financial records of **Protea Hardware Ltd** reflect: Net Profit before tax: **R1,450,000**; Depreciation: **R280,000**; Interest expense: **R75,000**. Working capital changes: Inventory change: **R-45,000**; Debtors/Receivables change: **R-60,000**; Creditors/Payables change: **R80,000**. Calculate the finalized **Cash Generated from Operations**:",
+    "correct_answer": "R1,780,000",
+    "wrong_answers_pool": [
+      "R1,805,000 (stopped before applying working capital changes)",
+      "R1,450,000 (confused net profit before tax with cash generated)",
+      "R2,136,000",
+      "R890,000",
+      "R1,830,000 (inverted working capital signs)",
+      "R2,030,000",
+      "R1,425,000 (omitted non-cash adjustments)"
+    ],
+    "explanation": "1. Operating Profit before WC changes = Net Profit before Tax (R1,450,000) + Depreciation (R280,000) + Interest (R75,000) = R1,805,000. 2. Working Capital changes = R-45,000 + R-60,000 + R80,000 = R-25,000. 3. Cash Generated from Operations = R1,805,000 + (R-25,000) = R1,780,000.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Cash Flow Statement",
+      "subtopic": "Cash Generated from Operations Reconciliation",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate CGO for Protea Hardware Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_13"
+  },
+  {
+    "id": "ACC_P1_ANA_0479",
+    "topic": "Financial Indicators & Interpretation",
+    "subtopic": "Profitability Margins",
+    "difficulty": "medium",
+    "question": "The financial records of **Tshwane Traders Ltd** show Sales of **R8,680,000**, Gross Profit of **R3,472,000**, and Operating Profit of **R1,388,800**. Calculate the **Gross Profit Margin** and **Operating Profit Margin** on sales:",
+    "correct_answer": "40.0% Gross Margin; 16.0% Operating Margin",
+    "wrong_answers_pool": [
+      "16.0% Gross Margin; 40.0% Operating Margin (inverted margins)",
+      "60.0% Gross Margin",
+      "8.0% Operating Margin",
+      "60.0% Cost of Sales Margin",
+      "50.0% Gross Margin",
+      "24.0% Operating Margin",
+      "R3,472,000 Margin"
+    ],
+    "explanation": "1. Gross Profit Margin = (Gross Profit / Sales) \u00d7 100 = (R3,472,000 / R8,680,000) \u00d7 100 = 40.0%. 2. Operating Profit Margin = (Operating Profit / Sales) \u00d7 100 = (R1,388,800 / R8,680,000) \u00d7 100 = 16.0%.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Financial Indicators",
+      "subtopic": "Profitability Margins",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate Profit Margins for Tshwane Traders Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_14"
+  },
+  {
+    "id": "ACC_P1_CF_0807",
+    "topic": "Cash Flow Statement",
+    "subtopic": "Share Buyback Calculations",
+    "difficulty": "hard",
+    "question": "**Metro Tech Ltd** had **1,200,000 issued shares** with a stated capital balance of **R14,400,000** on 1 March. On 31 August, the company repurchased **100,000 shares** at **R15.00 per share** from a dissatisfied shareholder. Calculate the average issue price per share and determine the separate deductions to be made from **Ordinary Share Capital** and **Retained Income**:",
+    "correct_answer": "Share Capital deduction = R1,200,000 (at average price R12.00); Retained Income deduction = R300,000",
+    "wrong_answers_pool": [
+      "Share Capital deduction = R1,500,000; Retained Income deduction = R0 (deducted entire repurchase from share capital)",
+      "Share Capital deduction = R0; Retained Income deduction = R1,500,000 (deducted entire repurchase from retained income)",
+      "Share Capital deduction = R300,000; Retained Income deduction = R1,200,000 (inverted share capital and retained income)",
+      "Share Capital deduction = R1,440,000; Retained Income = R450,000",
+      "Share Capital deduction = R600,000; Retained Income = R150,000",
+      "Share Capital deduction = R1,500,000; Zero deduction from retained income",
+      "Share Capital deduction = R12,900,000"
+    ],
+    "explanation": "1. Average issue price = Opening Share Capital (R14,400,000) / Opening Shares (1,200,000) = R12.00 per share. 2. Deduction from Share Capital = 100,000 shares \u00d7 R12.00 = R1,200,000. 3. Excess paid above average price = R15.00 - R12.00 = R3.00 per share. 4. Deduction from Retained Income = 100,000 shares \u00d7 R3.00 = R300,000.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Cash Flow Statement",
+      "subtopic": "Share Buyback Calculations",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate Share Buyback split for Metro Tech Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_15"
   },
   {
     "id": "ACC_P1_CF_0896",
@@ -696,135 +443,24 @@
       "difficulty": "hard",
       "learning_outcome": "Calculate CGO for Kairo Furnishers Ltd"
     },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_25"
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_16"
   },
   {
-    "id": "ACC_P1_COMP_0829",
-    "topic": "Companies & Corporate Governance",
-    "subtopic": "Share Repurchase & Corporate Control",
-    "difficulty": "hard",
-    "question": "Referring to **Karoo Power Ltd**: The company paid **R27.00** per share for the buyback when the prevailing market price was only **R22.00**. As a result, director Botha's stake grew from **48.46%** to **55.26%**. Provide the most accurate professional evaluation of this transaction under the **King IV Code of Corporate Governance**:",
-    "correct_answer": "Unethical conflict of interest: Botha used company cash resources to buy back shares at an inflated price (R27.00 vs market R22.00), effectively consolidating personal voting power (55.26%) at the expense of company liquidity",
-    "wrong_answers_pool": [
-      "Completely ethical and commendable: Botha sacrificed personal wealth to assist other shareholders",
-      "Neutral: Share buybacks have zero impact on voting control or corporate liquidity under King IV",
-      "Illegal under Companies Act: Companies are strictly prohibited from repurchasing shares under any circumstances",
-      "Ethical because all commercial banks require directors to hold over 50% equity before approving overdrafts",
-      "Unethical solely because dividends tax of 20% was not remitted to the Johannesburg Stock Exchange",
-      "Ethical because the Companies Act mandates that founding directors must always gain absolute voting control"
-    ],
-    "explanation": "Evaluation: Unethical conflict of interest: Botha used company cash resources to buy back shares at an inflated price (R27.00 vs market R22.00), effectively consolidating personal voting power (55.26%) at the expense of company liquidity. Under King IV and Section 75/76 of the Companies Act, directors have a fiduciary duty not to abuse corporate funds for personal control or pay prices well above fair value without independent valuation.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Companies & Corporate Governance",
-      "subtopic": "Share Repurchase & Corporate Control",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Evaluate ethics of share buyback in Karoo Power Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_26"
-  },
-  {
-    "id": "ACC_P1_COMP_0667",
-    "topic": "Companies & Corporate Governance",
-    "subtopic": "Ordinary Share Capital Note",
-    "difficulty": "medium",
-    "question": "**Vanderbijlpark Engineering Ltd** started the year with **1,650,000** shares valued at **R22,275,000**. They issued **350,000** shares for **R5,600,000** and subsequently repurchased **85,000** shares at **R18.00** per share. Calculate the closing balance of **Ordinary Share Capital** to be shown in the Balance Sheet at year-end:",
-    "correct_answer": "R26,690,312.50",
-    "wrong_answers_pool": [
-      "R26,345,000.00 (deducted full buyback price from share capital)",
-      "R27,875,000.00 (omitted the share repurchase)",
-      "R25,852,500.00 (valued closing shares at opening issue price)",
-      "R29,359,343.75",
-      "R24,021,281.25",
-      "R26,890,312.50",
-      "R26,510,312.50"
-    ],
-    "explanation": "Closing Share Capital Balance = Remaining Shares x Weighted Average Price\n= (2,000,000 - 85,000) x R13.94\n= 1,915,000 shares x R13.94 = R26,690,312.50.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Companies & Corporate Governance",
-      "subtopic": "Ordinary Share Capital Note",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate closing share capital for Vanderbijlpark Engineering Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_27"
-  },
-  {
-    "id": "ACC_P1_CF_0450",
-    "topic": "Cash Flow Statement",
-    "subtopic": "Working Capital Reconciliation",
-    "difficulty": "medium",
-    "question": "In the Cash Flow reconciliation note of **Laysano Ltd**, Net Profit before tax is **R920,000**. Depreciation for the year is **R220,000** and Interest expense on loan is **R62,000**. Calculate the **Operating Profit before Changes in Working Capital**:",
-    "correct_answer": "R1,202,000",
-    "wrong_answers_pool": [
-      "R638,000 (subtracted depreciation and interest instead of adding back)",
-      "R1,140,000 (forgot to add back interest expense)",
-      "R982,000 (forgot to add back non-cash depreciation)",
-      "R1,442,400",
-      "R601,000",
-      "R920,000",
-      "R1,302,000"
-    ],
-    "explanation": "Operating Profit before Working Capital = Net Profit before Tax (R920,000) + Depreciation (R220,000) + Interest Expense (R62,000) = R1,202,000.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Cash Flow Statement",
-      "subtopic": "Working Capital Reconciliation",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate Operating Profit before WC for Laysano Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_28"
-  },
-  {
-    "id": "ACC_P1_FIN_0510",
-    "topic": "Financial Statements & Adjustments",
-    "subtopic": "Net Profit Adjustments",
-    "difficulty": "medium",
-    "question": "The preliminary Net Profit before tax for **Kairo Ltd** was determined to be **R1,850,000**. Before closing the books, the following two year-end adjustments were omitted: (1) audit fee adjustment of **R9,400**, and (2) directors fees owed of **R11,500**. Calculate the finalized, corrected Net Profit before tax:",
-    "correct_answer": "R1,829,100",
-    "wrong_answers_pool": [
-      "R1,870,900 (added expenses to profit instead of subtracting)",
-      "R1,840,600 (omitted the second adjustment of R11,500)",
-      "R1,838,500 (omitted the first adjustment of R9,400)",
-      "R2,012,010",
-      "R1,646,190",
-      "R1,854,100",
-      "R1,850,000"
-    ],
-    "explanation": "Corrected Profit = Preliminary Profit (R1,850,000) - audit fee adjustment (R9,400) - directors fees owed (R11,500) = R1,829,100.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Statements",
-      "subtopic": "Net Profit Adjustments",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Adjust Net Profit for Kairo Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_29"
-  },
-  {
-    "id": "ACC_P1_COMP_0929",
+    "id": "ACC_P1_COMP_0989",
     "topic": "Companies & Corporate Governance",
     "subtopic": "Financial Evaluation & NAV",
     "difficulty": "hard",
-    "question": "Following the share repurchase, the total Ordinary Shareholders' Equity of **Bredasdorp Wheatlands Ltd** stands at **R9,352,125.00** across **815,000** remaining shares. The buyback price was **R13.50** per share. Evaluate the **financial wisdom** of the buyback price in relation to the company's **Net Asset Value (NAV) per share**:",
-    "correct_answer": "NAV per share is R11.47. Paying R13.50 per share diluted the net wealth of remaining shareholders because the repurchase price exceeded NAV by R2.03 per share",
+    "question": "Following the share repurchase, the total Ordinary Shareholders' Equity of **Algoa Commercial Wharves Ltd** stands at **R20,833,500.00** across **1,140,000** remaining shares. The buyback price was **R21.50** per share. Evaluate the **financial wisdom** of the buyback price in relation to the company's **Net Asset Value (NAV) per share**:",
+    "correct_answer": "NAV per share is R18.27. Paying R21.50 per share diluted the net wealth of remaining shareholders because the repurchase price exceeded NAV by R3.23 per share",
     "wrong_answers_pool": [
-      "NAV per share is R11.47. The repurchase increased shareholder wealth because NAV was higher than buyback price",
-      "NAV per share is R10.06. The buyback had no effect on net asset value per share",
+      "NAV per share is R18.27. The repurchase increased shareholder wealth because NAV was higher than buyback price",
+      "NAV per share is R16.03. The buyback had no effect on net asset value per share",
       "NAV per share cannot be calculated without knowing the company's gross profit margin percentage",
-      "NAV per share is R13.50. The repurchase was conducted at exact book parity with net assets",
-      "NAV per share is R17.21. The company made a capital profit on the repurchase",
-      "NAV per share is R5.74. The repurchase violated Section 46 solvency requirements automatically"
+      "NAV per share is R21.50. The repurchase was conducted at exact book parity with net assets",
+      "NAV per share is R27.41. The company made a capital profit on the repurchase",
+      "NAV per share is R9.14. The repurchase violated Section 46 solvency requirements automatically"
     ],
-    "explanation": "NAV per share = Total Equity / Number of Shares in Issue = R9,352,125.00 / 815,000 = R11.47.\nSince the repurchase price of R13.50 exceeded NAV (R11.47), the remaining shareholders suffered a dilution in net asset backing per share.",
+    "explanation": "NAV per share = Total Equity / Number of Shares in Issue = R20,833,500.00 / 1,140,000 = R18.27.\nSince the repurchase price of R21.50 exceeded NAV (R18.27), the remaining shareholders suffered a dilution in net asset backing per share.",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
@@ -832,54 +468,55 @@
       "subtopic": "Financial Evaluation & NAV",
       "cognitive_level": "Evaluating",
       "difficulty": "hard",
-      "learning_outcome": "Evaluate NAV vs buyback price for Bredasdorp Wheatlands Ltd"
+      "learning_outcome": "Evaluate NAV vs buyback price for Algoa Commercial Wharves Ltd"
     },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_30"
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_17"
   },
   {
-    "id": "ACC_P1_ANA_0801",
-    "topic": "Financial Indicators & Interpretation",
-    "subtopic": "Reverse Ratio Engineering",
+    "id": "ACC_P1_FIN_0956",
+    "topic": "Financial Statements & Adjustments",
+    "subtopic": "Tangible Asset Disposal Calculations",
     "difficulty": "hard",
-    "question": "The financial indicators of **Laysano Ltd** reflect a **Current Ratio of 2.2 : 1** and an **Acid-Test Ratio of 1.2 : 1**. The Balance Sheet discloses Current Liabilities of **R650,000**. Reverse-engineer the exact carrying value of **Trading Inventory**:",
-    "correct_answer": "Trading Inventory = R650,000",
+    "question": "In the records of **Kairo Ltd**, determine the **Accumulated Depreciation** to be written off and debited to the Asset Disposal Account for the **Printing Press** sold on **31 October** (Cost R600,000, starting accumulated dep R240,000, 15% diminishing balance):",
+    "correct_answer": "R276,000",
     "wrong_answers_pool": [
-      "Trading Inventory = R1,430,000 (calculated Total Current Assets instead of inventory)",
-      "Trading Inventory = R780,000 (calculated Quick Assets instead of inventory)",
-      "Trading Inventory = R975,000",
-      "Trading Inventory = R325,000",
-      "Trading Inventory = R2,210,000",
-      "Trading Inventory = R750,000"
+      "R240,000 (forgot current year depreciation)",
+      "R36,000 (only stated current year depreciation)",
+      "R600,000",
+      "R331,200",
+      "R138,000",
+      "R324,000",
+      "R291,000"
     ],
-    "explanation": "1. Current Assets = Current Ratio \u00d7 CL = 2.2 \u00d7 R650,000 = R1,430,000. 2. Quick Assets (CA - Inventory) = Acid-Test \u00d7 CL = 1.2 \u00d7 R650,000 = R780,000. 3. Trading Inventory = Current Assets - Quick Assets = (Current Ratio - Acid-Test) \u00d7 CL = (2.2 - 1.2) \u00d7 R650,000 = 1.0 \u00d7 R650,000 = Trading Inventory = R650,000.",
+    "explanation": "Total Accumulated Depreciation at disposal = Opening Acc Dep (R240,000) + Current year dep (R36,000) = R276,000.",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
-      "topic": "Financial Indicators",
-      "subtopic": "Reverse Ratio Engineering",
+      "topic": "Financial Statements",
+      "subtopic": "Tangible Asset Disposal Calculations",
       "cognitive_level": "Evaluating",
       "difficulty": "hard",
-      "learning_outcome": "Reverse calculate Inventory for Laysano Ltd"
+      "learning_outcome": "Calculate Accumulated Depreciation for Kairo Ltd"
     },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_31"
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_18"
   },
   {
-    "id": "ACC_P1_ANA_0492",
+    "id": "ACC_P1_ANA_0637",
     "topic": "Financial Indicators & Interpretation",
     "subtopic": "Operating Expenses Analysis",
     "difficulty": "medium",
-    "question": "The Income Statement of **Laysano Ltd** reflects Sales of **R8,125,000** and Net Profit after Tax of **R780,000**. Determine the **Net Profit Margin on Sales** (%):",
-    "correct_answer": "9.6%",
+    "question": "**Tshwane Traders Ltd** recorded Sales of **R8,370,000** and Operating Expenses of **R2,008,800**. Calculate the **Operating Expenses as a percentage of Sales** (%):",
+    "correct_answer": "24.0%",
     "wrong_answers_pool": [
-      "24.0% (confused Net Profit Margin with Operating Expenses percentage)",
-      "14.4%",
-      "4.8%",
-      "14.6%",
-      "5.6%",
-      "90.4%",
-      "R780,000"
+      "9.6% (confused operating expenses percentage with net profit margin)",
+      "36.0%",
+      "12.0%",
+      "76.0%",
+      "32.0%",
+      "18.0%",
+      "R2,008,800"
     ],
-    "explanation": "Net Profit Margin = (Net Profit after Tax / Sales) \u00d7 100 = (R780,000 / R8,125,000) \u00d7 100 = 9.6%.",
+    "explanation": "% Operating Expenses on Sales = (Operating Expenses / Sales) \u00d7 100 = (R2,008,800 / R8,370,000) \u00d7 100 = 24.0%.",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
@@ -887,461 +524,16 @@
       "subtopic": "Operating Expenses Analysis",
       "cognitive_level": "Applying",
       "difficulty": "medium",
-      "learning_outcome": "Calculate Net Profit Margin for Laysano Ltd"
+      "learning_outcome": "Calculate Operating Expense % for Tshwane Traders Ltd"
     },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_32"
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_19"
   },
   {
-    "id": "ACC_P1_FIN_0824",
-    "topic": "Financial Statements & Adjustments",
-    "subtopic": "Tangible Asset Disposal Calculations",
-    "difficulty": "hard",
-    "question": "In the records of **Durban Ltd**, determine the **Accumulated Depreciation** to be written off and debited to the Asset Disposal Account for the **Delivery Van** sold on **31 August** (Cost R280,000, starting accumulated dep R112,000, 20% diminishing balance):",
-    "correct_answer": "R128,800",
-    "wrong_answers_pool": [
-      "R112,000 (forgot current year depreciation)",
-      "R16,800 (only stated current year depreciation)",
-      "R280,000",
-      "R154,560",
-      "R64,400",
-      "R151,200",
-      "R143,800"
-    ],
-    "explanation": "Total Accumulated Depreciation at disposal = Opening Acc Dep (R112,000) + Current year dep (R16,800) = R128,800.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Statements",
-      "subtopic": "Tangible Asset Disposal Calculations",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate Accumulated Depreciation for Durban Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_33"
-  },
-  {
-    "id": "ACC_P1_ANA_0971",
-    "topic": "Financial Indicators & Interpretation",
-    "subtopic": "Reverse Ratio Engineering",
-    "difficulty": "hard",
-    "question": "In the accounts of **Apex Auto Ltd**, the **Solvency Ratio is 2.5 : 1**. Non-Current Liabilities are **R2,562,000** and Current Liabilities are **R820,000**. Calculate the exact value of **Total Assets**:",
-    "correct_answer": "Total Assets = R8,455,000",
-    "wrong_answers_pool": [
-      "Total Assets = R3,382,000 (confused Total Liabilities with Total Assets)",
-      "Total Assets = R2,050,000 (only multiplied Current Liabilities)",
-      "Total Assets = R10,146,000",
-      "Total Assets = R4,227,500",
-      "Total Assets = R15,250,000 (multiplied equity instead of liabilities)",
-      "Total Assets = R8,955,000",
-      "Total Assets = R6,405,000"
-    ],
-    "explanation": "1. Total Liabilities = Non-Current Liabilities (R2,562,000) + Current Liabilities (R820,000) = R3,382,000. 2. Total Assets = Solvency Ratio \u00d7 Total Liabilities = 2.5 \u00d7 R3,382,000 = Total Assets = R8,455,000.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Indicators",
-      "subtopic": "Reverse Ratio Engineering",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Reverse calculate Assets for Apex Auto Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_34"
-  },
-  {
-    "id": "ACC_P1_CF_0706",
-    "topic": "Cash Flow Statement",
-    "subtopic": "Working Capital Reconciliation",
-    "difficulty": "medium",
-    "question": "In the Cash Flow reconciliation note of **Protea Ltd**, Net Profit before tax is **R1,100,000**. Depreciation for the year is **R120,000** and Interest expense on loan is **R75,000**. Calculate the **Operating Profit before Changes in Working Capital**:",
-    "correct_answer": "R1,295,000",
-    "wrong_answers_pool": [
-      "R905,000 (subtracted depreciation and interest instead of adding back)",
-      "R1,220,000 (forgot to add back interest expense)",
-      "R1,175,000 (forgot to add back non-cash depreciation)",
-      "R1,554,000",
-      "R647,500",
-      "R1,100,000",
-      "R1,395,000"
-    ],
-    "explanation": "Operating Profit before Working Capital = Net Profit before Tax (R1,100,000) + Depreciation (R120,000) + Interest Expense (R75,000) = R1,295,000.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Cash Flow Statement",
-      "subtopic": "Working Capital Reconciliation",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate Operating Profit before WC for Protea Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_35"
-  },
-  {
-    "id": "ACC_P1_FIN_0957",
-    "topic": "Financial Statements & Adjustments",
-    "subtopic": "Tangible Asset Disposal Calculations",
-    "difficulty": "hard",
-    "question": "**Zulu Ltd** disposed of a **Printing Press** on **31 October** (8 months into the financial year ending 28 February). Original cost price: **R600,000**; Accumulated depreciation at the start of the year (1 March): **R240,000**. Depreciation rate: **15% p.a. on diminishing balance**. The asset was sold on credit for **R310,000**. Calculate the carrying value on the date of disposal and the resulting profit or loss on sale:",
-    "correct_answer": "Carrying Value = R324,000; LOSS on sale = R14,000",
-    "wrong_answers_pool": [
-      "Carrying Value = R360,000; PROFIT on sale = R50,000 (forgot current year depreciation)",
-      "Carrying Value = R600,000; LOSS on sale = R290,000",
-      "Carrying Value = R324,000; PROFIT on sale = R14,000 (inverted profit and loss)",
-      "Carrying Value = R356,400; Profit on sale = R21,000",
-      "Carrying Value = R276,000; Loss on sale = R34,000",
-      "Carrying Value = R324,000; Zero profit or loss",
-      "Carrying Value = R310,000; Profit on sale = R36,000"
-    ],
-    "explanation": "1. Current year depreciation up to sale (31 October, 8 months): R36,000. 2. Total accumulated depreciation at date of disposal: R240,000 + R36,000 = R276,000. 3. Carrying value at date of disposal: Cost (R600,000) - Accumulated Depreciation (R276,000) = R324,000. 4. Profit/Loss on disposal: Selling price (R310,000) - Carrying value (R324,000) = Carrying Value = R324,000; LOSS on sale = R14,000.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Statements",
-      "subtopic": "Tangible Asset Disposal Calculations",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate Asset Disposal for Zulu Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_36"
-  },
-  {
-    "id": "ACC_P1_COMP_0845",
-    "topic": "Companies & Corporate Governance",
-    "subtopic": "Financial Evaluation & NAV",
-    "difficulty": "hard",
-    "question": "Following the share repurchase, the total Ordinary Shareholders' Equity of **Richards Bay Logistics Ltd** stands at **R32,359,500.00** across **1,620,000** remaining shares. The buyback price was **R23.50** per share. Evaluate the **financial wisdom** of the buyback price in relation to the company's **Net Asset Value (NAV) per share**:",
-    "correct_answer": "NAV per share is R19.97. Paying R23.50 per share diluted the net wealth of remaining shareholders because the repurchase price exceeded NAV by R3.53 per share",
-    "wrong_answers_pool": [
-      "NAV per share is R19.97. The repurchase increased shareholder wealth because NAV was higher than buyback price",
-      "NAV per share is R17.49. The buyback had no effect on net asset value per share",
-      "NAV per share cannot be calculated without knowing the company's gross profit margin percentage",
-      "NAV per share is R23.50. The repurchase was conducted at exact book parity with net assets",
-      "NAV per share is R29.96. The company made a capital profit on the repurchase",
-      "NAV per share is R9.99. The repurchase violated Section 46 solvency requirements automatically"
-    ],
-    "explanation": "NAV per share = Total Equity / Number of Shares in Issue = R32,359,500.00 / 1,620,000 = R19.97.\nSince the repurchase price of R23.50 exceeded NAV (R19.97), the remaining shareholders suffered a dilution in net asset backing per share.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Companies & Corporate Governance",
-      "subtopic": "Financial Evaluation & NAV",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Evaluate NAV vs buyback price for Richards Bay Logistics Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_37"
-  },
-  {
-    "id": "ACC_P1_FIN_0938",
-    "topic": "Financial Statements & Adjustments",
-    "subtopic": "Tangible Asset Disposal Calculations",
-    "difficulty": "hard",
-    "question": "In the records of **Oasis Ltd**, determine the **Accumulated Depreciation** to be written off and debited to the Asset Disposal Account for the **CNC Lathe Machine** sold on **31 December** (Cost R500,000, starting accumulated dep R200,000, 10% straight-line):",
-    "correct_answer": "R241,667",
-    "wrong_answers_pool": [
-      "R200,000 (forgot current year depreciation)",
-      "R41,667 (only stated current year depreciation)",
-      "R500,000",
-      "R290,000",
-      "R120,833",
-      "R258,333",
-      "R256,667"
-    ],
-    "explanation": "Total Accumulated Depreciation at disposal = Opening Acc Dep (R200,000) + Current year dep (R41,667) = R241,667.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Statements",
-      "subtopic": "Tangible Asset Disposal Calculations",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate Accumulated Depreciation for Oasis Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_38"
-  },
-  {
-    "id": "ACC_P1_CF_0719",
-    "topic": "Cash Flow Statement",
-    "subtopic": "Working Capital Reconciliation",
-    "difficulty": "medium",
-    "question": "In the Cash Flow reconciliation note of **Protea Ltd**, Net Profit before tax is **R1,100,000**. Depreciation for the year is **R220,000** and Interest expense on loan is **R48,000**. Calculate the **Operating Profit before Changes in Working Capital**:",
-    "correct_answer": "R1,368,000",
-    "wrong_answers_pool": [
-      "R832,000 (subtracted depreciation and interest instead of adding back)",
-      "R1,320,000 (forgot to add back interest expense)",
-      "R1,148,000 (forgot to add back non-cash depreciation)",
-      "R1,641,600",
-      "R684,000",
-      "R1,100,000",
-      "R1,468,000"
-    ],
-    "explanation": "Operating Profit before Working Capital = Net Profit before Tax (R1,100,000) + Depreciation (R220,000) + Interest Expense (R48,000) = R1,368,000.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Cash Flow Statement",
-      "subtopic": "Working Capital Reconciliation",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate Operating Profit before WC for Protea Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_39"
-  },
-  {
-    "id": "ACC_P1_FIN_0841",
-    "topic": "Financial Statements & Adjustments",
-    "subtopic": "Tangible Asset Disposal Calculations",
-    "difficulty": "hard",
-    "question": "**Apex Ltd** disposed of a **Delivery Truck** on **30 November** (9 months into the financial year ending 28 February). Original cost price: **R420,000**; Accumulated depreciation at the start of the year (1 March): **R168,000**. Depreciation rate: **20% p.a. on diminishing balance**. The asset was sold on credit to a dealer for **R210,000**. Calculate the carrying value on the date of disposal and the resulting profit or loss on sale:",
-    "correct_answer": "Carrying Value = R214,200; LOSS on sale = R4,200",
-    "wrong_answers_pool": [
-      "Carrying Value = R252,000; PROFIT on sale = R42,000 (forgot current year depreciation)",
-      "Carrying Value = R420,000; LOSS on sale = R210,000",
-      "Carrying Value = R214,200; PROFIT on sale = R4,200 (inverted profit and loss)",
-      "Carrying Value = R235,620; Profit on sale = R6,300",
-      "Carrying Value = R205,800; Loss on sale = R4,200",
-      "Carrying Value = R214,200; Zero profit or loss",
-      "Carrying Value = R210,000; Profit on sale = R37,800"
-    ],
-    "explanation": "1. Current year depreciation up to sale (30 November, 9 months): R37,800. 2. Total accumulated depreciation at date of disposal: R168,000 + R37,800 = R205,800. 3. Carrying value at date of disposal: Cost (R420,000) - Accumulated Depreciation (R205,800) = R214,200. 4. Profit/Loss on disposal: Selling price (R210,000) - Carrying value (R214,200) = Carrying Value = R214,200; LOSS on sale = R4,200.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Statements",
-      "subtopic": "Tangible Asset Disposal Calculations",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate Asset Disposal for Apex Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_40"
-  },
-  {
-    "id": "ACC_P1_ANA_0905",
-    "topic": "Financial Indicators & Interpretation",
-    "subtopic": "Reverse Ratio Engineering",
-    "difficulty": "hard",
-    "question": "In the accounts of **Zulu Fashion Ltd**, the **Solvency Ratio is 2.8 : 1**. Non-Current Liabilities are **R2,242,000** and Current Liabilities are **R860,000**. Calculate the exact value of **Total Assets**:",
-    "correct_answer": "Total Assets = R8,685,600",
-    "wrong_answers_pool": [
-      "Total Assets = R3,102,000 (confused Total Liabilities with Total Assets)",
-      "Total Assets = R2,408,000 (only multiplied Current Liabilities)",
-      "Total Assets = R10,422,720",
-      "Total Assets = R4,342,800",
-      "Total Assets = R16,520,000 (multiplied equity instead of liabilities)",
-      "Total Assets = R9,185,600",
-      "Total Assets = R6,277,600"
-    ],
-    "explanation": "1. Total Liabilities = Non-Current Liabilities (R2,242,000) + Current Liabilities (R860,000) = R3,102,000. 2. Total Assets = Solvency Ratio \u00d7 Total Liabilities = 2.8 \u00d7 R3,102,000 = Total Assets = R8,685,600.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Indicators",
-      "subtopic": "Reverse Ratio Engineering",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Reverse calculate Assets for Zulu Fashion Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_41"
-  },
-  {
-    "id": "ACC_P1_FIN_0908",
-    "topic": "Financial Statements & Adjustments",
-    "subtopic": "Tangible Asset Disposal Calculations",
-    "difficulty": "hard",
-    "question": "In the records of **Oasis Ltd**, determine the **Accumulated Depreciation** to be written off and debited to the Asset Disposal Account for the **Forklift** sold on **31 August** (Cost R180,000, starting accumulated dep R54,000, 15% straight-line):",
-    "correct_answer": "R67,500",
-    "wrong_answers_pool": [
-      "R54,000 (forgot current year depreciation)",
-      "R13,500 (only stated current year depreciation)",
-      "R180,000",
-      "R81,000",
-      "R33,750",
-      "R112,500",
-      "R82,500"
-    ],
-    "explanation": "Total Accumulated Depreciation at disposal = Opening Acc Dep (R54,000) + Current year dep (R13,500) = R67,500.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Statements",
-      "subtopic": "Tangible Asset Disposal Calculations",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Calculate Accumulated Depreciation for Oasis Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_42"
-  },
-  {
-    "id": "ACC_P1_COMP_0985",
-    "topic": "Companies & Corporate Governance",
-    "subtopic": "Share Repurchase & Corporate Control",
-    "difficulty": "hard",
-    "question": "Referring to **Zululand Forestry Co Ltd**: The company paid **R16.50** per share for the buyback when the prevailing market price was only **R13.50**. As a result, director Zulu's stake grew from **46.41%** to **52.99%**. Provide the most accurate professional evaluation of this transaction under the **King IV Code of Corporate Governance**:",
-    "correct_answer": "Unethical conflict of interest: Zulu used company cash resources to buy back shares at an inflated price (R16.50 vs market R13.50), effectively consolidating personal voting power (52.99%) at the expense of company liquidity",
-    "wrong_answers_pool": [
-      "Completely ethical and commendable: Zulu sacrificed personal wealth to assist other shareholders",
-      "Neutral: Share buybacks have zero impact on voting control or corporate liquidity under King IV",
-      "Illegal under Companies Act: Companies are strictly prohibited from repurchasing shares under any circumstances",
-      "Ethical because all commercial banks require directors to hold over 50% equity before approving overdrafts",
-      "Unethical solely because dividends tax of 20% was not remitted to the Johannesburg Stock Exchange",
-      "Ethical because the Companies Act mandates that founding directors must always gain absolute voting control"
-    ],
-    "explanation": "Evaluation: Unethical conflict of interest: Zulu used company cash resources to buy back shares at an inflated price (R16.50 vs market R13.50), effectively consolidating personal voting power (52.99%) at the expense of company liquidity. Under King IV and Section 75/76 of the Companies Act, directors have a fiduciary duty not to abuse corporate funds for personal control or pay prices well above fair value without independent valuation.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Companies & Corporate Governance",
-      "subtopic": "Share Repurchase & Corporate Control",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Evaluate ethics of share buyback in Zululand Forestry Co Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_43"
-  },
-  {
-    "id": "ACC_P1_CF_0343",
-    "topic": "Cash Flow Statement",
-    "subtopic": "Working Capital Changes",
-    "difficulty": "medium",
-    "question": "In the records of **Laysano Ltd**, **Trading Inventory** had an opening balance of **R450,000** and a closing balance of **R520,000**. Determine the change and its effect on the Cash Flow Statement under Changes in Working Capital:",
-    "correct_answer": "(Increase of R70,000): Outflow of R70,000",
-    "wrong_answers_pool": [
-      "(Increase of R70,000): Inflow of R70,000 (inverted cash flow direction)",
-      "No effect on cash flow because Trading Inventory is a non-cash balance sheet item",
-      "Investing Activity: Outflow of R70,000",
-      "Financing Activity: Inflow of R70,000",
-      "R520,000 (confused closing balance with cash change)",
-      "R970,000",
-      "Outflow of R140,000"
-    ],
-    "explanation": "Trading Inventory changed by R70,000 (increase). In working capital: For assets (inventory/debtors), an increase consumes cash (outflow) and a decrease frees cash (inflow); for liabilities (creditors), an increase delays cash payment (inflow) and a decrease consumes cash (outflow). Result: (Increase of R70,000): Outflow of R70,000.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Cash Flow Statement",
-      "subtopic": "Working Capital Changes",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Determine WC change for Laysano Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_44"
-  },
-  {
-    "id": "ACC_P1_COMP_0837",
-    "topic": "Companies & Corporate Governance",
-    "subtopic": "Share Repurchase & Corporate Control",
-    "difficulty": "hard",
-    "question": "In **Namaqua Gold Ltd**, director **Coetzee** owned **760,000** shares out of **1,600,000** total issued shares. The company repurchased **200,000** shares from other discontented shareholders and cancelled them. Coetzee did not participate in the repurchase. Calculate the change in **Coetzee's percentage shareholding**:",
-    "correct_answer": "Increased by 6.79% (from 47.50% to 54.29%)",
-    "wrong_answers_pool": [
-      "Decreased by 6.79% (from 54.29% to 47.50%)",
-      "Remained unchanged at 47.50% because Coetzee bought no shares",
-      "Increased by 12.50%",
-      "Increased by 10.18%",
-      "Increased by 3.39%",
-      "Decreased by 14.29%",
-      "Increased by 10.00% exactly"
-    ],
-    "explanation": "Original Shareholding % = (760,000 / 1,600,000) x 100 = 47.50%\nNew Total Shares = 1,600,000 - 200,000 = 1,400,000 shares\nNew Shareholding % = (760,000 / 1,400,000) x 100 = 54.29%\nNet Change = 54.29% - 47.50% = Increased by 6.79% (from 47.50% to 54.29%). Notice: Without investing a single cent of personal money, Coetzee's voting power increased significantly!",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Companies & Corporate Governance",
-      "subtopic": "Share Repurchase & Corporate Control",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Evaluate change in shareholding for Coetzee in Namaqua Gold Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_45"
-  },
-  {
-    "id": "ACC_P1_ANA_0762",
-    "topic": "Financial Indicators & Interpretation",
-    "subtopic": "Operating Expenses Analysis",
-    "difficulty": "medium",
-    "question": "The Income Statement of **Kimberley Tools Ltd** reflects Sales of **R10,500,000** and Net Profit after Tax of **R1,008,000**. Determine the **Net Profit Margin on Sales** (%):",
-    "correct_answer": "9.6%",
-    "wrong_answers_pool": [
-      "24.0% (confused Net Profit Margin with Operating Expenses percentage)",
-      "14.4%",
-      "4.8%",
-      "14.6%",
-      "5.6%",
-      "90.4%",
-      "R1,008,000"
-    ],
-    "explanation": "Net Profit Margin = (Net Profit after Tax / Sales) \u00d7 100 = (R1,008,000 / R10,500,000) \u00d7 100 = 9.6%.",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Financial Indicators",
-      "subtopic": "Operating Expenses Analysis",
-      "cognitive_level": "Applying",
-      "difficulty": "medium",
-      "learning_outcome": "Calculate Net Profit Margin for Kimberley Tools Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_46"
-  },
-  {
-    "id": "ACC_P1_COMP_0912",
-    "topic": "Companies & Corporate Governance",
-    "subtopic": "Share Repurchase & Corporate Control",
-    "difficulty": "hard",
-    "question": "In **Mossel Bay Deepsea Ltd**, director **Pienaar** owned **810,000** shares out of **1,750,000** total issued shares. The company repurchased **220,000** shares from other discontented shareholders and cancelled them. Pienaar did not participate in the repurchase. Calculate the change in **Pienaar's percentage shareholding**:",
-    "correct_answer": "Increased by 6.66% (from 46.29% to 52.94%)",
-    "wrong_answers_pool": [
-      "Decreased by 6.66% (from 52.94% to 46.29%)",
-      "Remained unchanged at 46.29% because Pienaar bought no shares",
-      "Increased by 12.57%",
-      "Increased by 9.98%",
-      "Increased by 3.33%",
-      "Decreased by 14.38%",
-      "Increased by 10.00% exactly"
-    ],
-    "explanation": "Original Shareholding % = (810,000 / 1,750,000) x 100 = 46.29%\nNew Total Shares = 1,750,000 - 220,000 = 1,530,000 shares\nNew Shareholding % = (810,000 / 1,530,000) x 100 = 52.94%\nNet Change = 52.94% - 46.29% = Increased by 6.66% (from 46.29% to 52.94%). Notice: Without investing a single cent of personal money, Pienaar's voting power increased significantly!",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Companies & Corporate Governance",
-      "subtopic": "Share Repurchase & Corporate Control",
-      "cognitive_level": "Evaluating",
-      "difficulty": "hard",
-      "learning_outcome": "Evaluate change in shareholding for Pienaar in Mossel Bay Deepsea Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_47"
-  },
-  {
-    "id": "ACC_P1_COMP_0331",
-    "topic": "Companies & Corporate Governance",
-    "subtopic": "Audit Reports & Corporate Governance",
-    "difficulty": "medium",
-    "question": "Read the audit finding below for **Protea Chem Ltd** and identify the correct audit opinion:\n\n*\"The external auditors of **Protea Chem Ltd** completed all audit testing and confirmed that the financial statements fairly present, in all material respects, the financial position and performance in compliance with IFRS.\"*",
-    "correct_answer": "Unqualified audit opinion ('clean report')",
-    "wrong_answers_pool": [
-      "Qualified audit opinion",
-      "Adverse audit opinion",
-      "Disclaimer of audit opinion",
-      "Forensic criminal investigation",
-      "JSE immediate delisting notice",
-      "Creditors reconciliation variance report"
-    ],
-    "explanation": "Correct Opinion: **Unqualified audit opinion ('clean report')**. Under SAICA and DBE CAPS guidelines, .",
-    "tags": {
-      "grade": "12",
-      "subject": "Accounting",
-      "topic": "Companies & Corporate Governance",
-      "subtopic": "Audit Reports & Corporate Governance",
-      "cognitive_level": "Analyzing",
-      "difficulty": "medium",
-      "learning_outcome": "Identify audit opinion for Protea Chem Ltd"
-    },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_48"
-  },
-  {
-    "id": "ACC_P1_CF_0965",
+    "id": "ACC_P1_CF_0993",
     "topic": "Cash Flow Statement",
     "subtopic": "Cash Generated from Operations Reconciliation",
     "difficulty": "hard",
-    "question": "The financial records of **Durban Wholesale Ltd** reflect: Net Profit before tax: **R3,600,000**; Depreciation: **R640,000**; Interest expense: **R200,000**. Working capital changes: Inventory change: **R-150,000**; Debtors/Receivables change: **R-170,000**; Creditors/Payables change: **R240,000**. Calculate the finalized **Cash Generated from Operations**:",
+    "question": "The financial records of **Bloemfontein Traders Ltd** reflect: Net Profit before tax: **R3,600,000**; Depreciation: **R640,000**; Interest expense: **R200,000**. Working capital changes: Inventory change: **R-150,000**; Debtors/Receivables change: **R-170,000**; Creditors/Payables change: **R240,000**. Calculate the finalized **Cash Generated from Operations**:",
     "correct_answer": "R4,360,000",
     "wrong_answers_pool": [
       "R4,440,000 (stopped before applying working capital changes)",
@@ -1360,27 +552,27 @@
       "subtopic": "Cash Generated from Operations Reconciliation",
       "cognitive_level": "Evaluating",
       "difficulty": "hard",
-      "learning_outcome": "Calculate CGO for Durban Wholesale Ltd"
+      "learning_outcome": "Calculate CGO for Bloemfontein Traders Ltd"
     },
-    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_49"
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_20"
   },
   {
-    "id": "ACC_P1_FIN_0472",
+    "id": "ACC_P1_FIN_0727",
     "topic": "Financial Statements & Adjustments",
     "subtopic": "Net Profit Adjustments",
     "difficulty": "medium",
-    "question": "The preliminary Net Profit before tax for **Kairo Ltd** was determined to be **R850,000**. Before closing the books, the following two year-end adjustments were omitted: (1) trading stock deficit of **R12,000**, and (2) increase in provision for bad debts of **R8,500**. Calculate the finalized, corrected Net Profit before tax:",
-    "correct_answer": "R829,500",
+    "question": "The preliminary Net Profit before tax for **Orchid Ltd** was determined to be **R1,100,000**. Before closing the books, the following two year-end adjustments were omitted: (1) insurance prepaid reversed of **R14,000**, and (2) trading stock loss of **R7,800**. Calculate the finalized, corrected Net Profit before tax:",
+    "correct_answer": "R1,078,200",
     "wrong_answers_pool": [
-      "R870,500 (added expenses to profit instead of subtracting)",
-      "R838,000 (omitted the second adjustment of R8,500)",
-      "R841,500 (omitted the first adjustment of R12,000)",
-      "R912,450",
-      "R746,550",
-      "R854,500",
-      "R850,000"
+      "R1,121,800 (added expenses to profit instead of subtracting)",
+      "R1,086,000 (omitted the second adjustment of R7,800)",
+      "R1,092,200 (omitted the first adjustment of R14,000)",
+      "R1,186,020",
+      "R970,380",
+      "R1,103,200",
+      "R1,100,000"
     ],
-    "explanation": "Corrected Profit = Preliminary Profit (R850,000) - trading stock deficit (R12,000) - increase in provision for bad debts (R8,500) = R829,500.",
+    "explanation": "Corrected Profit = Preliminary Profit (R1,100,000) - insurance prepaid reversed (R14,000) - trading stock loss (R7,800) = R1,078,200.",
     "tags": {
       "grade": "12",
       "subject": "Accounting",
@@ -1388,7 +580,815 @@
       "subtopic": "Net Profit Adjustments",
       "cognitive_level": "Applying",
       "difficulty": "medium",
-      "learning_outcome": "Adjust Net Profit for Kairo Ltd"
+      "learning_outcome": "Adjust Net Profit for Orchid Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_21"
+  },
+  {
+    "id": "ACC_P1_COMP_0869",
+    "topic": "Companies & Corporate Governance",
+    "subtopic": "Financial Evaluation & NAV",
+    "difficulty": "hard",
+    "question": "Following the share repurchase, the total Ordinary Shareholders' Equity of **Rustenburg Chrome Ltd** stands at **R41,099,625.00** across **1,535,000** remaining shares. The buyback price was **R31.50** per share. Evaluate the **financial wisdom** of the buyback price in relation to the company's **Net Asset Value (NAV) per share**:",
+    "correct_answer": "NAV per share is R26.77. Paying R31.50 per share diluted the net wealth of remaining shareholders because the repurchase price exceeded NAV by R4.73 per share",
+    "wrong_answers_pool": [
+      "NAV per share is R26.77. The repurchase increased shareholder wealth because NAV was higher than buyback price",
+      "NAV per share is R23.49. The buyback had no effect on net asset value per share",
+      "NAV per share cannot be calculated without knowing the company's gross profit margin percentage",
+      "NAV per share is R31.50. The repurchase was conducted at exact book parity with net assets",
+      "NAV per share is R40.16. The company made a capital profit on the repurchase",
+      "NAV per share is R13.39. The repurchase violated Section 46 solvency requirements automatically"
+    ],
+    "explanation": "NAV per share = Total Equity / Number of Shares in Issue = R41,099,625.00 / 1,535,000 = R26.77.\nSince the repurchase price of R31.50 exceeded NAV (R26.77), the remaining shareholders suffered a dilution in net asset backing per share.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Companies & Corporate Governance",
+      "subtopic": "Financial Evaluation & NAV",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Evaluate NAV vs buyback price for Rustenburg Chrome Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_22"
+  },
+  {
+    "id": "ACC_P1_COMP_0493",
+    "topic": "Companies & Corporate Governance",
+    "subtopic": "Retained Income Note",
+    "difficulty": "medium",
+    "question": "The following details relate to **Karoo Renewable Power Ltd** for the financial year:\n- Retained Income balance at beginning: **R950,000.00**\n- Net Profit after Tax: **R2,400,000.00**\n- Share buyback premium debited to retained income: **R178,000.00**\n- Total dividends on ordinary shares (interim R812,500.00 + final R1,200,000.00): **R2,012,500.00**\nCalculate the **Retained Income balance** at the end of the financial year:",
+    "correct_answer": "R1,159,500.00",
+    "wrong_answers_pool": [
+      "R1,337,500.00 (omitted share buyback deduction from retained income)",
+      "R487,500.00 (deducted full buyback price instead of premium)",
+      "R2,359,500.00 (omitted final dividend deduction)",
+      "R1,333,425.00",
+      "R985,575.00",
+      "R1,309,500.00",
+      "R1,039,500.00"
+    ],
+    "explanation": "Retained Income at End = Opening Balance + Net Profit after Tax - Buyback Premium - Total Dividends\n= R950,000.00 + R2,400,000.00 - R178,000.00 - R2,012,500.00\n= R1,159,500.00.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Companies & Corporate Governance",
+      "subtopic": "Retained Income Note",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate closing retained income for Karoo Renewable Power Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_23"
+  },
+  {
+    "id": "ACC_P1_ANA_0460",
+    "topic": "Financial Indicators & Interpretation",
+    "subtopic": "Profitability Margins",
+    "difficulty": "medium",
+    "question": "The financial records of **Galaxy Appliances Ltd** show Sales of **R20,350,000**, Gross Profit of **R8,140,000**, and Operating Profit of **R3,256,000**. Calculate the **Gross Profit Margin** and **Operating Profit Margin** on sales:",
+    "correct_answer": "40.0% Gross Margin; 16.0% Operating Margin",
+    "wrong_answers_pool": [
+      "16.0% Gross Margin; 40.0% Operating Margin (inverted margins)",
+      "60.0% Gross Margin",
+      "8.0% Operating Margin",
+      "60.0% Cost of Sales Margin",
+      "50.0% Gross Margin",
+      "24.0% Operating Margin",
+      "R8,140,000 Margin"
+    ],
+    "explanation": "1. Gross Profit Margin = (Gross Profit / Sales) \u00d7 100 = (R8,140,000 / R20,350,000) \u00d7 100 = 40.0%. 2. Operating Profit Margin = (Operating Profit / Sales) \u00d7 100 = (R3,256,000 / R20,350,000) \u00d7 100 = 16.0%.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Financial Indicators",
+      "subtopic": "Profitability Margins",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate Profit Margins for Galaxy Appliances Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_24"
+  },
+  {
+    "id": "ACC_P1_CF_0894",
+    "topic": "Cash Flow Statement",
+    "subtopic": "Cash Generated from Operations Reconciliation",
+    "difficulty": "hard",
+    "question": "The financial records of **Kairo Furnishers Ltd** reflect: Net Profit before tax: **R3,200,000**; Depreciation: **R580,000**; Interest expense: **R180,000**. Working capital changes: Inventory change: **R-120,000**; Debtors/Receivables change: **R-140,000**; Creditors/Payables change: **R210,000**. Calculate the finalized **Cash Generated from Operations**:",
+    "correct_answer": "R3,910,000",
+    "wrong_answers_pool": [
+      "R3,960,000 (stopped before applying working capital changes)",
+      "R3,200,000 (confused net profit before tax with cash generated)",
+      "R4,692,000",
+      "R1,955,000",
+      "R4,010,000 (inverted working capital signs)",
+      "R4,160,000",
+      "R3,150,000 (omitted non-cash adjustments)"
+    ],
+    "explanation": "1. Operating Profit before WC changes = Net Profit before Tax (R3,200,000) + Depreciation (R580,000) + Interest (R180,000) = R3,960,000. 2. Working Capital changes = R-120,000 + R-140,000 + R210,000 = R-50,000. 3. Cash Generated from Operations = R3,960,000 + (R-50,000) = R3,910,000.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Cash Flow Statement",
+      "subtopic": "Cash Generated from Operations Reconciliation",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate CGO for Kairo Furnishers Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_25"
+  },
+  {
+    "id": "ACC_P1_FIN_0722",
+    "topic": "Financial Statements & Adjustments",
+    "subtopic": "Net Profit Adjustments",
+    "difficulty": "medium",
+    "question": "The preliminary Net Profit before tax for **Orchid Ltd** was determined to be **R920,000**. Before closing the books, the following two year-end adjustments were omitted: (1) additional interest on loan of **R8,200**, and (2) provision for bad debts increase of **R5,500**. Calculate the finalized, corrected Net Profit before tax:",
+    "correct_answer": "R906,300",
+    "wrong_answers_pool": [
+      "R933,700 (added expenses to profit instead of subtracting)",
+      "R911,800 (omitted the second adjustment of R5,500)",
+      "R914,500 (omitted the first adjustment of R8,200)",
+      "R996,930",
+      "R815,670",
+      "R931,300",
+      "R920,000"
+    ],
+    "explanation": "Corrected Profit = Preliminary Profit (R920,000) - additional interest on loan (R8,200) - provision for bad debts increase (R5,500) = R906,300.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Financial Statements",
+      "subtopic": "Net Profit Adjustments",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Adjust Net Profit for Orchid Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_26"
+  },
+  {
+    "id": "ACC_P1_ANA_0393",
+    "topic": "Financial Indicators & Interpretation",
+    "subtopic": "Investor Financial Indicators",
+    "difficulty": "medium",
+    "question": "The directors of **Cape Coast Ltd** declared total dividends (interim + final) of **R464,000** for the year on **580,000 issued shares**. Determine the **Dividends per Share (DPS) in cents**:",
+    "correct_answer": "80.0 cents per share",
+    "wrong_answers_pool": [
+      "151.7 cents per share (calculated EPS instead of DPS)",
+      "0.80 cents per share (forgot to convert to cents)",
+      "120.0 cents per share",
+      "40.0 cents per share",
+      "90.0 cents per share",
+      "72.0 cents per share",
+      "52.7 cents per share"
+    ],
+    "explanation": "DPS = (Total Dividends / Number of Issued Shares) \u00d7 100 = (R464,000 / 580,000) \u00d7 100 = 80.0 cents per share.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Financial Indicators",
+      "subtopic": "Investor Financial Indicators",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate DPS for Cape Coast Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_27"
+  },
+  {
+    "id": "ACC_P1_FIN_0910",
+    "topic": "Financial Statements & Adjustments",
+    "subtopic": "Tangible Asset Disposal Calculations",
+    "difficulty": "hard",
+    "question": "In the records of **Bakersfield Ltd**, determine the **Accumulated Depreciation** to be written off and debited to the Asset Disposal Account for the **Forklift** sold on **31 August** (Cost R180,000, starting accumulated dep R54,000, 15% straight-line):",
+    "correct_answer": "R67,500",
+    "wrong_answers_pool": [
+      "R54,000 (forgot current year depreciation)",
+      "R13,500 (only stated current year depreciation)",
+      "R180,000",
+      "R81,000",
+      "R33,750",
+      "R112,500",
+      "R82,500"
+    ],
+    "explanation": "Total Accumulated Depreciation at disposal = Opening Acc Dep (R54,000) + Current year dep (R13,500) = R67,500.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Financial Statements",
+      "subtopic": "Tangible Asset Disposal Calculations",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate Accumulated Depreciation for Bakersfield Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_28"
+  },
+  {
+    "id": "ACC_P1_FIN_0878",
+    "topic": "Financial Statements & Adjustments",
+    "subtopic": "Tangible Asset Disposal Calculations",
+    "difficulty": "hard",
+    "question": "In the records of **Oasis Ltd**, determine the **Accumulated Depreciation** to be written off and debited to the Asset Disposal Account for the **Executive Sedan** sold on **31 October** (Cost R350,000, starting accumulated dep R140,000, 20% diminishing balance):",
+    "correct_answer": "R168,000",
+    "wrong_answers_pool": [
+      "R140,000 (forgot current year depreciation)",
+      "R28,000 (only stated current year depreciation)",
+      "R350,000",
+      "R201,600",
+      "R84,000",
+      "R182,000",
+      "R183,000"
+    ],
+    "explanation": "Total Accumulated Depreciation at disposal = Opening Acc Dep (R140,000) + Current year dep (R28,000) = R168,000.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Financial Statements",
+      "subtopic": "Tangible Asset Disposal Calculations",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate Accumulated Depreciation for Oasis Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_29"
+  },
+  {
+    "id": "ACC_P1_CF_0742",
+    "topic": "Cash Flow Statement",
+    "subtopic": "Working Capital Reconciliation",
+    "difficulty": "medium",
+    "question": "In the Cash Flow reconciliation note of **Protea Ltd**, Net Profit before tax is **R1,350,000**. Depreciation for the year is **R150,000** and Interest expense on loan is **R90,000**. Calculate the **Operating Profit before Changes in Working Capital**:",
+    "correct_answer": "R1,590,000",
+    "wrong_answers_pool": [
+      "R1,110,000 (subtracted depreciation and interest instead of adding back)",
+      "R1,500,000 (forgot to add back interest expense)",
+      "R1,440,000 (forgot to add back non-cash depreciation)",
+      "R1,908,000",
+      "R795,000",
+      "R1,350,000",
+      "R1,690,000"
+    ],
+    "explanation": "Operating Profit before Working Capital = Net Profit before Tax (R1,350,000) + Depreciation (R150,000) + Interest Expense (R90,000) = R1,590,000.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Cash Flow Statement",
+      "subtopic": "Working Capital Reconciliation",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate Operating Profit before WC for Protea Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_30"
+  },
+  {
+    "id": "ACC_P1_COMP_0486",
+    "topic": "Companies & Corporate Governance",
+    "subtopic": "Audit Reports & Corporate Governance",
+    "difficulty": "medium",
+    "question": "Read the audit finding below for **Richards Bay Coal Ltd** and identify the correct audit opinion:\n\n*\"A major fire destroyed **Richards Bay Coal Ltd**'s head office, obliterating 80% of accounting documentation, general ledgers, and backup servers. The auditors were unable to obtain sufficient appropriate audit evidence.\"*",
+    "correct_answer": "Disclaimer of audit opinion",
+    "wrong_answers_pool": [
+      "Unqualified audit opinion ('clean report')",
+      "Qualified audit opinion",
+      "Adverse audit opinion",
+      "Voluntary shareholder distribution certificate",
+      "B-BBEE level 1 compliance rating",
+      "King IV corporate governance excellence award"
+    ],
+    "explanation": "Correct Opinion: **Disclaimer of audit opinion**. Under SAICA and DBE CAPS guidelines, The auditors were unable to obtain sufficient appropriate audit evidence.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Companies & Corporate Governance",
+      "subtopic": "Audit Reports & Corporate Governance",
+      "cognitive_level": "Analyzing",
+      "difficulty": "medium",
+      "learning_outcome": "Identify audit opinion for Richards Bay Coal Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_31"
+  },
+  {
+    "id": "ACC_P1_FIN_0443",
+    "topic": "Financial Statements & Adjustments",
+    "subtopic": "Net Profit Adjustments",
+    "difficulty": "medium",
+    "question": "The preliminary Net Profit before tax for **Protea Ltd** was determined to be **R1,600,000**. Before closing the books, the following two year-end adjustments were omitted: (1) depreciation omission of **R15,000**, and (2) bad debt written off of **R6,200**. Calculate the finalized, corrected Net Profit before tax:",
+    "correct_answer": "R1,578,800",
+    "wrong_answers_pool": [
+      "R1,621,200 (added expenses to profit instead of subtracting)",
+      "R1,585,000 (omitted the second adjustment of R6,200)",
+      "R1,593,800 (omitted the first adjustment of R15,000)",
+      "R1,736,680",
+      "R1,420,920",
+      "R1,603,800",
+      "R1,600,000"
+    ],
+    "explanation": "Corrected Profit = Preliminary Profit (R1,600,000) - depreciation omission (R15,000) - bad debt written off (R6,200) = R1,578,800.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Financial Statements",
+      "subtopic": "Net Profit Adjustments",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Adjust Net Profit for Protea Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_32"
+  },
+  {
+    "id": "ACC_P1_COMP_0990",
+    "topic": "Companies & Corporate Governance",
+    "subtopic": "Share Repurchase & Corporate Control",
+    "difficulty": "hard",
+    "question": "In **Karoo Sun Power Ltd**, director **Viviers** owned **570,000** shares out of **1,230,000** total issued shares. The company repurchased **155,000** shares from other discontented shareholders and cancelled them. Viviers did not participate in the repurchase. Calculate the change in **Viviers's percentage shareholding**:",
+    "correct_answer": "Increased by 6.68% (from 46.34% to 53.02%)",
+    "wrong_answers_pool": [
+      "Decreased by 6.68% (from 53.02% to 46.34%)",
+      "Remained unchanged at 46.34% because Viviers bought no shares",
+      "Increased by 12.60%",
+      "Increased by 10.02%",
+      "Increased by 3.34%",
+      "Decreased by 14.42%",
+      "Increased by 10.00% exactly"
+    ],
+    "explanation": "Original Shareholding % = (570,000 / 1,230,000) x 100 = 46.34%\nNew Total Shares = 1,230,000 - 155,000 = 1,075,000 shares\nNew Shareholding % = (570,000 / 1,075,000) x 100 = 53.02%\nNet Change = 53.02% - 46.34% = Increased by 6.68% (from 46.34% to 53.02%). Notice: Without investing a single cent of personal money, Viviers's voting power increased significantly!",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Companies & Corporate Governance",
+      "subtopic": "Share Repurchase & Corporate Control",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Evaluate change in shareholding for Viviers in Karoo Sun Power Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_33"
+  },
+  {
+    "id": "ACC_P1_FIN_0935",
+    "topic": "Financial Statements & Adjustments",
+    "subtopic": "Tangible Asset Disposal Calculations",
+    "difficulty": "hard",
+    "question": "**Galaxy Ltd** disposed of a **CNC Lathe Machine** on **31 December** (10 months into the financial year ending 28 February). Original cost price: **R500,000**; Accumulated depreciation at the start of the year (1 March): **R200,000**. Depreciation rate: **10% p.a. on straight-line**. The asset was sold for cash for **R240,000**. Calculate the carrying value on the date of disposal and the resulting profit or loss on sale:",
+    "correct_answer": "Carrying Value = R258,333; LOSS on sale = R18,333",
+    "wrong_answers_pool": [
+      "Carrying Value = R300,000; PROFIT on sale = R60,000 (forgot current year depreciation)",
+      "Carrying Value = R500,000; LOSS on sale = R260,000",
+      "Carrying Value = R258,333; PROFIT on sale = R18,333 (inverted profit and loss)",
+      "Carrying Value = R284,167; Profit on sale = R27,500",
+      "Carrying Value = R241,667; Loss on sale = R1,667",
+      "Carrying Value = R258,333; Zero profit or loss",
+      "Carrying Value = R240,000; Profit on sale = R41,667"
+    ],
+    "explanation": "1. Current year depreciation up to sale (31 December, 10 months): R41,667. 2. Total accumulated depreciation at date of disposal: R200,000 + R41,667 = R241,667. 3. Carrying value at date of disposal: Cost (R500,000) - Accumulated Depreciation (R241,667) = R258,333. 4. Profit/Loss on disposal: Selling price (R240,000) - Carrying value (R258,333) = Carrying Value = R258,333; LOSS on sale = R18,333.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Financial Statements",
+      "subtopic": "Tangible Asset Disposal Calculations",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate Asset Disposal for Galaxy Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_34"
+  },
+  {
+    "id": "ACC_P1_COMP_0540",
+    "topic": "Companies & Corporate Governance",
+    "subtopic": "Audit Reports & Corporate Governance",
+    "difficulty": "medium",
+    "question": "Read the audit finding below for **Rustenburg Smelters Ltd** and identify the correct audit opinion:\n\n*\"The external auditors of **Rustenburg Smelters Ltd** completed all audit testing and confirmed that the financial statements fairly present, in all material respects, the financial position and performance in compliance with IFRS.\"*",
+    "correct_answer": "Unqualified audit opinion ('clean report')",
+    "wrong_answers_pool": [
+      "Qualified audit opinion",
+      "Adverse audit opinion",
+      "Disclaimer of audit opinion",
+      "Forensic criminal investigation",
+      "JSE immediate delisting notice",
+      "Creditors reconciliation variance report"
+    ],
+    "explanation": "Correct Opinion: **Unqualified audit opinion ('clean report')**. Under SAICA and DBE CAPS guidelines, .",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Companies & Corporate Governance",
+      "subtopic": "Audit Reports & Corporate Governance",
+      "cognitive_level": "Analyzing",
+      "difficulty": "medium",
+      "learning_outcome": "Identify audit opinion for Rustenburg Smelters Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_35"
+  },
+  {
+    "id": "ACC_P1_CF_0872",
+    "topic": "Cash Flow Statement",
+    "subtopic": "Cash Generated from Operations Reconciliation",
+    "difficulty": "hard",
+    "question": "The financial records of **Metro Tech Ltd** reflect: Net Profit before tax: **R1,350,000**; Depreciation: **R260,000**; Interest expense: **R70,000**. Working capital changes: Inventory change: **R-40,000**; Debtors/Receivables change: **R-55,000**; Creditors/Payables change: **R72,000**. Calculate the finalized **Cash Generated from Operations**:",
+    "correct_answer": "R1,657,000",
+    "wrong_answers_pool": [
+      "R1,680,000 (stopped before applying working capital changes)",
+      "R1,350,000 (confused net profit before tax with cash generated)",
+      "R1,988,400",
+      "R828,500",
+      "R1,703,000 (inverted working capital signs)",
+      "R1,907,000",
+      "R1,327,000 (omitted non-cash adjustments)"
+    ],
+    "explanation": "1. Operating Profit before WC changes = Net Profit before Tax (R1,350,000) + Depreciation (R260,000) + Interest (R70,000) = R1,680,000. 2. Working Capital changes = R-40,000 + R-55,000 + R72,000 = R-23,000. 3. Cash Generated from Operations = R1,680,000 + (R-23,000) = R1,657,000.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Cash Flow Statement",
+      "subtopic": "Cash Generated from Operations Reconciliation",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate CGO for Metro Tech Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_36"
+  },
+  {
+    "id": "ACC_P1_CF_0611",
+    "topic": "Cash Flow Statement",
+    "subtopic": "Working Capital Reconciliation",
+    "difficulty": "medium",
+    "question": "In the Cash Flow reconciliation note of **Laysano Ltd**, Net Profit before tax is **R2,100,000**. Depreciation for the year is **R310,000** and Interest expense on loan is **R75,000**. Calculate the **Operating Profit before Changes in Working Capital**:",
+    "correct_answer": "R2,485,000",
+    "wrong_answers_pool": [
+      "R1,715,000 (subtracted depreciation and interest instead of adding back)",
+      "R2,410,000 (forgot to add back interest expense)",
+      "R2,175,000 (forgot to add back non-cash depreciation)",
+      "R2,982,000",
+      "R1,242,500",
+      "R2,100,000",
+      "R2,585,000"
+    ],
+    "explanation": "Operating Profit before Working Capital = Net Profit before Tax (R2,100,000) + Depreciation (R310,000) + Interest Expense (R75,000) = R2,485,000.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Cash Flow Statement",
+      "subtopic": "Working Capital Reconciliation",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate Operating Profit before WC for Laysano Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_37"
+  },
+  {
+    "id": "ACC_P1_CF_0416",
+    "topic": "Cash Flow Statement",
+    "subtopic": "Working Capital Reconciliation",
+    "difficulty": "medium",
+    "question": "In the Cash Flow reconciliation note of **Laysano Ltd**, Net Profit before tax is **R750,000**. Depreciation for the year is **R180,000** and Interest expense on loan is **R75,000**. Calculate the **Operating Profit before Changes in Working Capital**:",
+    "correct_answer": "R1,005,000",
+    "wrong_answers_pool": [
+      "R495,000 (subtracted depreciation and interest instead of adding back)",
+      "R930,000 (forgot to add back interest expense)",
+      "R825,000 (forgot to add back non-cash depreciation)",
+      "R1,206,000",
+      "R502,500",
+      "R750,000",
+      "R1,105,000"
+    ],
+    "explanation": "Operating Profit before Working Capital = Net Profit before Tax (R750,000) + Depreciation (R180,000) + Interest Expense (R75,000) = R1,005,000.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Cash Flow Statement",
+      "subtopic": "Working Capital Reconciliation",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate Operating Profit before WC for Laysano Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_38"
+  },
+  {
+    "id": "ACC_P1_FIN_0857",
+    "topic": "Financial Statements & Adjustments",
+    "subtopic": "Tangible Asset Disposal Calculations",
+    "difficulty": "hard",
+    "question": "**Limpopo Ltd** disposed of a **Delivery Truck** on **30 November** (9 months into the financial year ending 28 February). Original cost price: **R420,000**; Accumulated depreciation at the start of the year (1 March): **R168,000**. Depreciation rate: **20% p.a. on diminishing balance**. The asset was sold on credit to a dealer for **R210,000**. Calculate the carrying value on the date of disposal and the resulting profit or loss on sale:",
+    "correct_answer": "Carrying Value = R214,200; LOSS on sale = R4,200",
+    "wrong_answers_pool": [
+      "Carrying Value = R252,000; PROFIT on sale = R42,000 (forgot current year depreciation)",
+      "Carrying Value = R420,000; LOSS on sale = R210,000",
+      "Carrying Value = R214,200; PROFIT on sale = R4,200 (inverted profit and loss)",
+      "Carrying Value = R235,620; Profit on sale = R6,300",
+      "Carrying Value = R205,800; Loss on sale = R4,200",
+      "Carrying Value = R214,200; Zero profit or loss",
+      "Carrying Value = R210,000; Profit on sale = R37,800"
+    ],
+    "explanation": "1. Current year depreciation up to sale (30 November, 9 months): R37,800. 2. Total accumulated depreciation at date of disposal: R168,000 + R37,800 = R205,800. 3. Carrying value at date of disposal: Cost (R420,000) - Accumulated Depreciation (R205,800) = R214,200. 4. Profit/Loss on disposal: Selling price (R210,000) - Carrying value (R214,200) = Carrying Value = R214,200; LOSS on sale = R4,200.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Financial Statements",
+      "subtopic": "Tangible Asset Disposal Calculations",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate Asset Disposal for Limpopo Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_39"
+  },
+  {
+    "id": "ACC_P1_CF_0529",
+    "topic": "Cash Flow Statement",
+    "subtopic": "Working Capital Reconciliation",
+    "difficulty": "medium",
+    "question": "In the Cash Flow reconciliation note of **Laysano Ltd**, Net Profit before tax is **R1,600,000**. Depreciation for the year is **R150,000** and Interest expense on loan is **R48,000**. Calculate the **Operating Profit before Changes in Working Capital**:",
+    "correct_answer": "R1,798,000",
+    "wrong_answers_pool": [
+      "R1,402,000 (subtracted depreciation and interest instead of adding back)",
+      "R1,750,000 (forgot to add back interest expense)",
+      "R1,648,000 (forgot to add back non-cash depreciation)",
+      "R2,157,600",
+      "R899,000",
+      "R1,600,000",
+      "R1,898,000"
+    ],
+    "explanation": "Operating Profit before Working Capital = Net Profit before Tax (R1,600,000) + Depreciation (R150,000) + Interest Expense (R48,000) = R1,798,000.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Cash Flow Statement",
+      "subtopic": "Working Capital Reconciliation",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate Operating Profit before WC for Laysano Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_40"
+  },
+  {
+    "id": "ACC_P1_CF_0953",
+    "topic": "Cash Flow Statement",
+    "subtopic": "Cash Generated from Operations Reconciliation",
+    "difficulty": "hard",
+    "question": "The financial records of **Cape Coast Ltd** reflect: Net Profit before tax: **R950,000**; Depreciation: **R180,000**; Interest expense: **R48,000**. Working capital changes: Inventory change: **R25,000**; Debtors/Receivables change: **R-35,000**; Creditors/Payables change: **R-40,000**. Calculate the finalized **Cash Generated from Operations**:",
+    "correct_answer": "R1,128,000",
+    "wrong_answers_pool": [
+      "R1,178,000 (stopped before applying working capital changes)",
+      "R950,000 (confused net profit before tax with cash generated)",
+      "R1,353,600",
+      "R564,000",
+      "R1,228,000 (inverted working capital signs)",
+      "R1,378,000",
+      "R900,000 (omitted non-cash adjustments)"
+    ],
+    "explanation": "1. Operating Profit before WC changes = Net Profit before Tax (R950,000) + Depreciation (R180,000) + Interest (R48,000) = R1,178,000. 2. Working Capital changes = R25,000 + R-35,000 + R-40,000 = R-50,000. 3. Cash Generated from Operations = R1,178,000 + (R-50,000) = R1,128,000.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Cash Flow Statement",
+      "subtopic": "Cash Generated from Operations Reconciliation",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate CGO for Cape Coast Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_41"
+  },
+  {
+    "id": "ACC_P1_FIN_0785",
+    "topic": "Financial Statements & Adjustments",
+    "subtopic": "Net Profit Adjustments",
+    "difficulty": "medium",
+    "question": "The preliminary Net Profit before tax for **Galaxy Ltd** was determined to be **R1,100,000**. Before closing the books, the following two year-end adjustments were omitted: (1) depreciation omission of **R15,000**, and (2) bad debt written off of **R6,200**. Calculate the finalized, corrected Net Profit before tax:",
+    "correct_answer": "R1,078,800",
+    "wrong_answers_pool": [
+      "R1,121,200 (added expenses to profit instead of subtracting)",
+      "R1,085,000 (omitted the second adjustment of R6,200)",
+      "R1,093,800 (omitted the first adjustment of R15,000)",
+      "R1,186,680",
+      "R970,920",
+      "R1,103,800",
+      "R1,100,000"
+    ],
+    "explanation": "Corrected Profit = Preliminary Profit (R1,100,000) - depreciation omission (R15,000) - bad debt written off (R6,200) = R1,078,800.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Financial Statements",
+      "subtopic": "Net Profit Adjustments",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Adjust Net Profit for Galaxy Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_42"
+  },
+  {
+    "id": "ACC_P1_COMP_0348",
+    "topic": "Companies & Corporate Governance",
+    "subtopic": "Ordinary Share Capital Note",
+    "difficulty": "medium",
+    "question": "**Blyde Valley Timber Ltd** started the year with **500,000** shares valued at **R3,600,000**. They issued **100,000** shares for **R900,000** and subsequently repurchased **30,000** shares at **R9.80** per share. Calculate the closing balance of **Ordinary Share Capital** to be shown in the Balance Sheet at year-end:",
+    "correct_answer": "R4,275,000.00",
+    "wrong_answers_pool": [
+      "R4,206,000.00 (deducted full buyback price from share capital)",
+      "R4,500,000.00 (omitted the share repurchase)",
+      "R4,104,000.00 (valued closing shares at opening issue price)",
+      "R4,702,500.00",
+      "R3,847,500.00",
+      "R4,475,000.00",
+      "R4,095,000.00"
+    ],
+    "explanation": "Closing Share Capital Balance = Remaining Shares x Weighted Average Price\n= (600,000 - 30,000) x R7.50\n= 570,000 shares x R7.50 = R4,275,000.00.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Companies & Corporate Governance",
+      "subtopic": "Ordinary Share Capital Note",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate closing share capital for Blyde Valley Timber Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_43"
+  },
+  {
+    "id": "ACC_P1_CF_0554",
+    "topic": "Cash Flow Statement",
+    "subtopic": "Working Capital Reconciliation",
+    "difficulty": "medium",
+    "question": "In the Cash Flow reconciliation note of **Laysano Ltd**, Net Profit before tax is **R1,850,000**. Depreciation for the year is **R120,000** and Interest expense on loan is **R48,000**. Calculate the **Operating Profit before Changes in Working Capital**:",
+    "correct_answer": "R2,018,000",
+    "wrong_answers_pool": [
+      "R1,682,000 (subtracted depreciation and interest instead of adding back)",
+      "R1,970,000 (forgot to add back interest expense)",
+      "R1,898,000 (forgot to add back non-cash depreciation)",
+      "R2,421,600",
+      "R1,009,000",
+      "R1,850,000",
+      "R2,118,000"
+    ],
+    "explanation": "Operating Profit before Working Capital = Net Profit before Tax (R1,850,000) + Depreciation (R120,000) + Interest Expense (R48,000) = R2,018,000.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Cash Flow Statement",
+      "subtopic": "Working Capital Reconciliation",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate Operating Profit before WC for Laysano Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_44"
+  },
+  {
+    "id": "ACC_P1_CF_0545",
+    "topic": "Cash Flow Statement",
+    "subtopic": "Working Capital Reconciliation",
+    "difficulty": "medium",
+    "question": "In the Cash Flow reconciliation note of **Laysano Ltd**, Net Profit before tax is **R1,600,000**. Depreciation for the year is **R260,000** and Interest expense on loan is **R62,000**. Calculate the **Operating Profit before Changes in Working Capital**:",
+    "correct_answer": "R1,922,000",
+    "wrong_answers_pool": [
+      "R1,278,000 (subtracted depreciation and interest instead of adding back)",
+      "R1,860,000 (forgot to add back interest expense)",
+      "R1,662,000 (forgot to add back non-cash depreciation)",
+      "R2,306,400",
+      "R961,000",
+      "R1,600,000",
+      "R2,022,000"
+    ],
+    "explanation": "Operating Profit before Working Capital = Net Profit before Tax (R1,600,000) + Depreciation (R260,000) + Interest Expense (R62,000) = R1,922,000.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Cash Flow Statement",
+      "subtopic": "Working Capital Reconciliation",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate Operating Profit before WC for Laysano Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_45"
+  },
+  {
+    "id": "ACC_P1_COMP_0655",
+    "topic": "Companies & Corporate Governance",
+    "subtopic": "Retained Income Note",
+    "difficulty": "medium",
+    "question": "**Cradock Livestock Trading Ltd** bought back **36,000** ordinary shares at **R11.50** each. The weighted average issue price on the date of repurchase was **R8.73**. Calculate the amount debited to **Retained Income** (Note 8) in respect of this share repurchase:",
+    "correct_answer": "R99,889.16",
+    "wrong_answers_pool": [
+      "R314,110.84 (confused with amount debited to share capital)",
+      "R414,000.00 (debited total repurchase consideration to retained income)",
+      "R111,600.00 (used opening price instead of weighted average price)",
+      "R124,861.45",
+      "R74,916.87",
+      "R129,889.16",
+      "R79,889.16"
+    ],
+    "explanation": "Amount Debited to Retained Income = Shares Repurchased x (Repurchase Price - Weighted Average Issue Price)\n= 36,000 x (R11.50 - R8.73)\n= 36,000 x R2.77 = R99,889.16.\nThis represents the premium paid over the average issue price, which reduces accumulated retained earnings.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Companies & Corporate Governance",
+      "subtopic": "Retained Income Note",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate retained income buyback debit for Cradock Livestock Trading Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_46"
+  },
+  {
+    "id": "ACC_P1_CF_0983",
+    "topic": "Cash Flow Statement",
+    "subtopic": "Cash Generated from Operations Reconciliation",
+    "difficulty": "hard",
+    "question": "The financial records of **Sandton Goods Ltd** reflect: Net Profit before tax: **R1,100,000**; Depreciation: **R210,000**; Interest expense: **R55,000**. Working capital changes: Inventory change: **R-30,000**; Debtors/Receivables change: **R-42,000**; Creditors/Payables change: **R52,000**. Calculate the finalized **Cash Generated from Operations**:",
+    "correct_answer": "R1,345,000",
+    "wrong_answers_pool": [
+      "R1,365,000 (stopped before applying working capital changes)",
+      "R1,100,000 (confused net profit before tax with cash generated)",
+      "R1,614,000",
+      "R672,500",
+      "R1,385,000 (inverted working capital signs)",
+      "R1,595,000",
+      "R1,080,000 (omitted non-cash adjustments)"
+    ],
+    "explanation": "1. Operating Profit before WC changes = Net Profit before Tax (R1,100,000) + Depreciation (R210,000) + Interest (R55,000) = R1,365,000. 2. Working Capital changes = R-30,000 + R-42,000 + R52,000 = R-20,000. 3. Cash Generated from Operations = R1,365,000 + (R-20,000) = R1,345,000.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Cash Flow Statement",
+      "subtopic": "Cash Generated from Operations Reconciliation",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate CGO for Sandton Goods Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_47"
+  },
+  {
+    "id": "ACC_P1_COMP_0466",
+    "topic": "Companies & Corporate Governance",
+    "subtopic": "Ordinary Share Capital Note",
+    "difficulty": "medium",
+    "question": "The Ordinary Share Capital records of **Outeniqua Paper Mills Ltd** reveal the following:\n- Balance at beginning of financial year: **700,000** ordinary shares valued at **R5,600,000** (R8.00 each)\n- Shares issued during the year: **180,000** ordinary shares at **R9.80** each\nCalculate the **weighted average issue price per share** prior to any share repurchase:",
+    "correct_answer": "R8.37",
+    "wrong_answers_pool": [
+      "R8.00 (used opening price only)",
+      "R9.80 (used new issue price only)",
+      "R8.90 (simple average without weighting by shares)",
+      "R10.90 (used repurchase price)",
+      "R9.62",
+      "R7.11",
+      "R9.57"
+    ],
+    "explanation": "Weighted Average Price = (Opening Value + New Issue Value) / (Opening Shares + New Shares)\n= (R5,600,000 + R1,764,000) / (700,000 + 180,000)\n= R7,364,000 / 880,000 = R8.37 per share.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Companies & Corporate Governance",
+      "subtopic": "Ordinary Share Capital Note",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate weighted average share price for Outeniqua Paper Mills Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_48"
+  },
+  {
+    "id": "ACC_P1_COMP_0881",
+    "topic": "Companies & Corporate Governance",
+    "subtopic": "Financial Evaluation & NAV",
+    "difficulty": "hard",
+    "question": "Following the share repurchase, the total Ordinary Shareholders' Equity of **Bloemfontein Milling Ltd** stands at **R8,211,000.00** across **690,000** remaining shares. The buyback price was **R14.00** per share. Evaluate the **financial wisdom** of the buyback price in relation to the company's **Net Asset Value (NAV) per share**:",
+    "correct_answer": "NAV per share is R11.90. Paying R14.00 per share diluted the net wealth of remaining shareholders because the repurchase price exceeded NAV by R2.10 per share",
+    "wrong_answers_pool": [
+      "NAV per share is R11.90. The repurchase increased shareholder wealth because NAV was higher than buyback price",
+      "NAV per share is R10.53. The buyback had no effect on net asset value per share",
+      "NAV per share cannot be calculated without knowing the company's gross profit margin percentage",
+      "NAV per share is R14.00. The repurchase was conducted at exact book parity with net assets",
+      "NAV per share is R17.85. The company made a capital profit on the repurchase",
+      "NAV per share is R5.95. The repurchase violated Section 46 solvency requirements automatically"
+    ],
+    "explanation": "NAV per share = Total Equity / Number of Shares in Issue = R8,211,000.00 / 690,000 = R11.90.\nSince the repurchase price of R14.00 exceeded NAV (R11.90), the remaining shareholders suffered a dilution in net asset backing per share.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Companies & Corporate Governance",
+      "subtopic": "Financial Evaluation & NAV",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Evaluate NAV vs buyback price for Bloemfontein Milling Ltd"
+    },
+    "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_49"
+  },
+  {
+    "id": "ACC_P1_FIN_0953",
+    "topic": "Financial Statements & Adjustments",
+    "subtopic": "Tangible Asset Disposal Calculations",
+    "difficulty": "hard",
+    "question": "**Protea Ltd** disposed of a **Printing Press** on **31 October** (8 months into the financial year ending 28 February). Original cost price: **R600,000**; Accumulated depreciation at the start of the year (1 March): **R240,000**. Depreciation rate: **15% p.a. on diminishing balance**. The asset was sold on credit for **R310,000**. Calculate the carrying value on the date of disposal and the resulting profit or loss on sale:",
+    "correct_answer": "Carrying Value = R324,000; LOSS on sale = R14,000",
+    "wrong_answers_pool": [
+      "Carrying Value = R360,000; PROFIT on sale = R50,000 (forgot current year depreciation)",
+      "Carrying Value = R600,000; LOSS on sale = R290,000",
+      "Carrying Value = R324,000; PROFIT on sale = R14,000 (inverted profit and loss)",
+      "Carrying Value = R356,400; Profit on sale = R21,000",
+      "Carrying Value = R276,000; Loss on sale = R34,000",
+      "Carrying Value = R324,000; Zero profit or loss",
+      "Carrying Value = R310,000; Profit on sale = R36,000"
+    ],
+    "explanation": "1. Current year depreciation up to sale (31 October, 8 months): R36,000. 2. Total accumulated depreciation at date of disposal: R240,000 + R36,000 = R276,000. 3. Carrying value at date of disposal: Cost (R600,000) - Accumulated Depreciation (R276,000) = R324,000. 4. Profit/Loss on disposal: Selling price (R310,000) - Carrying value (R324,000) = Carrying Value = R324,000; LOSS on sale = R14,000.",
+    "tags": {
+      "grade": "12",
+      "subject": "Accounting",
+      "topic": "Financial Statements",
+      "subtopic": "Tangible Asset Disposal Calculations",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate Asset Disposal for Protea Ltd"
     },
     "exam_id": "EXAM_2026-W46_grade12_accounting_paper1_50"
   }
