@@ -1,0 +1,1396 @@
+[
+  {
+    "id": "TM12_P1_FUN_0825",
+    "topic": "Functions & Graphs",
+    "subtopic": "Semi-circles",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "Determine the coordinates of the points of intersection between the upper semi-circle $f(x) = \\sqrt{25 - x^2}$ and the horizontal line $y = 2$.",
+    "correct_answer": "$(-4.58; 2)$ and $(4.58; 2)$",
+    "wrong_answers_pool": [
+      "$(4.58; 2)$ only",
+      "$(-4.58; -2)$ and $(4.58; -2)$",
+      "$(0; 2)$ and $(5; 2)$",
+      "$(-5; 2)$ and $(5; 2)$",
+      "$(-2; 4.58)$ and $(2; 4.58)$",
+      "$(6.87; 2)$ and $(-6.87; 2)$",
+      "No intersection points"
+    ],
+    "explanation": "Set $\\sqrt{25 - x^2} = 2 \\implies 25 - x^2 = 4 \\implies x^2 = 21 \\implies x = \\pm 4.58$. Intersection points: $(-4.58; 2)$ and $(4.58; 2)$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Functions & Graphs",
+      "subtopic": "Semi-circles",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_1"
+  },
+  {
+    "id": "TM12_P1_FIN_0829",
+    "topic": "Financial Mathematics",
+    "subtopic": "Multi-stage Timelines",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A manufacturing company invests R80,000 for 7 years. For the first 4 years, the interest rate is 9.0% per annum compounded monthly. The interest rate then changes to 11.0% per annum compounded monthly for the remaining 3 years. Calculate the accumulated balance at the end of the 7-year investment period.",
+    "correct_answer": "R159,043.86",
+    "wrong_answers_pool": [
+      "R149,856.16",
+      "R172,176.29",
+      "R171,767.37",
+      "R146,320.35",
+      "R114,512.43",
+      "R167,043.86",
+      "R151,043.86"
+    ],
+    "explanation": "Use the multi-period compound formula:\n$A = P\\left(1 + \\frac{i_1}{m}\\right)^{n_1 \\times m} \\times \\left(1 + \\frac{i_2}{m}\\right)^{n_2 \\times m}$\n$A = 80000\\left(1 + \\frac{0.09}{12}\\right)^{48} \\times \\left(1 + \\frac{0.11}{12}\\right)^{36} = \\text{R}159,043.86$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Financial Mathematics",
+      "subtopic": "Multi-stage Timelines",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_2"
+  },
+  {
+    "id": "TM12_P1_CALC_0801",
+    "topic": "Differential Calculus & Integration",
+    "subtopic": "Area under Curve & Definite Integrals",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "Calculate the area enclosed by the parabola $y = 4 - x^2$ and the $x$-axis in the first quadrant (from $x = 0$ to the positive $x$-intercept). (Round to 2 decimal places).",
+    "correct_answer": "5.33 square units",
+    "wrong_answers_pool": [
+      "8 square units",
+      "10.66 square units",
+      "2.67 square units",
+      "9.83 square units",
+      "13.33 square units",
+      "4 square units"
+    ],
+    "explanation": "Step 1: Positive $x$-intercept occurs where $4 - x^2 = 0 \\implies x = 2$.\nStep 2: Area $= \\int_0^{2} (4 - x^2) \\, dx = \\left[ 4x - \\frac{x^3}{3} \\right]_0^{2}$.\nStep 3: Evaluate limits: $\\left(4(2) - \\frac{2^3}{3}\\right) - 0 = 8 - \\frac{8}{3} = \\frac{2}3(8) = 5.33\\text{ square units}$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "Area under Curve & Definite Integrals",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_3"
+  },
+  {
+    "id": "TM12_P1_CALC_0481",
+    "topic": "Differential Calculus & Integration",
+    "subtopic": "First Principles Differentiation",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Determine $f'(x)$ from first principles for the function $f(x) = 4x^2  + 2$.",
+    "correct_answer": "$f'(x) = 8x $",
+    "wrong_answers_pool": [
+      "$f'(x) = 4x $",
+      "$f'(x) = 8x^2 $",
+      "$f'(x) = 8x + 2$",
+      "$f'(x) = 9x $",
+      "$f'(x) = -8x $",
+      "$f'(x) = 8x$",
+      "$f'(x) = 8x + 2h$"
+    ],
+    "explanation": "Definition of first principles: $f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$.\n$f(x+h) = 4(x+h)^2  + 2 = 4(x^2 + 2xh + h^2) + 0(x+h) + 2$.\n$f(x+h) - f(x) = 8xh + 4h^2 + 0h = h(8x + 4h + 0)$.\nDividing by $h$ and letting $h \\to 0$ yields $f'(x) = $f'(x) = 8x $$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "First Principles Differentiation",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_4"
+  },
+  {
+    "id": "TM12_P1_ALG_0600",
+    "topic": "Algebra, Equations & Inequalities",
+    "subtopic": "Binary & Hexadecimal Number Systems",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Convert the decimal integer $74_{10}$ into hexadecimal base 16.",
+    "correct_answer": "4A_{16}",
+    "wrong_answers_pool": [
+      "4B_{16}",
+      "49_{16}",
+      "4A0_{16}",
+      "14A_{16}",
+      "5A_{16}",
+      "3A_{16}",
+      "74_{16}"
+    ],
+    "explanation": "Dividing 74 by 16 gives hexadecimal representation: $4A_{16}$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Algebra, Equations & Inequalities",
+      "subtopic": "Binary & Hexadecimal Number Systems",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_5"
+  },
+  {
+    "id": "TM12_P1_FUN_0545",
+    "topic": "Functions & Graphs",
+    "subtopic": "Quadratic Functions (Parabolas)",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Determine the coordinates of the turning point of the parabola $f(x) = -2(x - 5)^2 + 3$.",
+    "correct_answer": "$(5; 3)$",
+    "wrong_answers_pool": [
+      "$(-5; 3)$",
+      "$(5; -3)$",
+      "$(-5; -3)$",
+      "$(3; 5)$",
+      "$(0; 3)$",
+      "$(5; 0)$",
+      "$(0; 0)$"
+    ],
+    "explanation": "In vertex form $y = a(x - p)^2 + q$, the turning point is $(p; q) = (5; 3)$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Functions & Graphs",
+      "subtopic": "Quadratic Functions (Parabolas)",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_6"
+  },
+  {
+    "id": "TM12_P1_ALG_0950",
+    "topic": "Algebra, Equations & Inequalities",
+    "subtopic": "Quadratic Equations & Nature of Roots",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "Determine the condition on the parameter $k$ such that $x^2 - 6x + k = 0$ has equal roots.",
+    "correct_answer": "k = 9",
+    "wrong_answers_pool": [
+      "k = -9",
+      "k = 36",
+      "k = 3",
+      "k = 12",
+      "k = -36",
+      "k = 6",
+      "k = 0"
+    ],
+    "explanation": "For equal roots, $\\Delta = b^2 - 4ac = 0 \\implies (-6)^2 - 4(1)(k) = 0 \\implies 36 - 4k = 0 \\implies k = 9$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Algebra, Equations & Inequalities",
+      "subtopic": "Quadratic Equations & Nature of Roots",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_7"
+  },
+  {
+    "id": "TM12_P1_ALG_0450",
+    "topic": "Algebra, Equations & Inequalities",
+    "subtopic": "Complex Numbers (Rectangular & Polar Form)",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Express the complex number with modulus $r = 15$ and argument $\\theta = 330^\\circ$ in polar form.",
+    "correct_answer": "$15(\\cos 330^\\circ + i\\sin 330^\\circ)$",
+    "wrong_answers_pool": [
+      "$15(\\sin 330^\\circ + i\\cos 330^\\circ)$",
+      "$15(\\cos 330^\\circ - i\\sin 330^\\circ)$",
+      "$16(\\cos 330^\\circ + i\\sin 330^\\circ)$",
+      "$14(\\cos 330^\\circ + i\\sin 330^\\circ)$",
+      "$15(\\cos -150^\\circ + i\\sin -150^\\circ)$",
+      "$15(\\cos 30^\\circ + i\\sin 30^\\circ)$",
+      "$330(\\cos 15^\\circ + i\\sin 15^\\circ)$"
+    ],
+    "explanation": "Polar form: $z = r(\\cos \\theta + i\\sin \\theta) = 15(\\cos 330^\\circ + i\\sin 330^\\circ) = 15\\operatorname{cis}(330^\\circ)$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Algebra, Equations & Inequalities",
+      "subtopic": "Complex Numbers (Rectangular & Polar Form)",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_8"
+  },
+  {
+    "id": "TM12_P1_ALG_0407",
+    "topic": "Algebra, Equations & Inequalities",
+    "subtopic": "Complex Numbers (Rectangular & Polar Form)",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Express the complex number with modulus $r = 10$ and argument $\\theta = 45^\\circ$ in polar form.",
+    "correct_answer": "$10(\\cos 45^\\circ + i\\sin 45^\\circ)$",
+    "wrong_answers_pool": [
+      "$10(\\sin 45^\\circ + i\\cos 45^\\circ)$",
+      "$10(\\cos 45^\\circ - i\\sin 45^\\circ)$",
+      "$11(\\cos 45^\\circ + i\\sin 45^\\circ)$",
+      "$9(\\cos 45^\\circ + i\\sin 45^\\circ)$",
+      "$10(\\cos 135^\\circ + i\\sin 135^\\circ)$",
+      "$10(\\cos 315^\\circ + i\\sin 315^\\circ)$",
+      "$45(\\cos 10^\\circ + i\\sin 10^\\circ)$"
+    ],
+    "explanation": "Polar form: $z = r(\\cos \\theta + i\\sin \\theta) = 10(\\cos 45^\\circ + i\\sin 45^\\circ) = 10\\operatorname{cis}(45^\\circ)$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Algebra, Equations & Inequalities",
+      "subtopic": "Complex Numbers (Rectangular & Polar Form)",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_9"
+  },
+  {
+    "id": "TM12_P1_FIN_0818",
+    "topic": "Financial Mathematics",
+    "subtopic": "Multi-stage Timelines",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A contractor opens a savings account with an initial deposit of R65,000 at an interest rate of 10.0% per annum compounded quarterly. At the end of year 4, the contractor makes an additional deposit of R25,000. Calculate the total balance in the account at the end of 7 years.",
+    "correct_answer": "R163,394.40",
+    "wrong_answers_pool": [
+      "R129,772.18",
+      "R96,149.96",
+      "R179,733.84",
+      "R147,054.96",
+      "R179,684.55",
+      "R168,394.40",
+      "R158,394.40"
+    ],
+    "explanation": "Use the timeline method:\n1. Accumulate initial principal for 7 years: $\\text{FV}_1 = 65000\\left(1 + \\frac{0.1}{4}\\right)^{28} = \\text{R}129,772.18$.\n2. Accumulate the year 4 flow for remaining 3 years: $\\text{FV}_2 = 25000\\left(1 + \\frac{0.1}{4}\\right)^{12} = \\text{R}33,622.22$.\n3. Net balance = $\\text{FV}_1 + \\text{FV}_2 = \\text{R}163,394.40$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Financial Mathematics",
+      "subtopic": "Multi-stage Timelines",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_10"
+  },
+  {
+    "id": "TM12_P1_FIN_0718",
+    "topic": "Financial Mathematics",
+    "subtopic": "Compound Interest & Depreciation",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A CNC milling machine is purchased for R450,000. It depreciates at a rate of 10% per annum on the reducing-balance method. Calculate its salvage (scrap) value after 3 years.",
+    "correct_answer": "R328,050.00",
+    "wrong_answers_pool": [
+      "R315,000.00",
+      "R598,950.00",
+      "R377,257.50",
+      "R278,842.50",
+      "R405,000.00",
+      "R121,950.00",
+      "R329,250.00"
+    ],
+    "explanation": "Use the reducing-balance depreciation formula: $A = P(1 - i)^n$\n$A = 450000(1 - 0.1)^{3} = 450000(0.9)^{3} = \\text{R}328,050.00$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Financial Mathematics",
+      "subtopic": "Compound Interest & Depreciation",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_11"
+  },
+  {
+    "id": "TM12_P1_FUN_0301",
+    "topic": "Functions & Graphs",
+    "subtopic": "Quadratic Functions (Parabolas)",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Determine the coordinates of the turning point of the parabola $f(x) = -2(x + 5)^2 - 6$.",
+    "correct_answer": "$(-5; -6)$",
+    "wrong_answers_pool": [
+      "$(5; -6)$",
+      "$(-5; 6)$",
+      "$(5; 6)$",
+      "$(-6; -5)$",
+      "$(0; -6)$",
+      "$(-5; 0)$",
+      "$(0; 0)$"
+    ],
+    "explanation": "In vertex form $y = a(x - p)^2 + q$, the turning point is $(p; q) = (-5; -6)$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Functions & Graphs",
+      "subtopic": "Quadratic Functions (Parabolas)",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_12"
+  },
+  {
+    "id": "TM12_P1_FUN_0786",
+    "topic": "Functions & Graphs",
+    "subtopic": "Quadratic Functions (Parabolas)",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Determine the range of the parabolic function $f(x) = -(x - 5)^2 - 4$.",
+    "correct_answer": "$y \\le -4$",
+    "wrong_answers_pool": [
+      "$y \\ge -4$",
+      "$y \\le 4$",
+      "$x \\le 5$",
+      "$y \\in \\mathbb{R}$",
+      "$y \\le 5$",
+      "$y \\le 0$",
+      "$-4 \\le y \\le 5$"
+    ],
+    "explanation": "Since $a = -1$ (opens downward), the extreme value is $y = -4$, giving range $y \\le -4$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Functions & Graphs",
+      "subtopic": "Quadratic Functions (Parabolas)",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_13"
+  },
+  {
+    "id": "TM12_P1_FIN_0870",
+    "topic": "Financial Mathematics",
+    "subtopic": "Compound Interest & Depreciation",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "How much money must an engineering technician invest now into an account paying 8.0% per annum compounded monthly to accumulate a total of R100,000 in 3 years' time?",
+    "correct_answer": "R78,725.46",
+    "wrong_answers_pool": [
+      "R127,023.71",
+      "R80,645.16",
+      "R86,598.01",
+      "R70,852.91",
+      "R82,725.46",
+      "R74,725.46",
+      "R50,000.00"
+    ],
+    "explanation": "Rearrange compound formula for principal $P$: $P = \\frac{A}{\\left(1 + \\frac{i}{m}\\right)^{n \\times m}}$\n$P = \\frac{100000}{\\left(1 + \\frac{0.08}{12}\\right)^{36}} = \\frac{100000}{1.270237} = \\text{R}78,725.46$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Financial Mathematics",
+      "subtopic": "Compound Interest & Depreciation",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_14"
+  },
+  {
+    "id": "TM12_P1_CALC_0878",
+    "topic": "Differential Calculus & Integration",
+    "subtopic": "Practical Applications of Calculus",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "Water is pumped into a cylindrical storage tank of constant radius $r = 5$ m. If the water level rises at a rate of $\\frac{dh}{dt} = 0.5$ m/min, determine the rate of change of the volume of water $\\frac{dV}{dt}$ in terms of $\\pi$.",
+    "correct_answer": "$12.5\\pi m^3/min$",
+    "wrong_answers_pool": [
+      "$25.0\\pi m^3/min$",
+      "$6.25\\pi m^3/min$",
+      "$2.5\\pi m^3/min$",
+      "$17.5\\pi m^3/min$",
+      "$7.5\\pi m^3/min$",
+      "$25\\pi m^3/min$",
+      "$0.5\\pi m^3/min$"
+    ],
+    "explanation": "Formula for cylinder volume: $V = \\pi r^2 h = \\pi (5)^2 h = 25\\pi h$.\nDifferentiating with respect to time $t$: $\\frac{dV}{dt} = 25\\pi \\frac{dh}{dt} = 25\\pi (0.5) = 12.5\\pi\\text{ m}^3/\\text{min}$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "Practical Applications of Calculus",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_15"
+  },
+  {
+    "id": "TM12_P1_FUN_0957",
+    "topic": "Functions & Graphs",
+    "subtopic": "Quadratic Functions (Parabolas)",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "For the parabola $f(x) = -(x - 2)^2 - 2$, determine the values of $k$ such that the line $y = k$ does not intersect the curve at any point.",
+    "correct_answer": "$k > -2$",
+    "wrong_answers_pool": [
+      "$k < -2$",
+      "$k = -2$",
+      "$k \\le -2$",
+      "$k < 2$",
+      "$k > 2$",
+      "$k < 0$",
+      "$k = 0$"
+    ],
+    "explanation": "Since the minimum/maximum is at $y = -2$, the line $y = k$ will have no intersections when $k > -2$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Functions & Graphs",
+      "subtopic": "Quadratic Functions (Parabolas)",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_16"
+  },
+  {
+    "id": "TM12_P1_CALC_0882",
+    "topic": "Differential Calculus & Integration",
+    "subtopic": "Practical Applications of Calculus",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "Water is pumped into a cylindrical storage tank of constant radius $r = 6$ m. If the water level rises at a rate of $\\frac{dh}{dt} = 0.4$ m/min, determine the rate of change of the volume of water $\\frac{dV}{dt}$ in terms of $\\pi$.",
+    "correct_answer": "$14.4\\pi m^3/min$",
+    "wrong_answers_pool": [
+      "$28.8\\pi m^3/min$",
+      "$7.2\\pi m^3/min$",
+      "$2.4\\pi m^3/min$",
+      "$19.4\\pi m^3/min$",
+      "$9.4\\pi m^3/min$",
+      "$36\\pi m^3/min$",
+      "$0.4\\pi m^3/min$"
+    ],
+    "explanation": "Formula for cylinder volume: $V = \\pi r^2 h = \\pi (6)^2 h = 36\\pi h$.\nDifferentiating with respect to time $t$: $\\frac{dV}{dt} = 36\\pi \\frac{dh}{dt} = 36\\pi (0.4) = 14.4\\pi\\text{ m}^3/\\text{min}$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "Practical Applications of Calculus",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_17"
+  },
+  {
+    "id": "TM12_P1_FUN_0485",
+    "topic": "Functions & Graphs",
+    "subtopic": "Quadratic Functions (Parabolas)",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Determine the coordinates of the turning point of the parabola $f(x) = -2(x - 3)^2 - 4$.",
+    "correct_answer": "$(3; -4)$",
+    "wrong_answers_pool": [
+      "$(-3; -4)$",
+      "$(3; 4)$",
+      "$(-3; 4)$",
+      "$(-4; 3)$",
+      "$(0; -4)$",
+      "$(3; 0)$",
+      "$(0; 0)$"
+    ],
+    "explanation": "In vertex form $y = a(x - p)^2 + q$, the turning point is $(p; q) = (3; -4)$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Functions & Graphs",
+      "subtopic": "Quadratic Functions (Parabolas)",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_18"
+  },
+  {
+    "id": "TM12_P1_ALG_0477",
+    "topic": "Algebra, Equations & Inequalities",
+    "subtopic": "Complex Numbers (Rectangular & Polar Form)",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Simplify the complex number division into rectangular form $a + bi$: $\\frac{10 - 2i}{2 + 1i}$.",
+    "correct_answer": "3.6 - 2.8i",
+    "wrong_answers_pool": [
+      "4.6 + -2.8i",
+      "2.6 + -2.8i",
+      "3.6 - -2.8i",
+      "5.0 + -2.0i",
+      "-2.8 + 3.6i",
+      "5.4 + -2.8i",
+      "3.6 + -4.2i"
+    ],
+    "explanation": "Multiply numerator and denominator by conjugate of denominator $(2 - 1i)$: Denominator = $(2)^2 + (1)^2 = 5$. Numerator = $(10 - 2i)(2 - 1i) = (20 + -2) + (-4 - 10)i = 18 + -14i$. Result = $\\frac{18}{5} + \\frac{-14}{5}i = 3.6 - 2.8i$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Algebra, Equations & Inequalities",
+      "subtopic": "Complex Numbers (Rectangular & Polar Form)",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_19"
+  },
+  {
+    "id": "TM12_P1_FUN_0337",
+    "topic": "Functions & Graphs",
+    "subtopic": "Quadratic Functions (Parabolas)",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Determine the coordinates of the turning point of the parabola $f(x) = -2(x + 4)^2 + 1$.",
+    "correct_answer": "$(-4; 1)$",
+    "wrong_answers_pool": [
+      "$(4; 1)$",
+      "$(-4; -1)$",
+      "$(4; -1)$",
+      "$(1; -4)$",
+      "$(0; 1)$",
+      "$(-4; 0)$",
+      "$(0; 0)$"
+    ],
+    "explanation": "In vertex form $y = a(x - p)^2 + q$, the turning point is $(p; q) = (-4; 1)$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Functions & Graphs",
+      "subtopic": "Quadratic Functions (Parabolas)",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_20"
+  },
+  {
+    "id": "TM12_P1_FUN_0639",
+    "topic": "Functions & Graphs",
+    "subtopic": "Quadratic Functions (Parabolas)",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Determine the coordinates of the turning point of the parabola $f(x) = -(x + 2)^2 + 2$.",
+    "correct_answer": "$(-2; 2)$",
+    "wrong_answers_pool": [
+      "$(2; 2)$",
+      "$(-2; -2)$",
+      "$(2; -2)$",
+      "$(0; 2)$",
+      "$(-2; 0)$",
+      "$(0; 0)$"
+    ],
+    "explanation": "In vertex form $y = a(x - p)^2 + q$, the turning point is $(p; q) = (-2; 2)$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Functions & Graphs",
+      "subtopic": "Quadratic Functions (Parabolas)",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_21"
+  },
+  {
+    "id": "TM12_P1_ALG_0526",
+    "topic": "Algebra, Equations & Inequalities",
+    "subtopic": "Complex Numbers (Rectangular & Polar Form)",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Simplify the complex number division into rectangular form $a + bi$: $\\frac{60 + 20i}{3 + 1i}$.",
+    "correct_answer": "20.0 + 0.0i",
+    "wrong_answers_pool": [
+      "21.0 + 0.0i",
+      "19.0 + 0.0i",
+      "20.0 - 0.0i",
+      "20.0 + 20.0i",
+      "0.0 + 20.0i",
+      "30.0 + 0.0i"
+    ],
+    "explanation": "Multiply numerator and denominator by conjugate of denominator $(3 - 1i)$: Denominator = $(3)^2 + (1)^2 = 10$. Numerator = $(60 + 20i)(3 - 1i) = (180 + 20) + (60 - 60)i = 200 + 0i$. Result = $\\frac{200}{10} + \\frac{0}{10}i = 20.0 + 0.0i$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Algebra, Equations & Inequalities",
+      "subtopic": "Complex Numbers (Rectangular & Polar Form)",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_22"
+  },
+  {
+    "id": "TM12_P1_ALG_0500",
+    "topic": "Algebra, Equations & Inequalities",
+    "subtopic": "Complex Numbers (Rectangular & Polar Form)",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Simplify the complex number division into rectangular form $a + bi$: $\\frac{9 + 3i}{3 + 1i}$.",
+    "correct_answer": "3.0 + 0.0i",
+    "wrong_answers_pool": [
+      "4.0 + 0.0i",
+      "2.0 + 0.0i",
+      "3.0 - 0.0i",
+      "3.0 + 3.0i",
+      "0.0 + 3.0i",
+      "4.5 + 0.0i"
+    ],
+    "explanation": "Multiply numerator and denominator by conjugate of denominator $(3 - 1i)$: Denominator = $(3)^2 + (1)^2 = 10$. Numerator = $(9 + 3i)(3 - 1i) = (27 + 3) + (9 - 9)i = 30 + 0i$. Result = $\\frac{30}{10} + \\frac{0}{10}i = 3.0 + 0.0i$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Algebra, Equations & Inequalities",
+      "subtopic": "Complex Numbers (Rectangular & Polar Form)",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_23"
+  },
+  {
+    "id": "TM12_P1_ALG_0876",
+    "topic": "Algebra, Equations & Inequalities",
+    "subtopic": "Simultaneous Equations (Linear & Quadratic)",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "Solve simultaneously for $x$ and $y$:\nEquation 1: $y = 2x - 3$\nEquation 2: $x^2 + y^2 = 29$",
+    "correct_answer": "$(x = 3.53; y = 4.06)$ or $(x = -1.13; y = -5.26)$",
+    "wrong_answers_pool": [
+      "$(x = 3.53; y = -4.06)$ or $(x = -1.13; y = 5.26)$",
+      "$(x = -3.53; y = 4.06)$ or $(x = 1.13; y = -5.26)$",
+      "$(x = 4.06; y = 3.53)$ or $(x = -5.26; y = -5.26)$",
+      "$(x = 4.529999999999999; y = 5.06)$ or $(x = -2.13; y = -6.26)$",
+      "$(x = 3.53; y = 3.53)$ or $(x = -1.13; y = -5.26)$",
+      "$(x = 0; y = -3)$ or $(x = 29; y = 0)$",
+      "$(x = 7.06; y = 8.12)$"
+    ],
+    "explanation": "Step 1: Substitute Eq 1 into Eq 2: $x^2 + (2x - 3)^2 = 29$. Step 2: Expand and simplify to standard quadratic form: $5x^2 + (-12)x + (-20) = 0$. Step 3: Solve for $x$: $x = 3.53$ or $x = -1.13$. Step 4: Substitute back to find $y$: For $x = 3.53$, $y = 4.06$. For $x = -1.13$, $y = -5.26$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Algebra, Equations & Inequalities",
+      "subtopic": "Simultaneous Equations (Linear & Quadratic)",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_24"
+  },
+  {
+    "id": "TM12_P1_FIN_0875",
+    "topic": "Financial Mathematics",
+    "subtopic": "Compound Interest & Depreciation",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "How much money must an engineering technician invest now into an account paying 8.0% per annum compounded quarterly to accumulate a total of R100,000 in 5 years' time?",
+    "correct_answer": "R67,297.13",
+    "wrong_answers_pool": [
+      "R148,594.74",
+      "R71,428.57",
+      "R74,026.84",
+      "R60,567.42",
+      "R71,297.13",
+      "R63,297.13",
+      "R50,000.00"
+    ],
+    "explanation": "Rearrange compound formula for principal $P$: $P = \\frac{A}{\\left(1 + \\frac{i}{m}\\right)^{n \\times m}}$\n$P = \\frac{100000}{\\left(1 + \\frac{0.08}{4}\\right)^{20}} = \\frac{100000}{1.485947} = \\text{R}67,297.13$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Financial Mathematics",
+      "subtopic": "Compound Interest & Depreciation",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_25"
+  },
+  {
+    "id": "TM12_P1_FIN_0844",
+    "topic": "Financial Mathematics",
+    "subtopic": "Compound Interest & Depreciation",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A factory machine depreciates at a rate of 18% per annum on the reducing-balance method. How many years will it take for the machine's book value to reduce to exactly half (50%) of its original cost price? (Round to 2 decimal places).",
+    "correct_answer": "3.49 years",
+    "wrong_answers_pool": [
+      "5.56 years",
+      "4.69 years",
+      "2.29 years",
+      "5.24 years",
+      "2.44 years",
+      "18 years",
+      "2.78 years"
+    ],
+    "explanation": "Set $A = 0.5P$ in the reducing-balance equation: $0.5P = P(1 - 0.18)^n \\implies 0.5 = (0.82)^n$.\nTake logarithms on both sides: $n = \\frac{\\log(0.5)}{\\log(0.82)} = 3.49\\text{ years}$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Financial Mathematics",
+      "subtopic": "Compound Interest & Depreciation",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_26"
+  },
+  {
+    "id": "TM12_P1_ALG_0503",
+    "topic": "Algebra, Equations & Inequalities",
+    "subtopic": "Complex Numbers (Rectangular & Polar Form)",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Simplify the complex number division into rectangular form $a + bi$: $\\frac{36 + 12i}{3 + 1i}$.",
+    "correct_answer": "12.0 + 0.0i",
+    "wrong_answers_pool": [
+      "13.0 + 0.0i",
+      "11.0 + 0.0i",
+      "12.0 - 0.0i",
+      "12.0 + 12.0i",
+      "0.0 + 12.0i",
+      "18.0 + 0.0i"
+    ],
+    "explanation": "Multiply numerator and denominator by conjugate of denominator $(3 - 1i)$: Denominator = $(3)^2 + (1)^2 = 10$. Numerator = $(36 + 12i)(3 - 1i) = (108 + 12) + (36 - 36)i = 120 + 0i$. Result = $\\frac{120}{10} + \\frac{0}{10}i = 12.0 + 0.0i$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Algebra, Equations & Inequalities",
+      "subtopic": "Complex Numbers (Rectangular & Polar Form)",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_27"
+  },
+  {
+    "id": "TM12_P1_FIN_0941",
+    "topic": "Financial Mathematics",
+    "subtopic": "Compound Interest & Depreciation",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "How much money must an engineering technician invest now into an account paying 9.0% per annum compounded quarterly to accumulate a total of R200,000 in 5 years' time?",
+    "correct_answer": "R128,163.29",
+    "wrong_answers_pool": [
+      "R312,101.84",
+      "R137,931.03",
+      "R140,979.62",
+      "R115,346.96",
+      "R132,163.29",
+      "R124,163.29",
+      "R100,000.00"
+    ],
+    "explanation": "Rearrange compound formula for principal $P$: $P = \\frac{A}{\\left(1 + \\frac{i}{m}\\right)^{n \\times m}}$\n$P = \\frac{200000}{\\left(1 + \\frac{0.09}{4}\\right)^{20}} = \\frac{200000}{1.560509} = \\text{R}128,163.29$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Financial Mathematics",
+      "subtopic": "Compound Interest & Depreciation",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_28"
+  },
+  {
+    "id": "TM12_P1_ALG_0509",
+    "topic": "Algebra, Equations & Inequalities",
+    "subtopic": "Complex Numbers (Rectangular & Polar Form)",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Simplify the complex number division into rectangular form $a + bi$: $\\frac{8 - 2i}{3 + 1i}$.",
+    "correct_answer": "2.2 - 1.4i",
+    "wrong_answers_pool": [
+      "3.2 + -1.4i",
+      "1.2000000000000002 + -1.4i",
+      "2.2 - -1.4i",
+      "2.67 + -2.0i",
+      "-1.4 + 2.2i",
+      "3.3 + -1.4i",
+      "2.2 + -2.1i"
+    ],
+    "explanation": "Multiply numerator and denominator by conjugate of denominator $(3 - 1i)$: Denominator = $(3)^2 + (1)^2 = 10$. Numerator = $(8 - 2i)(3 - 1i) = (24 + -2) + (-6 - 8)i = 22 + -14i$. Result = $\\frac{22}{10} + \\frac{-14}{10}i = 2.2 - 1.4i$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Algebra, Equations & Inequalities",
+      "subtopic": "Complex Numbers (Rectangular & Polar Form)",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_29"
+  },
+  {
+    "id": "TM12_P1_CALC_0787",
+    "topic": "Differential Calculus & Integration",
+    "subtopic": "Rules of Differentiation",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Given $f(x) = 3x^3 + 3x^2$, calculate the value of the second derivative $f''(-2)$.",
+    "correct_answer": "-30",
+    "wrong_answers_pool": [
+      "-24",
+      "-36",
+      "30",
+      "-60",
+      "24",
+      "6"
+    ],
+    "explanation": "First derivative: $f'(x) = 9x^2 + (6)x$.\nSecond derivative: $f''(x) = 18x + (6)$.\nAt $x = -2$: $f''(-2) = 18(-2) + (6) = -30$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "Rules of Differentiation",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_30"
+  },
+  {
+    "id": "TM12_P1_CALC_0603",
+    "topic": "Differential Calculus & Integration",
+    "subtopic": "Integration (Definite)",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Evaluate the definite integral: $\\int_{2}^{4} (3x^{2}) \\, dx$.",
+    "correct_answer": "56",
+    "wrong_answers_pool": [
+      "58.0",
+      "54.0",
+      "84.0",
+      "28.0",
+      "6",
+      "64.0",
+      "66.0"
+    ],
+    "explanation": "Step 1: Find antiderivative: $F(x) = \\int 3x^{2} \\, dx = \\frac{3}{3}x^{3}$.\nStep 2: Apply fundamental theorem of calculus: $[F(x)]_{2}^{4} = F(4) - F(2) = 64.0 - 8.0 = 56$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "Integration (Definite)",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_31"
+  },
+  {
+    "id": "TM12_P1_CALC_0475",
+    "topic": "Differential Calculus & Integration",
+    "subtopic": "First Principles Differentiation",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Determine $f'(x)$ from first principles for the function $f(x) = 4x^2 - 3x + 8$.",
+    "correct_answer": "$f'(x) = 8x - 3$",
+    "wrong_answers_pool": [
+      "$f'(x) = 4x - 3$",
+      "$f'(x) = 8x^2 - 3$",
+      "$f'(x) = 8x + 8$",
+      "$f'(x) = 9x - 3$",
+      "$f'(x) = -8x - 3$",
+      "$f'(x) = 8x$",
+      "$f'(x) = 8x + 2h$"
+    ],
+    "explanation": "Definition of first principles: $f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$.\n$f(x+h) = 4(x+h)^2 - 3(x+h) + 8 = 4(x^2 + 2xh + h^2) + -3(x+h) + 8$.\n$f(x+h) - f(x) = 8xh + 4h^2 + -3h = h(8x + 4h + -3)$.\nDividing by $h$ and letting $h \\to 0$ yields $f'(x) = $f'(x) = 8x - 3$$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "First Principles Differentiation",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_32"
+  },
+  {
+    "id": "TM12_P1_CALC_0834",
+    "topic": "Differential Calculus & Integration",
+    "subtopic": "Area under Curve & Definite Integrals",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "Evaluate the total area under the curve $y = 2x^2$ bounded by the $x$-axis, $x = 0$, and $x = 3$. (Round to 2 decimal places).",
+    "correct_answer": "18.0 square units",
+    "wrong_answers_pool": [
+      "18 square units",
+      "36.0 square units",
+      "9.0 square units",
+      "21.2 square units",
+      "14.8 square units",
+      "6 square units",
+      "9 square units"
+    ],
+    "explanation": "Area $= \\int_0^{3} 2x^2 \\, dx = \\left[ \\frac{2x^3}{3} \\right]_0^{3} = \\frac{2(3^3)}{3} - 0 = 18.0\\text{ square units}$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "Area under Curve & Definite Integrals",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_33"
+  },
+  {
+    "id": "TM12_P1_FIN_0886",
+    "topic": "Financial Mathematics",
+    "subtopic": "Compound Interest & Depreciation",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "How much money must an engineering technician invest now into an account paying 10.0% per annum compounded monthly to accumulate a total of R100,000 in 5 years' time?",
+    "correct_answer": "R60,778.86",
+    "wrong_answers_pool": [
+      "R164,530.89",
+      "R66,666.67",
+      "R66,856.75",
+      "R54,700.97",
+      "R64,778.86",
+      "R56,778.86",
+      "R50,000.00"
+    ],
+    "explanation": "Rearrange compound formula for principal $P$: $P = \\frac{A}{\\left(1 + \\frac{i}{m}\\right)^{n \\times m}}$\n$P = \\frac{100000}{\\left(1 + \\frac{0.1}{12}\\right)^{60}} = \\frac{100000}{1.645309} = \\text{R}60,778.86$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Financial Mathematics",
+      "subtopic": "Compound Interest & Depreciation",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_34"
+  },
+  {
+    "id": "TM12_P1_ALG_0808",
+    "topic": "Algebra, Equations & Inequalities",
+    "subtopic": "Simultaneous Equations (Linear & Quadratic)",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "Solve simultaneously for $x$ and $y$:\nEquation 1: $y = x - 3$\nEquation 2: $x^2 + y^2 = 45$",
+    "correct_answer": "$(x = 6.0; y = 3.0)$ or $(x = -3.0; y = -6.0)$",
+    "wrong_answers_pool": [
+      "$(x = 6.0; y = -3.0)$ or $(x = -3.0; y = 6.0)$",
+      "$(x = -6.0; y = 3.0)$ or $(x = 3.0; y = -6.0)$",
+      "$(x = 3.0; y = 6.0)$ or $(x = -6.0; y = -6.0)$",
+      "$(x = 7.0; y = 4.0)$ or $(x = -4.0; y = -7.0)$",
+      "$(x = 6.0; y = 6.0)$ or $(x = -3.0; y = -6.0)$",
+      "$(x = 0; y = -3)$ or $(x = 45; y = 0)$",
+      "$(x = 12.0; y = 6.0)$"
+    ],
+    "explanation": "Step 1: Substitute Eq 1 into Eq 2: $x^2 + (x - 3)^2 = 45$. Step 2: Expand and simplify to standard quadratic form: $2x^2 + (-6)x + (-36) = 0$. Step 3: Solve for $x$: $x = 6.0$ or $x = -3.0$. Step 4: Substitute back to find $y$: For $x = 6.0$, $y = 3.0$. For $x = -3.0$, $y = -6.0$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Algebra, Equations & Inequalities",
+      "subtopic": "Simultaneous Equations (Linear & Quadratic)",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_35"
+  },
+  {
+    "id": "TM12_P1_FUN_0882",
+    "topic": "Functions & Graphs",
+    "subtopic": "Transformation of Functions",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "The function $f(x) = 4(x - 2)^2 + 1$ is reflected across the $x$-axis to form $g(x)$. Determine the equation of $g(x)$.",
+    "correct_answer": "$g(x) = -4(x - 2)^2 - 1$",
+    "wrong_answers_pool": [
+      "$g(x) = -4(x + 2)^2 + 1$",
+      "$g(x) = 4(x + 2)^2 - 1$",
+      "$g(x) = 4(x - 2)^2 - 1$",
+      "$g(x) = -4(x - 2)^2 + 1$",
+      "$g(x) = 4(x + 2)^2 + 1$",
+      "$g(x) = \\frac{1}{4}(x - 2)^2 + 1$",
+      "$g(x) = -4x^2 - 1$"
+    ],
+    "explanation": "Reflection across the $x$-axis transforms $y = f(x)$ into $y = -f(x) = -[4(x - 2)^2 + 1] = -4(x - 2)^2 - 1$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Functions & Graphs",
+      "subtopic": "Transformation of Functions",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_36"
+  },
+  {
+    "id": "TM12_P1_ALG_0766",
+    "topic": "Algebra, Equations & Inequalities",
+    "subtopic": "Binary & Hexadecimal Number Systems",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Convert the decimal integer $240_{10}$ into hexadecimal base 16.",
+    "correct_answer": "F0_{16}",
+    "wrong_answers_pool": [
+      "F1_{16}",
+      "EF_{16}",
+      "F00_{16}",
+      "1F0_{16}",
+      "100_{16}",
+      "E0_{16}",
+      "240_{16}"
+    ],
+    "explanation": "Dividing 240 by 16 gives hexadecimal representation: $F0_{16}$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Algebra, Equations & Inequalities",
+      "subtopic": "Binary & Hexadecimal Number Systems",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_37"
+  },
+  {
+    "id": "TM12_P1_CALC_0646",
+    "topic": "Differential Calculus & Integration",
+    "subtopic": "Practical Applications of Calculus",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "The displacement of a mechanical piston is given by $s(t) = -4.9t^2 + 25t$ (in metres). Calculate the instantaneous velocity of the piston at $t = 3$ seconds.",
+    "correct_answer": "-4.4 m/s",
+    "wrong_answers_pool": [
+      "5.6 m/s",
+      "-14.4 m/s",
+      "25 m/s",
+      "-9.8 m/s",
+      "30.9 m/s",
+      "-6.6 m/s",
+      "-2.2 m/s"
+    ],
+    "explanation": "Velocity is the first derivative of displacement: $v(t) = s'(t) = \\frac{ds}{dt} = -9.8t + 25$.\nAt $t = 3\\text{ s}$: $v(3) = -9.8(3) + 25 = -4.4\\text{ m/s}$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "Practical Applications of Calculus",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_38"
+  },
+  {
+    "id": "TM12_P1_CALC_0823",
+    "topic": "Differential Calculus & Integration",
+    "subtopic": "Cubic Functions & Optimization",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "Determine the coordinates of the point of inflection for the cubic function $f(x) = x^3 - 48x + 10$.",
+    "correct_answer": "$(0; 10)$",
+    "wrong_answers_pool": [
+      "$(4; 138)$",
+      "$(-4; 138)$",
+      "$(0; 0)$",
+      "$(1; 10)$",
+      "$(-1; 10)$",
+      "$(0; 48)$",
+      "$(4; 10)$"
+    ],
+    "explanation": "Step 1: Point of inflection occurs where $f''(x) = 0$.\nStep 2: $f'(x) = 3x^2 - 48$ and $f''(x) = 6x = 0 \\implies x = 0$.\nStep 3: $f(0) = 0^3 - 48(0) + 10 = 10$. Point of inflection is $(0; 10)$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "Cubic Functions & Optimization",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_39"
+  },
+  {
+    "id": "TM12_P1_FUN_0359",
+    "topic": "Functions & Graphs",
+    "subtopic": "Quadratic Functions (Parabolas)",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Determine the coordinates of the turning point of the parabola $f(x) = -2(x + 3)^2 - 1$.",
+    "correct_answer": "$(-3; -1)$",
+    "wrong_answers_pool": [
+      "$(3; -1)$",
+      "$(-3; 1)$",
+      "$(3; 1)$",
+      "$(-1; -3)$",
+      "$(0; -1)$",
+      "$(-3; 0)$",
+      "$(0; 0)$"
+    ],
+    "explanation": "In vertex form $y = a(x - p)^2 + q$, the turning point is $(p; q) = (-3; -1)$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Functions & Graphs",
+      "subtopic": "Quadratic Functions (Parabolas)",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_40"
+  },
+  {
+    "id": "TM12_P1_CALC_0939",
+    "topic": "Differential Calculus & Integration",
+    "subtopic": "Practical Applications of Calculus",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "The velocity of an electric locomotive is given by $v(t) = 2t + 25$ m/s. Calculate the total distance travelled from $t = 0$ to $t = 3$ seconds by evaluating the definite integral $\\int_0^{3} v(t) \\, dt$.",
+    "correct_answer": "84.0 m",
+    "wrong_answers_pool": [
+      "31 m",
+      "126.0 m",
+      "42.0 m",
+      "99.0 m",
+      "69.0 m",
+      "93 m",
+      "75 m"
+    ],
+    "explanation": "Distance is the integral of velocity: $s = \\int_0^{3} (2t + 25) \\, dt = \\left[ \\frac{2t^2}{2} + 25t \\right]_0^{3} = \\frac{2(3^2)}{2} + 25(3) = 84.0\\text{ m}$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "Practical Applications of Calculus",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_41"
+  },
+  {
+    "id": "TM12_P1_CALC_0826",
+    "topic": "Differential Calculus & Integration",
+    "subtopic": "Cubic Functions & Optimization",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "For the cubic function $f(x) = x^3 - 108x$, determine the coordinates of the local maximum turning point.",
+    "correct_answer": "$(-6; 432)$",
+    "wrong_answers_pool": [
+      "$(6; -432)$",
+      "$(0; 0)$",
+      "$(-6; -432)$",
+      "$(6; 432)$",
+      "$(-6; 108)$",
+      "$(1; -107)$",
+      "$(12; 1728)$"
+    ],
+    "explanation": "Step 1: $f'(x) = 3x^2 - 108 = 0 \\implies 3(x^2 - 36) = 0 \\implies x = \\pm 6$.\nStep 2: Second derivative $f''(x) = 6x$. For $x = -6$, $f''(-6) = -36 < 0$, which is a local maximum.\nStep 3: $f(-6) = (-6)^3 - 108(-6) = 432$. Local max is $(-6; 432)$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "Cubic Functions & Optimization",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_42"
+  },
+  {
+    "id": "TM12_P1_ALG_0962",
+    "topic": "Algebra, Equations & Inequalities",
+    "subtopic": "Quadratic Equations & Nature of Roots",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "Determine the condition on the parameter $k$ such that $2x^2 - 4x + k = 0$ has non-real roots.",
+    "correct_answer": "k > 2",
+    "wrong_answers_pool": [
+      "k < 2",
+      "k \\ge 2",
+      "k \\le 2",
+      "k > 4",
+      "k < -2",
+      "k = 2",
+      "k > 8"
+    ],
+    "explanation": "For non-real roots, $\\Delta < 0 \\implies (-4)^2 - 4(2)(k) < 0 \\implies 16 - 8k < 0 \\implies 8k > 16 \\implies k > 2$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Algebra, Equations & Inequalities",
+      "subtopic": "Quadratic Equations & Nature of Roots",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_43"
+  },
+  {
+    "id": "TM12_P1_FIN_0749",
+    "topic": "Financial Mathematics",
+    "subtopic": "Compound Interest & Depreciation",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A CNC milling machine is purchased for R450,000. It depreciates at a rate of 20% per annum on the reducing-balance method. Calculate its salvage (scrap) value after 4 years.",
+    "correct_answer": "R184,320.00",
+    "wrong_answers_pool": [
+      "R90,000.00",
+      "R933,120.00",
+      "R211,968.00",
+      "R156,672.00",
+      "R360,000.00",
+      "R265,680.00",
+      "R185,520.00"
+    ],
+    "explanation": "Use the reducing-balance depreciation formula: $A = P(1 - i)^n$\n$A = 450000(1 - 0.2)^{4} = 450000(0.8)^{4} = \\text{R}184,320.00$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Financial Mathematics",
+      "subtopic": "Compound Interest & Depreciation",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_44"
+  },
+  {
+    "id": "TM12_P1_FIN_0917",
+    "topic": "Financial Mathematics",
+    "subtopic": "Compound Interest & Depreciation",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "How much money must an engineering technician invest now into an account paying 10.0% per annum compounded quarterly to accumulate a total of R150,000 in 5 years' time?",
+    "correct_answer": "R91,540.64",
+    "wrong_answers_pool": [
+      "R245,792.47",
+      "R100,000.00",
+      "R100,694.70",
+      "R82,386.58",
+      "R95,540.64",
+      "R87,540.64",
+      "R75,000.00"
+    ],
+    "explanation": "Rearrange compound formula for principal $P$: $P = \\frac{A}{\\left(1 + \\frac{i}{m}\\right)^{n \\times m}}$\n$P = \\frac{150000}{\\left(1 + \\frac{0.1}{4}\\right)^{20}} = \\frac{150000}{1.638616} = \\text{R}91,540.64$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Financial Mathematics",
+      "subtopic": "Compound Interest & Depreciation",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_45"
+  },
+  {
+    "id": "TM12_P1_ALG_0489",
+    "topic": "Algebra, Equations & Inequalities",
+    "subtopic": "Complex Numbers (Rectangular & Polar Form)",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Simplify the complex number division into rectangular form $a + bi$: $\\frac{15 + 25i}{1 + 2i}$.",
+    "correct_answer": "13.0 - 1.0i",
+    "wrong_answers_pool": [
+      "14.0 + -1.0i",
+      "12.0 + -1.0i",
+      "13.0 - -1.0i",
+      "15.0 + 12.5i",
+      "-1.0 + 13.0i",
+      "19.5 + -1.0i",
+      "13.0 + -1.5i"
+    ],
+    "explanation": "Multiply numerator and denominator by conjugate of denominator $(1 - 2i)$: Denominator = $(1)^2 + (2)^2 = 5$. Numerator = $(15 + 25i)(1 - 2i) = (15 + 50) + (25 - 30)i = 65 + -5i$. Result = $\\frac{65}{5} + \\frac{-5}{5}i = 13.0 - 1.0i$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Algebra, Equations & Inequalities",
+      "subtopic": "Complex Numbers (Rectangular & Polar Form)",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_46"
+  },
+  {
+    "id": "TM12_P1_CALC_0821",
+    "topic": "Differential Calculus & Integration",
+    "subtopic": "Cubic Functions & Optimization",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "Determine the coordinates of the point of inflection for the cubic function $f(x) = x^3 - 27x + 10$.",
+    "correct_answer": "$(0; 10)$",
+    "wrong_answers_pool": [
+      "$(3; 64)$",
+      "$(-3; 64)$",
+      "$(0; 0)$",
+      "$(1; 10)$",
+      "$(-1; 10)$",
+      "$(0; 27)$",
+      "$(3; 10)$"
+    ],
+    "explanation": "Step 1: Point of inflection occurs where $f''(x) = 0$.\nStep 2: $f'(x) = 3x^2 - 27$ and $f''(x) = 6x = 0 \\implies x = 0$.\nStep 3: $f(0) = 0^3 - 27(0) + 10 = 10$. Point of inflection is $(0; 10)$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Differential Calculus & Integration",
+      "subtopic": "Cubic Functions & Optimization",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_47"
+  },
+  {
+    "id": "TM12_P1_FUN_0668",
+    "topic": "Functions & Graphs",
+    "subtopic": "Quadratic Functions (Parabolas)",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Determine the range of the parabolic function $f(x) = -(x + 1)^2 + 4$.",
+    "correct_answer": "$y \\le 4$",
+    "wrong_answers_pool": [
+      "$y \\ge 4$",
+      "$y \\le -4$",
+      "$x \\le -1$",
+      "$y \\in \\mathbb{R}$",
+      "$y \\le -1$",
+      "$y \\le 0$",
+      "$-1 \\le y \\le 4$"
+    ],
+    "explanation": "Since $a = -1$ (opens downward), the extreme value is $y = 4$, giving range $y \\le 4$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Functions & Graphs",
+      "subtopic": "Quadratic Functions (Parabolas)",
+      "cognitive_level": "Routine Procedures",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_48"
+  },
+  {
+    "id": "TM12_P1_ALG_0916",
+    "topic": "Algebra, Equations & Inequalities",
+    "subtopic": "Complex Numbers (Rectangular & Polar Form)",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "Given that $x, y \\in \\mathbb{R}$, solve for $x$ and $y$ in the complex equation: $x(2 - 1i) + y(3 + 2i) = 32 + 12i$.",
+    "correct_answer": "$x = 4; y = 8$",
+    "wrong_answers_pool": [
+      "$x = -4; y = -8$",
+      "$x = 4; y = -8$",
+      "$x = -4; y = 8$",
+      "$x = 8; y = 4$",
+      "$x = 5; y = 7$",
+      "$x = 8; y = 16$",
+      "$x = 0; y = 10.7$"
+    ],
+    "explanation": "Equate Real parts: $2x + 3y = 32$. Equate Imaginary parts: $-1x + 2y = 12$. Solving simultaneously yields $x = 4$ and $y = 8$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Algebra, Equations & Inequalities",
+      "subtopic": "Complex Numbers (Rectangular & Polar Form)",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_49"
+  },
+  {
+    "id": "TM12_P1_FUN_0911",
+    "topic": "Functions & Graphs",
+    "subtopic": "Quadratic Functions (Parabolas)",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "For the parabola $f(x) = -2(x + 1)^2 + 3$, determine the values of $k$ such that the line $y = k$ does not intersect the curve at any point.",
+    "correct_answer": "$k > 3$",
+    "wrong_answers_pool": [
+      "$k < 3$",
+      "$k = 3$",
+      "$k \\le 3$",
+      "$k < -1$",
+      "$k > -1$",
+      "$k < 0$",
+      "$k = 0$"
+    ],
+    "explanation": "Since the minimum/maximum is at $y = 3$, the line $y = k$ will have no intersections when $k > 3$.",
+    "tags": {
+      "grade": "12",
+      "subject": "Technical Mathematics",
+      "topic": "Functions & Graphs",
+      "subtopic": "Quadratic Functions (Parabolas)",
+      "cognitive_level": "Complex Procedures",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W47_grade12_technical_mathematics_paper1_50"
+  }
+]
