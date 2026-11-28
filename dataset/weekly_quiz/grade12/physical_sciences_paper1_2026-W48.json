@@ -1,0 +1,1523 @@
+[
+  {
+    "id": "PS12_P1_ED_0994",
+    "topic": "Electrodynamics",
+    "subtopic": "Transformer Stepping Analysis",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "An ideal electrical transformer has 400 turns on its primary coil and 80 turns on its secondary coil. If an AC voltage of 120 V is applied across the primary coil, calculate the voltage output across the secondary coil.",
+    "correct_answer": "24 V",
+    "wrong_answers_pool": [
+      "120 V",
+      "48 V",
+      "12.0 V",
+      "240.0 V",
+      "144 V",
+      "0 V"
+    ],
+    "explanation": "Vs / Vp = Ns / Np => Vs = Vp * (Ns / Np) = 120 * (80 / 400) = 24 V.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electrodynamics",
+      "subtopic": "Transformer Stepping Analysis",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "diagram": {
+      "type": "transformer_circuit",
+      "transformer_type": "step_down",
+      "vp": 240,
+      "vs": 12,
+      "np": 400,
+      "ns": 80
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_1"
+  },
+  {
+    "id": "PS12_P1_EC_0694",
+    "topic": "Electric Circuits",
+    "subtopic": "Internal Resistance Circuits",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A battery (emf = 18.0 V, r = 0.5 \u03a9) powers a circuit with an external load of 12.0 \u03a9. Determine the terminal potential difference across the battery.",
+    "correct_answer": "17.28 V",
+    "wrong_answers_pool": [
+      "18.00 V",
+      "0.72 V",
+      "21.60 V",
+      "12.96 V",
+      "18.72 V",
+      "6.00 V"
+    ],
+    "explanation": "I = 18.0/(12.0+0.5) = 1.44 A. V_term = I * R_ext = 1.44 * 12.0 = 17.28 V (or V = \u03b5 - Ir).",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electric Circuits",
+      "subtopic": "Internal Resistance Circuits",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "diagram": {
+      "type": "circuit",
+      "config": "series",
+      "battery": 18.0,
+      "internal_r": 0.5,
+      "r1": 4,
+      "r2": 6
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_2"
+  },
+  {
+    "id": "PS12_P1_MOM_0882",
+    "topic": "Momentum and Impulse",
+    "subtopic": "Recoil and Explosions",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A cannon of mass 415 kg fires a 7 kg artillery shell horizontally at a muzzle speed of 373 m/s. Assuming the system is isolated, calculate the recoil speed of the cannon immediately upon firing.",
+    "correct_answer": "6.29 m/s",
+    "wrong_answers_pool": [
+      "186.5 m/s",
+      "22113.57 m/s",
+      "9.44 m/s",
+      "3.15 m/s",
+      "9.79 m/s",
+      "0.00 m/s"
+    ],
+    "explanation": "p_total = 0 => m_gun * v_recoil = m_shell * v_shell => v_recoil = (7 * 373) / 415 = 6.29 m/s.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Momentum and Impulse",
+      "subtopic": "Recoil and Explosions",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_3"
+  },
+  {
+    "id": "PS_P1_DOP_0588",
+    "topic": "Paper 1: Doppler Effect",
+    "subtopic": "Receding Source Calculations",
+    "difficulty": "medium",
+    "question": "A train sounding its whistle at a frequency of 550 Hz travels at a constant velocity of 18.0 m\u00b7s\u207b\u00b9 directly AWAY FROM a stationary observer on a station platform. If sound travels at 340 m\u00b7s\u207b\u00b9 in air, calculate the frequency heard by the observer:",
+    "correct_answer": "522.3 Hz",
+    "wrong_answers_pool": [
+      "580.7 Hz (used (v - v_s) in denominator for receding source)",
+      "579.1 Hz (inverted Doppler equation)",
+      "520.9 Hz",
+      "550.0 Hz (no frequency shift)",
+      "391.8 Hz",
+      "597.3 Hz",
+      "442.3 Hz"
+    ],
+    "explanation": "Formula: f_L = (v / (v + v_s)) \u00d7 f_s. Here v = 340 m\u00b7s\u207b\u00b9, v_s = 18.0 m\u00b7s\u207b\u00b9, f_s = 550 Hz. f_L = (340 / (340 + 18.0)) \u00d7 550 = (340 / 358.0) \u00d7 550 = 522.3 Hz.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 1: Doppler Effect",
+      "subtopic": "Receding Source Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate observed frequency for receding source"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_4"
+  },
+  {
+    "id": "PS12_P1_WEP_0434",
+    "topic": "Work, Energy and Power",
+    "subtopic": "Work at an Angle",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A worker pulls a box with a force of 150 N directed at an angle of 35\u00b0 above the horizontal. The box moves a horizontal distance of 20 m. Calculate the work done by the pulling force.",
+    "correct_answer": "2457.5 J",
+    "wrong_answers_pool": [
+      "3000 J",
+      "1720.7 J",
+      "3686.2 J",
+      "1228.8 J",
+      "2537.5 J",
+      "1470.0 J"
+    ],
+    "explanation": "W = F * Delta x * cos(35\u00b0) = 150 * 20 * cos(35\u00b0) = 2457.5 J.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Work, Energy and Power",
+      "subtopic": "Work at an Angle",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "diagram": {
+      "type": "free_body",
+      "mass": 20,
+      "pulling_force": "150.0 N",
+      "angle": 35.0
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_5"
+  },
+  {
+    "id": "PS12_P1_WEP_0643",
+    "topic": "Work, Energy and Power",
+    "subtopic": "Work done by Gravity",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A 26 kg crate falls vertically from rest through a height of 12.3 m. Calculate the work done by the gravitational force on the crate.",
+    "correct_answer": "3134.0 J",
+    "wrong_answers_pool": [
+      "319.8 J",
+      "4701.0 J",
+      "1567.0 J",
+      "3334.0 J",
+      "254.8 J",
+      "0.0 J"
+    ],
+    "explanation": "W_g = m * g * h = 26 * 9.8 * 12.3 = 3134.0 J.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Work, Energy and Power",
+      "subtopic": "Work done by Gravity",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_6"
+  },
+  {
+    "id": "PS12_P1_VP_0609",
+    "topic": "Vertical Projectile Motion",
+    "subtopic": "Thrown Downwards",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A baseball is thrown vertically downwards from a observation deck 71.1 m high at an initial speed of 19.2 m/s. What is its velocity upon impact?",
+    "correct_answer": "41.98 m/s",
+    "wrong_answers_pool": [
+      "37.33 m/s",
+      "54.57 m/s",
+      "29.39 m/s",
+      "29.0 m/s",
+      "53.18 m/s",
+      "33.48 m/s"
+    ],
+    "explanation": "v_f = sqrt(v_i^2 + 2gh) = sqrt(19.2^2 + 2*9.8*71.1) = 41.98 m/s.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Vertical Projectile Motion",
+      "subtopic": "Thrown Downwards",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "diagram": {
+      "type": "kinematics_graph",
+      "v0": 19.2,
+      "t_top": 1.96
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_7"
+  },
+  {
+    "id": "PS12_P1_ED_0839",
+    "topic": "Electrodynamics",
+    "subtopic": "Appliance Resistance & Peak Current",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "An immersion heater is rated at 2400 W when operated on a 230 V rms alternating current supply. Calculate the electrical resistance of the immersion heater's element.",
+    "correct_answer": "22.04 \u03a9",
+    "wrong_answers_pool": [
+      "0.10 \u03a9",
+      "10.43 \u03a9",
+      "44.08 \u03a9",
+      "11.02 \u03a9",
+      "33.06 \u03a9",
+      "230.00 \u03a9"
+    ],
+    "explanation": "P_ave = V_rms\u00b2 / R => R = V_rms\u00b2 / P_ave = 230\u00b2 / 2400 = 22.04 \u03a9.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electrodynamics",
+      "subtopic": "Appliance Resistance & Peak Current",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_8"
+  },
+  {
+    "id": "PS12_P1_NL_0412",
+    "topic": "Newton's Laws and Gravitation",
+    "subtopic": "Inclined Plane Dynamics",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A 15 kg block is released on an incline of 30\u00b0 where the coefficient of kinetic friction is 0.12. Determine the magnitude of the acceleration of the block down the incline.",
+    "correct_answer": "3.88 m/s\u00b2",
+    "wrong_answers_pool": [
+      "4.90 m/s\u00b2",
+      "6.99 m/s\u00b2",
+      "1.94 m/s\u00b2",
+      "9.80 m/s\u00b2",
+      "6.38 m/s\u00b2",
+      "8.49 m/s\u00b2"
+    ],
+    "explanation": "F_net = F_g_parallel - f_k = 73.50 - 15.28 = 58.22 N. a = F_net / m = 3.88 m/s\u00b2.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Newton's Laws and Gravitation",
+      "subtopic": "Inclined Plane Dynamics",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_9"
+  },
+  {
+    "id": "PS12_P1_ED_0702",
+    "topic": "Electrodynamics",
+    "subtopic": "Faraday's Law Calculations",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A coil with 250 turns is placed in a magnetic field. The magnetic flux linkage changes by 0.04 Wb over a time interval of 0.01 s. Calculate the magnitude of the average induced electromotive force across the coil.",
+    "correct_answer": "1000 V",
+    "wrong_answers_pool": [
+      "0.1 V",
+      "4.0 V",
+      "2000.0 V",
+      "500.0 V",
+      "10000.0 V",
+      "25000.0 V"
+    ],
+    "explanation": "emf = N * (Delta Phi / Delta t) = 250 * (0.04 / 0.01) = 1000 V.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electrodynamics",
+      "subtopic": "Faraday's Law Calculations",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_10"
+  },
+  {
+    "id": "PS_P1_OPT_0826",
+    "topic": "Paper 1: Optical Phenomena and Properties of Matter",
+    "subtopic": "Stopping Potential",
+    "difficulty": "hard",
+    "question": "In a photoelectric experiment using a Potassium (K) cathode (work function W_0 = 3.68 \u00d7 10\u207b\u00b9\u2079 J), incident light has frequency 7.49 \u00d7 10\u00b9\u2074 Hz. What minimum STOPPING POTENTIAL (V_s) must be applied across the photocell to reduce the photocurrent to zero (electron charge e = 1.6 \u00d7 10\u207b\u00b9\u2079 C, h = 6.63 \u00d7 10\u207b\u00b3\u2074 J\u00b7s)?",
+    "correct_answer": "0.81 V",
+    "wrong_answers_pool": [
+      "1.61 V",
+      "0.40 V",
+      "3.11 V (omitted work function subtraction)",
+      "2.30 V (work function in eV)",
+      "2.01 V",
+      "1.21 V",
+      "0.00 V"
+    ],
+    "explanation": "E_k(max) = h \u00d7 f - W_0 = 1.29 \u00d7 10\u207b\u00b9\u2079 J. Work done by stopping potential: e \u00d7 V_s = E_k(max) => V_s = E_k(max) / e = (1.29 \u00d7 10\u207b\u00b9\u2079 J) / (1.6 \u00d7 10\u207b\u00b9\u2079 C) = 0.81 V.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 1: Optical Phenomena and Properties of Matter",
+      "subtopic": "Stopping Potential",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate stopping potential for Potassium (K)"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_11"
+  },
+  {
+    "id": "PS12_P1_ED_0866",
+    "topic": "Electrodynamics",
+    "subtopic": "Transformer Stepping Analysis",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "An ideal electrical transformer has 400 turns on its primary coil and 41 turns on its secondary coil. If an AC voltage of 230 V is applied across the primary coil, calculate the voltage output across the secondary coil.",
+    "correct_answer": "24 V",
+    "wrong_answers_pool": [
+      "230 V",
+      "48 V",
+      "12.0 V",
+      "460.0 V",
+      "254 V",
+      "0 V"
+    ],
+    "explanation": "Vs / Vp = Ns / Np => Vs = Vp * (Ns / Np) = 230 * (41 / 400) = 24 V.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electrodynamics",
+      "subtopic": "Transformer Stepping Analysis",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "diagram": {
+      "type": "transformer_circuit",
+      "transformer_type": "step_down",
+      "vp": 240,
+      "vs": 12,
+      "np": 400,
+      "ns": 41
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_12"
+  },
+  {
+    "id": "PS12_P1_VP_0559",
+    "topic": "Vertical Projectile Motion",
+    "subtopic": "Thrown Downwards",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A baseball is thrown vertically downwards from a cliff 47.4 m high at an initial speed of 16.9 m/s. What is its velocity upon impact?",
+    "correct_answer": "34.85 m/s",
+    "wrong_answers_pool": [
+      "30.48 m/s",
+      "45.31 m/s",
+      "24.39 m/s",
+      "26.7 m/s",
+      "46.05 m/s",
+      "26.35 m/s"
+    ],
+    "explanation": "v_f = sqrt(v_i^2 + 2gh) = sqrt(16.9^2 + 2*9.8*47.4) = 34.85 m/s.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Vertical Projectile Motion",
+      "subtopic": "Thrown Downwards",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "diagram": {
+      "type": "kinematics_graph",
+      "v0": 16.9,
+      "t_top": 1.72
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_13"
+  },
+  {
+    "id": "PS12_P1_WEP_0843",
+    "topic": "Work, Energy and Power",
+    "subtopic": "Work-Energy Theorem Applications",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A vehicle of mass 1501 kg travelling at 30 m/s applies its brakes and slows down to 2 m/s over a stopping distance of 50.9 m on a level road. Calculate the magnitude of the average net braking force acting on the vehicle.",
+    "correct_answer": "13211.2 N",
+    "wrong_answers_pool": [
+      "19816.8 N",
+      "6605.6 N",
+      "42028 N",
+      "68617.1 N",
+      "14411.2 N",
+      "14709.8 N"
+    ],
+    "explanation": "W_net = Delta E_k => F_net * d = 0.5 * 1501 * (30^2 - 2^2) = 672448.0 J. F_net = 672448.0 / 50.9 = 13211.2 N.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Work, Energy and Power",
+      "subtopic": "Work-Energy Theorem Applications",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_14"
+  },
+  {
+    "id": "PS_P1_OPT_0919",
+    "topic": "Paper 1: Optical Phenomena and Properties of Matter",
+    "subtopic": "Maximum Velocity",
+    "difficulty": "hard",
+    "question": "Ultraviolet radiation of frequency 22.25 \u00d7 10\u00b9\u2074 Hz strikes the surface of a Magnesium (Mg) plate (work function W_0 = 5.90 \u00d7 10\u207b\u00b9\u2079 J). Using h = 6.63 \u00d7 10\u207b\u00b3\u2074 J\u00b7s and mass of an electron m_e = 9.11 \u00d7 10\u207b\u00b3\u00b9 kg, calculate the MAXIMUM SPEED (v_max) of the ejected photoelectrons:",
+    "correct_answer": "13.94 \u00d7 10\u2075 m\u00b7s\u207b\u00b9",
+    "wrong_answers_pool": [
+      "27.88 \u00d7 10\u2075 m\u00b7s\u207b\u00b9",
+      "6.97 \u00d7 10\u2075 m\u00b7s\u207b\u00b9",
+      "9.86 \u00d7 10\u2075 m\u00b7s\u207b\u00b9 (omitted factor of 2 under square root)",
+      "19.43 \u00d7 10\u2075 m\u00b7s\u207b\u00b9 (forgot to take square root)",
+      "16.44 \u00d7 10\u2075 m\u00b7s\u207b\u00b9",
+      "20.91 \u00d7 10\u2075 m\u00b7s\u207b\u00b9",
+      "3.00 \u00d7 10\u2075 m\u00b7s\u207b\u00b9 (speed of light)"
+    ],
+    "explanation": "1. E = h \u00d7 f = (6.63 \u00d7 10\u207b\u00b3\u2074) \u00d7 (22.25 \u00d7 10\u00b9\u2074) = 14.75 \u00d7 10\u207b\u00b9\u2079 J. 2. E_k(max) = E - W_0 = 14.75 \u00d7 10\u207b\u00b9\u2079 - 5.90 \u00d7 10\u207b\u00b9\u2079 = 8.85 \u00d7 10\u207b\u00b9\u2079 J. 3. v_max = \u221a(2 \u00d7 E_k / m_e) = \u221a(2 \u00d7 8.850e-19 / 9.11 \u00d7 10\u207b\u00b3\u00b9) = 13.94 \u00d7 10\u2075 m\u00b7s\u207b\u00b9.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 1: Optical Phenomena and Properties of Matter",
+      "subtopic": "Maximum Velocity",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate maximum photoelectron speed for Magnesium (Mg)"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_15"
+  },
+  {
+    "id": "PS12_P1_EC_0802",
+    "topic": "Electric Circuits",
+    "subtopic": "Simultaneous Emf & Internal Resistance",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A battery delivers a current of 2.40 A through a 2.0 \u03a9 load and 1.09 A through a 5.0 \u03a9 load. Calculate the electromotive force (emf) of the battery.",
+    "correct_answer": "6 V",
+    "wrong_answers_pool": [
+      "9.00 V",
+      "3.00 V",
+      "4.80 V",
+      "5.45 V",
+      "10.00 V",
+      "12.00 V"
+    ],
+    "explanation": "From simultaneous equations: r = 0.50 \u03a9. \u03b5 = I1*(R1 + r) = 2.40*(2.0 + 0.50) = 6 V.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electric Circuits",
+      "subtopic": "Simultaneous Emf & Internal Resistance",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_16"
+  },
+  {
+    "id": "PS_P1_OPT_0888",
+    "topic": "Paper 1: Optical Phenomena and Properties of Matter",
+    "subtopic": "Stopping Potential",
+    "difficulty": "hard",
+    "question": "In a photoelectric experiment using a Calcium (Ca) cathode (work function W_0 = 4.60 \u00d7 10\u207b\u00b9\u2079 J), incident light has frequency 10.06 \u00d7 10\u00b9\u2074 Hz. What minimum STOPPING POTENTIAL (V_s) must be applied across the photocell to reduce the photocurrent to zero (electron charge e = 1.6 \u00d7 10\u207b\u00b9\u2079 C, h = 6.63 \u00d7 10\u207b\u00b3\u2074 J\u00b7s)?",
+    "correct_answer": "1.29 V",
+    "wrong_answers_pool": [
+      "2.59 V",
+      "0.65 V",
+      "4.17 V (omitted work function subtraction)",
+      "2.87 V (work function in eV)",
+      "2.49 V",
+      "1.94 V",
+      "0.00 V"
+    ],
+    "explanation": "E_k(max) = h \u00d7 f - W_0 = 2.07 \u00d7 10\u207b\u00b9\u2079 J. Work done by stopping potential: e \u00d7 V_s = E_k(max) => V_s = E_k(max) / e = (2.07 \u00d7 10\u207b\u00b9\u2079 J) / (1.6 \u00d7 10\u207b\u00b9\u2079 C) = 1.29 V.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 1: Optical Phenomena and Properties of Matter",
+      "subtopic": "Stopping Potential",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate stopping potential for Calcium (Ca)"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_17"
+  },
+  {
+    "id": "PS12_P1_EC_0966",
+    "topic": "Electric Circuits",
+    "subtopic": "Simultaneous Emf & Internal Resistance",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "When a battery is connected to a 2.0 \u03a9 resistor, a current of 3.75 A flows. When connected instead to a 5.0 \u03a9 resistor, the current is 1.94 A. Calculate the internal resistance (r) of the battery.",
+    "correct_answer": "1.20 \u03a9",
+    "wrong_answers_pool": [
+      "2.40 \u03a9",
+      "0.60 \u03a9",
+      "2.20 \u03a9",
+      "2.00 \u03a9",
+      "5.00 \u03a9",
+      "0.00 \u03a9"
+    ],
+    "explanation": "\u03b5 = 3.75*(2.0 + r) and \u03b5 = 1.94*(5.0 + r). Setting equal: 3.75*(2.0 + r) = 1.94*(5.0 + r) => r = 1.20 \u03a9.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electric Circuits",
+      "subtopic": "Simultaneous Emf & Internal Resistance",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_18"
+  },
+  {
+    "id": "PS12_P1_VP_0931",
+    "topic": "Vertical Projectile Motion",
+    "subtopic": "Cliff Projection and Quadratic Kinematics",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A hockey ball is thrown vertically upwards from a balcony 48.8 m above the ground with an initial speed of 25.1 m/s. Calculate the magnitude of its velocity as it strikes the ground at the bottom.",
+    "correct_answer": "39.83 m/s",
+    "wrong_answers_pool": [
+      "25.1 m/s",
+      "30.93 m/s",
+      "49.79 m/s",
+      "29.87 m/s",
+      "54.03 m/s",
+      "30.23 m/s"
+    ],
+    "explanation": "v_f = sqrt(v_i^2 + 2gh) = sqrt(25.1^2 + 2*9.8*48.8) = 39.83 m/s.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Vertical Projectile Motion",
+      "subtopic": "Cliff Projection and Quadratic Kinematics",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "diagram": {
+      "type": "kinematics_graph",
+      "v0": 25.1,
+      "t_top": 2.56
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_19"
+  },
+  {
+    "id": "PS12_P1_ED_0983",
+    "topic": "Electrodynamics",
+    "subtopic": "Transformer Stepping Analysis",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "In an ideal transformer stepping voltage from 240 V to 12 V, the current in the primary coil is 3.0 A. Assuming 100% efficiency, calculate the current in the secondary coil.",
+    "correct_answer": "60.00 A",
+    "wrong_answers_pool": [
+      "3.00 A",
+      "0.15 A",
+      "120.00 A",
+      "30.00 A",
+      "20.00 A",
+      "0.00 A"
+    ],
+    "explanation": "P_primary = P_secondary => Vp * Ip = Vs * Is => Is = Ip * (Vp / Vs) = 3.0 * (240 / 12) = 60.00 A.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electrodynamics",
+      "subtopic": "Transformer Stepping Analysis",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "diagram": {
+      "type": "transformer_circuit",
+      "transformer_type": "step_down",
+      "vp": 240,
+      "vs": 12,
+      "np": 2400,
+      "ns": 120
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_20"
+  },
+  {
+    "id": "PS_P1_DOP_0494",
+    "topic": "Paper 1: Doppler Effect",
+    "subtopic": "Approaching Source Calculations",
+    "difficulty": "medium",
+    "question": "An ambulance with its siren sounding at a frequency of 1000 Hz moves at a constant speed of 42.0 m\u00b7s\u207b\u00b9 TOWARDS a stationary pedestrian. Taking the speed of sound in air as 340 m\u00b7s\u207b\u00b9, calculate the frequency detected by the pedestrian:",
+    "correct_answer": "1140.9 Hz",
+    "wrong_answers_pool": [
+      "890.1 Hz (used (v + v_s) in denominator for approaching source)",
+      "876.5 Hz (inverted Doppler fraction)",
+      "1123.5 Hz",
+      "1000.0 Hz (assumed zero frequency change)",
+      "1711.4 Hz",
+      "1040.9 Hz",
+      "1260.9 Hz"
+    ],
+    "explanation": "Formula: f_L = (v / (v - v_s)) \u00d7 f_s. Here v = 340 m\u00b7s\u207b\u00b9, v_s = 42.0 m\u00b7s\u207b\u00b9, f_s = 1000 Hz. f_L = (340 / (340 - 42.0)) \u00d7 1000 = (340 / 298.0) \u00d7 1000 = 1140.9 Hz.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 1: Doppler Effect",
+      "subtopic": "Approaching Source Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate observed frequency for approaching source"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_21"
+  },
+  {
+    "id": "PS12_P1_VP_0954",
+    "topic": "Vertical Projectile Motion",
+    "subtopic": "Cliff Projection and Quadratic Kinematics",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A metal sphere is projected vertically upwards from the edge of a construction crane 65.7 m high at an initial velocity of 29.5 m/s. It travels upward, misses the edge on its descent, and strikes the ground below. Calculate the total time of flight.",
+    "correct_answer": "7.75 s",
+    "wrong_answers_pool": [
+      "3.01 s",
+      "3.66 s",
+      "10.85 s",
+      "4.65 s",
+      "10.25 s",
+      "5.95 s"
+    ],
+    "explanation": "Using Delta y = v_i*t - 0.5*g*t^2: -65.7 = 29.5*t - 4.9*t^2. Solving quadratic yields t = 7.75 s.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Vertical Projectile Motion",
+      "subtopic": "Cliff Projection and Quadratic Kinematics",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_22"
+  },
+  {
+    "id": "PS12_P1_VP_0838",
+    "topic": "Vertical Projectile Motion",
+    "subtopic": "Cliff Projection and Quadratic Kinematics",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A metal sphere is thrown vertically upwards from a observation deck 81.6 m above the ground with an initial speed of 27.7 m/s. Calculate the magnitude of its velocity as it strikes the ground at the bottom.",
+    "correct_answer": "48.65 m/s",
+    "wrong_answers_pool": [
+      "27.7 m/s",
+      "39.99 m/s",
+      "60.81 m/s",
+      "36.49 m/s",
+      "62.85 m/s",
+      "39.05 m/s"
+    ],
+    "explanation": "v_f = sqrt(v_i^2 + 2gh) = sqrt(27.7^2 + 2*9.8*81.6) = 48.65 m/s.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Vertical Projectile Motion",
+      "subtopic": "Cliff Projection and Quadratic Kinematics",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "diagram": {
+      "type": "kinematics_graph",
+      "v0": 27.7,
+      "t_top": 2.83
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_23"
+  },
+  {
+    "id": "PS12_P1_EC_0559",
+    "topic": "Electric Circuits",
+    "subtopic": "Internal Resistance Circuits",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A battery with an emf of 12.0 V and internal resistance r = 0.5 \u03a9 is connected to an external resistor of R = 5.0 \u03a9. Calculate the current in the circuit.",
+    "correct_answer": "2.18 A",
+    "wrong_answers_pool": [
+      "2.40 A",
+      "24.00 A",
+      "3.27 A",
+      "1.09 A",
+      "66.00 A",
+      "3.38 A"
+    ],
+    "explanation": "I = \u03b5 / (R_ext + r) = 12.0 / (5.0 + 0.5) = 12.0 / 5.5 = 2.18 A.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electric Circuits",
+      "subtopic": "Internal Resistance Circuits",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_24"
+  },
+  {
+    "id": "PS12_P1_WEP_0629",
+    "topic": "Work, Energy and Power",
+    "subtopic": "Work done by Gravity",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A 16 kg cargo container falls vertically from rest through a height of 24.5 m. Calculate the work done by the gravitational force on the cargo container.",
+    "correct_answer": "3841.6 J",
+    "wrong_answers_pool": [
+      "392.0 J",
+      "5762.4 J",
+      "1920.8 J",
+      "4041.6 J",
+      "156.8 J",
+      "0.0 J"
+    ],
+    "explanation": "W_g = m * g * h = 16 * 9.8 * 24.5 = 3841.6 J.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Work, Energy and Power",
+      "subtopic": "Work done by Gravity",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_25"
+  },
+  {
+    "id": "PS12_P1_WEP_0560",
+    "topic": "Work, Energy and Power",
+    "subtopic": "Work done by Gravity",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A 50 kg sled falls vertically from rest through a height of 17.6 m. Calculate the work done by the gravitational force on the sled.",
+    "correct_answer": "8624.0 J",
+    "wrong_answers_pool": [
+      "880.0 J",
+      "12936.0 J",
+      "4312.0 J",
+      "8824.0 J",
+      "490.0 J",
+      "0.0 J"
+    ],
+    "explanation": "W_g = m * g * h = 50 * 9.8 * 17.6 = 8624.0 J.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Work, Energy and Power",
+      "subtopic": "Work done by Gravity",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_26"
+  },
+  {
+    "id": "PS12_P1_EC_0771",
+    "topic": "Electric Circuits",
+    "subtopic": "Internal Resistance Circuits",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A battery with an emf of 18.0 V and internal resistance r = 1.5 \u03a9 is connected to an external resistor of R = 5.0 \u03a9. Calculate the current in the circuit.",
+    "correct_answer": "2.77 A",
+    "wrong_answers_pool": [
+      "3.60 A",
+      "12.00 A",
+      "4.15 A",
+      "1.38 A",
+      "117.00 A",
+      "3.97 A"
+    ],
+    "explanation": "I = \u03b5 / (R_ext + r) = 18.0 / (5.0 + 1.5) = 18.0 / 6.5 = 2.77 A.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electric Circuits",
+      "subtopic": "Internal Resistance Circuits",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_27"
+  },
+  {
+    "id": "PS12_P1_VP_0663",
+    "topic": "Vertical Projectile Motion",
+    "subtopic": "Thrown Downwards",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A arrow is thrown vertically downwards from a vertical scaffold 27.1 m high at an initial speed of 5.6 m/s. What is its velocity upon impact?",
+    "correct_answer": "23.72 m/s",
+    "wrong_answers_pool": [
+      "23.05 m/s",
+      "30.84 m/s",
+      "16.6 m/s",
+      "15.4 m/s",
+      "34.92 m/s",
+      "15.22 m/s"
+    ],
+    "explanation": "v_f = sqrt(v_i^2 + 2gh) = sqrt(5.6^2 + 2*9.8*27.1) = 23.72 m/s.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Vertical Projectile Motion",
+      "subtopic": "Thrown Downwards",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "diagram": {
+      "type": "kinematics_graph",
+      "v0": 5.6,
+      "t_top": 0.57
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_28"
+  },
+  {
+    "id": "PS12_P1_NL_0437",
+    "topic": "Newton's Laws and Gravitation",
+    "subtopic": "Inclined Plane Dynamics",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A 20 kg wooden crate rests on a rough ramp inclined at 40\u00b0 to the horizontal. Calculate the magnitude of the normal force exerted by the ramp on the crate.",
+    "correct_answer": "150.14 N",
+    "wrong_answers_pool": [
+      "125.99 N",
+      "196.00 N",
+      "225.22 N",
+      "112.61 N",
+      "180.17 N",
+      "276.13 N"
+    ],
+    "explanation": "N = mg * cos(theta) = 20 * 9.8 * cos(40\u00b0) = 150.14 N.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Newton's Laws and Gravitation",
+      "subtopic": "Inclined Plane Dynamics",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_29"
+  },
+  {
+    "id": "PS12_P1_VP_0642",
+    "topic": "Vertical Projectile Motion",
+    "subtopic": "Thrown Downwards",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A lead weight is thrown vertically downwards from a vertical scaffold 49.4 m high at an initial speed of 9.8 m/s. What is its velocity upon impact?",
+    "correct_answer": "32.62 m/s",
+    "wrong_answers_pool": [
+      "31.12 m/s",
+      "42.41 m/s",
+      "22.83 m/s",
+      "19.6 m/s",
+      "43.82 m/s",
+      "24.12 m/s"
+    ],
+    "explanation": "v_f = sqrt(v_i^2 + 2gh) = sqrt(9.8^2 + 2*9.8*49.4) = 32.62 m/s.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Vertical Projectile Motion",
+      "subtopic": "Thrown Downwards",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "diagram": {
+      "type": "kinematics_graph",
+      "v0": 9.8,
+      "t_top": 1.0
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_30"
+  },
+  {
+    "id": "PS12_P1_VP_0834",
+    "topic": "Vertical Projectile Motion",
+    "subtopic": "Cliff Projection and Quadratic Kinematics",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A hockey ball is thrown vertically upwards from a bridge 61.5 m above the ground with an initial speed of 29.4 m/s. Calculate the magnitude of its velocity as it strikes the ground at the bottom.",
+    "correct_answer": "45.49 m/s",
+    "wrong_answers_pool": [
+      "29.4 m/s",
+      "34.72 m/s",
+      "56.86 m/s",
+      "34.12 m/s",
+      "59.69 m/s",
+      "35.89 m/s"
+    ],
+    "explanation": "v_f = sqrt(v_i^2 + 2gh) = sqrt(29.4^2 + 2*9.8*61.5) = 45.49 m/s.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Vertical Projectile Motion",
+      "subtopic": "Cliff Projection and Quadratic Kinematics",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "diagram": {
+      "type": "kinematics_graph",
+      "v0": 29.4,
+      "t_top": 3.0
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_31"
+  },
+  {
+    "id": "PS12_P1_ES_0632",
+    "topic": "Electrostatics",
+    "subtopic": "Coulomb's Law Calculations",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "Two small point charges, q1 = +8 \u00b5C and q2 = +3 \u00b5C, are placed 25 cm apart in a vacuum. Calculate the magnitude of the electrostatic force exerted between them. (k = 9.0 x 10^9 N\u00b7m\u00b2\u00b7C\u207b\u00b2)",
+    "correct_answer": "3.46 N",
+    "wrong_answers_pool": [
+      "0.86 N",
+      "3.46e-04 N",
+      "3.46e+12 N",
+      "6.91 N",
+      "1.73 N",
+      "13.82 N"
+    ],
+    "explanation": "Coulomb's Law: F = k * |q1| * |q2| / r\u00b2 = (9.0 x 10^9 * 8 x 10^-6 * 3 x 10^-6) / (0.25\u00b2) = 3.46 N.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electrostatics",
+      "subtopic": "Coulomb's Law Calculations",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "diagram": {
+      "type": "coulomb_charges",
+      "q1": "+8 \u00b5C",
+      "q2": "+3 \u00b5C",
+      "distance": "25 cm"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_32"
+  },
+  {
+    "id": "PS_P1_DOP_0783",
+    "topic": "Paper 1: Doppler Effect",
+    "subtopic": "Moving Listener Calculations",
+    "difficulty": "medium",
+    "question": "A motor car drives at a constant speed of 22.0 m\u00b7s\u207b\u00b9 TOWARDS a stationary factory whistle sounding at 500 Hz. If the speed of sound in air is 340 m\u00b7s\u207b\u00b9, determine the frequency detected by the driver of the car:",
+    "correct_answer": "532.4 Hz",
+    "wrong_answers_pool": [
+      "467.6 Hz (subtracted listener speed instead of adding)",
+      "469.6 Hz (treated moving listener as moving source)",
+      "500.0 Hz",
+      "692.1 Hz",
+      "482.4 Hz",
+      "622.4 Hz",
+      "266.2 Hz"
+    ],
+    "explanation": "Formula: f_L = ((v + v_L) / v) \u00d7 f_s. Here v = 340 m\u00b7s\u207b\u00b9, v_L = 22.0 m\u00b7s\u207b\u00b9, f_s = 500 Hz. f_L = ((340 + 22.0) / 340) \u00d7 500 = (362.0 / 340) \u00d7 500 = 532.4 Hz.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 1: Doppler Effect",
+      "subtopic": "Moving Listener Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate frequency for moving listener approaching stationary source"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_33"
+  },
+  {
+    "id": "PS_P1_OPT_0403",
+    "topic": "Paper 1: Optical Phenomena and Properties of Matter",
+    "subtopic": "Kinetic Energy Calculations",
+    "difficulty": "medium",
+    "question": "Light of frequency 9.05 \u00d7 10\u00b9\u2074 Hz shines on a clean plate of Lithium (Li) (work function W_0 = 4.00 \u00d7 10\u207b\u00b9\u2079 J). Using h = 6.63 \u00d7 10\u207b\u00b3\u2074 J\u00b7s, calculate the maximum kinetic energy (E_k(max)) of the ejected photoelectrons:",
+    "correct_answer": "2.00 \u00d7 10\u207b\u00b9\u2079 J",
+    "wrong_answers_pool": [
+      "6.00 \u00d7 10\u207b\u00b9\u2079 J (calculated total photon energy without subtracting W_0)",
+      "10.00 \u00d7 10\u207b\u00b9\u2079 J (added work function instead of subtracting)",
+      "4.00 \u00d7 10\u207b\u00b9\u2079 J",
+      "1.00 \u00d7 10\u207b\u00b9\u2079 J",
+      "3.25 \u00d7 10\u207b\u00b9\u2079 J",
+      "3.00 \u00d7 10\u207b\u00b9\u2079 J"
+    ],
+    "explanation": "Photoelectric equation: E = W_0 + E_k(max) => E_k(max) = h \u00d7 f - W_0 = (6.63 \u00d7 10\u207b\u00b3\u2074 \u00d7 9.05 \u00d7 10\u00b9\u2074) - 4.00 \u00d7 10\u207b\u00b9\u2079 J = 6.00 \u00d7 10\u207b\u00b9\u2079 - 4.00 \u00d7 10\u207b\u00b9\u2079 = 2.00 \u00d7 10\u207b\u00b9\u2079 J.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 1: Optical Phenomena and Properties of Matter",
+      "subtopic": "Kinetic Energy Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate maximum photoelectron kinetic energy for Lithium (Li)"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_34"
+  },
+  {
+    "id": "PS_P1_DOP_0548",
+    "topic": "Paper 1: Doppler Effect",
+    "subtopic": "Receding Source Calculations",
+    "difficulty": "medium",
+    "question": "A train sounding its whistle at a frequency of 400 Hz travels at a constant velocity of 15.0 m\u00b7s\u207b\u00b9 directly AWAY FROM a stationary observer on a station platform. If sound travels at 340 m\u00b7s\u207b\u00b9 in air, calculate the frequency heard by the observer:",
+    "correct_answer": "383.1 Hz",
+    "wrong_answers_pool": [
+      "418.5 Hz (used (v - v_s) in denominator for receding source)",
+      "417.6 Hz (inverted Doppler equation)",
+      "382.4 Hz",
+      "400.0 Hz (no frequency shift)",
+      "287.3 Hz",
+      "458.1 Hz",
+      "303.1 Hz"
+    ],
+    "explanation": "Formula: f_L = (v / (v + v_s)) \u00d7 f_s. Here v = 340 m\u00b7s\u207b\u00b9, v_s = 15.0 m\u00b7s\u207b\u00b9, f_s = 400 Hz. f_L = (340 / (340 + 15.0)) \u00d7 400 = (340 / 355.0) \u00d7 400 = 383.1 Hz.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 1: Doppler Effect",
+      "subtopic": "Receding Source Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate observed frequency for receding source"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_35"
+  },
+  {
+    "id": "PS12_P1_ED_0860",
+    "topic": "Electrodynamics",
+    "subtopic": "Transformer Stepping Analysis",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "An ideal electrical transformer has 1000 turns on its primary coil and 52 turns on its secondary coil. If an AC voltage of 230 V is applied across the primary coil, calculate the voltage output across the secondary coil.",
+    "correct_answer": "12 V",
+    "wrong_answers_pool": [
+      "230 V",
+      "24 V",
+      "6.0 V",
+      "460.0 V",
+      "242 V",
+      "0 V"
+    ],
+    "explanation": "Vs / Vp = Ns / Np => Vs = Vp * (Ns / Np) = 230 * (52 / 1000) = 12 V.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electrodynamics",
+      "subtopic": "Transformer Stepping Analysis",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "diagram": {
+      "type": "transformer_circuit",
+      "transformer_type": "step_down",
+      "vp": 240,
+      "vs": 12,
+      "np": 1000,
+      "ns": 52
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_36"
+  },
+  {
+    "id": "PS12_P1_ED_0885",
+    "topic": "Electrodynamics",
+    "subtopic": "Transformer Stepping Analysis",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "An ideal electrical transformer has 800 turns on its primary coil and 166 turns on its secondary coil. If an AC voltage of 230 V is applied across the primary coil, calculate the voltage output across the secondary coil.",
+    "correct_answer": "48 V",
+    "wrong_answers_pool": [
+      "230 V",
+      "96 V",
+      "24.0 V",
+      "460.0 V",
+      "278 V",
+      "0 V"
+    ],
+    "explanation": "Vs / Vp = Ns / Np => Vs = Vp * (Ns / Np) = 230 * (166 / 800) = 48 V.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electrodynamics",
+      "subtopic": "Transformer Stepping Analysis",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "diagram": {
+      "type": "transformer_circuit",
+      "transformer_type": "step_down",
+      "vp": 240,
+      "vs": 12,
+      "np": 800,
+      "ns": 166
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_37"
+  },
+  {
+    "id": "PS_P1_OPT_0482",
+    "topic": "Paper 1: Optical Phenomena and Properties of Matter",
+    "subtopic": "Kinetic Energy Calculations",
+    "difficulty": "medium",
+    "question": "Light of frequency 18.15 \u00d7 10\u00b9\u2074 Hz shines on a clean plate of Copper (Cu) (work function W_0 = 7.52 \u00d7 10\u207b\u00b9\u2079 J). Using h = 6.63 \u00d7 10\u207b\u00b3\u2074 J\u00b7s, calculate the maximum kinetic energy (E_k(max)) of the ejected photoelectrons:",
+    "correct_answer": "4.51 \u00d7 10\u207b\u00b9\u2079 J",
+    "wrong_answers_pool": [
+      "12.03 \u00d7 10\u207b\u00b9\u2079 J (calculated total photon energy without subtracting W_0)",
+      "19.55 \u00d7 10\u207b\u00b9\u2079 J (added work function instead of subtracting)",
+      "9.02 \u00d7 10\u207b\u00b9\u2079 J",
+      "2.26 \u00d7 10\u207b\u00b9\u2079 J",
+      "7.52 \u00d7 10\u207b\u00b9\u2079 J",
+      "5.76 \u00d7 10\u207b\u00b9\u2079 J",
+      "6.77 \u00d7 10\u207b\u00b9\u2079 J"
+    ],
+    "explanation": "Photoelectric equation: E = W_0 + E_k(max) => E_k(max) = h \u00d7 f - W_0 = (6.63 \u00d7 10\u207b\u00b3\u2074 \u00d7 18.15 \u00d7 10\u00b9\u2074) - 7.52 \u00d7 10\u207b\u00b9\u2079 J = 12.03 \u00d7 10\u207b\u00b9\u2079 - 7.52 \u00d7 10\u207b\u00b9\u2079 = 4.51 \u00d7 10\u207b\u00b9\u2079 J.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 1: Optical Phenomena and Properties of Matter",
+      "subtopic": "Kinetic Energy Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate maximum photoelectron kinetic energy for Copper (Cu)"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_38"
+  },
+  {
+    "id": "PS_P1_OPT_0435",
+    "topic": "Paper 1: Optical Phenomena and Properties of Matter",
+    "subtopic": "Kinetic Energy Calculations",
+    "difficulty": "medium",
+    "question": "Light of frequency 10.83 \u00d7 10\u00b9\u2074 Hz shines on a clean plate of Aluminium (Al) (work function W_0 = 6.53 \u00d7 10\u207b\u00b9\u2079 J). Using h = 6.63 \u00d7 10\u207b\u00b3\u2074 J\u00b7s, calculate the maximum kinetic energy (E_k(max)) of the ejected photoelectrons:",
+    "correct_answer": "0.65 \u00d7 10\u207b\u00b9\u2079 J",
+    "wrong_answers_pool": [
+      "7.18 \u00d7 10\u207b\u00b9\u2079 J (calculated total photon energy without subtracting W_0)",
+      "13.71 \u00d7 10\u207b\u00b9\u2079 J (added work function instead of subtracting)",
+      "1.31 \u00d7 10\u207b\u00b9\u2079 J",
+      "0.33 \u00d7 10\u207b\u00b9\u2079 J",
+      "6.53 \u00d7 10\u207b\u00b9\u2079 J",
+      "1.90 \u00d7 10\u207b\u00b9\u2079 J",
+      "0.98 \u00d7 10\u207b\u00b9\u2079 J"
+    ],
+    "explanation": "Photoelectric equation: E = W_0 + E_k(max) => E_k(max) = h \u00d7 f - W_0 = (6.63 \u00d7 10\u207b\u00b3\u2074 \u00d7 10.83 \u00d7 10\u00b9\u2074) - 6.53 \u00d7 10\u207b\u00b9\u2079 J = 7.18 \u00d7 10\u207b\u00b9\u2079 - 6.53 \u00d7 10\u207b\u00b9\u2079 = 0.65 \u00d7 10\u207b\u00b9\u2079 J.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 1: Optical Phenomena and Properties of Matter",
+      "subtopic": "Kinetic Energy Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate maximum photoelectron kinetic energy for Aluminium (Al)"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_39"
+  },
+  {
+    "id": "PS_P1_DOP_0914",
+    "topic": "Paper 1: Doppler Effect",
+    "subtopic": "Source Speed Calculations",
+    "difficulty": "hard",
+    "question": "An observer standing beside a straight railway track detects a frequency of 436.4 Hz from the whistle of a train as it travels directly away from them. The stationary whistle frequency is 480 Hz. Given that sound travels at 340 m\u00b7s\u207b\u00b9 in air, determine the speed of the receding train:",
+    "correct_answer": "34.0 m\u00b7s\u207b\u00b9",
+    "wrong_answers_pool": [
+      "30.9 m\u00b7s\u207b\u00b9 (used approaching formula instead of receding)",
+      "68.0 m\u00b7s\u207b\u00b9",
+      "17.0 m\u00b7s\u207b\u00b9",
+      "42.5 m\u00b7s\u207b\u00b9",
+      "43.6 m\u00b7s\u207b\u00b9",
+      "47.6 m\u00b7s\u207b\u00b9",
+      "29.0 m\u00b7s\u207b\u00b9"
+    ],
+    "explanation": "From f_L = (v / (v + v_s)) \u00d7 f_s: (v + v_s) = v \u00d7 (f_s / f_L) => v_s = v \u00d7 (f_s / f_L - 1) = 340 \u00d7 (480 / 436.4 - 1) = 34.0 m\u00b7s\u207b\u00b9.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 1: Doppler Effect",
+      "subtopic": "Source Speed Calculations",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate source speed for receding train"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_40"
+  },
+  {
+    "id": "PS12_P1_MOM_0975",
+    "topic": "Momentum and Impulse",
+    "subtopic": "Impact Forces and Contact Time",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A 0.78 kg tennis ball travelling at 41.7 m/s hits a wall and rebounds in the opposite direction at 37.1 m/s. The contact duration is 0.0191 s. Calculate the magnitude of the average net force exerted on the ball by the wall.",
+    "correct_answer": "3218.0 N",
+    "wrong_answers_pool": [
+      "187.9 N",
+      "6436.0 N",
+      "1609.0 N",
+      "7.6 N",
+      "3718.0 N",
+      "61.5 N"
+    ],
+    "explanation": "F_net = delta p / delta t = 0.78 * (37.1 - (-41.7)) / 0.0191 = 3218.0 N.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Momentum and Impulse",
+      "subtopic": "Impact Forces and Contact Time",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_41"
+  },
+  {
+    "id": "PS12_P1_ED_0927",
+    "topic": "Electrodynamics",
+    "subtopic": "Transformer Stepping Analysis",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "An ideal electrical transformer has 2000 turns on its primary coil and 20 turns on its secondary coil. If an AC voltage of 22000 V is applied across the primary coil, calculate the voltage output across the secondary coil.",
+    "correct_answer": "230 V",
+    "wrong_answers_pool": [
+      "22000 V",
+      "460 V",
+      "115.0 V",
+      "44000.0 V",
+      "22230 V",
+      "0 V"
+    ],
+    "explanation": "Vs / Vp = Ns / Np => Vs = Vp * (Ns / Np) = 22000 * (20 / 2000) = 230 V.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electrodynamics",
+      "subtopic": "Transformer Stepping Analysis",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "diagram": {
+      "type": "transformer_circuit",
+      "transformer_type": "step_down",
+      "vp": 240,
+      "vs": 12,
+      "np": 2000,
+      "ns": 20
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_42"
+  },
+  {
+    "id": "PS12_P1_ED_0956",
+    "topic": "Electrodynamics",
+    "subtopic": "Transformer Stepping Analysis",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "An ideal electrical transformer has 400 turns on its primary coil and 132 turns on its secondary coil. If an AC voltage of 400000 V is applied across the primary coil, calculate the voltage output across the secondary coil.",
+    "correct_answer": "132000 V",
+    "wrong_answers_pool": [
+      "400000 V",
+      "264000 V",
+      "66000.0 V",
+      "800000.0 V",
+      "532000 V",
+      "0 V"
+    ],
+    "explanation": "Vs / Vp = Ns / Np => Vs = Vp * (Ns / Np) = 400000 * (132 / 400) = 132000 V.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electrodynamics",
+      "subtopic": "Transformer Stepping Analysis",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "diagram": {
+      "type": "transformer_circuit",
+      "transformer_type": "step_down",
+      "vp": 240,
+      "vs": 12,
+      "np": 400,
+      "ns": 132
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_43"
+  },
+  {
+    "id": "PS12_P1_VP_0819",
+    "topic": "Vertical Projectile Motion",
+    "subtopic": "Cliff Projection and Quadratic Kinematics",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A hockey ball is thrown vertically upwards from a cliff 21.0 m above the ground with an initial speed of 33.6 m/s. Calculate the magnitude of its velocity as it strikes the ground at the bottom.",
+    "correct_answer": "39.25 m/s",
+    "wrong_answers_pool": [
+      "33.6 m/s",
+      "20.29 m/s",
+      "49.06 m/s",
+      "29.44 m/s",
+      "53.45 m/s",
+      "29.65 m/s"
+    ],
+    "explanation": "v_f = sqrt(v_i^2 + 2gh) = sqrt(33.6^2 + 2*9.8*21.0) = 39.25 m/s.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Vertical Projectile Motion",
+      "subtopic": "Cliff Projection and Quadratic Kinematics",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "diagram": {
+      "type": "kinematics_graph",
+      "v0": 33.6,
+      "t_top": 3.43
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_44"
+  },
+  {
+    "id": "PS_P1_OPT_0768",
+    "topic": "Paper 1: Optical Phenomena and Properties of Matter",
+    "subtopic": "Work Function Calculations",
+    "difficulty": "medium",
+    "question": "A certain photosensitive metallic alloy has an experimentally determined threshold frequency of f_0 = 17.55 \u00d7 10\u00b9\u2074 Hz. Taking Planck's constant as h = 6.63 \u00d7 10\u207b\u00b3\u2074 J\u00b7s, calculate the work function (W_0) of this alloy:",
+    "correct_answer": "11.64 \u00d7 10\u207b\u00b9\u2079 J",
+    "wrong_answers_pool": [
+      "23.27 \u00d7 10\u207b\u00b9\u2079 J",
+      "5.82 \u00d7 10\u207b\u00b9\u2079 J",
+      "7.27 \u00d7 10\u207b\u00b9\u2079 J (omitted conversion to Joules)",
+      "0.38 \u00d7 10\u207b\u00b9\u2079 J",
+      "13.64 \u00d7 10\u207b\u00b9\u2079 J",
+      "17.45 \u00d7 10\u207b\u00b9\u2079 J",
+      "17.55 \u00d7 10\u207b\u00b9\u2079 J"
+    ],
+    "explanation": "W_0 = h \u00d7 f_0 = (6.63 \u00d7 10\u207b\u00b3\u2074 J\u00b7s) \u00d7 (17.55 \u00d7 10\u00b9\u2074 s\u207b\u00b9) = 11.64 \u00d7 10\u207b\u00b9\u2079 J.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 1: Optical Phenomena and Properties of Matter",
+      "subtopic": "Work Function Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate work function from threshold frequency"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_45"
+  },
+  {
+    "id": "PS12_P1_ES_0939",
+    "topic": "Electrostatics",
+    "subtopic": "2D Electrostatic Forces",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "Charge Q_A = +3 \u00b5C is placed at the origin (0, 0). Charge Q_B = +4 \u00b5C is located at (10 cm, 0) on the x-axis, and Charge Q_C = +3 \u00b5C is located at (0, 25 cm) on the y-axis. Calculate the magnitude of the net electrostatic force exerted on charge Q_A.",
+    "correct_answer": "10.88 N",
+    "wrong_answers_pool": [
+      "12.10 N",
+      "9.50 N",
+      "16.32 N",
+      "10.80 N",
+      "1.30 N",
+      "5.44 N"
+    ],
+    "explanation": "F_x = k*|QA|*|QB|/(0.1\u00b2) = 10.80 N. F_y = k*|QA|*|QC|/(0.25\u00b2) = 1.30 N. Resultant at 90\u00b0: F_net = sqrt(F_x\u00b2 + F_y\u00b2) = sqrt(10.80\u00b2 + 1.30\u00b2) = 10.88 N.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Electrostatics",
+      "subtopic": "2D Electrostatic Forces",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_46"
+  },
+  {
+    "id": "PS12_P1_VP_0585",
+    "topic": "Vertical Projectile Motion",
+    "subtopic": "Maximum Height",
+    "paper": "paper1",
+    "difficulty": "medium",
+    "question": "A cricket ball is launched vertically upwards during a physics practical with an initial velocity of 15.7 m/s. Determine the maximum height reached above the launch position.",
+    "correct_answer": "12.58 m",
+    "wrong_answers_pool": [
+      "6.29 m",
+      "25.16 m",
+      "153.86 m",
+      "25.15 m",
+      "27.08 m",
+      "3.38 m"
+    ],
+    "explanation": "h = v_i^2 / (2g) = 15.7^2 / (2 * 9.8) = 12.58 m.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Vertical Projectile Motion",
+      "subtopic": "Maximum Height",
+      "cognitive_level": "Application",
+      "difficulty": "medium"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_47"
+  },
+  {
+    "id": "PS12_P1_WEP_0813",
+    "topic": "Work, Energy and Power",
+    "subtopic": "Conservation of Mechanical Energy",
+    "paper": "paper1",
+    "difficulty": "hard",
+    "question": "A 218 kg roller coaster cart starts from rest at the top of a frictionless track at height h = 7.81 m above ground level. Using the principle of conservation of mechanical energy, calculate the speed of the cart at the bottom of the track.",
+    "correct_answer": "12.37 m/s",
+    "wrong_answers_pool": [
+      "8.75 m/s",
+      "17.32 m/s",
+      "7.42 m/s",
+      "153.08 m/s",
+      "16.87 m/s",
+      "76.54 m/s"
+    ],
+    "explanation": "E_mech(top) = E_mech(bottom) => m*g*h = 0.5*m*v^2 => v = sqrt(2 * g * h) = sqrt(2 * 9.8 * 7.81) = 12.37 m/s.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "paper": "paper1",
+      "topic": "Work, Energy and Power",
+      "subtopic": "Conservation of Mechanical Energy",
+      "cognitive_level": "Analysis",
+      "difficulty": "hard"
+    },
+    "diagram": {
+      "type": "work_energy_track",
+      "mass": 218,
+      "h1": 7.81,
+      "h2": 4.7
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_48"
+  },
+  {
+    "id": "PS_P1_DOP_0340",
+    "topic": "Paper 1: Doppler Effect",
+    "subtopic": "Approaching Source Calculations",
+    "difficulty": "medium",
+    "question": "An ambulance with its siren sounding at a frequency of 440 Hz moves at a constant speed of 15.0 m\u00b7s\u207b\u00b9 TOWARDS a stationary pedestrian. Taking the speed of sound in air as 340 m\u00b7s\u207b\u00b9, calculate the frequency detected by the pedestrian:",
+    "correct_answer": "460.3 Hz",
+    "wrong_answers_pool": [
+      "421.4 Hz (used (v + v_s) in denominator for approaching source)",
+      "420.6 Hz (inverted Doppler fraction)",
+      "459.4 Hz",
+      "440.0 Hz (assumed zero frequency change)",
+      "690.5 Hz",
+      "360.3 Hz",
+      "580.3 Hz"
+    ],
+    "explanation": "Formula: f_L = (v / (v - v_s)) \u00d7 f_s. Here v = 340 m\u00b7s\u207b\u00b9, v_s = 15.0 m\u00b7s\u207b\u00b9, f_s = 440 Hz. f_L = (340 / (340 - 15.0)) \u00d7 440 = (340 / 325.0) \u00d7 440 = 460.3 Hz.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 1: Doppler Effect",
+      "subtopic": "Approaching Source Calculations",
+      "cognitive_level": "Applying",
+      "difficulty": "medium",
+      "learning_outcome": "Calculate observed frequency for approaching source"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_49"
+  },
+  {
+    "id": "PS_P1_OPT_0963",
+    "topic": "Paper 1: Optical Phenomena and Properties of Matter",
+    "subtopic": "Maximum Velocity",
+    "difficulty": "hard",
+    "question": "Ultraviolet radiation of frequency 13.57 \u00d7 10\u00b9\u2074 Hz strikes the surface of a Iron (Fe) plate (work function W_0 = 7.20 \u00d7 10\u207b\u00b9\u2079 J). Using h = 6.63 \u00d7 10\u207b\u00b3\u2074 J\u00b7s and mass of an electron m_e = 9.11 \u00d7 10\u207b\u00b3\u00b9 kg, calculate the MAXIMUM SPEED (v_max) of the ejected photoelectrons:",
+    "correct_answer": "6.29 \u00d7 10\u2075 m\u00b7s\u207b\u00b9",
+    "wrong_answers_pool": [
+      "12.57 \u00d7 10\u2075 m\u00b7s\u207b\u00b9",
+      "3.14 \u00d7 10\u2075 m\u00b7s\u207b\u00b9",
+      "4.45 \u00d7 10\u2075 m\u00b7s\u207b\u00b9 (omitted factor of 2 under square root)",
+      "3.95 \u00d7 10\u2075 m\u00b7s\u207b\u00b9 (forgot to take square root)",
+      "8.79 \u00d7 10\u2075 m\u00b7s\u207b\u00b9",
+      "9.43 \u00d7 10\u2075 m\u00b7s\u207b\u00b9",
+      "3.00 \u00d7 10\u2075 m\u00b7s\u207b\u00b9 (speed of light)"
+    ],
+    "explanation": "1. E = h \u00d7 f = (6.63 \u00d7 10\u207b\u00b3\u2074) \u00d7 (13.57 \u00d7 10\u00b9\u2074) = 9.00 \u00d7 10\u207b\u00b9\u2079 J. 2. E_k(max) = E - W_0 = 9.00 \u00d7 10\u207b\u00b9\u2079 - 7.20 \u00d7 10\u207b\u00b9\u2079 = 1.80 \u00d7 10\u207b\u00b9\u2079 J. 3. v_max = \u221a(2 \u00d7 E_k / m_e) = \u221a(2 \u00d7 1.800e-19 / 9.11 \u00d7 10\u207b\u00b3\u00b9) = 6.29 \u00d7 10\u2075 m\u00b7s\u207b\u00b9.",
+    "tags": {
+      "grade": "12",
+      "subject": "Physical Sciences",
+      "topic": "Paper 1: Optical Phenomena and Properties of Matter",
+      "subtopic": "Maximum Velocity",
+      "cognitive_level": "Evaluating",
+      "difficulty": "hard",
+      "learning_outcome": "Calculate maximum photoelectron speed for Iron (Fe)"
+    },
+    "exam_id": "EXAM_2026-W48_grade12_physical_sciences_paper1_50"
+  }
+]
